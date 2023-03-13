@@ -1,0 +1,349 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>Biofeedback and wireless wellness.</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/biology-math-science/">biology-math-science</a>
+    <h1>Biofeedback and wireless wellness.</h1>
+   <p>I'm very interested in applying my knowledge about hardware and software to the problem of health and wellness.&nbsp; I've been researching biofeedback for quite some time... and really just waiting for the devices to make it main stream.  It has been a LONG LONG wait.  Biofeedback devices are hard to make because they need to be small mobile, and non-intrusive.<br/>
+<br/>
+Ultimately, we are going to see more and more "smart" sensors.  These sensors will get smaller and smaller, to the point where you can't even see them without looking very closely.  Also, many times these smart sensors used in biofeedback studies are going to be in internal cavaties.  This is because biofeedback has to be "non-intrusive".  The animal wearing the device should be able to put the device on... and forget about it being there. It must be something that does not distract our focus from our bio-feedback training.<br/>
+<br/>
+Still don't understand what biofeedback is?  Think of streching.  If you don't strech, your ligaments and muscles tighten up.  Your mobility is limited if this in-activity persists over a long period of time.  When you begin your biofeedback training, you strech as you normally would... however now you wear a smart sensor.  This smart sensor takes all the thinking out of streching.  Everytime you go to strech the computer is aware of the exact level of mobility/flexability you have accieved for that particular rep in the exercise.<br/>
+<br/>
+Simple right!  Yes, of course.  We use biofeedback devices all the time.  Every time you get on the scale to check your weight...and you adjust your activities to correct or maintain that weight, you are proforming a crude form of biofeedback.<br/>
+<br/>To me, I only classify "real biofeedback " those devices that are attached directly to the animal as it is performing the task to be measured.  It does not have to be internal to the animal for this to be true.  The device can also be external, however some form of interface has to exist to transfer the signals from the interror to the outside.  
+<br/>
+ex. We want to read the brain waves of animals at rest.  We'll focus on the EEG because it is relatively in-expensive to create an optically isolated EEG machine for sensing voltage differentials on the scalp.  So we develop a new device/sensor that has leads going to the animal's scalp to allow for a recording of the general activity of the signaling going on inside the head and within the skin.<br/>
+<br/>
+Another example of a great biofeedback device would be a swallowed imaging sensor to allow for the observation and analytical processing of the activities within the GI tract.<br/>
+<br/>
+ researched biofeedback.  I mainly focused on an exhustive liturature search for anything related to biofeedback.<br/>
+<br/>
+I will be posting this research here when I get a chance....check back for more updates.<br/>
+<br/>
+<strong>Research 2002</strong><br/>
+<a href="http://dave.thehorners.com/personal/projects/biofeedback/Applicationofbiofeedback.pdf" target="_blank">Applications and the future of biofeedback</a><br/>
+<br/>
+Each year I continue to see the dream of biofeedback and wireless wellness come to life.<br/>
+<br/>
+For example today you can purchase devices that record your GPS as well as your heart rate and temp.&nbsp; With this information you can quickly develop a system that can indicate your total cal. burn for the day.&nbsp; With heart rate built in, you can be sure that your exercise is right on target and if you have heart complications a wireless monitoring system would help physicans &quot;stay on top&quot; of the heart condition.<br/>
+<br/>
+At this point I don't know where I'm going with this page.&nbsp; However, I'm starting to think that I need to re-evaluate the field.... things change SO fast.<br/>
+<br/>
+If you know of any case studies which detail something related to wireless wellness and biofeedback that is not on this page... and you think it belongs here please leave a comment below or use my contact form to be private.<br/>
+<br/>
+I am esp. interested in case studies where patients express feelings of more control over some portion of the autonomic nervous system (EEG, EKG, respiration, etc) that what they could do before biofeedback training.<br/>
+<br/>
+My gut instinct on bio-feedback is that it is not the end all be all.... giving people complete control of every physical process in their body.  However, I do think that as we begin to undertstand the body better, we will devise more intelligent ways to model our behavior ... and use the bio-feedback and technology to exert more control over the un-sensed ability.  To me, biofeedback means you can have a device help you get the most out of your daily work routine so that you can maintain a scientific understanding of your body's machinery.<br/>
+<br/>
+<b>Update Sept-24-2006:</b><br/>
+I just bought the Nike+iPod sensor!  I ran a 5K 2 hour workout because I was so excited to try out the device.  It was really pretty accurate.  I ran around the block, it started raining so I headed home.  When I got home I followed up with at least a half our of isometric streching.  And finished the remaining 5K on the treadmill.  I currently weigh 297 pounds.  I will be posting more detailed data using the datalink transfer cable!  I'm so excited.  I'm going to be able to track my physical extertion over the entire cruise.  Very cool.<br/>
+<br/>
+<strong>My past and present research relating to biofeedback.</strong><br/>
+I'll post my research from 2003 soon, please check back.<br/>
+<br/>
+<strong>Devices</strong><br/>
+<a href="http://www.garmin.com/products/forerunner301/" target="_blank">Garman Forerunner</a> - GPS and heart rate monitor!<br/>
+<a href="http://store.apple.com/1-800-MY-APPLE/WebObjects/AppleStore?productLearnMore=MA365LL/A">Nike+iPod</a></br>
+<br/>
+<b>Videos</b><br/>
+<a href="http://www.youtube.com/watch?v=rtFi5wlvP2k&mode=related&search=">Shiny Media: Nike+ iPod Review Part I</a><br/>
+<a href="http://www.youtube.com/watch?v=MKhKRdng9TE&mode=related&search=">Shiny Media: Nike+ iPod Review Part II</a><br/>
+<strong>Press</strong><br/>
+<a href="http://www.time.com/time/business/article/0,8599,1216589,00.html">Time - Gadget of the Week - (Nike + iPod Sport Kit)</a><br/>
+<strong>Other Research</strong><br/>
+<a href="http://virtual.vtt.fi/inf/julkaisut/muut/2000/WWM_ITAB2000.pdf" target="_blank">A Wireless Wellness Monitor For Personal Weight Management</a><br/>
+<a href="http://ece-classweb.ucsd.edu:16080/winter05/ece191/wirelessWellness.doc" target="_blank">Project Proposal for Wireless Wellness Monitor</a><br/>
+<a href="http://feeds.feedburner.com/NikeAndIpodSportKitNewsAndReviews">Nike+ and iPod Sport Kit News and Reviews</a><br/>
+</p>
+<br/>
+<br/>
+Sometimes I feel like nano tech is just hot air, but if it does come to be.... biofeedback and medical devices will change everything.
+
+
+
+Just look at this <a href="http://www.foresight.org/Nanomedicine/Gallery/Images/RobotBookNanoLow.jpg">example</a> in the book <a href="http://www.foresight.org/Nanomedicine/">Nanomedicine</a>.<br/>
+
+<br/>
+<a href="http://www.eatonhand.com/pot/pot061.htm">Work Related RSI Related Diagnosis Discussion</a><br/>
+<a href="http://prevrsi.sourceforge.net/">PrevRSI</a> - a program smart to know when enough work, is enough work.  (Something I find very hard to do)<br/>
+<br/>
+<strong>Garmin Forerunner</strong><br/>
+<a href="http://biz.yahoo.com/prnews/070322/nyth076.html?.v=78">Exercise Smarter, Not Harder with Garmin(R) Forerunner(R) 305 and New Leaf Fitness</a><br/>
+<a href="http://gpstracklog.typepad.com/gps_tracklog/2006/02/garmin_forerunn.html">gpstracklog's Garmin Forerunner 305 Review</a><br/>
+<a href="http://sports.groups.yahoo.com/group/GarminF/">GarminF.com</a><br/>
+<a href="http://www8.garmin.com/support/collection.jsp?product=010-00447-00">Edge 305CAD Updates & Downloads</a><br/>
+<a href="http://www.photo-freeware.net/copiks-photomapper.php">Photo-Freeware.net - COPIKS PhotoMapper Download</a><br/>
+<a href="http://code.google.com/p/gpicsync/">gpicsync - Google Code</a><br/>
+<br/>
+<br/>
+<br/>
+<strong>Blood pressure</strong><br/>
+<a href="http://en.wikipedia.org/wiki/Blood_pressure">Blood pressure - Wikipedia, the free encyclopedia</a>
+    <div style="border: 1px;">
+    Created: 2006-03-26 10:14:32
+    Modified: 2020-12-22 18:00:58
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+<span id=daysToChristmas>x</span> days to Christmas.<br/>
+<span id=daysToNewYear>x</span> days to a new year.<br/>
+Happy Holidays!
+<script Language="JavaScript">
+function showtime () {
+        msPerDay = 24 * 60 * 60 * 1000 ; // Number of milliseconds per day
+        var now = new Date();
+        var year = now.getYear();
+        if (year < 1000)
+         year+=1900
+        nextXmas = new Date("December 25, 2000")
+        nextXmas.setYear(year)
+        daysLeft = (nextXmas.getTime() - now.getTime()) / msPerDay;
+        daysLeft = Math.round(daysLeft);
+        var span=document.getElementById('daysToChristmas');
+        span.removeChild(span.firstChild);
+        span.appendChild(document.createTextNode(daysLeft+''));
+        
+        nextXmas = new Date("December 31, 2000")
+        nextXmas.setYear(year)
+        daysLeft = (nextXmas.getTime() - now.getTime()) / msPerDay;
+        daysLeft = Math.round(daysLeft);
+
+        span=document.getElementById('daysToNewYear');
+        span.removeChild(span.firstChild);
+        span.appendChild(document.createTextNode(daysLeft+''));
+        setTimeout("showtime()",msPerDay);
+}
+showtime();
+</script>
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

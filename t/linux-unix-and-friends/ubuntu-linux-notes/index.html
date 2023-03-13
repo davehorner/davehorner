@@ -1,0 +1,333 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>Ubuntu Linux Notes</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/linux-unix-and-friends/">linux-unix-and-friends</a>
+    <h1>Ubuntu Linux Notes</h1>
+   Ubuntu is a nice distro.  It is based on Debian.<br/>
+<a href="http://www.ubuntu.com/">Ubuntu Home Page | Ubuntu</a><br/>
+<br/>
+<br/>
+<a href="http://www.linuxmint.com/download.php">Download - Linux Mint</a> - based on ubuntu.<br/>
+<a href="http://ultimateedition.info/">Ultimate Edition</a><br/>
+<a href="http://wubi-installer.org/">Wubi - Ubuntu Installer for Windows</a> - Linux just like any other application.... runs inside windows.<br/>
+<a href="http://www.kubuntu.org/">Kubuntu | linux for human beings | Kubuntu</a> - Kubuntu is a free, user-friendly operating system based on the KDE Software Compilation and on the award winning Ubuntu operating system.<br/>
+<h2>Linux/Ubuntu blogs</h2>
+<a href="http://wengki.blogspot.com/">Believe, Strategize, and Strike</a><br/>
+<br/>
+<br/>
+<h2>Wifi</h2>
+<a href="http://www.thefanclub.co.za/how-to/how-add-wireless-lan-adaptor-static-ip-ubuntu-auto-connects-startup">How to add a Wireless LAN adaptor static IP to Ubuntu that auto connects at startup | How To | The Fan Club | dynamic design solutions</a><br/>
+<br/>
+<br/>
+<h2>Ubuntu LiveCD</h2>
+Ubuntu is known for have a nice LiveCD which boots on most every machine...<br/>
+<a href="https://help.ubuntu.com/community/LiveCD">LiveCD - Community Ubuntu Documentation</a><br/>
+<a href="https://help.ubuntu.com/community/LiveCDCustomization">LiveCDCustomization - Community Ubuntu Documentation</a><br/>
+<a href="https://help.ubuntu.com/community/LiveCDCustomizationFromScratch">LiveCDCustomizationFromScratch - Community Ubuntu Documentation</a><br/>
+<br/>
+<br/>
+<h2>apt-build</h2>
+<a href="http://polishlinux.org/linux/debian/apt-build-optimize-debian/">polishlinux.org » APT-build — optimize your Debian!</a><br/>
+<a href="http://sysblogd.wordpress.com/2008/06/15/emerge-clone-for-debian-based-distributions-like-ubuntu-or-compile-your-own-dude/">Emerge clone for Debian-based distributions like Ubuntu, or: Compile your own, dude! « sysblogd</a><br/>
+<br/>
+<br/>
+<h2>apt-get</h2>
+upgrade your packages.  apt-get upgrade;<br/>
+setup <a href="https://help.ubuntu.com/10.04/serverguide/automatic-updates.html">Automatic Updates</a> - apt-get install unattended-upgrades<br/>
+<br/>
+<br/>
+<h2>Hold back kernel updates</h2>
+<a href="http://askubuntu.com/questions/97312/how-do-i-prevent-the-current-kernel-from-being-replaced-in-11-10">How do I prevent the current kernel from being replaced in 11.10? - Ask Ubuntu</a> - aptitude hold linux-headers-generic linux-image-generic<br/>
+<a href="http://askubuntu.com/questions/178324/how-to-skip-kernel-update">How to skip kernel update? - Ask Ubuntu</a><br/>
+<a href="http://askubuntu.com/questions/218783/the-volume-boot-has-only-0-bytes-disk-space-remaining">12.04 - "The volume boot has only 0 bytes disk space remaining" - Ask Ubuntu</a> - for some reason the default boot partition is setup with only 236M by default install in 15.10, tried resizing with parted and had trouble, decided to just prune the many kernels installed...<br/>
+<pre>
+#list installed kernels
+dpkg --get-selections | grep "linux-image-[[:digit:]].*" | tr "\t" ";" | cut -d ";" -f1
+#purge kernel
+sudo apt-get purge <linux-image-4.2.0-25-lowlatency>
+# remove uninstalled kernels.
+sudo apt-get autoclean && sudo apt-get autoremove
+#pin a kernel
+echo linux-image-4.2.0-27-lowlatency hold | sudo dpkg --set-selections
+#check out install/hold values of installed kernels
+sudo dpkg --get-selections | grep linux-image
+#if a line says deinstall, you can remove the package using:
+sudo apt-get --purge remove linux-image-extra-4.2.0-16-generic
+#update and upgrade
+sudo apt-get update && sudo apt-get upgrade
+</pre>
+<br/>
+<a href="http://d.klwe.info/ubuntu-12-04-setting-up-apache2-and-ssl-with-self-signed-certificate/">Ubuntu 12.04: setting up Apache2 and SSL with self-signed certificate ? d.klwe</a><br/>
+<a href="http://zechim.com/blog/2012/05/19/enable-htaccess-rewrite-on-apache2-ubuntu-12-04/">Enable htaccess rewrite on Apache2 Ubuntu 12.04 | zechim.com</a> - a2enmod rewrite<br/>
+<br/>
+<br/>
+<h2>Update the kernel safely?</h2>
+<pre>
+aptitude safe-upgrade
+</pre>
+<h2>LTSP - thin client linux</h2>
+<a href="http://www.thefanclub.co.za/how-to/how-create-ubuntu-1104-x64-ltsp-server-32bit-thin-clients">How to create a Ubuntu 12.04 x64 LTSP server with 32bit thin clients | How To | The Fan Club | dynamic design solutions</a><br/>
+<a href="https://help.ubuntu.com/community/UbuntuLTSP">UbuntuLTSP - Community Ubuntu Documentation</a><br/>
+<br/>
+<br/>
+<h2>java on ubuntu</h2>
+<a href="http://community.linuxmint.com/tutorial/view/1414">How To Install Oracle (Sun) Java JDK &amp; JRE in Ubuntu via PPA - Linux Mint Community</a><br/>
+<pre>
+sudo apt-get software-properties-common
+sudo add-apt-repository ppa:webupd8team/java
+sudo apt-get update
+sudo apt-get install oracle-java7-installer
+</pre>
+<br/>
+<br/>
+<h2>set timezone</h2>
+<a href="http://www.christopherirish.com/2012/03/21/how-to-set-the-timezone-on-ubuntu-server/">How to set the timezone on Ubuntu Server</a><br/>
+<pre>
+more /etc/timezone
+sudo dpkg-reconfigure tzdata
+</pre>
+<br/>
+<br/>
+<h2>ubuntu Xen to HyperV</h2>
+when moving from Xen to HyperV I had trouble booting without Kernel panics (flashing caps lock indicator) without removing the console=hvc0 and replacing with tty1. additionally you may want to remove /etc/init/hvc0.conf (or move it someplace else).
+    <div style="border: 1px;">
+    Created: 2010-02-17 00:03:18
+    Modified: 2016-02-14 01:19:31
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+0, 1, 1, 2, 3, 5, 8, 13, 21, 34,...<br/>
+<b> x<sub>n</sub> = x<sub>n-1</sub> + x<sub>n-2</sub></b><br/>
+<!-- "Fibonacci" was his nickname, which roughly means "Son of Bonacci". -->
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

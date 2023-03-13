@@ -1,0 +1,558 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>Games - a moment for other things.</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/random-technology/">random-technology</a>
+    <h1>Games - a moment for other things.</h1>
+   <a href="http://na.leagueoflegends.com/">League of Legends - Free Online Game | LoL - League of Legends</a><br/>
+<a href="http://www.swtor.com/">Star Wars: The Old Republic</a><br/>
+
+<a href="http://hacks.mozilla.org/2012/03/browserquest/">BrowserQuest – a massively multiplayer HTML5 (WebSocket + Canvas) game experiment ? Mozilla Hacks – the Web developer blog</a><br/>
+<a href="https://github.com/mozilla/BrowserQuest">mozilla/BrowserQuest · GitHub</a> -BrowserQuest is a HTML5/JavaScript multiplayer game experiment.<br/>
+<a href="http://sinuousgame.com/">Sinuous - An HTML5 canvas game. Avoid the red dots!</a><br/>
+<a href="http://www.yvoschaap.com/chainrxn/">Chain Reaction - The Game</a> try to get the dots!<br/>
+<a href="http://www.roblox.com/Default.aspx">Free Games at ROBLOX.com</a><br/>
+<a href="http://alokmenghrajani.github.com/tron/">javascript game of tron in 219 bytes</a><br/>
+<br/>
+<h2>Quake III - fun game, long time no see.</h2>
+I just started playing quake III again.  It is great on my old machine... I wonder what it is gonna run like on my macPro native!<br/>
+<br/>
+The best part about Quake III is that you can play with a friend over the internet.  In fact, you can play with many friends at once over it.<br/>
+<br/>
+To setup Quake III for internet usage, open port 27960 and add one (+1) for each additional player.<br/>
+<br/>
+This brings back such great memorys from the glory days of doom, doom II, doom III, hexen, rise of the triad, duke nukem 3d, quake, quake II, quake III, UT, etc etc. :)
+<br/>
+<br/>
+<h2>Some links for Quake III info:</h2>
+<a href="http://www.planetquake3.net">PlanetQuake3.net</a><br/>
+<a href="http://qeradiant.com/manual/Model_Manual/model_manual.htm">Putting New Models in Quake III Arena</a><br/>
+<a href="http://www.quake3world.com/forum/viewtopic.php?t=21699">Quake 3 World: Downloads</a><br/>
+<a href="http://strlen.com/maps/index.html">Aardappel's Quake Maps</a><br/>
+<br/>
+<a href="http://www.urbanterror.net/page.php?6">Urban Terror: Urban Terror™ Downloads</a><br/>
+<br/>
+<h2>MOH</h2>
+MOH Clan<br/>
+<a href="http://gskclan.com/">Garden State Killers » kill or be killed</a><br/>
+<br/>
+<h2>Call of Duty</h2>
+<a href="http://cod4source.com/">COD4SOURCE - The Source for Call of Duty 4 Online Multiplayer Strategy, Weapon Guides and Tips for COD4</a><br/>
+<a href="http://www.nextgenboards.com/vb/computer-gaming/7999-call-of-duty-4-lvl-55-hack-pc.html">Call of Duty 4 Lvl 55 Hack (PC) - Next Gen Boards</a><br/>
+<br/>
+<br/>
+<h2>Quake</h2>
+<a href="http://strlen.com/index.html">Wouter van Oortmerssen's web pages</a> - has a lot of cool links to stuff.<br/>
+<a href="http://strlen.com/gfxengine/fisheyequake/index.html">Fisheye Quake</a><br/>
+<br/>
+<br/>
+<h2>Xbox360 remove profile</h2>
+Make sure you log out of xbox live.<br/>
+System -> Memory -> Hard Drive -> Gamer Profiles<br/>
+<br/>
+<h2>Xbox 360 Active Downloads</h2>
+Xbox 360 really should show it more places...<br/>
+Press the Guide button (big green one in the middle of pad) and go the blade on the far left.<br/>
+<br/>
+<br/>
+<h2>Flight simulators</h2>
+I'm a big fan of flight sims.  Esp. the commanche series.<br/>
+<br/>
+I would like to find a new helicopter sim, but I can't find any releases for xbox 360. :(<br/>
+<a href="http://www.digitalcombatsimulator.com/index.php?end_pos=3&amp;scr=newslist?=en">DCS - Digital Combat Simulator</a> - new release helicopter game but for pc only.<br/>
+<br/>
+<br/>
+<h2>Open Source Games</h2>
+<a href="http://www.scorched3d.co.uk/index.php">Scorched 3D • A 3D Update Of Scorched Earth</a><br/>
+<a href="http://www.extremetuxracer.com/?welcome">Extreme Tux Racer > Welcome</a><br/>
+<a href="http://armagetronad.net/about.php">Armagetron Advanced :: a Tron clone in 3D</a><br/>
+<a href="http://www.extremetuxracer.com/?welcome">Extreme Tux Racer > Welcome</a><br/>
+<a href="http://supertux.lethargik.org/">SuperTux</a><br/>
+<a href="http://sourceforge.net/projects/bzflag/">SourceForge.net: BZFlag - Multiplayer 3D Tank Game</a><br/>
+<a href="http://sourceforge.net/projects/supertuxkart/">SourceForge.net: SuperTuxKart</a><br/>
+<a href="http://www.frozen-bubble.org/home/">Frozen Bubble - the official home</a><br/>
+<a href="http://sourceforge.net/projects/trackballs/">SourceForge.net: Trackballs</a> - steer a marble ball through tracks of varying difficulty. The game is loosely based on Marable Madness and features 3D graphics, an integerated level editor and highquality soundeffects and background music. (sdl based with deps guile18-dev guile18-shlibs libmikmod libmikmod-shlibs passwd sdl sdl-image
+ sdl-image-shlibs sdl-mixer sdl-mixer-shlibs sdl-shlibs sdl-ttf sdl-ttf-shlibs
+ smpeg smpeg-shlibs)<br/>
+<a href="http://supertuxkart.sourceforge.net/Main_Page">Main Page - Supertuxkart</a><br/>
+<a href="http://www.farbs.org/gamesProxy.html">www.Farbs.org - Quirky little games for your edification</a> - Polychromatic Funk Monkey and ROM CHECK FAIL are pretty cool.  A few cross platform games.<br/>
+<a href="http://www.nongnu.org/tong/">TONG!</a><br/>
+<a href="http://fretsonfire.sourceforge.net/">Frets On Fire</a><br/>
+<br/>
+<br/>
+<h2>Poker</h2>
+<a href="http://holdingnuts.svn.sourceforge.net/viewvc/holdingnuts/trunk/">SourceForge.net Repository - [holdingnuts] Index of /trunk</a><br/>
+<a href="http://code.google.com/p/python-poker-engine/">python-poker-engine - Project Hosting on Google Code</a><br/>
+<a href="http://packages.debian.org/sid/python-poker-network">Debian -- Details of package python-poker-network in sid</a> - package desc for python-poker-network and related packages...<br/>
+<a href="http://pokersource.sourceforge.net/">PokerSource: poker hand evaluator and more</a><br />
+<a href="http://www.pokersource.info/poker-network.php">PokerSource - poker-network</a><br/>
+<a href="http://www.suffecool.net/poker/evaluator.html">Cactus Kev's Poker Hand Evaluator</a><br/>
+<a href="https://github.com/fogleman/Poker">fogleman/Poker</a> - Python Implementation of Cactus Kev's Poker Hand Evaluator<br/>
+<br/>
+<br/>
+<h2>Chess - programming stuff (PGN,FEN,validation,drawing)</h2>
+<a href="https://github.com/jhlywa/chess.js">jhlywa/chess.js</a> - A Javascript chess library for chess move generation/validation, piece placement/movement, and check/checkmate/draw detection<br/>
+<a href="https://github.com/bmarini/jchess">bmarini/jchess</a> - A jQuery-based javascript library for parsing and displaying chess games.<br/>
+<a href="https://github.com/oakmac/chessboardjs/">oakmac/chessboardjs</a> - chessboard.js is a standalone JavaScript Chess Board.  <a href="http://chessboardjs.com/">chessboard.js » Home</a><br/>
+<a href="https://code.google.com/p/pgn4web/">pgn4web - javascript chess games viewer for websites, blogs and live broadcasts - Google Project Hosting</a><br/>
+<a href="http://www.interfootball.co.uk/chess/live/">SVG Chess Validation</a> - Chess: Validating moves and commentary using XSLT.<br/>
+<a href="https://github.com/substack/node-chess">substack/node-chess</a> - Node knockout chess server <a href="http://www.catonmat.net/blog/node-js-knockout-competition/">Reflections on Node.js Knockout Competition - good coders code, great reuse</a><br/>
+<a href="http://sylvainzimmer.com/2011/09/06/chessathome-building-largest-chess-ai/">Sylvain Zimmer | Chess@home: Building the largest Chess AI ever</a><br/>
+<a href="http://www.dhtmlgoodies.com/index.html?whichScript=chess-fen">Chess FEN Viewer</a> - from dhtmlgoodies.com<br/>
+<a href="https://code.google.com/p/chessimager/">chessimager - Chess Imager - PHP script for generating chessboard image from a URL in FEN - Google Project Hosting</a><br/>
+people talking bout FEN Forsyth-Edwards Notation<br/>
+<a href="http://en.wikipedia.org/wiki/Forsyth%E2%80%93Edwards_Notation">Forsyth–Edwards Notation - Wikipedia, the free encyclopedia</a><br/>
+<a href="http://kirill-kryukov.com/chess/doc/fen.html">FEN Notation</a><br/>
+<a href="https://chessprogramming.wikispaces.com/Forsyth-Edwards+Notation">chessprogramming - Forsyth-Edwards Notation</a><br/>
+<a href="http://www.chessgames.com/fenhelp.html">Forsyth-Edwards Notation F.A.Q.</a><br/>
+<audio controls="controls" autoplay="autoplay">
+   <source src="http://www.moviesounds.com/wargames/chess2.wav" type="audio/mpeg">
+   Your browser does not support the audio element.
+ </audio>
+<br/>
+<br/>
+<h2>Card Games</h2>
+<a href="http://www.ggzgamingzone.org/engines/">GGZ Gaming Zone</a><br/>
+<br/>
+<br/>
+<h2>Warcraft 3 - Reign of Chaos, The Frozen Throne</h2> 
+<a href="https://secure.logmein.com/products/hamachi2/download.aspx">LogMeIn - Download LogMeIn Hamachi</a><br/>
+<a href="http://logmeinwiki.com/wiki/Hamachi:Warcraft_3_-_Reign_of_Chaos,_The_Frozen_Throne">Hamachi:Warcraft 3 - Reign of Chaos, The Frozen Throne - LogMeInWiki.com</a><br/>
+<a href="http://www.lancraftwc3.com/">LanCraft - Warcraft 3 Lan Emulators, Tutorials, Hacks, Tools...</a><br/>
+<br/>
+<br/>
+<h2>Minecraft</h2>
+<a href="http://warpedvisions.org/2012/02/howto-set-up-a-minecraft-server-in-10-minutes-using-amazon-ec2/">HOWTO set up a Minecraft server in 10 minutes using Amazon EC2 | warpedvisions.org</a> - remember to shut it down, leave the server running 24/7 you’ll pay as much as $350/month...<br/>
+<br/>
+<br/>
+<h2>Dungeon Crawl || Roguelike role playing video games</h2>
+<a href="http://crawl.chaosforge.org/Roguelike">Roguelike - CrawlWiki</a><br/>
+<a href="http://crawl.develz.org/wordpress/">Dungeon Crawl Stone Soup</a><br/>
+<a href="http://www.dungeoncrawl.org/">Linley's Dungeon Crawl - Meta</a><br/>
+<a href="http://www.roguebasin.com/index.php?title=Linley%27s_Dungeon_Crawl">Linley's Dungeon Crawl - RogueBasin</a><br/>
+<a href="http://crawl.akrasiac.org/">Crawl!</a><br/>
+<br/>
+<br/>
+<h2>Worms || Gorillas || Artillery trajectory games</h2>
+<a href="http://www.openlierox.net/">OpenLieroX</a><br/>
+<a href="http://en.wikipedia.org/wiki/Gorillas_(video_game)">Gorillas (video game) - Wikipedia, the free encyclopedia</a><br/>
+<a href="http://en.wikipedia.org/wiki/Artillery_game">Artillery game - Wikipedia, the free encyclopedia</a><br/>
+<br/>
+<br/>
+<h2>Commander Keen</h2>
+<a href="http://clonekeenplus.sourceforge.net/">Commander Genius Web-Site</a> - Commander Genius is a software piece that interprets the Commander Keen Invasion of the Vorticons and Galaxy series.<br/>
+<a href="https://play.google.com/store/apps/details?id=net.sourceforge.clonekeenplus">Commander Genius - Android Apps on Google Play</a> - Includes shareware versions of Commander Keen episode 1, 4 and a mod called Keen 7.<br/>
+<a href="http://www.shikadi.net/keenwiki/The_Keys_of_Krodacia">The Keys of Krodacia - KeenWiki</a><br/>
+<a href="http://sourceforge.net/projects/clonekeenplus/">CloneKeen Plus | Free Games software downloads at SourceForge.net</a><br/>
+<br/>
+<br/>
+<h2>text adventures</h2>
+<a href="http://alexnisnevich.github.io/untrusted/">Untrusted - a user javascript adventure game</a> - play by modifying the game's source code. <a href="https://github.com/AlexNisnevich/untrusted/tree/master/solutions">untrusted/solutions at master · AlexNisnevich/untrusted</a><br/>
+<a href="http://larc.unt.edu/techreports/LARC-2011-02.pdf">A Prototype Quest Generator Based on a Structural 
+Analysis of Quests from Four MMORPGs (PDF)</a> <a href="https://gist.github.com/Ovid/0674ef8fe906f10cc8f2">ovid:Procedural quest generation</a><br/>
+<br/>
+<br/>
+<a href="http://leeyiyuan.github.io/rotation/">Rotation</a><br/>
+<a href="http://codemyroad.wordpress.com/">Code My Road | Programming Projects and Articles</a> - amazing website. <a href="http://codemyroad.wordpress.com/2013/04/14/tetris-ai-the-near-perfect-player/">Tetris</a>, <a href="http://codemyroad.wordpress.com/2014/05/01/solving-sudoku-by-backtracking/">Sudoku</a>, and <a href="http://codemyroad.wordpress.com/2014/05/14/2048-ai-the-intelligent-bot/">2048</a> AI Solvers.<br/>
+    <div style="border: 1px;">
+    Created: 2006-08-20 23:11:25
+    Modified: 2014-07-22 20:34:56
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+<a target="_blank" href="/tech-talk/programming/107-algorithms-patterns-and-things-cs"><canvas id="c" width="170" height="172" title="conway glider"></canvas></a><br/>
+L:<span id=loop>0</span> I:<span id=iteration>0</span> A:<span id=active>0</span>
+<script>
+/** Conway's Game of Life.
+ * ankr started; modified by horner.
+ */
+var c=document.getElementById('c');
+var canvas = c.getContext('2d'),
+    cells = [];
+var drawRate=1200;
+var iter=0;
+var l=0;
+init();
+draw();
+
+function setSpan(name,value)
+{
+var span = document.getElementById(name);
+while( span.firstChild ) {
+    span.removeChild( span.firstChild );
+}
+span.appendChild(document.createTextNode(value));
+}
+function init() {
+setSpan('loop',l);
+    for (var i=0; i<c.width; i++) {
+        cells[i] = [];
+        for (var j=0; j<c.height; j++) {
+            cells[i][j] = 0;
+        }
+    }
+    var gliderT=[
+                [3, 1], [3,3], [2,3], [4, 2], [4, 3]
+               ];
+    var reflectorT=[
+                [0, 0], [0,1], [1,0], [1, 2], [2, 2]
+               ];
+    var sT=[
+                [0, 2], [0,3], [1,2],[2,0],[2,2],[3,0],[3,1]
+               ];
+    var boxT=[
+                [0, 0], [0,1], [1,1], [1,0]
+               ];
+
+    gliderT.forEach(function(point) {
+        cells[point[0]-1][point[1]-1] = 1;
+    });
+    gliderT.forEach(function(point) {
+        cells[point[0]+7][point[1]+7] = 1;
+    });
+    gliderT.forEach(function(point) {
+        cells[point[0]+3][point[1]+3] = 1;
+    });
+    gliderT.forEach(function(point) {
+        cells[point[0]+12][point[1]+12] = 1;
+    });
+if(l>1)  {
+var maxX=12;
+    var randomX=Math.floor(Math.random() * maxX);
+    var randomY=Math.floor(Math.random() * maxX);
+    sT.forEach(function(point) {
+        cells[point[0]+randomX][point[1]+randomY] = 1;
+    });
+    randomX=Math.floor(Math.random() * maxX);
+    randomY=Math.floor(Math.random() * maxX);
+    boxT.forEach(function(point) {
+        cells[point[0]+randomX][point[1]+randomY] = 1;
+    });
+    randomX=Math.floor(Math.random() * maxX);
+    randomY=Math.floor(Math.random() * maxX);
+    reflectorT.forEach(function(point) {
+        cells[point[0]+randomX][point[1]+randomY] = 1;
+    });
+}
+
+}
+
+function whos_alive() {
+    
+    var result = [];
+    var active= 0;
+    
+    /**
+     * Return amount of alive neighbours for a cell
+     */
+    function _countNeighbours(x, y) {
+        var amount = 0;
+        
+        function _isFilled(x, y) {
+            return cells[x] && cells[x][y];
+        }
+        
+        if (_isFilled(x-1, y-1)) amount++;
+        if (_isFilled(x,   y-1)) amount++;
+        if (_isFilled(x+1, y-1)) amount++;
+        if (_isFilled(x-1, y  )) amount++;
+        if (_isFilled(x+1, y  )) amount++;
+        if (_isFilled(x-1, y+1)) amount++;
+        if (_isFilled(x,   y+1)) amount++;
+        if (_isFilled(x+1, y+1)) amount++;
+        
+        return amount;
+    }
+    
+    cells.forEach(function(row, x) {
+        result[x] = [];
+        row.forEach(function(cell, y) {
+            var alive = 0,
+                count = _countNeighbours(x, y);
+            
+            if (cell > 0) {
+                alive = count === 2 || count === 3 ? 1 : 0;
+            } else {
+                alive = count === 3 ? 1 : 0;
+            }
+            if(alive) active++;
+            result[x][y] = alive;
+        });
+    });
+    
+    cells = result;
+    setSpan('active',active);
+    draw();
+}
+function draw() {
+    if(iter>60) { iter=0; l++; init(); }
+    else if(iter>10 && iter%20==0) {
+    if(drawRate>10) { drawRate-=10; }
+    var gliderT=[
+                [3, 1], [3,3], [2,3], [4, 2], [4, 3]
+               ];
+
+     gliderT.forEach(function(point) {
+        cells[point[0]][point[1]] = 1;
+    });
+    }
+setSpan('iteration',iter);
+    canvas.clearRect(0, 0, c.width, c.height);
+    cells.forEach(function(row, x) {
+        row.forEach(function(cell, y) {
+            canvas.beginPath();
+            if (cell) {
+                if(l%2==0) {
+                canvas.rect(x*8, y*8, 8, 8);
+                canvas.fillStyle = 'black';
+                } else {
+                canvas.beginPath();
+                canvas.arc(x*8, y*8,3 , 0, 2 * Math.PI, false);
+                canvas.fillStyle = 'black';
+                }
+                canvas.fill();
+                canvas.stroke();
+            } else {
+                if(l%2==0){
+                canvas.strokeStyle = '#e1e1e1';
+                canvas.rect(x*8, y*8, 8, 8);
+                canvas.stroke();
+                }
+            }
+        });
+    });
+    iter++;
+    setTimeout(function() {whos_alive();}, drawRate);
+}
+</script>
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

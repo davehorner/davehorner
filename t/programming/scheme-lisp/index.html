@@ -1,0 +1,263 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>Scheme / Lisp</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/programming/">programming</a>
+    <h1>Scheme / Lisp</h1>
+   Scheme and Lisp are very cool beasts indeed.  A functional programming language leads to different ways of thinking/attacking a problem.  Every programmer should be able to express their ideas using both <a href="http://en.wikipedia.org/wiki/Imperative_programming">imperative</a> and <a href="http://en.wikipedia.org/wiki/Functional_programming">functional</a> styles of thought.<br/>
+<br/>
+<br/>
+<a href="https://racket-lang.org/">The Racket Language</a> - Racket is a full-spectrum programming language. It goes beyond Lisp and Scheme with dialects that support objects, types, laziness, and more. Racket enables programmers to link components written in different dialects, and it empowers programmers to create new, project-specific dialects. Racket's libraries support applications from web servers and databases to GUIs and charts.<br/>
+<a href="http://www.call-cc.org/">CHICKEN Scheme</a> - CHICKEN is a compiler for the Scheme programming language. It produces portable and efficient C and supports the R5RS and R7RS (work in progress) standards, and many extensions. It runs on Linux, OS X, Windows, many Unix flavours<br/>
+<br/>
+<a href="http://swiss.csail.mit.edu/projects/scheme/">The Scheme Programming Language</a><br/>
+<a href="http://www.gnu.org/software/guile/">GNU Guile (About Guile)</a> - Guile is an interpreter and compiler for the Scheme programming language, a clean and elegant dialect of Lisp.<br/>
+<br/>
+<a href="http://impromptu.moso.com.au/index.html">impromptu</a> - is an OSX programming environment for composers, sound artists, VJ's and graphic artists with an interest in live or interactive programming. Impromptu is a Scheme language environment, a member of the Lisp family of languages.<br/>
+<a href="http://www.ccs.neu.edu/home/dorai/pregexp/pregexp.html">pregexp: Portable Regular Expressions for Scheme and Common Lisp</a><br/>
+<a href="http://www.apl.jhu.edu/~hall/lisp.html">An Introduction and Tutorial for Common Lisp</a><br/>
+<a href="http://htdp.org/2003-09-26/Book/curriculum.html">How to Design Programs: An Introduction to Computing and Programming</a><br/>
+<a href="http://abstractnonsense.com/schemix/">Schemix</a> Schemix is a Scheme system, implemented as a patch to the Linux kernel. (author indicates: a much better way to get some kind of Lisp into your OS kernel is Movitz)<br/>
+<a href="http://common-lisp.net/project/movitz/">Movitz</a> - Movitz system aspires to be an implementation of ANSI Common Lisp that targets the ubiquitous x86 PC architecture "on the metal".<br/>
+<a href="http://axisofeval.blogspot.com/">The Axis of Eval</a> - MANUEL SIMONI'S BLOG ABOUT PROGRAMMING (LANGUAGES). talking bout Lisps and <a href="https://github.com/manuel/wat-js">wats</a><br/>
+<a href="http://shlomifish.org/lecture/Lambda-Calculus/slides/">Shlomi Fish' Homepage</a> Haifux - Lecture about Scheme and Lambda Calculus<br/>
+    <div style="border: 1px;">
+    Created: 2008-02-22 09:03:13
+    Modified: 2016-03-27 20:25:39
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+0, 1, 1, 2, 3, 5, 8, 13, 21, 34,...<br/>
+<b> x<sub>n</sub> = x<sub>n-1</sub> + x<sub>n-2</sub></b><br/>
+<!-- "Fibonacci" was his nickname, which roughly means "Son of Bonacci". -->
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

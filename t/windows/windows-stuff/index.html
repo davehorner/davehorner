@@ -1,0 +1,312 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>Windows Stuff</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/windows/">windows</a>
+    <h1>Windows Stuff</h1>
+   <div align="left"><img width="125" height="125" border="0" align="left" title="Windows" alt="Windows" src="/images/stories/windows.png" />Some people like to complain about windows but I don't mind it all that much.  Windows is pretty easy to use for most people and there are many apps.  This page is just for storing some useful information and utilities.  <br />
+<br />
+<br />
+<br />
+<a href="http://www.danrodney.com/pc/index.html">Dan Rodney - Windows Keyboard Shortcuts</a><br/>
+<br />
+<br />
+<strong><font size="3">Registry and Shell Extensions</font></strong><br />
+Import this registry file into your registry.  When you right click on .ocx and .dll files you will get a context menu for registering and unregistering the ocx/dll. Also shows OLEView and stuff for tlb,olb,etc.  Very handy. [<a href="/personal/windows/regsvr.reg">Reg File</a>]<br />
+<br />
+Copy the full path of a file to the clipboard from a context menu in explorer.  [<a href="http://www.codeproject.com/shell/copypathext.asp">Link</a>] [<a href="/personal/windows/CopyPathExt.zip">Local Cache</a>] [<a href="/personal/windows/CopyPathExt.dll">XP DLL</a>] [<a href="/personal/windows/CopyPathExt64.dll">64bit DLL</a>]<br />
+Run exe files from content menu in explorer with command line params. [<a href="http://www.codeproject.com/shell/cmdlineext.asp">Link</a>] [<a href="/personal/windows/CmdLineExt.zip">Local Cache</a>] [<a href="/personal/windows/CmdLineExt.dll">XP DLL</a>]<br />
+When you download files off the web, many times they provide MD5/SHA checksums. Get [<a target="_blank" href="http://www.beeblebrox.org/hashtab/index.php">Hashtab</a>].<br />
+<br />
+<strong><font size="3">Helpful programs</font></strong><br />
+Restore deleted files on FAT and NTFS filesystems - <a href="/personal/windows/Restoration.zip">Restoration</a><br />
+FTP client and server with SCP support! - <a href="http://sourceforge.net/projects/filezilla">FileZilla</a><br />
+A good program for keeping your passwords. <a href="http://keepass.sourceforge.net/">KeePass</a> (Even port to <a href="http://keepass.net/index.php?news">PocketPC</a> AND Linux/MacOS with <a href="http://keepassx.sourceforge.net/" target="_blank">KeePassX</a>)<br />
+Another FTP/SCP client but I use it mostly for SCP and SFTP. <a href="http://winscp.net/eng/index.php">WinSCP</a><br />
+<br />
+<strong><font size="3">Annoyances</font><br />
+<em>Printers</em></strong> - When printing in windows, sometimes the job gets stuck in the spooler.  Don't ask me why but when you try and delete the job from the printer dialog it says its deleting but it never goes away.  Turn of the print spooler in the services, and delete the job from the C:\windows\system32\spool\PRINTERS\.<br />
+<br />
+<strong>WebDav - Webdav is broken, this is information I found from some samba site.  *Useful*<br />
+</strong>Just to inform you that things at MS are apparently not about to change soon :)</div>
+<br />
+<div>Many of you have noticed the XP redirector does not work well with mod_dav, <br />
+notably when URLs are password-protected. The XP redirector sends erroneously <br />
+something like DOMAIN\login:password when it should only send login:password</div>
+<br />
+<div>The net use command is also buggy, except when used with the following syntax:<br />
+net use * <a href="http://xxx/yy">http://xxx/yy</a> /u:login password<br />
+If you use this instead:<br />
+net use * <a href="http://xxx/yy">http://xxx/yy</a> /u:login<br />
+(which prompts for the password interactively) it does not work.</div>
+<br />
+<div>Additionally, you must set high values for the KeepAlive-related parameters of <br />
+Apache, because otherwise the redirector loses the credentials after a while <br />
+and asks for them often, until it finally trasmits empty credentials, whatever <br />
+you input.</div>
+<br />
+<div>Furthermore, the credentials are cached, meaning that if you change a login on <br />
+the server while an XP client is already connected, the XP clients prompts for <br />
+credentials (of course), but DOES NOT send what you type in, but re-sends the <br />
+old credentials instead. You need to delete the network shortcut, reboot, and <br />
+recreate it again to empty the cache.</div>
+<br />
+<div>The silly answer from MS, which was contacted on this, is that they probably <br />
+won't fix the damn thing because , quote: "modifications of this part of the <br />
+code are likely to imply regression in the Passport authentications". Glad to <br />
+hear Passport uses basic authentication :) They don't explain why all other <br />
+DAV or plain HTTP clients they have (the WebFolders client, the IE client, the <br />
+Explorer Web Client) work normally. </div>
+<br />
+<div>Well, I guess it could be possible to resort to a specific apache auth module <br />
+that would strip off the domain part if the client is this catastrophic XP <br />
+WebDAV-Miniredir redirector (maybe this already exists, does anybody know?) <br />
+but what a shame...</div>
+<br />
+<div>Here, we'll use the stupid workaround of duplicating our very small users <br />
+database, prefixing the login with a dummy domain string. But this won't help <br />
+if you use an external (say, LDAP, maybe) users database which cannot be <br />
+modified.<br />
+<br />
+<strong><font size="3">Useful ports to have around<br />
+</font></strong><em>Remote Assistance runs over the top of Terminal Services technology and uses the same TCP port used by Terminal Services: port 3389.<br />
+Remote Assistance will not work if outbound traffic from TCP port 3389 is blocked.</em></div>
+<br />
+    <div style="border: 1px;">
+    Created: 2004-10-05 00:41:11
+    Modified: 2009-05-18 02:13:17
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+<a href="javascript:var%20s%20=%20document.createElement('script');s.type='text/javascript';document.body.appendChild(s);s.src='/eggs/asteroids.min.js';void(0);" id="secret">destory this webpage; if you will.</a>
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

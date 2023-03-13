@@ -1,0 +1,665 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>The Visible Dave Project</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/p/">Personal</a>
+<a href="/p/projects-and-research/">projects-and-research</a>
+    <h1>The Visible Dave Project</h1>
+   a brain dump of sorts...<br/>
+Open Source + Open Data  =  Open Science<br />
+<br />
+<u>The Visible Dave Project</u> is a research project in modeling my physical body. My focus is on the general topics of MRI, DICOM, 3d modeling, 3d projections, data visualization, data fusion, and fun tricks for personal pleasure.  If anyone has access to time on an MRI/fMRI machine in testing, please let me know...I would love to co-register with more datasets for temporal change analysis.  CT is great, but I don't enjoy radiation.<br />
+<br />
+<strong>Where is the data from?</strong><br />
+The data is from an MRI I had done in 2002.  I didn't have it for diagnostics, it was just a sample MRI so that I could do visualizations with it.<br />
+<br />
+My head dataset is 256x256 which is pretty high resolution for MRI (low resolution when compared to things like CT).  I have two datasets consisting of the sagital and transverse view.  Slice thickness varies between the sagital(1.5mm) and transverse(1.7mm) views.<br />
+<br/>
+The head MRI datasets show my nose cut off because of phase-wrap.  This is because the MRI tech didn't set the field of view correctly on the machine for my head.  In the sagital view, the nose data actually appears behind the back of my head.  The transverse view does not contain my nose data at all!  Someday, I will create a program to correct for the phase-wrap so that I can have a nice complete surface model.  (bummer, this was a real bummer man)<br/>
+<br/>
+<br />
+My aim in this project is to understand better the DICOM format, MRI physics, and voxel (3d pixel) processing.  I've also come up with a bunch of silly uses for it like... it would be fun to create a 3d projection of my internal structures and allow for realtime surface exploration.  Fun stuff!!!  Plus, it is neat to see pretty pictures of the inside of my head. :-P<br />
+<br />
+If you are interested in my DICOM data for your own research, please <a href="//dave.thehorners.com/contactme">let me know</a>.  I have them available to download... I just enjoy hearing from people interested in this sort of thing.<br />
+<br />
+I don't have problems with you using the data on presentations and papers.  I enjoy collaboration. :)<br/>
+<br />
+I'll continue updating this page as my project progresses.<br />
+<br/>
+<strong>Here is some views of the MRI head1 dataset:</strong>
+<br />
+<img src="/personal/mrihead/transverse.gif" alt="Transverse" title="Transverse"/>
+<img src="/personal/mrihead/sagittal.gif" border="0" alt="Sagittal" title="Sagittal (w/phase-wrapped nose)"/><br/>
+<img src="/personal/mrihead/overview.gif" border="0" alt="Overview" title="random views" align="left" />
+<img src="/personal/mrihead/album77/mrihead_back3d.thumb.jpg" alt=""/>
+<img src="/personal/mrihead/album77/mrihead_backfull3d.thumb.jpg"  alt="" /><br/>
+<img src="/personal/mrihead/album77/mrihead_front3d.thumb.jpg"  alt="" />
+<img src="/personal/mrihead/album77/mrihead_frontfull3d.thumb.jpg"  alt="" /><br/>
+<img src="/personal/mrihead/album77/brainmesh1.thumb.png" border="0" alt="" /> 
+<img src="/personal/mrihead/album77/left_parcellation.thumb.jpg" border="0" alt="" /> 
+<img src="/personal/mrihead/album77/left_parcellation2.thumb.jpg" border="0" alt="" /> 
+<img src="/personal/mrihead/album77/left_thicknessmap_thr2.thumb.jpg" border="0" alt="" /> 
+<img src="/personal/mrihead/album77/left_pial.thumb.jpg" border="0" alt="" /> <br />
+<br />
+<br/>
+<strong>Visible Human</strong><br/>
+I plan to build means of correlating my models against other models.  I think the NIH - Visible Human project provides a wonderful dataset to correlate against.<br/>
+<a href="http://www.nlm.nih.gov/research/visible/">The National Library of Medicine's Visible Human Project</a><br/>
+<a href="http://www.nlm.nih.gov/research/visible/vhp_conf/gingins/paper.htm">Using VHD to build a comprehensive human model</a><br/>
+<a href="http://www.crd.ge.com/esl/cgsp/projects/vm/">Marching Through the Visible Man</a><br/>
+<br/>
+<br/>
+<strong>Project Update! July 14th, 2006</strong><br />
+I'm starting to think about ways to print my head out in physical form.  At this point I have no idea on the best or cheapest way to do it.  Anyway, if it is relatively cheap...I may just do it.   How cool is that?  A 3d model of your head on the desk.  Talk about personalized art!  3d printers like <a href="http://www.zcorp.com/home.asp">ZCorp</a> may be an option.<br />
+<br />
+<br />
+<strong>Update: 07-29-2006</strong><br />
+<em>A cool side note about some cool crystal art</em><br/>
+<table border="0"> <tbody><tr> <td width="20%" align="left" valign="top"> <a href="http://www.bathsheba.com/crystal/dna/"><img src="http://dave.thehorners.com/images/stories/dna_crystal.png" border="0" alt="DNA Rendered by Bathsheba Grossman" title="DNA Rendered by Bathsheba Grossman" /><br /> </a><a href="http://www.bathsheba.com/crystal/dna/">[Read more about this art]</a> </td> <td align="left" valign="top"> I just recently bought some art from <a href="http://www.bathsheba.com/artist/">Bathsheba Grossman</a>, she really inspired me when I saw her rendering of DNA with molecular surface!   To the left you'll see a picture of the DNA model from Grossman's site but the picture really doesn't do it justice.<br /> <br /> Grossman does all sorts of great things with 3d art (check out her metal work).  She also does work with crystal proteins @ <a href="http://crystalprotein.com/">http://crystalprotein.com/</a><br /> There is also another company doing work with crystal proteins <a href="http://www.luminorum.com/">luminorum</a> but they don't look quite as pretty.  </td><td> </td></tr> </tbody></table>
+<br />
+<br />
+On another somewhat seemly un-related side note, all these thoughts on three dimensional data, visualization, and math has got me thinking about a kids toy.  Zometool is a very neat toy, it allows you to teach a child geometry and math using sticks and balls.  It feels a little like a mix between Legos and Tinkertoys, but zome is much more mathematical.  With it you can create structures like hyper-cubes.  Neato.  Definitely going on my fun toy wishlist.<br />
+<br />
+I'm thinking about buying the book <a href="http://www.georgehart.com/zomebook/zomebook.html">Zome Geometry</a>, which gives a nice tour through a lot of great math structures and theorems.  My nephew just got a kit and I was pretty impressed.  You can even buy professional kits for huge structures.<br />
+<br />
+<strong>Zome web resources</strong><br />
+The Zome system is made by <a href="http://www.zometool.com/about.html">Zometool, Inc.</a><br /> <a href="http://www.zometool.com/model-of-month.html">Model of the month</a><br /> <a href="http://www.mathpuzzle.com/Zome.htm">ZOME PUZZLES</a><br /> <a href="http://www.zomecad.org/">ZomeCad</a><br />
+<br />
+<br />
+<em>Anyways, back to the thought at hand.... thoughts on MRI modeling(DICOM)....</em><br />
+<br />
+<strong>More info on DICOM</strong><br/>
+DICOM is a image format for medical imaging.  Hospitals have ultrasounds, CTs, MRIs, and other equipment that store and transmit data in DICOM.  So access and processing of these formats is very handy to have.<br />
+<br />
+DICOM is not just an image format.  DICOM also does transport and routing (and I'm sure other things I don't yet know of...seems like a pretty big spec and I haven't had time for it all).<br />
+<br />
+One nice thing about DICOM is the ability to route information to machines on your network.  Each machine and interface have their own titles.  I don't yet know how I feel about this transport stuff...<br />
+<br />
+<strong>DICOM Resources:</strong><br />
+<a href="http://www.sph.sc.edu/comd/rorden/dicom.html">The DICOM Standard</a><br />
+<a href="http://dicom.offis.de/dcmtk">DCMTK - DICOM Toolkit</a><br />
+<a href="http://www.erl.wustl.edu/DICOM/ctn.html">MIR DICOM Central Test Node Software</a><br />
+<a href="http://www.fmrib.ox.ac.uk/analysis/research/bet/">BET - Brain Extraction Tool</a><br />
+<a href="http://www.fmrib.ox.ac.uk/fslcourse/">FSL & FreeSurfer Courses</a><br /> <a href="http://surfer.nmr.mgh.harvard.edu/">FreeSurfer</a><br />
+<a href="http://www.fmrib.ox.ac.uk/fsl/">FMRIB Software Library</a><br />
+<a href="http://www.mccauslandcenter.sc.edu/mricro/mricro/render/index.html">Volume Rendering the Cortex</a><br/>
+<a href="http://bij.isi.uu.nl/index.htm">Bio-medical Imaging in Java</a><br />
+<br />
+<br />
+<strong>Project Update Jan-21-2007</strong><br />
+I would like to get another head scan so that I can do comparative modeling of my internal structures.  I would like to use these comparative models to build custom models which I can further study.<br />
+<br />
+So I can with my MRI, label and 3d model my brain surfaces.  I could then overlay additional information for the surfaces.  It would be very interesting to <a href="http://dave.thehorners.com/content/view/319/119/">model EEG data</a> on my brain region models.  This would allow me to model structures over time in 3d and apply higher dimensional information to the question at hand.  For instance, model the REM cycles and provide a count of periods of activity within the stages.  Interesting.<br />
+<br />
+Knowing the surface of 3d things and how they interact in space can provide you with a wealth of information.  In this model, I'm studying the real matter that gives rise to my thoughts and actions.  The shape and interactions of my physical brain define the world as I perceive it.<br/>
+<br/>
+It amazes me, when I think about the effects of morphology on our physical world.  In biology, surface interactions indicate enough information to build medicines that change 3d protein confirmation and thereby control gene expression.  Controlling gene expression can offer the ability to modify feedback loops that happen over time.<br/>
+<br />
+<br />
+<strong>Project Update Feb-11-2007</strong><br />
+<a href="http://www.fmrib.ox.ac.uk/fsl/feeds/doc/index.html">FSL Evaluation and Example Data Suite</a><br />
+<a href="http://www.neuro.mcw.edu/~bacon/FreeBSD_MRI/port_status.html">FreeBSD and MRI</a><br />
+<a href="http://www.fmrib.ox.ac.uk/fslcourse/">FSL & FreeSurfer Courses</a> - Lecture Slides and Practical Instructions<br />
+<br />
+<strong>Update: Feb-15-2007</strong><br />
+It would be very nice to integrate my brain models with something like what is output from: <a href="http://www.dedalo-3d.com/index.php?par1=LXfPCglTkrz,lTGgTSoFOTNFpzFlI&sec=3f02e1931d0c63649cb4788bf9c6ae6e">Photorealistic models with MakeHuman</a><br />
+<br />
+Using photo-realistic models which are also physically-realistic could be very interesting.  Then add to that the speech synths which will reproduce speech based on personalized vocal cord models...and 3d animations of the human body based on the real physical joints. Integration of multiple models provides for very scientifically accurate immersive environments for research and collaboration.
+<br/>
+<br />
+<strong>Update: March-22-2007</strong><br />
+I'm finding more of the programs and libraries I need to start getting results from my data.  Thanks so much for everyone who has provided me with comments and questions.<br />
+
+
+
+
+
+
+
+
+
+
+
+
+<br />
+I also found two new web resources<br />
+<a href="http://amide.sourceforge.net/">AMIDE: Amide's a Medical Imaging Data Examiner</a> - competely free tool for viewing, analyzing, and registering volumetric medical imaging data sets.<br />
+<a href="http://www.ctsim.org/">CT Sim</a> - The Open Source Computed Tomography Simulator<br />
+<br />
+<strong>Update: May, 2007</strong><br />
+<a href="http://www.osirix-viewer.com/">OsiriX - DICOM Viewer</a><br />
+<a href="http://www.hmc.psu.edu/nmrlab/software/mriutil.htm">NMR research (MRIUtil,vtkCNMRRLibrary,itkCNMRRLibrary)</a><br />
+<a href="http://cnmrr.hmc.psu.edu/vtkCNMRRLibrary/html/">vtkCNMRRLibrary 1.0.3 Documentation</a> - VTK based MRI tools<br />
+ <a href="http://www.barre.nom.fr/medical/dicom2/index.html">dicom2</a> - convert medical images and DICOM files to various other formats, while optionally performing some rudimentary image processing tasks<br />
+<a href="http://www.mitk.net/">MITK(Medical Imaging ToolKit)</a> - combines VTK and ITK<br />
+<br />
+<a href="http://www.slicer.org/">Slicer</a><br />
+<a href="http://www.na-mic.org/Wiki/index.php/Main_Page">NA-MIC Wiki</a><br />
+<a href="http://www.nbirn.net/">BIRN</a> - Biomedical Informatics Research Network<br />
+<a href="http://graphics.stanford.edu/software/volpack/">The VolPack Volume Rendering Library</a><br />
+<a href="http://www.itksnap.org/">ITK-SNAP Home Page</a><br/>
+<a href="http://www.sim.hcuge.ch/papyrus/01_Papyrus_Presentation_EN.htm">The Papyrus toolkit 3</a><br />
+<br />
+<a href="http://www.hfi.unimelb.edu.au/BRAINYak/p_PRODUCT/">NeuroSlice brain model</a> - MRI teaching model<br />
+<a href="http://www.e-mri.org/">Interactive course about MRI physics</a><br />
+<a href="http://www.dcm4che.org/">dcm4che - Open Source Clinical Image and Object Management</a><br />
+<br />
+<strong>MacOS Notes</strong><br />
+On a mac, first of all, I would suggest installing OsiriX.  It is quite good.<br /> <a href="http://www.seminars.apple.com/seminarsonline/osirixintro/apple/index.html?s=300">Apple - Seminars Online - Getting Started with OsiriX</a><br />
+ <a href="http://www.fmrib.ox.ac.uk/fsl/fsl/macosx.html">Installing FSL on Apple Mac</a><br />
+<a href="http://www.mevis-research.de/~bkuemmer/dicom/dcmtk_macosx.html">Dcmtk 3.5.4 on Mac OS X</a> (fink packages)<br />
+<br />
+<a href="http://www.crd.ge.com/esl/cgsp/projects/makevw/">Making Your Own Visible Woman</a><br /> <a href="http://www.volumedic.com/">VoluMedic  a add on for LightWave3D with DICOM support.</a><br />
+<a href="http://netforum.medical.philips.com/Viewing/ViewPage.aspx?Id=1590">Philips Free DICOM viewer</a><br />
+<a href="http://www.desacc.com/">DesAcc : DICOM Medical Imaging Software</a><br /> 
+<br />
+<a href="http://www.itksnap.org/manual.php">itk-SnAP Home Page</a><br />
+<a href="http://www.itksnap.org/docs/fullmanual.php">itk SNAP Tutorial and User's Manual</a><br />
+<br />
+When building itksnap.trunk on the Mac I had trouble finding the ITK_FLTK_RESOURCE  I would always get a ITK_FLTK_RESOURCE-NOTFOUND error from cmake.  This is the resource file that FLTK provides for mac.  It is included in your FLTK src tree under FL. (fltk.trunk/FL).  The actual resource file is named mac.r inside this directory.<br />
+<br />
+<br />
+<a href="http://nifti.nimh.nih.gov/dfwg/">Data Format Working Group â?? Neuroimaging Informatics Technology Initiative</a><br />
+<a href="http://nifti.nimh.nih.gov/nifti-1/">NIfTI-1 Data Format â?? Neuroimaging Informatics Technology Initiative</a><br />
+<a href="http://nifti.nimh.nih.gov/nifti-1/support">NIfTI-1 Support â?? Neuroimaging Informatics Technology Initiative</a><br />
+<a href="http://rsb.info.nih.gov/ij/plugins/nifti.html">ImageJ Plugin - NIfTi Input/Output</a><br />
+<a href="http://rsb.info.nih.gov/ij/plugins/import-dicom.html">ImageJ Plugin - Import Dicom Sequence</a><br /> <a href="http://www.sph.sc.edu/comd/rorden/mricron/dcm2nii.html">dcm2nii DICOM to NIfTI image conversion</a><br /> <a href="http://niftilib.sourceforge.net/pynifti/">PyNIfTI - Python bindings to NIfTI</a><br /> <a href="http://www.sph.sc.edu/comd/rorden/mricron/">MRIcron Index Page</a><br /> <a href="http://www.sim.hcuge.ch/osiris/01_Osiris_Presentation_EN.htm">OSIRIS Presentation EN</a><br /> 
+<a href="http://www.santesoft.com/dicom_viewer_free.html">Santesoft - Sante DICOM Viewer FREE</a><br/>
+<a href="http://www.rubomedical.com/index.html">Professional DICOM viewer with free demo</a> - Rubo Medical dicom viewer, pay.<br/>
+ <a href="http://www.revisemri.com/">ReviseMRI.com: Study MRI physics</a><br /> <br /> <br /> Update:  I've gotten the latest ITK-SNAP and it has produced me a great 3d mesh from the results of the automatic segmentation engine within ITK-SNAP.  I've uploaded a few screen shots in my gallery.  I've found getting the parameters right for segmentation is hard.  There is a real art to the proper selection.<br /> <br /> What I'd like to be able to do is load a reference set of data with existing segmentation results and try to match my real data against it.  I would like to get a huge set of labels for the brain and do this.  It should be possible, right?<br /> <br /> <a href="http://planunc.radonc.unc.edu/">PlanUNC - Welcome</a><br /> <a href="http://www.sph.sc.edu/comd/rorden/template.html">MRIcro Anatomical Templates</a><br /> <br /> <br /> <strong>Working with meshes</strong><br /> A common format used today in fabrication shops is <a href="http://en.wikipedia.org/wiki/STL_(file_format)">STL</a>.<br /> <a href="http://meshlab.sourceforge.net/">MeshLab</a> - is an open source, portable, and extensible system for the processing and editing of unstructured 3D triangular meshes.<br /> In the future, I'd like to load these meshes into a 3d silverlight application so people can select and explore my structures right on the website.<br /> 
+<br />
+I could take my mesh structures and build a model which would represent this scene using the eyes, nose, and mouth to orient the models together.  I should be able to do photo realistic lighting and shading...<br />
+<br />
+<br />
+<br />
+ <a href="http://www.scienceartandmore.com/index.asp?PageAction=VIEWPROD&ProdID=93"><img src="http://www.scienceartandmore.com/ProductImages/ACH/3240.jpg" border="0" alt="" /></a><br />
+(A plastic replica of a life sized human brain that shows multiple views. )<br /> It would be great to produce custom educational diagrams/models based on my own data...<br />
+I thought <a href="http://www.scienceartandmore.com/index.asp?PageAction=VIEWPROD&ProdID=74">Brain 3D Chart - Raised Relief Chart</a> was neat too.<br />
+<br />
+<br/>
+NIH's <a href="http://www.cc.nih.gov/cip/software/etdips/">Clinical Image Processing Department - Software - etdips</a><br/>
+<br/>
+<br/>
+<a href="http://paulbourke.net/miscellaneous/crystalengraving/">Data visualization in crystal</a> - some very cool crystals of the human heart and CT scans shown.<br/>
+<a href="http://paulbourke.net/papers/wasp08/">Tactile Visualisation: Feel your data!</a> - has an awesome pdf with information on taking data and creating physical 3d models for exploring data tactilely.<br/>
+<br/>
+<br/>
+<a href="http://www.nitrc.org/">NITRC: The Neuroimaging Informatics Tools and Resources Clearinghouse</a> - a large database of fMRI related software<br/>
+<br/>
+<a href="https://sourceforge.net/projects/gdcm">SourceForge.net: Grassroots DICOM</a> - Grassroots DiCoM is a C++ library for DICOM medical files. It is automatically wrapped to python/C#/Java (using swig). It supports RAW,JPEG (lossy/lossless),J2K,JPEG-LS,RLE and deflated. It also comes with DICOM Part 3,6 & 7 of the standard as XML files.<br/>
+<a href="http://www.idoimaging.com/index.shtml">idoimaging.com</a> - dicom and related software index.<br/>
+<a href="http://www.dclunie.com/dicom3tools.html">Dicom3tools Software</a> - command line utilities for creating, modifying, dumping and validating files of DICOM attributes, and conversion of proprietary image formats to DICOM.<br/>
+<a href="http://dicom.dvtk.org/modules/wiwimod/index.php?page=Downloads&cmenu=downloads">DVTk (DICOM) - Wiwi - Downloads</a><br/>
+<br/>
+Update: Nov 13, 2008<br/>
+OsiriX 1.0 for the iPhone!!  Haha, I love to see stuff like this running mobile.<br/>
+<img src="http://www.osirix-viewer.com/apple-iphone-in-hand-thumb.jpg" alt="osirix running on iphone." border="0"><br/>
+<br/>
+Update: Jan 07, 2009<br/>
+<a href="http://www.ehponline.org/members/2004/6355/6355.html">Magnetic-Field-Induced DNA Strand Breaks in Brain Cells of the Rat</a> - interesting research showing free radicals increase DNA single- and double-strand breaks due to prolonged exposure of magnetic field.<br/>
+I didn't know there was a Sigma assay to measure an index of DNA damage.  Then also to treat for it using free radical scavengers!<br/>
+<br/>
+<br/>
+Update: Jan 29, 2009<br/>
+hmm, need to make more time for this. :-)<br/>
+<br/>
+Update: Mar 28, 2009<br/>
+Very nice models, though they cost money.<br/>
+<a href="http://www.3dscience.com/3D_Models/Human_Anatomy/Brain/Human_Brain_3D_Model.php">Human Brain 3D Model 4.0</a><br/>
+<a href="http://www.3dscience.com/3D_Models/Biology/Cells/Neuron.php">Neuron 3D Models</a> - i'd really like to do neuron modeling here...<br/>
+<br/>
+<br/>
+Update: Jun 10, 2009<br/>
+I've been sitting on this optical topography article I found from a science journal in 2005.  I really like the idea of using optical properties for diagnostics.  Maybe someday, I'll have enough time to work on a optical topography helmet, like the one I saw in that journal paper.  However, I'd really like to setup a merged optical topography and <a href="http://en.wikipedia.org/wiki/EEG_topography">EEG topography</a> rig.<br/>
+<a href="http://www.springer.com/biomed/neuroscience/journal/10548">Brain Topography</a> - does ($$), cool to see a journal on it.<br/>
+<a href="http://medicalimaging.wikia.com/wiki/Imaging_brain_function_with_optical_topography">Imaging brain function with optical topography - Medical Imaging</a><br/>
+<a href="http://www.hitachi-medical.co.jp/info/opt-e/index.html">Principle Of Optical Topography System</a><br/>
+<a href="http://www.iop.org/EJ/abstract/0031-9155/47/23/303">Three-dimensional optical tomography of the premature infant brain</a><br/>
+<a href="http://www.hitachimed.com/contentindex.asp?ID=570">Hitachi Medical Systems - Principles of Optical Topography</a><br/>
+<a href="http://www.springerlink.com/content/0k89865n11174026/">SpringerLink - Journal Article</a> - this seems like a good idea, Hemodynamic changes in the, motor cortex were measured during finger tapping before and after alcohol intake for eachALDH2 genotype.  Hey I'm researching here...<br/>
+<br/>
+I wonder what the parts would cost...<br/>
+<br/>
+Oh I made a page on this a while ago..<a href="http://dave.thehorners.com/tech-talk/science-and-math/282-optical-topography">Optical Topography</a><br/>
+<br/>
+<br/>
+Update: June 24, 2009<br/>
+A great source for MRI head data...<br/>
+<a href="http://www.insight-journal.org/midas/community/view/21">MIDAS - Community Designed Database of MR Brain Images of Healthy Volunteers</a> - MR database comprising images of the brain of 100 healthy subjects in which 20 patients were scanned per decade (18-29, 30-39, 40-49, 50-59, and 60+), with each group equally divided by sex, and with exclusion of any subject with a history of diabetes, hypertension, head trauma, psychiatric disease, or other symptoms or history likely to affect the brain. Images were acquired on a 3T unit under standardized protocols. Images include T1 and T2 acquired at 1x1x1 mm3, Magnetic Resonance Angiograpy (MRA) acquired at 0.5 x 0.5 x 0.8 mm3, and Diffusion Tensor Imaging (DTI) using 6 directions and a voxel size of 2x2x2 mm3.  In addition to age and sex, handedness and race were also recorded. All subjects provided signed consent allowing images to be made publicly available on the web.  -- We believe that this database may prove useful in assessing the effects of healthy aging but, perhaps even more importantly, could also provide the basis against which to assess a variety of diseases.  <a href="http://ij.itk.org/midas/community/view/21">MIDAS - Community Designed Database of MR Brain Images of Healthy Volunteers</a><br/>
+<br/>
+<br/>
+Update: Sept 24, 2009<br/>
+Hey cool, other people have their personal MRI data up for people to look at too...<br/>
+<a href="http://abstractnonsense.com/mri/">Inside Bill Moorier's head</a> - looks like a swf MRI explorer with two photo view navigation.<br/>
+<a href="http://dustincurtis.com/a-tour-of-my-brain.html">A Tour of my Brain | Dustin Curtis</a> - apparently Bill Moorier was inspired by Dustin Curtis's tour...<br/>
+Ya, now I was working on this other thing........<br/>
+<br/>
+Update: Oct-02, 2009<br/>
+<a href="http://neuroimaging.scipy.org/site/doc/manual/html/contents.html">Welcome to nipy’s documentation! — NIPY Documentation</a><br/>
+<br/>
+Update: Dec-11, 2009<br/>
+<a href="http://www.radiologyart.com/">Radiology Art: art made with x-rays using CT and MRI scanners</a> - medical student, Satre Stuelke ct scanner as a camera.<br/>
+<br/>
+<br/>
+<a href="#Update: Apr-12,2010">Update: Apr-17, 2010</a><a href="#Update2020" name="Update2020">.</a><br/>
+I'm not sure what made me finally do it.  I've been meaning to fix it for so long.  But I'm happy I finally did.  I used <a href="https://sourceforge.net/projects/gdcm">GDCM</a> to correct the phase wrap artifacts in my sagittal scan.  My nose is now attached to my face!<br/>
+<br/>
+I modified gdcmimg to support wrapping in the x direction.  Empty/null data on the left and right sides of the scan made a simple wrap insufficient.  I solved that issue by overlapping the right side of the "wrap region" with the left side of the scan.  Then when compositing within the region of overlap, I select the highest contrast non-zero value from the two sources.<br/>
+<br/>
+Once gdcmimg was modified, I still needed a way to run that tool on all my DICOM files.  I looked around a little bit for a tool...couldn't find what I wanted.  So I created a new tool (using gdcm primatives) to search for dicom files within a directory and run gdcmimg with the new wrap options specified.   The code isn't yet ready to share (not sure if it is even worth sharing), but a picture...can be done.<br/>
+<br/>
+I can now offer you the corrected dicom files if you'd like em.  I will post a phase-wrap corrected animation some day too.<br/>
+<img src="/personal/mrihead/correct_phasewrap.jpg" border="0" alt="correct phase-wrap"/><br/>
+Now working to create a nice looking 3d projection with my nose where it belongs..<br/>
+<br/>
+--dave<br/>
+<br/>
+Update: Apr-24, 2010<br/>
+<a href="http://computerassistedsurgeryblog.com/">Computer Assisted Surgery blog - Going under the knife with technology.</a><br/>
+<a href="http://www.soe.ucsc.edu/classes/cmps161/Winter10/projects/projects/upopov/tumor.html">Final Project: Multimodal visualization for neurosurgical planning</a><br/>
+<a href="http://www.biomedcentral.com/1471-2342/10/5">BioMed Central | Full text | Building generic anatomical models using virtual model cutting and iterative registration</a><br/>
+<a href="http://www.brains-minds-media.org/archive/1512">A Stereoscopic Volume Rendered Brain Atlas — Brains, Minds &amp; Media</a><br/>
+<a href="http://matuszek.net/development/graphics/visible/">Volume Rendering of the Photographic Visible Human Data Set</a><br/>
+<a href="http://www-sop.inria.fr/asclepios/software/MedINRIA/">Asclepios Research Project - INRIA Sophia Antipolis</a> - MedINRIA<br/>
+<a href="http://www-sop.inria.fr/asclepios/software/SepINRIA/">Asclepios Research Project - INRIA Sophia Antipolis</a> - SepINRIA is a free software dedicated to Multiple Sclerosis brain MRI analysis.<br/>
+<a href="http://www.thomaskoenig.ch/Lester/ibaspm.htm">IBASPM:Individual Brain Atlases using Statistical Parametric Mapping Software</a> - matlab code.<br/>
+<a href="http://bioweb.biology.kent.edu/FacultyPages/Clements/vrba.html">Volume Rendered Brain Atlas</a><br/>
+<br/>
+Update:  May-3, 2010<br/>
+A 3d projection of a skin model I created using ITK-SNAP (v2.1.0-dev mar23,2010) on my sagittal MRI head scan. This is the first model I've created with my nose attached to my face...(fixed phase-wrap artifacts).  I really didn't take much care when creating this.  So the results could be much better.  But you get the idea.  It also looks like my model has been all stomped on and squooshed (it looks more rectangular than it should, my dome looks taller and skinnier than it should.)  I'm not sure why this happens within ITK-SNAP.  More stuff to figure out...<br/> 
+<img src="/personal/mrihead/itksnap_skinsurface_front.jpg" border="0" alt="itksnap skin surface front"/><br/>
+<img src="/personal/mrihead/itksnap_skinsurface_left.jpg" border="0" alt="itksnap skin surface left"/><br/>
+<img src="/personal/mrihead/itksnap_skinsurface_right.jpg" border="0" alt="itksnap skin surface right"/><br/>
+<img src="/personal/mrihead/itksnap_skinsurface_behind.jpg" border="0" alt="itksnap skin surface behind"/><br/>
+I tried to save the vtk mesh and some of the other formats.  But looking now, I can't find them.  Also, I noticed that the UI was pretty unresponsive when I set the iterations up to 10 a step and turned on auto update mesh.  Seems like when processing larger step values, it might need to yield more to handle windows messages.  Need to build and look into that some more...<br/>
+<br/>
+I would like to start cutting and rendering multiple models here soon.  Hoping to be able to use blender.<br/>
+--dave<br/>
+<br/>
+<br/>
+Update June 22, 2010<br/>
+<a href="http://www.med.upenn.edu/bbl/downloads/pyvox/index.shtml">Neuropsychiatry Section</a> - Pyvox (formerly known as BBLimage) is a set of software tools for medical image processing, particularly skull stripping and segmentation of MR brain images;  Written in python and C.  Under open source license..<br/>
+<br/>
+<br/>
+Update Jan 21, 2012<br/>
+whoa.  Long time since last update.<br/>
+<a href="http://www.humanconnectomeproject.org/">Human Connectome Project | Mapping the human brain connectivity</a><br/>
+<a href="http://www.humanconnectomeproject.org/gallery/">Human Connectome Project |  Gallery</a><br/>
+<a href="http://www.loni.ucla.edu/Atlases/LPBA40">The LONI Probabilistic Brain Atlas (LPBA40)</a> -  Each MRI was manually delineated to identify a set of 56 structures in the brain, most of which are within the cortex. These delineations were then transformed into a common atlas space to produce a set of co-registered anatomical labels. The original MRI data were also transformed into the atlas space.<br/>
+<a href="http://www.loni.ucla.edu/Software/BrainParser">LONI Brain Parser | Laboratory of Neuro Imaging, UCLA</a> - <a href="http://www.nitrc.org/projects/brainparser/">NITRC: BrainParser: Tool/Resource Info</a><br/>
+<a href="http://sve.loni.ucla.edu/">Segmentation Validation Engine |</a> - The Segmentation Validation Engine (SVE) provides an automated online framework for performing validation studies of skull-stripping methods. Registered users may download 40 T1 MRI volumes, skull-strip them with the algorithm of their choice, and upload their segmentation results to the SVE website. The server will then compare the 40 skull-stripped results against a set of manually generated brain masks. The server computes a series of measures for the uploaded data, including Jaccard and Dice measures. It also produces images for visualizing the spatial location of the segmentation errors relative to a common space. The results are archived on the server, and the measures are viewable by visitors to the site.<br/>
+<br/>
+<br/>
+Maybe this LONI Probabilistic Brain Atlas is the common atlas space to co-register my data with anatomical labels and other MRI data...<br/>
+<br/>
+<br/>
+Update: Mar 24, 2012<br/>
+a lot of good content within the <a href="http://www.brainsciencepodcast.com/">Brain Science Podcast</a>. 79-"We actually are becoming an expression of the type of technology that we create.  
+So, our brains not only create this technology, but they make it sure that 
+whatever works—whatever tool that is capable of augmenting our reach—
+becomes assimilated as an extension of the internal brain model of our self."<br/>
+<br/>
+<br/>
+<br/>
+Update: may 16th, 2012<br/>
+<a href="http://www.instructables.com/id/Edible-Chocolate-Brain-from-MRI-Scan/">Edible Chocolate Brain from MRI Scan</a><br/>
+<a href="http://svn.softwarepublico.gov.br/trac/invesalius">InVesalius</a> - It generates 3D medical imaging reconstruction based on a sequence of 2D DICOM files acquired with CT or MRI equipments, providing several visualization tools. <a href="https://github.com/invesalius/invesalius3">invesalius/invesalius3</a><br/>
+<a href="http://www.igstk.org/IGSTK/help/documentation.html">IGSTK - Image-Guided Surgery Toolkit</a><br/>
+<br/>
+Update: oct-21-2012<br/>
+<a href="http://code.google.com/p/devide/">devide - Dataflow application builder for the rapid prototyping of medical visualization and image processing techniques - Google Project Hosting</a> - DRE is in fact a Python distribution that includes cmake, swig, Python, numpy, matplotlib, wxPython, gdcm, VTK, ITK and DeVIDE itself.<br/>
+<a href="https://code.google.com/p/exposure-render/">exposure-render - Open-source implementation of "Interactive direct volume rendering with physically-based lighting" - Google Project Hosting</a><br/>
+<br/>
+<br/>
+<a href="http://boingboing.net/2012/10/29/carved-cedar-mask-with-carved.html" target="_blank"><img src="http://th05.deviantart.net/fs11/200H/i/2006/258/c/0/Transformation_Mask_by_asantell.jpg" border="0" alt=""/></a>
+<img src="http://upload.wikimedia.org/wikipedia/en/3/35/Muse_2nd_law.jpg" border="0" alt=""/>
+<br/>
+<div style="clear:both"></div>
+Update: Nov 11, 2012<br/>
+<a href="http://code.google.com/p/devide/wiki/DICOMEditMetaData">DICOMEditMetaData - devide - Editing + Writing DICOM MetaData - Dataflow application builder for the rapid prototyping of medical visualization and image processing techniques - Google Project Hosting</a><br/>
+<img src="https://lh3.googleusercontent.com/-NxroyAXRD0c/UJ9AVyRNtII/AAAAAAAAAYg/hMhpupBaIp4/s643/multiseries_problem_sagittalwrap.png" border="0" alt="1 image per series, woops"/>
+<img src="https://lh5.googleusercontent.com/-oPdlF3cnngQ/UJ89R0Dt5UI/AAAAAAAAAYA/yw0QdGuiyh0/s414/devide_DICOMrewritegraph.png" border="0" alt="DeVIDE DICOM metadata rewrite"/>
+<div style="clear:both"></div>
+In the Apr-17, 2010 update, I mentioned correcting the phase wrap artifacts in my sagittal scan with a modification to gdcmimg.  This attached my nose to my face, and also manually set the spacing, but for some reason each of the rewritten DICOM images were seen as separate series when using other DICOM tools.  Recently, I figured out how to use DeVIDE to rewrite those DICOM results into a single series. (wiki link, cap of the multi-series issue as seen in the DICOMBrowser within DeVIDE, and dvn network graph provided above)<br/>
+<br/>
+<a href="http://stef2cnrs.wordpress.com/">biomedical optics</a> - waves, acousto and light, tissues optics, interoperability, image processing<br/>
+<a href="http://www.cora.nwra.com/Ogle/">Ogle Large-Scale Scientific Data Visualizer</a> (2002 July: Development stopped)<br/>
+<a href="http://sig.biostr.washington.edu/projects/MindSeer/index.html">About MindSeer - University of Washington Structural Informatics Group</a><br/>
+<a href="http://www.cs.utah.edu/~jmk/simian/">Simian - Volume Rendering</a><br/>
+<a href="http://www.volume-one.org/">Volume-One</a><br/>
+<a href="http://rsb.info.nih.gov/ij/plugins/volume-viewer.html">Volume Viewer</a> - ImageJ plugin<br/>
+<a href="http://surfer.nmr.mgh.harvard.edu/fswiki/FreeSurferWiki">FreeSurferWiki - Free Surfer Wiki</a><br/>
+<a href="http://www.mccauslandcenter.sc.edu/mricro/mricro/render/index.html">Volume Rendering the Cortex</a> - <a href="http://www.ncbi.nlm.nih.gov/pubmed/15219578">A hybrid approach to the skull stripping problem ... [Neuroimage. 2004] - PubMed - NCBI</a><br/>
+<a href="http://www.mccauslandcenter.sc.edu/CRNL/">Chris Rorden's Neuropsychology Lab</a><br/>
+<br/>
+<br/>
+<a href="http://www.nitrc.org/projects/cmtk/">NITRC: Computational Morphometry Toolkit (CMTK): Tool/Resource Info</a><br/>
+<a href="http://nipy.sourceforge.net/nipype//index.html#">Neuroimaging in Python - Pipelines and Interfaces — nipy pipeline and interfaces package</a><br/>
+<br/>
+<a href="http://gallantlab.org/semanticmovies/">Brain Continuous Semantic Space</a><br/>
+<a href="http://openctm.sourceforge.net/">OpenCTM - Compression of 3D triangle meshes</a><br/>
+<br/>
+<br/>
+Update Feb 14, 2013<br/>
+<a href="http://www.neatorama.com/2013/01/30/MRI-Music-Video-by-Sivu/">MRI Music Video by Sivu - Neatorama</a><br/>
+<a href="http://www.jove.com/video/50250/3d-printing-of-preclinical-x-ray-computed-tomographic-data-sets">3D Printing of Preclinical X-ray Computed Tomographic Data Sets | JoVE Video</a><br/>
+<br/>
+<br/>
+Update Sept 26, 2013<br/>
+<a href="http://ihealthlab.icar.cnr.it/index.php/projects/9-mito.html">iHealth lab - MITO - Medical imaging toolkit</a> - <a href="http://sourceforge.net/projects/mito/#!">MITO - DICOM Viewer | SourceForge.net</a> , a dicom viewer with Kinect and Wii control.<br/>
+Update Oct 5, 2013<br/>
+<a href="http://human.brain-map.org/static/brainexplorer">Brain Explorer :: Allen Brain Atlas: Human Brain</a><br/>
+<a href="http://human.brain-map.org/mri_viewers/data">MRI Donor Data :: Allen Human Brain Atlas :: Allen Brain Atlas: Human Brain</a><br/>
+<iframe width="560" height="315" src="//www.youtube.com/embed/Zj3RxtJ_Ljc" frameborder="0" allowfullscreen></iframe><br/>
+Update Oct 13th, 2013<br/>
+<blockquote class="twitter-tweet"><p>neurocosmology perceptual modulaton</p>&mdash; davewz (@davewz) <a href="https://twitter.com/davewz/statuses/860006023">July 16, 2008</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script><br/>
+One tweet, <strong>neurocosmology perceptual modulaton.</strong><br/>
+<a href="http://dave.thehorners.com/tech-talk/science-and-math/196-facts-on-the-body">Facts on the body - Dave Horner's Website</a><br/>
+<br/>
+Update Jan 15, 2014<br/>
+<a href="http://www.kitware.com/blog/home/post/610">The Kitware Blog - 3D printing the Visible Human skull</a><br/>
+<br/>
+<br/>
+Update Jan 28, 2014<br/>
+<a href="http://thebrainobservatory.ucsd.edu/">The Brain Observatory</a> - <a href="https://thedigitalbrainlibrary.org/hm_web/paper.php">H.M. BRAIN ATLAS</a><br/>
+<a href="http://www.smithsonianmag.com/science-nature/postmortem-most-famous-brain-neuroscience-history-180949504/">A Postmortem of H.M.'s Brain | Science | Smithsonian</a> - unknown lesion caused by the surgery, a finding that could shed further light on the anatomical structures responsible for memory.<br/>
+<a href="http://www.wired.com/wiredscience/2014/01/hm-brain-closeup/?cid=co17701924#slide-id-517441">Scientists Digitize Psychology's Most Famous Brain - Wired Science</a> - opening of a new chapter in one of the longest case studies in the history of science.<br/>
+<br/>
+<br/>
+Update Jan 31, 2014<br/>
+<a href="http://bit.ly/1a9BxjV">Beautiful 3-D Brain Scans Show Every Synapse - YouTube</a> - unconventional science. you've got to see the wires -- where they come from, where they go. understanding how cells in the brain communicate with each other. information forces you into an uncomfortable position. (change to 1080res).<br/>
+<br/>
+<br/>
+Update Apr 10, 2014<br/>
+<a href="http://humanae.tumblr.com/">humanæ</a> - Humanæ  is a chromatic inventory, a project that reflects on chromatic range of our different human skin color-tones.<br/>
+<a href="http://www.reddit.com/r/photography/comments/20n07k/artist_wants_to_map_every_single_human_skin_tone/">reddit: Artist Wants To Map Every Single Human Skin Tone On Earth : photography</a><br/> - the meta con·ver·sa·tion. gonna have a montage. a ImageMagick montage. <a href="http://i.imgur.com/L8Enpgp.jpg">L8Enpgp.jpg (2000×2050)</a> a montage!<br/>
+<br/>
+<br/>
+Update May 15,2014<br/>
+<a href="http://www.tricorderproject.org/blog/">the Tricorder project | blog</a> -  interesting blog 3D-printable mini spectrometer, DIY CT scanner.  <a href="http://en.wikipedia.org/wiki/Tricorder">Tricorder</a> on the way.?<br/>
+<br/>
+<br/>
+Update June 2014<br/>
+Look at all the wonderful Dave Brain's on the internet.<br/>
+<a href="http://davekb.com/">Dave's Brain - Welcome to Dave's Brain</a> - another dave brain programmer with great notes.<br/>
+<a href="http://davebare.tumblr.com/">Dave's Brain</a> a tumblr dave's brain and a <a href="https://twitter.com/daves_brain">Dave's Brain (daves_brain) on Twitter</a>.<br/>
+<a href="http://mybrainybrainblog.blogspot.com/2007/09/my-what-beautiful-brain-you-have.html">Dave's Brain Blog: "My, What a Beautiful Brain You Have!"</a> - <a href="https://picasaweb.google.com/dggoodwin07/Brainpics?authkey=Gv1sRgCI7kp-OrjMDMyAE&amp;feat=flashslideshow#">brainpics - Dave - Picasa Web Albums</a>, beautiful brains indeed.<br/>
+<br/>
+<br/>
+<a href="http://www.medgadget.com/2013/06/ultra-high-3d-brain-model-unveiled-after-10-years-of-delicate-dissection-video.html">Ultra-High 3D Brain Model Unveiled After 10 Years of Delicate Dissection (VIDEO)</a> - 7400 slices, layer spacing of 20 micrometers, enabling individual neurons and their connections to be viewed. healthy 65 year-old donor.<br/>
+<br/>
+<br/>
+Update July 2014<br/>
+<a href="http://dcmjs.org/">dcmjs by CTK</a> - cross-compiled dcmtk in javascript (uses emscripten); dcmdump &amp; dcm2pnm dcmtk code is compiled with cmake, but using the emsdk.<br/>
+<a href="https://github.com/QIICR">Quantitative Image Informatics for Cancer Research</a><br/>
+<a href="http://www.commontk.org/index.php/Main_Page">CTK - The Common Toolkit: Main Page Commontk</a> CTK efforts includes the topics DICOM, DICOM Application Hosting, Widgets, and Plugin Framework. (apache 2.0)<br/>
+<a href="http://www.commontk.org/index.php/CTK_DICOM_Web_Services">CTK DICOM Web Services - Commontk</a> - WADO;Web Access To DICOM Objects RESTFUL image access everywhere.<br/>
+<br/>
+<br/>
+    <div style="border: 1px;">
+    Created: 2005-04-04 11:27:55
+    Modified: 2021-10-13 20:39:04
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+<span id=daysToChristmas>x</span> days to Christmas.<br/>
+<span id=daysToNewYear>x</span> days to a new year.<br/>
+Happy Holidays!
+<script Language="JavaScript">
+function showtime () {
+        msPerDay = 24 * 60 * 60 * 1000 ; // Number of milliseconds per day
+        var now = new Date();
+        var year = now.getYear();
+        if (year < 1000)
+         year+=1900
+        nextXmas = new Date("December 25, 2000")
+        nextXmas.setYear(year)
+        daysLeft = (nextXmas.getTime() - now.getTime()) / msPerDay;
+        daysLeft = Math.round(daysLeft);
+        var span=document.getElementById('daysToChristmas');
+        span.removeChild(span.firstChild);
+        span.appendChild(document.createTextNode(daysLeft+''));
+        
+        nextXmas = new Date("December 31, 2000")
+        nextXmas.setYear(year)
+        daysLeft = (nextXmas.getTime() - now.getTime()) / msPerDay;
+        daysLeft = Math.round(daysLeft);
+
+        span=document.getElementById('daysToNewYear');
+        span.removeChild(span.firstChild);
+        span.appendChild(document.createTextNode(daysLeft+''));
+        setTimeout("showtime()",msPerDay);
+}
+showtime();
+</script>
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

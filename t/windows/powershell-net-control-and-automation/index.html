@@ -1,0 +1,447 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>Powershell - .NET control and automation.</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/windows/">windows</a>
+    <h1>Powershell - .NET control and automation.</h1>
+   cat (Get-PSReadlineOption).HistorySavePath &amp; history.txt<br/>
+<br/>
+#Powershell IRC chat on freenode<br/>
+<br/>
+<a href="http://www.microsoft.com/technet/scriptcenter/hubs/msh.mspx">Scripting with Windows PowerShell</a><br/>
+<a href="http://technet.microsoft.com/en-us/library/ee176949.aspx">Running Windows PowerShell Scripts</a><br/>
+<a href="http://powergui.org/downloads.jspa">PowerGUI - Administrative Powershell Console :</a><br/>
+<a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=af37d87d-5de6-4af1-80f4-740f625cd084&amp;displaylang=en&amp;Hash=Xj2vyK7%2bZj54PJzThCfxEzFyaqgRjPI8iYDXIGNRrOTNvaupM0vw2QRPkAWVLEpOOt7jhMh9VuaT66VFyHxF1g%3d%3d">Download details: Windows PowerShell 1.0 Installation Package for Windows Vista x64 Edition (KB928439)</a><br/>
+<a href="http://support.microsoft.com/kb/968929">Windows Management Framework (Windows PowerShell 2.0, WinRM 2.0, and BITS 4.0)</a><br/>  
+<br/>
+<br/>
+<h2>Powershell ExecutionPolicy</h2>
+Out of the box, you get Restricted, yup, no running .ps1 files from the cmd line.<br/>
+It's like the first thing you have to bump your knee on when developing in powershell.<br/>
+<pre>
+Get-ExecutionPolicy
+Set-ExecutionPolicy Unrestricted
+</pre>
+<a href="http://poshoholic.com/2007/09/27/invoking-a-powershell-script-from-cmdexe-or-start-run/">Invoking a PowerShell script from cmd.exe (or Start | Run) | Poshoholic</a><br/>
+<a href="http://stackoverflow.com/questions/9271681/how-to-run-powershell-script-even-if-set-executionpolicy-is-banned">java - How to run PowerShell script even if Set-ExecutionPolicy is banned? - Stack Overflow</a><br/>
+Oh, and then you can always bypass the execution policy from the command line.<br/>
+<pre>
+powershell.exe -ExecutionPolicy Bypass -NoLogo -NonInteractive -NoProfile -WindowStyle Hidden -File &lt;script_name&gt;
+</pre>
+<br/>
+<br/>
+<h2>5 key commands for powershell</h2>
+get-help<br/>
+get-command<br/>
+get-member<br/>
+get-alias<br/>
+<br/>
+get-command | out-gridview<br/>
+measure-command { read-host "press any key" }<br/>
+<br/>
+<br/>
+<h2>pipe to Out-Null to send things to /dev/null</h2>
+<a href="http://www.michaelflanakin.com/Weblog/tabid/142/articleType/ArticleView/articleId/1089/Default.aspx">PowerShell Tip: Out-Null is to PowerShell What Duct Tape is to Mouth</a><br/>
+
+
+<br/>
+<a href="http://powerboots.codeplex.com/">PowerShell PowerBoots</a> - PowerBoots makes it easier for scripters to create graphical user interfaces in PowerShell, exposing much of the power of WPF to PowerShell in a simple syntax which supports events, threading, and much, much, more.<br/>
+<a href="http://poshoholic.com/">Poshoholic - Totally addicted to PowerShell</a><br/>
+<a href="http://www.microsoft.com/technet/scriptcenter/hubs/msh.mspx">Scripting with Windows PowerShell</a> - MSDN Script Center<br/>
+<a href="http://blogs.msdn.com/powershell/">Windows PowerShell Blog</a><br/>
+<a href="http://www.codeplex.com/PowerShellCX">PowerShell Community Extensions - Home</a><br/>
+<a href="http://www.oreilly.com/catalog/9780596528492/">O'Reilly Media | Windows PowerShell Cookbook</a><br/>
+<a href="http://pavleck.net/powershell-cookbook/">Windows PowerShell Cookbook - Hosted By Pavleck.NET</a><br/>
+<a href="http://blogs.msdn.com/powershell/archive/2007/06/22/hosting-powershell-in-a-gui-the-movie.aspx">Windows PowerShell : Hosting PowerShell in a GUI â?? the Movie</a><br/>
+<a href="http://www.manning.com/payette/">Manning: Windows PowerShell in Action</a><br/>
+<a href="http://powershell-basics.com/">PowerShell Basics</a><br/>
+<a href="http://powershelllive.com/">SUPPORT@PowerShell.com</a> - Shell Tools Support for Powershell Analyzer and Powershell Plus<br/>
+<a href="http://www.sdmsoftware.com/freeware.php">SDM Software Group Policy Freeware</a> - checkout SDM GPMC PowerShell Cmdlets.<br/>
+<a href="http://pash.sourceforge.net/">Pash</a> - open source implementation of powershell.<br/>
+<a href="http://redmondmag.com/columns/article.asp?EditorialsID=2262">Redmond | Column: First Look: WinRM & WinRS</a><br/>
+<a href="http://blogs.msdn.com/powershell/archive/2007/10/30/winrm-exe.aspx">Windows PowerShell : WINRM</a><br/>
+<a href="http://ironruby-rocks.com/2010/04/28/script-everything-with-powershell-and-ironruby/">Script everything with PowerShell and IronRuby « IronRuby rocks</a><br/>
+
+<a href="http://poshconsole.codeplex.com/">PoshConsole</a> - PoshConsole is a modern graphical PowerShell Console. We aim to have a complete open source implementation of the PSHostUserInterface and PSRawHostUserInterface written in WPF and including a custom ConsoleControl which can be reused for other purposes.<br/>
+<a href="http://powerboots.codeplex.com/">Show-UI: The PowerShell WPF Toolkit</a> - Show-UI is the merger of PowerBoots and WPK, and it makes it easier for scripters to create graphical user interfaces in PowerShell, exposing much of the power of WPF to PowerShell in a simple syntax which supports events, threading, and much, much, more.<br/>
+<br/>
+<br/>
+<h2>find which process locks a file using powershell</h2>
+<a href="http://blogs.technet.com/b/heyscriptingguy/archive/2012/09/14/easily-unblock-all-files-in-a-directory-using-powershell.aspx">Easily Unblock All Files in a Directory Using PowerShell - Hey, Scripting Guy! Blog - Site Home - TechNet Blogs</a><br/>
+<a href="http://beamusupscotty.wordpress.com/2012/11/14/use-powershell-to-find-out-which-process-locks-a-file/">Use PowerShell to find out which process locks a file | beam us up scotty</a><br/>
+<pre>
+$lockedFile="yourlockedfile"
+Get-Process | foreach{$processVar = $_;$_.Modules | foreach{if($_.FileName -eq $lockedFile){$processVar.Name + " PID:" + $processVar.id}}}
+</pre>
+<br/>
+<br/>
+<a href="http://blogs.technet.com/b/heyscriptingguy/archive/2013/08/19/powershell-workflow-for-mere-mortals-part-1.aspx">PowerShell Workflow for Mere Mortals: Part 1 - Hey, Scripting Guy! Blog - Site Home - TechNet Blogs</a> <a href="http://blogs.technet.com/b/heyscriptingguy/archive/2013/08/20/powershell-workflow-for-mere-mortals-part-2.aspx">2</a> <a href="http://blogs.technet.com/b/heyscriptingguy/archive/2013/08/20/powershell-workflow-for-mere-mortals-part-3.aspx">3</a> <a href="http://blogs.technet.com/b/heyscriptingguy/archive/2013/08/20/powershell-workflow-for-mere-mortals-part-4.aspx">4</a> <a href="http://blogs.technet.com/b/heyscriptingguy/archive/2013/08/20/powershell-workflow-for-mere-mortals-part-5.aspx">5</a><br/>
+<br/>
+<br/>
+<h2>Hosting powershell from other languages</h2>
+<a href="http://www.codeproject.com/Articles/18409/Asynchronously-Execute-PowerShell-Scripts-from-C">Asynchronously Execute PowerShell Scripts from C# - CodeProject</a><br/>
+<br/>
+<br/>
+<h2>Powershell and registry</h2>
+Powershell access is better than regedit.  Learn your tools.<br/>
+<pre>
+# get the value of the LSA keys
+Get-ItemProperty HKLM:\System\CurrentControlSet\Control\Lsa
+# Set value of the LSA key - disable the loopback check
+New-ItemProperty HKLM:\System\CurrentControlSet\Control\Lsa -Name "DisableLoopbackCheck" -value "1" -PropertyType dword
+</pre>
+<a href="http://blogs.technet.com/b/heyscriptingguy/archive/2012/05/11/use-powershell-to-enumerate-registry-property-values.aspx">Use PowerShell to Enumerate Registry Property Values - Hey, Scripting Guy! Blog - Site Home - TechNet Blogs</a><br/>
+<a href="http://technet.microsoft.com/en-us/library/dd315394.aspx">Working with Registry Entries</a> - using powershell of course.<br/>
+<br/>
+<br/>
+<h2>Powershell and active directory</h2>
+<a href="http://www.eiben.weite-welt.com/2011/04/sample-domain-data/">@Henning » Sample Domain Data</a> - using powershell import-csv,set-content,foreach,get-random,add-content, and <a href="http://www.quietaffiliate.com/free-first-name-and-last-name-databases-csv-and-sql">Free First-name and Last-name Databases (CSV and SQL) | The Quiet Affiliate</a> to create sample data for mass sample user creation in AD.<br/>
+<pre>
+param([string]$FileName, [string]$adpath)
+Import-Module ActiveDirectory
+function Import-Users([string]$UserFile)
+{
+    Import-Csv $UserFile | foreach-object {
+        $accountName = $_.Lastname+$_.Firstname.Substring(0,2)
+        $displayName=$_.Firstname+" "+$_.LastName
+        New-AdUser $accountName -samAccountName $accountName -Company "Acme Corp." -Department $_.Department -DisplayName $displayName -GivenName $_.Firstname -Surname $_.Lastname -OfficePhone $_.Phone -Title $_.Position -CannotChangePassword $true -PasswordNeverExpires $true -Enabled $true -AccountPassword (ConvertTo-SecureString -AsPlainText "demo" -Force) -Path $spou
+    }
+}
+$spou = "OU=Acme,$adpath"
+Import-Users $FileName
+</pre>
+<a href="http://www.eiben.weite-welt.com/2011/05/mass-updating-active-directory/">@Henning » Mass-Updating Active Directory</a><br/>
+<a href="http://www.eiben.weite-welt.com/2009/12/creating-local-users-en-mass/">@Henning » Creating local users – en mass</a><br/>
+<pre>
+$ComputerName = $env:COMPUTERNAME
+$Computer = [adsi]"WinNT://$ComputerName"
+function Add-User([string]$UserName, [string]$FullName, [string]$Description, [string]$Password)
+{
+    $User = $Computer.Create("user", $UserName)
+    $User.Put("fullName", $FullName)
+    $User.Put("description", $Description)
+    $User.SetPassword($Password)
+    $User.SetInfo()
+}
+function Import-Users([string]$UserFile)
+{
+    Import-Csv $UserFile | foreach-object { Add-User $_.UserName $_.FullName $_.Description $_.Password }
+</pre>
+<br/>
+<br/>
+<h2>Powershell and SQL</h2>
+<a href="http://www.kevinberridge.com/2012/05/powershell-listing-sql-table-columns.html">kwblog: Powershell Listing SQL Table Columns</a> - sqlps<br/>
+<br/>
+<br/>
+<h2>Powershell Base64</h2>
+<a href="http://tfl09.blogspot.com/2013/02/working-with-base64-strings-in.html">Under The Stairs: Working with Base64 Strings in PowerShell</a> - extend System.String using powershell Update-TypeData to get FromBase64String and ToBase64String.<br/>
+<pre>
+[System.Convert]::ToBase64String([System.Text.Encoding]::Unicode.GetBytes($this)) 
+[System.Text.Encoding]::Unicode.GetString([System.Convert]::FromBase64String($this))
+</pre>
+<br/>
+<br/>
+<h2>use powershell to enable remote desktop on remote machine</h2>
+<pre>
+$remoteComputerName = "my_remote_computer"
+# Connect to another computer and start the remote registry service 
+( Get-WmiObject -computername $remoteComputerName Win32_Service -filter "Name='RemoteRegistry'").startservice()
+( Get-WmiObject -computername $remoteComputerName Win32_Service -filter "Name='RemoteAccess'").ChangeStartMode('Manual') 
+( Get-WmiObject -computername $remoteComputerName Win32_Service -filter "Name='RemoteAccess'").startservice()
+</pre>
+<br/>
+<br/>
+<h2>use powershell to find zombie process || find and kill running process with commandline arguments</h2>
+<strong>I like to use powershell to kill zombies.</strong> 
+say for instance you have a script that you know runs all the time and locks or becomes unresponsive.  using taskmgr is not very programmer of you. try using powershell to quickly find that troublesome process and terminate.<br/>
+<pre>
+Get-WmiObject Win32_Process -Filter "name = 'perl.exe'" | where {$_.CommandLine -eq '"C:\strawberry\perl\bin\perl.exe" t/Server_PreFork.t'} | ForEach-Object { Invoke-WmiMethod -Path $_.__Path –Name Terminate }</pre><br/>
+<a href="http://superuser.com/questions/415360/how-do-i-find-out-command-line-arguments-of-a-running-program/793555#793555">windows 7 - How do I find out command line arguments of a running program? - Super User</a><br/>
+<br/>
+<br/>
+<h2>WinRM tips</h2>
+<a href="http://www.youtube.com/watch?v=pF5ya0q53kk">? DEVOPS + Chef + Windows at Ancestry.com - YouTube</a><br/>
+<pre>
+Enable-WSManCredSSP -Role server -force
+Set-Item 'WSMAN:\localhost\service\auth\credssp' -Value $true
+Set-Item 'WSMAN:\localhost\Client\TrustedHosts' * -force
+Set-Item 'WSMAN:\localhost\Shell\MaxMemoryPerShellMB' 2048
+Set-Item 'WSMAN:\localhost\MaxTimeoutms' 1800000
+invoke-command -computername $svr -Credential $cred -scriptblock $rsb
+</pre>
+<br/>
+<br/>
+<a href="https://github.com/JamesKovacs/psake">JamesKovacs/psake</a> - psake - A build automation tool... now with less XML... syntax inspired by rake (aka make in Ruby) and bake (aka make in Boo) creating a graph of dependent tasks and executing them in the correct order.<br/>
+<a href="http://www.shilony.net/2013/06/15/build-automation-with-powershell-and-psake/">Build Automation with PowerShell and Psake</a><br/>
+<h2>quick what's my ip using powershell?</h2>
+<pre>
+powershell (gwmi win32_NetworkAdapterConfiguration -Filter 'ipenabled = "true"').ipaddress[0]
+#quick what's my default gateway using powershell?
+powershell (gwmi win32_NetworkAdapterConfiguration -Filter 'ipenabled = "true"').defaultipgateway
+</pre>
+<br/>
+<br/>
+<a href="http://csharpening.net/">Adam Driscoll's Blog</a> <a href="https://github.com/adamdriscoll">github:adamdriscoll (Adam Driscoll)</a><br/>
+<a href="https://github.com/adamdriscoll/PoshInternals">adamdriscoll/PoshInternals: A pure script-based PowerShell module that provides deep system analysis and configuration.</a><br/>
+<h2>file text replacement using powershell</h2>
+<pre>
+(Get-Content file.sql).replace('REPLACETEXT', 'VALUE') | Set-Content file.sql
+</pre>
+<br/>
+<br/>
+<a href="https://grumpyneteng.com/powershell-httpsssl-and-self-signed-certificates/">PowerShell, HTTPS/SSL, and Self-Signed Certificates | The musings of a network engineer</a> - provides some code for ignoring issues with HTTPS certs and powershell.<br/>
+    <div style="border: 1px;">
+    Created: 2008-02-10 20:51:46
+    Modified: 2020-02-14 00:48:46
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+\begin{bmatrix} 1 & 0 & \ldots & 0 \\
+                0 & 1 & 0 & \vdots \\
+                \vdots & 0 & \ddots & 0\\
+                0 & \ldots &  0 & 1_{n}
+\end{bmatrix}
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,327 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>Fonts - type face or in other words text that looks aesthetically pleasing.</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/random-technology/">random-technology</a>
+    <h1>Fonts - type face or in other words text that looks aesthetically pleasing.</h1>
+   I have a tendency to look past the fonts I use.  I am pretty lame when it comes to selecting the proper typeface to make content look good.  Something I need to work on.  There are others, who are very keen about font selection.  These people have a gift, but they are also cursed to complain and whine about everyone else's use of fonts. :)<br/>
+<br/>
+<br/>
+<a href="http://www.google.com/get/noto/#/">Google Noto Fonts</a> - a free font typeface for all languages?! Google’s font family that aims to support all the world’s languages. Its design goal is to achieve visual harmonization across languages. Noto fonts are under Apache License 2.0.<br/>
+<a href="http://brick.im/">Brick. Webfonts that actually look good.</a><br/>
+<a href="http://www.google.com/fonts/">Google Fonts</a><br/>
+<a href="http://famousfonts.smackbomb.com/">Famous Fonts - Fonts you recognize, FREE for download! - famousfonts.smackbomb.com</a><br/>
+<a href="http://www.proggyfonts.com/index.php?menu=download">Proggy Programming Fonts</a><br/>
+<a href="http://www.retroprogramming.com/2010/05/10-alternative-monospace-fonts-for.html">Retro Programming: 10 Alternative Monospace Fonts for Programmers</a><br/>
+<a href="http://www.retroprogramming.com/2010/04/classic-home-computer-fonts.html">Retro Programming: Classic Home Computer Fonts</a><br/>
+<a href="http://fortawesome.github.io/Font-Awesome/">Font Awesome, the iconic font designed for Bootstrap</a><br/>
+<a href="http://www.behance.net/gallery/FRUSTRO-typeface/2525513">FRUSTRO typeface on Behance</a> - reminds me of <a href="/tech-talk/science-and-math/422-optical-tricks-and-illusions">mc. escher</a><br/>
+<br/>
+<br/>
+<a href="http://www.glyphrstudio.com/">Glyphr Studio, the free HTML5 based font editor</a><br/>
+<a href="http://fittextjs.com/">FitText - A plugin for inflating web type</a><br/>
+<a href="https://github.com/davatron5000/Lettering.js">davatron5000/Lettering.js</a> - Individual Letter Control with Lettering.js<br/>
+<a href="http://fontello.com/">Fontello - icon fonts generator</a><br/>
+<br/>
+<br/>
+<a href="https://launchpad.net/cttf">cTTF in Launchpad</a> - from Jasper <a href="http://llbit.se/">llbit</a><br/>
+<a href="http://en.wikipedia.org/wiki/Mojibake">Mojibake - Wikipedia, the free encyclopedia</a> - ???? presentation of incorrect, unreadable characters when software fails to render text correctly.<br/>
+<a href="http://stackoverflow.com/questions/2708958/differences-between-utf8-and-latin1">mysql - Differences between utf8 and latin1 - Stack Overflow</a> - UTF-8 is prepared for world domination, Latin1 isn't.<br/>
+<h2>Unicode notes</h2>
+Yes, you came for for information on fonts that look aesthetically pleasing, font nerds, so you won't mind this unicode foray.<br/>
+<a href="http://www.johndcook.com/greek_letters.html">The blog of John D. Cook - Greek letters in HTML, XML, TeX, and Unicode</a><br/>
+<a href="http://www.johndcook.com/unicode.html">The blog of John D. Cook - Unicode resources</a><br/>
+<a href="http://www.unicode.org/charts/">Code Charts</a><br/>
+<a href="http://shapecatcher.com/index.html">Shapecatcher.com: Unicode Character Recognition</a><br/>
+<a href="http://detexify.kirelabs.org/classify.html">Detexify LaTeX handwritten symbol recognition</a><br/>
+<a href="http://inamidst.com/stuff/unidata/">Unicode Codepoint Chart</a><br/>
+<a href="http://www.fileformat.info/tip/microsoft/enter_unicode.htm">How to enter Unicode characters in Microsoft Windows</a><br/>
+<a href="http://www.utf8everywhere.org/">UTF-8 Everywhere</a><br/>
+
+<a href="http://site.icu-project.org/home">ICU - International Components for Unicode</a><br/>
+<a href="http://userguide.icu-project.org/howtouseicu">How To Use ICU - ICU User Guide</a><br/>
+<a href="https://github.com/julp/ugrep">julp/ugrep · GitHub</a> - [C] [BSD] ICU based implementation of grep to deal with differents codepages/encodings<br/>
+<a href="https://bitbucket.org/sergiu">sergiu — Bitbucket</a> - has the icu cmake, wtl, open debug visualizers....nice bitbucket sergui!<br/>
+<a href="http://alfps.wordpress.com/2011/11/22/unicode-part-1-windows-console-io-approaches/">Unicode part 1: Windows console i/o approaches | Alf on programming (mostly C++)</a>, lots of other great C++/unicode content in the other articles in the blog <a href="http://alfps.wordpress.com/">Alf on programming (mostly C++) | Just another WordPress.com site</a><br/>
+<a href="http://lucumr.pocoo.org/2013/7/2/the-updated-guide-to-unicode/">The Updated Guide to Unicode on Python | Armin Ronacher's Thoughts and Writings</a><br/>
+<a href="http://search.cpan.org/~bdfoy/Unicode-Tussle-1.04/lib/Unicode/Tussle.pm">Unicode::Tussle - search.cpan.org</a><br/>
+<br/>
+<br/>
+<h2>Unicode 7.0 - is everyone excited?!</h2>
+<a href="http://www.unicode.org/versions/Unicode7.0.0/">Unicode 7.0.0</a> - This version supersedes all previous versions of the Unicode Standard.<br/>
+<a href="http://unicode-inc.blogspot.com/2014/06/announcing-unicode-standard-version-70.html">The Unicode Blog: Announcing The Unicode Standard, Version 7.0</a><br/>
+<a href="https://en.wikipedia.org/wiki/Linear_A">Linear A - Wikipedia, the free encyclopedia</a><br/>
+<br/>
+<br/>
+<h2>BOMs | byte order marks</h2>
+<a href="http://www.powershellmagazine.com/2012/12/17/pscxtip-how-to-determine-the-byte-order-mark-of-a-text-file/">PowerShell Magazine » #PSCXTip How to determine the byte order mark of a text file</a><br/>
+<pre>
+UTF-8       : 0xEF 0xBB 0xBF
+UTF-16LE    : 0xFF 0xFE
+</pre>
+<a href="http://blogs.msdn.com/b/michkap/">Sorting it all Out (Michael Kaplan's random stuff of dubious value)</a><br/>
+<br/>
+<br/>
+<iframe src="http://player.vimeo.com/video/65353988?title=0&amp;byline=0&amp;portrait=0&amp;color=EA2200" width="400" height="300" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+<br/>
+<br/>
+<h2>Multilingual software || Internationalization and localization || gettext || i18n </h2>
+<a href="http://en.wikipedia.org/wiki/Internationalization_and_localization">Internationalization and localization - Wikipedia</a><br/>
+<a href="http://www.gnu.org/software/gettext/">gettext - GNU Project - Free Software Foundation (FSF)</a><br/>
+<a href="http://slexaxton.github.io/Jed/">Jed | Gettext Style i18n for Modern JavaScript Apps</a><br/>
+gettext
+    <div style="border: 1px;">
+    Created: 2011-03-27 16:25:11
+    Modified: 2014-08-28 21:51:49
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+\begin{bmatrix} 1 & 0 & \ldots & 0 \\
+                0 & 1 & 0 & \vdots \\
+                \vdots & 0 & \ddots & 0\\
+                0 & \ldots &  0 & 1_{n}
+\end{bmatrix}
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

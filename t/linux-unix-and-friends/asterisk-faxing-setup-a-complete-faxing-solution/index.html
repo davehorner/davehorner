@@ -1,0 +1,462 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>Asterisk faxing - Setup a complete faxing solution!</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/linux-unix-and-friends/">linux-unix-and-friends</a>
+    <h1>Asterisk faxing - Setup a complete faxing solution!</h1>
+   <h2>Faxing within Asterisk</h2>
+<p> Faxing with Asterisk can be problematic.&nbsp; Right now all (Oct-2005) most Asterisk hardware doesn't support faxing directly.&nbsp; So, you have to actually implement a soft fax modem.&nbsp; Asterisk uses <a target="_blank" href="http://soft-switch.org/">spandsp</a> for implementing the actual modem.<br/>
+<br/>
+I'm not writing to document how to actually use the fax applications within Asterisk.&nbsp; For that look at <a target="_blank" href="http://scottstuff.net/blog/articles/2004/03/28/faxing-with-asterisk">Faxing With Asterisk</a> I think it does a pretty good job of detailing how to use it. <br/>
+<br/>
+However, I would like to comment on how to preprocess the tiffs that you want to send.&nbsp; Many times you've got tiffs that aren't fax compliant.&nbsp; I created a quick perl script that concats multiple tiff files together and makes sure they are fax compliant.&nbsp; In fact, much of this code was developed by looking at how HylaFax preprocessed their tiffs.<br/>
+<br/>
+Of course you'll want to modify this script for your own purposes it.&nbsp; It requires perl, tiffcp, ghostscript, tiff2ps, and the Asterisk::Outgoing module for perl.&nbsp; <br/>
+<br/>
+Again, this script is used to insure that the tiffs you want to send are fax compliant.&nbsp; It creates a temporary tiff for sending and creates a call file for Asterisk to process the fax file.<br/>
+<pre>
+#!/usr/bin/perl
+
+# Author: David A horner (DAH) http://dave.thehorners.com
+# License: Public Domain
+
+use Getopt::Std;
+use Asterisk::Outgoing;
+require File::Temp;
+use File::Temp ();
+use strict;
+
+# handle args
+my %opts;
+getopts('a:l:p:r:u:', \%opts );
+
+my $faxnumber=shift(@ARGV);
+usage('Missing faxnumber') unless $faxnumber;
+print &quot;Fax number: $faxnumber\n&quot;;
+
+#my $tmpp=pop(@ARGV);
+#push(@ARGV, &quot;/tmp/fax.tif&quot;);
+#push(@ARGV, $tmpp);
+usage('You must have at least one tiff file to send') unless $ARGV[0];
+print &quot;Sending fax files:\n&quot;;
+foreach (@ARGV) {
+&nbsp;&nbsp; print &quot;$_\n&quot;;
+}
+my $tmpfile = new File::Temp(UNLINK =&gt; 0, SUFFIX =&gt; &quot;.tfax&quot;);
+my $faxfile = new File::Temp(UNLINK =&gt; 0, SUFFIX =&gt; &quot;.fax&quot;);
+print &quot;Filename is $tmpfile\n&quot;;
+#-c g3:2d:fill
+print &quot;Running: tiffcp -i -c g3:1d:fill -f lsb2msb -r 9999 @ARGV $tmpfile\n&quot;;
+###system(&quot;tiffcp -c g3:2d:fill -f lsb2msb -s @ARGV $tmpfile&quot;);
+system(&quot;tiffcp -i -c g3:1d:fill -f lsb2msb -r 9999 @ARGV $tmpfile&quot;);
+print &quot;DONE WITH TIFFCP!\n&quot;;
+my $vres=98;
+my $hres=203.29;
+my $paper='letter';
+print &quot;RUNNING: /usr/bin/tiff2ps -a $tmpfile | /usr/bin/gs -q -sDEVICE=tiffg3 -dNOPAUSE -dSAFER=true -sPAPERSIZE=$paper -dFIXEDMEDIA -r&quot;.$hres.&quot;x&quot;.$vres.&quot; \&quot;-sOutputFile=$faxfile\&quot;&nbsp; -\n&quot;;
+system(&quot;/usr/bin/tiff2ps -a&nbsp; $tmpfile | /usr/bin/gs -q -sDEVICE=tiffg3 -dNOPAUSE -dSAFER=true -sPAPERSIZE=$paper -dFIXEDMEDIA -r&quot;.$hres.&quot;x&quot;.$vres.&quot; \&quot;-sOutputFile=$faxfile\&quot;&nbsp; -&quot;) ;
+print &quot;DONE WITH GS!\n&quot;;
+#usage('Missing faxnumber') unless $opts{'r'};
+#usage('pages of the tiff file')&nbsp; unless $opts{'l'};
+
+my $out = new Asterisk::Outgoing;
+$out-&gt;setvariable(&quot;Channel&quot;,&quot;ZAP/G1/$faxnumber&quot;);
+$out-&gt;setvariable(&quot;MaxRetries&quot;,&quot;30&quot;);
+$out-&gt;setvariable(&quot;WaitTime&quot;,&quot;100&quot;);
+$out-&gt;setvariable(&quot;Application&quot;,&quot;txfax&quot;);
+$out-&gt;setvariable(&quot;Data&quot;,&quot;$tmpfile|caller&quot;);
+foreach my $var (keys %{$out-&gt;{OUTVARS}}) {
+&nbsp;&nbsp; print &quot;$var: &quot; . $out-&gt;{OUTVARS}{$var} . &quot;\n&quot;;
+}
+
+$out-&gt;create_outgoing;
+print &quot;DONE WITH OUTGOING!\n&quot;;
+exit;
+
+sub usage {
+&nbsp;&nbsp;&nbsp; print &quot;\n!! &quot;, @_, &quot; !!\n&quot;;
+&nbsp;&nbsp;&nbsp; print &lt;&lt;USAGE;
+Usage: $0 [options] &lt;fax-number&gt; &lt;page(s) in g3-format&gt;
+USAGE
+&nbsp;&nbsp;&nbsp; exit 1;
+}
+</pre>
+<br/>
+In the future I'll post some other scripts for processing faxes when they come in.&nbsp; These scripts save off the tiff and email the user with the tiff that came in.<br/>
+----<br/>
+Now these scripts assume that you've already installed the app_rxfax and app_txfax that are included with the spandsp.<br/>
+<br/>
+You should add a file named &quot;faxextensions&quot; to your /etc/asterisk/ directory and include this file in your asterisk extensions.<br/>
+<pre>
+; Author: David A horner (DAH) http://dave.thehorners.com
+; License: Public Domain
+;
+; (#include &lt;extensions/fax&gt;)
+; Recieve faxes and email em!
+; Make sure that /usr/local/sbin/mailfax exists and works!
+;
+
+; If you want fax detection(asterisk to put faxes into the fax ext)
+; Edit zapata.conf and add faxdetect=incoming,outgoing,or both
+
+; Used for debuging
+; exten =&gt; s,1,rxfax(/path_to_test_tiff/incoming.tif)
+
+; To define email address, use following in asterisk console
+; *CLI&gt; database put extensionemail companyname bob@example.com
+; Check if the email is correct by using
+; *CLI&gt; database show
+
+; Macro for recieving faxes
+[macro-faxreceive]
+exten =&gt; s,1,SetVar(FAXFILE=/var/spool/asterisk/faxes/${UNIQUEID}.tif)
+exten =&gt; s,2,DBGet(EMAILADDR=extensionemail/${ARG1})
+exten =&gt; s,3,rxfax(${FAXFILE})
+exten =&gt; s,103,SetVar(EMAILADDR=daveydave1234@yahoo.com)
+exten =&gt; s,104,Goto(3)
+
+[faxsend]
+exten =&gt; h,1,System(/usr/local/sbin/mailfax ${FAXFILE} ${EMAILADDR} &quot;${CALLERIDNUM} ${CALLERIDNAME}&quot;)
+exten =&gt; h,2,Hangup
+exten =&gt; i,1,Hangup&nbsp;&nbsp;&nbsp;&nbsp; ;invalid event
+exten =&gt; t,1,Hangup&nbsp;&nbsp;&nbsp;&nbsp; ;timeout event
+
+[incomingfax]
+exten =&gt; s,1,Macro(faxreceive,pbxsolutions)
+include =&gt; faxsend
+</pre>
+<br/>
+Here is the mailfax script that I wrote to process the actual tiff fax file and email it. The script requires mime-construct as well as tiff2ps (for pdf emails).<br/>
+<pre>
+#!/bin/sh
+
+# Author: David A horner (DAH) http://dave.thehorners.com
+# License: Public Domain
+
+FAXFILE=$1
+FILENAME=${FAXFILE:0:${#FAXFILE}-4}
+PDFFILE=${FILENAME}&quot;.pdf&quot;
+RECIPIENT=$2
+FAXSENDER=$3
+
+FROMADDR=FaxServer@FAXSERVERNAME.com
+FROMNAME=&quot;FAXSERVERNAME Faxserver&quot;
+BODY=&quot;Attached is your fax.&nbsp; Thank you for using FAXSERVERNAME!&quot;
+
+if [ &quot;${#@}&quot; -ne &quot;3&quot; ]; then
+&nbsp; echo &quot;$0 tifpath emailaddress faxsentfrom&quot;
+&nbsp; echo &quot;&nbsp; tifpath - path of tif to send&quot;
+&nbsp; echo &quot;&nbsp; emailaddress - email address's of recipients&quot;
+&nbsp; echo &quot;&nbsp; faxsentfrom - fax sender, put in subject line&quot;
+&nbsp; exit
+fi
+
+if [ -f $FAXFILE ]; then
+&nbsp; # Send file as plain tiff
+&nbsp; mime-construct --to $RECIPIENT --subject &quot;Fax from $FAXSENDER&quot; \
+&nbsp;&nbsp;&nbsp; --header &quot;From: \&quot;$FROMNAME\&quot; &lt;$FROMADDR&gt;$nl&quot; \
+&nbsp;&nbsp;&nbsp; --string &quot;$BODY&quot;\
+&nbsp;&nbsp;&nbsp; --attachment fax.tif --type application/tiff --file $FAXFILE
+
+&nbsp; # Send file as a pdf
+#&nbsp; tiff2ps -2eaz -w 8.5 -h 11 $FAXFILE | ps2pdf - | \
+#&nbsp; tiff2ps -2eaz $FAXFILE | ps2pdf - | \
+&nbsp; tiff2ps -2eaz -w 8.5 -h 11 $FAXFILE | ps2pdf - $PDFFILE
+&nbsp; mime-construct --to $RECIPIENT --subject &quot;Fax from $FAXSENDER&quot; \
+&nbsp;&nbsp;&nbsp; --header &quot;From: \&quot;$FROMNAME\&quot; &lt;$FROMADDR&gt;$nl&quot; \
+&nbsp;&nbsp;&nbsp; --string &quot;$BODY&quot;\
+&nbsp;&nbsp;&nbsp; --attachment fax.pdf --type application/pdf --file $PDFFILE
+else
+&nbsp; mime-construct --to $RECIPIENT --subject &quot;Fax error from $FAXSENDER&quot; \
+&nbsp;&nbsp;&nbsp; --header &quot;From: \&quot;$FROMNAME\&quot; &lt;$FROMADDR&gt;$nl&quot; \
+&nbsp;&nbsp;&nbsp; --string &quot;Fax not recieved correctly!&quot;
+fi
+</pre>
+Note: This script does not delete the resulting tif and pdf files.&nbsp; You can add an rm to the script yourself... or simply create a cron job to delete files that are older than X days.<br/>
+<br/>
+To use these script you now simply create a context like so:<br/>
+<pre>
+#include &lt;faxextensions&gt;
+
+;Faxline
+exten =&gt; XXXXXXX,1,Goto(faxlinecontext,100,1)
+exten =&gt; XXXXXXX,2,Congestion
+
+[faxlinecontext]
+exten =&gt; 100,1,Macro(faxreceive,companyname)
+include =&gt; faxsend
+</pre>
+<br/>
+Also just for easy access, here is a call file for sending a fax:<br/>
+<pre>
+Channel: Zap/g1/XXXXXXXXXX
+Callerid: &quot;faxing&quot; &lt;XXXXXXXXXX&gt;
+MaxRetries: 0
+Application: txfax
+Data: /var/spool/asterisk/faxes/sometiff.tif|caller
+Context: default
+Extension: s
+RetryTime: 60
+WaitTime: 60
+</pre>
+<br/>
+Until Asterisk supports T.38 relay of fax you'll want to do uncompressed ulaw between you and your PSTN connection.&nbsp; In fact, I wouldn't even try it without a direct PSTN connection, all my testing showed bad results when trying to do VOIP faxing.<br/>
+<br/>
+-----<br/>
+Update<br/>
+-----<br/>
+I've yet to try it...but here is a script to do email to fax conversions.&nbsp; This is software for doing a email to fax gateway that accepts both tiff and pdf.<br/>
+<a href="http://wpkg.org/email2fax/">email2fax</a></p>
+<br/>
+Another software solution that looks good is <a href="http://asterfax.sourceforge.net/" target="_blank">AsterFax</a>
+    <div style="border: 1px;">
+    Created: 2005-03-26 15:38:39
+    Modified: 2009-12-06 19:36:35
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+$$\cos x = \sum\limits_{n = 0}^\infty {\frac{{\left( { - 1} \right)^n x^{2n} }}{{\left( {2n} \right)!}}}$$
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

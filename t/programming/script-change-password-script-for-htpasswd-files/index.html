@@ -1,0 +1,389 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>SCRIPT: Change password script for htpasswd files.</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/programming/">programming</a>
+    <h1>SCRIPT: Change password script for htpasswd files.</h1>
+   Someday, I plan on setting up a SVN server for my personal projects.&nbsp; Until then, here is a quick script I wrote for changing your password.&nbsp; Just place this file in your web accessable folder.&nbsp; Update the path to your htpasswd file and make sure the htpasswd file is owned by the as user as the webserver.<br/>
+<br/>
+(note, you are opening yourself up to some security risks by doing this.... this means that if someone can upload and execute a script on your server.... they can add, change, and delete users from your htpasswd file.&nbsp; This may be OK, as it is for me in many cases.)<br/>
+<br/>
+<pre><br/>
+&lt;?<br/>
+///////////////////////////////////////////////////////////////////////<br/>
+// Change Htpasswd Script.<br/>
+///////////////////////////////////////////////////////////////////////<br/>
+// Quick script to change passwords for htpasswd files.<br/>
+//<br/>
+// Installation:<br/>
+//&nbsp;&nbsp; Simply copy this file into a directory that is web protected and<br/>
+// update the script to point to the path of your actual htpasswd file.<br/>
+// Also, insure that the webserver has read and write permissions.<br/>
+//<br/>
+// Author: David A. Horner (DAH) http://dave.thehorners.com<br/>
+// License: Public Domain<br/>
+///////////////////////////////////////////////////////////////////////<br/>
+if(!include('File/Passwd/Authbasic.php')) {<br/>
+&nbsp;&nbsp; echo &quot;Error, you must install some files into your pear configuration before continuing.&lt;br&gt;&quot;;<br/>
+&nbsp;&nbsp; echo &quot;At the commandline (you might want to be root, or anyone with access to pear)&lt;br&gt;&quot;;<br/>
+&nbsp;&nbsp; echo &quot;Run the following commands&lt;br&gt;&quot;;<br/>
+&nbsp;&nbsp; echo &quot;pear install Auth&lt;br&gt;&quot;;<br/>
+&nbsp;&nbsp; echo &quot;pear install File_Passwd&lt;br&gt;&quot;;<br/>
+&nbsp;&nbsp; exit();<br/>
+}<br/>
+<br/>
+$HTPASSWD_PATH = &quot;../htpasswd&quot;;<br/>
+$REDIRECT_URL = &quot;/&quot;;<br/>
+$MIN_PASSLEN = 6;<br/>
+$MAX_PASSLEN = -1;<br/>
+<br/>
+if(strlen($_SERVER[&quot;REMOTE_USER&quot;])==0) {<br/>
+&nbsp;&nbsp; echo &quot;Failed reading username from enviroment!&lt;br&gt;&quot;;<br/>
+&nbsp;&nbsp; echo &quot;This program must be run from within a protected HTTP directory!&quot;;<br/>
+&nbsp;&nbsp; exit(0);<br/>
+}<br/>
+$user=$_SERVER[&quot;REMOTE_USER&quot;];<br/>
+$save_changes=false;<br/>
+<br/>
+echo &quot;&lt;html&gt;&lt;head&gt;&lt;title&gt;Change Password Script&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&quot;;<br/>
+$passfile = new File_Passwd_Authbasic($HTPASSWD_PATH);<br/>
+$ret = $passfile-&gt;load();<br/>
+if(!PEAR::isError($ret)) {<br/>
+<br/>
+&nbsp;&nbsp; echo &quot;Hello $user, welcome to the password change script.&lt;br&gt;&quot;;<br/>
+<br/>
+&nbsp;&nbsp; $verified=false;<br/>
+&nbsp;&nbsp; if(strlen($_REQUEST[&quot;currpass&quot;])) {<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if($passfile-&gt;verifyPasswd($user,$_REQUEST[&quot;currpass&quot;])) {<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $verified=true;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } else {<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; echo &quot;Failed current password validation!&lt;br&gt;&quot;;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br/>
+&nbsp;&nbsp; }<br/>
+&nbsp;&nbsp; $confirmed=false;<br/>
+&nbsp;&nbsp; if(strlen($_REQUEST[&quot;newpass&quot;])) {<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if(strcmp($_REQUEST[&quot;newpass&quot;],$_REQUEST[&quot;newpass2&quot;])==0) {<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $confirmed=true;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } else {<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; echo &quot;Failed new password and confirmed password don't match!&quot;;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br/>
+&nbsp;&nbsp; } else if($verified) {<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; echo &quot;Failed you must supply a new password!&quot;;<br/>
+&nbsp;&nbsp; }<br/>
+<br/>
+&nbsp;&nbsp; if($verified &amp;&amp; $confirmed) {<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $passfile-&gt;changePasswd($user, $_REQUEST[&quot;newpass&quot;]);<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $save_changes=true;<br/>
+&nbsp;&nbsp; } else {<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; echo &quot;&lt;table border=0&gt;&quot;;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; echo &quot;&lt;tr&gt;&lt;td colspan=2 bgcolor=cccccc&gt;Change your password&lt;/td&gt;&lt;/tr&gt;&quot;;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; echo &quot;&lt;form method=\&quot;post\&quot; action=\&quot;$PHP_SELF\&quot;&gt;&quot;;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; echo &quot;&lt;tr&gt;&lt;td&gt;Verify Current Password: &lt;/td&gt;&quot;;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; echo &quot;&lt;td&gt;&lt;input type=\&quot;password\&quot; name=\&quot;currpass\&quot;&gt;&lt;/td&gt;&lt;/tr&gt;&quot;;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; echo &quot;&lt;tr&gt;&lt;td&gt;New Password: &lt;/td&gt;&quot;;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; echo &quot;&lt;td&gt;&lt;input type=\&quot;password\&quot; name=\&quot;newpass\&quot;&gt;&lt;/td&gt;&lt;/tr&gt;&quot;;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; echo &quot;&lt;tr&gt;&lt;td&gt;New Password Again(to confirm): &lt;/td&gt;&quot;;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; echo &quot;&lt;td&gt;&lt;input type=\&quot;password\&quot; name=\&quot;newpass2\&quot;&gt;&lt;/td&gt;&lt;/tr&gt;&quot;;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; echo &quot;&lt;tr&gt;&lt;td colspan=2&gt;&quot;;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; echo &quot;&lt;input type=\&quot;submit\&quot; name=\&quot;submit\&quot; value=\&quot;Change Pass\&quot;&gt;&quot;;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; echo &quot;&lt;input type=\&quot;hidden\&quot; name=\&quot;redirect\&quot; value=\&quot;true\&quot;&gt;&quot;;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; echo &quot;&lt;/td&gt;&lt;/tr&gt;&quot;;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; echo &quot;&lt;/form&gt;&quot;;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; echo &quot;&lt;/table&gt;&quot;;<br/>
+&nbsp;&nbsp; }<br/>
+<br/>
+/*<br/>
+&nbsp;&nbsp; if(strlen($_REQUEST[&quot;newuser&quot;]) &amp;&amp;&nbsp; $confirmed) {<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $newuser=$_REQUEST[&quot;newuser&quot;];<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $newpass=$_REQUEST[&quot;newpass&quot;];<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; echo &quot;Adding user $newuser with password $newpass...&lt;br&gt;&quot;;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $ret=$passfile-&gt;addUser($newuser,$newpass);<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if(!PEAR::isError($ret)) {<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; echo &quot;Added user successfully!&lt;br&gt;&quot;;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $save_changes=true;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } else {<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; echo &quot;Failed to add user to password file!&lt;br&gt;&quot;;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; echo &quot;(&quot;.$ret-&gt;getMessage().&quot;)&lt;br&gt;&quot;;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br/>
+&nbsp;&nbsp; } else {<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; echo &quot;&lt;table border=0&gt;&quot;;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; echo &quot;&lt;tr&gt;&lt;td colspan=2 bgcolor=cccccc&gt;Add new user&lt;/td&gt;&lt;/tr&gt;&quot;;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; echo &quot;&lt;form method=\&quot;post\&quot; action=\&quot;$PHP_SELF\&quot;&gt;&quot;;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; echo &quot;&lt;tr&gt;&lt;td&gt;New Username: &lt;/td&gt;&quot;;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; echo &quot;&lt;td&gt;&lt;input type=\&quot;text\&quot; name=\&quot;newuser\&quot;&gt;&lt;/td&gt;&lt;/tr&gt;&quot;;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; echo &quot;&lt;tr&gt;&lt;td&gt;New Password: &lt;/td&gt;&quot;;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; echo &quot;&lt;td&gt;&lt;input type=\&quot;password\&quot; name=\&quot;newpass\&quot;&gt;&lt;/td&gt;&lt;/tr&gt;&quot;;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; echo &quot;&lt;tr&gt;&lt;td&gt;New Password Again(to confirm): &lt;/td&gt;&quot;;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; echo &quot;&lt;td&gt;&lt;input type=\&quot;password\&quot; name=\&quot;newpass2\&quot;&gt;&lt;/td&gt;&lt;/tr&gt;&quot;;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; echo &quot;&lt;tr&gt;&lt;td colspan=2&gt;&quot;;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; echo &quot;&lt;input type=\&quot;submit\&quot; name=\&quot;submit\&quot; value=\&quot;Add User\&quot;&gt;&quot;;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; echo &quot;&lt;/td&gt;&lt;/tr&gt;&quot;;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; echo &quot;&lt;/form&gt;&quot;;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; echo &quot;&lt;/table&gt;&quot;;<br/>
+&nbsp;&nbsp; }<br/>
+*/<br/>
+<br/>
+&nbsp;&nbsp; if($save_changes) {<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; echo &quot;Saving password file...&lt;br&gt;&quot;;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $ret=$passfile-&gt;save();<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if(!PEAR::isError($ret)) {<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; echo &quot;Password file successfully updated!&lt;br&gt;&quot;;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if(isset($_REQUEST[&quot;redirect&quot;])) {<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; echo &quot;The browser will request your new username/password in 5 seconds....&lt;br&gt;&quot;;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; echo &quot;&lt;META HTTP-EQUIV=\&quot;Refresh\&quot; CONTENT=\&quot;5; URL=$REDIRECT_URL\&quot;&gt;&quot;;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } else {<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; echo &quot;Failed to write password file!&lt;br&gt;&quot;;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; echo &quot;(&quot;.$ret-&gt;getMessage().&quot;)&lt;br&gt;&quot;;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br/>
+&nbsp;&nbsp; }<br/>
+<br/>
+} else {<br/>
+&nbsp;&nbsp; echo &quot;Failed to open password file!&lt;br&gt;&quot;;<br/>
+&nbsp;&nbsp; echo &quot;(&quot;.$ret-&gt;getMessage().&quot;)&lt;br&gt;&quot;;<br/>
+}<br/>
+echo &quot;&lt;/body&gt;&lt;/html&gt;&quot;;<br/>
+&nbsp;&nbsp; //$users=$passfile-&gt;listUser();<br/>
+&nbsp;&nbsp; //print_r($users);<br/>
+?&gt;<br/>
+<br/>
+</pre><br/>
+    <div style="border: 1px;">
+    Created: 2006-05-03 10:53:21
+    Modified: 2006-05-03 10:54:00
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+left side represents the beginning of mathematics; the right side represents the mysteries of infinity.<br/>
+1=0.999...
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

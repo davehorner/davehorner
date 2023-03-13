@@ -1,0 +1,275 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>How old is...</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/windows/">windows</a>
+    <h1>How old is...</h1>
+   Sometimes, it is fun to think about how old things are...<br/>
+All of these dates are based upon general availability unless specified otherwise.<br/>
+<br/>
+<script>
+  var resource1 = document.createElement('script'); 
+  resource1.src = "//dave.thehorners.com/personal/js/moment.2.0.1.min.js";
+  var resource2 = document.createElement('script'); 
+  resource2.src = "//dave.thehorners.com/personal/js/livestamp.min.js";
+  var script = document.getElementsByTagName('script')[0];
+  script.parentNode.insertBefore(resource1, script);
+  script.parentNode.insertBefore(resource2, script);
+</script>
+how old is <a href="http://en.wikipedia.org/wiki/MS-DOS">MS-DOS</a> - August 1981 - <span data-livestamp="August 1981"></span><br/>
+how old is <a href="http://en.wikipedia.org/wiki/Windows_3.1x">Windows 3.1x</a> - April 6, 1992 - <span data-livestamp="April 6, 1992"></span><br/>
+how old is <a href="http://en.wikipedia.org/wiki/Windows_95">Windows 95</a> - August 24, 1995 - <span data-livestamp="August 24, 1995"></span><br/>
+how old is <a href="http://en.wikipedia.org/wiki/Windows_XP">Windows XP</a> - October 25, 2001 -<span data-livestamp="October 25, 2001"></span><br/>
+how old is <a href="http://en.wikipedia.org/wiki/Windows_Vista">Windows Vista</a> - January 30, 2007 -<span data-livestamp="January 30, 2007"></span><br/>
+how old is <a href="http://en.wikipedia.org/wiki/Windows_7">Windows 7</a> - October 22, 2009 - <span data-livestamp="October 22, 2009"></span><br/>
+how old is <a href="http://en.wikipedia.org/wiki/Windows_8.1#Windows_8.1">Windows 8</a> - October 26, 2012 - <span data-livestamp="October 26, 2012"></span><br/>
+<br/>
+<br/>
+If you are running software that is more than a decade old, that's great.  Just consider what a future release might bring....new features, security.  <strong>Too bad they end of life products huh?</strong><br/>
+<br/>
+<br/>
+<h2>Relative time libraries in javascript</h2>
+when making this page I thought for a moment about these relative time libraries.  I settled on moment.js with livestamp.js<br/>
+<a href="http://momentjs.com/">Moment.js | Parse, validate, manipulate, and display dates in javascript.</a><br/>
+<a href="http://mattbradley.github.io/livestampjs/">Livestamp.js - a simple, unobtrusive jQuery timeago plugin</a> - goes what timeago does with moment.js<br/>
+<a href="http://timeago.yarp.com/">timeago: a jQuery plugin</a> - Timeago is a jQuery plugin that makes it easy to support automatically updating fuzzy timestamps . You get to <em>use <a href="http://microformats.org/wiki/datetime-design-pattern">microformats</a></em> like the cool kids.<br/>
+<a href="https://github.com/pragmaticly/smart-time-ago">pragmaticly/smart-time-ago</a> - Smart Time Ago is a little jQuery library to update the relative timestamps in your document.<br/>
+    <div style="border: 1px;">
+    Created: 2013-09-10 03:52:12
+    Modified: 2014-04-09 22:39:14
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+left side represents the beginning of mathematics; the right side represents the mysteries of infinity.<br/>
+1=0.999...
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

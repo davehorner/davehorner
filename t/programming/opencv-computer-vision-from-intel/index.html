@@ -1,0 +1,352 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>OpenCV - Computer vision from Intel</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/programming/">programming</a>
+    <h1>OpenCV - Computer vision from Intel</h1>
+   <a href="http://sourceforge.net/projects/opencvlibrary/">OpenCV</a> is an open source vision library suitable for computer vision applications.  An added benefit is that the library makes use of Intel's integrated performance primitives so it's optimized for Intel hardware. :)<br/>
+<br/>
+I've used OpenCV for quite a few projects and I've been happy with the results.  The api takes some time to get used to...but it is well worth it.<br/>
+<br/>
+Also, it surprised me to see that 'opencv' is one of the more popular pages on my website.  I'm not sure why this is.  I can't say that this page the most content in the world.  Maybe, it is helping people find the few opencv tutorials and papers...but who knows.  Anyway, if you're in need of software development help, <a href="/contactme">please let me know</a>!  I enjoy imaging and vision work.  Thanks for stopping by!<br/>
+<br/>
+<a href="https://github.com/MSOpenTech/opencv">MSOpenTech/opencv</a> - build the opencv.sln using VS2012 or VS2013; MSOpenTech support for OpenCV WinRT<br/>
+The OpenCV CVS url is:<br/>
+:pserver:anonymous@opencvlibrary.cvs.sourceforge.net:/cvsroot/opencvlibrary opencv
+<br/>
+A good tutorial for linux based machines can be found here: <a href="http://www.tetraedre.com/download/opencv/opencv_tutorial.pdf">A BEGINNER'S TUTORIAL</a> by JERÂ?OME LANDRE.<br/>
+<a href="http://www.comp.leeds.ac.uk/vision/opencv/install-lin-ffmpeg.html">Leeds Guide To OpenCV - Installing OpenCV with ffmpeg</a><br/>
+<br/>
+A good tutorial on using OpenCV can be found below, a little windows build specific but good for starters.<br/>
+<a href="http://www.site.uottawa.ca/~laganier/tutorial/opencv+directshow/cvision.htm">A OpenCV tutorial by Robert Laganière</a><br/>
+<br/>
+Lagniere's research group is also doing some very nice <a href="http://www.site.uottawa.ca/research/viva/projects.html">projects</a>.<br/>
+<br/>
+A little background on the <a href="http://homepages.inf.ed.ac.uk/rbf/HIPR2/hough.htm">Hough Transform</a><br/>
+<br/>
+Look on google/yahoo for ICCV(international conference on computer  vision) and ECCV (European conference on computer vision) and you'll find some very good papers on computer vision.<br/>
+The very first publication about OpenCV was: <a href="http://doi.ieeecomputersociety.org/10.1109/CVPR.2000.854964">Intel's Computer Vision Library: Applications in Calibration, Stereo, Segmentation, Tracking, Gesture, Face and Object Recognition</a>.<br/>
+The latest one is <a href="http://www.intel.com/technology/itj/2005/volume09issue02/art03_learning_vision/p09_authors.htm">Latest</a><br/>
+<br/>
+A wonderful paper on:<br/>
+<a href="http://www.cs.ubc.ca/~lowe/papers/ijcv04.pdf">Distinctive image features from scale-invariant keypoints</a><br/>
+<br/>
+David Stavens' sample application and presentation on how to do optical flow using the OpenCV framework.  The great part is it also is a great example of how to read and write video files. <a href="http://ai.stanford.edu/~dstavens/cs223b/">Computing Optical Flow</a>  <br/>
+<br/>
+<a href="http://www.cse.unr.edu/~loss/projects.html">Course work</a> from Leandro Augusto Loss.<br/>
+<br/>
+<h2>Face Recognition || Face Detection || Face Finder</h2>
+<a href="http://www.dsp.utoronto.ca/~juwei/Publication/JuweiThesisUT04.pdf">Discriminant Learning for Face Recognition</a><br/>
+<a href="http://shkspr.mobi/blog/2014/06/which-painting-do-you-look-like-comparing-faces-using-python-and-opencv/">Which Painting Do You Look Like? Comparing Faces Using Python and OpenCV ? Terence Eden's Blog</a><br/>
+<br/>
+<h2>Papers that use OpenCV</h2>
+<a href="http://students.sabanciuniv.edu/~ozkeskin/MicroAssembly/Report/Internship%20Report%20-%20Computer%20Vision.pdf">Computer Vision in Microassembly Workstation</a><br/>
+<a href="http://aass.oru.se/~han/papers/hatd_iav2004.pdf">TOPOLOGICAL LOCALIZATION FOR MOBILE ROBOTS USING OMNI-DIRECTIONAL VISION AND LOCAL FEATURES</a><br/>
+
+<a href="http://www.cs.iit.edu/~agam/cs512/lect-notes/opencv-intro/opencv-intro.html#SECTION00032000000000000000">Introduction to programming with OpenCV</a><br/>
+<br/>
+<h2>Building OpenCV from CVS</h2>
+I'm a firm believer in code management through code revisioning... so I like to develop on the trunk.<br/>
+<br/>
+To checkout the opencv library, check out the code using the pserver (why haven't we switched to SVN?!):
+:pserver:anonymous@opencvlibrary.cvs.sourceforge.net:/cvsroot/opencvlibrary open<br/>
+<br/>
+<a href="http://opencvlibrary.sourceforge.net/Mac_OS_X_OpenCV_Port">Mac OS X OpenCV Port</a>
+If you use the above information, you might want to add the following to your environment so that you can use the pkg-config.<br/>
+<pre>
+export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
+</pre>
+<br/>
+<a href="http://www.christophseibert.de/weblog/en/it/computer-vision/tools/opencv-mac.html">OpenCV on Mac OS X</a><br/>
+<br/>
+<a href="http://wwwradig.in.tum.de/people/wimmerm/se/project.eyefinder/">Project EyeFinder</a><br/>
+<a href="http://wwwx.cs.unc.edu/~gb/wp/blog/2007/02/04/python-opencv-wrapper-using-ctypes/">Python OpenCV wrapper using ctypes</a><br/>
+<a href="http://www.codeproject.com/useritems/iss.asp">codeproject.com: Intelligent Screen Saver</a> - opencv used from .net wrapper.<br/>
+<br/>
+<h2>Building directshow portion of OpenCV</h2>
+Make sure to install the Windows SDK (not old platform SDK).<br/>
+Build "C:\Program Files\Microsoft SDKs\Windows\v6.0\Samples\Multimedia\DirectShow\dshowsamples.sln" for debug and release.<br/>
+Add "C:\Program Files\Microsoft SDKs\Windows\v6.0\Samples\Multimedia\DirectShow\BaseClasses" to your global include path.<br/>
+Add "C:\Program Files\Microsoft SDKs\Windows\v6.0\Samples\Multimedia\DirectShow\BaseClasses\Debug" and "C:\Program Files\Microsoft SDKs\Windows\v6.0\Samples\Multimedia\DirectShow\BaseClasses\Release" to your global library path.<br/>
+If you get an error: "syntax error : identifier 'CAMSchedule'" is has to do with search order and precedence.  Move your include path for the sample above the normal SDK include path.<br/>
+<a href="http://forums.microsoft.com/MSDN/ShowPost.aspx?PostID=1714501&SiteID=1">Re: Base classes compile problem with Vista SDK - MSDN Forums</a><br/>
+Then, you might also get some errors on the gl\glaux.h include, this file was removed from the Windows SDK...it used to be in the platform SDK.  Comment it out, it should compile file.<br/>
+<a href="http://note.sonots.com/index.php?SciSoftware%2Fhaartraining">Tutorial: OpenCV haartraining (Rapid Object Detection With A Cascade of Boosted Classifiers Based on Haar-like Features) - Naotoshi Seo</a><br/>
+<a href="http://face.urtho.net/">Urtho's face detection & normalization project</a><br/>
+<br/>
+<a href="http://www.vrac.iastate.edu/575x/S07/doku.php?id=#miscellaneous_links">HCI/ComS 575x: Computational Perception, Spring 2007</a><br/>
+<br/>
+<br/>
+<a href="http://www.emgu.com/wiki/index.php/Main_Page">Main Page - Emgu CV: OpenCV in .NET (C#, VB, C++ and more)</a><br/>
+<br/>
+<br/>
+How cool is that...someone got opencv statically built and working on the iphone.  Great, the xcode project just worked for me! ;)<br/>
+<a href="http://github.com/niw/iphone_opencv_test/tree/master">niw's iphone_opencv_test at master - GitHub</a><br/>
+<br/>
+<a href="http://someoneknows.wordpress.com/2009/01/09/ccckc-computer-vision-study-group/">OpenCV – Computer Vision Study Group. « Someoneknows</a><br/>
+<br/>
+<a href="http://redkiing.wordpress.com/2011/03/02/capture-video-with-opencv-and-videoinput-windows-only/">Capture Video with OpenCV and VideoInput (Windows only) | Rodrigo's Blog</a><br/>
+<a href="http://redkiing.wordpress.com/2010/10/03/opencv-and-visual-studio-2010-with-cmake/">Start coding with OpenCV and VS2010 in no time | Rodrigo's Blog</a><br/>
+<a href="http://redkiing.wordpress.com/2011/12/18/the-cotbledtcid-approach-to-object-detection-and-pose-estimation-part-i-preface/">The COTBLEDTCID approach to object detection and pose estimation, Part I – Preface | Rodrigo's Blog</a><br/>
+<a href="http://redkiing.wordpress.com/2012/01/08/the-cotbledtcid-approach-to-object-detection-and-pose-estimation-part-v-circles-detection/">The COTBLEDTCID approach to object detection and pose estimation, Part V – Circles detection | Rodrigo's Blog</a><br/>
+<br/>
+<a href="http://trandi.wordpress.com/2012/10/13/physical-face-following-with-opencv-on-android/#more-1049">Physical Face Following with OpenCV on Android | Robotics / Electronics / Physical Computing</a><br/>
+<br/>
+<br/>
+<a href="https://github.com/jayrambhia/Install-OpenCV">jayrambhia/Install-OpenCV · GitHub</a> - shell scripts to install different version of OpenCV in different distributions of Linux<br/>
+<a href="http://simplecv.org/">SimpleCV</a><br/>
+<a href="https://github.com/sightmachine/SimpleCV#ubuntu-1204">sightmachine/SimpleCV · GitHub</a><br/>
+<a href="https://github.com/wg-perception">wg-perception</a><br/>
+<a href="https://github.com/wg-perception/libmv">wg-perception/libmv</a> The multi-view reconstruction library (*LIBMV NOW BLENDER'S MATCHMOVING BACKEND!)<br/>
+<a href="https://code.google.com/p/libmv/">libmv - a structure from motion library - Google Project Hosting</a><br/>
+<a href="https://github.com/wg-perception/sim">wg-perception/sim</a> - VTK camera simulator useful for ground truth data generation<br/>
+<a href="http://www.thisismyrobot.com/2010/04/hand-isolation-in-opencv.html">thisismyrobot: Hand isolation in OpenCV</a><br/>
+<a href="http://sundararajana.blogspot.com/2007/05/motion-detection-using-opencv.html">Tips: Motion Detection using OpenCV</a><br/>
+<br/>
+<br/>
+<a href="https://github.com/kylemcdonald/ofxCv">kylemcdonald/ofxCv</a> - Alternative approach to interfacing with OpenCv from openFrameworks.<br/>
+<a href="https://github.com/kylemcdonald/FaceTracker">kylemcdonald/FaceTracker</a> - Real time deformable face tracking in C++ with OpenCV 2.<br/>
+<a href="https://github.com/kylemcdonald/ofxFaceTracker">kylemcdonald/ofxFaceTracker</a> - ASM face tracking addon based on Jason Saragih's FaceTracker.<br/>
+<a href="http://www.smallbulb.net/2013/351-opencv-convert-projection-matrix-to-maps">OpenCV – convert projection matrix to maps | welcome to the world of...</a><br/>
+<br/>
+<br/>
+<a href="https://github.com/openalpr/openalpr">openalpr/openalpr: Automatic License Plate Recognition library</a><br/>
+    <div style="border: 1px;">
+    Created: 2005-05-09 00:55:42
+    Modified: 2016-03-03 00:51:21
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+left side represents the beginning of mathematics; the right side represents the mysteries of infinity.<br/>
+1=0.999...
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

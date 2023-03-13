@@ -1,0 +1,332 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>Beer - Drinking, brewing, and study of beer.</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/biology-math-science/">biology-math-science</a>
+    <h1>Beer - Drinking, brewing, and study of beer.</h1>
+   I have to say, when I first drank beer.  I didn't like the taste.  In fact it is surprised me how nasty it tasted.  Over the years, I have developed a taste for it.  I like flavored beers like blue moon and hornsbys a lot.  But I also enjoys many other good beers.<br/>
+<br/>
+<strong>Brewing beer</strong><br/>
+My friend gave me a beer brewing kit.  It included everything to brew your own beer.  The 2 can mix was a Muntons Gold 40 pint beerkit.  This is a continental pilsner with and estimated alcohol content of approx 4.5%.  The bottom of the box had an expiration date of 12-31-04 so I'm not sure how it'll taste, but no sense in wasting.  I just made sure to buy a new batch of yeast.  The yeast was 11g of brewing yeast called "Nottingham" which is GMO and Gulten free.<br/>
+<br/>
+Brewing beer is not a hard thing to do.  It is a chemistry experiment and I will be drinking the results so extreme care was taken to ensure no contamination.  It is just a few steps for the entire process.  Waiting for the water to boil is where most of your time is spent.  Sanitizing and cleanup is a large time sink as well.<br/>
+<br/>
+<hr/>
+<strong>Gravity Measurements</strong><br/>
+Dec-29th 5pm<br/>
+Orginal gravity: 1.060<br/>
+Jan-12th 12:30pm<br/>
+Gravity reading #1: 1.014<br/>
+Jan-30th 7:00pm<br/>
+Final Gravity reading: 1.013<br/>
+<hr/>
+Now that I have the final gravity, I can calculate the numbers on chol content...<br/>
+<table width=50% border=1>
+<tr align="center" valign="top">
+		<th><br/></th>
+		<th>Starting</th>
+		<th>Apparent Final</th>
+		<th>Real Final</th>
+	</tr>
+	<tr align="center">
+		<th>Specific Gravity</th>
+		<td>1.06</td>
+		<td>1.013</td>
+		<td>1.021</td>
+	</tr>
+	<tr align="center">
+		<th>Degrees Plato</th>
+		<td>14.77</td>
+		<td>3.35</td>
+		<td>5.41</td>
+	</tr>
+	<tr align="center">
+		<td><br/></td>
+		<th>Alcohol % (wt/wt)</th>
+		<th>Alcohol % (vol/vol)</th>
+		<th>kcals (12 oz serving)</th>
+	</tr>
+	<tr align="center">
+		<td><br/></td>
+		<td>4.9</td>
+		<td>6.13</td>
+		<td>198</td>
+	</tr>
+</table>
+
+<br/>
+I decided to timelapse the yeast doing their thang.  Should result in some neato results.  I will post them when I process the em.<br/>
+<br/>
+<strong>Camera drivers</strong><br/>
+This is more for me since I needed to install them.  But these are the cameras I used...<br/>
+<a href="http://www.logitech.com/index.cfm/435/278&cl=us,en">Logitech > Support + Downloads > Downloads > Webcams > QuickCamÂ® Fusionâ?¢</a><br/>
+<br/>
+<strong>Project Update - Jan-12-2008</strong><br/>
+A big thank you to Karl Landmeier.  I would not have even tried this project if it weren't for Karl.  He pretty much walked me through each step.  Making it easy.  Thank you!<br/>
+<br/>
+I'm excited to see what it is going to taste like when it is done.  Today it tasted with a sweet taste.  It was flat, but this is to be expected with a fermenting beer.  We are going to let it sit for a bit longer.<br/>
+<br/>
+<a href="http://recipes.howstuffworks.com/question532.htm">Howstuffworks "How do brewers measure the alcohol in beer?"</a><br/>
+<a href="http://www.realbeer.com/library/beerbreak/archives/beerbreak0301.php">Realbeer.com: Beer Break - Calculating Alcohol Content</a><br/>
+<a href="http://www.realbeer.com/hops/kcalc_js.html">Javascript Beer Specs Calculator</a><br/>
+<br/>
+<br/>
+<strong>Project Update - Jan-30-2008</strong><br/>
+The beer project comes to a close!  We bottled all 46 bottles of the brew today.  The beer tasted much better, much less sweet.  It now tasted more like something that you'd actually buy.  Though the beer was still warm and flat.  I think the carbonation is going to make it taste much better.<br/>
+<br/>
+Beer bottling does take some time to do just because you've got to carefully sanitize everything (each bottle/gear).  I also thought the beer filler wand I got was really neat.  You fill bottles by depressing the wand within the bottle.  When you pull the wand out of the bottle, it gives you the correct head space.  Very simple and cool.<br/>
+<br/>
+The capping process was pretty easy too.<br/>
+<br/>
+Now all that's left to do is wait about 2 weeks for fermentation!<br/>
+<br/>
+<br/>
+<br/>
+<a href="http://en.wikipedia.org/wiki/William_Sealy_Gosset">William Sealy Gosset - Wikipedia, the free encyclopedia</a><br/>
+<a href="http://www.johndcook.com/blog/2008/06/27/wine-beer-and-statistics/">John D. Cook - Wine, Beer, and Statistics — The Endeavour</a><br/>
+William Gosset discovered the t-distribution while working for the Guinness brewing company. Because his employer prevented employees from publishing papers, Gosset published his research under the pseudonym Student. That’s why his distribution is often called Student’s t-distribution.<br/>
+<br/>
+<h2>Kombucha</h2>
+<a href="http://en.wikipedia.org/wiki/Kombucha">Kombucha - Wikipedia, the free encyclopedia</a><br/>
+<a href="http://www.element14.com/community/blogs/bioboardblog">element14: [Noisebridge]BioBoard blog</a><br/>
+<a href="https://www.noisebridge.net/wiki/BioBoard">BioBoard - Noisebridge</a><br/>
+    <div style="border: 1px;">
+    Created: 2007-12-30 13:30:31
+    Modified: 2011-11-21 11:34:32
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+0, 1, 1, 2, 3, 5, 8, 13, 21, 34,...<br/>
+<b> x<sub>n</sub> = x<sub>n-1</sub> + x<sub>n-2</sub></b><br/>
+<!-- "Fibonacci" was his nickname, which roughly means "Son of Bonacci". -->
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

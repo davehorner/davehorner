@@ -1,0 +1,484 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>Cosmology - beauty in the infinite.</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/biology-math-science/">biology-math-science</a>
+    <h1>Cosmology - beauty in the infinite.</h1>
+   It has been said that astronomy is <strong>a humbling and character-building experience.</strong> - Carl Sagan Pale Blue Dot<br/> 
+<div class="g-post" data-href="https://plus.google.com/105725977711317285348/posts/BGDkpbM3CQ7"></div><br/>
+<a href="http://www.stsci.edu/institute/atlast">Advanced Technology Large-Aperture Space Telescope</a> - I love engineering acronyms, ATLAST might be one of the best ever.<br/>
+<a href="https://medium.com/the-physics-arxiv-blog/616604888336">If An Alien Earth Had Alien Chlorophyll, Could We Spot It? — The Physics arXiv Blog — Medium</a> - ATLAST we might.<br/>
+<br/>
+<br/>
+<a href="http://www.nasaimages.org/">NASA Images</a><br/>
+<a href="http://hubblesite.org/">http://hubblesite.org/</a><br/>
+<a href="http://www.deepastronomy.com/how-to-destroy-earth-with-a-coffee-can.html">deepastronomy.com: How to Destroy the Earth With a Coffee Can</a><br/>
+<a href="http://www.nytimes.com/2008/02/15/science/space/15planets.html?_r=1&ref=us&oref=slogin">Smaller Version of the Solar System Is Discovered - New York Times</a><br/>
+<a href="http://www.msnbc.msn.com/id/24473708/">Relive NASA’s glory days in glorious HD - Space- msnbc.com</a><br/>
+<a href="http://www.space.com/scienceastronomy/091209-saturn-hexagon.html">SPACE.com -- Saturn's Weird Hexagon Seen in New Images</a><br/>
+<br/>
+<br/>
+What would it be like to live in different gravities in space?<br/>
+<a href="http://blog.wired.com/wiredscience/2008/05/nasa-offers-500.html">NASA Offers $5000 a Month For You to Lie in Bed | Wired Science from Wired.com</a><br/>
+<a href="http://stellarium.sourceforge.net/">Stellarium</a> - Stellarium is a free open source planetarium for your computer. equatorial & azimuthal grids,shooting stars, eclipse & supernovae simulation<br/>
+<a href="https://code.google.com/p/osgephemeris/">osgephemeris - An ephemeris model for use with OpenSceneGraph - Google Project Hosting</a> - virtual environment for the sky, sun, moon, planets and stars<br/>
+
+<br/>
+<br/>
+<a href="http://www.semiconductorfilms.com/root/Brilliant_Noise/BNoise.htm">Brilliant Noise</a> - neat video/sound coming from the sun.<br/>
+<a href="http://www.santafenewmexican.com/HealthandScience/LANL_scientist_makes_radio_waves_travel_faster_than_light">LANL scientist makes radio waves travel faster than light</a><br/>
+<br/>
+<br/>
+The following image is so cool.  Makes me wonder if out there somewhere is the perfect cosmic 101 picture. :)<br/> 
+<a href="http://www.space.com/scienceastronomy/081030-hubble-perfect.html">SPACE.com -- Hubble Telescope Photographs a Perfect Cosmic 10</a><br/>
+<a href="http://hubblesite.org/newscenter/archive/releases/2008/37/image/a/"><img src="http://imgsrc.hubblesite.org/hu/db/images/hs-2008-37-a-web.jpg" border="0" alt="perfect cosmic 10"/></a><br/>
+<a href="http://www.wired.com/wiredscience/2010/02/hubble-asteroid-crash/">Hubble Spots First Potential Asteroid Collision | Wired Science | Wired.com</a><br/>
+<img src="http://www.wired.com/images_blogs/wiredscience/2010/02/nasa-x.jpg" alt=""/>
+<br/>
+<br/>
+I don't know why it struck me as so funny....but it might be useful in unit tests.<br/>
+<a href="http://www.hasthelhcdestroyedtheearth.com/">Has the Large Hadron Collider destroyed the earth yet?</a><br/>
+<a href="http://hirise.lpl.arizona.edu/index.php">HiRISE | High Resolution Imaging Science Experiment</a> - some very high resolution anaglyphs from mars...<br/>
+<a href="http://www.worldwidetelescope.org/Home.aspx">WorldWide Telescope</a><br/>
+<a href="http://www.nytimes.com/interactive/science/space/mars-curiosity-rover-tracker.html?_r=0">Mars Curiosity Rover Tracker - Interactive Feature - NYTimes.com</a><br/>
+<a href="http://apod.nasa.gov/apod/ap120918.html">APOD: 2012 September 18 - Orbiting Astronaut Self Portrait</a> - now that's perspective...<br/>
+<br/>
+<br/>
+<h2>Hubble Constant</h2>
+<a href="http://en.wikipedia.org/wiki/Hubble%27s_law">Hubble's law - Wikipedia, the free encyclopedia</a><br/>
+<a href="http://www.cfa.harvard.edu/~huchra/hubble/">The Hubble Constant</a><br/>
+<br/>
+<br/>
+<h2>ephemerides</h2>
+<a href="http://en.wikipedia.org/wiki/Ephemeris">Ephemeris - Wikipedia, the free encyclopedia</a><br/>
+<a href="http://www.clearskyinstitute.com/xephem/">XEphem 3.7.5</a> - The scientific-grade interactive astronomical ephemeris software package for UNIX-like* systems. Written in C, X11 and Motif.<br/>
+<a href="http://rhodesmill.org/pyephem/">Welcome! — PyEphem home page</a> - PyEphem provides scientific-grade astronomical computations for the Python programming language. Given a date and location on the Earth’s surface, it can compute the positions of the Sun and Moon, of the planets and their moons, and of any asteroids, comets, or earth satellites whose orbital elements the user can provide. Additional functions are provided to compute the angular separation between two objects in the sky, to determine the constellation in which an object lies, and to find the times at which an object rises, transits, and sets on a particular day.<br/>
+<br/>
+<a href="http://arxiv.org/archive/astro-ph">Astrophysics</a> - Astrophysics (since Apr 1992)<br/>
+<a href="http://www.engadget.com/2012/02/03/new-super-earth-detected-best-candidate-for-supporting-life/">New super-Earth detected, 'best candidate' for supporting life</a><br/>
+<a href="https://github.com/OSCAAR/OSCAAR">OSCAAR/OSCAAR</a> - analyze observations of transiting extrasolar planets with differential photometry. make yourself a transit light curve. <a href="http://oscaar.github.io/OSCAAR/">OSCAAR by OSCAAR</a><br/>
+<br/>
+<br/>
+<h2>beauty in the infinite, right here on earth</h2>
+<img src="http://earth.nullschool.net/cover.jpg" title="awe pretty..."/><br/>
+<a href="http://earth.nullschool.net/about.html">about earth</a> - a visualization of global weather conditions forecast by supercomputers updated every three hours.<br/>
+<br/>
+<br/>
+<a href="http://www.planetary.org/get-involved/messages/bennu/">OSIRIS-REx | The Planetary Society</a> - submit your name for a round-trip ride to asteroid Bennu.  500 days there and return in 2023. sign up today! #00047126<br/>
+<br/>
+<br/>
+<br/>
+<h2>Voyager Golden Record</h2>
+<strong>To the makers of music – all worlds, all times</strong><br/>
+The sounds of Earth - NASA<br/>
+UNITED STATES OF AMERICA<br/>
+Planet Earth<br/>
+<a href="http://voyager.jpl.nasa.gov/spacecraft/greetings.html">Voyager - The Interstellar Mission</a> - Greetings to the Universe in 55 Different Languages<br/>
+<a href="http://en.wikipedia.org/wiki/Voyager_Golden_Record">Voyager Golden Record - Wikipedia</a><br/>
+<a href="https://archive.org/details/Voyager1">Voyager 1 : NASA : Free Download &amp; Streaming : Internet Archive</a> - yes, parts one and two of the Golden Record, flown aboard the Voyager spacecraft. available for your pleasure.<br/>
+<br/>
+<iframe width="100%" height="166" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/155167054&amp;color=0066cc&amp;auto_play=true&amp;hide_related=false&amp;show_artwork=true&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false"></iframe><br/>
+(i know, you hate, autoplay - i couldn't help myself)<br/>
+<a href="http://voyager.jpl.nasa.gov/spacecraft/audio/english.au">Hello from the children of planet earth</a><br/>
+    <div style="border: 1px;">
+    Created: 2007-07-02 00:49:38
+    Modified: 2014-06-20 02:11:17
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+<a target="_blank" href="/tech-talk/programming/107-algorithms-patterns-and-things-cs"><canvas id="c" width="170" height="172" title="conway glider"></canvas></a><br/>
+L:<span id=loop>0</span> I:<span id=iteration>0</span> A:<span id=active>0</span>
+<script>
+/** Conway's Game of Life.
+ * ankr started; modified by horner.
+ */
+var c=document.getElementById('c');
+var canvas = c.getContext('2d'),
+    cells = [];
+var drawRate=1200;
+var iter=0;
+var l=0;
+init();
+draw();
+
+function setSpan(name,value)
+{
+var span = document.getElementById(name);
+while( span.firstChild ) {
+    span.removeChild( span.firstChild );
+}
+span.appendChild(document.createTextNode(value));
+}
+function init() {
+setSpan('loop',l);
+    for (var i=0; i<c.width; i++) {
+        cells[i] = [];
+        for (var j=0; j<c.height; j++) {
+            cells[i][j] = 0;
+        }
+    }
+    var gliderT=[
+                [3, 1], [3,3], [2,3], [4, 2], [4, 3]
+               ];
+    var reflectorT=[
+                [0, 0], [0,1], [1,0], [1, 2], [2, 2]
+               ];
+    var sT=[
+                [0, 2], [0,3], [1,2],[2,0],[2,2],[3,0],[3,1]
+               ];
+    var boxT=[
+                [0, 0], [0,1], [1,1], [1,0]
+               ];
+
+    gliderT.forEach(function(point) {
+        cells[point[0]-1][point[1]-1] = 1;
+    });
+    gliderT.forEach(function(point) {
+        cells[point[0]+7][point[1]+7] = 1;
+    });
+    gliderT.forEach(function(point) {
+        cells[point[0]+3][point[1]+3] = 1;
+    });
+    gliderT.forEach(function(point) {
+        cells[point[0]+12][point[1]+12] = 1;
+    });
+if(l>1)  {
+var maxX=12;
+    var randomX=Math.floor(Math.random() * maxX);
+    var randomY=Math.floor(Math.random() * maxX);
+    sT.forEach(function(point) {
+        cells[point[0]+randomX][point[1]+randomY] = 1;
+    });
+    randomX=Math.floor(Math.random() * maxX);
+    randomY=Math.floor(Math.random() * maxX);
+    boxT.forEach(function(point) {
+        cells[point[0]+randomX][point[1]+randomY] = 1;
+    });
+    randomX=Math.floor(Math.random() * maxX);
+    randomY=Math.floor(Math.random() * maxX);
+    reflectorT.forEach(function(point) {
+        cells[point[0]+randomX][point[1]+randomY] = 1;
+    });
+}
+
+}
+
+function whos_alive() {
+    
+    var result = [];
+    var active= 0;
+    
+    /**
+     * Return amount of alive neighbours for a cell
+     */
+    function _countNeighbours(x, y) {
+        var amount = 0;
+        
+        function _isFilled(x, y) {
+            return cells[x] && cells[x][y];
+        }
+        
+        if (_isFilled(x-1, y-1)) amount++;
+        if (_isFilled(x,   y-1)) amount++;
+        if (_isFilled(x+1, y-1)) amount++;
+        if (_isFilled(x-1, y  )) amount++;
+        if (_isFilled(x+1, y  )) amount++;
+        if (_isFilled(x-1, y+1)) amount++;
+        if (_isFilled(x,   y+1)) amount++;
+        if (_isFilled(x+1, y+1)) amount++;
+        
+        return amount;
+    }
+    
+    cells.forEach(function(row, x) {
+        result[x] = [];
+        row.forEach(function(cell, y) {
+            var alive = 0,
+                count = _countNeighbours(x, y);
+            
+            if (cell > 0) {
+                alive = count === 2 || count === 3 ? 1 : 0;
+            } else {
+                alive = count === 3 ? 1 : 0;
+            }
+            if(alive) active++;
+            result[x][y] = alive;
+        });
+    });
+    
+    cells = result;
+    setSpan('active',active);
+    draw();
+}
+function draw() {
+    if(iter>60) { iter=0; l++; init(); }
+    else if(iter>10 && iter%20==0) {
+    if(drawRate>10) { drawRate-=10; }
+    var gliderT=[
+                [3, 1], [3,3], [2,3], [4, 2], [4, 3]
+               ];
+
+     gliderT.forEach(function(point) {
+        cells[point[0]][point[1]] = 1;
+    });
+    }
+setSpan('iteration',iter);
+    canvas.clearRect(0, 0, c.width, c.height);
+    cells.forEach(function(row, x) {
+        row.forEach(function(cell, y) {
+            canvas.beginPath();
+            if (cell) {
+                if(l%2==0) {
+                canvas.rect(x*8, y*8, 8, 8);
+                canvas.fillStyle = 'black';
+                } else {
+                canvas.beginPath();
+                canvas.arc(x*8, y*8,3 , 0, 2 * Math.PI, false);
+                canvas.fillStyle = 'black';
+                }
+                canvas.fill();
+                canvas.stroke();
+            } else {
+                if(l%2==0){
+                canvas.strokeStyle = '#e1e1e1';
+                canvas.rect(x*8, y*8, 8, 8);
+                canvas.stroke();
+                }
+            }
+        });
+    });
+    iter++;
+    setTimeout(function() {whos_alive();}, drawRate);
+}
+</script>
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

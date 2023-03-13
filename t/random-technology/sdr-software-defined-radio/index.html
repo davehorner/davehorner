@@ -1,0 +1,325 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>SDR software defined radio</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/random-technology/">random-technology</a>
+    <h1>SDR software defined radio</h1>
+   <a href="http://en.wikipedia.org/wiki/Software-defined_radio">Software-defined radio - Wikipedia</a> - what was once hardware; is now software.<br/>
+<a href="http://en.wikipedia.org/wiki/DVB-T">DVB-T - Wikipedia</a><br/>
+<a href="http://rtlsdr.org/">Welcome to the rtlsdr.org wiki! [rtlsdr.org wiki]</a><br/>
+<br/>
+<a href="http://w9oy-sdr.blogspot.com/2009/02/quick-little-riff-on-how-sdr-works.html">Software Defined Ham Radio: A Quick little riff on how SDR works</a><br/>
+<a href="http://www.linuxtv.org/wiki/index.php/RealTek_RTL2832U">RealTek RTL2832U - LinuxTVWiki</a> - indicates ubuntu dvd-usb-rtl28xxu driver comes out of the box.<br/>
+<h2>blogs, websites, and other SDR resources</h2>
+<a href="http://tylerwatt12.com/">Tylerwatt12.com | Blog of Tyler Watthanaphand</a> <a href="https://www.youtube.com/playlist?list=PLHgcimaYP63qYaRM5o3ZDqM6m2RlHUs74">RTL-SDR - YouTube</a><br/>
+<a href="http://michelebavaro.blogspot.com/">Michele's GNSS blog</a><br/>
+<a href="http://ttrftech.tumblr.com/">Computer Radio RF Tech</a> - have your babelfish handy... <a href="http://ttrftech.tumblr.com/post/84323798266/direct-sampling-frontend-board-in-use">Try to direct sampling receiver using the front-end board - Computer Radio RF Tech</a><br/>
+<a href="http://swling.com/blog/2013/07/a-very-inexpensive-software-defined-radio-based-on-the-rtl2832u/">A very inexpensive Software Defined Radio based on the RTL2832U | The SWLing Post</a><br/>
+<a href="http://www.rtl-sdr.com/">rtl-sdr.com - A blog about RTL-SDR (RTL2832U) and cheap software defined radio</a><br/>
+<a href="http://superkuh.com/rtlsdr.html">rtl-sdr and GNU Radio w/Realtek RTL2832U, E4000 and R820T</a> - includes tear downs of many popular sdr's available for purchase on the interwebs.<br/>
+<a href="http://sdrformariners.blogspot.co.nz/">Software Defined Radio for Mariners</a><br/>
+<a href="http://www.rtl-sdr.com/gnss-sdrlib-real-time-gps-positioning-rtl-sdr/">GNSS-SDRLIB: Real Time GPS Positioning with RTL-SDR - rtl-sdr.com</a><br/>
+<a href="http://andrewmohawk.com/2012/07/15/rtlsdr-my-first-sdr/">RTLSDR: My First SDR! « AndrewNohawk</a><br/>
+<br/>
+<br/>
+<h2>comparisions: RTL2832U R820T vs FC0013 vs E4000</h2>
+<a href="http://goughlui.com/?p=5363">More RTL2832U Tuners: Full-Size FC0013, Mid-Size R820T | Gough's Tech Zone</a><br/>
+<a href="http://www.rtl-sdr.com/about-rtl-sdr/">About RTL-SDR - rtl-sdr.com</a> - R820T also is generally regarded as having better performance and sensitivity for most interesting frequencies.<br/>
+<br/>
+<br/>
+<h2>SDR chip datasheets from manufacturers</h2>
+<a href="http://www.realtek.com.tw/products/productsView.aspx?Langid=1&amp;PFid=35&amp;Level=4&amp;Conn=3&amp;ProdID=257">Realtek 	
+RTL2832U</a> - DVB-T COFDM Demodulator + USB 2.0,  2K or 8K mode with 6, 7, and 8MHz bandwidth. FM/DAB/DAB+ Radio Support. 48-pin QFN (6x6 mm2) 3.3V, eight general purpose I/O ports, infra-red port for remote control<br/>
+<a href="http://www.rafaelmicro.com/downloads/R820T.pdf">Rafael micro R820T</a> - Terrestrial DTV TV Silicon tuner 24-pin 4x4 QFN 3.3V I2C DVB-T, ATSC, DTMB, IRIB and ISDB-T<br/>
+R820T use ~300mA of 5v USB power while the E4000 devices use only ~170mA.<br/>
+<a href="http://www.nooelec.com/store/downloads/dl/file/id/14/e4000_datasheet.pdf">elonics E4000</a> - MULTI-STANDARD CMOS TERRESTRIAL RF TUNER QFN32 5x5mm operates at 1.5V tolerates 3.3V I2C<br/>
+<br/>
+<br/>
+<h2>SDR software libraries and software packages</h2>
+<a href="http://sdr.osmocom.org/trac/wiki/rtl-sdr">rtl-sdr – OsmoSDR</a> - git clone git://git.osmocom.org/rtl-sdr.git , includes <a href="http://sdr.osmocom.org/trac/wiki/GrOsmoSDR#KnownApps">OsmoSDR :: KnownApps</a><br/>
+<a href="http://www.staniscia.net/1023-how-to-build-rtl-sdr-on-windows-x64/">How to build RTL-SDR on Windows x64 | Alessandro Staniscia</a><br/>
+<a href="http://www.sm5bsz.com/linuxdsp/linrad.htm">Linrad home page. Download Linrad or update Linrad here.</a><br/>
+<a href="http://www.sdrsharp.com/">SDR# - Software Defined Radio</a> <a href="http://www.rtl-sdr.com/sdrsharp-plugins/">List of SDRSharp Plugins - rtl-sdr.com</a><br/>
+<a href="http://zadig.akeo.ie/">Zadig - USB driver installation made easy</a><br/>
+<a href="http://www.hdsdr.de/">HDSDR Homepage</a> - HDSDR is a freeware Windows application. Radio listening, Ham Radio, SWL, Radio Astronomy, NDB-hunting and Spectrum analysis.
+HDSDR (former WinradHD) is an advanced version of Winrad<br/>
+<a href="http://wiki.spench.net/wiki/Main_Page">SpenchWiki</a> <a href="http://wiki.spench.net/wiki/USRP_Interfaces">USRP Interfaces - SpenchWiki-USRP_Interfaces</a><br/>
+<a href="http://www.hamradioscience.com/resources/">Software Defined Radio Resources | Ham Radio Science</a><br/>
+<a href="http://code.ettus.com/redmine/ettus/projects/uhd/wiki">UHD Start - uhd - Ettus Research LLC</a> - software 
+component that interacts directly with the USRP device is UHD. UHD enables you to deploy 
+software radios on Windows, Linux, or MacOS. Various software frameworks, such as GNU 
+Radio, LabVIEW, MATLAB, and Simulink use the UHD driver to access to USRP device. <br/>
+<br/>
+<br/>
+<h2>Applications of SDR</h2>
+<a href="http://www.rtl-sdr.com/gnss-sdrlib-real-time-gps-positioning-rtl-sdr/">GNSS-SDRLIB: Real Time GPS Positioning with RTL-SDR - rtl-sdr.com</a><br/>
+<a href="https://github.com/kevinmehall/rtlsdr-433m-sensor">kevinmehall/rtlsdr-433m-sensor</a> - Decoding Oregon Scientific wireless sensor data with RTL-SDR and GNU Radio<br/>
+<a href="http://goughlui.com/?p=3425">ADS-B with RTL-2832 based USB TV dongles made easy! | Gough's Tech Zone</a> - 1090Mhz Planes equipped with ADS-B emit their position, velocity, time, heading, climb, registration, airframe number, altitude on a regular basis – normally every few seconds.<br/>
+<a href="http://andrewmohawk.com/2012/09/06/hacking-fixed-key-remotes/">Hacking fixed key remotes « AndrewNohawk</a> replay/bruteforce attack RTL-SDR, audacity and <a href="https://code.google.com/p/rfcat/">rfcat - RF ChipCon-based Attack Toolset - Google Project Hosting</a><br/>
+<br/>
+<br/>
+<h2>SDR as entropy source || atmospheric radio noise for crypto numbers</h2>
+If you're serious about the cryptographic security of your entropy source, you should probably short, or put a 50 Ohm load on the antenna port, and put the whole assembly in a shielded box. Then you're getting entropy from the thermal noise of the amplifiers which is much harder to interfere with than atmospheric radio.<br/>
+<br/>
+Both of these are analog entropy sources.<br/>
+<a href="http://blog.krisk.org/2013/12/high-quality-entropy.html">Not Just AstLinux Stuff: High Quality Entropy</a> - rtl_entropy uses atmospheric radio noise from an RTL-SDR dongle to generate entropy.  Because the RTL-SDR hardware is able to sample about 3.2 MS/S this translates into about 3.4Mbits/s of entropy.<br/>
+<a href="http://en.wikipedia.org/wiki/Comparison_of_hardware_random_number_generators">Comparison of hardware random number generators - Wikipedia</a><br/>
+<a href="https://github.com/pwarren/rtl-entropy">pwarren/rtl-entropy</a> - An entropy generator using SDR peripherals, including rtl-sdr and BladeRF<br/>
+<br/>
+<br/>
+<a href="http://dave.thehorners.com/tech-talk/random-tech/451-ham">Amateur Radio - Dave Horner's Website</a><br/>
+    <div style="border: 1px;">
+    Created: 2014-05-03 17:43:38
+    Modified: 2014-08-16 01:44:43
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+\begin{bmatrix} 1 & 0 & \ldots & 0 \\
+                0 & 1 & 0 & \vdots \\
+                \vdots & 0 & \ddots & 0\\
+                0 & \ldots &  0 & 1_{n}
+\end{bmatrix}
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

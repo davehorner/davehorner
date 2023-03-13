@@ -1,0 +1,436 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>Monitoring tools</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/linux-unix-and-friends/">linux-unix-and-friends</a>
+    <h1>Monitoring tools</h1>
+   <a href="http://linux.justinhartman.com/Server_Monitoring_with_Munin_and_Monit">Server Monitoring with Munin and Monit - Debian Wiki</a> - quick HOWTO on server monitoring with monit and munin.<br/>
+
+<a href="http://munin.projects.linpro.no/">Munin - Trac</a> - Munin the monitoring tool surveys all your computers and remembers what it saw. It presents all the information in graphs through a web interface. (uses <a href="http://oss.oetiker.ch/rrdtool/">RRDTool</a>)<br/>
+
+<a href="http://mmonit.com/monit/">Monit</a> - Monit is a free open source utility for managing and monitoring, processes, files, directories and filesystems on a UNIX system. Monit conducts automatic maintenance and repair and can execute meaningful causal actions in error situations.<br/>
+<a href="http://mmonit.com/wiki/Monit/ConfigurationExamples#corelin">M/Monit | Wiki</a> - Real-world configuration examples for monit.<br/>
+
+<a href="http://cacti.net/">Cacti: The Complete RRDTool-based Graphing Solution</a> - Cacti is a complete frontend to RRDTool, it stores all of the necessary information to create graphs and populate them with data in a MySQL database. The frontend is completely PHP driven. Along with being able to maintain Graphs, Data Sources, and Round Robin Archives in a database, cacti handles the data gathering. There is also SNMP support for those used to creating traffic graphs with MRTG.<br/>
+<br/>
+<a href="http://collectd.org/">collectd – The system statistics collection daemon</a> - collectd is a daemon which collects system performance statistics periodically and provides mechanisms to store the values in a variety of ways, for example in RRD files.<br/>
+<a href="http://iometer.org/">Iometer project</a> - Iometer is an I/O subsystem measurement and characterization tool for single and clustered systems.<br/>
+<a href="http://portertech.ca/2011/11/01/sensu-a-monitoring-framework/">Sensu, a monitoring framework | PorterTech</a><br/>
+<a href="https://github.com/sensu/sensu">sensu/sensu · GitHub</a> - A monitoring framework that aims to be simple, malleable, and scalable. written in ruby.<br/>
+<br/>
+<br/>
+<h2>Nagios</h2>
+<a href="http://www.nagios.org/">Nagios - The Industry Standard in IT Infrastructure Monitoring</a><br/>
+<a href="http://labs.consol.de/lang/en/nagios/mod-gearman/">Mod Gearman – ConSol* Labs</a> -  <a href="http://gearman.org/">gearman</a><br/> Module for Nagios, distribute servicechecks, hostchecks and events to a Gearman queue.<br/>
+<a href="https://github.com/plu/gearman-driver">plu/gearman-driver · GitHub</a> - perl driver for gearman workers.<br/>
+<a href="http://auxesis.github.io/cucumber-nagios/">cucumber-nagios</a> describe how a system should work in natural language, and outputs whether it does in the Nagios plugin format.<br/>
+<br/>
+<br/>
+<h2>Windows Remote Management - WinRM</h2>
+<a href="http://msdn.microsoft.com/en-us/library/aa384426(v=VS.85).aspx">Windows Remote Management (Windows)</a><br/>
+<a href="http://distributed-frostbite.blogspot.com/2010/08/managing-windows-with-ruby-part-1-or.html">Distributed Frostbite: Managing Windows with Ruby (Part 1) or...</a><br/>
+<a href="http://distributed-frostbite.blogspot.com/2010/09/connecting-to-windows-from-capistrano.html">Distributed Frostbite: Connecting to Windows from Capistrano with WinRM</a><br/>
+<a href="https://github.com/zenchild/WinRM">zenchild/WinRM · GitHub</a> - Ruby library for Windows Remote Management<br/>
+<a href="https://github.com/schisamo/em-winrm">schisamo/em-winrm · GitHub</a> - EventMachine based, asynchronous parallel client for Windows Remote Management (WinRM). <br/>
+    <div style="border: 1px;">
+    Created: 2010-02-14 23:32:06
+    Modified: 2014-07-26 13:58:48
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+<a target="_blank" href="/tech-talk/programming/107-algorithms-patterns-and-things-cs"><canvas id="c" width="170" height="172" title="conway glider"></canvas></a><br/>
+L:<span id=loop>0</span> I:<span id=iteration>0</span> A:<span id=active>0</span>
+<script>
+/** Conway's Game of Life.
+ * ankr started; modified by horner.
+ */
+var c=document.getElementById('c');
+var canvas = c.getContext('2d'),
+    cells = [];
+var drawRate=1200;
+var iter=0;
+var l=0;
+init();
+draw();
+
+function setSpan(name,value)
+{
+var span = document.getElementById(name);
+while( span.firstChild ) {
+    span.removeChild( span.firstChild );
+}
+span.appendChild(document.createTextNode(value));
+}
+function init() {
+setSpan('loop',l);
+    for (var i=0; i<c.width; i++) {
+        cells[i] = [];
+        for (var j=0; j<c.height; j++) {
+            cells[i][j] = 0;
+        }
+    }
+    var gliderT=[
+                [3, 1], [3,3], [2,3], [4, 2], [4, 3]
+               ];
+    var reflectorT=[
+                [0, 0], [0,1], [1,0], [1, 2], [2, 2]
+               ];
+    var sT=[
+                [0, 2], [0,3], [1,2],[2,0],[2,2],[3,0],[3,1]
+               ];
+    var boxT=[
+                [0, 0], [0,1], [1,1], [1,0]
+               ];
+
+    gliderT.forEach(function(point) {
+        cells[point[0]-1][point[1]-1] = 1;
+    });
+    gliderT.forEach(function(point) {
+        cells[point[0]+7][point[1]+7] = 1;
+    });
+    gliderT.forEach(function(point) {
+        cells[point[0]+3][point[1]+3] = 1;
+    });
+    gliderT.forEach(function(point) {
+        cells[point[0]+12][point[1]+12] = 1;
+    });
+if(l>1)  {
+var maxX=12;
+    var randomX=Math.floor(Math.random() * maxX);
+    var randomY=Math.floor(Math.random() * maxX);
+    sT.forEach(function(point) {
+        cells[point[0]+randomX][point[1]+randomY] = 1;
+    });
+    randomX=Math.floor(Math.random() * maxX);
+    randomY=Math.floor(Math.random() * maxX);
+    boxT.forEach(function(point) {
+        cells[point[0]+randomX][point[1]+randomY] = 1;
+    });
+    randomX=Math.floor(Math.random() * maxX);
+    randomY=Math.floor(Math.random() * maxX);
+    reflectorT.forEach(function(point) {
+        cells[point[0]+randomX][point[1]+randomY] = 1;
+    });
+}
+
+}
+
+function whos_alive() {
+    
+    var result = [];
+    var active= 0;
+    
+    /**
+     * Return amount of alive neighbours for a cell
+     */
+    function _countNeighbours(x, y) {
+        var amount = 0;
+        
+        function _isFilled(x, y) {
+            return cells[x] && cells[x][y];
+        }
+        
+        if (_isFilled(x-1, y-1)) amount++;
+        if (_isFilled(x,   y-1)) amount++;
+        if (_isFilled(x+1, y-1)) amount++;
+        if (_isFilled(x-1, y  )) amount++;
+        if (_isFilled(x+1, y  )) amount++;
+        if (_isFilled(x-1, y+1)) amount++;
+        if (_isFilled(x,   y+1)) amount++;
+        if (_isFilled(x+1, y+1)) amount++;
+        
+        return amount;
+    }
+    
+    cells.forEach(function(row, x) {
+        result[x] = [];
+        row.forEach(function(cell, y) {
+            var alive = 0,
+                count = _countNeighbours(x, y);
+            
+            if (cell > 0) {
+                alive = count === 2 || count === 3 ? 1 : 0;
+            } else {
+                alive = count === 3 ? 1 : 0;
+            }
+            if(alive) active++;
+            result[x][y] = alive;
+        });
+    });
+    
+    cells = result;
+    setSpan('active',active);
+    draw();
+}
+function draw() {
+    if(iter>60) { iter=0; l++; init(); }
+    else if(iter>10 && iter%20==0) {
+    if(drawRate>10) { drawRate-=10; }
+    var gliderT=[
+                [3, 1], [3,3], [2,3], [4, 2], [4, 3]
+               ];
+
+     gliderT.forEach(function(point) {
+        cells[point[0]][point[1]] = 1;
+    });
+    }
+setSpan('iteration',iter);
+    canvas.clearRect(0, 0, c.width, c.height);
+    cells.forEach(function(row, x) {
+        row.forEach(function(cell, y) {
+            canvas.beginPath();
+            if (cell) {
+                if(l%2==0) {
+                canvas.rect(x*8, y*8, 8, 8);
+                canvas.fillStyle = 'black';
+                } else {
+                canvas.beginPath();
+                canvas.arc(x*8, y*8,3 , 0, 2 * Math.PI, false);
+                canvas.fillStyle = 'black';
+                }
+                canvas.fill();
+                canvas.stroke();
+            } else {
+                if(l%2==0){
+                canvas.strokeStyle = '#e1e1e1';
+                canvas.rect(x*8, y*8, 8, 8);
+                canvas.stroke();
+                }
+            }
+        });
+    });
+    iter++;
+    setTimeout(function() {whos_alive();}, drawRate);
+}
+</script>
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

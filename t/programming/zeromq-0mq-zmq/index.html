@@ -1,0 +1,347 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>ZeroMQ - zero broker networking concurrency library</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/programming/">programming</a>
+    <h1>ZeroMQ - zero broker networking concurrency library</h1>
+   ØMQ (also known as ZeroMQ, 0MQ, or zmq) looks like an embeddable networking library but acts like a concurrency framework. It gives you sockets that carry atomic messages across various transports like in-process, inter-process, TCP, and multicast. You can connect sockets N-to-N with patterns like fan-out, pub-sub, task distribution, and request-reply. It's fast enough to be the fabric for clustered products. Its asynchronous I/O model gives you scalable multicore applications, built as asynchronous message-processing tasks. It has a score of language APIs and runs on most operating systems. ØMQ is from iMatix and is LGPLv3 open source.<br/>
+<br/>
+Originally the zero in ØMQ was meant as "zero broker" and (as close to) "zero latency" (as possible). Since then, it has come to encompass different goals: zero administration, zero cost, zero waste. More generally, "zero" refers to the culture of minimalism that permeates the project. We add power by removing complexity rather than by exposing new functionality.
+<a href="http://zguide.zeromq.org/page:all">ØMQ - The Guide - ØMQ - The Guide</a><br/>
+<br/>
+<br/>
+I have MQTT information you might be interested in on <a href="/tech-talk/random-tech/368-networking-notes">
+Networking notes - wireshark, load balancing, IPv6, MQTT, etc.</a><br/>
+STOMP / Stomp (Streaming Text Oriented Messaging Protocol) is a pub/sub wire protocol. I have some STOMP and AMQP info on: <a href="/tech-talk/programming/199-css-javascript-dom-design-standards-and-everything-web">CSS, javascript, DOM, design, comet, stomp, jquery, and everything web.</a><br/>
+<br/>
+<a href="http://www.zeromq.org/community">ØMQ Community - zeromq</a><br/>
+<a href="https://github.com/zeromq/libzmq">zeromq/libzmq</a> - ØMQ libzmq core library -- development trunk.<br/>
+<a href="https://github.com/benjamg/zmqpp">benjamg/zmqpp</a> - 0mq 'highlevel' C++ bindings<br/>
+<a href="http://www.zeromq.org/docs:welcome-from-amqp">Welcome from AMQP - zeromq</a><br/>
+<a href="http://zguide.zeromq.org/page:all">ØMQ - The Guide - ØMQ - The Guide</a><br/>
+<a href="http://rfc.zeromq.org/">Requests for Comments - 0MQ Requests for Comments</a> - specifications.<br/>
+<a href="http://www.zeromq.org/whitepapers%3abrokerless">Broker vs. Brokerless - zeromq</a> - meant as a background reading to learn how ØMQ differs from traditional messaging systems.<br/>
+<a href="http://www.rabbitmq.com/blog/2010/09/22/broker-vs-brokerless/">RabbitMQ » Blog Archive » Broker vs Brokerless - Messaging that just works</a><br/>
+<a href="http://nichol.as/zeromq-an-introduction">Nicholas Piël » ZeroMQ an introduction</a><br/>
+<a href="http://www.igvita.com/2010/09/03/zeromq-modern-fast-networking-stack/">ZeroMQ: Modern &amp; Fast Networking Stack - igvita.com</a><br/>
+<a href="http://www.slideshare.net/j2d2/zeromq-super-sockets-by-j2-labs">ZeroMQ: Super Sockets - by J2 Labs</a><br/>
+<a href="http://www.josetteorama.com/zeromq/">The Appeal and Controversy of ZeroMQ | Josetteorama</a><br/>
+<a href="http://kfsone.wordpress.com/2010/07/05/zeromq/">ZeroMQ | kfsone's pittance</a><br/>
+<br/>
+<br/>
+<h2>RabbitMQ to 0mq</h2>
+<a href="http://www.rabbitmq.com/blog/tag/zeromq/">RabbitMQ » zeromq - Messaging that just works</a><br/>
+<a href="https://github.com/rabbitmq/rmq-0mq">rabbitmq/rmq-0mq</a> - ZeroMQ support in <a href="http://www.rabbitmq.com/">RabbitMQ</a><br/>
+<br/>
+<br/>
+<h2>0mq and google protocol buffers</h2>
+<a href="https://developers.google.com/protocol-buffers/">Protocol Buffers — Google Developers</a> - Protocol buffers are Google's language-neutral, platform-neutral, extensible mechanism for serializing structured data – think XML, but smaller, faster, and simpler.<br/>
+<a href="http://www.dotkam.com/2011/09/09/zeromq-and-google-protocol-buffers/">ØMQ and Google Protocol Buffers</a><br/>
+<br/>
+<br/>
+<h2>Mongrel2</h2>
+Handlers in Mongrel2 use ZMQ sockets.<br/>
+<a href="http://mongrel2.org/">The Mongrel2 Web Server Project</a><br/>
+<a href="http://www.scribd.com/doc/77424036/0MQ-And-Mongrel2-Overview">0MQ And Mongrel2 Overview</a><br/>
+<a href="http://verboselogging.com/2010/10/26/deploying-your-ruby-app-with-mongrel2">Deploying Your Ruby App With Mongrel2 | Verbose Logging</a><br/>
+<a href="http://www.dan-manges.com/blog/2011/handling-timeouts-with-mongrel2-and-zeromq">Handling Timeouts with Mongrel2 and ZeroMQ - Dan Manges's Blog</a><br/>
+<br/>
+<br/>
+<h2>PHP + zmq</h2>
+<a href="http://www.photon-project.com/">Photon, High Performance PHP &amp; Mongrel2 Framework</a><br/>
+<a href="http://brubeck.io/index.html">Brubeck: a Mongrel2 handler</a> - Brubeck is basically a pipeline of coroutines attempting to fulfill web requests. Each MessageHandler is executed as a coroutine. Greenlet's, the coroutines in Brubeck, are optimized for fast context-switching.<br/>
+<a href="https://github.com/winks/m2php">winks/m2php</a> - a library to develop Mongrel2 handlers in PHP<br/>
+<br/>
+<br/>
+<h2>Python + zmq</h2>
+<a href="https://github.com/rfk/m2wsgi/">rfk/m2wsgi</a> - m2wsgi: a mongrel2 => wsgi gateway and helper tools<br/>
+<a href="http://ziade.org/2012/05/31/mongrel2-amp-circus-full-control-of-your-web-stack/">Mongrel2 &amp; Circus = Full control of your web stack</a> - talks a bit about m2wsgi<br/>
+<a href="http://pycon-2012-notes.readthedocs.org/en/latest/dotcloud_zerorpc.html#id3">Build reliable, traceable, distributed systems with ZeroMQ (ZeroRPC) by Jérôme Petazzoni from dotCloud — Marc's PyCon 2012 Notes 1.0 documentation</a><br/>
+<a href="http://www.codedependant.net/blog/posts/20-10/running-django-on-wsgid-with-mongrel2-zeromq/">Codedependant :: Running Django On wsgid with Mongrel2 &amp; ZeroMQ</a><br/>
+<a href="http://blog.pythonisito.com/2012/08/distributed-systems-with-zeromq.html">Just a little Python: Distributed Systems with ZeroMQ</a><br/>
+<a href="http://red45.wordpress.com/2011/05/13/zeromq-file-server/">ZeroMQ File Server | The Red45</a> <a href="https://github.com/thatch45/sandbox/tree/master/examples/zmq">sandbox/examples/zmq at master · thatch45/sandbox</a><br/>
+<a href="https://github.com/thatch45/salt">thatch45/salt</a> - Central system and configuration manager - ZeroMQ networking library. Salt uses public keys for authentication with the master daemon, then uses faster AES encryption for payload communication, this means that authentication and encryption are also built into Salt. Salt takes advantage of communication via Python pickles, enabling fast and light network traffic. Apache2.0 licensed. <a href="https://github.com/thatch45/salt/wiki/Setting-Up-Salt">Setting Up Salt · thatch45/salt Wiki</a><br/><br/>
+<br/>
+<br/>
+<a href="https://github.com/FRiCKLE/ngx_zeromq">FRiCKLE/ngx_zeromq</a> - ZeroMQ transport for nginx<br/>
+<a href="https://github.com/fanout/zurl">fanout/zurl</a> - HTTP client worker with ZeroMQ interface  written in Qt/C++<br/>
+<a href="http://blog.fanout.io/2012/09/26/make-http-requests-over-zeromq-with-zurl/">Fanout Blog » Make HTTP requests over ZeroMQ with Zurl</a><br/>
+
+<br/>
+<br/>
+<h2>C +zmq</h2>
+<a href="http://hintjens.com/blog:42">A Web Server in 30 Lines of C - Hintjens.com</a><br/>
+<br/>
+<br/>
+<h2>Securing zmq</h2>
+<a href="https://github.com/zeromq/curvezmq">zeromq/curvezmq</a> - An encryption and authentication library for ZeroMQ<br/>
+<a href="http://hintjens.com/blog:36">Securing ZeroMQ: CurveZMQ protocol and implementation - Hintjens.com</a> - <a href="http://hintjens.com/">Hintjens.com</a> Pieter Hintjens ØMQ book author.<br/>
+<a href="http://curvecp.org/index.html">Introduction to CurveCP</a><br/>
+<br/>
+<br/>
+<h2>Java zer0mq || java zmq || jeromq</h2>
+<a href="https://github.com/zeromq/jeromq">zeromq/jeromq</a> - Pure Java implementation of libzmq. exactly same developer experience with zeromq and jzmq.<br/>
+<a href="https://github.com/zeromq/jzmq">zeromq/jzmq</a> - Java binding for ØMQ (libzmq using JNI)<br/>
+<a href="http://iso3103.blogspot.com/2012/05/java-zeromq-for-android.html">iso3103.net: Java-ZeroMQ for Android</a><br/>
+<a href="https://github.com/vperron/android-jzeromq">vperron/android-jzeromq</a> - Collection of scripts and a Makefile to generate a ZeroMQ-JZMQ self-contained shared library for Android direct use.<br/>
+<a href="http://novoda.com/blog/zeromq">Minimal Android ZeroMQ Client/Server Example | Novoda</a> - ZeroMQ vs. JeroMQ<br/>
+<br/>
+<br/>
+<a href="http://opensourcesoftwareandme.blogspot.co.uk/2012/06/mule-meet-zeromq-zeromq-meet-mule.html">Open Source Software And Me: Mule meet ZeroMQ. ZeroMQ meet Mule.</a><br/>
+<br/>
+<a href="https://github.com/vperron/openwrt-zmq-packages">vperron/openwrt-zmq-packages</a> - ZeroMQ package makefiles for OpenWRT<br/>
+    <div style="border: 1px;">
+    Created: 2013-07-20 18:43:45
+    Modified: 2013-12-26 04:08:28
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+\begin{bmatrix} 1 & 0 & \ldots & 0 \\
+                0 & 1 & 0 & \vdots \\
+                \vdots & 0 & \ddots & 0\\
+                0 & \ldots &  0 & 1_{n}
+\end{bmatrix}
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

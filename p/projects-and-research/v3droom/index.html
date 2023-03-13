@@ -1,0 +1,279 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>v3droom</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/p/">Personal</a>
+<a href="/p/projects-and-research/">projects-and-research</a>
+    <h1>v3droom</h1>
+   <br/>
+
+v3droom will be an open source collaboration and visualization framework.  It provides softphone capabilities as well as IVR. It consists of source code, documentation, applications, scripts, and installers for multiple OSs.   which provide the needed components.
+<br/>
+I will be exposing functionality from many open source libraries, like: python, Ogre3d,  freeswitch, libapr, OpenCV, ARToolkit, and more.<br/>
+<br/>
+I will be developing apis within python which  provide extreme extensibility.  Change runtime behavior with a simple python script.  Go python!
+<br/>
+<br/>
+At this time, my company TecDev is providing all support and funding for development of v3droom programming and packaging.<br/>
+If you find v3droom useful.  Please consider supporting the project in some way.<br/>
+All code contributions, feature requests, questions & comments, etc. are greatly appreciated.  Thank you for your support.
+
+<hr class="system-pagebreak" />
+<p>This project explores the development of a multi-modal(voice,dtmf,keyboard,mouse) human computer interface (HCI) to allow for increased usability within traditional telephony applications.<br /><br /> Providing an interactive visual interface over top of traditional telephony applications allows for increased accessability. This system would allow users to nagivate interactive voice response(IVR) systems with ease because they are able to travel in a non-linear fashion. Instead of having to listen to available options one at a time, the user can interact with a visual represention of the IVR.<br /> <br /> The addition of visual elements within a telephony system provides capabilities which would not have been previously available to a traditional telephony application.<br /> <br /> The hardware and network level services for such a system have been around for quite some time. However, there isn't currently a platform independent way of interacting with people in 3d space while using the computer(keyboard, mouse, etc.) and telephone(speech+dtmf).<br /> <br /> Today touchtone phones are ubiquitous and many models include high resolution touch sensitive screens. Phone interaction should not simply be a audiable experience. Future communication systems will provide an imersive platform which incorporate both the visual and audible senses.&nbsp; The syncronization of visual display elements to process workflow will allow for better understanding of the system as a whole.<br /> <br /> Phone clients describe the contents of the each virtually simulated world and provide a mechanism to query and manipulate objects within the world.<br /> <br /> Computer Initial world will expose a simple graphical model which can be rotated by each of the computer/phone players. Each player can be connected via the phone and/or computer.<br /> <br /> <strong>Process Flow</strong><br /> <br />  1. User triggers action on cell.<br /> 2. Cell sends command to PC.<br /> 3. PC updates the VSM -&gt; viewable<br /> 4. PC sends acknowledgement to cell.<br /> </p><p><strong>What will become of virtual telephony world?</strong><br />Ultimately this program is just something to help me demonstrate to myself that I can do something by connecting peices together.&nbsp; I see this system is more of a scientific nature.&nbsp; When I look at it, I immediately see math.&nbsp; I would dream of a system like this for physical modeling and mathematics in general.&nbsp; I look at it much like a stream processor.&nbsp; I can write visualizations of any kind of data in realtime or near-realtime.&nbsp; That means a lot.</p><p>&nbsp;</p><p>visual stream processors.<br /><br /><strong>Download</strong><br />The prototype for this system is developed on the windows platform but additional platform support will be added later.&nbsp; To get going, download and follow the on screen instructions during the installation.<br /> <br />The current version is: v1.0.0.2<br />Release Date: April 06, 2007<br />
+<a href="/personal/virtualtelephonyworld/VirtualTelephonyWorld-1.0.0.2.exe">Latest windows release</a><br /><br />
+
+<hr class="system-pagebreak" /><br />This page describes some of the research that I've been doing while trying to decide on how to implement this project.&nbsp; You would not believe how much time I've spent reading various articles relating to different 3d toolkits, network apis, telephony platforms, etc.&nbsp; There are many things to think about when trying to develop network games...adding a telephony component makes it all the more complex.<br /></p><p> Network server management is based on the <a href="http://www.rakkarsoft.com/raknet/manual/distributednetworkobject.html">RakNet::DistributedNetworkObjectManager</a><br /> <br /> Here are some web references for material I read from:<br /> <a href="http://www.codeproject.com/internet/multiplayer.asp?select=1250973&amp;df=100&amp;forumid=223184&amp;exp=0">Building Multiplayer Capability into Your Game in One Hour</a><br /> <br />This project will make use of the following libraries and software packages:<br /> <a href="http://www.rakkarsoft.com/">RakNet</a> - cross platform C++ network library designed to allow programmers to add response time-critical network capabilities to their applications<br /> <a href="http://irrlicht.sourceforge.net/">Irrlicht Engine</a> - high performance realtime 3D engine written in cross-platform C++, using D3D, OpenGL and its own software renderer.<br />  Webserver <a href="http://www.apache.org">Apache</a> - webserver<br /> <a href="http://www.php.net">PHP</a> - scripting language<br /> <a href="http://www.w3.org/TR/voicexml20/">VXML</a> - VoiceXML, the Voice Extensible Markup Language<br />  </p><p><strong>Building the server</strong><br /> <pre>  <br /><br /> <strong>Further </strong><strong>network research</strong><br /> Trying to syncronize state across multiple clients is not a simple task.&nbsp; There are many choices to be made in terms of network protocals, implmentation language, class design, etc.&nbsp; In a sense what I'm looking for is grid computing network services.&nbsp; I'd like to be able to develop a data model and have it syncronize across all the nodes in the network.&nbsp; I would like to explore other libraries to allow for realtime distributed simulations. Specifically I would like to research publish/subscribe network object syncronization.<br /> <a href="http://www.cs.wustl.edu/~schmidt/ACE.html">The ADAPTIVE Communication Environment</a><br /> <a href="http://msi.sourceforge.net/">Multi-Simulation Interface</a><br /> <a href="http://www.lcscanada.com/muscle/">Multi User Server Client Linkage Environment v3.30</a><br /> <a href="http://www-serl.cs.colorado.edu/serl/siena/contrib/index.html">Siena (Scalable Internet Event Notification Architecture)</a><br /> <br /> <br /> So the idea keeps coming to me that we shouldn't even require an OpenGL platform. We should be able to do this using open standards like HTML and CSS. CSS provides ways of positioning items in 2d with a z-index. Shouldn't people be able to access the world in 2d too?<br /> <br /> <a href="http://www.brothercake.com/site/resources/reference/3d/">Dynamic 3D with CSS and the DOM</a><br /> <a href="http://tantek.com/CSS/Examples/polygons.html">A Study of Regular Polygons using CSS</a><br /> <a href="http://www.sitepoint.com/article/accessible-javascript">Accessible JavaScript: Beyond the Mouse</a><br /> <a href="http://24ways.org/2006/showing-good-form">24 ways to impress your friends  :Showing Good Form</a><br /> <a href="http://ajaxworldmagazine.com/read/333329.htm">How and Why AJAX, Not Java, Became the Favored Technology for RIAs</a><br /> <br /><br /> <strong>VRML and X3D<br /></strong> VRML has been around for a long time now.&nbsp; I remember playing with it when I was in high school.&nbsp; It is a &quot;simple&quot; markup language to describe 3d worlds.<br />  </p><p>X3D is a newer open XML standard for 3D content delivery. It is the next revision of VRML. X3D files can be displayed with a X3D plugin, program, or toolkit. Most of the X3D plugins also display VRML files.&nbsp; VRML and X3D are both ISO standards.</p><p>The biggest problem with VRML and X3D has always been the lack of suitable cross platform runtime.&nbsp; I love the idea of a unified web were one can write markup for 3d worlds which would work on everyone's machine.... but this dream has not been realized....and I'm starting to doubt that it ever will.<br /><br />I've done some research using a few of the X3D plugins available today (Jan-2007) and I'm pretty disappointed.&nbsp; I can't find a single X3D runtime that works well on windows, mac, and linux.&nbsp; I've found it hard to find even a good plugin for any of the platforms.<br /><br />I'd really like to see the development of a nice cross platform plugin that works in all the web browsers and could be scripted using Ajax.&nbsp; Dream dream dream.<br />  <a href="http://www.web3d.org/about/overview/">What is X3D?</a><br /><a href="http://www.openvrml.org/">OpenVRML</a> - a free cross-platform runtime for VRML and X3D.<br /><a href="http://ibm-cvut.felk.cvut.cz/srp1/projects/VVing/doc/report2_eng.htm">IBM 4: VRML+VoiceXML</a><br /> <a href="http://xml.coverpages.org/vrml-X3D.html">VRML (Virtual Reality Modeling Language) and X3D</a><br /> <a href="http://lyberty.com/encyc/articles/tech/VRML.html">3-D Web environments: Virtual Reality Modeling Language (VRML) &amp; X3D</a><br /> <a href="http://wwwbruegge.in.tum.de/static/publications/view.php?id=121">CUIML: A Language for Generating Multimodal Human-Computer Interfaces</a><br /> <a href="http://www.ultrablue.com/dan/vxml/printable.html">Visual XML Authoring, Publishing and Viewing Structured Information</a><br /> <a href="http://www.google.com/search?q=vrml+and+vxml&amp;start=0">google: vrml and vxml</a><br /> <a href="http://www.itl.nist.gov/div897/ctg/vrml/vrml2test.html">VRML testing suite</a><br /> <a href="http://www.ajax3d.org/">http://www.ajax3d.org/</a> - Ajax and X3D-based open technologies<br /> </p><p><br /><strong>VoiceXML</strong><br />&nbsp; for what that's worth. VoiceXML provides a means for speech recognition and speech synthesis to voice-enable your web site. <br /> <a href="http://java.sys-con.com/read/288053.htm">Making Great Mapping Mashups Using Adobe Flex</a><br /> <br /> <strong>Using molecule viewers?!</strong><br /> The outlook to me for VRML and X3D platforms is sad.... due to no single cross platform X3D solution....with good object model and data streams of course.<br /> <br /> However, there has been some development in the bio related visualization tools.  I'm doing to investigate more later...<br /> <a href="http://jmol.sourceforge.net/">Jmol</a><br />  <br /> <strong>Second Life</strong><br />Second life is an interesting odity to pop up in the tech. world that I wouldn't have believed.&nbsp; Second Life actually promotes a virtual world in which virtual content and space are worth real money.&nbsp; This really blow my mind and I'm very interested to see how it turns out.<br /><br />Second life could also provide a great platform for multi-modal communication....however, things are still a little young...and I'm really not sure of the future at this point.<br /> <a href="http://secondlife.com/businesseducation/"><br />Business and Education</a><br /> <a href="http://secondlife.com/developers/resources/matrix.php">Developers: Resource Matrix</a><br /> <a href="http://www.kan-ed.org/second-life/using-LSL.html">Using the Linden Script Language</a><br />
+<a href="http://www.informationweek.com/software/showArticle.jhtml?articleID=198100512">IBM Launches Developers' Resources In Second Life</a><br/>
+ <a href="http://en.wikipedia.org/wiki/Canvas_(HTML_element)">Canvas (HTML element)</a><br /> <a href="http://www.abrahamjoffe.com.au/ben/canvascape/">Canvascape - &quot;3D Walker&quot;</a><br /> <a href="http://ubrowser.com/index.php">uBrowser</a><br /> <a href="http://www.etc.cmu.edu/bvw/">Building virtual worlds (CMU's Alice)</a><br /> <a href="http://panda3d.etc.cmu.edu/what.php">Panda3d<br /></a></p><p>Interesting research on pervasive games...<br /><a href="http://hotpotato.sics.se/index.html">Frog Race is a master thesis project</a></p><p>Using game engines for ground level seems to be a pretty good idea.&nbsp; I could be able to voice control quake.&nbsp; Quake is open source and the data files to run the application are available if you've bought the game.&nbsp; It would quickly get a base of users as there are many game players interested in computerized automation and modeling.<br /><br />Looks like I'm not the only one to have this idea.&nbsp; The questions is when will it happen...and what does it mean when people communicate, navigate, and understand 3d.</p><p><a href="http://www.flipcode.com/articles/portals_issue01.shtml">Building a&nbsp; 3D Portal Engine</a></p><p><a href="http://www.crystalspace3d.org/main/Main_Page">Crystal Space 3D</a>&nbsp;</p>
+<a href="http://en.wikipedia.org/wiki/COLLADA">COLLADA</a><br/>
+<a href="http://www.cs.toronto.edu/~andreslc/xen-gl/">VMGL</a><br/>
+<br/>
+<br/>
+<a href="http://www.gameproducer.net/2006/09/22/the-first-step-into-game-development/">The First Step Into Game Development</a><br/>
+<a href="http://pyro.sourceforge.net/">Pyro</a> - Python Remote Objects<br/>
+<br/>
+I'm thinking about interfacing to a MUD for content and activities for people to do.<br/>
+<br/>
+<a href="http://www.hawksoft.com/hawknl/">HawkNL (Hawk Network Library)</a><br/>
+<a href="http://zige.sourceforge.net/">ZIG Game Engine</a><br/>
+<a href="http://en.wikipedia.org/wiki/LCD_shutter_glasses">LCD shutter glasses - Wikipedia, the free encyclopedia</a><br/>
+<a href="http://edimensional.com/product_info.php?products_id=29">eDimensional 3D Glasses and Innovative PC Gaming Accessories</a><br/>
+    <div style="border: 1px;">
+    Created: 2007-06-01 16:52:46
+    Modified: 2007-10-06 08:14:22
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+0, 1, 1, 2, 3, 5, 8, 13, 21, 34,...<br/>
+<b> x<sub>n</sub> = x<sub>n-1</sub> + x<sub>n-2</sub></b><br/>
+<!-- "Fibonacci" was his nickname, which roughly means "Son of Bonacci". -->
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

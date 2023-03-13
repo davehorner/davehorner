@@ -1,0 +1,406 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>articles in random-thoughts</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+    articles in <a href="/p/">Personal</a> random-thoughts
+            <div>
+              <a href="accessibility-and-ergonomics/">Accessibility and ergonomics</a>
+            </div>
+            <div>
+              <a href="autoharp-and-chromaharp/">Autoharp and Chromaharp Stuff</a>
+            </div>
+            <div>
+              <a href="automobiles/">Automobiles</a>
+            </div>
+            <div>
+              <a href="baby-and-toddler-computer-stuff/">Baby and toddler computer stuff.</a>
+            </div>
+            <div>
+              <a href="bars-places-and-things-in-fort-wayne-in/">Bars, Places, and things in Fort Wayne, IN</a>
+            </div>
+            <div>
+              <a href="bass-stuff/">Bass Guitar Stuff</a>
+            </div>
+            <div>
+              <a href="callerid-and-click-to-call/">Callerid and click to call</a>
+            </div>
+            <div>
+              <a href="drawing/">Drawing, painting, and other things</a>
+            </div>
+            <div>
+              <a href="drums/">Drum stuff</a>
+            </div>
+            <div>
+              <a href="faberication/">faberication</a>
+            </div>
+            <div>
+              <a href="fmam-transmittersrecievers-and-local-broadcasts/">FM/AM Transmitters/Recievers and local broadcasts</a>
+            </div>
+            <div>
+              <a href="games-games-games/">games games games</a>
+            </div>
+            <div>
+              <a href="games-something-for-a-pause/">Preparing for the meeting with Paul, Storm, and JoCo.</a>
+            </div>
+            <div>
+              <a href="genealogy/">Genealogy</a>
+            </div>
+            <div>
+              <a href="going-from-cable-internet-to-fiber-optic/">Going from cable internet to fiber optic!</a>
+            </div>
+            <div>
+              <a href="google-hangouts-unblock-unblock-that-annoying-person/">google hangouts unblock - unblock that annoying person.</a>
+            </div>
+            <div>
+              <a href="google-keeping-an-eye-on-the-big-guy/">Google - keeping an eye on the big guy.</a>
+            </div>
+            <div>
+              <a href="google-me-tshirt/">Google Me t-shirt QR Counter</a>
+            </div>
+            <div>
+              <a href="hosp-sparrow-traps-bird-trap/">HOSP Sparrow Traps Bird Trap</a>
+            </div>
+            <div>
+              <a href="irc-internet-relay-chat-still-has-a-place/">IRC - Internet relay chat still has a place.</a>
+            </div>
+            <div>
+              <a href="j2megps-touch-displays-fast-comm-some-cool-stuff-comin/">J2ME,GPS, touch displays, fast comm -  some cool stuff comin!</a>
+            </div>
+            <div>
+              <a href="joewise/">Joe Wise</a>
+            </div>
+            <div>
+              <a href="latin-dancing-salsa-rueda-bachata-cumbia/">Latin Dancing Salsa Rueda Bachata Cumbia</a>
+            </div>
+            <div>
+              <a href="latin-semper-ubi-sub-ubi/">Latin semper ubi sub ubi</a>
+            </div>
+            <div>
+              <a href="logitech-trackball-double-click-m570/">logitech trackball double click m570</a>
+            </div>
+            <div>
+              <a href="macpro-a-serverand-something-pretty/">MacPro -  a server...and something pretty.</a>
+            </div>
+            <div>
+              <a href="michelangelos-creation-of-adam-with-a-geeky-twist/">Michelangelo</a>
+            </div>
+            <div>
+              <a href="mowers/">mowers</a>
+            </div>
+            <div>
+              <a href="music-is-key/">Music is key.</a>
+            </div>
+            <div>
+              <a href="my-precious-monitors/">My precious monitors</a>
+            </div>
+            <div>
+              <a href="non-relational-databases/">non-relational databases (nosql)</a>
+            </div>
+            <div>
+              <a href="open-source-and-money/">Open source and money.</a>
+            </div>
+            <div>
+              <a href="penrose-tribar-the-impossible-infinite-triangle/">penrose tribar, the impossible infinite triangle</a>
+            </div>
+            <div>
+              <a href="personal-videos-ive-made/">Personal videos I&#x27;ve made...</a>
+            </div>
+            <div>
+              <a href="pi-314unicode-character-u03c0/">pi  3.14...Unicode Character “?” (U+03C0).</a>
+            </div>
+            <div>
+              <a href="places-and-things-in-dc-area/">Places and things in DC area.</a>
+            </div>
+            <div>
+              <a href="playing-and-embedding-movies-on-your-webpage/">Playing and embedding movies on your webpage.</a>
+            </div>
+            <div>
+              <a href="posthuman/">posthuman</a>
+            </div>
+            <div>
+              <a href="r-buckminster-fuller/">R. Buckminster Fuller</a>
+            </div>
+            <div>
+              <a href="religions/">Religions</a>
+            </div>
+            <div>
+              <a href="remote-desktop-and-collaboration/">Pairing - Remote desktop and collaboration</a>
+            </div>
+            <div>
+              <a href="resume/">Résumé of Dave Horner</a>
+            </div>
+            <div>
+              <a href="silly-computer-science--geeky-jokes/">Silly computer science / geeky jokes.</a>
+            </div>
+            <div>
+              <a href="some-music-i-like/">Some music i like.</a>
+            </div>
+            <div>
+              <a href="the-lebowskifest/">The Big Lebowski - dude.</a>
+            </div>
+            <div>
+              <a href="thoughts-on-licensing-patents-and-open-source/">Thoughts on licensing, patents, and open source.</a>
+            </div>
+            <div>
+              <a href="thoughts-on-tattoos/">thoughts on Tattoos</a>
+            </div>
+            <div>
+              <a href="ti-89-tips-and-tricks/">TI 89 Tips and tricks</a>
+            </div>
+            <div>
+              <a href="timezones-and-time/">Timezones and time.</a>
+            </div>
+            <div>
+              <a href="ubi-for-the-masses/">ubi bui doooooo</a>
+            </div>
+            <div>
+              <a href="ukulele-uke-thoughts/">Ukulele stuff</a>
+            </div>
+            <div>
+              <a href="usb/">USB development</a>
+            </div>
+            <div>
+              <a href="v3droom-more-info-coming-soon/">v3droom - more info coming soon!</a>
+            </div>
+            <div>
+              <a href="videos-some-of-my-favorite-movies-and-videos-online/">Videos - Some of my favorite movies and videos online.</a>
+            </div>
+            <div>
+              <a href="water/">Water</a>
+            </div>
+            <div>
+              <a href="wii/">WII</a>
+            </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+<a href="javascript:var%20s%20=%20document.createElement('script');s.type='text/javascript';document.body.appendChild(s);s.src='/eggs/asteroids.min.js';void(0);" id="secret">destory this webpage; if you will.</a>
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

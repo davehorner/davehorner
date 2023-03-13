@@ -1,0 +1,397 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>git - trees, blobs, commits and other thoughts</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/programming/">programming</a>
+    <h1>git - trees, blobs, commits and other thoughts</h1>
+   Git, an open source DVCS developed originally for Linux Kernel development.  directed acyclic graphs DAGNABIT.<br/>
+<a href="http://smangelsdorf.github.io/blog/2014/02/17/git-is-a-directed-acyclic-graph/">Git is a Directed Acyclic Graph</a><br/>
+<a href="http://www.ericsink.com/vcbe/html/directed_acyclic_graphs.html">Directed Acyclic Graphs (DAGs)</a><br/>
+<br/>
+<br/>
+<iframe width="560" height="315" src="//www.youtube.com/embed/4XpnKHJAok8?list=PLt6G8wJalAaSEu2SY6Tf5C2KclE0_Pq7b" frameborder="0" allowfullscreen></iframe><br/>
+<br/>
+<h2>git</h2>
+<a href="http://git-scm.com/documentation">Git - Fast Version Control System</a><br/>
+<a href="https://git-scm.com/book/en/v2">Git - Book</a> - entire Pro Git book, written by Scott Chacon and Ben Straub and published by Apress<br/>
+<br/>
+<br/>
+<h2>github</h2>
+<a href="https://github.com/">GitHub</a><br/>
+<a href="https://github.com/stefanbuck/awesome-browser-extensions-for-github">stefanbuck/awesome-browser-extensions-for-github: A collection of awesome browser extensions for GitHub.</a><br/>
+<a href="https://github.com/phillipadsmith/awesome-github">phillipadsmith/awesome-github: A curated list of GitHub's awesomeness</a><br/>
+
+<br/>
+<br/>
+<h2>git tools, git gui, git interfaces</h2>
+<a href="http://code.google.com/p/msysgit/">msysgit</a> - Google Code project which officially supports git distributions using MinGW/MSys for win32! <br/>
+<a href="https://www.sourcetreeapp.com/"> sourcetree - Free Mercurial and Git Client for Windows and Mac | Atlassian SourceTree</a> - atlassian<br/>
+<br/>
+<br/>
+<h2>tutorials, crashcourses, and cheatsheets</h2>
+<a href="https://github.com/git-tips/tips">git-tips/tips: Most commonly used git tips and tricks.</a><br/>
+<a href="https://github.com/arslanbilal/git-cheat-sheet">arslanbilal/git-cheat-sheet: git cheat sheet and git flow</a><br/>
+<a href="http://www.kernel.org/pub/software/scm/git/docs/tutorial.html">A tutorial introduction to git (for version 1.5.1 or newer)</a><br/>
+<a href="http://git.or.cz/course/svn.html">Git - SVN Crash Course</a><br/>
+<a href="http://utsl.gen.nz/talks/git-svn/intro.html">An introduction to git-svn for Subversion/SVK users and deserters</a><br/>
+<br/>
+<br/>
+<a href="http://codicesoftware.blogspot.com/2007/05/linus-torvalds-on-git-and-scm.html"> Linus Torvalds on GIT and SCM</a><br/>
+The official site: <a href="http://git.or.cz/">Git - Fast Version Control System</a><br/>
+<a href="http://wiki.sourcemage.org/Git_Guide">Git Guide</a><br/>
+<a href="http://wiki.samba.org/index.php/Using_Git_for_Samba_Development">Using Git for Samba Development</a><br/>
+<a href="http://git.or.cz/gitwiki/WindowsInstall">git for WindowsInstall wiki page</a><br/>
+<a href="http://sourceforge.net/projects/gitextensions/">SourceForge.net: Git Extensions</a> - shell extension will integrate in Windows Explorer and presents a nice context menu on files.<br/>
+<br/>
+<br/>
+<h2>git hosting solutions</h2>
+<a href="http://github.com/">Secure source code hosting and collaborative development - GitHub</a>
+<a href="https://www.atlassian.com/software/bitbucket">Bitbucket - the Git solution for professional teams | Atlassian</a><br/>
+<a href="https://github.com/gogits/gogs">GitHub - gogits/gogs: Gogs (Go Git Service) is a painless self-hosted Git service.</a><br/>
+<a href="http://phabricator.org/">Phabricator</a> - host SVN,git,hg code review wiki, bugs,etc used by Facebook.<br/>
+<a href="https://about.gitlab.com/">Code, test, and deploy together with GitLab open source git repo management software | GitLab</a><br/>
+<a href="http://scie.nti.st/2007/11/14/hosting-git-repositories-the-easy-and-secure-way">scie.nti.st » Hosting Git repositories, The Easy (and Secure) Way</a><br/>
+<br/>
+<br/>
+<h2>git addons</h2>
+<a href="https://github.com/stevemao/awesome-git-addons">stevemao/awesome-git-addons: A curated list of addons that extends git cli.</a><br/>
+<br/>
+<br/>
+<a href="http://samba.org/~jelmer/dulwich/">Dulwich</a> is a pure-Python implementation of the Git file formats and protocols. <a href="http://samba.org/~jelmer/dulwich/tutorial/">Dulwich Tutorial</a><br/>
+<a href="http://nvie.com/posts/a-successful-git-branching-model/">A successful Git branching model » nvie.com</a> which is related to  
+<a href="http://github.com/nvie/gitflow/tree/0.2">nvie's gitflow at 0.2 - GitHub</a>.<br/>
+<a href="http://yanpritzker.com/git-book/">Git Workflows Book – Yan Pritzker</a><br/>
+<br/>
+<br/>
+<h2>git tutorials and git gameification</h2>
+<a href="https://github.com/Gazler/githug">Gazler/githug</a> - Git Your Game On<br/>
+<a href="https://github.com/icefox/git-achievements">icefox/git-achievements</a> - Aquire achievements while using git.<br/>
+<a href="http://githowto.com/">Git How To: Guided Git Tutorial | Git How To</a><br/>
+<br/>
+<a href="http://gitimmersion.com/">Git Immersion - Brought to you by Neo</a><br/>
+<br/>
+<a href="https://github.com/rsms/gitblog">rsms/gitblog</a> - Git-based blog/cms for PHP, meant as a replacement for Wordpress<br/>
+<a href="http://gitlab.org/">GITLAB: Self Hosted Git Management Application</a><br/>
+<a href="http://prose.io/">Prose · A Content Editor for GitHub</a><br/>
+<a href="http://pcottle.github.io/learnGitBranching/">Learn Git Branching</a> - designed to help beginners grasp the powerful concepts behind branching when working with git.<br/>
+<a href="http://tin.cr/tailor.html">Tailor Code Editor</a> - Tailor is a testing and demonstration platform for a pure javascript Git workflow implemented using the open source (MIT License) <a href="https://github.com/ryanackley/git-html5.js">ryanackley/git-html5.js</a> <a href="https://chrome.google.com/webstore/detail/tailor/mfakmogheanjhlgjhpijkhdjegllgenf">Tailor Chrome app</a><br/>
+<a href="http://blog.anvard.org/conversational-git/">Conversational Git – Conversational Git</a><br/>
+<a href="http://gitready.com/">git ready » learn git one commit at a time</a><br/>
+<a href="http://girders.org/blog/2013/09/04/git-is-a-framework/">Git is a framework for creating a Version Control System - Girders</a><br/>
+<a href="https://github.com/nvie/gitflow">nvie/gitflow</a> -  collection of Git extensions to provide high-level repository operations for Vincent Driessen's branching model<a href="http://nvie.com/posts/a-successful-git-branching-model/">A successful Git branching model » nvie.com</a><br/>
+<a href="http://jeffkreeftmeijer.com/2010/why-arent-you-using-git-flow/">Why aren't you using git-flow? – Jeff Kreeftmeijer</a><br/>
+<br/>
+<br/>
+<a href="http://chrisjean.com/2009/04/20/git-submodules-adding-using-removing-and-updating/">Git Submodules: Adding, Using, Removing, Updating :: Chris Jean</a><br/>
+<h2>undo git add</H2>
+use "git rm --cached <file>..." to unstage.<br/>
+<a href="http://stackoverflow.com/questions/348170/undo-git-add-before-commit">version control - Undo 'git add' before commit - Stack Overflow</a><br/>
+<br/>
+<a href="https://github.com/cool-RR/git-cascade">cool-RR/git-cascade</a> - git cascade - Cascade changes from each branch to its dependents. git forward-merge - Merge branches without checking them out.<br/>
+<br/>
+<h2>Ignore chmod changes in GIT</h2>
+git config core.filemode false<br/>
+<br/>
+<br/>
+<h2>gitc</h2>
+<a href="https://github.com/GrantStreetGroup/gitc">GrantStreetGroup/gitc</a> - App::Gitc; Git Changesets is a wrapper around git to handle code review workflow. <a href="https://github.com/GrantStreetGroup/gitc/wiki">gitc Wiki</a><br/>
+<a href="https://raw.githubusercontent.com/GrantStreetGroup/gitc/master/HOWTO">GrantStreetGroup/gitc/master/HOWTO</a><br/>
+<br/>
+<br/>
+<a href="https://github.com/acme/git-pureperl">acme/git-pureperl</a> - Git::PurePerl - A Pure Perl interface to Git repositories<br/>
+<a href="http://genehack.github.io/Git-Wrapper/">Git::Wrapper</a> - Git::Wrapper provides an API for git(7) that uses Perl data structures for argument passing, instead of CLI-style --options as Git does. <a href="https://github.com/genehack/Git-Wrapper">genehack/Git-Wrapper</a><br/>
+<a href="https://github.com/genehack/app-gitgitr">genehack/app-gitgitr</a> - gitgitr Download, build, and install new git releases. if you maintain something like Git::Wrapper, the ability to quickly install a particular git version comes up way more often than you would like. (lol!)<br/>
+<a href="https://github.com/genehack/app-gitgot">genehack/app-gitgot</a> - got is a script to make it easier to manage all the version controlled repositories you have on all the computers you use.<br/>
+<a href="https://github.com/mjdominus/git-util/">mjdominus/git-util</a> Mark Dominus's git utilities along with <a href="http://blog.plover.com/prog/git-habits.html">The Universe of Discourse : My Git Habits</a><br/>
+<br/>
+<br/>
+<a href="https://github.com/sitaramc/gitolite">sitaramc/gitolite</a> Gitolite allows you to host Git repositories easily and securely.<a href="http://gitolite.com/gitolite/">Hosting Git Repositories (with gitolite)</a><br/>
+<a href="http://ttboj.wordpress.com/2010/08/19/git-gitosis-gitweb-and-friends/">git, gitosis, gitweb and friends… | The Technical Blog of James</a><br/>
+<a href="https://metacpan.org/pod/Config::GitLike">Config::GitLike - git-compatible config file parsing - metacpan.org</a> - git-compatible config file parsing; which look a bit like ini files, but not.<br/>
+
+<a href="http://philippe.bruhat.net/stuff/git-fractals/">Git fractals</a> - Sierpi?ski triangles using Git. Cayley graph of F2 <br/>
+<br/>
+<br/>
+<h2>cleaning up large git repos</h2>
+there are times when people commit very large files or things that shouldn't have been committed.  It isn't as simple as just doing a git rm to get it out of your history and reduce the git repo s size.<br/>
+<br/>
+To see your git size run: git count-objects -v<br/>
+The size-pack value is the size of your repository when it is pushed to a remote server. The size-pack value is in kilobytes.<br/>
+You can use git to clean up files, but I would suggest using BFG, it works really well and is much faster than git at cleaning up repos.<br/>
+<a href="https://rtyley.github.io/bfg-repo-cleaner/">BFG Repo-Cleaner by rtyley</a><br/>
+It's important that you use the --mirror command when doing this, if you don't you will find yourself deleting the content and finding it coming back when you pull.<br/>
+<pre>
+java -jar ..\bfg-1.12.16.jar -D *file_regex*
+git clone --mirror ssh://git@...
+git reflog expire --expire=now --all && git gc --prune=now --aggressive
+git push
+</pre>
+<a href="https://confluence.atlassian.com/bitbucket/reduce-repository-size-321848262.html">Reduce repository size - Atlassian Documentation</a><br/>
+<a href="https://dalibornasevic.com/posts/2-permanently-remove-files-and-folders-from-git-repo">Permanently remove files and folders from Git repo</a> - using git filter-branch to clean up space.<br/>
+    <div style="border: 1px;">
+    Created: 2014-07-04 20:35:33
+    Modified: 2017-10-19 15:24:22
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+<span id=daysToChristmas>x</span> days to Christmas.<br/>
+<span id=daysToNewYear>x</span> days to a new year.<br/>
+Happy Holidays!
+<script Language="JavaScript">
+function showtime () {
+        msPerDay = 24 * 60 * 60 * 1000 ; // Number of milliseconds per day
+        var now = new Date();
+        var year = now.getYear();
+        if (year < 1000)
+         year+=1900
+        nextXmas = new Date("December 25, 2000")
+        nextXmas.setYear(year)
+        daysLeft = (nextXmas.getTime() - now.getTime()) / msPerDay;
+        daysLeft = Math.round(daysLeft);
+        var span=document.getElementById('daysToChristmas');
+        span.removeChild(span.firstChild);
+        span.appendChild(document.createTextNode(daysLeft+''));
+        
+        nextXmas = new Date("December 31, 2000")
+        nextXmas.setYear(year)
+        daysLeft = (nextXmas.getTime() - now.getTime()) / msPerDay;
+        daysLeft = Math.round(daysLeft);
+
+        span=document.getElementById('daysToNewYear');
+        span.removeChild(span.firstChild);
+        span.appendChild(document.createTextNode(daysLeft+''));
+        setTimeout("showtime()",msPerDay);
+}
+showtime();
+</script>
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

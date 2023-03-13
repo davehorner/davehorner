@@ -1,0 +1,309 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>Linux CCTV and security - watchdog for the geeks.</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/linux-unix-and-friends/">linux-unix-and-friends</a>
+    <h1>Linux CCTV and security - watchdog for the geeks.</h1>
+   Lately I've been thinking a lot about how to do CCTV on the linux platform.&nbsp; I want something to secure my house as well as my office.&nbsp; It is important to me that such a system be as open as possible so that I may add features to it when need be.&nbsp; So... the best possible solution would have to be an open source CCTV solution based upon the linux OS. <img alt="" src="/mambots/editors/fckeditor/editor/images/smiley/msn/regular_smile.gif"/>&nbsp; Gee... you didn't see that&nbsp; coming?!<br/>
+<br/>
+First lets look at what is out there now in terms of CCTV for linux:<br/>
+<a href="http://www.zoneminder.com/documentation.html">ZoneMinder</a><br/>
+<a href="http://ubntek.com/ufoscam/">uFoscam: 2 Way Audio and Video Record</a><br/>
+<br/>
+More to come soon!<br/>
+<br/>
+<br/>
+<br/>
+Cameras<br/>
+So I've been looking around.&nbsp; I really like the idea of PoE cameras, I mean that allow the best of everything, you can get your video and audio, and&nbsp; send any sort of data back to the camera.&nbsp; Which opens all sorts of new possibilities.&nbsp; Many of the cameras include alarm and I/O lines so that you can interface the camera to controls right next to the camera... very cool.<br/>
+<br/>
+Anyways at this time, I'm not sure where the best source for PoE cameras are.&nbsp; Axis looks very promising, they seem to be the best known network camera makers.&nbsp; The <a href="http://www.axis.com/products/cam_211a/index.htm" target="_blank">AXIS211A</a> looks very cool, it is an indoor/outdoor with intercom cap. and controls.&nbsp; However, there are other people in this area... more research is needed.<br/>
+<br/>
+I like the idea of <a href="http://www.elphel.com/index.html" target="_blank">Elphel,Inc</a> they develop open source cameras that include FPGAs onboard.&nbsp; This would allow you to implement some custom image processing in hardware... very nice.&nbsp; However, I think this would require much more time to get it to market.. since it seems to be something I'd have to hack up.
+<br/>
+<br/>
+Some companies I've researched:
+<a href="http://www.cctvdynamics.com/" target="_blank">CCTV dynamics</a>
+<br/>
+<br/>
+<a href="http://tldp.org/HOWTO/BTTV/hw.html">Enabling Support for Your Bt8x8 Hardware in Linux</a><br/>
+<a href="http://tibit.org/video/">tibit.org â?? Linux Video Hacks</a><br/>
+<br/>
+<br/>
+<strong>Fedora and zoneminder</strong><br/>
+My latest machine is a Fedora 7 distro.  So I thought I'd give it a try for CCTV.  To install I used <a href="http://www.zoneminder.com/wiki/index.php/Fedora_Core_6_Step-by-Step">Fedora Core 6 Step-by-Step</a><br/>
+Theres also chatter in <a href="http://www.zoneminder.com/wiki/index.php/Fedora">Fedora ZoneminderWiki</a><br/>
+<pre>
+# make sure you've got these rpms installed.
+yum install mysql-server mysql-devel php-mysql pcre-devel perl-DateManip perl-libwww-perl perl-Device-SerialPort perl-MIME-Lite perl-Archive-Zip
+#download and build zoneminder.
+wget http://www.zoneminder.com/downloads/ZoneMinder-1.22.3.tar.gz
+tar xvfz ZoneMinder-1.22.3.tar.gz
+cd ZoneMinder-1.22.3
+
+./configure --with-mysql=/usr --with-webdir=/var/www/html/zm --with-cgidir=/var/www/cgi-bin --with-ffmpeg=/usr/bin  --with-lame=/usr/lib --with-webuser=apache --with-webgroup=apache
+make
+make install
+
+#install service
+install scripts/zm /etc/init.d/
+chkconfig --add zm
+chkconfig --level 345 zm on
+
+#setup mysql
+mysql mysql < db/zm_create.sql 
+mysql mysql
+grant select,insert,update,delete on zm.* to 'zmuser'@localhost identified by 'zmpass';
+quit
+mysqladmin reload
+
+service zm start
+</pre>
+<a href="http://linux.bytesex.org/v4l2/faq.html">v4l2 driver FAQ</a><br/>
+<a href="http://www.tldp.org/HOWTO/BTTV/hw.html">Enabling Support for Your Bt8x8 Hardware in Linux</a><br/>
+<br/>
+<br/>
+<h2>Quick I want to see video from my capture card</h2>
+<pre>
+xawtv -hwscan
+xawtv -device /dev/video0
+</pre>
+    <div style="border: 1px;">
+    Created: 2006-03-07 12:19:41
+    Modified: 2014-09-06 18:14:52
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+left side represents the beginning of mathematics; the right side represents the mysteries of infinity.<br/>
+1=0.999...
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

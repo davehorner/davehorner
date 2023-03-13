@@ -1,0 +1,396 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>Audio Processing</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/programming/">programming</a>
+    <h1>Audio Processing</h1>
+   <a href="http://people.xiph.org/~xiphmont/demo/neil-young.html">24/192 Music Downloads are Very Silly Indeed</a><br/>
+<a href="http://audacity.sourceforge.net/" target="_blank">Audacity</a> - Free audio editor and recorder<br/>
+<a href="http://www.annodex.net/node/71"> Continuous Media Markup Language CMML</a><br/>
+<a href="http://www.jokosher.org/">Jokosher</a> - Jokosher is a simple yet powerful multi-track studio. Jokosher is written in Python and uses the GNOME platform and the GTK widget set. The audio engine is powered by GStreamer, and we use Cairo for some of the graphics.<br/>
+<a href="http://www.essej.net/sooperlooper/">SooperLooper - Live Looping Sampler</a> - JACK (Linux/MacOSX) live looping sampler capable of immediate loop recording, overdubbing, multiplying, reversing and more.<br/>
+<a href="http://blogs.msdn.com/b/matthew_van_eerde/">Matthew van Eerde's web log - Site Home - MSDN Blogs</a> -  Software Development Engineer in Test working for the Windows Sound team.<br/>
+<br/>
+<h2>Open Source Libraries</h2>
+<a href="http://portmedia.sourceforge.net/">PortMedia</a> - portaudio,portmidi,portsoundfile,portsmf<br/>
+<a href="http://www.portaudio.com/" target="_blank">PortAudio</a> - portable cross-platform Audio API<br/>
+<a href="http://www.68k.org/~michael/audiofile/" target="_blank">libaudiofile</a> - (LGPL) a library for reading and writing many diff. audio formats.<br/>
+<a href="http://www.mega-nerd.com/libsndfile/" target="_blank">libsndfile</a> - (LGPL) a library for reading and writing many diff. audio formats.<br/>
+<a href="http://www.surina.net/soundtouch/" target="_blank">SoundTouch</a> - (LGPL) library for changing the Tempo, Pitch and Playback Rates of audio streams or files.<br/>
+<a href="http://www.mega-nerd.com/libsamplerate/" target="_blank">libsamplerate</a> - (LGPL) library for changing the sample rate of audio.<br/>
+<a href="http://aubio.piem.org/" target="_blank">aubio</a> - (GPL) library for audio labeling.<br/>
+<a href="http://agtk.sourceforge.net/" target="_blank">AGTK</a> - (Common Public) Annotation Graph Toolkit<br/>
+<a href="http://www.tml.tkk.fi/~tilmonen/mustajuuri/index.html" target="_blank">MUSTAJUURI</a> - AUDIO APPLICATION AND TOOLKIT<br/>
+<a href="http://www.portaudio.com/">PortAudio</a> - portable cross-platform Audio API<br/>
+<a href="http://www.codeplex.com/naudio">NAudio</a> - NAudio is an open source .NET audio and MIDI library, containing dozens of useful audio related classes intended to speed development of audio related utilities in .NET.<br/>
+<a href="http://www.evolvingsoftware.com/opensebj.html">Evolving Software - OpenSebJ</a> - OpenSebJ is a free real time audio sample mixer that runs on Microsoft Windows. The source code for OpenSebJ is released under the GNU General Public License.<br/>
+<a href="http://opensebj.blogspot.com/">OpenSebJ</a> - contains info on naudio and OpenSebJ.<br/>
+<a href="http://www.music.mcgill.ca/~gary/rtaudio/">The RtAudio Home Page</a> - RtAudio is a set of C++ classes that provide a common API (Application Programming Interface) for realtime audio input/output across Linux, Macintosh OS-X and Windows (DirectSound and ASIO) operating systems.<br/>
+
+<br/>
+<br/>
+<h2>Tools and things of interest</h2>
+<a href="http://www.speech.kth.se/wavesurfer/index.html" target="_blank">WaveSurfer</a> is an Open Source tool for sound visualization and manipulation.<br/>
+<a href="http://linux-sound.org/dsp.html" target="_blank">Signal Analysis/Processing Software</a> - a list of good resources about DSP and audio processing.<br/>
+<a href="http://www.fon.hum.uva.nl/praat/">Praat: doing Phonetics by Computer</a><br/>
+<a href="http://www.debuntu.org/how-autotune-pitch-correction-effect-with-praat">How-to: Autotune/ Pitch Correction Effect with Praat | Debian/Ubuntu Tips &amp; Tricks</a><br/>
+<a href="http://www.lamolabs.org/blog/2103/speeding-up-the-playback-of-audio-podcasts/">Speeding up the Playback of Audio Podcasts « Lâmôlabs</a><br/>
+<a href="http://hypermammut.sourceforge.net/paulstretch/">Paul's Extreme Sound Stretch</a><br/>
+<br/>
+<br/>
+<h2>Interesting papers and pages on the web</h2>
+<a href="http://www.plasticbag.org/archives/2005/10/on_the_bbc_annotatable_audio_project.shtml" target="_blank">BBC Annotatable Audio</a> - a blog article on BBC's audio tools.<br/>
+<a href="http://soundlab.cs.princeton.edu/publications/2000_icad_caaa.pdf" target="_blank">Experiments in computer-assisted annotation of audio</a><br/>
+<a href="http://research.microsoft.com/users/llu/Publications/ICASSP03_SenSeg.pdf" target="_blank">SPEECH SEGMENTATION WITHOUT SPEECH RECOGNITION</a><br/>
+<a href="http://www.ar.media.kyoto-u.ac.jp/EN/project/coe04.pdf" target="_blank">Spoken Language Processing for Audio Archives of Lectures and Panel Discussions</a><br/>
+<br/>
+<h2>Speech Recognition</h2>
+In many ways speech reconition has been somewhat of a holy grail for the ultimate humain computer interface.  Lately I've been getting the feeling that we are getting really close to something that is actually useable.  If you haven't used a speech recognition system for a while... try one... you'll be surprised.<br/>
+<br/>
+Currently I'm looking for ways to integrate a speech SDK into my applications.  The features I'm looking for is simple sentence or word segmentation and text with confidence levels.<br/>
+<br/>
+I heard IBM ViaVoice could be used on the linux platform, but when I called IBM I was sent to an outside company which told me that they don't support or even have such an SDK.  So I don't know what the state of development for IBM's ViaVoice is..... but we aren't dead yet.<br/>
+<br/>
+The next thing that I've been hearing some good things about... is the <a href="http://cmusphinx.sourceforge.net/" target="_blank">Sphinx</a> project from CMU.  Man, I'm impressed with the people at CMU!  I've been following many of their projects since I was a young kid in high school trying to wrap my head around facial recognition and neural networks.  Anyways, I'm currently researching this platform... and it looks promising with support for most all OSs.<br/>
+Here are some links:<br/>
+<br/>
+Someone built a <a href="http://www.robodance.com/" target="_blank">Robosapien Dance</a> Voice control with Sphinx, here is a <a href="http://www.evosapien.com/movies/voice-control-demo-hiq.mov" target="_blank">video</a> of it in use.<br/>
+<a href="http://jasperproject.github.io/">Jasper | Control everything with your voice</a> - Raspbery Pi,Pocketsphinx,CMUCLMTK, OpenFST, MIT Language Modeling Toolkit, m2m-aligner, Phonetisaurus<br/>
+<br/>
+<h2>Networked Sound / Loopback Audio Devices</h2>
+Lately I've been thinking hard about ways to make sound work wirelessly around my home.  There really isn't a solution yet for whole home intercom that can be done using simple PCs.  Yes, I can setup a sip phone on each computer and have all the systems auto answer.... but this doesn't provide a way for me to say play high quality mp3 audio on the bedroom and kitchen speakers.<br/>
+<br/>
+Another program is recording and mixing the audio of incoming and outgoing sources.  I'd really like to have the ability to mux together any number of channels and distribute that across the entire home.  Possibly even have a way to set mixing properties of incoming sources.<br/>
+<br/>
+A few audio loopback devices I've found so far are:<br/>
+<a href="http://www.zorg.org/vsound/index.shtml" target="_blank">vsound</a> - (LGPL) an virtual audio loopback for linux/mac machines.<br/>
+<a href="http://spider.nrcde.ru/music/software/eng/vac.html" target="_blank">Virtual Audio Cables</a> - (comm) a virtual loopback device for windows.<br/>
+Using Virtual Audio Cables, there is a way to actually record Skype calls directly on your PC.  This <a href="http://www.henshall.com/docs/Skype%20Recording%20WinXp%2012202004.pdf" target="_blank">pdf</a> talks about it.</p>
+<br/>
+<a href="http://www.cycling74.com/products/soundflower">Soundflower</a> - Free Inter-application Audio Routing Utility for Mac OS.<br/>
+<a href="http://jackaudio.org/">JACK | connecting a world of audio</a> - JACK is system for handling real-time, low latency audio (and MIDI). It runs on GNU/Linux, Solaris, FreeBSD, OS X, Windows, iOS, etc. Uses PortAudio. Provides JACK API,JackRouter ASIO driver, and Jack Audio Server.<br/>
+<a href="http://jackaudio.org/applications">Applications using JACK | JACK</a><br/>
+<br/>
+
+<a href="http://www.voip-info.org/wiki/view/Monitor+stereo-example">Monitor stereo-example</a><br/>
+<a href="http://sdkblog.blogspot.com/">Plantronics Development SDK Blog</a><br/>
+<a href="http://www.wmc.ewi.tudelft.nl/~przemyslawp/files/vad.pdf">Voice Activity Detection for VoIPâ??An Information 
+Theoretic Approach</a><br/>
+<br/>
+<a href="http://www.csounds.com/">csound</a><br/>
+<br/>
+<a href="http://www.codeproject.com/cs/media/synthtoolkitparti.asp">codeproject.com: C# Synth Toolkit - Part I</a><br/>
+<br/>
+<br/>
+<a href="http://www.fmod.org/index.php/fmod">FMOD music & soundeffects system</a><br/>
+<a href="http://ambiera.com/irrklang/index.html">Ambiera: irrKlang</a> - an audio library for C++, C# and .NET and high level 3D and 2D sound engine<br/>
+<a href="http://impromptu.moso.com.au/index.html">impromptu</a> - very cool OSX programming environment for composers, sound artists, VJ's and graphic artists with an interest in live or interactive programming. Impromptu is a Scheme language environment utilizing MacOSX AudioUnit chains.<br/>
+<a href="http://sonicbirth.sourceforge.net/">SonicBirth</a> - SonicBirth is an AudioUnit designing application. The first in its category, it allows users to build their own AudioUnit plugins, either by working with existing circuits or by creating circuits completely from scratch. SonicBirth is also a free AudioUnits package, as it comes bundled with a set of plugins designed for standalone use as plugins as well as pre-constructed circuits to modify or build upon for creating new plugins. Whether you're looking for traditional eqs, compressors, and reverbs, or softsynths, distortion, and filters, etc., SonicBirth allows you unprecedented freedom and creativity over your sound.<br/>
+<a href="http://acid.net.au/index.php?option=com_content&task=view&id=99&Itemid=164">ACID - Oscillating Rhythms - a new approach to rhythm generation</a> - this app is actually based on impromptu. (OSX only)<br/>
+<br/>
+<a href="http://supercollider.sourceforge.net/">SuperCollider</a> - real-time audio synthesis and algorithmic composition<br/>
+<a href="http://supercolliderau.sourceforge.net/">SuperColliderAU</a> is an AudioUnit wrapper that allows using SuperCollider servers inside AudioUnits Hosts. The embedded server may be controlled over OSC as usual. In addition, it may be packed with on synth definition and a configuration file that defines its parameters. (this means you could use it from impromptu)<br/>
+<a href="http://createdigitalmusic.com/2007/02/16/wii-remote-scratching-proof-of-concept-on-open-source-supercollider/">Create Digital Music » Wii Remote Scratching Proof-of-Concept on Open-Source SuperCollider</a><br/>
+<a href="http://reactable.iua.upf.edu/">reactable</a> - collaborative electronic music instrument with a tabletop tangible multi-touch interface.<br/>
+<br/>
+<br/>
+<h2>Ableton Live packs</h2>
+<a href="http://www.ableton.com/livepacks">Ableton Livepack - Downloads</a><br/>
+<a href="http://createdigitalmusic.com/2007/07/02/free-ableton-live-pack-by-composer-dennis-desantis/">Create Digital Music » Free Ableton Live Pack by Composer Dennis DeSantis</a><br/>
+<br/>
+<h2>Sounds and effects</h2>
+<a href="http://wiki.laptop.org/go/Sound_samples">Sound samples - OLPC</a> - Over 10GB of FREE Samples – for The Children of the World<br/>
+<a href="http://plugin.org.uk/">Steve Harris' LADSPA Plugin</a> - GPL code for effects that work in Audacity and can be used by others.<br/>
+<a href="http://www.freesound.org/">Freesound.org - Freesound.org</a><br/>
+<br/>
+<br/>
+<h2>Pitch Correction (aka. autotune)</h2>
+<a href="http://blogs.msdn.com/b/coding4fun/archive/2011/01/05/10112293.aspx">Autotune.NET - Coding4Fun - Site Home - MSDN Blogs</a><br/>
+<a href="http://decabear.com/awesomebox.html">AwesomeBox | Open-Source Real-Time Pitch-Correction (is that enough hyphens for ya?)</a> - AwesomeBox is a state of the art open-source pitch corrector<br/>
+<a href="http://www.dspdimension.com/admin/pitch-shifting-using-the-ft/">Pitch Shifting Using The Fourier Transform : The DSP Dimension</a><br/>
+<a href="http://voicerecorder.codeplex.com/">.NET Voice Recorder</a> - .NET Voice Recorder is a sample application demonstrating how to use NAudio to record audio on the .NET framework.<br/>
+<br/>
+<br/>
+<a href="http://abstractnonsense.com/timber/index.html">Timber</a> - Timber is a library for realtime pitch detection in web apps.<br/>
+<br/>
+<br/>
+<h2>VST</h2>
+<a href="http://www.gvst.co.uk/index.htm">GVST</a> - This site contains several free VST effects and instruments for Windows.<br/>
+<br/>
+<a href="http://mark-dot-net.blogspot.com/">Sound Code</a> - Mark Heath's blog, nice content!<br/>
+<br/>
+<br/>
+<h2>LADSPA and Linux Sound</h2>
+<a href="http://alsamodular.sourceforge.net/">AlsaModularSynth and Qt Audio & MIDI Tools</a> - AlsaModularSynth is a realtime modular synthesizer and effect processor.<br/>
+<a href="http://www.ladspa.org/">Linux Audio Developer's Simple Plugin API (LADSPA)</a><br/><br/>
+<br/>
+<a href="http://wiki.blender.org/index.php/User:NeXyon/GSoC2010/Audaspace">User:NeXyon/GSoC2010/Audaspace - BlenderWiki</a> - Comparison between PyGame and Audaspace<br/>
+<br/>
+<br/>
+<h2>ASIO</h2>
+<a href="http://www.asio4all.com/">ASIO4ALL - Universal ASIO Driver</a> - ASIO4ALL - the universal ASIO driver for WDM audio.<br/>
+<br/>
+<br/>
+<a href="http://www.rossbencina.com/music/internet-audio-streaming-apps-for-music-performance">Internet audio streaming apps for music performance — some options | Ross Bencina</a> <a href="http://www.rossbencina.com/code/real-time-audio-programming-101-time-waits-for-nothing">Real-time audio programming 101: time waits for nothing | Ross Bencina</a> - You do not want your software’s audio to glitch <a href="http://www.rossbencina.com/tag/computer-music">Computer-music | Ross Bencina</a> <br/>
+<a href="http://www.carot.de/soundjack/">Soundjack by Alexander Carot</a><br/>
+<a href="https://code.google.com/p/jacktrip/">jacktrip - A System for High-Quality Audio Network Performance over the Internet. - Google Project Hosting</a><br/>
+<br/>
+<br/>
+<a href="http://oampo.github.io/Audiolet/">Audiolet - JavaScript library for audio synthesis and composition</a> <a href="https://github.com/oampo/Audiolet">oampo/Audiolet</a><br/>
+<a href="https://github.com/jussi-kalliokoski/audiolib.js/">jussi-kalliokoski/audiolib.js</a><br/>
+<a href="http://www.oliphaunts.com/pianoroll-js/">PianoRoll.js</a> - Music Sequencer that runs in your browser written completely with HTML5 canvas, HTML5 audio and Audiolet. <a href="http://www.oliphaunts.com/projects.html">Bob Toney</a> <a href="https://github.com/bobenheimer/PianoRoll.js">bobenheimer/PianoRoll.js</a><br/>
+<br/>
+<h2>Gibberish</h2>
+<a href="http://www.html5audio.org/2013/09/gibberish.html">Gibberish - HTML5 Audio</a><br/>
+<a href="https://github.com/charlieroberts/Gibberish">charlieroberts/Gibberish</a> - Fast, JavaScript DSP library that creates JIT optimized audio callbacks using code generation techniques<br/>
+<a href="http://www.charlie-roberts.com/gibberish/">Gibberish Tests</a><br/>
+<a href="https://github.com/charlieroberts/Gibber">charlieroberts/Gibber</a> - An audiovisual live coding environment for the browser by Mr. <a href="http://www.charlie-roberts.com/index.htm">Charlie Roberts</a><br/>
+<a href="http://gibber.mat.ucsb.edu/">Gibber Demo</a> - <a href="http://www.mat.ucsb.edu/Publications/WebBrowser-as-Synth-Interface.pdf">The Web Browser As Synthesizer And Interface (pdf)</a><br/>
+<br/>
+<br/>
+<a href="http://acoustid.org/">Welcome to AcoustID! | AcoustID</a> - create a free database of audio fingerprints with mapping to the <a href="http://musicbrainz.org/">MusicBrainz - The Open Music Encyclopedia</a>.<br/>
+<br/>
+<br/>
+<h2>ardour</h2>
+<a href="http://ardour.org/">ardour - the digital audio workstation</a><br/>
+<a href="https://community.ardour.org/node/7876">Your System has a limit to locked memory [Solution] | ardour</a><br/>
+<a href="http://ubuntuhandbook.org/index.php/2015/05/how-to-install-ardour-4-in-ubuntu-14-04/">How to Install Ardour 4 in Ubuntu 14.04 | UbuntuHandbook</a> - sudo add-apt-repository ppa:dobey/audiotools;sudo apt-get update;sudo apt-get install ardour<br/>
+<a href="http://ardour.org/building_linux.html">Building Ardour on Linux</a> has a lot of <a href="http://ardour.org/current_dependencies.html">deps</a>, which are easily resolved by sudo apt-get build-dep ardour! ./waf configure;./waf<br/>
+    <div style="border: 1px;">
+    Created: 2006-01-19 05:03:26
+    Modified: 2016-02-14 12:22:57
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+<a href="javascript:var%20s%20=%20document.createElement('script');s.type='text/javascript';document.body.appendChild(s);s.src='/eggs/asteroids.min.js';void(0);" id="secret">destory this webpage; if you will.</a>
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,481 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>Photogrammetry / Remote Sensing / Geospatial technology / GIS</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/programming/">programming</a>
+    <h1>Photogrammetry / Remote Sensing / Geospatial technology / GIS</h1>
+   <p>For those of you who don't know what photogrammetry is.... here are some web references about the subject:<br />
+<br />
+<h2>Introductory Photogrammetry Information</h2>
+<a href="http://www.univie.ac.at/Luftbildarchiv/wgv/intro.htm">Introduction to Photogrammetry</a><br />
+<a href="http://www.geodetic.com/Whatis.htm">The Basics of Photogrammetry</a><br />
+<a href="http://en.wikipedia.org/wiki/Photogrammetry">Wikipedia's definition of photogrammetry</a><br />
+<br />
+<br />
+<h2>Applications of photogrammetry</h2>
+<a href="http://www.metrology.com.au/vms_applications/cadia.html">Deformation Measurement of Two of the World's Largest Electric Motors</a><br />
+<a href="http://www.univie.ac.at/Luftbildarchiv/wgv/appl.htm">Fields of Application for Photogrammetry and Imaging in Archaeology</a><br />
+<a href="http://www.photomodeler.com/pmpro09.html">PhotoModeler's real world usage examples</a><br />
+<br />
+<br />
+<h2>Associations and Journals in photogrammetry/remote sensing and related topics</h2>
+<a href="http://www.asprs.org/">American Society for Photogrammetry and Remote Sensing</a><br />
+<a href="http://www.isprs.org/">ISPRS - International Society for Photogrammetry and Remote Sensing</a><br />
+<a href="http://www.rspsoc.org/">RSPSoc - Remote Sensing and Photogrammetry Society</a><br />
+<br />
+<h2>Class material / Tutorials</h2>
+<a href="http://www.rss.chalmers.se/rsg/Education/RSUM/">Remote Sensing using Microwaves</a><br />
+<a href="http://www.ccrs.nrcan.gc.ca/resource/tutor/fundam/index_e.php">Tutorial: Fundamentals of Remote Sensing</a><br />
+<a href="http://ads.ahds.ac.uk/project/goodguides/apandrs/">Archiving Aerial Photography and Remote Sensing Data: A Guide to Good Practice</a><br />
+<a href="http://ads.ahds.ac.uk/project/goodguides/gis/index.html">GIS Guide to Good Practice</a><br />
+<a href="http://www.buildingconservation.com/articles/photogram/phtogram.htm">Photogrammetry - A Practical Guide</a><br />
+<a href="http://www.microimages.com/getstart/">Learning Geospatial Analysis</a><br />
+<br />
+<h2>Misc Links</h2>
+<a href="http://ahds.ac.uk/history/creating/guides/gis/index.html">A Guide to Using GIS in Historical Research</a><br />
+<a href="http://www.agt.bme.hu/public_e/funcint/funcint.html">GIS FUNCTIONS - INTERPOLATION</a><br />
+<a href="http://www.google.com/Top/Science/Earth_Sciences/Geomatics/Photogrammetry/">Google's directory for photogrammetry</a><br />
+<a target="_blank" href="http://www.directionsmag.com/article.php?article_id=2194&trv=1">O Canada! Canadians and Open Source</a><br />
+<a href="http://williams.best.vwh.net/avform.htm">Aviation Formulary V1.43</a> - Great Circle Navigation Formulae<br/>
+<a href="http://www.geometrictools.com/index.html">Geometric Tools</a><br/>
+<br />
+<a target="_blank" href="http://www.cs.cornell.edu/Courses/cs465/2004fa/cvs/readings/sampling-notes-v2.pdf">Resampling Notes</a> [<a href="/personal/papers/resamplingnotes.pdf">Local Cache</a>]<br />
+Brandon Lloyd and Parris K. Egbert,  "<a target="_blank" href="http://rivit.cs.byu.edu/a3dg/publications/histogramPainting_final.pdf">Histogram Painting for Better Photomosaics</a> [<a href="/personal/papers/histogramPainting_final.pdf">Local Cache</a>], in Computer Graphics and Imaging , pp. 174-179, August 12-14, 2002.<br />
+<br />
+Here is a pretty good page on <a target="_blank" href="http://www.photo.net/learn/dark_noise/">Photon, Dark, and Bias Noise</a><br /> <br /> Fundamental Matrix<br /> <a target="_blank" href="http://www-sop.inria.fr/robotvis/personnel/zzhang/Publis/CovF.ps.gz">Characterizing the Uncertainty of the Fundamental Matrix</a><a name="abstractRobust"></a><br /> A Robust Technique for Matching Two Uncalibrated Images Through the Recovery of the Unknown Epipolar Geometry<br /> <br /> Correspondence<br /> <a target="_blank" href="http://www.cs.ubc.ca/~deaton/remarks_ncc.html">How to do Normalized Cross-Correlation Fast</a><br />
+<a href="http://stackoverflow.com/questions/8479058/how-do-i-find-waldo-with-mathematica/8479757">image processing - How do I find Waldo with Mathematica? - Stack Overflow</a><br/>
+<br />
+<br /> 
+<h2>Misc</h2>
+Many good papers by <a target="_blank" href="http://www-sop.inria.fr/robotvis/personnel/zzhang/abstracts.html#abstractSFM96">Zhengyou Zhang</a> also home @ <a target="_blank" href="http://research.microsoft.com/~zhang/">microsoft</a><br /> <a target="_blank" href="http://research.microsoft.com/~zhang/Calib/">A Flexible New Technique for Camera Calibration<br /> </a><br /> Hyperspectrial Imaging<br /> <a href="http://www.microimages.com/getstart/pdf_new/hyprspec.pdf">Introduction to Hyperspectral Imaging</a> - Good info.<br />
+ <a href="http://speclib.jpl.nasa.gov/">ASTER Spectral Library</a> - A open source library of spectral data.<br />
+<a href="http://spectralpython.sourceforge.net/">SPy || Spectral Python</a><br/>
+<br />
+<br />
+Existing Systems for creation of airborne othorectified mosaics<br />
+<a target="_blank" href="http://www.spaceimaging.com/whitepapers_pdfs/2002/DAIS-A%20Digital%20Airborne%20Imaging%20System-ISPRS%202002.pdf">DAIS - A digital Airborne Imaging System</a><br />
+<br />
+<a href="http://www.cambridgeincolour.com/tutorials.htm"> Some nice tutorials on image stuff. </a><br />
+<br />
+<a href="http://www.photogrammetry.ethz.ch/general/persons/AG_pub/ALSM_AWGruen.pdf">ADAPTIVE LEAST SQUARES CORRELATION: A POWERFUL IMAGE MATCHING TECHNIQUE</a><br />
+<br />
+<a href="http://www.whoi.edu/institutes/podcasts.html">WHOI Podcasts</a><br />
+<a href="http://wbc.whoi.edu:8060/http/WHOI_CMS/Podcast/Mosaicing.wmv">Deep Sea Photo Mosaicing</a><br />
+<a href="http://www.axismaps.com/blog/">Axis Maps Blog - Cartography. Visualization. Design.</a><br/>
+<a href="http://makingmaps.net/">Making Maps: DIY Cartography | Resources and Ideas for Making Maps</a><br/>
+
+<h2>Map Projection Resources</h2>
+<a href="http://proj.maptools.org/">PROJ.4 - Cartographic Projections Library</a><br />
+<a href="http://earth-info.nga.mil/GandG/geotrans/index.html">Geographic Translator (GEOTRANS)</a>
+<a href="http://proj.maptools.org/">proj.maptools.org</a><br/>
+<a href="http://cartography.oregonstate.edu/pdf/2011_Savric_etal_PolynomialNaturalEarth.pdf">A Polynomial Equation for the
+Natural Earth Projection (pdf)</a><br/>
+<a href="https://github.com/mbostock/d3/wiki/Geo-Projections">Geo Projections · mbostock/d3 Wiki</a><br/>
+<a href="https://www.jasondavies.com/maps/">Jason Davies Maps</a><br/>
+<br/>
+<h2>Image processing / Projection / Remote Sensing Libraries</h2>
+<a href="http://www.ossim.org">OSSIM</a><br/>
+<a href="http://orfeo-toolbox.sourceforge.net/FAQ/">OTB, the ORFEO Toolbox FAQ</a><br/>
+<a href="http://grass.itc.it/">GRASS GIS</a><br/>
+<a href="http://openev.sourceforge.net/">OpenEV</a><br/>
+<a href="http://fwtools.maptools.org/">FWTools</a>: Open Source GIS Binary Kit for Windows and Linux<br/>
+<a href="http://ogdi.sourceforge.net/">OGDI</a> - the Open Geographic Datastore Interface.<br/>
+<br/>
+A great little resource - <a href="http://www.maptools.org/">MapTools.org</a><br/>
+<a href="http://www.geonames.org/export/">GeoNames Data Access</a><br/>
+<br/>
+Interesting places on the earth:
+<a href="http://en.wikipedia.org/wiki/Marree_Man">Marree Man</a><br/>
+<a href="http://geodyssey.com/papers/ggterra.html">A Seamless Global Terrain Model in the Hipparchus System
+Hrvoje Lukatela, Geodyssey Limited </a><br/>
+<a href="http://www.ccom-jhc.unh.edu/">  Center for Coastal & Ocean Mapping Joint Hydrographic Center </a><br/>
+<a href="http://www.gooberearth.com/about.html">GooberEarth</a><br/>
+<a href="http://www.foss4g2007.org/about_foss4g/">FOSS4G 2007</a><br/>
+<br/>
+<br/>
+<h2>Data sources</h2>
+<a href="http://www.spotimage.fr/html/_167_171_977_.php">Spot Image - FORMOSAT-2 images</a><br/>
+<a href="http://www.ipi.uni-hannover.de/html/aktivitaeten/EARSeL-Workshop2005_Paper/Jacobsen1.pdf">High Resolution Imaging Satellite Systems</a><br/>
+<a href="http://telascience.sdsc.edu/">Telascience data feeds.</a><br/>
+<a href="http://glcf.umiacs.umd.edu/data/">Global Land Cover Facility (GLCF) - Data/Products</a><br/>
+<a href="http://www.ngdc.noaa.gov/mgg/coastal/coastal.html">NGDC 3 Arc-Second Coastal Relief Model</a><br/>
+<a href="http://topex.ucsd.edu/WWW_html/srtm30_plus.html">SRTM30_PLUS: SRTM30, COASTAL & RIDGE MULTIBEAM, ESTIMATED TOPOGRAPHY</a><br/>
+<a href="http://www.naturalearthdata.com/downloads/">Downloads | Natural Earth</a><br/>
+<a href="http://www.census.gov/geo/maps-data/data/tiger.html">TIGER Products - Geography - U.S. Census Bureau</a> - Topologically Integrated Geographic Encoding and Referencing<br/>
+<a href="http://bmander.com/dotmap/index.html#4.00/40.00/-100.00">Census Dotmap</a><br/>
+<a href="http://www.neighbourhood.statistics.gov.uk/dissemination/Info.do?page=aboutneighbourhood/geography/superoutputareas/soalookupfiles/soa-constitutions.htm">Soa constitutions</a> - UK Neighbourhood Statistics<br/>
+<a href="http://mapit.mysociety.org/">MapIt : map postcodes and geographical points to administrative areas</a> - UK<br/>
+<a href="https://www.ordnancesurvey.co.uk/opendatadownload/products.html">OS OpenData Supply - Download or order Ordnance Survey OpenData</a> - UK<br/>
+
+<a href="http://en.wikipedia.org/wiki/List_of_online_map_services">List of online map services - Wikipedia, the free encyclopedia</a><br/>
+<br/>
+<br/>
+<a href="http://landsathandbook.gsfc.nasa.gov/handbook/handbook_toc.html">The Landsat-7 Science Data User's Handbook</a><br/>
+<a href="http://www.realityprime.com/articles/how-google-earth-really-works">How Google Earth [Really] Works</a><br/>
+<a href="http://metaf2xml.sourceforge.net/">metaf2xml</a> - parses and decodes aviation routine weather reports (METAR, SPECI), aerodrome forecasts (TAF), and synoptic observations (SYNOP)<br/>
+<br/>
+<a href="http://news.bbc.co.uk/1/hi/sci/tech/3479595.stm">BBC  News - Camera infiltrates animal world</a> - cool project where they mount cameras on birds to watch behavior.<br/>
+<a href="http://www.newscientist.com/article/dn12738-tool-use-by-shy-crows-caught-on-camera.html">New Scientist - Tool use by shy crows caught on camera</a><br/>
+<br/>
+<a href="http://www.shatters.net/celestia/">Celestia</a> -  a cool program to view information about the universe.<br/>
+<a href="http://smsc.cnes.fr/PLEIADES/lien3_vm.htm">ORFEO Toolbox (OTB)</a><br/>
+<br/>
+<a href="http://openmodeller.sourceforge.net/">openModeller - Home</a><br/>
+<br/>
+<br/>
+<a href="http://qgis.org/content/view/24/104/">QGIS Community - About QGIS</a><br/>
+<a href="http://geoserver.org/">GeoServer</a><br/>
+<a href="http://postgis.refractions.net/">PostGIS : Home</a><br/>
+<a href="http://www.reprojected.com/geoblog/">Aaron Racicot's Reprojected GIS Blog - Getting QGIS to install on windows AND support Python apps</a></br>
+<br/>
+<a href="http://www.cv.tu-berlin.de/rat/">RAT (Radar Tools) - SAR polarimetry, interferometry, PolInSAR and more</a><br/>
+<a href="http://terraservice.net/">TerraServer-USA</a><br/>
+<a href="http://www.shadedrelief.com/">Shaded Relief</a> - ideas and techniques about relief presentation on maps.<br/>
+<a href="http://www.perrygeo.net/wordpress/?p=7">PerryGeo Â» GDAL-based DEM utilities</a><br/>
+<a href="http://openaerialmap.org/">A Free View of the World -- OpenAerialMap</a><br/>
+<br/>
+<a href="http://code.google.com/p/regionator/">regionator</a> - A collection of Python classes and scripts for KML Region tools.<br/>
+<a href="http://www.itopen.it/soluzioni/kml-map-server">KML Map Server</a> - turns your UMN MapServer installation in a flexible KML vector and raster data server.<br/>
+<a href="http://www.opengts.org/">OpenGTS - The Open GPS Tracking System</a><br/>
+<br/>
+<br/>
+<h2>Panorama, Photo stitching, Image matching, blending, fusion</h2>
+<a href="http://enblend.sourceforge.net/index.htm">Enblend/Enfuse - combine images with no seams</a><br/>
+<a href="http://hugin.sourceforge.net/">Hugin - Panorama photo stitcher</a> - based on <a href="http://panotools.sourceforge.net/">Panorama Tools</a><br/>
+<a href="http://sourceforge.net/projects/pvqt/">Panini perspective tool | Get Panini perspective tool at SourceForge.net</a><br/>
+<a href="http://on10.net/Blogs/laura/4187/">Photosynth: A global 3D world on your PC! | Laura Foy | Channel 10</a><br/>
+<a href="http://www.fxguide.com/article333.html">fxguide - vfx blog - Art of Optical Flow</a><br/>
+<a href="http://on10.net/Blogs/laura/4187/">Photosynth: A global 3D world on your PC! | Laura Foy | Channel 10</a><br/>
+<br/>
+<br/>
+<h2>LIDAR</h2>
+This really doesn't belong here, but it does include cool renderings of LIDAR data.  Radiohead - House of Cards is entirely made up of visualizations of LIDAR data.... source and data are available for download from google code.<br/>
+<a href="http://code.google.com/creative/radiohead/#the-making-of">RADIOHEAD / HOUSE OF CARDS - Google Code - making of</a><br/>
+They even have a web 3d viewer that you can use to explore the data.<br/>
+<a href="http://dl.google.com/code/creative/radiohead/viewer.html">RA DIOHEA_D / HOU SE OF_C ARDS - Google Code - viewer</a> (flash)<br/>
+<object width="425" height="344"><param name="movie" value="http://www.youtube.com/v/8nTFjVm9sTQ&hl=en&fs=1"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/8nTFjVm9sTQ&hl=en&fs=1" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="425" height="344"></embed></object><br/>
+<br/>
+<br/>
+<a href="http://www.vterrain.org/index.html">Virtual Terrain Project</a> - (uses C++ OSG, wxWidets, GDAL) gathers information and tracks progress in areas such as procedural scene construction, feature extraction, and rendering algorithms.<br/>
+<a href="http://code.google.com/p/vtp/">vtp - Google Code</a><br/>
+<a href="http://city.csail.mit.edu/city.html">MIT City Scanning Project</a><br/>
+<br/>
+<br/>
+<h2>.NET GIS tools</h2>
+<a href="http://geotoolsnet.sourceforge.net/">Geotools.Net</a> -  is a set of .net class useful when handling geographic information.<br/>
+<a href="http://www.codeplex.com/SharpMap">SharpMap - Geospatial Application Framework for the CLR - Home</a> - mapping library for use in web and desktop applications.<br/>
+<a href="http://themapguyde.blogspot.com/">The Map Guy(de)</a> - great blog with lots of map related info, developer for FDO.<br/>
+<a href="http://code.google.com/p/fdotoolbox/">fdotoolbox - Project Hosting on Google Code</a> - FDO Toolbox is an multi-purpose geospatial tool to create, analyse, process and manage spatial data. It is written in C# and uses the Feature Data Objects (FDO) API (<a href="http://fdo.osgeo.org">http://fdo.osgeo.org</a>)<br/>
+<br/>
+<br/>
+<h2>OpenLayers - javascript maps</h2>
+<a href="http://openlayers.org/">OpenLayers: Home</a><br/>
+<a href="http://linux.com/archive/feature/154814">Linux.com :: Displaying maps with OpenLayers</a><a href="http://www.openstreetmap.org/">OpenStreetMap</a> - is a free editable map of the whole world. It is made by people like you. OpenStreetMap allows you to view, edit and use geographical data in a collaborative way from anywhere on Earth. <br/>
+<a href="http://wiki.openstreetmap.org/wiki/Main_Page">Main Page - OpenStreetMap</a><br/>
+<a href="https://developer.mozilla.org/en-US/Apps/Build/gather_and_modify_data/Plotting_yourself_on_the_map">Plotting yourself on the map - App Center | MDN</a> <a href="https://github.com/franciov/geo">franciov/geo</a><br/>
+<a href="https://github.com/marcoslin/sample-geo-angular">marcoslin/sample-geo-angular</a> - AngularJS version of Geo App by <a href="http://www.francesco.iovine.name/">Francesco Iovine</a>.<br/>
+
+<br/>
+<br/>
+<a href="http://geodjango.org/">GeoDjango</a> - A world-class geographic web framework.<br/>
+<a href="http://geodjango.org/docs/install.html#windows-xp">GeoDjango Installation — GeoDjango v1.1 documentation</a><br/>
+<br/>
+<a href="http://trac.osgeo.org/geos/">GEOS - Trac</a> - GEOS (Geometry Engine - Open Source) is a C++ port of the <a class="ext-link" href="http://sourceforge.net/projects/jts-topo-suite/"><span class="icon">Java Topology Suite</span></a> (JTS). As such, it aims to contain the complete functionality of JTS in C++. This includes all the <a class="ext-link" href="http://www.opengeospatial.org/standards/sfs"><span class="icon">OpenGIS Simple Features for SQL</span></a> spatial predicate functions and spatial operators, as well as specific JTS enhanced topology functions.<br/>
+<br/>
+<br/>
+<a href="http://pdxapi.com/">PDX API</a> - PDXAPI is a JSON API that provides access to geographic and real time data from Portland, OR.<br/>
+<a href="https://gist.github.com/536970">gist: 536970 - loads geocouch datasets and visualizes them on an openlayers map. see it in action at http://pdxapi.com/preview.html- GitHub</a><br/>
+
+<br/>
+<br/>
+<h2>SpatiaLite - Sqlite with GIS features</h2>
+<a href="http://www.gaia-gis.it/spatialite/index.html">SpatiaLite download page</a><br/>
+<a href="http://www.gaia-gis.it/spatialite/resources.html">SpatiaLite Resources</a><br/>
+<a href="http://www.bostongis.com/PrinterFriendly.aspx?content_name=spatialite_tut01">Part 1: Getting Started with SpatiaLite: An almost Idiot's Guide</a><br/>
+<br/>
+<a href="http://openplans.org/">OpenPlans | Helping cities work better.</a><br/>
+<a href="http://mapknitter.org/">PLOTS Map Knitter</a><br/>
+<a href="http://leafletjs.com/">Leaflet - a JavaScript library for mobile-friendly maps</a><br/>
+<a href="http://vallandingham.me/shapefile_to_geojson.html">From Shapefile to GeoJSON - Jim Vallandingham</a><br/>
+<a href="http://vallandingham.me/visualizing_the_racial_divide.html">Visualizing the Racial Divide - Jim Vallandingham</a> - Using d3 and force-directed maps to see the impact of segregation in cities<br/>
+<a href="https://docs.google.com/presentation/d/18K2h8LQNzplVU1sVkYS5iEawhDsBrsFwJpRwb-whFtg/pub?start=false&amp;loop=false&amp;delayms=3000#slide=id.p">Making maps in D3 - Google Drive Slides</a><br/>
+<a href="http://bost.ocks.org/mike/map/">Let’s Make a Map</a> - <a href="http://d3js.org/">D3.js</a> and <a href="https://github.com/mbostock/topojson">TopoJSON</a> from the creator of D3 <a href="https://twitter.com/mbostock">Mike Bostock</a>, who has lots of <a href="http://bl.ocks.org/mbostock">cool examples</a>.<br/>
+<br/>
+<br/>
+<img src="http://www.caida.org/tools/visualization/cuttlefish/pics/witty-combined.gif"/>
+<a href="http://www.caida.org/tools/visualization/cuttlefish/">Cuttlefish: Geographic Visualization Tool</a> - Cuttlefishies produce animated GIFs that reveal the interplay between the diurnal and geographical patterns of displayed data. By showing how the sun's shadow covers the world map, Cuttlefish clearly depicts the time of day at a given geographic region, while moving graphs illustrate the relationship between local time and the visualized events.<br/>
+<br/>
+<br/>
+<a href="https://github.com/evanmiller/ProjCL">evanmiller/ProjCL Crazy-fast map projections and geodesic calculations</a> - ProjCL is a C interface to OpenCL routines that perform various geographic computations, including map projection, geodesic (distance) calculations, and datum conversion. For projection calculations it is several times faster than Proj.4 on the CPU, and could be even faster on a GPU for large batches but I haven't actually done much GPU performance testing. For datum shifts ProjCL is smarter than Proj.4 because it does some matrix math in advance, and generally faster because OpenCL can utilize all cores and the CPU's vector capabilities.<br/>
+<br/>
+<br/>
+<a href="http://earth.nullschool.net/">earth wind map</a> - a visualization of global weather conditions forecast by supercomputers updated every three hours.<a href="https://github.com/cambecc/earth">cambecc/earth</a> <a href="http://hint.fm/wind/">Wind Map</a><br/>
+<a href="http://bl.ocks.org/mbostock/3763057">Interactive Stereographic</a> - d3.js & topojson goodness.<br/>
+<br/>
+<br/>
+<h2>Geohash</h2>
+<a href="http://en.wikipedia.org/wiki/Geohash">Geohash - Wikipedia</a> written by <a href="http://blog.labix.org/">Labix Blog | by Gustavo Niemeyer</a><br/>
+<a href="http://www.bigfastblog.com/geohash-intro">Geohash Intro | Big Fast Blog</a>-so simple and elegant it makes me glad to be a Software Engineer.<br/>
+<br/>
+<br/>
+<a href="http://tilecache.org/">TileCache, from MetaCarta Labs</a> - TileStache is a Python-based server application that can serve up map tiles based on rendered geographic data.<br/>
+<a href="http://tilestache.org/doc/">TileStache API</a> - TileStache URLs are based on a Google Maps-like scheme:<br/>
+<a href="http://jmorano.moretrix.com/2013/10/google-geochart-json-perl/">Google GeoChart, JSON and Perl | Johnny Morano's Blog</a><br/>
+<a href="http://planetaryjs.com/">Planetary.js: Awesome interactive globes for the web</a> - bower install planetary.js<br/>
+<a href="http://pycsw.org/">pycsw • Metadata Publishing Just Got Easier</a> - pycsw is an OGC CSW server implementation written in Python.<br/>
+<a href="http://contourline.wordpress.com/2014/07/17/more-with-the-gdalogr-perl-bindings/">More with the GDAL/OGR perl bindings | Contour Line</a><br/>
+    <div style="border: 1px;">
+    Created: 2005-08-18 00:23:43
+    Modified: 2014-07-26 00:32:38
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+\begin{bmatrix} 1 & 0 & \ldots & 0 \\
+                0 & 1 & 0 & \vdots \\
+                \vdots & 0 & \ddots & 0\\
+                0 & \ldots &  0 & 1_{n}
+\end{bmatrix}
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

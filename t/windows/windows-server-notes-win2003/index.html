@@ -1,0 +1,375 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>Windows Server notes - NT, win2003, ws2008, win2008</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/windows/">windows</a>
+    <h1>Windows Server notes - NT, win2003, ws2008, win2008</h1>
+   <h2>Windows Server 2008</h2>
+<a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=518d870c-fa3e-4f6a-97f5-acaf31de6dce&DisplayLang=en">Download details: Windows Server 2008 Step-by-Step Guides</a><br/>
+<br/>
+<br/>
+<a href="http://blogs.msdn.com/devenkamp/archive/2005/08/16/452450.aspx">Deven Kampenhout's Tech Blog : Windows Server 2003 Resource Kit (How I learned to freely burn ISO images in Windows)</a><br/>
+Talks about using active directory software restriction policies.<br/>
+<a href="http://www.windowsdevcenter.com/pub/a/windows/2004/03/16/serverhacks_runas.html">WindowsDevCenter.com -- Windows Server Hacks: Disable "Run As"</a><br/>
+<br/>
+<br/>
+<h2>Password Complexity</h2>
+Changing your password policy is not straight forward with Win2003.  You actually have to create a new password filter DLL to do it correctly.  While this is fine and well...I am a programmer.  You'd think it would be something easy to do for server administrators....this is not a good solution for them.<br/>
+<a href="http://msdn2.microsoft.com/en-us/library/ms722439.aspx">Sample Password Filter (Windows)</a><br/>
+<a href="http://redmondmag.com/features/article.asp?EditorialsID=451">Redmond | Feature Article: New Password Mantra: Go Long</a><br/>
+I don't like the idea of turning off complexity, but the following website describes how to do it...<br/>
+<a href="http://www.petri.co.il/disable_password_requirement_in_win2003_domain.htm">Disable Password Requirements in Windows Server 2003 Domains</a><br/>
+<a href="http://www.securityfocus.com/infocus/1554">Ten Windows Password Myths</a><br/>
+<br/>
+
+<h2>Password reset</h2>
+<a href="http://www.codeproject.com/KB/IP/PwdChange.aspx">CodeProject: How to change a user's password on a remote computer?.</a><br/>
+<br/>
+<br/>
+
+<h2>Active directory and group policy</h2>
+Deploy applications, ctrl-alt-delete settings, etc.<br/>
+Don't know group policy, you don't know security!<br/>
+Group policies are updated on the clients when they restart, when they login, or when they poll for changes.<br/>
+Group policies are pulled they are not pushed.<br/>
+GPMC - Group policy management console (built in to Vista and Server 2008), also available to download.<br/>
+<a href="https://technet.microsoft.com/en-us/Library/bb963907.aspx?f=255&amp;MSPPError=-2147217396">AD Explorer</a><br/>
+<a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=0A6D4C24-8CBD-4B35-9272-DD3CBFC81887&displaylang=en">Download details: Group Policy Management Console with Service Pack 1</a><br/>
+<a href="http://www.gpanswers.com/">Group Policy Resource Center : GPanswers.com</a><br/>
+<a href="http://www.sdmsoftware.com/freeware.php">SDM Software Group Policy Freeware</a> - checkout SDM GPMC PowerShell Cmdlets.<br/>
+<a href="http://intellectualponderings.blogspot.com/2010/01/enumeration-of-all-users-in-group.html?utm_source=feedburner&amp;utm_medium=feed&amp;utm_campaign=Feed%3A+IntellectualPonderings+%28Intellectual+Ponderings%29&amp;utm_content=Google+Reader">Intellectual Ponderings: Enumeration of All Users in a Group (traversing nested groups) in Active Directory</a><br/>
+<a href="http://intellectualponderings.blogspot.com/2010/01/enumeration-of-all-groups-for-user.html">Intellectual Ponderings: Enumeration of All Groups for a User (traversing nested groups) in Active Directory</a><br/>
+<a href="http://bloke.org/linux/ubuntu/super-simple-active-directory-with-samba/">Super simple Active Directory with Samba | kieranbarnes</a> - installing samba on Ubuntu and joining it to an Active Directory domain.
+This doesn't allow you to login to Ubuntu with domain credentials but allows you to share and access files with domain credentials.<br/>
+<a href="http://bloke.org/windows/active-directory-dhcp-authorisation-issues/">Active Directory DHCP Authorisation Issues | kieranbarnes</a> - The specified servers are already present in the Directory Service || DHCP Server not authorized - Force replication of Active Directory to the other sites, or wait for the replication cycle to be completed.<br/>
+<a href="http://bloke.org/windows/snippet-forcing-replication-between-domain-controllers/">[Snippet] Forcing Replication Between Domain Controllers | kieranbarnes</a><br/>
+<a href="https://metacpan.org/module/Win32::NameTranslate">Win32::NameTranslate - Convenience perl wrapper around IADsNameTranslate interface - metacpan.org - Perl programming language</a> <a href="http://www.rlmueller.net/NameTranslateFAQ.htm">NameTranslate FAQ</a><br/>
+<a href="http://shop.oreilly.com/product/9780596521110.do">Active Directory Cookbook, 3rd Edition - O'Reilly Media</a><br/>
+<pre>
+# This Perl code finds all disabled user accounts in a domain.
+
+# ---------------------------------------------------------------
+# Adapted from VBScript code contained in the book:
+#      "Active Directory Cookbook" by Robbie Allen
+# ISBN: 0-596-00466-4
+# ---------------------------------------------------------------
+
+# ------ SCRIPT CONFIGURATION ------
+my $strDomainDN = "<DomainDN>";    # e.g. dc=rallencorp,dc=com
+# ------ END CONFIGURATION ---------
+use Win32::OLE;
+$Win32::OLE::Warn = 3;
+my $strBase   =  "<LDAP://" . $strDomainDN . ">;";
+my $strFilter = "(&(objectclass=user)(objectcategory=person)" . 
+                "(useraccountcontrol:1.2.840.113556.1.4.803:=2));";
+my $strAttrs  = "name;";
+my $strScope  = "subtree";
+
+my $objConn = Win32::OLE->CreateObject("ADODB.Connection");
+$objConn->{Provider} = "ADsDSOObject";
+$objConn->Open;
+my $objRS = $objConn->Execute($strBase . $strFilter . $strAttrs . $strScope);
+$objRS->MoveFirst;
+while (not $objRS->EOF) {
+    print $objRS->Fields(0)->Value,"\n";
+    $objRS->MoveNext;
+}
+</pre>
+<br/>
+<br/>
+<a href="http://serverfault.com/questions/78089/find-name-of-active-directory-domain-controller">Find name of Active Directory domain controller - Server Fault</a> - nslookup set type=all _ldap._tcp.dc._msdcs.&lt;Domain FQDN&gt;<br/>
+
+<h2>LDAP</h2>
+<a href="http://www.rlmueller.net/LDAP_Binding.htm">LDAP Binding Strings</a><br/>
+<a href="http://www.rlmueller.net/WinNT_LDAP.htm">WinNT vs. LDAP</a><br/>
+<a href="http://ldapadmin.sourceforge.net/index.html">LDAP Admin: Overview</a><br/>
+<a href="http://samjlevy.com/2011/10/use-php-and-ldap-to-list-members-of-an-active-directory-group-improved/">Use PHP and LDAP to list members of an Active Directory group (Improved) | sam j levy</a><br/>
+<a href="http://dotnetactivedirectory.com/Understanding_LDAP_Active_Directory_User_Object_Properties.html">.NET Active Directory - Understanding LDAP Active Directory User Object Properties/Attributes</a><br/>
+<a href="http://eagain.net/talks/ldap-intro/">Grok LDAP fast</a><br/>
+<a href="http://eagain.net/talks/ldaptor/">Creating a simple LDAP application</a> (python specific)<br/>
+<a href="http://sysadmin-e.com/ad-ldaps">| Sys Admin Extraordinaire | » Blog Archive » Configuring Active Directory for LDAPS (LDAP over SSL)</a><br/>
+<a href="https://www.freeipa.org/page/Main_Page">FreeIPA</a> - FreeIPA is an integrated Identity and Authentication solution for Linux/UNIX networked environments.<br/>
+<a href="http://lsc-project.org/wiki/start">LDAP Synchronization Connector [LSC]</a> - LSC is an Open source connector to synchronize identities between an LDAP directory and any data source, including any database with a JDBC connector, another LDAP server, flat files, REST API ...<br/>
+<a href="http://pgina.org/">pGina - Open source Windows authentication</a><br/>
+<br/>
+<br/>
+
+<h2>Asset management</h2>
+MS is rolling out some new asset management with AIS and MDOP.  Looks like it is going to be easy to see exactly what it on all machines enterprise wide.  Something to watch for sure.<br/>
+<a href="http://blogs.technet.com/systemcenteronline/archive/2007/09/28/introducing-microsoft-asset-inventory-service-ais.aspx">System Center Online : Introducing Microsoft Asset Inventory Service (AIS)</a><br/>
+<br/>
+<br/>
+
+<h2>Exchange</h2>
+<a href="http://www.smartertools.com/SmarterMail/Features/Windows-Mail-Server-Software-Webmail-Exchange-Alternative.aspx">Windows Mail Server Software, Webmail Exchange Alternative, SmarterMail 5.x - SmarterTools</a><br/>
+<a href="http://theessentialexchange.com/blogs/michael/">Michael's meanderings...</a> - great blog on exchange, powershell, and active directory stuff.<br/>
+<br/>
+<br/>
+<h2>freeIPA || identity, policy, audit</h2>
+Enable Single Sign On (SSO) authentication for all your systems, services and applications.<br/>
+<a href="http://www.freeipa.org/page/Main_Page">FreeIPA</a><br/>
+<a href="https://github.com/purpleidea/puppet-ipa">purpleidea/puppet-ipa</a> - puppet-ipa a puppet module for freeipa.<br/>
+<a href="https://ttboj.wordpress.com/2014/06/06/securely-managing-secrets-for-freeipa-with-puppet/">Securely managing secrets for FreeIPA with Puppet | The Technical Blog of James</a><br/>
+<br/>
+<br/>
+<h2>OWIN - Katana Project</h2>
+new set of middlewares meant to support enterprise grade authentication and claims based identity via standard protocols, making integration with Azure Active Directory and ADFS straightforward. <br/>
+WS-Federation, 
+OpenId Connect (id_token and id_token+code, via form_post),
+OAuth2 bearer token authentication for Web API<br/>
+OpenID,Twitter,JSON token exchange,wsfederation, it's like authentication for the 21st century!<br/>
+Microsoft.Owin.Security.MicrosoftAccount - Middleware that enables an application to support the Microsoft Account authentication workflow.<br/>
+Microsoft.Owin.Security.Google - Contains middlewares to support Google's OpenId and OAuth 2.0 authentication workflows.<br/>
+ <a href="https://katanaproject.codeplex.com/wikipage?title=Packages">Katana Project - Home</a><br/>
+<a href="https://github.com/AzureADSamples/">Microsoft Azure Active Directory Samples and Documentation</a><br/>
+    <div style="border: 1px;">
+    Created: 2007-11-28 19:48:14
+    Modified: 2016-05-05 21:13:48
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+$$\cos x = \sum\limits_{n = 0}^\infty {\frac{{\left( { - 1} \right)^n x^{2n} }}{{\left( {2n} \right)!}}}$$
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

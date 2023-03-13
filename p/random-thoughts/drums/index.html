@@ -1,0 +1,315 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>Drum stuff</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/p/">Personal</a>
+<a href="/p/random-thoughts/">random-thoughts</a>
+    <h1>Drum stuff</h1>
+   I've been trying to keep a beat with my hands and feet for some time now.  I'm not sure when I started; but I had a snare drum and bass drum at home growing up.  I tried.<br/>
+<br/>
+I'm still not where I want to be.  But I'm happy I'm drumming again.<br/>
+<br/>
+<br/>
+<a href="http://www.youtube.com/watch?feature=player_embedded&amp;v=WGXGpa458Ig">Bernard "Pretty" Purdie: Ghostnotes - YouTube</a><br/>
+<iframe width="420" height="315" src="http://www.youtube.com/embed/WGXGpa458Ig" frameborder="0" allowfullscreen></iframe><br/>
+<a href="https://www.youtube.com/watch?v=MBw6robPl2E">The Funky Drummer Beat (For Beginners) - YouTube</a><br/>
+<iframe width="420" height="315" src="http://www.youtube.com/embed/MBw6robPl2E" frameborder="0" allowfullscreen></iframe><br/>
+<br/>
+<br/>
+<h2>Drum Rudiments</h2>
+<a href="http://www.vicfirth.com/education/rudiments.php">Vic Firth Presents: 40 Essential Rudiments</a><br/>
+<a href="http://nielsmyrner.tumblr.com/">nielsmyrner.tumblr.com/</a><br/>
+<a href="http://www.youtube.com/playlist?list=PL6FA7D728B8D1F1C7">Reading Rhythm - YouTube</a> - a video walk through to Progressive Steps to Syncopation for the Modern Drummer<br/>
+<a href="http://www.amazon.com/Progressive-Steps-Syncopation-Modern-Drummer/dp/0882847953">Progressive Steps to Syncopation for the Modern Drummer: Ted Reed: 0038081151816: Amazon.com: Books</a><br/>
+<a href="http://www.pas.org/Libraries/PASIC_Archives/HowtoPracticeSnare.sflb.ashx">How to practice snare drum (PDF)</a><br/>
+<br/>
+<br/>
+<h2>drum triggers, virtual drums, vdrums,edrums</h2>
+<a href="http://vdrums.com/forum/forum.php">VDrums Forum</a><br/>
+<a href="http://www.drumchat.com/home.php">DrumChat.com - Drummer Forum / DRUM FORUM for Drums - Powered by vBulletin</a><br/>
+<a href="http://www.drummagazine.com/plugged-in/post/diy-drum-triggers/">Do-It-Yourself Drum Triggers - DRUM! Magazine</a><br/>
+<a href="http://www.megadrum.info/">Introduction | MegaDrum MIDI Drum Trigger</a><br/>
+<a href="http://www.edrums.info/">DIY Electronic Drum Tutorials - How to build Electronic Drums</a><br/>
+<a href="http://www.drumchat.com/showthread.php/dual-yamaha-ku100-kick-30065.html">Dual Yamaha KU100 kick pedals? - DrumChat.com - Drummer Forum / DRUM FORUM for Drums</a> - ku100 is a beaterless kick pedal..<br/>
+<a href="http://www.hellfiredrums.com/krigg-v2-kick-trigger-released/">Hellfire Electronic Drum Systems - KRIGG V2 Kick Trigger Released!</a><br/>
+<a href="http://www.drummerworld.com/forums/archive/index.php/t-99108.html">How much noise does it make? [Archive] - DRUMMERWORLD OFFICIAL DISCUSSION FORUM</a><br/>
+<a href="https://www.toontrack.com/forum/e-drum-workshop/diy-trigger-for-standard-kick-pedal/">DIY trigger for standard kick pedal | E-drum Workshop | Forum | Toontrack</a><br/>
+<a href="http://www.drumforum.org/index.php?/topic/81438-e-kick-with-little-foot-print/">E-kick with little foot print - Electronic Drum Zone - [DFO] Drum Forum - Vintage and Modern Drumming Community</a> - KicKAT and triggera mentions; other interested parties..<br/>
+<a href="http://www.drumchat.com/showthread.php/krigg-beaterless-kick-trigger-27584.html?s=cd8d44d58b6dc2498862027e6fd2e802&amp;amp;">krigg beaterless kick trigger - DrumChat.com - Drummer Forum / DRUM FORUM for Drums</a> - Pix or it didn't happen!<br/>
+<a href="http://www.drumforum.org/">[DFO] Drum Forum - Vintage and Modern Drumming Community</a><br/>
+<br/>
+<br/>
+<h2>Yamaha DTX562K</h2>
+<a href="http://usa.yamaha.com/products/musical-instruments/drums/el-drumkit/dtx502/dtx562k/">DTX562K - DTX502 Series - Electronic Drum Kit - Drums - Musical Instruments - Products - Yamaha United States</a><br/>
+<a href="http://www.dtxperience.com/dtxpansion.php">DTXPANSION!</a> - community support for your yamaha dtx drums.<br/>
+<a href="http://drummagazine.com/yamaha-dtx502562k-electronic-kit/">Yamaha DTX502/562K Electronic Kit – Drum!</a> - article from drum magazine on dtx502562k<br/>
+<a href="http://faq.yamaha.com/us/en/category/musical-instruments/drums/el-drumkit/dtx502/dtx562k/">DTX562K - FAQs - Yamaha United States</a><br/>
+<br/>
+<br/>
+<h2>VexFlow Drums</h2>
+<iframe src="http://static.vexflow.com/embed/articles/1362" width="100%" height="1111" frameborder="0" scrolling="no"></iframe>
+<br/>
+<br/>
+<h2>making your drums portable</h2>
+the electronic kit I got came with cables fit to length... and that wasn't leaving much room for change in arrangement.  I am still trying to figure out the best way to setup my kit.  I need longer wires; more piping; easier to turn knobs on the pvc joints, travel bag/case?  I'd like to be able to treat my ekit as a kit that I can easily tear down transport and setup quickly.  out of the box, my Yamaha DTX560 isn't as portable and easy to tear down and setup as I would have liked.<br/>
+<br/>
+<br/>
+<iframe width="420" height="315" src="//www.youtube.com/embed/wl4DKmbfDyk?rel=0" frameborder="0" allowfullscreen></iframe>
+
+<br/>
+<br/>
+<a href="http://www.workingdrummer.net/">Working Drummer Podcast</a><br/>
+    <div style="border: 1px;">
+    Created: 2012-12-24 07:35:02
+    Modified: 2017-05-17 18:06:28
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+\begin{bmatrix} 1 & 0 & \ldots & 0 \\
+                0 & 1 & 0 & \vdots \\
+                \vdots & 0 & \ddots & 0\\
+                0 & \ldots &  0 & 1_{n}
+\end{bmatrix}
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

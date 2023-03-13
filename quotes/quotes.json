@@ -1,0 +1,386 @@
+[
+  {
+    "id": 55,
+    "title": "\"Whenever two men meet...\"",
+    "alias": "qwhenever-two-men-meetq",
+    "introtext": "&quot;Whenever two men meet there are really six people present. There is each man as he sees himself, each man as the other sees him, and each man as he really is.&quot; -William James"
+  },
+  {
+    "id": 76,
+    "title": "\"Consistency is the last refuge of the unimaginative.\"",
+    "alias": "qconsistency-is-the-last-refuge-of-the-unimaginativeq",
+    "introtext": "&quot;Consistency is the last refuge of the unimaginative.&quot; -- Oscar Wilde"
+  },
+  {
+    "id": 77,
+    "title": "\"Programmers are attached...\"",
+    "alias": "qprogrammers-are-attachedq",
+    "introtext": "&quot;[Programmers] are attached to their programs. Indeed, their programs become extensions of themselves - a fact which is verified in the abominable practice of attaching one's name to the program itself...&quot; --Gerald M. Weinberg, The Psychology of Computer Programming"
+  },
+  {
+    "id": 78,
+    "title": "\"If you always do what you've always done...\"",
+    "alias": "qif-you-always-do-what-youve-always-doneq",
+    "introtext": "If you always do what you've always done, you'll always get what you've always got."
+  },
+  {
+    "id": 79,
+    "title": "\"Reality is merely an illusion...\"",
+    "alias": "qreality-is-merely-an-illusionq",
+    "introtext": "Reality is merely an illusion, albeit a very persistent one.&nbsp; --Albert Einstein"
+  },
+  {
+    "id": 80,
+    "title": "\"Computers are useless...\"",
+    "alias": "qcomputers-are-uselessq",
+    "introtext": "Computers are useless. They can only give you answers. <br />--Pablo Picasso (1881 - 1973) <br />"
+  },
+  {
+    "id": 81,
+    "title": "\"I never forget a face...\"",
+    "alias": "qi-never-forget-a-faceq",
+    "introtext": "I never forget a face, but in your case I'll be glad to make an exception. <br />--Groucho Marx (1890 - 1977) <br />"
+  },
+  {
+    "id": 83,
+    "title": "\"UNIX installations has grown to 10...\"",
+    "alias": "qunix-installations-has-grown-to-10q",
+    "introtext": "The number of UNIX installations has grown to 10, with more expected.<br />\r\n--The Unix Programmer's Manual, 2nd Edition, June 1972"
+  },
+  {
+    "id": 84,
+    "title": "\"We all know Linux is great...\"",
+    "alias": "qwe-all-know-linux-is-greatq",
+    "introtext": "&quot;We all know Linux is great...it does infinite loops in 5 seconds.&quot;<br />\r\n--Linus Torvalds (about the superiority of Linux)<br />\r\n<br />"
+  },
+  {
+    "id": 93,
+    "title": "Being a robotâ??s great...",
+    "alias": "being-a-robots-great",
+    "introtext": "&quot;Being a robot&rsquo;s great, but we don't have emotions, and sometimes that makes me very sad.&quot;<br />\r\n--Bender, Futurama"
+  },
+  {
+    "id": 98,
+    "title": "Premature optimization...",
+    "alias": "premature-optimization",
+    "introtext": "Premature optimization is the root of all evil (or at least most of it) in programming. -- Donald Knuth"
+  },
+  {
+    "id": 99,
+    "title": "Invent the future...",
+    "alias": "invent-the-future",
+    "introtext": "Don't worry about what anybody else is going to do. The best way to predict the future is to invent it.\r\n-- Alan Kay"
+  },
+  {
+    "id": 100,
+    "title": "imagination of nature...",
+    "alias": "imagination-of-nature",
+    "introtext": "The imagination of nature is far, far greater than the imagination of man. -- Richard Feynman"
+  },
+  {
+    "id": 101,
+    "title": "less confident you are...",
+    "alias": "less-confident-you-are",
+    "introtext": "The less confident you are, the more serious you have to act. --Tara Ploughman"
+  },
+  {
+    "id": 102,
+    "title": "All I know is...",
+    "alias": "all-i-know-is",
+    "introtext": "I know one thing: that I know nothing.<br/>\r\nI know that I know nothing.<br/>\r\n--Socratic paradox"
+  },
+  {
+    "id": 104,
+    "title": "A clever person...",
+    "alias": "a-clever-person",
+    "introtext": "A clever person solves a problem.\r\nA wise person avoids it.\r\n-- Einstein"
+  },
+  {
+    "id": 105,
+    "title": "Pigs fly...",
+    "alias": "pigs-fly",
+    "introtext": "With sufficient thrust, pigs fly just fine. However, this is not \r\nnecessarily a good idea. -- RFC 1925"
+  },
+  {
+    "id": 113,
+    "title": "no time for exercise...",
+    "alias": "no-time-for-exercise",
+    "introtext": "Those who do not find time for exercise now will have to find time for illness.<br/>\r\n--The Earl of Derby, 1873"
+  },
+  {
+    "id": 123,
+    "title": "Darwin on life...",
+    "alias": "darwin-on-life",
+    "introtext": "There is grandeur in this view of life, with its several powers, having been originally breathed into a few forms or into one; and that, whilst this planet has gone cycling on according to the fixed law of gravity, from so simple a beginning endless forms most beautiful and most wonderful have been, and are being, evolved.<br/>\r\n--Charles Robert Darwin"
+  },
+  {
+    "id": 125,
+    "title": "Software people tend....",
+    "alias": "software-people-tend",
+    "introtext": "<p><i>&quot;Software people tend to favor the joy of complexity, <br/>\r\nyet we should strive for the joy of simplicity.&quot;</i></p>\r\n<p><i>- Alan Kay</i></p>"
+  },
+  {
+    "id": 138,
+    "title": "Equipped with his five senses....",
+    "alias": "equipped-with-his-five-senses",
+    "introtext": "Equipped with his five senses, man explores the universe around him and calls the adventure Science.<br/>\r\n--Edwin P. Hubble"
+  },
+  {
+    "id": 140,
+    "title": "I have discovered a truly remarkable ....",
+    "alias": "i-have-discovered-a-truly-remarkable-",
+    "introtext": "I have discovered a truly remarkable proof which this margin is too small to contain.<br/>\r\n-- <a href=\"http://en.wikipedia.org/wiki/Pierre_de_Fermat\">Pierre de Fermat</a>"
+  },
+  {
+    "id": 144,
+    "title": "Save the whales. Feed the hungry. Free the mal.........",
+    "alias": "save-the-whales-feed-the-hungry-free-the-mal",
+    "introtext": "Save the whales. Feed the hungry. Free the mallocs.<br/>\r\n&mdash; fortune(6)"
+  },
+  {
+    "id": 175,
+    "title": "Penetrating so many secrets...",
+    "alias": "penetrating-so-many-secrets",
+    "introtext": "Penetrating so many secrets, we cease to believe in the unknowable.  But there it sits nevertheless, calmly licking its chops.\r\n-- H. L. Mencken "
+  },
+  {
+    "id": 247,
+    "title": "\"Veni. Vidi. Codi\" - \"I came. I saw. I coded.\"",
+    "alias": "qveni-vidi-codiq-qi-came-i-saw-i-codedq",
+    "introtext": "\"Veni. Vidi. Codi\" - \"I came. I saw. I coded.\"\r\n- Apple Computer WWDC 2006"
+  },
+  {
+    "id": 278,
+    "title": "Everything should be made as simple as possible, but not simpler. --Albert Einstein",
+    "alias": "everything-should-be-made-as-simple-as-possible-but-not-simpler",
+    "introtext": "Everything should be made as simple as possible, but not simpler.<br/>\r\n--Albert Einstein"
+  },
+  {
+    "id": 287,
+    "title": "Human beings in their thinking...",
+    "alias": "human-beings-in-their-thinking",
+    "introtext": "Human beings in their thinking, feeling and acting are not free but are as causally bound as the stars in their motions.<br/>\r\n--Albert Einstein"
+  },
+  {
+    "id": 296,
+    "title": "How did I come to know.....",
+    "alias": "how-did-i-come-to-know",
+    "introtext": "\"How did I come to know what I know about the world and myself? What ought I to know? What would I like to know that I don't know? If I want to know about this or that, where can I get the clearest, best and latest information? And where did these other people about me get their ideas about things, which are sometimes so different from mine?\" - H.G. Wells\r\n"
+  },
+  {
+    "id": 349,
+    "title": "man who grasps principles...",
+    "alias": "man-who-grasps-principles",
+    "introtext": "The man who grasps principles can successfully choose his own methods. The man who tries methods, ignoring principles, is sure to have trouble.<br/>\r\n--Ralph Waldo Emerson"
+  },
+  {
+    "id": 405,
+    "title": "In theory, theory and practice are the same.",
+    "alias": "in-theory-theory-and-practice-are-the-same",
+    "introtext": "In theory, theory and practice are the same. In practice they are not.<br/>\r\n-- Einstein"
+  },
+  {
+    "id": 408,
+    "title": "For every complex problem, there is a solution that is simple, neat, and wrong.",
+    "alias": "for-every-complex-problem-there-is-a-solution-that-is-simple-neat-and-wrong",
+    "introtext": "\"For every complex problem, there is a solution that is simple, neat,\r\nand wrong.\"<br/> \r\n-- H.L. Mencken"
+  },
+  {
+    "id": 417,
+    "title": "It's not that I'm so smart",
+    "alias": "its-not-that-im-so-smart",
+    "introtext": "“It's not that I'm so smart, it's just that I stay with problems longer .”<br/>\r\n-- Albert Einstein"
+  },
+  {
+    "id": 421,
+    "title": "ideas to transform the world",
+    "alias": "ideas-to-transform-the-world",
+    "introtext": "The power of ideas to transform the world is itself accelerating.\r\n-Ray Kurzeweil, The Singularity is Near"
+  },
+  {
+    "id": 426,
+    "title": "The limits of my language mean the limits of my world.",
+    "alias": "the-limits-of-my-language-mean-the-limits-of-my-world",
+    "introtext": "\"The limits of my language mean the limits of my world.\"<br/>\r\n--Ludwig Wittgenstein"
+  },
+  {
+    "id": 427,
+    "title": "I have a brain. I am a brain.",
+    "alias": "i-have-a-brain-i-am-a-brain",
+    "introtext": "Which statement seems more true? I have a brain. I am a brain.<br/>\r\n—Douglas Hofstadter"
+  },
+  {
+    "id": 434,
+    "title": "worst sort of nonsense",
+    "alias": "worst-sort-of-nonsense",
+    "introtext": "To teach that a comparatively few men are responsible for the greatest forward steps of mankind is the worst sort of nonsense.<br/>\r\nHenry Ford"
+  },
+  {
+    "id": 439,
+    "title": "The future has already arrived.",
+    "alias": "the-future-has-already-arrived",
+    "introtext": "“The future has already arrived. It's just not evenly distributed yet.”<br/> \r\n- William Gibson"
+  },
+  {
+    "id": 442,
+    "title": "If you want to build a ship..",
+    "alias": "if-you-want-to-build-a-ship",
+    "introtext": "\"If you want to build a ship, don't drum up people to collect wood and don't assign them tasks and work, but rather teach them to long for the endless immensity of the sea.\"<br/> \r\n- Antoine de Saint Exupéry"
+  },
+  {
+    "id": 444,
+    "title": "Mediocrity knows nothing higher...",
+    "alias": "mediocrity-knows-nothing-higher",
+    "introtext": "\"Mediocrity knows nothing higher than itself; but talent instantly recognizes genius.”<br/>\r\n - Sir Arthur Conan Doyle"
+  },
+  {
+    "id": 445,
+    "title": "Action expresses priorities",
+    "alias": "action-expresses-priorities",
+    "introtext": "Action expresses priorities.<br/>\r\n--Mohandas Gandi"
+  },
+  {
+    "id": 446,
+    "title": "“In mathematics ...",
+    "alias": "in-mathematics-",
+    "introtext": "“In mathematics you don’t understand things. You just get used to them.”<br/>\r\n–John Von Neumann"
+  },
+  {
+    "id": 447,
+    "title": "The purpose of computing is",
+    "alias": "the-purpose-of-computing-is",
+    "introtext": "The purpose of computing is insight, not numbers.<br/>\r\nRichard Hamming"
+  },
+  {
+    "id": 457,
+    "title": "To acquire knowledge, one must study; but to acquire wisdom, one must observe",
+    "alias": "to-acquire-knowledge-one-must-study-but-to-acquire-wisdom-one-must-observe",
+    "introtext": "To acquire knowledge, one must study; but to acquire wisdom, one must observe.<br/>\r\n--<a href=\"http://en.wikiquote.org/wiki/Marilyn_vos_Savant\">Marilyn vos Savant</a>"
+  },
+  {
+    "id": 460,
+    "title": "Silence is tacit consent.",
+    "alias": "silence-is-tacit-consent",
+    "introtext": "Silence is tacit consent."
+  },
+  {
+    "id": 463,
+    "title": "Code is like poetry; most of it shouldn't have been written.",
+    "alias": "code-is-like-poetry-most-of-it-shouldnt-have-been-written",
+    "introtext": "Code is like poetry; most of it shouldn't have been written."
+  },
+  {
+    "id": 468,
+    "title": "Science is the organized skepticism...",
+    "alias": "science-is-the-organized-skepticism",
+    "introtext": "Science is the organized skepticism in the reliability of expert opinion.<br/>\r\n— Richard Feynman"
+  },
+  {
+    "id": 473,
+    "title": "RIF [ Reading is Fun-duh-mental ]",
+    "alias": "rif-reading-is-fun-duh-mental-",
+    "introtext": "RIF [Reading is Fun-duh-mental] but TLDR [Too long; didn't read]"
+  },
+  {
+    "id": 474,
+    "title": "If you can't explain it simply, you don't understand it well enough. --Albert Einstein",
+    "alias": "if-you-cant-explain-it-simply-you-dont-understand-it-well-enough-albert-einstein",
+    "introtext": "If you can't explain it simply, you don't understand it well enough.<br/>\r\n--Albert Einstein"
+  },
+  {
+    "id": 483,
+    "title": "Mamma Matrix Most Mysterious",
+    "alias": "mamma-matrix-most-mysterious",
+    "introtext": "Mamma Matrix Most Mysterious<br/>\r\n\"the authentic experience of the body and the mind.\"<br/>\r\n<br/>\r\n<a href=\"http://en.wikipedia.org/wiki/Finnegans_Wake\">James Joyce</a> / Terence Mckenna"
+  },
+  {
+    "id": 486,
+    "title": "heaven/sky has a hex triplet #007BA7",
+    "alias": "heavensky-has-a-hex-triplet-007ba7",
+    "introtext": "Did you know heaven/sky has a hex triplet <a href=\"http://en.wikipedia.org/wiki/Cerulean\">#007BA7</a>?<br/>\r\n-me,myself,I<br/>"
+  },
+  {
+    "id": 492,
+    "title": "music is the driving force behind this intuition.",
+    "alias": "music-driving-intuition",
+    "introtext": "The theory of relativity occurred to me by intuition, and music is the driving force behind this intuition.<br/>\r\n- Albert Einstein"
+  },
+  {
+    "id": 493,
+    "title": "Programming is a Dark Art-entropy and human stupidity",
+    "alias": "programming-is-a-dark-art-entropy-and-human-stupidity",
+    "introtext": "Programming is a Dark Art, and it will always be. The programmer is fighting against the two most destructive forces in the universe: entropy and human stupidity. They're not things you can always overcome with a \"methodology\" or on a schedule.<br/>\r\n--<a href=\"http://www.perl.com/pub/2000/08/conway.html\">Damian Conway</a>"
+  },
+  {
+    "id": 494,
+    "title": "man is born alone and dies alone",
+    "alias": "man-born-alone-dies-alone",
+    "introtext": "A man is born alone and dies alone; and he experiences the good and bad consequences of his karma alone; and he goes alone to hell or the Supreme abode.<br/>\r\n--Chanakya"
+  },
+  {
+    "id": 501,
+    "title": "no honest way to explain it",
+    "alias": "no-honest-way-to-explain-it",
+    "introtext": "There is no honest way to explain it because the only people who really know where it is are the ones who have gone over. But the edge is still Out there. Or maybe it's In.<br/>\r\n--Hunter Stockton Thompson"
+  },
+  {
+    "id": 521,
+    "title": "Thought creates our world",
+    "alias": "thought-creates-our-world",
+    "introtext": "Thought creates our world and then says \"I didn't do it\".<br/>\r\n--<a href=\"http://en.wikipedia.org/wiki/David_Bohm\">David Bohm</a>"
+  },
+  {
+    "id": 523,
+    "title": "Simplicity is the ultimate sophistication.",
+    "alias": "simplicity-is-the-ultimate-sophistication",
+    "introtext": "Simplicity is the ultimate sophistication. <br/>\r\n- Leonardo da Vinci"
+  },
+  {
+    "id": 527,
+    "title": "Those who do not want to imitate anything, produce nothing",
+    "alias": "those-who-do-not-want-to-imitate-anything-produce-nothing",
+    "introtext": "Those who do not want to imitate anything, produce nothing<br/>\r\n--Salvador Dali"
+  },
+  {
+    "id": 530,
+    "title": "Art does not reproduce the visible; it makes visible.",
+    "alias": "art-does-not-reproduce-the-visible-it-makes-visible",
+    "introtext": "Art does not reproduce the visible; it makes visible.<br/>\r\n--Paul Klee"
+  },
+  {
+    "id": 531,
+    "title": "truly marvelous proof too narrow to contain",
+    "alias": "truly-marvelous-proof-too-narrow-to-contain",
+    "introtext": "I have discovered a truly marvelous proof of this, which this margin is too narrow to contain.<br/>\r\n--<a href=\"http://en.wikipedia.org/wiki/Fermat's_Last_Theorem\">Pierre de Fermat</a>"
+  },
+  {
+    "id": 533,
+    "title": "As the spirit wanes the form appears",
+    "alias": "as-the-spirit-wanes-the-form-appears",
+    "introtext": "As the spirit wanes the form appears.<br/>\r\n--Charles Bukowski"
+  },
+  {
+    "id": 534,
+    "title": "Can't they see through my skin, can't they see that I am nothing?",
+    "alias": "cant-they-see-through-my-skin-cant-they-see-that-i-am-nothing",
+    "introtext": "Can't they see through my skin, can't they see that I am nothing?"
+  },
+  {
+    "id": 535,
+    "title": "you wouldn't sit for a month",
+    "alias": "you-wouldnt-sit-for-a-month",
+    "introtext": "If you could kick the person in the pants responsible for most of your trouble, you wouldn't sit for a month.<br/>\r\n - Theodore Roosevelt"
+  },
+  {
+    "id": 538,
+    "title": "looking at that matters, it's what you see.",
+    "alias": "looking-at-that-matters-its-what-you-see",
+    "introtext": "It's not what you are looking at that matters, it's what you see.\r\n<br/>\r\n--Thoreau"
+  },
+  {
+    "id": 566,
+    "title": "Brandolini's law",
+    "alias": "brandolinis-law",
+    "introtext": "\"The amount of energy needed to refute bullshit is an order of magnitude larger than to produce it.” - Brandolini's law"
+  }
+]

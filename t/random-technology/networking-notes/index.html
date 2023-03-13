@@ -1,0 +1,316 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>Networking notes - wireshark, load balancing, IPv6, etc.</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/random-technology/">random-technology</a>
+    <h1>Networking notes - wireshark, load balancing, IPv6, etc.</h1>
+   <a href="http://xkcd.com/742/"><img src="http://imgs.xkcd.com/comics/campfire.png" title="Gasp!" align="left"/></a>
+If you are looking for a good packet capture program, look at <a href="http://www.wireshark.org/">Wireshark</a>.<br/>
+It is great, provides cross platform packet analysis...wonderful for quick diagnostics when developing with remote services.
+
+<h2>capture localhost using wireshark</h2>
+However, capturing localhost from wireshark is not straight forward.  Since localhost doesn't actually move the packets through the hardware, you've gotta do some special things.<br/>
+The following page talks a bit about it:<br/>
+<a href="http://wiki.wireshark.org/CaptureSetup/Loopback">CaptureSetup/Loopback - The Wireshark Wiki</a><br/>
+The quick and dirty howto on wireshark localhost packet capture:<br/>
+Add a default route for your IP:<br/>
+<pre>
+<pre>
+route add <your_IP> mask 255.255.255.255 <the_gateway> metric 1
+</pre>
+</pre>
+and how would one go about getting the ip address in the easiest way? hrm? well this is pretty easy...<br/>
+<pre>powershell (gwmi win32_NetworkAdapterConfiguration -Filter 'ipenabled = "true"').ipaddress[0]</pre> out pops ip.<br/>
+<pre>powershell (gwmi win32_NetworkAdapterConfiguration -Filter 'ipenabled = "true"').defaultipgateway</pre> hello gateway to other.</br>
+run the route command filling in your data; this will make all your packets go out to the gateway and back. don't forget to run in an elevated console for such shenanigans.<br/>
+after running something like: &gt; route add 192.168.1.7 mask 255.255.255.255 192.168.1.1 metric 1; your computer responds with a strange confidence. <strong>OK!</strong><br/>
+<br/>
+Then, when you are done...make sure to remove it<br/>
+<pre>
+route delete <your_IP>
+</pre>
+Very nice.
+<a href="http://blogs.technet.com/b/heyscriptingguy/archive/2011/08/01/use-the-powershell-grep-command-to-parse-the-command-line.aspx">Use the PowerShell Grep Command to Parse the Command Line - Hey, Scripting Guy! Blog - Site Home - TechNet Blogs</a> - thanks scripting guy!<br/>
+<br/>
+I love etherreal/wireshark....checkout the wiki. <a href="http://wiki.wireshark.org/FrontPage">FrontPage - The Wireshark Wiki</a><br/>
+<br/>
+<br/>
+<h2>Load Balancing</h2>
+<a href="http://www.keepalived.org/index.html">Keepalived for Linux - Linux High Availability</a> - an open source load balancer.<br/>
+<a href="http://haproxy.1wt.eu/#docs">HAProxy - The Reliable, High Performance TCP/HTTP Load Balancer</a><br/>
+<a href="https://github.com/perlbal/Perlbal">perlbal/Perlbal</a> - Perlbal is a Perl-based reverse proxy load balancer and web server.<br/>
+<a href="http://agiletesting.blogspot.com/2013/07/the-mystery-of-stale-haproxy-processes.html">Agile Testing: The mystery of stale haproxy processes</a> - option forceclose in haproxy.cfg.<br/>
+<a href="http://agiletesting.blogspot.com/2013/05/some-gotchas-around-keepalived-and.html">Agile Testing: Some gotchas around keepalived and iproute2 (part 1)</a><br/>
+<a href="http://ludwigkb.blogspot.com/2012/06/mysql-master-master-replication-active.html">MySQL Master-Master Replication (Active-Active mode) with HAProxy - UNFINISHED | Knowledge Base</a><br/>
+<a href="http://ludwigkb.blogspot.com/2012/06/high-availability-load-balancing-with_15.html">High Availability Load Balancing with HAProxy &amp; Keepalived - part 2 | Knowledge Base</a><br/>
+<br/>
+<br/>
+<h2>IPv6</h2>
+<a href="http://www.sixxs.net/main/">SixXS - IPv6 Deployment &amp; Tunnel Broker :: Main</a> <a href="http://www.sixxs.net/signup/">SixXS - IPv6 Deployment &amp; Tunnel Broker :: Signup</a><br/>
+<a href="http://rafalcieslak.wordpress.com/2012/05/25/getting-a-free-public-ipv6-using-it-on-ubuntu/#more-50">Getting a free public IPv6 &amp; using it on Ubuntu | Rafa? Cie?lak's blog</a> - sudo apt-get install aiccu<br/>
+<br/>
+<br/>
+<a href="http://web.mit.edu/remy/">TCP ex Machina</a> - Remy is an optimization tool to develop new TCP congestion-control schemes, given prior knowledge about the network it will encounter and an objective to optimize for.<br/>
+<br/>
+<br/>
+<a href="https://uproxy.org/">uProxy</a> - uProxy is a browser extension that lets users share alternative more secure routes to the Internet. It's like a personalised VPN service that you set up for yourself and your friends. uProxy helps users protect each other from third parties who may try to watch, block, or redirect users’ Internet connections.<br/>
+<br/>
+<br/>
+<h2>QUIC - Quick UDP Internet Connections</h2>
+connections for a connectionless protocol...QUIC+SPDY<br/>
+<a href="https://docs.google.com/document/d/1RNHkx_VvKWyWg6Lr8SZ-saqsQx7rFV-ev2jRFUoVD34/edit?hl=en&amp;forcehl=1">QUIC: Design Document and Specification Rational - Google Docs</a>Quick UDP Internet Connections MULTIPLEXED STREAM TRANSPORT OVER UDP<br/>
+<br/>
+<br/>
+<h2>Slow down network || throttle network || slow down socket</h2>
+<a href="https://github.com/dsiroky/socket_retarder?">dsiroky/socket_retarder</a> - artificially slow down socket traffic (TCP, UDP) of almost any program without any modification. LD_PRELOAD<br/>
+    <div style="border: 1px;">
+    Created: 2008-04-12 08:33:53
+    Modified: 2014-08-07 04:43:53
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+$$\cos x = \sum\limits_{n = 0}^\infty {\frac{{\left( { - 1} \right)^n x^{2n} }}{{\left( {2n} \right)!}}}$$
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

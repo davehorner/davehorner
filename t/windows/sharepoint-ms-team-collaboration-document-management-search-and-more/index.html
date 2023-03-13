@@ -1,0 +1,400 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>Sharepoint - MS team collaboration, document management, search, and more.</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/windows/">windows</a>
+    <h1>Sharepoint - MS team collaboration, document management, search, and more.</h1>
+   <a href="http://spservices.codeplex.com/">jQuery Library for SharePoint Web Services</a><br/><br/>
+<a href="http://spazzarama.wordpress.com/2009/10/01/sharepoint-list-type-ids/">SharePoint – List Type Id’s « Justin's Blog</a><br/>
+<a href="http://www.sharepoint-tips.com/2006/08/common-and-simple-coding-tasks-in.html">Sharepoint Tips And Tricks: Common (and simple) coding tasks in sharepoint</a><br/>
+<br/>
+<a href="http://www.praveenmodi.com/list-of-free-sharepoint-tools-from-codeplex/">List of 10 useful SharePoint Tools from CodePlex | Tech ++</a><br/>
+
+<h2>Blogs with Sharepoint content</h2>
+<a href="http://msmvps.com/blogs/shane/default.aspx">The SharePoint Farmer's Almanac</a><br/>
+<a href="http://thecodeattic.wordpress.com/">The Code Attic</a><br/>
+<a href="http://www.sharepointjoel.com/default.aspx">Home - SharePoint Joel's SharePoint Land</a><br/>
+<a href="http://it.toolbox.com/wiki/index.php/Sharepoint_Interview_questions">Sharepoint Interview questions</a><br/>
+<a href="http://blogs.msdn.com/b/frontpoint/archive/2004/10/27/248751.aspx">Howto: Display list or document library data from a parent site within a different site - FrontPoint - Site Home - MSDN Blogs</a><br/>
+<a href="http://weblogs.asp.net/bsimser/archive/2010/08/26/sharepoint-document-libraries-and-horrors-oh-my.aspx?utm_source=feedburner&amp;utm_medium=feed&amp;utm_campaign=Feed%3A+bsimser+%28Fear+and+Loathing%29">SharePoint Document Libraries and Horrors Oh My - Fear and Loathing</a><br/>
+<a href="http://ddkonline.blogspot.com/">David Klein's Corner</a><br/>
+<a href="http://www.cleverworkarounds.com/">CleverWorkarounds</a><br/>
+<a href="http://shareperl.blogspot.com/">Perl H@ckers SharePoint Blog</a><br/>
+<a href="http://lifo101.wordpress.com/2012/05/08/sharepoint-and-ntlmv2-with-soaplite/">SharePoint and NTLMv2 with SOAP::Lite | Last In First Out</a><br/>
+<a href="http://melcher.it/">Melcher.it - SharePoint, Search and some other Stuff</a><br/>
+<br/>
+<br/>
+<h2>Sharepoint Podcasts</h2>
+<a href="http://www.microsoftbroadcaster.com/en-us/Content/Link/13906?WT.z_cType=PC&WT.z_cSource=MSP">Deep Dive - Microsoft Virtualization Best Practices for SharePoint 2010</a><br/>
+<a href="http://www.microsoft.com/events/podcasts/default.aspx?pageId=x7539&amp;audience=&amp;topic=">Upgrading to SharePoint 2010: How Do I: SharePoint 2010 Upgrade Overview (Part 1)</a><br/>
+<a href="http://www.microsoft.com/events/podcasts/default.aspx?pageId=x7552&amp;source=Microsoft-Podcasts&amp;WT.rss_ev=a">Upgrading to SharePoint 2010: How Do I: Preparing to Upgrade to SharePoint 2010 (Part 2)</a><br/>
+<a href="http://www.microsoft.com/events/podcasts/default.aspx?pageId=x7553&amp;audience=&amp;topic=">Upgrading to SharePoint 2010: How Do I: Testing Upgraded SharePoint 2010 Solutions (Part 3)</a><br/>
+<a href="http://www.microsoft.com/events/podcasts/default.aspx?pageId=x7378&amp;source=Microsoft-Podcasts&amp;WT.rss_ev=a">Bytes by TechNet: John Campbell and Harold Wong on how SharePoint 2010 can help Excel users avoid spreadsheet chaos</a><br/>
+<br/>
+<br/>
+<h2>Sharepoint Migration</h2>
+<a href="http://cmsreport.com/content/2010/03/ten-content-migration-tools-sharepoint-platform">Ten Content Migration Tools to SharePoint Platform | CMS Report</a><br/>
+<a href="http://www.sharepointjoel.com/Lists/Posts/Post.aspx?ID=337">Easier SharePoint 2010 Migrations and Upgrade with Tools - SharePoint Joel's SharePoint Land</a><br/>
+<a href="http://spdeploymentwizard.codeplex.com/">SharePoint Content Deployment Wizard</a><br/>
+<br/>
+<br/>
+<h2>Sharepoint 2001</h2>
+<a href="http://office.microsoft.com/en-us/sharepoint-portal-server-it/upgrading-from-microsoft-sharepoint-portal-server-2001-HA001160523.aspx">Upgrading from Microsoft SharePoint Portal Server 2001 - SharePoint Portal Server 2003 IT Documentation - Microsoft Office</a><br/>
+<a href="http://office.microsoft.com/en-us/sharepoint-portal-server-it/CH001172538.aspx?CTT=97">Advanced Migration Scenarios - SharePoint Portal Server 2003 IT Documentation - Microsoft Office</a><br/>
+<a href="http://pabweb.ru/32ch16i.shtml">The PKMCDO Object Model</a><br/>
+<a href="http://weblogs.asp.net/bsimser/archive/2004/06/06/149673.aspx">Wrapping PKMCDO and Adding documents via HTTP PUT - Fear and Loathing</a><br/>
+<a href="http://technet.microsoft.com/en-us/library/cc805738.aspx">Microsoft SharePoint Portal Server 2001 Resource Kit</a><br/>
+<a href="http://support.microsoft.com/kb/312541">How to use PKMCDO to programmatically upload a document to a folder in Visual C#</a><br/>
+<br/>
+<br/>
+
+<h2>Sharepoint 2003</h2>
+<a href="http://office.microsoft.com/en-us/sharepoint-portal-server-it/">SharePoint Portal Server 2003 IT Documentation - SharePoint Portal Server 2003 IT Documentation - Microsoft Office</a><br/>
+<a href="http://www.microsoft.com/downloads/en/details.aspx?FamilyID=DF39E250-F7AE-445A-AC9D-A80C9035ED6B&amp;displaylang=en">Download details: Microsoft Office SharePoint Portal Server 2003 Client Components for Backward-Compatible Document Libraries`</a><br/>
+<a href="http://www.microsoft.com/downloads/en/details.aspx?FamilyID=feea83b4-7f46-4040-bce2-5341e5c1b107&amp;displaylang=en">Download details: Microsoft Office SharePoint Portal Server 2003 Document Library Migration Tools</a> (<a href="http://www.parallelspace.com/sharepoint/spinspouthelp.htm">docs on spin spout</a><br/>)<br/>
+<a href="http://www.microsoft.com/downloads/en/details.aspx?FamilyId=47405143-F586-4941-92F5-048BF00CF332&amp;displaylang=en">Download details: SharePoint Portal Server 2003 Administrator's Guide</a><br/>
+<br/>
+<a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=ef93e453-75f1-45df-8c6f-4565e8549c2a&DisplayLang=en">Download details: Windows SharePoint Services 3.0 with Service Pack 1</a><br/>
+<a href="http://www.microsoft.com/downloads/details.aspx?familyid=9FB41E51-CB03-4B47-B89A-396786492CBA&displaylang=en">Download details: Windows SharePoint Services 3.0 x64 with Service Pack 1</a><br/>
+<a href="http://office.microsoft.com/en-us/sharepoint-portal-server-it/appendix-a-personal-dashboard-enumeration-sample-code-HA001164898.aspx">Appendix A: Personal Dashboard Enumeration Sample Code - SharePoint Portal Server 2003 IT Documentation - Microsoft Office</a><br/>
+<a href="http://www.oriolardevol.com/Article/Details/18">Redirect the user to a custom page when clicking to a document link in a Document Library</a><br/>
+
+<br/>
+<br/>
+<h2>Sharepoint 2007</h2>
+Sharepoint 2007 allows you to sync any list to the Outlook 2007 client (with offline support).<br/>
+ - <a href="http://www.echotechnology.com/products/echo2007/Pages/default.aspx">echo2007</a> - is a commercial solution to this problem.<br/>
+<br/>
+<a href="http://blog.funknstyle.com/">SharePoint 2007 Weblog</a>
+<a href="http://sptdatapop.codeplex.com/">SharePoint 2007 Test Data Population Tool</a><br/>
+<a href="http://ddkonline.blogspot.com/2010/05/sharepoint-best-practice-using-sql.html">David Klein's Corner: SharePoint Installation/Deployment Best Practice - Using SQL Server Aliases to avoid issues if the SQL Database Server is Renamed, a SQL Instance is added or the SQL Port is changed</a><br/>
+<a href="http://support.microsoft.com/kb/934838/en-us">How to change service accounts and service account passwords in SharePoint Server 2007 and in Windows SharePoint Services 3.0</a><br/>
+<a href="http://www.eiben.weite-welt.com/2010/04/adding-attachments-to-sharepoint-blogs/">@Henning » Adding Attachments to SharePoint blogs</a><br/>
+<a href="http://www.eiben.weite-welt.com/2010/07/naming-of-columns-in-sharepoint-lists/">@Henning » Naming of columns in SharePoint lists</a> - internal name and display name, spaces encode poorly in internal name, suggestion to start with no spaces and then rename, giving you clean internal and display names.<br/>
+<a href="http://www.eiben.weite-welt.com/2009/02/wspbuilder_menu/">@Henning » Activating the WSPBuilder context menu</a> - <a href="http://wspbuilder.codeplex.com/">WSPBuilder (SharePoint WSP tool) - Home</a> - A SharePoint Solution Package (WSP) creation tool for WSS 3.0 & MOSS 2007<br/>
+<a href="http://www.eiben.weite-welt.com/2009/07/stsadm_execadmsvcjob/">@Henning » Executing SharePoint commands on the prompt</a> - example STSADM -o addsolution,deploysolution,execadmsvcjobs<br/>
+<a href="http://www.eiben.weite-welt.com/2010/05/half-day-events-in-sharepoint/">@Henning » Half-day events in SharePoint</a> - using jquery<br/>
+<a href="http://www.eiben.weite-welt.com/2010/04/strange-behaviors-in-sharepoint-deployment/">@Henning » Strange behaviors in SharePoint deployment</a> - having trouble with sharepoint wsp deployment? stsadm -o enumdeployments,stsadm -o canceldeployment -id,stsadm -o deletesolution..he ended up having to restart the app pool.<br/>
+
+<br/>
+<br/>
+
+<h2>Sharepoint 2010</h2>
+<a href="http://www.oriolardevol.com/Article/Details/28">Obtain next id for a Sharepoint 2010 List</a><br/>
+<a href="http://www.oriolardevol.com/Article/Details/6">Change an item content type with a SQL Query</a><br/>
+<a href="http://msgov2010.codeplex.com/">SharePoint 2010 Government Demo Assets</a><br/>
+<br/>
+<br/>
+Sharepoint is collaborative and automated.<br/>
+sharepoint stores everything in the database - I mean everything, including files...<br/>
+drag and drop webparts with user customization<br/>
+lists and views for sorting and filtering.<br/>
+asp 2.0 webparts and sharepoint webparts are not compatible. (well, Sharepoint has its own WebPartManager and WebPartZone classes...inherited from the ASP.net base classes)<br/>
+webparts are nice for decoupling using provider and consumer webparts.<br/>
+windows sharepoint services comes bundled with win2003 - team sites - list,views,doc libraries,webparts,some web services.<br/>
+windows sharepoint portal - integrates the team sites and integrates search, more webservices.<br/>
+runs minimal trust level out of the box. can't develop a webpart that hits a DB without changing the security context the webpart.<br/>
+sharepoint webparts only allows access to SQL server connection strings! (dynamic instances of all the connection classes - interface based)<br/>
+unghosting pages in sharepoint is not good, you can't apply changes from the underlying site definition/template. (this happens with changes made using frontpage)<br/>
+Deployment of changes is not perfect yet in sharepoint, no way to move schmema changes between dev and production (you can move list templates and webpart dlls) between sharepoint sites.<br/>
+<br/>
+<br/>
+Sharepoint notes:<br/>
+StsAdm - maintain and configure sharepoint sites through cmd. ("C:\Program files\Common Files\Microsoft Shared\Web Server Extensions\12\bin\")<br/>
+Psconfig - setup and repair installations of sharepoint.<br/>
+<br/>
+<a href="http://www.informit.com/store/product.aspx?isbn=0672329034">InformIT: MicrosoftÂ® SharePointÂ® 2007 Development Unleashed - $39.99</a><br/>
+<a href="http://mindsharp.com/Default.aspx?top=HOME">MINDSHARP SHAREPOINT TRAINING. KNOW MORE. DO MORE.</a><br/>
+<a href="http://blogs.msdn.com/gayanpeiris/archive/2008/01/30/stsdev-simple-tools-for-sharepoint-2007-development.aspx">Sharing ....SharePoint : STSDEV: Simple Tools for SharePoint 2007 Development</a><br/>
+<a href="http://www.codeplex.com/stsdev">STSDEV: Simple Tools for SharePoint 2007 Development</a><br/>
+<br/>
+<br/>
+<a href="http://weblogs.asp.net/erobillard/archive/2007/02/23/build-a-sharepoint-development-machine.aspx">How to Build a SharePoint Development Machine - Eli Robillard's World of Blog.</a><br/>
+<a href="http://www.microsoft.com/click/sharepointdeveloper/default.aspx">Do Less. Get More. Develop on SharePoint.</a> - ms's sharepoint developer launch page.<br/>
+<br/>
+<br/>
+<a href="http://technet.microsoft.com/en-us/library/cc512602.aspx">A Fresh Look at Compliance in SharePoint Server 2007</a><br/>
+<a href="http://www.avepoint.com/products/sharepoint-compliance/">SharePoint Compliance Software: Enterprise Compliance MOSS 2007</a><br/>
+<br/>
+<a href="http://www.wssdemo.com/default.aspx">Home - WSS Demo</a><br/>
+<a href="http://wss.asaris.de/sites/walsh/default.aspx">Home - MVP: Mike Walsh</a><br/>
+<a href="http://www.microsoft.com/downloads/details.aspx?familyid=e0d05a69-f67b-4d37-961e-2db3c4065cb9&displaylang=en&tm#filelist">Download details: Microsoft SharePoint Products and Technologies Document: Microsoft Office Programs and SharePoint Products and Technologies Integration – Fair, Good, Better, Best</a><br/>
+<br/>
+<a href="http://www.codeplex.com/fba">Forms Base Authentication Tools and Utils for SharePoint 2007 - Home</a><br/>
+<a href="http://blah.winsmarts.com/2007-4-SharePoint_2007__BDC_-_The_Business_Data_Catalog.aspx">SharePoint 2007: BDC - The Business Data Catalog | Sahil Malik - blah.winsmarts.com</a><br/>
+<br/>
+<br/>
+<a href="http://ironruby-rocks.com/2010/04/28/become-a-sharepoint-knight-with-ironruby/">Become a SharePoint Knight with IronRuby « IronRuby rocks</a><br/>
+
+<a href="http://blogs.msdn.com/b/frontpoint/">FrontPoint - Site Home - MSDN Blogs</a><br/>
+<br/>
+<br/>
+<h2>WSS 3.0</h2>
+<a href="http://office.microsoft.com/en-us/windows-sharepoint-services-help/troubleshoot-common-site-issues-HA010024482.aspx#3">Troubleshoot common site issues - Windows SharePoint Services - Microsoft Office</a><br/>
+<br/>
+<br/>
+
+<h2>List documents inside sharepoint document library</h2>
+<a href="http://sharemypoint.in/2008/10/24/enumerating-all-document-libraries-and-form-libraries-in-a-site-collection-using-sql/">Enumerating all Document Libraries and Form Libraries in a Site Collection Using SQL | ShareMyPoint</a><br/>
+<a href="http://blog.falchionconsulting.com/index.php/2008/05/exporting-and-importing-list-folders/">Exporting and Importing List Folders « SharePoint Automation</a><br/>
+<a href="http://sqlblogcasts.com/blogs/drjohn/archive/2007/11/02/Getting-a-list-of-files-from-a-moss-document-library-using-a-SharePoint-web-service.aspx">Getting a list of files from a MOSS document library using a SharePoint web service - Sparks from the Anvil</a><br/>
+<a href="http://www.praveenmodi.com/programmatically-delete-all-items-sharepoint-list/?utm_source=feedburner&amp;utm_medium=feed&amp;utm_campaign=Feed%3A+praveenmodi+%28Tech+Cocktail%29">Programmatically Delete all items from a SharePoint List | Tech ++</a><br/>
+<a href="http://www.praveenmodi.com/sharepoint-add-folders-to-document-library-programmatically/?utm_source=feedburner&amp;utm_medium=feed&amp;utm_campaign=Feed%3A+praveenmodi+%28Tech+Cocktail%29">SharePoint - Add folders to Document Library programmatically | Tech ++</a><br/>
+<br/>
+<br/>
+<h2>Powershell with sharepoint</h2>
+<a href="http://blog.falchionconsulting.com/index.php/2010/05/announcing-my-sharepoint-2010-powershell-cmdlets-stsadm-commands-now-available-for-download/?utm_source=feedburner&amp;utm_medium=feed&amp;utm_campaign=Feed%3A+AutomatingSharePoint+%28SharePoint+Automation%29">Announcing My SharePoint 2010 PowerShell Cmdlets &amp; STSADM Commands Now Available for Download « SharePoint Automation</a><br/>
+<a href="http://blog.falchionconsulting.com/index.php/2010/08/getting-an-inventory-of-all-sharepoint-documents-using-windows-powershell/">Getting an Inventory of All SharePoint Documents Using Windows PowerShell « SharePoint Automation</a><br/>
+<br/>
+<br/>
+<h2>Versioning</h2>
+<a href="http://blogs.msdn.com/b/sharepointdev/archive/2011/09/22/configuring-versioning-of-assemblies-in-sharepoint-automated-build.aspx">Configuring Versioning of Assemblies in SharePoint Automated Build (Chris O'Brien) - SharePoint Developer Team Blog - Site Home - MSDN Blogs</a><br/>
+<a href="http://support.microsoft.com/kb/556041">How to use Assembly Version and Assembly File Version</a><br/>
+<a href="http://www.eiben.weite-welt.com/2009/12/which-version-of-sharepoint/">@Henning » Which version of SharePoint?</a><br/>
+<br/>
+<br/>
+<a href="http://www.eiben.weite-welt.com/2012/04/populating-sharepoint-discussion-boards-using-code/">@Henning » Populating sharepoint discussion boards using code</a><br/>
+<br/>
+<br/>
+<h2>Sharepoint 2013</h2>
+<a href="http://technet.microsoft.com/en-us/library/cc262787.aspx">Software boundaries and limits for SharePoint 2013</a><br/>
+<a href="http://beamusupscotty.wordpress.com/2012/11/27/sharepoint-2013-custom-field-type-vs-aggregation-vs-xslt-list-view-vs-jslink/">SharePoint 2013 Custom Field Type vs. Aggregation vs. XSLT list view vs. JSLink | beam us up scotty</a><br/>
+    <div style="border: 1px;">
+    Created: 2007-11-28 07:33:17
+    Modified: 2013-09-01 19:51:54
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+left side represents the beginning of mathematics; the right side represents the mysteries of infinity.<br/>
+1=0.999...
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

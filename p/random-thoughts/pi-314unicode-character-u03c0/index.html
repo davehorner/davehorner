@@ -1,0 +1,368 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>pi  3.14...Unicode Character “?” (U+03C0).</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/p/">Personal</a>
+<a href="/p/random-thoughts/">random-thoughts</a>
+    <h1>pi  3.14...Unicode Character “?” (U+03C0).</h1>
+   <h1>celebrate and think about &pi; &amp;pi; pie</h1><br/><br/>
+pi has a infinite structure.   a simple shape which is irrational and <a href="https://en.wikipedia.org/wiki/Transcendental_number">transcendental</a>.   found in the strangest and commonest of places. tagged with our name / symbol. ?????&#03C0 8; &#03C0; &amp;#03C0 &pi; (<span>&#120503;</span>)<br/>
+From the Greek letter ?.  a product over a set of terms. <span>&#120677;</span><br/>
+Unicode Character “?” (U+03C0). Name: Greek Small Letter Pi.<br/>
+Unicode Character “????” (U+1D70B) Name: Mathematical Italic Small Pi.<br/>
+<a href="https://en.wikipedia.org/wiki/Proof_that_%CF%80_is_irrational">Proof that ?(<span>&#8508;</span>) is irrational</a><br/>
+<a href="https://en.wikipedia.org/wiki/Lindemann%E2%80%93Weierstrass_theorem">Lindemann–Weierstrass theorem</a> - (transcendental proof stuff) a symmetric polynomial whose arguments are all conjugates of one another gives a rational number.<br/>
+<br/>
+missed half the point?; circles carve out a space; it finds a voice in random noise.<br/>
+<strong>the mathematical constant</strong> — the ratio of a circle's circumference to its diameter.<br/>
+* hough * hough * hough *<br/>
+you can learn a lot from a transcendental infinite constant.<br/>
+<br/>
+<br/>
+<a href="https://graphemica.com/%CF%80">? | greek small letter pi (U+03C0) @ Graphemica</a><br/>
+<br/>
+<br/>
+In <strong>1873</strong>, British mathematician William Shanks stunned the world of mathematics when he claimed to have calculated pi to <strong>707</strong> digits. In <strong>1945</strong>, D.F. Ferguson, <strong>using pen and paper</strong>, identified an error |?????&#03C0 8; in Shanks' work in the <strong>527th place</strong>. Ferguson then carried the computation to <a href="https://en.wikipedia.org/wiki/Roland_TR-808">808</a> places.<br/>
+</br>
+In <strong>1948</strong>, Wrench and Smith verified Ferguson's work—and continued the calculation to <strong>1,000</strong> places <strong>using a gear-driven calculator</strong>. In 1961, Wrench and Daniel Shanks (unrelated to William Shanks) used an <strong>IBM 7090</strong> to calculate pi to <strong>100,265</strong> digits. The printout was formally presented to the Smithsonian Institution—and their feat earned a place in the Guinness Book of Records.
+<a href="https://www.maa.org/news/math-news/pi-computation-wizard-john-wrench-dies-at-age-97">Pi Computation Wizard John Wrench Dies at Age 97 | Mathematical Association of America</a> - Few today remember what mathematician John William Wrench Jr. did 60 years ago, just before the advent of the electronic computer. He and fellow mathematician Levi Smith calculated the value of pi to more than <strong>1,000</strong> decimal places.  (a lil more flare and he might have submitted 2 pow 10, 2^10, 1024!)<br/>
+<br/>
+<br/>
+pi is found everywhere;  an elusive infinite number.  pi is a number which works|sings sweetly with however much precision you require; time, space, circles, and random noise.<br/>
+zoom out and rotate your head however you like to see the spiral.  we all follow implicitly; its in there.<br/>
+it has a shape.  a diameter and circumference.  it has a name.  it teases it's <strong>universality</strong>.  concrete infinite.  circle of pie.<br/>
+just select a <a href="https://en.wikipedia.org/wiki/Circle_Hough_Transform">circle Hough Transform (CHT)</a> local maxima in an accumulator matrix.<br/>
+we may not all see the same color &lt;span style="color:<span style="color:blue">blue</span>"&gt;; yours and mine being equal in complex polar coordinates or otherwise.  circles, have a smell | poetry.  we all see the pie piece and imagine the pie hole.<br/>
+<br/>
+<br/>
+find pi in an infinite converging series with leibniz; https://youtu.be/uH4trBNn540<br/>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/uH4trBNn540" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br/>
+find pi with mandelbrot set and imaginary numbers / complex planes.  sqr(-1); and real;<br/>
+https://www.youtube.com/watch?v=pn2vlselv_g<br/>
+Mandelbrot Set<br/>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/pn2vlselv_g" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br/>
+find pi in random points inside and outside a circle. - https://www.youtube.com/watch?v=5cNnf_7e92Q<br/>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/5cNnf_7e92Q" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<br/>
+<br/>
+<br/>
+
+
+<h1>celebrate pi day</h1>
+<br/>
+<br/>
+<a href="https://www.npr.org/2019/03/14/703566696/the-woman-who-calculated-31-trillion-digits-of-pi">Emma Haruka Iwao Sets Guinness World Record For Most Accurate Value Of Pi : NPR</a> - the most accurate value of pi on <strong>2019/March</strong>. calculated <strong>31,415,926,535,897</strong> digits of pi <br/>
+<br/>
+find pi in colliding-balls and bouncing boxes elastic idealized frictionless worlds with mass, velocity, and collision detection.<br/>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/PoW8g67XNxA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<br/>
+<br/>
+<br/>
+https://www.youtube.com/watch?v=brU5yLm9DZM&vl=en<br/>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/brU5yLm9DZM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br/>
+https://www.youtube.com/watch?v=HEfHFsfGXjs&vl=ko<br/>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/HEfHFsfGXjs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br/>
+https://www.youtube.com/watch?v=jsYwFizhncE&vl=el<br/>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/jsYwFizhncE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<br/>
+<br/>
+pi sometimes feels too good to be true.  just square the circle.  or was it, circle the square?  pls provide the ghost solution to the penrose tiling? 
+<br/>
+<a href="https://www.cam.ac.uk/research/news/roger-penrose-wins-2020-nobel-prize-in-physics-for-discovery-about-black-holes">Roger Penrose wins 2020 Nobel Prize in Physics for discovery about black holes | University of Cambridge</a> - the most important contribution to the general theory of relativity since Einstein.<br/>
+cheers for Professor Sir Roger Penrose, his son!!! (MC Escher) and the tribar<br/>
+<br/>
+<br/>
+my son Gabe 10/10/2020 asked me today; what's the biggest number you know of.  best I could do was a <a href="https://en.wikipedia.org/wiki/Googleplex">googleplex</a> for a name.  when asked what it was; all I could say was a lot of 9's plus 1.<br/>
+<br/>
+A googolplex is the number 10googol, or equivalently, 10(10100). Written out in ordinary decimal notation, it is 1 followed by 10100 zeroes, that is, a 1 followed by a googol zeroes.  
+<br/>
+<br/>
+This still is the largest number I can name off the top of my head.  correct and accurate big numbers are hard.  if I looked; I bet there's at least + 1 bigger yet.  i still have to ask why?  what's important about the next 1024 precise digits of pie?  who cares?<br/>
+<br/>
+<br/>
+<strong>2019/March</strong> we celebrated the most accurate value of pi calculated <strong>31,415,926,535,897</strong> digits of pi.<br/>
+<br/>
+when do we get a <a href="https://en.wikipedia.org/wiki/Googleplex">googleplex</a> of pi digits?  does it/is matter?  who cares if they calculated pi &amp;pi &pi; digits of &pi;.  <strong>3.14 is enough most times.</strong>  <strong>c. 250 BCE Archimedes</strong> bound pie up	(?223?71 < ? < ?22?7) || (223&frasl;71 &lt; &pi; &lt; ?22&frasl;7)  how many places/digits of &pi; does your app need?  what's the resolution and precision needed for your confidence level at what goal?  when does our &pi; constant error in the <strong>527th place</strong> begin to matter||show in our solution?<br/>  
+<br/>
+<br/>
+finding &pi;pie&pi; with precision takes time and resources; writing known digits of pi is easy to write; calculating digits of pi and verification is NP-Hard.  When does the 50,000,000,000,000th place of pi matter?; <br/>
+https://www.youtube.com/watch?v=E4RyStef-gY<br/>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/E4RyStef-gY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<br/>
+<br/>
+according to wikipedia: book can be printed with 106 zeros (around 400 pages with 50 lines per page and 50 zeros per line) therefore, it requires 10^(94) such books to print all the zeros of a googolplex (that is, printing a googol zeros). If each book had a mass of 100 grams;  the mass of all such books required to write out a googolplex would be vastly greater than the masses of the Milky Way and the Andromeda galaxies combined (by a factor of roughly 2.0 x 1050), and <strong>greater than the mass of the observable universe by a factor of roughly 7 x 1039.</strong>.  that's a lot of zeros. 
+ but who carries around books these days?!  why print and write such a number to paper?  what's that for dude?<br/>
+<br/>
+I guess my son will have to forgive me for the 9's and 1 joke.  Did I mention he just turned 9?  It's the best explanation I had at the time.<br/>
+<br/>
+<pre>
+want is 1+1 11 or 2 but it kan be 4 bekus my name is poop on xbox you can add me on xbox
+</pre>
+<br/>
+my son; would like you to know thats his joke, he made it.<br/>
+<a href="https://en.wikipedia.org/wiki/Chronology_of_computation_of_%CF%80">Chronology of computation of ?</a><br/>
+<br/>
+<br/>
+<a href="https://en.wikipedia.org/wiki/Radon_transform">radon transform</a> tangent; complex <a href="https://en.wikipedia.org/wiki/Penrose_transform">penrose transform</a> local maxima in an accumulator matrix; modified.<br/>
+pi in <a href="https://en.wikipedia.org/wiki/Complex_number">complex</a> penrose.  what would they see.<br/>
+<br/>
+to circle back to my boy in the car yesterday: I didn't realize at the time;  it is 1 + (10100-1) 9's. a one zero goo gol. a 10googol;<br/>
+<br/>
+I wonder how long it will take to get the goo gle of pi.  Jan-2020 Gabe and I still working on phonics and we've only got 13 9's pi + 1 * 50 today;  that took us almost a year to compute <strong>we(a|e)k</strong> computers (303 days!). wonder what places they'll see 314 days in 2020.  someone's working on it; from many perspectives.<br/>
+<br/>
+nine year olds usually don't get order of operations and parentheses!  it takes time.  we all have our tricks.  <strong>tell/ask me 1+1; I just need to know what's 1 * 1 first?</strong><br/>
+<strong>29 January 2020</strong> using y-cruncher v0.7.7 303 days <strong>50,000,000,000,000</strong> decimal places.<br/>
+<br/>
+<br/>
+The last 100 decimal digits of the latest world record computation are:<br/>
+<pre>
+1151172718 2444229740 0412605840 3026105553 7774728936  :  49,999,999,999,950
+8888086663 6658909667 9659924528 1042319124 0640849268  :  50,000,000,000,000
+</pre><br/>
+<br/>
+<strong>how pretty but pointless patterns in polar plots of primes prompt pretty important ponderings on properties of those primes.</strong>
+distribution of primes numbers together with rational approx. for pi. <strong>polar coordinates of pretty pointless patterns.</strong> +2pi doesn't change the location. (r,0)=(p,p) prime p;
+<br/>
+these pointless Archimedean spirals of primes with properties! &pi; &amp;pi;<br/>
+https://youtu.be/EK32jo7i5LQ<br/>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/EK32jo7i5LQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<br/>
+<br/>
+some people use computers to calculate millions and billions of digits of pi. It seemed so useless to me. so what; kinda 3.14 and 2 and about 3 qtr.  fuzzy <a href="/tech-talk/science-and-math/516-chaos-complexity-and-order">e</a> fizz buzz.
+    <div style="border: 1px;">
+    Created: 2020-10-10 21:01:32
+    Modified: 2021-03-15 23:01:17
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+<a href="javascript:var%20s%20=%20document.createElement('script');s.type='text/javascript';document.body.appendChild(s);s.src='/eggs/asteroids.min.js';void(0);" id="secret">destory this webpage; if you will.</a>
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

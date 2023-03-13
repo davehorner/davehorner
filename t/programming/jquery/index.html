@@ -1,0 +1,373 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>jQuery</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/programming/">programming</a>
+    <h1>jQuery</h1>
+   <h2>jQuery</h2>
+<a href="http://www.smashingmagazine.com/2010/08/04/commonly-confused-bits-of-jquery/">Commonly Confused Bits Of jQuery - Smashing Magazine</a><br/>
+<a href="http://addyosmani.com/blog/">AddyOsmani.com | jQuery & JavaScript Articles For The Community</a><br/>
+<a href="http://code.google.com/p/jqueryjs/">jqueryjs - Google Code</a> - jQuery is a fast, concise, JavaScript Library that simplifies how you traverse HTML documents, handle events, perform animations, and add Ajax interactions to your web pages. jQuery is designed to change the way that you write JavaScript.<br/>
+<a href="http://www.smashingmagazine.com/2009/01/15/45-new-jquery-techniques-for-a-good-user-experience/">45+ New jQuery Techniques For Good User Experience | Developer's Toolbox | Smashing Magazine</a><br/>
+<a href="http://jquery.com/">jQuery: The Write Less, Do More, JavaScript Library</a><br/>
+<a href="http://www.gscottolson.com/weblog/2008/01/11/jquery-cheat-sheet/">jQuery 1.2 Cheat Sheet :: www.gscottolson.com/weblog/</a><br/>
+<a href="http://code.google.com/p/jquerycomet/source/checkout">jquerycomet - Google Code</a> - use jquery with comet.<br/>
+<a href="http://www.trendskitchens.co.nz/jquery/contextmenu/">Jquert ContextMenu plugin</a> - jquery plugin for context menus.<br/>
+<a href="http://flesler.blogspot.com/2007/10/jquerylisten.html">Ariel Flesler: jQuery.Listen</a> - event bindings that work for even dynamic content...<br/>
+<a href="http://code.msdn.microsoft.com/glimmer">Glimmer: a jQuery Interactive Design Tool - Home</a> - quick wizard for jquery...<br/>
+<a href="http://flux88.com/blog/jquery-auto-complete-text-box-with-asp-net-mvc/">jQuery Auto-Complete Text Box with ASP.NET MVC : b#</a><br/>
+<a href="http://dyve.net/jquery/?autocomplete">jQuery Plugins by Dylan Verheul, Autocomplete</a> - A jQuery autocompleter with caching options to limit server requests.<br/>
+<a href="http://www.vulgarisoip.com/2007/08/06/jquerysuggest-11/">jquery.suggest 1.1</a><br/>
+<a href="http://thingsilearned.com/2009/06/02/tictactoe-in-jquery/#">TicTacToe in jQuery « Things I Learned</a><br/>
+<br/>
+<br/>
+<h2>Chart || Graph || Plot with jQuery</h2>
+<a href="http://www.jqplot.com/">jqPlot Charts and Graphs for jQuery</a><br/>
+<a href="http://www.flotcharts.org/">Flot: Attractive JavaScript plotting for jQuery</a><br/>
+<a href="http://eric-schaefer.com/blog/2013/07/26/rendering-flot-charts-through-angular-js/">How to Render jQuery Flot Charts through AngularJS</a><br/>
+<br/>
+<br/>
+<a href="http://www.trirand.com/blog/">jQuery Grid Plugin</a><br/>
+<a href="http://www.trirand.com/jqgridwiki/doku.php?id=start">start - jqGrid Wiki</a><br/>
+<a href="http://www.trirand.com/jqgrid/jqgrid.html">jqGrid Demos</a><br/>
+<a href="http://flexigrid.info/">Flexigrid - Web 2.0 Javscript Grid for jQuery</a><br/>
+<a href="http://blogs.msdn.com/alexj/archive/2010/01/18/tip-50-how-to-query-a-data-service-using-jquery.aspx">Meta-Me : Tip 50 – How to query a Data Service using JQuery</a><br/>
+<a href="http://paulirish.com/2009/jquery-idletimer-plugin/">jQuery idleTimer plugin « Paul Irish</a><br/>
+<a href="http://yayquery.com/">yayQuery Podcast - A jQuery Podcast</a><br/>
+<a href="http://www.unwrongest.com/projects/tabify/">Tabify - Tabbed content with ease (jQuery plugin) | Unwrongest</a><br/>
+<a href="http://www.unwrongest.com/projects/elastic/">Elastic - Make your textareas grow Facebook style jQuery plugin | Unwrongest</a><br/>
+<a href="http://www.smashingmagazine.com/2010/04/27/45-useful-jquery-techniques-and-plugins/">40 Useful jQuery Techniques and Plugins - Smashing Magazine</a><br/>
+<a href="http://code.drewwilson.com/entry/tiptip-jquery-plugin">TipTip jQuery Plugin | Drewwilson.com</a><br/>
+<a href="http://desandro.com/resources/jquery-masonry/">jQuery Masonry ·  David DeSandro</a> - Masonry is a layout plugin for jQuery. Think of it as the flip side of CSS floats. Whereas floating arranges elements horizontally then vertically, Masonry arranges elements vertically then horizontally according to a grid. The result minimizes vertical gaps between elements of varying height, just like a mason fitting stones in a wall.<br/>
+<a href="http://10rem.net/blog/2010/03/04/jquery-to-the-rescue-changing-style-and-target-for-all-external-links-on-my-site">jQuery to the Rescue: Changing style and target for all external links on my site - Pete Brown's 10rem.net</a><br/>
+<a href="http://firequery.binaryage.com/">FireQuery = Firebug extension for jQuery development</a><br/>
+<a href="http://www.learningjquery.com/2006/12/jquerify-bookmarklet">jQuerify Bookmarklet » Learning jQuery - Tips, Techniques, Tutorials</a><br/>
+<a href="http://jqueryfordesigners.com/workshop/dconstruct09/sandbox/">Selectors</a><br/>
+<a href="http://www.selectorgadget.com/">Introducing SelectorGadget: point and click CSS selectors</a><br/>
+<a href="http://benalman.com/projects/jquery-equalizebottoms-plugin/">Ben Alman » jQuery equalizeBottoms</a><br/> 
+<a href="http://sexyjs.com/">Sexy.js » A Sequential Ajax (Sajax) JavaScript library for jQuery</a> - Sexy.js is a lightweight JavaScript library which provides enhanced Sequential Ajax (Sajax) functionality and a sleek facade to jQuery’s native Ajax methods.<br/>
+<a href="http://code.quirkey.com/sammy/index.html">.: Sammy :: Quirkey.com :: Code :: :: Quirkey NYC, LLC :: Aaron Quint :: Web Developer :: Brooklyn, NY :.</a> -  “It would be cool to implement Sinatra in JavaScript”<br/>
+<a href="http://remysharp.com/2010/06/03/signs-of-a-poorly-written-jquery-plugin/">Signs of a poorly written jQuery plugin</a><br/>
+<br/>
+<br/>
+<h2>jQuery and twitter</h2>
+<a href="http://blog.syntaxc4.net/post/2009/08/08/How-To-AddingUsing-jTweetr-plugin-for-jQuery.aspx">How To: Using jTweetr plugin for jQuery</a><br/>
+<a href="http://plugins.jquery.com/project/jtweetr">Plugins | jQuery Plugins</a> - offical jquery plugin page for jtweetr.<br/>
+<a href="http://arshaw.com/fullcalendar/">FullCalendar - Full-sized Calendar jQuery Plugin</a><br/>
+<a href="http://weblogs.asp.net/gunnarpeipman/archive/2010/02/03/using-fullcalendar-jquery-component-with-asp-net-mvc.aspx">Using FullCalendar jQuery component with ASP.NET MVC - Gunnar Peipman's ASP.NET blog</a><br/>
+
+<br/>
+<br/>
+Use jquery to modify the contents of a div. (here we're incrementing the contents of div id="somedivid")<br/>
+<pre>
+$("#somedivid").html(parseInt($("#somedivid").html(),10)++);
+</pre>
+<a href="http://www.iknowkungfoo.com/blog/index.cfm/2008/7/9/Check-All-Checkboxes-with-JQuery">Check All Checkboxes with JQuery : iKnowKung(Foo).Blog();</a><br/>
+<br/>
+<dt>What is the difference between .this. and .$(this). in Jquery</dt>
+<dd>$(this)[0] == this<br/>
+By using $(this) you can perform additional Jquery operations on the object.  Jquery always selects an array of elements.  If you are looking to operate directly on the DOM object, you can simply use this.
+</dd>
+<br/>
+<dt>What are some of the ways to access a checkbox in Jquery using selector?</dt>
+<dd><ul>
+      <li>$('input:checkbox') - find all input elements of type checkbox.</li>
+
+      <li>$('#givenname') - give a checkbox an id and search for it.</li>
+      <li>$('.givenclass') - give a checkbox a class and search for it.</li>
+      <li>$("input[@name='givenname'][type='checkbox']") - give the checkbox a name and select it.</li>
+    </ul>
+</dd>
+<br/>
+<br/>
+<a href="http://openmymind.net/2011/3/21/Foundations-of-Programming-2-Appendix-B-Adv-jQuery">Foundations of Programming 2 - Appendix B - Advanced jQuery</a><br/>
+<a href="http://enterprisejquery.com/">Enterprise jQuery</a><br/>
+<a href="https://github.com/jquery/jquery-datalink">jquery/jquery-datalink - GitHub</a> - A data linking plugin for jQuery. This is the official jQuery DataLink plugin. The term "data linking" is used here to mean "automatically linking the field of an object to another field of another object." That is to say, the two objects are "linked" to each other, where changing the value of one object (the 'source') automatically updates the value in the other object (the 'target').<br/>
+<a href="http://jquery-howto.blogspot.com/2009/08/qr-code-generator-plugin-for-jquery.html">JQuery HowTo: QR Code (generator) plugin for jQuery &amp; JavaScript</a><br/>
+<a href="http://custom-drupal.com/jquery-demo/qrcode/">QR Code jQuery Plugin Demo</a><br/>
+<a href="http://www.thefutureoftheweb.com/blog/official-jquery-template-plugin">The Future of the Web » Official jQuery Templating Plugin » Web Development with JavaScript, jQuery, PHP and MySQL</a><br/>
+<a href="http://www.aaron-powell.com/doing-it-wrong/marquee">Implementing the marquee tag using jQuery - LINQ to Fail</a><br/>
+<a href="http://jquerypp.com/#get_jquery__">jQuery++</a> -  jQuery’s bald-spot covering toupee. from the owner of <a href="http://canjs.us">CanJS</a><br/>
+<a href="http://jquerytools.org/">jQuery TOOLS - The missing UI library for the Web</a> <a href="https://github.com/jquerytools/jquerytools">jquerytools/jquerytools · GitHub</a><br/>
+<a href="http://jqueryui.com/">jQuery UI</a><br/>
+<a href="http://benalman.com/archives/projects/">Ben Alman » All Projects</a><br/>
+<a href="http://layout.jquery-dev.net/">UI Layout Plug-in - Home</a> - UI Layout – The Ultimate Page Layout Manager<br/>
+<br/>
+<br/>
+<h2>jQuery UI DataTables</h2>
+<a href="https://github.com/vedmack/yadcf">vedmack/yadcf</a> Yet Another DataTables Column Filter - (yadcf) This jQuery plug-in allows the user to easily add filter components to table columns, the plug-in works on top of the DataTables jQuery plug-in.<br/>
+<br/>
+<br/>
+<h2>jquery ui tabs</h2>
+<a href="http://www.boduch.ca/2011/05/jquery-ui-url-tabs.html">Boduch's Blog: jQuery UI URL Tabs</a> - a tabs widget that will behave like plain old links<br/>
+<a href="http://www.boduch.ca/2014/04/jquery-ui-notifying-users-about-tabs.html">Boduch's Blog: jQuery UI: Notifying Users About Tabs</a><br/>
+<a href="http://www.boduch.ca/2014/03/jquery-ui-pre-loading-remote-tab-content.html">Boduch's Blog: jQuery UI: Pre-loading Remote Tab Content</a><br/>
+<br/>
+<br/>
+<h2>Sliding side menus with Sidr</h2>
+<a href="http://www.berriart.com/sidr/">Sidr - A jQuery plugin for creating side menus</a><br/>
+<a href="https://github.com/artberri/sidr-package">artberri/sidr-package</a> - bower install sidr<br/>
+<br/>
+<h2>A better select with Chosen</h2>
+<pre>
+jQuery(document).ready(function(){
+	jQuery(".chosen").data("placeholder","A better select ...").chosen();
+});
+</pre>
+<a href="http://harvesthq.github.io/chosen/">Chosen: A jQuery Plugin by Harvest to Tame Unwieldy Select Boxes</a> <a href="https://github.com/harvesthq/chosen">harvesthq/chosen</a><br/>
+<a href="http://davidwalsh.name/jquery-chosen">jQuery Chosen Plugin</a> - a review by David Walsh.<br/>
+<a href="http://cdnjs.com/libraries/chosen">chosen - cdnjs.com - the missing cdn for javascript and css</a><br/>
+    <div style="border: 1px;">
+    Created: 2011-04-02 03:10:50
+    Modified: 2014-07-13 22:19:03
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<a href="http://en.wikipedia.org/wiki/E_%28mathematical_constant%29" target=_blank>$$e = \sum_{n=0}^\infty \frac{1}{n!}$$</a>
+
+
+satis dictum.
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

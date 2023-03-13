@@ -1,0 +1,356 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>Augmented Reality - mixing the virtual with the real.</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/programming/">programming</a>
+    <h1>Augmented Reality - mixing the virtual with the real.</h1>
+   <strong>Computer Mediated Reality</strong><br/>
+These interfaces are becoming viable....we may soon look something like this. :)<br/>
+<img src="/images/stories/Technology/118949229_m.jpg" hspace="6" alt="your face in a box" title="your face in a box" />
+<br/>
+I'm pretty interested in augmented reality.  Someday I would like to dive into this area more.  Here are some of the resources and papers that are of interest to me.<br/>
+augmented reality to augmented virtuality.<br/>
+<br/>
+<h2>Papers and projects</h2>
+<a href="http://metlab.cse.msu.edu/tracking-prepared/charles-owen-art02.pdf" target="_blank">What is the best fiducial?</a><br/>
+<a href="http://webster.fh-hagenberg.at/staff/haller/publications/2003/mtd@siggraph2003.pdf">Furniture Assembly Instructor</a><br/>
+<a href="http://www.amire.net/DocumentosWeb/publicaciones/Conferencias/fhh-faw-art02.pdf" target="_blank">Combining ARToolKit with Scene Graph Libraries</a><br/>
+<a href="http://t2gck.com/Flip_Driven_Theater.html">t2gck projects: Flip Driven Theater / book type interface</a> - Media with a time series but it offers an alternative method for viewing (audio/video from artags)<br/>
+<a href="http://wearcam.org/presence-connect/">Mediated Reality with implementations for everyday life</a><br/>
+<br/>
+<h2>Tools and resources</h2>
+<a href="http://www.hitl.washington.edu/artoolkit/" target="_blank">ARToolKit</a><br/>
+<a href="http://studierstube.icg.tu-graz.ac.at/handheld_ar/artoolkitplus.php">ARToolKitPlus 2.0</a><br/>
+<a href="http://www.amire.net/index.html">AMIRE - authoring mixed reality</a><br/>
+<a href="http://www-static.cc.gatech.edu/projects/ael/projects/ARSceneGraph.html">AR Scene Graph</a><br/>
+<a href="http://www.openscenegraph.org/">Open Scene Graph</a> - object oriented framework for OpenGL.<br/>
+<a href="http://www.gvu.gatech.edu/dart/">DART :The Designer's Augmented Reality Toolkit</a><br/>
+<a href="http://cvlab.epfl.ch/software/bazar/index.html">BazAR: A vision based fast detection library</a><br/>
+<a href="http://www.gvu.gatech.edu/ael/resources/osgar.html">osgAR</a><br/>
+<a href="http://reactable.iua.upf.edu/?software">reacTIVision</a>  is an open source, cross-platform computer vision framework for the fast and robust tracking of fiducial markers attached onto physical objects, as well as for multi-touch finger tracking.<br/>
+
+
+<h2>Managed Augmented Reality</h2>
+<a href="http://www.brains-n-brawn.com/default.aspx?vDir=wpfaugreal">brains-N-brawn.com 0 Augmented Reality with Windows Presentation Foundation(WPF)</a><br/>
+<a href="http://nyatla.jp/nyartoolkit/wiki/index.php?FrontPage.en">MenuBar.en - NyARToolkit</a> - NyARToolkit is ARToolkit? class library derived from ARToolkit?-2.72.1.  NyARToolkit supports major virtual machine platforms, Java / Android / C# / ActionScript3*1/C++<br/>
+<a href="http://nyatla.jp/nyartoolkit/wiki/index.php?NyARToolkitCS.en">MenuBar.en - NyARToolkitCS</a> - NyARToolkitCS is an ARToolKit built with 100% pure C#. It is derived from NyARToolkit for Java. This module uses no native code.<br/>
+<a href="http://kodierer.blogspot.com/2009/12/world-real-time-3d-augmented-reality.html">Kodierer [Coder]: World# - Real Time 3D Augmented Reality with Silverlight - Rene Schulte - Coding .Net and Silverlight with C#</a><br/>
+<a href="http://kodierer.blogspot.com/2009/12/silverlight-4-augmented-reality-proof.html">Kodierer [Coder]: Silverlight 4 Augmented Reality Proof Of Concept - Rene Schulte - Coding .Net and Silverlight with C#</a><br/>
+
+
+<br/>
+<br/>
+<h2>Possible sensors for measurement</h2>
+Laser Product vendors<br/>
+<a href="http://www.acuityresearch.com/products/line-scanner/common-applications-3d-range.shtml">acuityresearch</a><br/>
+<br/>
+I've been asked many times what I think augmented reality will be like and what it is...at this point it is a little fuzzy.  Think of augmented reality as the fusion of real life with computers.  Augmented reality will create displays for the user to peer into the real world and fuse digital information into that world.<br/>
+<br/>
+An simple example of this is shown on ARToolKit's Homepage:<br />
+<img src="http://www.hitl.washington.edu/artoolkit/images/nakaohome.jpg" border=0><br/>
+<br/>
+
+<h2>What good is augmented reality?</h2>
+Well using this technology we will be able to replace our normal vision with computer vision.  Some day there will be VR google that display camera input in realtime to the user.  So that when the user moves their head they get a realtime update of what the CCD sensor senses.  The eye and the camera will be calibrated and the computer will enhance and warp the image to correct for any lense distortions.<br/>
+<br/>
+So it is already cool that we can correct for bad vision using a computerized vision system.  But is really gets cool when we start to integrate computerized data with your normal everyday vision.<br/>
+<br/>
+For example, lets say you want to start taking classes at a university.  You would look up how to contact that university online and get contact information as well as digital maps of the university for your augmented reality computer to ingest and process while you are at the university.<br/>
+<br/>
+Now when you call the university, (using your augmented reality computer with wifi video sip phone) your AR machine can position a picture of the person you are talking to, of where you are on campus.  You literally will have a heads up display for life.<br/>
+<br/>
+Think about it, if you could build a computer to recognize faces, you would never have to remember names ever again.  The computer would already know the person and label the person in your perspective.  Very neat!<br/>
+<br/>
+I know it sounds a little out there, but here is some research that suggests we are closer to this than you might think.<br/>
+<br/>
+<a href="http://www.sli.unimelb.edu.au/steve/in.htm">Intelligent Navigation</a><br/>
+<a href="http://www.dirkreiners.com/ISMAR06Demos/#Demo_7">ISMAR 2006 :: Demos</a><br/>
+<a href="http://graphics.tudelft.nl/~vrphobia/">Virtual Reality and Phobias</a><br/>
+<a href="http://graphics.tudelft.nl/~vrphobia/RA_final_report_Dennis_Joele.pdf">Development of an Augmented Reality system using ARToolKit and user invisible markers.</a><br/>
+
+<a href="http://comptuicomputervision.blogspot.com/"> Image Processing and the ARToolkit</a><br/>
+<a href="http://www.uni-koblenz.de/~cg/Veroeffentlichungen/ARLight2006LoRes.pdf">Interactive Augmentation of Live Images using a HDR Stereo Camera</a><br/>
+<a href="http://www.resurfacet.net/portfolio/augmented_chemistry/">Augmented Chemistry</a><br/>
+<a href="http://studierstube.icg.tu-graz.ac.at/handheld_ar/">Handheld Augmented Reality</a><br/>
+<a href="http://www.cv.iit.nrc.ca/research/ar/media.html">Augmented reality at NRC</a> - some nice videos too<br/>
+<a href="http://www.movesinstitute.org/~kolsch/HandVu/HandVu.html#overview">HandVu</a> - vision based hand gesture interface.<br/>
+<a href="http://www.t-immersion.com/video_gallery/main.asp?idf=a0#">Total Immersion's Video Gallery</a><br/>
+<a href="http://www.ogre3d.org/phpBB2/viewtopic.php?t=22584">Augmented Reality: Integration of Ogre with ARToolkit (Plus)</a><br/>
+<a href="http://www.hitlabnz.org/forum/showthread.php?t=137">ARToolKit Plus license talk thread</a><br/>
+<a href="http://www.google.com/url?sa=t&ct=res&cd=6&url=http%3A%2F%2Fstudierstube.icg.tu-graz.ac.at%2Finvisible_train%2Fdocuments%2Fwagner05_pervasive.pdf&ei=iXg2Ro21L4vqwQKxkuiHAw&usg=AFrqEzd8Y25Kznl0HpvpJ7Wj8kiUKnNhmw&sig2=-PmaFhubJsgfAV4mJg8_uQ">Towards Massively Multi-User Augmented Reality on Handheld Devices</a><br/>
+<a href="http://www.google.com/url?sa=t&ct=res&cd=6&url=http%3A%2F%2Fwww.icg.tu-graz.ac.at%2Fpub%2Fpdf%2Fspiczakmultimodalevents07&ei=HXo2RqP1EqjUwQKToIT_Ag&usg=AFrqEzfMy3BwQjmtYuRUCdjw_7VMCnT31A&sig2=9yf3NwW3GtSAbRQc-RItzQ">Multi-modal event streams for virtual reality</a><br/>
+<a href="http://www.google.com/url?sa=t&ct=res&cd=4&url=http%3A%2F%2Fwww.xsens.com%2Fdownload%2Fpapers%2FThe%2520World%2520as%2520a%2520User%2520Interface%2C%2520Augmented%2520Reality%2520for%2520Ubiquitous%2520Computing.pdf&ei=D3o2RoSoLp2ywQKsl6XwAg&usg=AFrqEzcvfW3egYA8f20NF4pf71In2iOf2w&sig2=yWG0csaGEcVI63Qq8baTBw">The World as a User Interface:  
+Augmented Reality for Ubiquitous Computing 
+</a><br/>
+<a href="http://bighugelabs.com/flickr/cube.php">Picture Cube: create 3d paper cube from pics.</a><br/>
+<br/>
+Many thoughts about AR become very interesting when we think about retinal imaging systems.  I'm a big fan of Ray Kurzweil, and believe such things will be available if time prevails.  If you haven't read or heard anything by Ray, checkout: <a href="http://www.technologyevangelist.com/2007/05/killer_app_expo_ray.html">Killer App Expo - Ray Kurzweil</a> (hosted in my hometown)<br/>
+<br/>
+<br/>
+<h2>Control using haptics and gestures.</h2>
+MS is giving away some code which would be neat to leverage... it allows you to control the PC using a webcam and colored markers.<br/> 
+<a href="http://www.codeplex.com/touchless/Release/ProjectReleases.aspx?ReleaseId=17986">Touchless SDK - Release: Touchless 1.0</a> - multi touch open source using DirectShow.<br/>
+<a href="http://www.chai3d.org/index.html">CHAI 3D</a> - an open source, freely available set of C++ libraries for computer haptics, visualization and interactive real-time simulation. CHAI 3D supports several commercially-available three- and six-degree-of-freedom haptic devices.<br/>
+<a href="http://techhouse.brown.edu/~dmorris/projects/">Dan's projects page</a> - a lot of great work related to haptics.<br/>
+<a href="http://vrlab.blogspot.com/2007/09/two-steps-to-build-haptic-model.html">VR Center: Three Steps Build a Haptic Model</a>, lots of good info on Stereo vision too at <a href="http://vrlab.blogspot.com/">VR Center</a><br/>
+<br/>
+<br/>
+<h2>augmented reality reality</h2>
+<strong>yup, some day soon...</strong><br/>
+<a href="http://www.engadget.com/2014/07/02/oculus-rift-south-park/">Head on up to 'South Park' with Oculus Rift and have yourself a time</a><br/>
+<img src="/images/stories/Technology/southparkoculus.jpg" alt="augmented reality reality" title="augmented reality reality"/>
+    <div style="border: 1px;">
+    Created: 2005-11-03 05:39:17
+    Modified: 2014-07-05 16:20:39
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+\begin{bmatrix} 1 & 0 & \ldots & 0 \\
+                0 & 1 & 0 & \vdots \\
+                \vdots & 0 & \ddots & 0\\
+                0 & \ldots &  0 & 1_{n}
+\end{bmatrix}
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

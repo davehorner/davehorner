@@ -1,0 +1,487 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>Physical modeling, CAD, CNC, and things fabrication</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/biology-math-science/">biology-math-science</a>
+    <h1>Physical modeling, CAD, CNC, and things fabrication</h1>
+   <a href="http://fabathome.org/wiki/index.php?title=Main_Page">Fab @ Home</a><br/>
+<a href="http://reprap.org/bin/view/Main/WebHome">Reprap</a><br/>
+<a href="http://www.instructables.com/id/How-to-Make-a-Three-Axis-CNC-Machine-Cheaply-and-/">How to Make a Three Axis CNC Machine (Cheaply and Easily) - Instructables - DIY, How To, tech, craft</a><br/>
+<a href="http://www.cnczone.com/forums/forumdisplay.php?f=48">DIY-CNC Router Table Machines - CNCzone.com-The Ultimate Machinist Community</a><br/>
+<a href="http://www.engadget.com/2006/06/29/how-to-build-your-own-cnc-machine-part-1/">How-To: Build your own CNC machine (Part 1) -- Engadget</a><br/>
+<a href="http://viewshape.com/">Viewshape.com</a> - upload and share 3d models.<br/>
+<br/>
+<br/>
+<a href="http://3dprint.com/89620/toyrep-3d-printer/">ToyRep 3D Printer – Costs Under $85 to Build Using Super Cheap 28BYJ-48 Motors - 3DPrint.com</a><br/>
+<a href="http://www.thingiverse.com/thing:945156">ToyREP 3D Printer by thorgal - Thingiverse</a><br/>
+3d printers like <a href="http://www.zcorp.com/home.asp">ZCorp</a>.<br/>
+<br/>
+<h2>3d Scanners</h2>
+<a href="/indexSecure.htm?gclid=CNmKopOJu4sCFQGPWAodiB_v1w">NEXTENGINE</a><br />
+<a href="http://www.artec3d.com/">Artec 3D Scanners</a> - <a href="https://my.artec3d.com/">my.artec3D</a><br/>
+<a href="http://www.makerbot.com/blog/category/scanner/3d-scanning/">3D Scanning - MakerBot</a><br/>
+<a href="http://www.makerscanner.com/">MakerScanner - open source 3d scanning</a><br/>
+<br/>
+<br/>
+<h2>3d printing outsourced</h2>
+<a href="http://www.shapeways.com/">Shapeways | passionate about creating</a><br/>
+<a href="http://leonnicholls.com/printing-sandstone-with-blender-and-shapeways/">Printing Sandstone with Blender and Shapeways | Leon Nicholls</a><br/>
+<br/>
+<br/>
+<h2>laser cut dovetail boxes</h2>
+<a href="http://blog.hodgepig.org/2011/11/04/lidded-lasered-box/trackback/index.html">Lidded, lasered box - blog.hodgepig.org</a><br/>
+<a href="http://boxmaker.rahulbotics.com/">Create a new box</a> - <a href="https://github.com/jobytaffey/boxmaker">jobytaffey/boxmaker · GitHub</a><br/>
+<a href="http://www.razorlab.co.uk/">Home | RazorLAB - Laser Cutting and Engraving Service for Creatives</a><br/>
+<br/>
+<br/>
+<h2>Mesh editors</h2>
+<a href="http://meshlab.sourceforge.net/">MeshLab</a><br/>
+<a href="http://www.openscad.org/">OpenSCAD - The Programmers Solid 3D CAD Modeller</a><br/>
+<a href="http://www.artofillusion.org/index">Home - Art of Illusion</a> - <a href="http://reprap.org/wiki/AoI">Art of illusion - RepRapWiki</a><br/>
+<a href="http://www.wings3d.com/">Wings 3D | A Polygon Modeler</a><br/>
+<a href="http://sourceforge.net/projects/free-cad/">FreeCAD | Free Graphics software downloads at SourceForge.net</a><br/>
+<a href="http://wiki.makerbot.com/forum/t-319871">Blender and .stl files - MakerBot Industries</a><br/>
+<br/>
+<br/>
+<h2>Point Cloud Library (PCL)</h2>
+<a href="http://pointclouds.org/">PCL - Point Cloud Library (PCL)</a><br/>
+<a href="https://gitorious.org/pclsuperbuild">PCLSuperBuild - Gitorious</a> - cmake based, builds all externals.<br/>
+<a href="http://www.pcl-developers.org/">Point Cloud Library (PCL) Developers mailing list | Mailing List Archive</a><br/>
+<br/>
+<br/>
+<a href="http://www.stephenhobley.com/blog/2011/04/11/buying-a-laser-cutter-from-china-part-one/">Buying a Laser Cutter from China (Part One)…</a><br/>
+<a href="http://www.instructables.com/id/DIY-BioPrinter/">DIY BioPrinter</a> - petri dish printer!<br/>
+<br/>
+<br/>
+<a href="http://www.doityourselfgadgets.com/2013/02/airsoft-turret.html">Do-It-Yourself Gadgets: Airsoft Turret</a><br/>
+<a href="http://www.geomagic.com/en/products/studio/overview/">Geomagic Studio Overview</a><br/>
+<a href="http://www.openscad.org/">OpenSCAD - The Programmers Solid 3D CAD Modeller</a> - OpenSCAD provides two main modelling techniques: First there is constructive solid geometry (aka CSG) and second there is extrusion of 2D outlines. As data exchange format format for this 2D outlines Autocad DXF files are used. In addition to 2D paths for extrusion it is also possible to read design parameters from DXF files. Besides DXF files OpenSCAD can read and create 3D models in the STL and OFF file formats.<br/>
+<br/>
+<br/>
+<h2>Cool models</h2>
+<a href="http://www.thingiverse.com/">Thingiverse - Digital Designs for Physical Objects</a><br/>
+<br/>
+<br/>
+<h2>Fort Wayne Library 3d Printer</h2>
+The FWACL has 3d printers available to the public.  <strong>No expensive machine required.</strong><br/>
+<a href="https://acpladult.wordpress.com/tag/3d-printing/">3D printing | ...As You Like It...</a><br/>
+<br/>
+<br/>
+<h2>microbial manufacture</h2>
+<a href="http://www.smartplanet.com/blog/bulletin/for-a-better-concrete-mix-sand-with-bacteria-and-urea/">For a better concrete, mix sand with bacteria and urea - SmartPlanet</a><br/>
+<br/>
+<br/>
+<a href="http://www.instructables.com/id/3D-Printed-Record/">3D Printed Record</a><br/>
+<a href="http://mariuswatz.com/">Marius Watz | Artist archive</a> <a href="https://github.com/mariuswatz/modelbuilderjs">mariuswatz/modelbuilderjs</a> <a href="https://github.com/mariuswatz/modelbuilderMk2">mariuswatz/modelbuilderMk2</a> <a href="https://github.com/mariuswatz/teaching">mariuswatz/teaching</a> -  computational geometry library for Processing; parametric and generative modeling<br/>
+<a href="http://makezine.com/projects/trs-drawbot/">TRS Drawbot | MAKE</a> - two servos, a clipboard, power rails, power, audio jack, wires.<br/>
+<a href="http://chopmeister.blogspot.com/2014/08/sifting-through-features-or-guide-to.html?m=1">chopmeister's 3d printing stuff: Sifting through the features or "The Guide to Not Buying a 3D Printer"</a><br/>
+<br/>
+<a href="http://seemecnc.com/">SeeMeCNC Desktop 3D Printers</a> - Delta 3D Printers &amp; More<br/>
+<a href="http://3dprint.nih.gov/">NIH 3D Print Exchange | A collection of biomedical 3D printable files and 3D printing resources supported by the National Institutes of Health (NIH)</a><br/>
+<br/>
+<h2>Resin Parts -  photo activated resin DLP projector</h2>
+<a href="https://www.kickstarter.com/projects/sedgwick/sedgwick-3d-dlp-printer">Sedgwick - 3D DLP Printer by Ron Light —Kickstarter</a><br/>
+<a href="http://makezine.com/2014/07/26/droplit-the-low-cost-diy-resin-printer/">DropLit: the low-cost DIY Resin Printer | Make: DIY Projects, How-Tos, Electronics, Crafts and Ideas for Makers</a><br/>
+<a href="https://www.matterhackers.com/store/3d-printer-resins/makerjuice-g+-black-resin-1-liter">MakerJuice G+ Black Resin - 1 Liter</a> - Price: 58.00 USD<br/>
+    <div style="border: 1px;">
+    Created: 2008-04-19 00:03:15
+    Modified: 2015-12-17 03:16:12
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+<a target="_blank" href="/tech-talk/programming/107-algorithms-patterns-and-things-cs"><canvas id="c" width="170" height="172" title="conway glider"></canvas></a><br/>
+L:<span id=loop>0</span> I:<span id=iteration>0</span> A:<span id=active>0</span>
+<script>
+/** Conway's Game of Life.
+ * ankr started; modified by horner.
+ */
+var c=document.getElementById('c');
+var canvas = c.getContext('2d'),
+    cells = [];
+var drawRate=1200;
+var iter=0;
+var l=0;
+init();
+draw();
+
+function setSpan(name,value)
+{
+var span = document.getElementById(name);
+while( span.firstChild ) {
+    span.removeChild( span.firstChild );
+}
+span.appendChild(document.createTextNode(value));
+}
+function init() {
+setSpan('loop',l);
+    for (var i=0; i<c.width; i++) {
+        cells[i] = [];
+        for (var j=0; j<c.height; j++) {
+            cells[i][j] = 0;
+        }
+    }
+    var gliderT=[
+                [3, 1], [3,3], [2,3], [4, 2], [4, 3]
+               ];
+    var reflectorT=[
+                [0, 0], [0,1], [1,0], [1, 2], [2, 2]
+               ];
+    var sT=[
+                [0, 2], [0,3], [1,2],[2,0],[2,2],[3,0],[3,1]
+               ];
+    var boxT=[
+                [0, 0], [0,1], [1,1], [1,0]
+               ];
+
+    gliderT.forEach(function(point) {
+        cells[point[0]-1][point[1]-1] = 1;
+    });
+    gliderT.forEach(function(point) {
+        cells[point[0]+7][point[1]+7] = 1;
+    });
+    gliderT.forEach(function(point) {
+        cells[point[0]+3][point[1]+3] = 1;
+    });
+    gliderT.forEach(function(point) {
+        cells[point[0]+12][point[1]+12] = 1;
+    });
+if(l>1)  {
+var maxX=12;
+    var randomX=Math.floor(Math.random() * maxX);
+    var randomY=Math.floor(Math.random() * maxX);
+    sT.forEach(function(point) {
+        cells[point[0]+randomX][point[1]+randomY] = 1;
+    });
+    randomX=Math.floor(Math.random() * maxX);
+    randomY=Math.floor(Math.random() * maxX);
+    boxT.forEach(function(point) {
+        cells[point[0]+randomX][point[1]+randomY] = 1;
+    });
+    randomX=Math.floor(Math.random() * maxX);
+    randomY=Math.floor(Math.random() * maxX);
+    reflectorT.forEach(function(point) {
+        cells[point[0]+randomX][point[1]+randomY] = 1;
+    });
+}
+
+}
+
+function whos_alive() {
+    
+    var result = [];
+    var active= 0;
+    
+    /**
+     * Return amount of alive neighbours for a cell
+     */
+    function _countNeighbours(x, y) {
+        var amount = 0;
+        
+        function _isFilled(x, y) {
+            return cells[x] && cells[x][y];
+        }
+        
+        if (_isFilled(x-1, y-1)) amount++;
+        if (_isFilled(x,   y-1)) amount++;
+        if (_isFilled(x+1, y-1)) amount++;
+        if (_isFilled(x-1, y  )) amount++;
+        if (_isFilled(x+1, y  )) amount++;
+        if (_isFilled(x-1, y+1)) amount++;
+        if (_isFilled(x,   y+1)) amount++;
+        if (_isFilled(x+1, y+1)) amount++;
+        
+        return amount;
+    }
+    
+    cells.forEach(function(row, x) {
+        result[x] = [];
+        row.forEach(function(cell, y) {
+            var alive = 0,
+                count = _countNeighbours(x, y);
+            
+            if (cell > 0) {
+                alive = count === 2 || count === 3 ? 1 : 0;
+            } else {
+                alive = count === 3 ? 1 : 0;
+            }
+            if(alive) active++;
+            result[x][y] = alive;
+        });
+    });
+    
+    cells = result;
+    setSpan('active',active);
+    draw();
+}
+function draw() {
+    if(iter>60) { iter=0; l++; init(); }
+    else if(iter>10 && iter%20==0) {
+    if(drawRate>10) { drawRate-=10; }
+    var gliderT=[
+                [3, 1], [3,3], [2,3], [4, 2], [4, 3]
+               ];
+
+     gliderT.forEach(function(point) {
+        cells[point[0]][point[1]] = 1;
+    });
+    }
+setSpan('iteration',iter);
+    canvas.clearRect(0, 0, c.width, c.height);
+    cells.forEach(function(row, x) {
+        row.forEach(function(cell, y) {
+            canvas.beginPath();
+            if (cell) {
+                if(l%2==0) {
+                canvas.rect(x*8, y*8, 8, 8);
+                canvas.fillStyle = 'black';
+                } else {
+                canvas.beginPath();
+                canvas.arc(x*8, y*8,3 , 0, 2 * Math.PI, false);
+                canvas.fillStyle = 'black';
+                }
+                canvas.fill();
+                canvas.stroke();
+            } else {
+                if(l%2==0){
+                canvas.strokeStyle = '#e1e1e1';
+                canvas.rect(x*8, y*8, 8, 8);
+                canvas.stroke();
+                }
+            }
+        });
+    });
+    iter++;
+    setTimeout(function() {whos_alive();}, drawRate);
+}
+</script>
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

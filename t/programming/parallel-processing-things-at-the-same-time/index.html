@@ -1,0 +1,315 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>Parallel Processing - things at the same time</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/programming/">programming</a>
+    <h1>Parallel Processing - things at the same time</h1>
+   Parallel processors have been around for a long time now.  But the everyday consumer has only had access to one to four processors.  Now we have the ability to purchase video cards that process data in parallel.<br /> <br />
+<a href="http://www.rossbencina.com/code/lockfree">Some notes on lock-free and wait-free algorithms | Ross Bencina</a><br/>
+ <br /> <strong>Realtime Imaging with shaders</strong><br /> Lately I've been working with shaders on the new video cards.&nbsp; Today video cards allow programmers to program the graphics pipeline.&nbsp; Because the pipeline operates on multiple vertexs and fragments at once you get a parrellel computation platform that has high pricision.<br /> <br /> <a href="http://openvidia.sourceforge.net/">OpenVIDIA : GPU accelerated Computer Vision Library</a><br /> <br /> <font size="4"><strong>Good Site for Information<br /> </strong></font><a href="http://download.nvidia.com/developer/SDK/Individual_Samples/samples.html">Nvidia Samples</a><br /> <a href="http://www.gpgpu.org/">General Purpose computation on GPUs</a> <br /> <div><font size="2"><font size="4"><strong>Image Registration</strong></font><br /> <a href="http://numerik.math.uni-duisburg.de/research/papers/public/DrRuSt04.pdf">Image Registration by a Regularized Gradient Flow - A Streaming Implementation in DX9 Graphics  Hardware.</a></font></div><p><br /> <a href="http://comparametric.sourceforge.net/">Comparametric Toolkit - High dynamic range image processing</a><br />    <br /> What sort of math problems will you be able to solve in the next 100 years?  It is hard to tell when you see the GPU hardware and how it can be applied to a problem like image processing.<br /> <br /> <a href="http://hardware.gotfrag.com/portal/story/29946/">ZeGermans Physics Card Preview</a> - lookie here, we can off load our physics models!!!!<br /> <br /> Lately I've been thinking about applying the imaging GPUs to the problem of codecs.  Anyways something to think about.<br /> <br /> <a href="http://www.ageia.com/">AGEIA PhysX</a><br /> - another physics card.<br /> <a href="http://killernic.com/KillerNic/">Killer Nic Card</a> - interesting, contains a FPGA and runs linux.<br /> <a href="http://www.hothardware.com/viewarticle.aspx?page=2&amp;articleid=882&amp;cid=7">Killer Nic inside information</a><br /> <br /> <br /> ttp://www.drccomputer.com/pages/products.html -  Dynamically Reconfigurable Coprocessor !!!!<br /> <br /> <strong>Extern Resources</strong><br /> <a href="http://en.wikipedia.org/wiki/Parallel_computing">Parallel computing - Wikipedia, the free encyclopedia</a><br /> <a href="http://en.wikipedia.org/wiki/Parallel_computing">Parallel computing - Wikipedia, the free encyclopedia</a><br /> <a href="http://www.eecs.umich.edu/~qstout/parallel.html">What is Parallel Computing?</a> - A Not Too Serious Explanation.<br /> <a href="http://www.gpgpu.org/developer/">GPGPU DEVELOPER RESOURCES</a><br /> <a href="http://www.extremetech.com/article2/0,1697,2022673,00.asp">ATI Steps Into Stream Computing</a><br /> <a href="http://zerodeux.net/projects/cellshading/">Cell shading</a><br /> <a href="http://www.extremetech.com/article2/0,1558,2054234,00.asp?kc=ETRSS02129TX1K0000532">Nvidia's GeForce 8800 Adds 'CUDA' Tech; Can Work As CPU</a><br /> <a href="http://gamma.cs.unc.edu/GPUFFTW/index.html">GPUFFTW<br /></a></p><p><a href="http://appsrv.cse.cuhk.edu.hk/~ymxie/CUDA/"><span class="STYLE1">CUDA OpenGL Tutorials</span></a> <br /><a href="http://people.redhat.com/dnovillo/Papers/rhs2006.pdf">Auto-vectorization in GCC<br />Parallel Programming with GCC</a> by Diego Novillo from Redhat summit&nbsp;</p>
+<br/>
+<strong>Clusters and cluster tools</strong><br/>
+<a href="http://ganglia.sourceforge.net/">Ganglia</a> -  a scalable distributed monitoring system<br/>
+<a href="http://www.rocksclusters.org/">Rocks Cluster Distribution</a><br/>
+<a href="http://www.rocksclusters.org/roll-documentation/viz/4.2.1/">Viz Roll</a> - used to build scientific visualization clusters with Rocks.<br/>
+<a href="http://chromium.sourceforge.net/">Chromium: Parallel, Distributed OpenGL Rendering On Commodity Clusters</a><br/>
+<a href="http://developer.nvidia.com/object/cuda.html">NVIDIA CUDA Homepage</a><br/>
+<a href="http://cvtool.sourceforge.net/index.html">CVL, cvtool, CVLView, CVLTonemap</a> - filtering tools for GPU<br/>
+<br/>
+<a href="http://threadingbuildingblocks.org/">TBB Home</a> - IntelÂ® Threading Building Blocks (TBB) offers a rich and complete approach to expressing parallelism in a C++ program.<br/>
+<a href="http://www.openmp.org/drupal/">OpenMP | OpenMP: Simple, Portable, Scalable SMP Programming</a><br/>
+<br/>
+<br/>
+pfx = parallel programming with .net
+parallel extensions to .net<br/>
+ - plinq - parallel linq<br/>
+ - tpl task parallel library<br/>
+<br/>
+<a href="http://brahma.ananthonline.net/">Brahma</a> - Brahma 2.0 uses C# 3.0's new LINQ syntax to specify streaming transformation of data. Using Brahma, you can mix statements that run on the GPU and statements that run on the CPU inside a single method! With absolutely no glue code required, a complex multipass GPU computation with intervening CPU operations can be performed with just a few lines of code. All the glue and shader code required is automatically  generated by Brahma. All you need to do is write high-level .NET code.<br/>
+<br/>
+<br/>
+<a href="http://calvados.di.unipi.it/dokuwiki/doku.php?id=ffnamespace:about">FastFlow: programming multicores [Università di Pisa e Torino]</a><br/>
+<br/>
+<br/>
+<a href="http://www.eyescale.ch/products.html">Eyescale: 3D Visualization and GPU Computing</a><br/>
+<a href="http://www.equalizergraphics.com/index.html">Equalizer: Parallel Rendering</a><br/>
+<a href="https://github.com/Eyescale/Buildyard">Eyescale/Buildyard · GitHub</a> - Multi-project CMake build system<br/>
+<a href="https://github.com/Eyescale/Collage">Eyescale/Collage · GitHub</a> - Cross-platform C++ library for building heterogenous, distributed applications <a href="http://libcollage.net/">Collage: Network Library</a><br/>
+<br/>
+<br/>
+<h2>htcondor</h2>
+<a href="http://research.cs.wisc.edu/htcondor/index.html">HTCondor - Home</a> - HTCondor provides a job queueing mechanism, scheduling policy, priority scheme, resource monitoring, and resource management. Users submit their serial or parallel jobs to HTCondor, HTCondor places them into a queue, chooses when and where to run the jobs based upon a policy, carefully monitors their progress, and ultimately informs the user upon completion.<br/>
+<a href="http://htcondor.github.io/planet/">Planet HTCondor - HTCondor Project</a><br/>
+<a href="https://github.com/htcondor">htcondor</a> - TCondor (http://htcondorproject.org) source repository, formerly the Condor Project<br/>
+<a href="https://htcondor-wiki.cs.wisc.edu/index.cgi/index">HTCondorWiki: Main Index</a><br/>
+<br/>
+<br/>
+<a href="http://www.zlib.net/pigz/">pigz - Parallel gzip</a> - A parallel implementation of gzip for modern
+multi-processor, multi-core machines<br/>
+    <div style="border: 1px;">
+    Created: 2006-07-20 15:37:05
+    Modified: 2014-07-02 23:13:35
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+<span id=daysToChristmas>x</span> days to Christmas.<br/>
+<span id=daysToNewYear>x</span> days to a new year.<br/>
+Happy Holidays!
+<script Language="JavaScript">
+function showtime () {
+        msPerDay = 24 * 60 * 60 * 1000 ; // Number of milliseconds per day
+        var now = new Date();
+        var year = now.getYear();
+        if (year < 1000)
+         year+=1900
+        nextXmas = new Date("December 25, 2000")
+        nextXmas.setYear(year)
+        daysLeft = (nextXmas.getTime() - now.getTime()) / msPerDay;
+        daysLeft = Math.round(daysLeft);
+        var span=document.getElementById('daysToChristmas');
+        span.removeChild(span.firstChild);
+        span.appendChild(document.createTextNode(daysLeft+''));
+        
+        nextXmas = new Date("December 31, 2000")
+        nextXmas.setYear(year)
+        daysLeft = (nextXmas.getTime() - now.getTime()) / msPerDay;
+        daysLeft = Math.round(daysLeft);
+
+        span=document.getElementById('daysToNewYear');
+        span.removeChild(span.firstChild);
+        span.appendChild(document.createTextNode(daysLeft+''));
+        setTimeout("showtime()",msPerDay);
+}
+showtime();
+</script>
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

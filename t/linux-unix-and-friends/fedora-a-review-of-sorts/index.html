@@ -1,0 +1,453 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>Fedora / Centos / Redhat - a review of sorts.</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/linux-unix-and-friends/">linux-unix-and-friends</a>
+    <h1>Fedora / Centos / Redhat - a review of sorts.</h1>
+   <a href="https://fedorahosted.org/func/">func</a> - Fedora Unified Network Controller,  Func provides a two-way authenticated system for generically doing whatever you like.  Written in Python.<br/>
+<a href="https://github.com/fabric/fabric">fabric/fabric</a> - Simple, Pythonic remote execution and deployment. SSH for deployment and sysadmin tasks.<br/>
+<br/>
+<h2>CentOS 5</h2>
+<a href="http://www.centos.org/">www.centos.org - The Community ENTerprise Operating System</a> - main site.<br/>
+<br/>
+<a href="http://www.voip-info.org/wiki/view/CentOS+5+and+Asterisk+1.4.x+installation">CentOS 5 and Asterisk 1.4.x installation - voip-info.org</a><br/>
+<br/>
+Should you receive an error about "TypeError: unsubscriptable object" when doing "yum update".  Try using the following:<br/>
+yum clean all<br/>
+<br/>
+<a href="http://blog.perplexedlabs.com/2008/11/10/setup-python-25-mod_wsgi-and-django-10-on-centos-5-cpanel/">Setup Python 2.5, mod_wsgi, and Django 1.0 on CentOS 5 (cPanel) | Perplexed Labs</a><br/>
+<a href="http://www.cyberciti.biz/faq/howto-change-default-desktop-display-manager/">Fedora / CentOS / RHEL Linux change default desktop or display manager</a><br/>
+I'm not sure why, but pear does not respect the php.ini for the whole system when it comes to memory limits.  When trying to install some new pecl packages I got an error like 'Fatal error: Allowed memory size of 8388608 bytes exhausted'.  To fix this, first you try changing the system php.ini.  But that doesn't work.  Then I tried setting the php.ini setting for pear and pecl.  Still a no go.  Then I found <a href="http://www.agileapproach.com/blog-entry/howto-install-pecl-apc-cache-centos-without-xampp">agile approach | HOWTO: Install PECL APC Cache on CentOS (without XAMPP)</a>, which detailed the way!  Inside '/usr/share/pear/pearcmd.php' add the following to the beginning '@ini_set('memory_limit', '16M');'<br/>
+<a href="http://thushw.blogspot.com/2007/12/xdebug-on-centos.html">tech: xdebug on centos</a><br/>
+I decided to create a sep. page for MyDNS.<br/>
+<a href="http://dave.thehorners.com/tech-talk/unix-linux-bsd-osx-etc/395-mydns-mysql-based-dns-server">MyDNS - mysql based dns server.</a>, it runs great on CentOS.<br/>
+<a href="http://www.how2forge.org/perfect-server-centos-5.2-p6">The Perfect Server - CentOS 5.2 - Page 6 | HowtoForge - Linux Howtos and Tutorials</a> - Apache2 With PHP & Ruby. 'yum install httpd-devel ruby ruby-devel', then details building mod_ruby.<br/>
+<br/>
+<br/>
+<h2>Fedora Docs HOWTOS and WHATHAVEYOUS</h2>
+<a href="http://fpaste.org/">Fedora Pastebin</a> - where you want to go for output discussion on #fedora.<br/>
+<a href="http://spins.fedoraunity.org/">Welcome — Fedora Unity Spins</a> - download pre-updated ISO livecds...<br/>
+<a href="https://fedoraproject.org/wiki/Getting_started_with_virtualization">Getting started with virtualization - FedoraProject</a><br/>
+<a href="http://autopsy.liveprojects.info/repo/">autopsy.liveprojects.info</a> - contains a project called c-section for making livecds/liveusb/etc.<br/>
+<a href="http://fedoraproject.org/wiki/Dracut">Dracut - FedoraProject</a> - Dracut is an initramfs infrastructure.<br/>
+<a href="http://tldp.org/HOWTO/Module-HOWTO/">Linux Loadable Kernel Module HOWTO</a><br/>
+<a href="http://jonebird.com/2010/02/24/64bit-google-chrome-with-flash-on-fedora/">jonEbird » 64bit Google Chrome with Flash on Fedora</a><br/>
+<br/>
+<br/>
+<h2>LiveCD and LiveUSB goodness</h2>
+<a href="http://en.wikipedia.org/wiki/Live_USB">Live USB - Wikipedia, the free encyclopedia</a><br/>
+<a href="https://fedorahosted.org/liveusb-creator/">liveusb-creator - Trac</a> - linux and windows tool to create liveusb disks!  So very cool.<br/>
+<a href="http://unetbootin.sourceforge.net/">UNetbootin - Homepage and Downloads</a> - linux and windows tool to create liveusb disks of even other distros besides Fedora...<br/>
+<a href="http://forums.fedoraforum.org/showthread.php?t=190595">Update kernel with syslinux (LiveUSB) - FedoraForum.org</a><br/>
+liveusb keeps the boot config in /mnt/live/syslinux/syslinux.cfg, which is also where you'll find the kernel and initrd image too.<br/>
+<a href="http://fedoraproject.org/wiki/Features/BetterStartup">Features/BetterStartup - FedoraProject</a><br/>
+<br/>
+<br/>
+<h2>Highpoint RocketRAID 1742 in Fedora 12</h2>
+I bought this RAID card and wanted to use it in Fedora 12.  HighPoint hasn't published the drivers for Fedora 12.  So I decided to build them myself with the open source drivers found on the following website<br/>
+<a href="http://www.highpoint-tech.com/usa/bios_rr1742.htm">HighPoint-Support-Bios + Driver</a> - includes docs and rr1742 driver code.<br/>
+I decided to create a liveusb drive to compile the kernel module for the RocketRAID 1742.  I quickly created a liveusb using liveusb-creator but the first attempt failed because using 'yum install kernel-header' pulled kernel's headers that didn't match with the currently running kernel version.<br/>
+<pre>
+yum install gcc kernel-devel-`uname -r` kernel-header-`uname -r` wget
+# check website for latest!!!
+wget http://www.support-highpoint-tech.com/Main/rr1740/Linux/opensrc/rr174x-linux-src-v2.4-091009-1434.tar.gz
+tar xfvz rr174x-linux-src-v2.4-091009-1434.tar.gz
+cd rr174x-linux-src-v2.4/product/rr1740pm/linux/
+make;
+make install;
+# make install, puts the rr174x.ko in:
+# /lib/modules/`uname -r`/kernel/drivers/scsi/rr174x/rr174x.ko
+</pre>
+<pre>
+mkdir /mnt/newinstall; mount /dev/sdc1 /mnt/newinstall
+cd /mnt/newinstall;mkdir tmp;cd tmp;
+zcat ../initramfs-2.6.31.5-127.fc12.x86_64.img | cpio -idv
+cp -R /lib/modules/2.6.31.5-127.fc12.x86_64/kernel/drivers/scsi/rr174x lib/modules/2.6.31.5-127.fc12.x86_64/kernel/drivers/scsi/
+find . -print | cpio -H newc -o | gzip -9 > ../initrd-test.img
+</pre>
+The following I used to make sure that the new driver showed up in the initrd image I created.<br/>
+<pre>
+mkdir tmp; cd tmp;
+cp /mnt/live/syslinux/initrd0.img initrd0.img.gz 
+gunzip initrd0.img.gz;
+cpio -idv < initrd0.img
+(for i in `find . | grep "\.ko$"`; do basename $i | sed 's/.ko//' ; done )| sort
+</pre>
+<br/>
+<br/>
+<h2>Autoload module on boot</h2>
+Edit /etc/sysconfig/kernel to add a line 'INITRD_MODULES=yourmodname'<br/>
+<br/>
+<br/>
+<h2>yum automatic updates</h2>
+<a href="http://smbrown.wordpress.com/2009/01/20/centos-52-yum-automatic-updates/">CentOS 5.2 Yum Automatic Updates « The Monkey Represents Sharing</a> - yum install yum-cron, chkconfig --levels 2345 yum-cron<br/>
+<br/>
+<br/>
+<h2>Remove i386 from a x86_64</h2>
+To ensure you don't have any non-64 bit packages add "exclude = *.i?86" to your "/etc/yum.conf".<br/>
+Then to remove the non-64bit packages which were already installed try running "yum remove *.i?86".<br/>
+<br/>
+<br/>
+<h2>RPM package sources</h2>
+<a href="http://rpmfusion.org/">RPM Fusion - RPM Fusion</a><br/>
+<a href="https://admin.fedoraproject.org/pkgdb/">Fedora Package Database</a><br/>
+<a href="http://wiki.centos.org/AdditionalResources/Repositories/RPMForge?highlight=%28rpmforge%29">AdditionalResources/Repositories/RPMForge - CentOS Wiki</a> - why do we have to add priority support and edit all the .repo files...anyways the nvidia-x11-drv.x86_64 is on rpmforge now.<br/>
+<a href="http://elrepo.org/tiki/tiki-index.php">ELRepo : HomePage</a> - rpms for hardware stuff like capture cards,etc.<br/>
+<br/>
+<br/>
+<h2>Fedora upgrades</h2>
+Upgrading Fedora can be pretty easy if you use the "preupgrade" script.  <span style="text-decoration:line-through;">Give the following a try, I've used it to hop from Fedora 7 to Fedora 9!</span> (maybe future upgrades go better)<br/>
+<a href="http://fedoraproject.org/wiki/PreUpgrade">How to use PreUpgrade - FedoraProject</a><br/>
+<a href="http://fedoraproject.org/wiki/YumUpgradeFaq">Upgrading Fedora using yum - FedoraProject</a><br/>
+<pre>
+yum update
+yum install preupgrade
+preupgrade OR preupgrade-cli
+</pre>
+<br/>
+<br/>
+<h2>LVM Logical Volume Manager and other things related</h2>
+<a href="http://www.timelordz.com/blog/?p=456">Resizing Default LVM Partitions and Moving /boot - Mine the Harvest</a><br/>
+<a href="http://evms.sourceforge.net/">Enterprise Volume Management System</a><br/>
+<a href="http://sunoano.name/ws/public_xhtml/lvm.html">Logical Volume Manager</a><br/>
+<pre>
+lvscan
+lvchange -a y /dev/logicalvol/lv_root
+lvchange -a n /dev/logicalvol/lv_root
+</pre>
+<br/>
+<br/>
+<h2>Fedora 8</h2>
+I can't believe how fast Fedora moves.  Just a month ago I was working on Fedora 7.  I'm interested to see how the install/upgrade goes from 7 to 8.  Cool stuff.<br/>
+<br/>
+To install from the console of a LiveCD, run the command "liveinst".<br/>
+<a href="http://www.howtoforge.com/upgrading-fedora7-desktop-to-fedora8">How To Upgrade Your Desktop From Fedora 7 To Fedora 8 | HowtoForge - Linux Howtos and Tutorials</a><br/>
+<a href="http://docs.fedoraproject.org/install-guide/f8/en_US/">Fedora 8 Installation Guide</a><br/>
+<a href="http://www.gagme.com/greg/linux/f8-tips.php">Fedora 8 Tips & Tricks</a><br/>
+<a href="http://www.howtoforge.com/installing-mydns-mydnsconfig-fedora8">Installing MyDNS And The MyDNSConfig Control Panel On Fedora 8 | HowtoForge - Linux Howtos and Tutorials</a><br/>
+<a href="http://www.howtoforge.com/fedora-8-server-lamp-email-dns-ftp-ispconfig">Fedora 8 Server Setup: LAMP, Email, DNS, FTP, ISPConfig (a.k.a. The Perfect Server) | HowtoForge - Linux Howtos and Tutorials</a><br/>
+<br/>
+<h2>Fedora 7</h2>
+I've decided to give Fedora Core another go.  Last time I installed a Fedora Core it was at 2.  Was pretty good but I found it to be a moving target.  Upgrades were not seemless.<br/>
+<br/>
+Fedora Core 7 was nice and easy to install.  However, when up and running I didn't see a mouse cursor.  However, I could left click and see context menus.  I turned on the option to highlight the cursor using the CTRL key...and searched the web.<br/>
+<br/>
+I found that it was an issue with the hardware cursor.  So I had to add<br/>
+Option      "HWCursor" "off"<br/>
+to the Device section in /etc/X11/xorg.conf.<br/>
+<br/>
+So I'm trying the binary drivers on <a href="http://rpm.livna.org/">livna.org</a>.<br/>
+To install, it is really easy, download and install: <a href="http://rpm.livna.org/livna-release-7.rpm">http://rpm.livna.org/livna-release-7.rpm</a> <br/>
+Once that is installed, you can do a:<br/> 
+yum install kmod-nvidia<br/>
+then configure it using:<br/>
+livna-config-display<br/>
+Then reboot<br/>
+<br/>
+Its working. Yeah!<br/>
+<br/>
+<a href="http://www.redhatmagazine.com/2007/05/31/remixing-fedora-7/">Remixing Fedora 7</a><br/>
+<a href="http://www.wlug.org.nz/FedoraRepositories">FedoraRepositories</a><br/>
+<a href="http://www.brandonhutchinson.com/Fedora_apt_and_yum_repositories.html">Fedora apt and yum repositories</a><br/>
+<a href="http://moonshine.freshrpms.net/">freshrpms.net</a><br/>
+<a href="http://dag.wieers.com/rpm/">DAG: RPM packages for Red Hat, RHEL, CentOS and Fedora</a><br/>
+<br/>
+<a href="http://www.fedorafaq.org/">The Unofficial Fedora FAQ</a><br/>
+<a href="http://www.fedorasolved.org/">FedoraSolved.Org</a><br/>
+
+<h2>Music</h2>
+Amarok is a new program I'm playing with.  However, from some reason it doesn't include mp3 support out of the box.  To enable mp3 in Amarok, using the following yum command:<br/>
+<pre>
+yum install amarok-extras-nonfree
+</pre>
+info found from: <a href="http://fedorasolved.org/multimedia-solutions/amarok/">Amarok - Fedora Solved.</a><br/>
+<br/>
+<br/>
+If you haven't already, checkout the <a href="http://www.mjmwired.net/resources/mjm-fedora-f7.html">Personal Fedora 7 Installation Guide</a>, it has all sorts of information on how to setup samba shares and install nice packages.  As always, its nice to review the services that get installed with a distro. <a href="http://www.mjmwired.net/resources/mjm-services-f7.html">Services in Fedora 7</a><br/>
+<br/>
+I again used my doc from the last fedora setup for NTP...<a href="http://dave.thehorners.com/content/view/61/126/">NTP - A little information on using NTP on fedora core.</a><br/>
+<br/>
+<a href="http://freeshells.ch/~source/xenfc7_pg1.php">Using Xen and virtualization tools in Fedora 7</a><br/>
+<a href="http://www.howtoforge.com/openldap_fedora7">Set Up OpenLDAP On Fedora 7 | HowtoForge - Linux Howtos and Tutorials</a><br/>
+
+<h2>VNC</h2>
+<a href="http://fedorasolved.org/network-solutions/vncserver-setup">Vncserver Setup â?? Fedora Solved</a><br/>
+<a href="http://www.g-loaded.eu/2005/11/10/configure-vnc-server-in-fedora/">Set up the VNC Server in Fedora</a><br/>
+<a href="http://fedoranews.org/contributors/rick_stout/freenx/">FedoraNEWS.ORG - HOWTO setup Freenx on Fedora</a><br/>
+<br/>
+<br/>
+<h2>LSB - Linux Base Standard</h2>
+<a href="http://www.linuxfoundation.org/collaborate/workgroups/lsb">Linux Standard Base (LSB) | The Linux Foundation</a><br/>
+<br/>
+<br/>
+<h2>DST update for linux</h2>
+It shouldn't be a problem if you update your OS....but sometimes ya need to keep running, ya know?!  It isn't hard to do, just get the timezone data and source from nih.gov and overwrite your zoneinfo.<br/>
+<pre>
+#check if you need update..
+zdump -v EST5EDT | grep 2007
+cd somewhereprivate;
+wget 'ftp://elsie.nci.nih.gov/pub/tz*.tar.gz'
+tar xfvz *.tar.gz
+make
+zic -d . northamerica
+cp EST5EDT /usr/share/zoneinfo/
+cp EST5EDT /etc/localtime
+cp Indianapolis /usr/share/zoneinfo/America/Indianapolis
+#check if you update worked.
+zdump -v EST5EDT | grep 2007
+</pre>
+<a href="http://www.twinsun.com/tz/tz-link.htm">Sources for Time Zone and Daylight Saving Time Data</a><br/>
+    <div style="border: 1px;">
+    Created: 2007-06-09 14:21:21
+    Modified: 2013-10-19 16:08:41
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<a href="http://en.wikipedia.org/wiki/E_%28mathematical_constant%29" target=_blank>$$e = \sum_{n=0}^\infty \frac{1}{n!}$$</a>
+
+
+satis dictum.
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

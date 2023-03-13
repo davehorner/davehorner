@@ -1,0 +1,343 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>WebGL canvas and pretty things.</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/programming/">programming</a>
+    <h1>WebGL canvas and pretty things.</h1>
+   <h2>WebGL - OpenGL in yo *modern* browser canvas.</h2>
+<a href="http://en.wikipedia.org/wiki/WebGL">WebGL - Wikipedia</a><br/>
+WebGL is a cross-platform, royalty-free web standard for a low-level 3D graphics API based on OpenGL ES 2.0, exposed through the HTML5 Canvas element as Document Object Model interfaces. Developers familiar with OpenGL ES 2.0 will recognize WebGL as a Shader-based API using GLSL, with constructs that are semantically similar to those of the underlying OpenGL ES 2.0 API. It stays very close to the OpenGL ES 2.0 specification, with some concessions made for what developers expect out of memory-managed languages such as JavaScript.<br/>
+<br/>
+WebGL brings plugin-free 3D to the web, implemented right into the browser. Major browser vendors Apple (Safari), Google (Chrome), Mozilla (Firefox), and Opera (Opera) are members of the WebGL Working Group.
+<br/>
+<a href="https://www.khronos.org/registry/webgl/specs/1.0/">WebGL Specification</a><br/>
+
+<a href="http://www.chromeexperiments.com/webgl/">Chrome Experiments - WebGL Experiments</a><br/>
+<a href="http://get.webgl.org/">does your browser support WebGL?</a><br/>
+<br/>
+<br/>
+<a href="http://html2canvas.hertzen.com/">html2canvas - Screenshots with JavaScript</a> - take screenshots of your user's DOM in Javascript!<br/>
+<a href="https://github.com/skorulis/stork">skorulis/stork</a> - PNG images from dynamic drawing on a HTML canvas <br/>
+<a href="https://github.com/hongru/canvas2image">hongru/canvas2image</a><br/>
+<br/>
+<br/>
+<h2>paper.js</h2>
+<a href="http://paperjs.org/">Paper.js - Paper.js</a> - 	
+Paper.js is an open source vector graphics scripting framework that runs on top of the HTML5 Canvas. It offers a clean Scene Graph/DOM<br/>
+<br/>
+<h2>Processing || p5.js</h2>
+<a href="https://github.com/lmccart/p5.js/">lmccart/p5.js</a> A JS client-side library for creating graphic and interactive experiences, based on the core principles of <a href="http://processing.org/">Processing</a>.<br/>
+<a href="http://p5js.org/workshop/">p5js.org/workshop</a> - p5.js examples.<br/>
+<a href="https://github.com/lmccart/p5.js/wiki/Getting-Started" target="_blank">Getting started tutorial for p5.js</a><br/>
+<a href="http://codepen.io/p5js/" target="_blank">p5.js CodePen account</a> for examples<br/>
+<a href="https://github.com/antiboredom/p5-ide">antiboredom/p5-ide</a> an IDE for p5.js, grunt.<br/>
+<a href="https://github.com/antiboredom/waves">antiboredom/waves</a><br/>
+<a href="http://www.sojamo.de/libraries/controlP5/">processing GUI, controlP5</a> - A GUI (graphical user interface) library for processing. Sliders, Buttons, Toggles, Knobs, Textfields, RadioButtons, Checkboxes<br/>
+<br/>
+<br/>
+<h2>d3.js</h2>
+<a href="http://d3js.org/">D3.js - Data-Driven Documents</a><br/>
+<a href="https://github.com/mbostock/d3/wiki/Tutorials">Tutorials · mbostock/d3 Wiki</a><br/>
+<a href="http://keminglabs.com/c2/">C2: Clojure(Script) data visualization</a> - inspired by d3.js<br/>
+<a href="http://raw.densitydesign.org/">Raw</a><br/>
+<a href="http://caleydo.org/projects/lineup/">Multi-Attribute Rankings</a> - Harvard's tabular data dynamic ranking; not just sortable columns. combine columns visually.<br/>
+<br/>
+<br/>
+<h2>three.js</h2>
+<a href="http://threejs.org/">three.js - JavaScript 3D library</a><br/>
+<a href="http://acko.net/blog/making-mathbox/">Making MathBox — Acko.net</a> - Presentation-Quality Math with Three.js and WebGL<br/>
+<br/>
+<br/>
+<h2>Scene.js</h2>
+<a href="http://scenejs.org/">SceneJS</a> <a href="http://xeolabs.com/">xeoLabs</a><br/>
+<br/>
+<br/>
+<a href="https://github.com/bebraw/jswiki/wiki/Game-Engines">Game Engines · bebraw/jswiki Wiki</a> - large list of game engines.<br/>
+<br/>
+<br/>
+<h2>KineticJS</h2>
+<a href="http://kineticjs.com/">KineticJS HTML5 Canvas Framework</a><br/>
+<a href="http://codepen.io/davehorner/pen/rheiv">Tango with KineticJS - CodePen</a><br/>
+<br/>
+<br/>
+<h2>Phaser</h2>
+<a href="http://phaser.io/">Phaser - Desktop and Mobile HTML5 game framework</a><br/>
+<a href="https://github.com/photonstorm/phaser">photonstorm/phaser</a> - Phaser is a fun, free and fast 2D game framework for making HTML5 games for desktop and mobile web browsers, supporting Canvas and WebGL rendering.<br/>
+<br/>
+<br/>
+<h2>Pixi.js</h2>
+ enjoy the power of hardware acceleration without prior knowledge of webGL. it's also fast.<br/>
+<a href="https://github.com/GoodBoyDigital/pixi.js">GoodBoyDigital/pixi.js</a> - Super fast HTML 5 2D rendering engine that uses webGL with canvas fallback<br/>
+<a href="http://www.goodboydigital.com/blog/">Speaking our brains - goodboy blog — goodboy©</a> - maker of pixi's blog.<br/>
+<br/>
+<br/>
+not all pretty things are WebGL though..and really everyone should know some canvas primitives right?.<br/>
+<h2>Canvas</h2>
+<a href="http://billmill.org/static/canvastutorial/index.html">Canvas Tutorial - Introduction</a> - build yourself a breakout clone.<br/>
+<a href="http://www.createjs.com/#!/EaselJS">EaselJS | A Javascript library that makes working with the HTML5 Canvas element easy.</a> <a href="https://github.com/CreateJS/EaselJS/">CreateJS/EaselJS</a> - The Easel Javascript library provides a full, hierarchical display list, a core interaction model, and helper classes to make working with the HTML5 Canvas element much easier. <a href="http://www.mikechambers.com/files/html5/easeljs/follow/">Follow EaselJS Example</a><br/>
+<a href="http://www.okapijs.org/">okapi JS</a> - Okapi.js is a small library for using Adobe Flash's symbol/instance model with HTML5s canvas tag. <a href="https://github.com/okapijs/okapijs/blob/master/INTRODUCITON">okapijs/INTRODUCITON at master · okapijs/okapijs</a><br/>
+<a href="https://github.com/digitalfruit/limejs">digitalfruit/limejs</a><br/>
+
+<br/>
+<br/>
+<h2>other related content from me, but isn't it all...</h2>
+<a href="http://dave.thehorners.com/aboutme/music">Music, sound, visuals, art. - Dave Horner's Website</a> - live coding scene...visual programming, algorithmic music generation, like you do.<br/>
+<a href="http://codepen.io/davehorner/">David Horner on CodePen</a><br/>
+<br/>
+<br/>
+<iframe alt="more often, the student." src="//player.vimeo.com/video/8345628?autoplay=1" width="500" height="375" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe><br/>
+(please excuse the autoplay, I couldn't help myself.)
+    <div style="border: 1px;">
+    Created: 2014-06-13 03:15:53
+    Modified: 2014-09-19 13:11:34
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<a href="http://en.wikipedia.org/wiki/E_%28mathematical_constant%29" target=_blank>$$e = \sum_{n=0}^\infty \frac{1}{n!}$$</a>
+
+
+satis dictum.
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

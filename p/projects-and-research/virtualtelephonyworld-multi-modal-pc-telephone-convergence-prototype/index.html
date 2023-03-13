@@ -1,0 +1,540 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>VirtualTelephonyWorld - multi-modal PC-telephone convergence prototype.</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/p/">Personal</a>
+<a href="/p/projects-and-research/">projects-and-research</a>
+    <h1>VirtualTelephonyWorld - multi-modal PC-telephone convergence prototype.</h1>
+   <div style="PADDING-RIGHT:0pt; PADDING-LEFT:0pt; PADDING-BOTTOM:1em; PADDING-TOP:1em; TEXT-ALIGN:center">
+  <img src="/personal/virtualtelephonyworld/images/screencap.jpg">
+</div>
+<p align=center style=MARGIN-BOTTOM:0pt>
+  <font face="Arial, sans-serif"><font size=2><u><b>VirtualTelephonyWorld</b></u></font></font>
+</p>
+<p align=center style=MARGIN-BOTTOM:0pt>
+  <font face="Arial, sans-serif"><font size=2>PC-telephone convergence for
+  multi-modal interactive environments </font></font>
+</p>
+<p align=center style=MARGIN-BOTTOM:0pt>
+  <font face="Arial, sans-serif"><font size=2>David Horner
+  ()</font></font>
+</p>
+<p align=center style=MARGIN-BOTTOM:0pt>
+  <font face="Arial, sans-serif"><font size=2>Dr. Beomjin Kim
+  ()<br />
+  CS494 Topics in virtual reality - 2006<br />
+  Indiana Purdue University Fort Wayne</font></font>
+</p>
+<p class=western style="MARGIN-BOTTOM:0pt; MARGIN-LEFT:0.5in">
+  &nbsp;
+</p>
+<hr style="WIDTH:100%; HEIGHT:2px"> This document is available from Google Docs:<br />
+VirtualTelephonyWorld -
+<a href=http://docs.google.com/Doc?id=d8bmkqt_5zz8r43 target=_blank title=http://docs.google.com/Doc?id=d8bmkqt_5zz8r43>http://docs.google.com/Doc?id=d8bmkqt_5zz8r43</a>
+<p style="MARGIN-TOP:0.19in; MARGIN-BOTTOM:0.19in">
+  Latest windows binary installer release:
+  <a href=http://dave.thehorners.com/personal/virtualtelephonyworld/VirtualTelephonyWorld-1.0.0.5.exe title=http://dave.thehorners.com/personal/virtualtelephonyworld/VirtualTelephonyWorld-1.0.0.5.exe><br />
+  http://dave.thehorners.com/personal/virtualtelephonyworld/VirtualTelephonyWorld-1.0.0.5.exe</a><br />
+  Release Date: April 06, 2007<br />
+  <br />
+  Source code access is available at:<br />
+  SVN access is:
+  <a href=https://dave.thehorners.com/svn/virtualtelephonyworld/trunk target=_blank title=https://dave.thehorners.com/svn/virtualtelephonyworld/trunk>https://dave.thehorners.com/svn/virtualtelephonyworld/trunk</a>
+  <hr style="WIDTH:100%; HEIGHT:2px"><br />
+  VirtualTelephonyWorld is a prototype in which you can view and animate a 3d
+  robot model within a shared multi-user virtual world.&nbsp; Each user can view
+  the virtual world from a shared 3d perspective and can interact with it using
+  the touchtone phone and keyboard.&nbsp; This virtual world also exposes a high
+  performance conference bridge which allows the users to collaborate remotely
+  with other people exploring the same environment.&nbsp; This prototype
+  demonstrates how open source software has made it possible to develop
+  sophisticated multi-modal PC-telephone converged applications.&nbsp; It will
+  utilize free software libraries which strive to be cross platform and allow
+  for <span style=FONT-WEIGHT:bold>free and commercial use</span>.*<br />
+</p>
+<p style="MARGIN-TOP:0.19in; MARGIN-BOTTOM:0.19in">
+  Giving a group of users the ability to interact with each other on a telephone
+  conference enables people to&nbsp;work remotely.&nbsp; Many people spend a
+  large amount of their work week on the telephone in&nbsp;conference
+  calls.&nbsp; However, complex subjects like science, engineering, and math
+  problems are much easier to solve and understand when a team of people can
+  visualize data&nbsp;and communicate together.&nbsp;&nbsp;&nbsp;
+</p>
+<p style="MARGIN-TOP:0.19in; MARGIN-BOTTOM:0.19in">
+  Since the advent of the&nbsp;telephone, people have struggled to effectively
+  communicate simple things like phone numbers, credit card numbers, URLs, and
+  other hard to pronounce/spell words on the phone. We've developed tools like
+  email, web browsers, internet chat, and SMS to communicate information
+  accurately between colleagues.&nbsp; But&nbsp;each of these mechanisms require
+  a certain amount of prior knowledge and setup.<br />
+  <br />
+  Users can not only talk to one another, but they can also interact with
+  software interactive voice response(IVR).&nbsp; Instead of having to listen to
+  available options one at a time, the user can interact with a visual
+  representation of the IVR.&nbsp; This allows the user to navigate IVR prompts
+  with ease because they are able to travel in a non-linear fashion.<br />
+  &nbsp;<br />
+  This prototype&nbsp;is written&nbsp;in C and C++.&nbsp; I will be using the C
+  library libapr for cross platform ADTs, threads, sockets, and mutexes.&nbsp; I
+  reviewed several open source libraries for 3d rendering and chose the C++
+  Ogre3d framework because it was packaged cross platform&nbsp;and well
+  documented.&nbsp; Last and most importantly, I will use Freeswitch for things
+  relating to the conference and event subsystems.&nbsp; <span>FreeSWITCH is an
+  open source telephony platform written in C/C++ to facilitate the creation of
+  telephony services.&nbsp; It handles all the termination, network events, and
+  channel mixing for the conference.</span>&nbsp;
+</p>
+<p class=western style=MARGIN-BOTTOM:0pt>
+  <span style=FONT-WEIGHT:bold>Features / Requirements:</span>
+</p>
+<ul>
+  <li>
+    <p class=western style=MARGIN-BOTTOM:0pt>
+      Trigger visual 3d animations using a keyboard or touchtone phone.
+    </p>
+    <li>
+      <p class=western style=MARGIN-BOTTOM:0pt>
+        Reports participant activity and robot state information using speech
+        synthesis engine. (Cepstral or Festival)
+      </p>
+      <li>
+        <p class=western style=MARGIN-BOTTOM:0pt>
+          Allows for interactive two way communication between virtual robot
+          model and phone system.
+        </p>
+        <li>
+          Provides multi-party conferencing from traditional phones, cellphones,
+          and softphones.
+          <li>
+            <p class=western style=MARGIN-BOTTOM:0pt>
+              Develop an installable executable which will allow people to
+              download and easily use (NSIS).
+            </p>
+            <li>
+              <p class=western style=MARGIN-BOTTOM:0pt>
+                Use open and free libraries to accomplish my goal (Freeswitch,
+                Asterisk, Ogre3d, libapr, and other code contributions).<br />
+                <br />
+              </p>
+            </li>
+</ul>
+<span style=FONT-WEIGHT:bold>What do you mean multi-modal HCI?</span>
+<p class=western style=MARGIN-BOTTOM:0pt>
+  This project explores the development of a multi-modal human computer
+  interface (HCI).&nbsp; It provides the following modalities of interaction:
+  visual display, speech synthesis, keyboard, mouse, and touchtone phone.&nbsp;
+  Speech recognition is also easy to implement using a commercial speech engine
+  or by using a VXML provider.&nbsp;&nbsp; Applications which expose many
+  modalities are more accessible for people with disabilities and provide a more
+  enriched human computer interaction.<br />
+  &nbsp;
+</p>
+<p class=western style=MARGIN-BOTTOM:0pt>
+  <img align=right border=0 hspace=0 src="/personal/virtualtelephonyworld/images/robotstates.gif" style="WIDTH:432px; HEIGHT:268px" title="Robot Animation Key"><span style=FONT-WEIGHT:bold>What
+  does the prototype do?</span><br />
+</p>
+<p class=western style=MARGIN-BOTTOM:0pt>
+  VirtualTelephonyWorld is a prototype which allows many users to animate a
+  robot model placed in the center of a virtual world.&nbsp; It provides a
+  telephone conference bridge which can be accessed through a sip softphone,
+  google talk, or a plain old telephone.&nbsp; When a user presses a button 1
+  through 5 (using a keyboard or the telephone), the robot will transition to
+  the animation state representing the button pressed.&nbsp; The robot provides
+  text to speech notifications for the telephone users connected.&nbsp; Button
+  press events are triggered from a telephone's DTMF touchpad or from a PC
+  keyboard.<br />
+</p>
+<p style="MARGIN-TOP:0.19in; MARGIN-BOTTOM:0.19in">
+  <span style=FONT-WEIGHT:bold>What do you mean by model?</span><br />
+  This prototype relies on the Ogre3d rendering framework.&nbsp; A model in this
+  prototype refers to a model entity within Ogre3d speak.&nbsp; Ogre3d provides
+  the needed functionality to render and display the first person perspective of
+  the shared virtual 3d world.&nbsp; Ogre3d exposes a scene graph which allows
+  the programmer to add models&nbsp;into the 3d world and maintain relationships
+  between these model entities.&nbsp; I've implemented a very simple&nbsp;graph
+  for this prototype which simply loads the robot.mesh resource from the Ogre3d
+  SDK distribution.&nbsp; This robot.mesh includes all the polygons, textures,
+  animation states, etc. needed to load and display the robot within my
+  prototype.&nbsp; I've also included some code to add textual overlay
+  information.&nbsp; The picture to the right is a keyboard map indicating the
+  keys to press in yellow and the animation state name to the user.&nbsp;
+</p>
+<span style=FONT-WEIGHT:bold></span>
+<p style="MARGIN-TOP:0.19in; MARGIN-BOTTOM:0.19in">
+  <b>High level network diagram<br />
+  </b><strong><span style=FONT-WEIGHT:normal>The diagram below indicates how
+  information flows between all of the components needed for this
+  prototype.</span></strong>
+</p>
+<p style="MARGIN-TOP:0.19in; MARGIN-BOTTOM:0.19in">
+  <img align=left border=0 hspace=0 src="/personal/virtualtelephonyworld/images/layout.jpg" style="WIDTH:548px; HEIGHT:252px"><strong><span style=FONT-WEIGHT:normal><span style=FONT-WEIGHT:bold>Telephone
+  users</span><br />
+  The user picks up a phone and calls the published phone number.&nbsp; Audio
+  and DTMF are transmitted from my voice provider's T1 interface into a PRI card
+  on a Linux distro which runs Asterisk.&nbsp; Asterisk answers the call and
+  automatically dials the sip URL for the Freeswitch server.&nbsp; The
+  Freeswitch server then answers the sip call and places the user in a
+  conference bridge.&nbsp; From this point on, the phone caller can talk and
+  interact with the other callers and virtual models
+  </span></strong><strong><span style=FONT-WEIGHT:normal>that are connected to
+  the same virtual world</span></strong><strong><span style=FONT-WEIGHT:normal>.<br />
+  <br />
+  </span></strong>
+</p>
+<p class=western style=MARGIN-BOTTOM:0pt>
+  <strong><span style=FONT-WEIGHT:normal><span style=FONT-WEIGHT:bold>Computer
+  users</span><br />
+  A one time download and install provides the user with the required
+  software.&nbsp; The application includes two threads of execution.&nbsp; One
+  worker thread makes a connection to the Freeswitch mod_eventsocket port using
+  libapr TCP sockets.&nbsp; This connection is used to read DTMF events and send
+  DTMF events to the Freeswitch server.&nbsp; It is also used for sending
+  commands to the TTS interface within Freeswitch.&nbsp; The main thread of
+  execution manages the Ogre3d eventloop.&nbsp; This eventloop renders the
+  virtual world on the screen and reads keyboard and mouse events from the user
+  using the OIS library included within the Ogre3d SDK.&nbsp; The two threads
+  communicate with each other using
+  </span></strong><strong><span style=FONT-WEIGHT:normal>libapr's
+  </span></strong><strong><span style=FONT-WEIGHT:normal>shared memory and mutex
+  support.<br />
+  <br />
+  Note: Why use both Asterisk and Freeswitch?&nbsp; Because I can.&nbsp; I've
+  included Asterisk for interop sake, Freeswitch could have provided this T1
+  interface and removed the need for Asterisk.&nbsp; I'm just showing that both
+  projects can interoperate together nicely.&nbsp; This prototype's event
+  subsystem is based on Freeswitch's mod_eventsocket, so Freeswitch is
+  required.&nbsp; I could have also implemented an event interface to Asterisk,
+  I did not do this.</span></strong><br />
+</p>
+<p class=western style=MARGIN-BOTTOM:0pt>
+  <span style=FONT-WEIGHT:bold><br />
+  </span>
+</p>
+<p class=western style=MARGIN-BOTTOM:0pt>
+  <span style=FONT-WEIGHT:bold>Free open software works</span><br />
+</p>
+<p class=western style=MARGIN-BOTTOM:0pt>
+  This project stands on the shoulders of giants by using free software
+  libraries and tools available on the internet today.&nbsp; Open Source
+  software has come a long way in the last 10 years I've been working with
+  it....and it is only going to get better.&nbsp; With open source you've got
+  the code, you can make the change.&nbsp; Trouble?&nbsp; You can find a
+  developer like me to provide support!&nbsp; Good projects have documentation,
+  bug/feature trackers, wikis, and other content.&nbsp; User communities grow
+  and people congregate within irc.freenode.net, mailinglists, and forums.&nbsp;
+  For many things, the open source way is the right way.
+</p>
+<p class=western style=MARGIN-BOTTOM:0pt>
+  <br />
+</p>
+<p class=western style=MARGIN-BOTTOM:0pt>
+  <span style=FONT-WEIGHT:bold>A big thanks goes out to....</span><br />
+</p>
+<p class=western style=MARGIN-BOTTOM:0pt>
+  This project could not have been possible without the hard work of many
+  contributors.&nbsp; I'd like to thank all the developers associated with the
+  following projects: Freeswitch, libapr, Ogre3d, Asterisk, and Linux.&nbsp;
+  Each of these projects&nbsp;also include other open licensed libraries, I'd
+  like to thank those contributors as well.&nbsp; Thanks again to Dr. Beomjin
+  Kim for accepting this project as an independent study project to apply
+  towards my Purdue&nbsp;CS degree.
+</p>
+<p class=western style=MARGIN-BOTTOM:0pt>
+  <img align=bottom border=0 height=66 name=graphics1 src="/personal/virtualtelephonyworld/images/purduelogo.png" width=188><img align=bottom border=0 height=71 name=graphics2 src="/personal/virtualtelephonyworld/images/ipfwlogo.png" width=71>
+</p>
+<p class=western style=MARGIN-BOTTOM:0pt>
+  &nbsp;
+</p>
+<span style=FONT-WEIGHT:bold>
+<p class=western style=MARGIN-BOTTOM:0pt>
+  <br />
+  Now for a little self promotion... ;)<br />
+  <img border=0 name=graphics3 src="/personal/virtualtelephonyworld/images/tecdevlogo.png" style="WIDTH:212px; HEIGHT:95px">
+</p>
+</span>
+<p>
+  &nbsp;
+</p>
+<p class=western style=MARGIN-BOTTOM:0pt>
+  If you are looking for help integrating advanced web/telephony services,
+  custom software development,&nbsp;or support....<br />
+  Please checkout my company TecDev -
+  <a href=http://www.tecdev.com/ title=http://www.tecdev.com/>http://www.tecdev.com/</a>
+</p>
+<p class=western style=MARGIN-BOTTOM:0pt>
+  <br />
+  &nbsp;
+</p>
+<div>
+  <a><img border=0 height=244 name=mainview src="/personal/virtualtelephonyworld/images/davehead.jpg" style="WIDTH:428px; HEIGHT:203px" width=500></a><img border=1 src="/personal/virtualtelephonyworld/images/davedesk.jpg"><br />
+  If you'd like to hear more about me&nbsp;and my pet projects......
+</div>
+<p class=western style=MARGIN-BOTTOM:0pt>
+  Please visit me on my website
+  <a href=http://dave.thehorners.com/ title=http://dave.thehorners.com/>http://dave.thehorners.com/</a>
+</p>
+<p class=western style=MARGIN-BOTTOM:0pt>
+  <br />
+  I'd love to hear your thoughts and comments!<br />
+  Thanks.<br />
+  <br />
+  --David A. Horner<br />
+  <a href=http://dave.thehorners.com/ title=http://dave.thehorners.com/>http://dave.thehorners.com/</a>
+</p>
+<br/>
+<br/>
+BTW:  I will be presenting this work at the 2007 <a href="http://www.cluecon.com/">ClueCon</a> telephony developer conference in Chicago. Please come if you've got the time!<br/><a href="http://www.cluecon.com/">Cluecon</a>
+    <div style="border: 1px;">
+    Created: 2007-05-14 16:45:30
+    Modified: 2013-08-30 18:51:16
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+\begin{bmatrix} 1 & 0 & \ldots & 0 \\
+                0 & 1 & 0 & \vdots \\
+                \vdots & 0 & \ddots & 0\\
+                0 & \ldots &  0 & 1_{n}
+\end{bmatrix}
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

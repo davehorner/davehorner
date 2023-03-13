@@ -1,0 +1,555 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>Visual Studio Tips and Tricks</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/programming/">programming</a>
+    <h1>Visual Studio Tips and Tricks</h1>
+   Visual Studio is something that I've had to deal with for a long time in my life so I have a love/hate relationship with it.<br/>
+<br/>
+<h2>Versions of Visual Studio</h2>
+<pre>
+Visual C++ 6    = VC6 = _MSC_VER 1200
+VS 2003 = = VS7 = VC7 = _MSC_VER 1300
+VS 2005 = = VS8 = VC8 = _MSC_VER 1400
+VS 2008 = = VS9 = VC9 = _MSC_VER 1500
+VS 2010 = = VS10 =VC10= _MSC_VER 1600
+VS 2012 = = VS12 =VC12= _MSC_VER 1700
+VS 2013 = = VS13 =VC13= _MSC_VER 1800
+</pre>
+<a href="http://blogs.msdn.com/b/vcblog/archive/2011/09/12/10209291.aspx">C++11 Features in Visual C++ 11 - Visual C++ Team Blog - Site Home - MSDN Blogs</a><br/>
+
+<br/>
+<br/>
+<h2>Visual Studio 2013, .net 4.5.1, VS2013</h2>
+<a href="http://blogs.msdn.com/b/somasegar/archive/2013/06/28/cpp-conformance-roadmap.aspx">C++ Conformance Roadmap - Somasegar's blog - Site Home - MSDN Blogs</a> - "the RTM version will also include a few tactical C99 language extensions when compiling C code, so that some popular community libraries (including FFmpeg) will now be able to compile with Visual C++ 2013."!!!<br/>
+<blockquote class="twitter-tweet"><p>MS releases Win8.1 to MSDN. <a href="https://twitter.com/search?q=%23VS2013&amp;src=hash">#VS2013</a> MSBuild12 not in .net4.5.1 brings the C/C++ love! <a href="https://twitter.com/search?q=%23stl&amp;src=hash">#stl</a> <a href="https://twitter.com/search?q=%23cpprestsdk&amp;src=hash">#cpprestsdk</a> <a href="https://twitter.com/search?q=%23c99&amp;src=hash">#c99</a> <a href="https://twitter.com/search?q=%23cpp11&amp;src=hash">#cpp11</a> C++14 <a href="https://twitter.com/search?q=%23noatldll&amp;src=hash">#noatldll</a> <a href="https://twitter.com/search?q=%23gonative&amp;src=hash">#gonative</a></p>&mdash; davehorner (@davehorner) <a href="https://twitter.com/davehorner/statuses/377264728373854208">September 10, 2013</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+<a href="http://blogs.msdn.com/b/vcblog/archive/2013/06/27/what-s-new-for-visual-c-developers-in-vs2013-preview.aspx">What’s New for Visual C++ Developers in VS2013 Preview - Visual C++ Team Blog - Site Home - MSDN Blogs</a><br/>
+<a href="http://blogs.msdn.com/b/vcblog/archive/2013/08/20/atl-and-mfc-changes-and-fixes-in-visual-studio-2013.aspx">ATL and MFC changes and fixes in Visual Studio 2013 - Visual C++ Team Blog - Site Home - MSDN Blogs</a> - no atl dll, a single static atl!<br/>
+<br/>
+<br/>
+<h2>Visual Studio 2010, .net 4.0</h2>
+Look at all the testing tools!  :)  Exciting stuff indeed.<br/>
+<a href="http://msdn.microsoft.com/en-us/vs2008/products/cc948977.aspx">Visual Studio 2010 and .NET Framework 4.0 Overview</a><br/>
+<a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=752cb725-969b-4732-a383-ed5740f02e93&amp;displayLang=en">Download details: Visual Studio 2010 and .NET Framework 4 Training Kit</a><br/>
+<a href="http://channel9.msdn.com/shows/10-4/">10-4 | Shows | Channel 9</a> - channel 9 videos on 2010 features.<br/>
+<a href="http://code.msdn.microsoft.com/wcfwf4">WCF / WF 4 Training Kit - Home</a><br/>
+<a href="http://www.microsoft.com/downloads/details.aspx?displaylang=en&amp;FamilyID=5aca0622-d87d-4cc9-a22c-0d58205a56b4#tm">Download details: WCF WF Samples for .NET Framework 4.0 Beta 1</a><br/>
+<a href="http://codebetter.com/blogs/patricksmacchia/archive/2009/05/21/a-quick-analyze-of-the-net-fx-v4-0-beta1.aspx">A quick analyze of the .NET Fx v4.0 Beta1 - Patrick Smacchia [MVP C#]</a><br/>
+<a href="http://www.microsoft.com/downloads/details.aspx?familyid=752CB725-969B-4732-A383-ED5740F02E93&amp;displaylang=en">Download details: Visual Studio 2010 and .NET Framework 4 Training Kit</a><br/>
+<a href="http://blogs.msdn.com/b/vcblog/archive/2010/01/11/vcbuild-vs-c-msbuild-on-the-command-line.aspx">VCBuild vs. C++ MSBuild on the Command Line - Visual C++ Team Blog - Site Home - MSDN Blogs</a> - they took eer vcbuild...<br/>
+<br/>
+<br/>
+<h2>Visual Studio 2008, .net 3.5, sqlcompact</h2>
+<a href="http://www.microsoft.com/downloads/details.aspx?FamilyId=CF99C752-1391-4BC3-BABC-86BC0B9E8E5A&amp;displaylang=en">Download details: Visual Studio 2008 Service Pack 1 Beta</a><br/>
+<a href="http://www.microsoft.com/downloads/details.aspx?FamilyId=8C36ACA4-E947-4760-9B05-93CAC04C6F87&amp;displaylang=en">Download details: .NET Framework 3.5 Service pack 1 Beta</a><br/>
+<a href="http://www.microsoft.com/downloads/details.aspx?FamilyId=68539FAE-CF03-4C3B-AEDA-769CC205FE5F&amp;displaylang=en">Download details: SQL Server Compact 3.5 SP1 Beta for ADO.Net Entity Framework Beta 3</a><br/>
+
+Visual Studio 2008 (vs2008), includes a lot of new tools for working with XML, XTDs, XSD, etc.  New XML editors with intellisense and XML schema explorer let you navigate and code with ease.  Glad to see this come in the product.<br/>
+<a href="http://www.code-magazine.com/Article.aspx?quickid=0712162">CoDe Magazine - Article: XML Tools in Visual Studio 2008</a><br/>
+<br/>
+<h2>Web Resources</h2>
+<a href="http://blogs.msdn.com/ericnel/archive/2007/11/20/visual-studio-2008-training-kit-updated-for-rtm.aspx">Eric Nelson - Development for .NET Framework for ISVs : Visual Studio 2008 Training Kit updated for RTM</a><br/>
+<a href="http://blogs.msdn.com/borisj/">Boris Jabes's Webblog</a> (VS Program Manager)<br/>
+<a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=8D702463-674B-4978-9E22-C989130F6553&amp;displaylang=en">Visual Studio 2005 Service Pack 1 Beta</a><br/>
+<a href="http://www.cprogramming.com/debugging/visual-studio-msvc-debugging-NoStepInto.html">Debugging in Visual Studio: Avoid Stepping Into Common Functions</a><br/>
+<a href="http://msdn2.microsoft.com/en-us/library/8fwk67y3(VS.80).aspx">EEAddIn Sample: Debugging Expression Evaluator Add-In</a><br/>
+<a href="http://dzolee.blogspot.com/2007/08/remote-debugging.html">dzolee's pocketblog: Remote debugging</a><br/>
+<a href="http://blogs.msdn.com/andypennell/archive/2004/02/06/69004.aspx">How to Not Step Into Functions using the Visual C++ Debugger</a><br/>
+<a href="http://blogs.microsoft.co.il/blogs/sasha/archive/2013/06/25/automatically-obtaining-source-and-line-number-from-symbol-name-and-offset.aspx">Automatically Obtaining Source and Line Number from Symbol Name and Offset - All Your Base Are Belong To Us</a> - <a href="https://github.com/goldshtn/offset2source">goldshtn/offset2source</a> - A tool that converts module (and optional method) instruction offsets back to the .cpp source file and line number.<br/>
+<a href="http://randomascii.wordpress.com/">Random ASCII | Forecast for randomascii: programming, tech topics, with a chance of unicycling</a><br/>
+<br/>
+<h2>Formatting variables within the IDE</h2>
+VS2005 has gotten a lot better when it comes to displaying custom datatypes within the IDE.  There is a file called autoexp.dat which controls the formatting of datatypes within the VS watch and tooltip windows.  This is the file that provides the expansion  for types like CStrings, std::vectors, std::string, etc.  Just edit autoexp.dat to provide the expression expansion for your custom type.  (This came up for me because I was always dealing with a custom string class that subclasses the std::string and as tired of having to expand the class to view the std:string)<br/>
+Full path to autoexp.dat is: "C:\Program Files\Microsoft Visual Studio 8\Common7\Packages\Debugger\autoexp.dat"<br/>
+The following link provides more information on the constructs within the autoexp.dat file.<br/>
+<a href="http://www.virtualdub.org/blog/pivot/entry.php?id=120">Writing custom visualizers for Visual Studio 2005</a><br/>
+Wow, custom debugger visualizers allow you to display custom binary data using your own custom drawing methods.  Instead of seeing dec/hex representations of image data, you can actually view it.  How cool!<br/>
+<a href="http://www.codeproject.com/csharp/ImageVisualizer.asp">Create a Debugger Visualizer in 10 Lines of Code</a><br/>
+<br/>
+<h2>Compile problems relating to C++ code generation</h2>
+Why is code generation so hard in Visual Studio?  Why can't the linker tell me which libraries are mis-matched runtime?  Instead Visual Studio chooses to give me all these warnings about things being defined multiple times.  And many people simply choose to ignore libraries to get it to build.  But this is *NOT* the solution!<br/>
+<br/>
+Use the following command to figure out what version of the C runtime you are using:<br/>
+<pre>
+dumpbin /directives somefile.obj
+</pre>
+<br/>
+<h2>Native code deployment</h2>
+Until VS2005, native code deployment was pretty clean.  You could compile a small native executable and it didn't require a redistributable package to run.  This is a painful additional installation requirement...the same pain as managed code deployment.<br/>
+<a href="http://www.microsoft.com/downloads/details.aspx?familyid=32bc1bee-a3f9-4c13-9c99-220b62a191ee&amp;displaylang=en">Download details: Visual C++ 2005 Redistributable Package (x86)</a><br/>
+<a href="http://www.microsoft.com/downloadS/details.aspx?familyid=9B2DA534-3E03-4391-8A4D-074B9F2BC1BF">Download details: Visual C++ 2008 Redistributable Package (x86)</a><br/>
+Deployment of your output executables from VS2005 can be a real headache.  However, after about 2 weeks of playing I've finally decoded the steps to actually deploy a native C++ binary with /MD code generation.  First, you can try doing a "private assembly" deployment by copying the required assembly from "Program Files\Microsoft Visual Studio 8\VC\Redist" to your executable's directory.  
+This is nice because it means your user doesn't have to run (vcredist_x86.exe) which requires windows installer.<br/>
+<br/>
+The other option is to use the vcredist_x86.exe which installs the needed shared side-by-side assemblies into the native assembly cache (WinSxS folder).  Microsoft provides a download for vcredist_x86.exe but I've never gotten it to work (likely because my CRT version isn't the same...VS2005 SP1).  It is always best to grab your vcredist_x86.exe directly from the "C:\Program Files\Microsoft Visual Studio 8\SDK\v2.0\BootStrapper\Packages\vcredist_x86" folder.
+<br/>
+<br/>
+<a href="http://blogs.msdn.com/astebner/archive/2007/03/13/links-to-more-detailed-information-about-using-the-vc-runtime-files-in-vs-2005-sp1.aspx">Links to more detailed information about using the VC runtime files in VS 2005 SP1</a><br/>
+<a href="http://www.itwriting.com/blog/?postid=261">Visual Studio 2005 DLL Hell</a><br/>
+<a href="http://forums.microsoft.com/MSDN/ShowPost.aspx?PostID=141647">MSDN Forums/Re: msvcr80.dll not found</a><br/>
+<a href="http://msdn2.microsoft.com/en-us/library/abx4dbyh.aspx">Run-Time Library Reference</a><br/>
+<a href="http://www.gamedev.net/community/forums/topic.asp?topic_id=375714&amp;whichpage=1">Confusion: Libraries, .lib and .DLL</a><br/> 
+<a href="http://msdn2.microsoft.com/en-us/library/ms235624.aspx">Visual C++ Libraries as Shared Side-by-Side Assemblies</a><br/>
+<a href="http://msdn2.microsoft.com/en-us/library/ms235342.aspx">Troubleshooting C/C++ Isolated Applications and Side-by-side Assemblies</a><br/>
+<a href="http://blogs.msdn.com/nikolad/archive/2007/02/09/q-a-on-adapting-vs2005-sp1-to-build-your-applications.aspx">Q&amp;A on adapting VS2005 SP1 to build your applications</a><br/>
+<a href="http://blogs.msdn.com/astebner/archive/2006/08/23/715755.aspx">How to perform a silent install of the Visual C++ 8.0 runtime files (vcredist) packages</a><br/>
+<a href="http://msdn2.microsoft.com/en-gb/library/aa983356(vs.80).aspx">_USE_RTM_VERSION (flag to build native code without SP1 redist)</a><br/>
+<a href="http://forums.microsoft.com/MSDN/ShowPost.aspx?PostID=1225784">Private deployment of runtime in mixed RTM and SP1 environment </a><br/>
+<br/>
+<h2>Project/solution converters and tools</h2>
+<a href="http://www.andrewconnell.com/blog/archive/2005/12/16/2491.aspx">Using VS2005 to develop build v1.1 projects</a><br/>
+<a href="http://www.arstdesign.com/articles/prjconverter.html">VC++7 to VC++6 project converter</a><br/>
+<a href="http://zerodeux.net/projects/vctool/">vctool</a> - dumps the basic skeleton of either '.dsp' or '.vcproj' project files used by MS Visual Studio<br/>
+<a href="http://blogs.msdn.com/b/vcblog/archive/2014/01/15/creating-a-c-project-from-a-pdb-file-pdb-project-version-2.0.aspx">Creating a C++ Project from a PDB file: PDB Project [[Version 2.0]] - Visual C++ Team Blog - Site Home - MSDN Blogs</a> - pdb's aren't just for debuggin.<br/>
+<br/>
+<h2>Plugins</h2>
+<a href="http://www.codeproject.com/dotnet/versioningcontrolledbuild.asp">Versioning Controlled Build</a><br/>
+<a href="http://www.codeproject.com/dotnet/VSBuildNumberAutomation.asp">Build Number Automation for Visual Studio .NET Projects</a><br/>
+<a href="http://www.codeproject.com/dotnet/SMRefactorAddinArticle.asp">Building a Refactoring Plug-in for VS.NET - the Sequel</a><br/>
+<a href="http://jens-schaller.de/sonictools/sonicfilefinder/">jens-schaller.de: SonicFileFinder</a> - find files within a solution easy. (a vs2005/vs2008 plugin)<br/>
+<a href="http://code.google.com/p/brunomlopes-visualstudioplugins/">brunomlopes-visualstudioplugins - Google Code</a> - includes a cullwindows plugin to keep your open tabs under control.<br/>
+<br/>
+<br/>
+<h2>Misc</h2>
+<a href="http://notgartner.wordpress.com/2005/05/01/the-road-to-msbuild/">The Road to MSBuild</a><br/>
+<a href="http://www.danielmoth.com/Blog/2005/08/how-to-upgrade-vs2003-projects-to.html">How to upgrade VS2003 projects to VS2005</a><br/>
+<a href="http://www.philsteinmeyer.com/114/visual-studio-2005/">VS 2005 - Inferior to VS 2003?</a><br/>
+<a href="http://visualstudiohacks.com/atpkeyboard">Ask The Pros: Keyboard Bashing With The Pros</a><br/>
+<a href="http://blogs.msdn.com/larryosterman/archive/2004/09/22/232938.aspx">Larry Osterman's WebLog - Building a Project from the Command Line</a><br/>
+<br/>
+<br/>
+<h2>Team Foundation</h2>
+<a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=0ed12659-3d41-4420-bbb0-a46e51bfca86">Download details: Visual Studio Team System 2008 Team Explorer</a><br/>
+<a href="http://www.microsoft.com/downloads/details.aspx?FamilyId=FBD14EEA-781F-45A1-8C46-9F6BA2F68BF0">Download details: Team Foundation Power Tools</a><br/>
+<a href="http://www.codeplex.com/TFSGuide/Wiki/View.aspx?title=Guidelines%3A%20%20Source%20Control&amp;referringTitle=Home">patterns & practices: Team Development with Visual Studio Team Foundation Server - Home</a><br/>
+<a href="http://blogs.msdn.com/jmanning/articles/535573.aspx">James Manning's blog : diff/merge configuration in Team Foundation - common Command and Argument values</a><br/>
+<a href="http://blogs.msdn.com/davidmcg/archive/2007/03/09/team-foundation-server-tools.aspx">Team Individualism : Team Foundation Server Tools</a><br/>
+Visual Studio Team Foundation Server MSSCCI Provider - provides team foundataion source control access from VS2003.<br/>
+<a href="http://www.microsoft.com/downloads/details.aspx?FamilyId=87E1FFBD-A484-4C3A-8776-D560AB1E6198">Download details: Visual Studio Team Foundation Server MSSCCI Provider</a><br/>
+<a href="http://tfsguide.codeplex.com/Release/ProjectReleases.aspx?ReleaseId=6280">patterns & practices: Team Development with Visual Studio Team Foundation Server - Release: Team Development with TFS - Final Release</a> - guidance.<br/>
+<a href="http://www.neovolve.com/post/2007/06/19/using-winmerge-with-tfs.aspx">Rory Primrose | Using WinMerge with TFS</a><br/>
+<br/>
+<h2>Team Foundation Server SDK</h2>
+<a href="http://blogs.msdn.com/aaronhallberg/archive/2006/09/13/team-build-api-getbuilduri-and-getbuilddetails.aspx">Aaron Hallberg : Team Build API: GetBuildUri and GetBuildDetails</a><br/>
+<a href="http://www.tfsexamples.com/MainPage.ashx">TFS API Examples - TFS API Examples</a><br/>
+<a href="http://blogs.msdn.com/mohamedg/archive/2009/03/08/how-to-diff-files-using-tfs-apis.aspx">Mohamed Mahmoud (El-Geish) : How to: Diff files using TFS APIs?</a><br/>
+<a href="http://blogs.msdn.com/jmanning/archive/2006/03/27/562195.aspx">James Manning's blog : programmatically showing differences between files</a> - you'll need the link below to find Microsoft.TeamFoundation.VersionControl.Common.<br/>
+<a href="http://blogs.msdn.com/buckh/archive/2006/01/12/511886.aspx">Buck Hodges : How to add the Team Foundation assemblies to the .NET tab in the VS Add Reference dialog</a><br/>
+<a href="http://blogs.msdn.com/edhintz/archive/2006/02/03/524312.aspx">Ed Hintz (MSFT) : How to Write a Team Foundation Version Control Add-in for Visual Studio</a><br/>
+<a href="http://www.codeproject.com/KB/dotnet/HandlingTFSEvents.aspx">CodeProject: TFS Event Handler in .NET 3.5 Part 2 - Handling Team Foundation Server Events.</a><br/>
+
+<br/>
+<h2>Addins</h2>
+<a href="http://www.visualstudiogallery.com/ExtensionDetails.aspx?ExtensionID=df3f0c30-3d37-4e06-9ef8-3bff3508be31">Visual Studio Gallery | PowerCommands for Visual Studio 2008</a><br/>
+<a href="http://www.codeproject.com/useritems/AddinCustomAction.asp">A Custom Action for Deploying Visual Studio 2005 Add-in - The Code Project - Installation</a><br/>
+<a href="http://msdn2.microsoft.com/en-us/library/ms228765(vs.80).aspx">How to: Deactivate and Remove an Add-in</a><br/>
+<a href="http://www.code-magazine.com/article.aspx?quickid=0710082">CoDe Magazine - Article: Creating Visual Studio Add-Ins</a><br/>
+<a href="http://nayyeri.net/archive/2007/08/31/update-visual-studio-2005-add-ins-for-visual-studio-2008.aspx">Update Visual Studio 2005 Add-ins for Visual Studio 2008 - Keyvan Nayyeri</a><br/>
+<a href="http://karlshifflett.wordpress.com/mole-for-visual-studio/#WhatIs">Mole v4.1 For Visual Studio Â« Karl On WPF - .Net</a><br/>
+<br/>
+<br/>
+Visual Studio for Applications (VSA) is the replacement for the old scripting tech. called VBA.  In VBA, the application model was exposed via OLE Automation.  In VSA, the application model is exposed via the .NET Framework.  VSA can use either VB or C# for scripting.  Very nice automation for the managed world.  It installs from the Visual Studio SDK.<br/>
+<a href="http://msdn2.microsoft.com/en-us/library/ms974548.aspx">Introducing Visual Studio for Applications</a><br/>
+<a href="http://blogs.msdn.com/vsta/">MSDN blog - Visual Studio Tools for Applications</a><br/>
+<br/>
+<br/>
+<h2>VS2008</h2>
+Visual studio 2008 has been released!  It comes with a lot of great new functionality.<br/>
+<a href="http://www.microsoft.com/downloads/details.aspx?FamilyId=D466226B-8DAB-445F-A7B4-448B326C48E7">Download details: Visual C++ 2008 Feature Pack</a><br/>
+<a href="http://weblogs.asp.net/scottgu/archive/2007/11/19/visual-studio-2008-and-net-3-5-released.aspx">Visual Studio 2008 and .NET 3.5 Released - ScottGu's Blog</a> - an overview of new things that are available with VS2008<br/>
+<a href="http://weblogs.asp.net/scottgu/archive/2007/11/20/steps-to-uninstall-vs-2008-beta2-before-installing-the-vs-2008-final-release.aspx">Steps to Uninstall VS 2008 Beta2 before installing the VS 2008 Final Release - ScottGu's Blog</a><br/>
+<br/>
+<br/>
+<h2>MSBuild</h2>
+<a href="http://blogs.msdn.com/msbuild/default.aspx">MSBuild Team Blog</a><br/>
+<a href="http://msbuildtasks.tigris.org/">MSBuild Community Tasks Project</a> - an open source project for MSBuild tasks. The goal of the project is to provide a collection of open source tasks for MSBuild.<br/>
+<a href="http://dotnet.sys-con.com/read/461416_1.htm">MSBuild - What It Does and What You Can Expect in the Future @ .NET DEVELOPER'S JOURNAL</a><br/>
+<a href="http://www.attrice.info/msbuild/index.htm">Attrice Corporation MSBuild Sidekick v2</a> ($)<br/>
+<a href="http://www.codeplex.com/msbdbg">Visual Debugger for MSBuild Projects - Home</a><br/>
+<a href="http://blogs.msdn.com/vcblog/archive/2007/12/30/using-different-toolsets-for-vc-build.aspx">Visual C++ Team Blog : Using different toolsets for vc build</a><br/>
+<a href="http://geekswithblogs.net/kobush/articles/65849.aspx">XmlLogger for MSBuild</a><br/>
+automate devenv /upgrade<br/>
+<a href="http://msdn.microsoft.com/msdnmag/issues/06/06/InsideMSBuild/default.aspx">Inside MSBuild: Compile Apps Your Way With Custom Tasks For The Microsoft Build Engine -- MSDN Magazine, June 2006</a><br/>
+<a href="http://blogs.msdn.com/jomo_fisher/archive/2004/11/29/271748.aspx">Jomo Fisher -- C#, LINQ and Whatnot : Hack the Build: Programmatically Converting Older VS .NET Projects to MSBuild</a><br/>
+<a href="http://blogs.msdn.com/jomo_fisher/archive/2005/02/09/369912.aspx">Jomo Fisher -- C#, LINQ and Whatnot : Hack the Build: Cracking MSBuild Project Files</a><br/>
+<a href="http://msbuildshellex.codeplex.com/">MSBuildShellExtension - Home</a> - build Visual Studio solutions and projects as well as any MSBuild file from context menu in explorer.<br/>
+<br/>
+<br/>
+<h2>Synchronize the Currently Open File with Solution Explorer</h2>
+For some reason this is not the default, but it really should be.  There are many contextual menus possible in the solution explorer(esp. with TFS)...now instead of having to search yourself, VS will update the treeview as you change textfiles. Nice.<br/>
+The option for auto-sync is:<br/>
+Tools|Options|Projects and Solutions|General|Track Active Item in Solution Explorer<br/>
+<br/>
+<br/>
+<h2>Changing the look and feel of Visual Studio</h2>
+Sometimes it is nice to change the look of the code with which you work.  I'm not the most talented in terms of selecting colors, but there are templates available...  :)<br/>
+<a href="http://weblogs.asp.net/infinitiesloop/archive/2006/08/06/Join-the-Dark-Side-of-Visual-Studio.aspx">Join the Dark Side of Visual Studio - Infinities Loop</a><br/>
+<a href="http://www.hanselman.com/blog/VisualStudioProgrammerThemesGallery.aspx">Scott Hanselman's Computer Zen - Visual Studio Programmer Themes Gallery</a><br/>
+<br/>
+<br/>
+<h2>Navigating large projects in visual studio</h2>
+Tools > Options > Projects and Solutions > Track Active Item in Solution Explorer<br/>
+I don't know why this option isn't on by default.  I find it hard to work in large solutions without it.<br/>
+<br/>
+<br/>
+<h2>namespace name 'TeamFoundation' does not exist in the namespace 'Microsoft'</h2>
+This is an interesting problem.  I found this while trying to build <a href="http://scrumsprintmonitor.codeplex.com/SourceControl/ListDownloadableCommits.aspx">Scrum Sprint Monitor - Source Code</a>, looks like to make it work you've gotta install the team foundation client.<br/>
+<br/>
+<br/>
+<h2>Visual studio hotkeys</h2>
+<dl>
+<dt>Ctrl+F12</dt>
+<dd>Edit.GoToDeclaration</dd>
+<dt>F12</dt>
+<dd>Edit.GoToDefinition</dd>
+<dt>Shift+F12</dt>
+<dd>Edit.FindAllReferences</dd>
+<dt>Ctrl+-</dt>
+<dd>View.NavigateBackward</dd>
+<dt>Ctrl+Shift+-</dt>
+<dd>View.NavigateForward</dd>
+<dt>Ctrl+G</dt>
+<dd>Edit.GoTo</dd>
+</dl>
+<br/>
+<br/>
+<h2>Debug mode fill constants</h2>
+<a href="http://msdn.microsoft.com/en-us/library/bebs9zyz.aspx">Memory Management and the Debug Heap</a><br/>
+<a href="http://stackoverflow.com/questions/370195/when-and-why-will-an-os-initialise-memory-to-0xcd-0xdd-etc-on-malloc-free-new">c++ - When and why will an OS initialise memory to 0xCD, 0xDD, etc. on malloc/free/new/delete? - Stack Overflow</a><br/><ul>
+<li>NoMansLand (0xFD) -<br/>
+The "NoMansLand" buffers on either side of the memory used by an application are currently filled with 0xFD.
+<li>Freed blocks (0xDD)<br/>
+The freed blocks kept unused in the debug heap's linked list when the _CRTDBG_DELAY_FREE_MEM_DF flag is set are currently filled with 0xDD.
+<li>New objects (0xCD)<br/>
+New objects are filled with 0xCD when they are allocated.
+<li>0xCC<br/>
+When the code is compiled with the /GZ option, uninitialized variables are automatically assigned to this value (at byte level).
+
+<li>0xAB  (Allocated Block?) Memory allocated by LocalAlloc(). 
+
+<li>0xBAADF00D Bad Food      Memory allocated by LocalAlloc() with LMEM_FIXED,but 
+                         not yet written to. 
+
+<li>0xFEEEFEEE               OS fill heap memory, which was marked for usage, 
+                         but wasn't allocated by HeapAlloc() or LocalAlloc(). 
+                         Or that memory just has been freed by HeapFree().
+</ul>
+<a href="http://blogs.msdn.com/b/lagdas/archive/2008/06/24/debugging-heap-corruption-with-application-verifier-and-debugdiag.aspx">Debugging Heap corruption with Application Verifier and Debugdiag - IIS debugging and debugdiag - Site Home - MSDN Blogs</a><br/>
+<a href="http://www.microsoft.com/download/en/details.aspx?id=26798">Download: Debug Diagnostic Tool v1.2 - Microsoft Download Center - Download Details</a><br/>
+<br/>
+<h2>Why are my debug builds so slow?</h2>
+In VC10, they're controlled by the macro _ITERATOR_DEBUG_LEVEL, which supersedes VC8 and VC9's more confusing _SECURE_SCL and _HAS_ITERATOR_DEBUGGING macros.<br/>
+<a href="http://blogs.msdn.com/b/vcblog/archive/2011/04/05/10150198.aspx">_ITERATOR_DEBUG_LEVEL - Advanced STL, Part 3 - Visual C++ Team Blog - Site Home - MSDN Blogs</a><br/>
+<a href="http://channel9.msdn.com/Shows/Going+Deep/C9-Lectures-Introduction-to-STL-with-Stephan-T-Lavavej">C9 Lectures: Stephan T. Lavavej - Standard Template Library (STL), 1 of n | Going Deep | Channel 9</a><br/>
+<a href="http://www.nobugs.org/developer/win32/debug_crt_heap.html">Win32 Debug CRT Heap Internals</a><br/>
+<a href="http://alfps.wordpress.com/the-no_sillywarnings_please-h-file/">The [no_sillywarnings_please.h] file | Alf on programming (mostly C++)</a><br/>
+<br/>
+<br/>
+<h2>Image File Execution Options, and debugging</h2>
+Did you know about "Image File Execution Options"?  <a href="http://msdn.microsoft.com/en-us/library/a329t4ed(v=vs.90).aspx">How to: Launch the Debugger Automatically</a> A very useful feature within the windows OS.  It is a way 
+determine when a dll/module is loaded or attach a debugger to a process at startup that is started outside a debugger. 
+<a href="http://blogs.msdn.com/b/greggm/archive/2005/02/21/377663.aspx">Inside 'Image File Execution Options' debugging - greggm's WebLog - Site Home - MSDN Blogs</a><br/>
+<pre>
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\
+;64-bit Windows
+HKLM\SOFTWARE\Wow6432Node\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\
+</pre>
+
+<strong>Force a break while debugging when a dll/module is loaded</strong><br/>
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\&lt;modulename.dll&gt;]<br/>"BreakOnDllLoad"=dword:00000001<br/>
+<strong>Force&nbsp;a process to start&nbsp;under the Visual Studio Debugger</strong><br/>
+adding a string value called "Debugger" allows you to run whatever you like, instead of the direct executable the user requested.  Scary, I know.<br/>
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\&lt;processname.exe&gt;]<br/>
+"Debugger"="vsjitdebugger.exe"<br/>
+<br/>
+<br/>
+above two suggestions come from <a href="http://weblogs.asp.net/whaggard/archive/2007/02/08/image-file-execution-options.aspx">Image File Execution Options - Wes' Puzzling Blog</a>.<br/>
+<a href="http://blogs.technet.com/b/askperf/archive/2008/12/12/two-minute-drill-configuring-a-debugger-using-image-file-execution-options.aspx">Two Minute Drill: Configuring a Debugger using Image File Execution Options - Ask the Performance Team - Site Home - TechNet Blogs</a><br/>
+<a href="http://blogs.msdn.com/junfeng/">Junfeng</a>&nbsp;- <a href="http://blogs.msdn.com/junfeng/archive/2004/04/28/121871.aspx">Image File Execution Options</a><br /><a href="http://blogs.msdn.com/greggm/default.aspx">Greggm</a>&nbsp;- <a href="http://blogs.msdn.com/greggm/archive/2004/07/08/177418.aspx">Breaking when a module loads</a><br /><a href="http://blogs.msdn.com/greggm/default.aspx">Greggm</a> - <a href="http://blogs.msdn.com/greggm/archive/2005/02/21/377663.aspx">Inside 'Image File Execution Options' debugging</a><br /><a href="http://blogs.msdn.com/oldnewthing/">Oldnewthing</a> - <a href="http://blogs.msdn.com/oldnewthing/archive/2005/12/19/505449.aspx">Beware the Image File Execution Options key</a><br/>
+<a href="http://blog.trojanhunter.com/2009/08/14/image-file-execution-options-is-an-evil-registry-key/">“Image File Execution Options” is an Evil Registry Key | TrojanHunter Blog</a><br/>
+<a href="http://blogs.msdn.com/b/reiley/archive/2011/07/30/a-debugging-approach-to-ifeo.aspx">A Debugging Approach to IFEO - Rubato and Chord - Site Home - MSDN Blogs</a><br/>
+<br/>
+<br/>
+<a href="http://technet.microsoft.com/en-us/sysinternals/bb963902.aspx">Autoruns for Windows</a> - autoruns shows you in the "Image Hijacks" tab.<br/>
+<h2>Procdump via IFEO</h2>
+<a href="http://forum.sysinternals.com/procdump-via-image-file-execution-option_topic28218.html">Procdump via Image File Execution Option - Sysinternals Forums</a><br/>
+<pre>
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\notepad.exe]
+"Debugger"="c:\\notepaddump.bat"
+</pre>
+<pre>
+REM notepaddump.bat
+procdump.exe /accepteula -ma -c 20 -s 5 -x %1 c:\notepad.dmp %2 %3 %4 %5 %6 %7
+</pre>
+<br/>
+<h2>Replace notepad.exe the safer way</h2>
+just placed here because the safer method uses IFEO<br/>
+<a href="http://binarycore.org/2012/05/25/replace-notepad-with-notepad-in-w7/">Replace Notepad with Notepad++ in W7 | Binarycore</a> - example vbs script that tunnels the command line args into notepad++, issue with this being that most user's can't write to programfiles.<br/>
+<br/>
+<br/>
+<h2>Debugging tips and tricks, WinDBG & friends</h2>
+<a href="http://blogs.msdn.com/b/reiley/">Rubato and Chord - Site Home - MSDN Blogs</a> - reiley's site is great.<br/>
+<a href="http://blogs.msdn.com/b/reiley/archive/2011/10/30/early-debugging.aspx">Early Debugging - Rubato and Chord - Site Home - MSDN Blogs</a><br/>
+<a href="http://blogs.msdn.com/b/reiley/archive/2011/10/30/undocumented-windbg.aspx">Undocumented WinDBG - Rubato and Chord - Site Home - MSDN Blogs</a><br/>
+<a href="http://blogs.msdn.com/b/reiley/archive/2013/05/08/undocumented-environment-variables.aspx">Undocumented Environment Variables - Rubato and Chord - Site Home - MSDN Blogs</a> - oh there must be more variables in the ENV, let me go grab my WinDBG...<br/>
+<a href="http://ntcoder.com/bab/2013/04/27/turning-off-filename-and-line-number-display-in-the-debugger/">Turning off filename and line number display in the debugger » bits and bytes</a> - in WinDbg, this option is on by default. In CDB and KD, the -lines command-line option will turn this option on.<br/>
+<a href="http://ntcoder.com/bab/2013/04/27/noninvasive-debugging/">NonInvasive debugging » bits and bytes</a> - The debugger suspends all threads in the process and has access to all threads, memory and register’s of the process.<br/>
+<a href="http://ntcoder.com/bab/2011/09/13/automatically-launching-cdb-to-take-a-dump-of-a-nativemanaged-crash/">Automatically launching CDB to take a dump of a native/managed crash » bits and bytes</a><br/>
+<a href="http://ntcoder.com/bab/2012/02/27/how-to-list-out-binaries-for-which-symbol-loading-failed-2/">How to list out binaries for which symbol loading failed » bits and bytes</a><br/>
+<a href="http://ntcoder.com/bab/2012/03/06/how-to-force-symbol-loading-in-windbg/">How to force symbol loading in WinDbg » bits and bytes</a><br/>
+<br/>
+<br/>
+<h2>XP is done deprecated.</h2>
+<a href="http://www.smallbulb.net/2014/704-ms-vc12-and-windows-xp">MS VC++ 2012 and Windows XP | welcome to the world of...</a>- For x64 replace the 5.01 with 5.02 /SUBSYSTEM:[CONSOLE|WINDOWS],5.01 <br/>
+    <div style="border: 1px;">
+    Created: 2006-09-06 20:15:30
+    Modified: 2014-07-18 23:11:28
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+$$\cos x = \sum\limits_{n = 0}^\infty {\frac{{\left( { - 1} \right)^n x^{2n} }}{{\left( {2n} \right)!}}}$$
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

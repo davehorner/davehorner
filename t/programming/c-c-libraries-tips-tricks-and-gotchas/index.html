@@ -1,0 +1,465 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>C / C++ - libraries, tips, tricks and gotchas</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/programming/">programming</a>
+    <h1>C / C++ - libraries, tips, tricks and gotchas</h1>
+   I love programming in C and C++.  It is a language which allows for fast close access to the machine's hardware.  It was also the first programming language I became proficient in.  It is portable in that you can find a C/C++ compiler for most every hardware platform available.  Native C/C++ dlls are easily accessed from other languages like .net,java,python,etc.<br/>
+<br/>
+Programming in C/C++ does require one to give more thought to memory management.  You can shoot yourself in the foot if you are not careful.  Using safe functions is a must (strncpy,snprintf,etc), buffer overflows abound.  Memory leaks can and do happen.  But, tools help and defining destructors is not rocket science....but remembering the details is important. :)<br/>
+<br/>
+Because C/C++ is portable, it doesn't spec out a huge base class library...not to the extent of Java and .NET anyways.  You'll usually need to create/use a framework/library for implementing the higher level stuff (gui,graphics,sound,etc).  There are many good C/C++ libraries/frameworks available on the net, some of them are linked on this page.<br/>
+<br/>
+Having said all this.  I believe C/C++ will carry on with us for a long time to come.<br/>
+<strong>Woot! Long live C/C++;</strong><br/>
+<br/>
+<br/>
+<a href="http://isocpp.org/">Standard C++</a> <a href="https://isocpp.org/blog">Blog : Standard C++</a><br/>
+<a href="http://channel9.msdn.com/Events/GoingNative/2013">GoingNative 2013 | Channel 9</a><br/>
+<a href="http://cpprocks.com/">C++ Rocks</a><br/>
+<a href="http://blog.smartbear.com/software-quality/bid/173187/C11-A-New-C-Standard-Aiming-at-Safer-Programming">C11: A New C Standard Aiming at Safer Programming</a><br/>
+<a href="http://warp.povusers.org/programming/">Articles about programming</a> - a few on C++, povusers.org<br/>
+<a href="http://cdecl.org/">cdecl: C gibberish ? English</a> - cool C gibberish to English<br/>
+<a href="http://teaching.idallen.com/c_programming/improvecode.html">Improving and Fixing C Code</a><br/>
+<a href="http://www.mikeash.com/pyblog/friday-qa-2013-05-31-c-quiz.html">mikeash.com: Friday Q&amp;A 2013-05-31: C Quiz</a> - mike's site has a lot of great stuff on Objective-C too.<br/>
+<a href="http://www.ddj.com/cpp/207000124;jsessionid=IYCHYEOTD1DIWQSNDLPSKHSCJUNN2JVN?_requestid=371691">Dr. Dobb's | An Interview with Bjarne Stroustrup | March 27, 2008</a><br/>
+<a href="http://eli.thegreenplace.net/2011/02/17/the-many-faces-of-operator-new-in-c/">Eli Bendersky’s website » Blog Archive » The many faces of operator new in C++</a><br/>
+<a href="http://madebyevan.com/obscure-cpp-features/">Obscure C++ Features - Made by Evan</a><br/>
+<a href="http://libcello.org/">Cello • High Level Programming C</a><br/>
+<a href="http://notepad-plus-plus.org/">Notepad++ Home</a> - Based on the powerful editing component <a href="http://www.scintilla.org/">Scintilla and SciTE</a>, Notepad++ is written in C++ and uses pure Win32 API and STL.  It's free, and open source.<br/>
+<br/>
+<br/>
+<h2>C++ Boost</h2>
+Why is it that you haven't heard of boost?  and why aren't u using it?<br/>
+<a href="http://www.boost.org/">Boost C++ Libraries</a><br/>
+<a href="http://www.boostpro.com/download">Boost C++ Libraries Installers for Windows - BoostPro Computing</a><br/>
+<a href="http://cxwangyi.blogspot.com/2010/06/boost-program-options-library.html">Tech Notes of Yi Wang: Incremental Parsing Using Boost Program Options Library</a> - Yi Wang's whole site is full of great content...<br/>
+<a href="http://boost.teeks99.com/">Boost Windows Pre-Built Binaries</a> - thanks to teeks99!  quite exhaustive set of boost builds. (also know that building them yourself is as simple as bootstrap.bat;b2; (for x64- bjam address-model=64 --build-type=complete stage))<br/>
+<a href="https://github.com/alexott/boost-asio-examples/">alexott/boost-asio-examples · GitHub</a> <a href="http://alexott.net/en/cpp/BoostAsioNotes.html">What is Boost.Asio, and why we should use it</a><br/>
+<a href="http://blog.think-async.com/">Thinking Asynchronously in C++</a><br/>
+<a href="http://threadpool.sourceforge.net/">threadpool Documentation</a><br/>
+<a href="http://alexott.net/en/cpp/CppTestingIntro.html">Test-driven development and unit testing with examples in C++</a> <a href="https://github.com/alexott/cpp-tesing-examples">alexott/cpp-tesing-examples · GitHub</a><br/>
+<a href="http://cxwangyi.wordpress.com/2010/08/21/add-http-services-into-c-programs-using-pion-net/">Add HTTP Services into C++ Programs Using PION-NET « Yi Wang's Tech Notes</a><br/>
+<a href="https://github.com/cloudmeter/pion">cloudmeter/pion · GitHub</a> - Pion Network Library (Boost licensed open source) <br/>
+<a href="https://github.com/tonicebrian/RESTcpp">tonicebrian/RESTcpp · GitHub</a> - DSL for defining REST interfaces in C++ (pion dep)<br/>
+<a href="https://github.com/acmorrow/dslam">acmorrow/dslam · GitHub</a> - An toy express/sinatra style framework for writing webservices in C++11. (pion dep)<br/>
+<br/>
+<br/>
+<a href="http://threadpool.sourceforge.net/">threadpool Documentation</a><br/>
+<a href="http://www.tonicebrian.com/2012/05/23/thread-pool-in-c/">Toni Cebrián » Thread pool in C++</a> - using boost::thread_group,asio::io_service.<br/>
+<h2>Unicode C++</h2>
+<a href="http://site.icu-project.org/home">ICU - International Components for Unicode</a> - ICU is a mature, widely used set of C/C++ and Java libraries providing Unicode and Globalization support for software applications.<br/>
+<a href="https://github.com/cloudmeter/icu4c">cloudmeter/icu4c · GitHub</a><br/>
+<br/>
+<br/>
+<h2>Data access for C and C++</h2>
+<a href="http://www.linuxappliancedesign.com/projects/rta/index.html">RTA</a> -  LGPL library which can expose your program's internal arrays and data structures as if they were tables in a database.<br/>
+<br/>
+<br/>
+<h2>Mongodb</h2>
+<a href="http://www.mongodb.org/display/DOCS/Home">MongoDB</a> - MongoDB (from "humongous") is a scalable, high-performance, open source, schema-free, document-oriented database. Written in C++.<br/>
+<a href="http://docs.mongodb.org/manual/applications/gridfs/">GridFS — MongoDB Manual</a> - GridFS is useful not only for storing files that exceed 16MB but also for storing any files for which you want access without having to load the entire file into memory.<br/>
+<a href="http://openmymind.net/2011/3/28/The-Little-MongoDB-Book">The Little MongoDB Book</a><br/>
+<a href="http://mongly.com/">Learn MongoDB</a> - mongodb interactive tutorial, little mongodb book, mongodb's geospatial interactive tutorial.<br/>
+<a href="http://blog.dynamicprogrammer.com/2009/11/10/UsingMongoDBFromC.aspx">The Dynamic Programmer - Using MongoDB from C#</a><br/>
+<a href="http://github.com/samus/mongodb-csharp">samus's mongodb-csharp at master - GitHub</a> - C# driver for MongoDB.<br/>
+<a href="http://blog.serverdensity.com/automating-partitioning-sharding-and-failover-with-mongodb/">Automating partitioning, sharding and failover with MongoDB - Server Density Blog</a><br/>
+<a href="https://www.mongohq.com/home">MongoHQ - MongoDB Database as a Service</a><br/>
+<a href="https://mongolab.com/welcome/">MongoLab: MongoDB-as-a-Service</a><br/>
+<a href="http://aaronshaf.wordpress.com/2010/11/03/repair-mongodb-on-a-bad-restart/">Repair MongoDB on a Bad Restart | I Am Aaron Shafovaloff</a><br/>
+<a href="http://malderhout.wordpress.com/2013/07/05/stream-tweets-in-mongodb-with-node-js/">Stream Tweets in MongoDB with Node.JS | Maikel Alderhout's Blog</a><br/>
+<a href="http://malderhout.wordpress.com/2012/11/02/implement-mongodb-replication-in-3-simple-steps/">Implement MongoDB replication in 3 simple steps | Maikel Alderhout's Blog</a><br/>
+<a href="http://friedo.com/blog/2012/09/fast-datetimes-in-mongodb">Fast datetimes in MongoDB - in scalar context</a> - perl MongoDB DateTime::Tiny<br/>
+<iframe src="http://www.slideshare.net/slideshow/embed_code/16045342" width="427" height="356" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="https://www.slideshare.net/friedo/building-a-mongodb-app-with-perl" title="Building a MongoDB App with Perl" target="_blank">Building a MongoDB App with Perl</a> </strong> from <strong><a href="http://www.slideshare.net/friedo" target="_blank">Mike Friedman</a></strong> </div>
+<br/>
+<br/>
+<br/>
+<a href="http://www.webtoolkit.eu/wt/#example:0;main:0">Wt, C++ Web Toolkit - Introduction</a><br/>
+<br/>
+<a href="http://www-128.ibm.com/developerworks/opensource/library/os-ecc/?ca=dgr-ln">C/C++ development with the Eclipse Platform</a><br/>
+
+<h2>Unit Testing in C++</h2>
+Unit testing is something that I really would like to see more of in C++ code.  I love the idea of self documenting / self testing code.  However, C++ lacks any sort of unit testing standards...so we are left to define one ourselves again. :(<br/>
+<br/>
+<a href="http://www.gamesfromwithin.com/articles/0412/000061.html">Exploring the C++ Unit Testing Framework Jungle</a><br/>
+CppUnit looks like a pretty good candidate:<br/>
+<a href="http://cppunit.sourceforge.net/cppunit-wiki">CppUnit Wiki</a><br/>
+<a href="http://cppunit.sourceforge.net/doc/lastest/cppunit_cookbook.html">CppUnit  Cookbook</a><br/>
+<br/>
+<br/>
+copy(container.begin(), container.end(), ostream_iterator(cout, " "));<br/>
+<h2>Formatting I/O using IOSTREAMS</h2>
+I'm always forgetting the diff. stream modifiers, here are a few that I use from time to time.<br/>
+<pre>
+#include <iostream> //cout,cint,etc
+#include <iomanip> // setwidth,setfill,setprecision,etc
+#include <sstream> // ostringstream
+
+using namespace std;
+
+int main()
+{
+    unsigned int number=47;
+    cout << "Setting field width is simple.\n";
+    cout << "For each variable, simply precede it with setw(n)"<<endl;
+    cout << setfill('0') << setw(3) << number << " this results in 047"<<endl;
+    cout << setiosflags(ios::right);
+    cout << resetiosflags(ios::left);
+    double x = 800000.0/81.0;
+    cout << setprecision(2) << x;
+    cout << x << " in base 8 is \"" << oct << x << "\""
+         << " and in base 16 is \"" << hex << x << "\"" << endl;
+
+    ostringstream msg;
+    msg << "Format output to a string!" << setfill('0') << setw(3) << x  << ends;
+    std::string output=msg.str();
+    return 0;
+}
+</pre>
+A really good article on iostreams is "<a href="http://www.horstmann.com/cpp/iostreams.html" target="_blank">Extending the iostream library</a>", by Horstmann.  It explains how to do everything above, plus it includes a  manipulator to convert printf formatting commands to their stream  equivalents.  Very cool.<br/>
+<br/>
+<h2>Static Class Constants</h2>
+I'm always forgetting the syntax for properly defining static class constants.  The biggest problem is not defining it, but initializing static const data members.  The C++ Standard allows initialization of const static data members of an integral type inside their class.  But I don't suggest it, initialize all your data in one place.  Declare them inside your class header and implement them in your cpp file.<br/>
+<pre>
+class Car
+{
+public:
+    static const int NUMDOORS; //definition
+    static const std::string MSG; //non-integral type; must be defined outside the class body
+};
+
+// then inside the cpp file.
+const int Car::NUMDOORS=4;
+const std::string Car::MSG= "hello";
+</pre>
+<h2>STL Information</h2>
+<a href="http://www.stlport.org/">STLPort</a><br/>
+<a href="http://blogs.msdn.com/b/vcblog/archive/2014/01/21/stl-resources-on-msdn.aspx">STL Resources on MSDN - Visual C++ Team Blog - Site Home - MSDN Blogs</a><br/>
+<h2>STL maps</h2>
+<br/>
+I love STL maps because they allow you to specify an ordering of your keys and the map takes care of it automagically.<br/>
+<br/>
+A multimap is an associative container that manages a set of ordered key/value pairs. More than one value can be associated with a particular key. The pairs are ordered by key, based on a user-supplied comparator function.<br/>
+
+<pre>
+// Include this for map defines.
+#include <map>
+
+// Define a map.
+std::multimap<double /*distance*/, CityPointer* city, std::greater<double> /* order as descending */> cityList;
+// You can also order in ascending by using the less<> comparator.
+
+// Inserting is a little strange because you've got to use a pair.
+cityList.insert(pair<double, CityPointer*>(distance, city));
+
+// Return location of first element that is not less than 100
+  i = cityList.lower_bound(100);
+  cout << "lower bound:\n";
+  cout << ( *i ).first << " -> " << ( *i ).second << "\n";
+
+// Return location of first element that is greater than 100
+  i = cityList.upper_bound( 100 );
+  cout << "upper bound:\n";
+  cout << ( *i ).first << " -> " << ( *i ).second << "\n";
+</pre>
+<br/>
+<br/>
+<a href="http://www.codeproject.com/KB/mcpp/castingbasics.aspx">CodeProject: Casting Basics - Use C++ casts in your VC++.NET programs.</a><br/>
+<a href="http://www.acm.org/crossroads/xrds3-1/ovp3-1.html">Casting in C++: Bringing Safety and Smartness to Your Programs</a><br/>
+<br/>
+<h2>Standard include paths</h2>
+This doesn't relate directly to C++, but it does come up when programming in C++... GCC has a bunch of standard search paths that it moves through to find your libraries and include files.  If you want to include a new path to the standard set of paths, just define the env. var for it.<br/>
+Ex. export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:/usr/X11R6/include<br/>
+<a href="http://gcc.gnu.org/onlinedocs/gcc/Environment-Variables.html#Environment-Variables">Environment Variables Affecting GCC</a><br/>
+<br/>
+<br/>
+<h2>Code modeling</h2>
+<a href="http://www.gccxml.org/HTML/Index.html">GCC-XML</a> looks amazing when used with <a href="http://language-binding.net/pygccxml/pygccxml.html#test-environments">pygccxml</a><br/>
+<br/>
+<a href="http://claraty.jpl.nasa.gov/">CLARAty Robotic Software</a> - JPL's open robotic framework.<br/>
+<a href="http://libmesh.sourceforge.net/">libMesh</a> - C++ finite element library<br/>
+<a href="http://www.fenics.org/wiki/DOLFIN">DOLFIN</a> - C++ ordinary/partial differential equations library.<br/>
+<br/>
+<br/>
+<h2>Static analysis</h2>
+Unfortunately, static analysis tools are not cheap.  Here are a few that I know about.  I wish there were some good open source alternatives.<br/>
+<a href="http://samate.nist.gov/index.php/Source_Code_Security_Analyzers.html">Source Code Security Analyzers - SAMATE.nist.gov</a> - list of static analyzers from NIST<br/>
+<a href="http://www.coverity.com/html/prod_map_dna_c.html">Coverity Incorporated: Products: Coverity Prevent SQS for C/C++: Map the Software DNA</a><br/>
+<a href="http://www.parasoft.com/jsp/products/home.jsp?product=Insure&itemId=63">Insure++®: C/C++ Testing Tool, Detect elusive Runtime Memory Errors - Parasoft</a><br/>
+<br/>
+Look Coverity for open source projects:<a href="https://scan.coverity.com/projects">Coverity Scan - Static Analysis</a><br/>
+<a href="http://www.fortify.com/security-resources/rats.jsp">RATS - Rough Auditing Tool for Security</a> - is a tool for scanning C, C++, Perl, PHP and Python source code and flagging common security related programming errors such as buffer overflows and TOCTOU (Time Of Check, Time Of Use) race conditions. <a href="https://security.web.cern.ch/security/recommendations/en/codetools/rats.shtml">CERN Computer Security Information RATS</a> <a href="https://code.google.com/p/rough-auditing-tool-for-security/">rough-auditing-tool-for-security - Rough Auditing Tool for Security (RATS) - Google Project Hosting</a><br/>
+<a href="http://www.splint.org/">Splint Home Page</a> - Splint is a tool for statically checking C programs for security vulnerabilities and coding mistakes.<br/>
+<a href="http://pmd.sourceforge.net/">PMD</a> - PMD is a source code analyzer that also looks for copy and paste code (duplicate code)<br/>
+<a href="http://frama-c.com/index.html">Frama-C</a> - source-code analysis of C , value analysis, effects analysis, dependency analysis, impact analysis.<br/>
+<a href="http://cppcheck.sourceforge.net/">Cppcheck - A tool for static C/C++ code analysis</a> - Out of bounds checking,Check the code for each class,Checking exception safety,Memory leaks checking,Warn if obsolete functions are used,Check for invalid usage of STL,Check for uninitialized variables and unused functions.<br/>
+<a href="http://randomascii.wordpress.com/2013/06/24/two-years-and-thousands-of-bugs-of-static-analysis/">Two Years (and Thousands of Bugs) of Static Analysis | Random ASCII</a><br/>
+<br/>
+<br/>
+<h2>Managed C++/CLI</h2>
+<a href="http://blogs.msdn.com/junfeng/archive/2008/08/11/conversion-between-system-string-and-char.aspx">Junfeng Zhang's Windows Programming Notes : Conversion between System.String and char *</a><br/>
+<a href="http://blogs.msdn.com/junfeng/archive/2007/07/09/reverse-p-invoke-marshaling-performance.aspx">Junfeng Zhang's Windows Programming Notes : Reverse P/Invoke Marshaling Performance</a><br/>
+<br/>
+<br/>
+<h2>gdb</h2>
+<a href="http://mainisusuallyafunction.blogspot.com/2012/01/embedding-gdb-breakpoints-in-c-source.html">main is usually a function: Embedding GDB breakpoints in C source code</a><br/>
+<br/>
+<br/>
+<h2>LLVM Clang</h2>
+<a href="http://llvm.org/">The LLVM Compiler Infrastructure Project</a> - LLVM Project is a collection of modular and reusable compiler and toolchain technologies.<br/>
+<a href="http://clang.llvm.org/index.html">"clang" C Language Family Frontend for LLVM</a> - Clang is an "LLVM native" C/C++/Objective-C compiler, which aims to deliver amazingly fast compiles (e.g. about 3x faster than GCC when compiling Objective-C code in a debug configuration), extremely useful error and warning messages  and to provide a platform for building great source level tools. <br/>
+<a href="http://www.phoronix.com/scan.php?page=news_item&amp;px=MTUwOTQ">[Phoronix] LLVM Post-3.4 To Most Likely Depend Upon C++11</a><br/>
+<a href="http://kripken.github.io/emscripten-site/">Main — Emscripten documentation</a> Emscripten is an LLVM-based project that compiles C and C++ into highly-optimizable JavaScript in asm.js format. This lets you run C and C++ on the web at near-native speed, without plugins.<br/>
+<br/>
+<br/>
+<h2>CMake</h2>
+<a href="http://www.cmake.org/Wiki/BuildingWinDLL">BuildingWinDLL - KitwarePublic</a><br/>
+<a href="https://svn.boost.org/trac/boost/wiki/CMakeModularizationStatus">CMakeModularizationStatus – Boost C++ Libraries</a><br/>
+<a href="http://ryppl.org/">Ryppl</a> <a href="https://github.com/ryppl">ryppl (The Ryppl Project)</a> - an attempt to create a PyPy or CPAN for C/C++. <a href="http://boost.org">Boost</a>,<a href="http://cmake.org">CMake</a>,<a href="http://git-scm.org">Git</a>,<a href="http://0install.net">ZeroInstall</a><br/>
+<br/>
+<br/>
+<a href="http://www.linuxjournal.com/content/embedding-file-executable-aka-hello-world-version-5967">Embedding a File in an Executable, aka Hello World, Version 5967 | Linux Journal</a> - using objcopy to create linkable data objects.<br/>
+<a href="http://stackoverflow.com/questions/1661529/is-meyers-implementation-of-singleton-pattern-thread-safe">c++ - Is Meyers implementation of Singleton pattern thread safe? - Stack Overflow</a> - depends on your compiler. <a href="http://www.aristeia.com/Papers/DDJ_Jul_Aug_2004_revised.pdf">C++ and the Perils of Double-Checked Locking (PDF)</a><br/>
+<br/>
+<br/>
+<a href="https://github.com/kripken/emscripten">kripken/emscripten</a> - Emscripten: An LLVM-to-JavaScript Compiler<br/>
+    <div style="border: 1px;">
+    Created: 2005-12-27 01:56:50
+    Modified: 2016-03-08 04:18:34
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+0, 1, 1, 2, 3, 5, 8, 13, 21, 34,...<br/>
+<b> x<sub>n</sub> = x<sub>n-1</sub> + x<sub>n-2</sub></b><br/>
+<!-- "Fibonacci" was his nickname, which roughly means "Son of Bonacci". -->
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

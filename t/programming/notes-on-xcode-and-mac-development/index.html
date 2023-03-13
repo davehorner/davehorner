@@ -1,0 +1,540 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>Notes on Xcode, mac and iphone development.</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/programming/">programming</a>
+    <h1>Notes on Xcode, mac and iphone development.</h1>
+   Coding in mac is overall, a very nice environment to program.  You've got a BSD flavor with which you can autoconf, gcc, make, and bash you're heart out.<br/>
+<br/>  
+Xcode is a nice IDE for programming.  Here are my notes as I continue to learn a new platform build system.<br/>
+<br/>
+You might want to checkout some of the free headstarts.<br/>
+<a href="http://developer.apple.com/codingheadstarts/">Apple Developer Connection - Coding Headstart</a><br/>
+<br/>
+<a href="http://amromousa.com/">amdev</a> - nice blog with iphone related activities...<br/>
+<a href="http://cocoadevcentral.com/articles/000082.php">CocoaDevCentral: Cocoa Style for Objective-C: Part I</a><br/>
+<a href="http://cocoadevcentral.com/articles/000083.php">CocoaDevCentral: Cocoa Style for Objective-C: Part II</a><br/>
+<a href="http://zovirl.com/2007/tags/xcode/">Mark Ivey's weblog - Archive for the 'XCode' Category</a><br/>
+<a href="http://support.apple.com/kb/HT1766">iPhone and iPod touch: About backups</a> - talks about backups in itunes...whats in it and whats not in syncing.<br/>
+<br/>
+<a href="http://iphonedevelopertips.com/xcode/xcode-tips-and-tricks-tips-1-to-10.html">Killer Xcode Tips and Tricks – Tips 1 to 10</a><br/>
+<br/>
+<h2>Cool open source iphone projects</h2>
+<a href="http://code.google.com/p/mobileterminal/">mobileterminal - Project Hosting on Google Code</a><br/>
+<a href="http://code.google.com/p/cocos2d-iphone/">cocos2d-iphone - Project Hosting on Google Code</a><br/>
+<a href="http://colloquy.info/">Colloquy: IRC, SILC &amp; ICB Client</a> - of course you knew about the great macosx IRC client, but did you know they also include xcode projects for Colloquy on the iphone!<br/>
+<br/>
+<br/>
+<h2>Xcode from the command line</h2>
+Did you know that you can cd into a directory with an xcodeproj and run "xcodebuild" to build the xcode project from the command line?<br/>
+You can also clean using "xcodebuild clean".<br/>
+I do not know how to automate the running of a target easily from the command line....that would be useful.<br/>
+<br/>
+<h2>Where do frameworks go?</h2>
+~/Library/Frameworks and /Library/Frameworks are your friends.  If the Frameworks folder doesn't exist, create it.<br/>
+<br/>
+<h2>More recent projects in xcode</h2>
+I like to have a lot of recent projects in my IDEs for quick access to things I've been working on.  Xcode does not include a way to graphically change the default recent document list.  By default it only holds the last 10 projects opened.  Run the following in your shell to increase that number.<br/>
+<pre>
+defaults write com.apple.Xcode NSRecentDocumentsLimit 25
+</pre><br/>
+<br/>
+<h2>Xcode debugging parameters</h2>
+The Xcode IDE is new to me, I find myself looking for how to set parameters I know I need to set.  For example, I wanted to set the debug argument parameters on the active executable.  It is on "Project->Edit active executable 'yourname'", you can't get to this from context clicking on the active executable...<br/>
+<br/>
+<a href="http://developer.apple.com/technotes/tn2004/tn2124.html">Technical Note TN2124: Mac OS X Debugging Magic</a><br/>
+<a href="http://developer.apple.com/qa/qa2001/qa1067.html">Technical Q&A QA1067: Setting environment variables for user processes</a><br/>
+<br/>
+<br/>
+<a href="http://developer.apple.com/iphone/program/download.html">Apple Developer Connection - iPhone SDK</a><br/>
+<br/>
+<h2>iPhone Apps</h2>
+<a href="http://www.intua.net/products.html">Intua BeatMaker</a> - The mobile music creation studio for the iPhone and iPod Touch (costs 20) (I haven't used it but looks cool..)<br/>
+<br/>
+<br/>
+<h2>Quick way to delete photos from iphone.</h2>
+Use ImageCapture!  <a href="http://cdevroe.com/notes/howto-del-iphone-photos/">How to: Delete all photos off an iPhone | That's what I thought.</a><br/>
+<br/>
+<h2>Misc. references</h2>
+<a href="http://borkware.com/quickies/one?topic=NSString">Quickies for NSString</a> and really all of <a href="http://borkware.com/quickies/">Borkware Quickies</a>, lots of goodness there.<br/>
+<a href="http://mohrt.blogspot.com/2009/03/perl-compatible-regular-expressions.html">Fifty Outs: Perl Compatible Regular Expressions with Cocoa</a><br/>
+<a href="http://iphonedevelopment.blogspot.com/2009/06/using-3d-models-from-blender-in-opengl.html">iPhone Development: Using 3D Models from Blender in OpenGL ES</a><br/>
+<a href="http://ridiculousfish.com/hexfiend/">Hex Fiend, a fast and clever hex editor for Mac OS X</a> - BSD licensed and supposed to be easy to integrate...<br/>
+<br/>
+<a href="http://www.mac-developer-network.com/category/code/">Mac Developer Network » Code</a><br/>
+<br/>
+<h2>iphone backgrounding</h2>
+By default apps suspend, if you want to disable automatic suspension of your iphone app, UIApplicationExitsOnSuspend should be defined and checked within your Info.plist.<br/>
+<a href="http://www.code-magazine.com/Article.aspx?quickid=100223">CODE Magazine - Article: Sams Teach Yourself iPhone Application Development in 24 Hours, 2nd Edition HOUR 21 - Building Background-Aware Applications</a><br/>
+<br/>
+<h2>iphone development</h2>
+<a href="http://iphonedevelopment.blogspot.com/">iPhone Development</a> - nice blog on iphone development.<br/>
+<a href="http://wikee.iphwn.org/howto:using_sdk_with_toolchain_headers">Using the Apple SDK with low-level APIs ("tool chain" APIs) [iPhone Dev Team]</a><br/
+<a href="http://iphonedevelopertips.com/">[iPhone developer:tips];</a> - Inside information from experienced iPhone developers...<br/>
+<br/>
+<h2>iphone screencap</h2>
+To take a screencap on the iphone (capture the screen image or take a screenshot) press the Home button and Sleep/Wake (On/Off) key at the top of the mobile device simultaneously at the same time.<br/>
+<br/>
+
+<h2>Objective-C</h2>
+Messages sent to nil do nothing, they don't crash or segfault...<br/>
+The id data type is used to store an object of any type.<br/>
+int x =5;<br/>
+NSLog(@"x is %@",x); //crash!<br/>
+ctrl-click drag from ui elements to the connection panels.<br/>
+The @ sign in front of a static string indicates it is a constant character string (NSConstantString)<br/>
+%@ is a format specifier for NSString to print information about the (id) class given.  It can also be used to print entire arrays,dicts and sets.<br/>
+If a line starts with a -, its an instance method.<br/>
+If a line starts with a +, its a static method.<br/>
+<a href="http://gnustep.made-it.com/BG-objc/">Beginners Guide to Objective-C Programming</a><br/>
+<a href="http://sg80bab.blogspot.com/2008/05/nsmutablearray-makes-awesome-cocoa.html">Bits about Bytes: NSMutableArray makes awesome Cocoa stacks and queues</a><br/>
+<a href="http://code.google.com/p/gdata-objectivec-client/">gdata-objectivec-client - Google Code</a> - google data in objc.<br/>
+<a href="http://iphonedevelopertips.com/c/cgrect-cgsize-and-cgpoint-functions.html">CGRect, CGSize and CGPoint Functions</a><br/>
+
+<a href="http://www.drobnik.com/touch/2009/05/the-death-of-global-variables/">The Death of Global Variables @ Dr. Touch</a> - implement a single instance of the class (aka “singleton”) in ObjC.<br/>
+<br/>
+<br/>
+<h2>Networking with the iphone</h2>
+<a href="http://cocoaheads.byu.edu/wiki/publishing-nsnetservice-item-bonjour-networking">Publishing an NSNetService item for Bonjour networking | BYU CocoaHeads</a><br/>
+<br/>
+<br/>
+<h2>quick sound</h2>
+<a href="http://stackoverflow.com/questions/714618/playing-sound-samples-on-the-iphone">Playing sound samples on the iPhone - Stack Overflow</a><br/>
+<a href="http://iphonedevelopertips.com/audio/playing-short-sounds-audio-session-services.html">Playing Short Sounds - Audio Session Services</a><br/>
+<a href="http://iphonedevelopertips.com/audio/silent-mode-switch-and-playing-sounds.html">Silent Mode Switch and Playing Sounds</a><br/>
+<br/>
+<br/>
+<h2>Cocoa</h2>
+<a href="http://www.fscript.org/">F-Script Home</a> - Interactive introspection, manipulation and scripting of Cocoa objects. Open source tools that complement Xcode and Interface Builder.<br/>
+<a href="http://www.cocoadev.com/">CocoaDev: CocoaDev</a><br/>
+<a href="http://www.cocoadevcentral.com/">Cocoa Dev Central</a><br/>
+<br/>
+<br/>
+<h2>Sqlite on iphone</h2>
+<a href="http://code.google.com/p/sqlitepersistentobjects/">sqlitepersistentobjects - Google Code</a> - Persistent Objects for Cocoa & Cocoa Touch that use SQLite3<br/>
+<br/>
+FMDB - cocoa sqlite wrappers<br/>
+<a href="http://gusmueller.com/blog/archives/2008/06/new_home_for_fmdb.html">New Home for FMDB</a><br/>
+<a href="http://blog.saers.com/archives/2008/03/14/sqlite-for-iphone-sdk/">SQLite for iPhone SDK</a> - describes the process of setting up xcode to use FMDB real quick.<br/>
+<a href="http://github.com/mocra/fmdb-migration-manager/tree/master">mocra's fmdb-migration-manager at master - GitHub</a> - migration support for FMDB.<br/>
+<br/>
+<a href="http://www.omnigroup.com/developer/">The Omni Group - Developer - Source Code</a> - another sqlite persistence framework OmniDataObjects.<br/>
+<br/>
+<br/>
+<h2>Safari - mobile webkit</h2>
+<a href="http://nightly.webkit.org/">WebKit Nightly Builds</a> - get yer nightly webkit!<br/>
+<a href="https://developer.apple.com/safari/library/codinghowtos/Desktop/DataManagement/index.html">Safari Data Management Coding How-To's</a> - Safari support javascript SQL datastore with sqlite backend.<br/>
+<a href="http://dblog.com.au/iphone-development/iphone-sdk-tip-firing-custom-events-when-a-link-is-clicked-in-a-uiwebview/">iPhone SDK Tip: Firing custom events when a link is clicked in a UIWebView | dBlog.com.au</a><br/>
+<a href="http://groupaware.mobi/iphone/#_Samples">iPhone Samples</a> - iphone html samples.<br/>
+<a href="http://phantomjs.org/">PhantomJS: Headless WebKit with JavaScript API</a><br/>
+<a href="https://github.com/detro/ghostdriver/">detro/ghostdriver · GitHub</a> - Ghost Driver is an implementation of the Remote WebDriver Wire protocol, using PhantomJS as back-end <br/>
+<br/>
+<br/>
+<h2>Remote data, xmlrpc, wsdl, json</h2>
+<a href="http://www.ditchnet.org/wp/2007/01/30/example-code-webservices-core-cfnetwork-for-soap-http-auth-on-os-x/">Todd Ditchendorf’s Blog. » Blog Archive » Example Code : WebServices Core + CFNetwork for SOAP + HTTP auth on OS X</a><br/>
+<a href="http://code.google.com/p/touchcode/wiki/TouchJSONHowTo">TouchJSONHowTo - touchcode - Google Code</a> - TouchJSON is parser and generator for JSON implemented in Objective C.<br/>
+<br/>
+<br/>
+<h2>Cross platform development of iphone apps</h2>
+I like this idea of programming to the abstraction.  Why can't I write my code once and have it run everywhere...<br/>
+cross platform dev for phone....open<br/>
+<a href="http://www.phonegap.com/projects">PhoneGap | Projects</a>  - MIT licensed code for writing apps that work on the iphone, android, and blackberry.<br/>
+<br/>
+<br/>
+<h2>iphone game engines</h2>
+<a href="http://oolongengine.com/">Oolong Engine</a><br/>
+<br/>
+<br/>
+<h2>iphone accelerometer</h2>
+<a href="http://wiki.esl.fim.uni-passau.de/index.php/Context_Logger_for_iPhone_OS">Context Logger for iPhone OS - Embedded Systems</a><br/>
+<a href="http://ifiddling.blogspot.com/2009/01/dummy2.html">iFiddling: Use the Mac's accelerometer in the iPhone Simulator</a><br/>
+<a href="http://code.google.com/p/accelerometer-simulator/wiki/Home">Home - accelerometer-simulator - Home of Accelerometer Simulator - Google Code</a><br/>
+<br/>
+<br/>
+<a href="http://www.informit.com/store/product.aspx?isbn=0321555457">InformIT: iPhone Developer’s Cookbook, The: Building Applications with the iPhone SDK</a> - recipes book, includes source.<br/>
+<a href="http://www.iphoneexamples.com/">iPhone SDK Examples</a> -  for the relatively new iPhone Developer who just wants simple examples to common tasks.<br/>
+
+<h2>Facebook Connect</h2>
+Heres to making the iphone more open and social.<br/>
+http://svn.facebook.com/svnroot/platform/clients/packages/<br/>
+<a href="http://vimeo.com/3616452">How To: Implement Facebook Connect on the iPhone in 5 minutes on Vimeo</a><br/>
+<a href="http://www.raddonline.com/blogs/geek-journal/iphone-sdk-using-facebook-connect-for-iphone-part-1-of-2/">RaddOnline: iPhone SDK: Using Facebook Connect for iPhone Part 1 of 2</a><br/>
+<a href="http://www.raddonline.com/blogs/geek-journal/iphone-sdk-testing-network-reachability/">RaddOnline: iPhone SDK: Testing Network Reachability</a><br/>
+<br/>
+<br/>
+<h2>Organizer says "Could not support development.</h2>
+Ummm. I dunno why, but disconnect and reboot your phone.<br/> 
+<a href="http://www.iphonedevsdk.com/forum/iphone-sdk-development/16627-organizer-says-could-not-support-development.html">Organizer says "Could not support development." - iPhone Dev SDK Forum</a><br/>
+<br/>
+<br/>
+<h2>Core data</h2>
+<a href="http://homepage.mac.com/mmalc/CocoaExamples/controllers.html">Cocoa Bindings Examples and Hints</a><br/>
+<br/>
+<br/>
+<h2>Notes on UIWebView</h2>
+<a href="http://www.codingventures.com/2008/12/using-uiwebview-to-render-svg-files/">7 tips for using UIWebView | Coding Ventures</a><br/>
+<br/>
+<h2>Initializing a View</h2>
+By default when you create a view you get initWithFrame.  However, when you create your view from a xib file, you don't get called on initWithFrame.  (load from a nib, the NSCoding protocol is used.)  Instead, you get called on awakeFromNib.  I usually just implement another initViews function which gets called from both awakeFromNib and initWithFrame.  Remember, for subviews, you should be doing (void)layoutSubviews.<br/>
+<br/>
+<br/>
+<h2>Working with NSDate</h2>
+Get an NSDate 30 seconds in the future: [[NSDate date] addTimeInterval:30]<br/>
+NSString *year = [myDate descriptionWithCalendarFormat:@"%Y" timeZone:nil locale:nil];
+<br/>
+<a href="http://stackoverflow.com/questions/576265/convert-nsdate-to-nsstring">Convert NSDate to NSString - Stack Overflow</a><br/>
+<br/>
+<br/>
+<h2>Speech Synth</h2>
+<a href="http://developer.apple.com/documentation/Cocoa/Reference/ApplicationKit/Classes/nsspeechsynthesizer_Class/Reference/Reference.html">NSSpeechSynthesizer Class Reference</a><br/>
+<a href="http://developer.apple.com/samplecode/SayIt/index.html#//apple_ref/doc/uid/DTS10004048">SayIt</a><br/>
+NSSpeechSynthesizer *speechSynth;<br/>
+speechSynth=[[NSSpeechSynthesizer alloc] initWithVoice:nil];<br/>
+[speechSynth setDelegate:self];<br/>
+[speechSynth startSpeakingString:string];<br/>
+[speechSynth stopSpeaking];<br/>
+<br/>
+<br/>
+<h2>Turn off iphone status bar</h2>
+[[UIApplication sharedApplication] setStatusBarHidden:YES animated:NO];<br/>
+<br/>
+<br/>
+<h2>iphone ad networks</h2>
+<a href="http://www.admob.com/">Mobile Advertising | Buy Ads | Monetize Traffic | AdMob</a><br/>
+<a href="http://www.adwhirl.com/index">AdWhirl: Mobile Advertising | iPhone | Monetize Traffic | AdRollo</a><br/>
+<br/>
+<br/>
+<h2>OpenGL on the iphone</h2>
+<a href="http://iphonedevelopment.blogspot.com/2009/05/opengl-es-from-ground-up-table-of.html">iPhone Development: OpenGL ES from the Ground Up: Table of Contents</a><br/>
+<br/>
+<h2>iphone zoomed in, iphone zoom mode, iphone magnifier</h2>
+One of the iphone's accessibility features is it's magnifier.  When you double-tap using three fingers you will zoom in.  You can then translate the zoom'd in viewport by dragging three fingers.  If Zoom is on and you want to zoom out or in, double-tap using three fingers.  (This can be really really annoying if you don't know the way out!)<br/>
+<a href="http://support.apple.com/kb/HT3577">iPhone 3GS: About Accessibility (including VoiceOver and Zoom)</a><br/>
+<br/>
+<br/>
+<h2>Get rid of MainView.xib, remove MainView.xib, remove xibs</h2>
+I'm not sure that I always want an xib file.  Many times, I'd rather create the view myself in code.  The following link details how to remove the need for the xib.<br/>
+(remove NSMainNibFile from you info.plist, pass your custom appdelegate class name into the 4th param of UIApplicationMain, create window and subviews)<br/>
+<a href="http://blog.mcilvena.com/2009/01/xcode-starting-point-for-iphone-hand-coders/">Xcode starting point for iPhone hand-coders on Mcilvena/Blog</a><br/>
+<br/>
+<br/>
+<h2>Notifications and delegates</h2>
+<a href="http://developer.apple.com/DOCUMENTATION/Cocoa/Conceptual/CocoaFundamentals/CommunicatingWithObjects/CommunicateWithObjects.html#//apple_ref/doc/uid/TP40002974-CH7-SW18">Cocoa Fundamentals Guide: Communicating With Objects</a><br/>
+<a href="http://juliuspaintings.co.uk/cgi-bin/paint_css/animatedPaint/017-Comunicate-Two-Views.pl">Example of communicating between parts of a Cocoa program using NSNotification notifications using Xcode and Interface Builder</a><br/>
+<br/>
+<br/>
+<h2>STOMP in ObjC</h2>
+<a href="http://stomp.codehaus.org/Protocol">Stomp</a> is a wire protocol for pub/sub.  People are nice, so there are multiple implementations in ObjC....<br/>
+<a href="http://github.com/juretta/objc-stomp/tree/master">juretta's objc-stomp at master - GitHub</a><br/>
+<a href="http://code.google.com/p/stompframework/">stompframework - Project Hosting on Google Code</a><br/>
+<br/>
+<br/>
+<h2>iphone adhoc testing distribution</h2>
+<a href="http://iphonedevelopertips.com/wp-content/uploads/2009/iPhoneDistributionBuildCheatsheet.pdf">iPhone Distribution Cheat Sheet</a> (pdf)<br/>
+<a href="http://webbuilders.wordpress.com/2009/06/17/sending-your-iphone-app-to-another-developer-device/">Sending your iphone app to another developer device « Web Builders</a><br/>
+<a href="http://webbuilders.wordpress.com/2009/04/12/building-zip-file/">Building Zip file for iphone Distribution « Web Builders</a><br/>
+<br/>
+<br/>
+<h2>NSTimer timer not fired while scrolling</h2>
+I'm not sure of all the technical details, but I found that my timers would not fire when scrolling my ScrollView.  I searched around a bit and found the following solution:<br/>
+[[NSRunLoop currentRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];<br/>
+Seems to have resolved my issues!<br/>
+<br/>
+<h2>UI updates from background threads in iphone</h2>
+Suppose you want to update the text of a label from a background thread.  You can't update the label like:<br/>
+[aLabel setText:@"hello world"];<br/>
+Instead, you should use the performSelectorOnMainThread method to perform the update on the main thread. Like so:<br/>
+[aLabel performSelectorOnMainThread : @ selector(setText: ) withObject:@"hello world" waitUntilDone:YES];<br/>
+<br/>
+
+<h2>Carrier configs</h2>
+Some people download custom carrier setting to get things like internet tethering....<br/>
+<a href="http://forums.macrumors.com/showthread.php?t=792908">HOW TO: Install Official MMS on iPhone 3G/3GS (3.0-3.0.1) (Jailbroken or Not) - Mac Forums</a><br/>
+
+<br/>
+<br/>
+<h2>HTML/CSS for iphone like webapps</h2>
+<a href="http://code.google.com/p/iui/">iui - Project Hosting on Google Code</a> - User Interface (UI) Framework for Safari development on iPhone<br/>
+<a href="http://iwebkit.net/">iWebKit the Best free framework for creating iPhone, iPod Touch and iPad web applications with ease!</a> -  native looking iphone HTML apps<br/>
+<a href="http://theappleblog.com/2010/02/12/how-to-create-an-iphone-web-app/">How-To: Create an iPhone Web App </a> - using iwebkit<br/>
+<br/>
+<br/>
+<h2>MonoTouch</h2>
+<a href="http://www.servicestack.net/monotouch/remote-info/">MonoTouch Examples :: RemoteInfo</a><br/>
+<br/>
+<br/>
+<h2>ffmpeg on the iphone</h2>
+did you know that you can compile ffmpeg on the iphone now?<br/>
+<a href="http://lists.mplayerhq.hu/pipermail/ffmpeg-devel/2009-October/076618.html">[FFmpeg-devel] [HOWTO] Building FFmpeg for iPhone</a><br/>
+<a href="http://github.com/yuvi/gas-preprocessor/">yuvi's gas-preprocessor at master - GitHub</a><br/>
+<br/>
+<br/>
+<h2>Objective-C and Mac Testing related</h2>
+<a href="http://www.mulle-kybernetik.com/software/OCMock/">Mulle kybernetiK -- OCMock</a> - OCMock is an Objective-C implementation of mock objects.<br/>
+<a href="http://developer.apple.com/tools/unittest.html">Test Driving Your Code with OCUnit</a><br/>
+<a href="http://code.google.com/p/coverstory/">coverstory - Project Hosting on Google Code</a> - CoverStory allows you to easily view the code coverage of your unit tests. <br/>
+
+<h2>Cocos2d</h2>
+<a href="https://github.com/haqu/tweejump">haqu/tweejump - GitHub</a> - jumping arcade game for iPhone (powered by cocos2d-iphone)<br/>
+<br/>
+<br/>
+<h2>Javascript and ObjC</h2>
+<a href="http://www.steamclock.com/blog/2013/05/apple-objective-c-javascript-bridge/">Steamclock Software - Apple’s new Objective-C to Javascript Bridge</a><br/>
+<h2>Java and ObjC</h2>
+rules say you can't have an interpreted runtime...so...<br/>
+<a href="http://blog.robovm.org/">The RoboVM Blog</a> - RoboVM open-source project is to bring Java and other JVM languages to iOS. RoboVM's ahead-of-time compiler translates Java bytecode into native ARM or x86 machine code that runs directly on the target CPU without being interpreted. The runtime is based on Android's runtime classes and includes a Java to Objective-C bridge which makes it easy to use native Cocoa Touch APIs from Java.<br/>
+    <div style="border: 1px;">
+    Created: 2007-07-02 01:44:31
+    Modified: 2014-06-20 19:40:23
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+\begin{bmatrix} 1 & 0 & \ldots & 0 \\
+                0 & 1 & 0 & \vdots \\
+                \vdots & 0 & \ddots & 0\\
+                0 & \ldots &  0 & 1_{n}
+\end{bmatrix}
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

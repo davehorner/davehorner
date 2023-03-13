@@ -1,0 +1,525 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>Joomla / Mambo - Web content management system</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/linux-unix-and-friends/">linux-unix-and-friends</a>
+    <h1>Joomla / Mambo - Web content management system</h1>
+   I've been with Joomla before it was Joomla.  When it was good ole Mambo.  This page is for all my random thoughts and things relating to Joomla development and hosting issues.  It's a real unorganized mess, <em>welcome to my world</em>.<br/>
+<br/>
+<br/>
+<h2>Random Joomla links</h2>
+<a href="http://joomlabe.at/">Joomla Beat Podcast</a><br/>
+<a href="http://vinaora.com/">Vinaora - Free Templates, Extensions and Tutorials</a><br/>
+<a href="http://www.joomla.org/announcements/release-news/">www.joomla.org/announcements/Release News</a><br/>
+<a href="https://github.com/joomlaworks/k2">joomlaworks/k2</a> - content extension for Joomla!<br/>
+<a href="https://github.com/joomlatools/joomla-composer">joomlatools/joomla-composer</a> - Composer extension installer for Joomla (2.5+)<br/>
+<a href="https://github.com/joomlatools/joomla-console">joomlatools/joomla-console</a> - Joomla Console is a command line console for common Joomla operations like creating and deleting sites, installing extensions, symlinking files.<br/>
+<a href="https://github.com/joomlatools/joomla-vagrant">joomlatools/joomla-vagrant</a> - Vagrant box for Joomla development - Console, composer pre-installed.<br/>
+<br/>
+<br/>
+<h2>ecosystem and monetization of Joomla! and Mambo</h2>
+It's interesting to see how projects develop, what is considered "extra", how companies try to monetize.  Where a project leaves off and another picks up -- walling off, feature exclusion, splintering, fights, flames.  what are the popular plugins, components, modules that users use, what are the frustrations, where did they come from, where do they go when they get fed up?<br/>
+<br/>
+When the base system is free, how much are you spending on external components like migration tools, user management, tagging/seo support, import, etc, etc, etc.<br/>
+<br/>
+<a href="http://odino.org/why-joomla-sucks-why-the-joomla-platform-sucks-even-harder-and-how-we-can-fix-this/">Why Joomla sucks, why the Joomla platform sucks even harder and how We can fix this — Alessandro Nadalin</a> - can we fix it?  it must include easy migration with keeping existing urls + the new improved urls.<br/>
+<br/>
+<br/>
+<h2>Mambo - MamboServer</h2>
+Mambo was nice back in the day.  Most everyone left the mambo scene for Joomla...since you know, the developers left and development stopped. (makes that choice easier)<br/>
+<a href="http://www.mambers.com/showthread.php?t=5087&highlight=mambots" target="_blank">Mambots List</a><br />
+<a href="http://forum.mamboserver.com/showthread.php?t=4870&highlight=horizontal+menu" target="_blank">Menus for mambo</a><br />
+<a href="http://forum.mamboserver.com/showthread.php?t=13541&highlight=save" target="_blank">Talks about site organization and structure</a><br /> 
+<a href="http://forum.mamboserver.com/showthread.php?t=39308" target="_blank">A good list of components for community building</a><br /> 
+<a href="http://www.mambers.com/archive/index.php/t-1769.html">How to create mambo components</a><br />
+
+<h2>fix joomla permissions</h2>
+aka. notes on which directories might need to be owned by your webserver<br/>
+<pre>
+chown apache -R images
+chown apache -R language
+#chown apache -R mambots
+chown apache -R media
+chown apache -R modules
+chown apache -R templates
+chown apache -R administrator
+chown apache -R cache
+chown apache -R components
+chown apache -R logs
+chown apache -R plugins
+chown apache -R tmp
+</pre>
+<br />
+<h2>Table notes for Joomla</h2>
+ jos_content - contains all the typed content<br />
+ jos_menu_migration - contains all the menu items<br />
+ <br />
+<h2>Redirection issues with Mambo</h2>
+One this that really annoyed me about the latest version of Mambo was that when you saved content, it actually redirected you to the frontpage and not back to the content you just edited.  To fix this edit your components/com_content/content.php and add the following on line 1365:<br />
+<pre>
+if ( $Itemid ) {
+     mosRedirect( 'index.php?option=com_content&task=view&id='. $row->id .'&Itemid='. $Itemid,$msg);
+} else {
+     mosRedirect( 'index.php', $msg );
+}
+</pre>
+Then there is one more thing you'll have to change:<br />
+<pre>
+$link = 'index.php?option=com_content&task=edit&id='. $row->id .'&Itemid='. $Itemid .'&Returnid='. $row->id;
+</pre>
+Another thing you might want to change is the includes/footer.php file so that you can change the default footer.<br />
+<br />
+ <br />
+<h2>SEF / SEO with mambo</h2>
+Ok I've gotten to the point now, that I get a bit of traffic from search engines and I think it is time to step it up a notch.  Mambo in its default configuration doesn't have SEF support.  Yes, it does have some simple SEF function that maps content into something a little more pleasent.  However, it doesn't really allow you to name your URLs as you please.<br />
+ Here is some of the research I've done into getting SEF to work on your Mambo or Joomla.<br />
+ <br />
+ First there is a commerical solution called <a href="http://www.sakic.net/scripting/mambo/sef_advance/" target="_blank">SEF Advance</a> but for me I'm not really interested in something that is pay... esp. for something I consider SO fundamental.<br />
+ <br />
+ Next there is a project called   Xaneon Alias Manager and  Xaneon Extensions for Mambo both available from: <a href="http://xaneon.com/" target="_blank">http://xaneon.com/</a><br />
+ However, this project seems to be dead because the developers have moved to Drupal.<br /> 
+<br />
+ All further development for Mambo SEF has been moved to <a href="http://opensef.org/" target="_blank">http://opensef.org/</a>.<br /> <br /> At this point I'm a little confused on the whole thing and I might just have to evaluate going back to Drupal.  I used it a long while ago and switched to Mambo.  However, lately there has been almost NO new development on Mambo and there are many problems that need to be solved.  Look here for more information in the future....<br /> <a href="http://www.torkiljohnsen.com/2006/07/19/mambo-and-joomla-exposed-as-script-kiddies-have-their-summer-holidays/">Mambo and Joomla exposed as script kiddies have their summer holidays</a><br /> <a href="http://www.torkiljohnsen.com/2006/08/08/mambo-announces-more-improvements-in-46/">Mambo announces more improvements in 4.6</a><br /> <a href="http://de.siteof.de/generating-static-pages.html">Generating static HTML-Pages from Joomla/Mambo</a><br /> <br /> <br /> go from mambo to joomla<br /> <br /> <br /> 
+<h2>Joomla</h2>
+Joomla is the new direction of the code and community I believe.  Mambo has not released anything in a long time.... I'm moving.<br /> <br /> <a href="http://help.joomla.org/content/view/818/181/">Joomla! Help Site - Migrating to Joomla! from Mambo</a><br /> <a href="http://help.joomla.org/content/view/1933/294/">Joomla! Help Site - Joomla! 1.5 Migration Guide</a><br /> <a href="http://help.joomla.org/component/option,com_easyfaq/task,view/id,167/Itemid,268/">Joomla! Administrator's Security Checklist</a><br />
+<a href="http://joomlacode.org/gf/project/joomla/scmsvn/?action=AccessInfo">JoomlaCode &gt; Projects &gt; Joomla! &gt; SVN &gt; Access info</a><br/>
+<br/>
+<h2>Developing Joomla</h2>
+<a href="http://www.vojtechovsky.net/joomla/component-helloworld-2-create-tutorial-guide-en.html">How to create joomla1.5 MVC(model view controller) component helloworld 2 tutorial</a><br/>
+<a href="http://www.joomlatutorials.com/">Joomla Tutorials - Home</a><br/>
+<br/>
+<a href="http://developer.joomla.org/">Joomla! Developer</a><br/>
+<br/>
+<h2>Redirection issues with Joomla</h2>
+Joomla! also currently has the issue with redirects on save not redirecting back to the orginal article.  Grrr.  Here is the fix for components/com_content/controller.php.<br/> 
+<pre>
+Index: components/com_content/controller.php
+===================================================================
+--- controller.php      (revision 10922)
++++ controller.php      (working copy)
+@@ -239,7 +239,8 @@
+                $referer = JRequest::getString('ret',  base64_encode(JURI::base()), 'get');
+                $referer = base64_decode($referer);
+                if (!JURI::isInternal($referer)) {
+-                       $referer = '';
++                       $uri =& JURI::getInstance($referer);
++                       $referer = $uri->getPath();
+                }
+                $this->setRedirect($referer, $msg);
+        }
+</pre>
+
+<h2>Blacklisting and Whitelisting HTML Tags in Joomla</h2>
+Updating to the latest, once again gives me grief.  When I updated to Joomla 1.5.9, I found that when saving Joomla strips html tags...like br tags.  Ouch, making me have to restore my formatting from backup!  Grr.  First I look on the web and found others complaining about it...<br/>
+<a href="http://www.joomla4web.com/blog/Interesting-new-feature-in-Joomla-1.5.8.html">Joomla4Web - Blacklisting and Whitelisting HTML Tags in Joomla 1.5.8</a><br/>
+I didn't realize it was doing filtering, I checked my settings and it was set to do black listing with no filters set.  You'd think that would work.  However, it didn't cause it was still removing them.  Finally I did some poking around....I just disabled the filtering.  I'm not interested, I wish they wouldn't have broken functionality.<br/>
+<pre>
+Index: components/com_content/models/article.php
+===================================================================
+--- article.php (revision 11515)
++++ article.php (working copy)
+@@ -360,7 +360,7 @@
+
+   $filterGroups = $config->get( 'filter_groups' );
+
+-  if (is_array($filterGroups) && in_array( $gid, $filterGroups ))
++  if (0 && is_array($filterGroups) && in_array( $gid, $filterGroups ))
+   {
+    $filterType  = $config->get( 'filter_type' );
+    $filterTags  = preg_split( '#[,\s]+#', trim( $config->get( 'filter_tags' ) ) );
+@@ -380,7 +380,7 @@
+    }
+    $article->introtext = $filter->clean( $article->introtext );
+    $article->fulltext = $filter->clean( $article->fulltext );
+-  } elseif(empty($filterGroups)) {
++  } elseif(0 && empty($filterGroups)) {
+    $filter = new JFilterInput(array(), array(), 1, 1);
+    $article->introtext = $filter->clean( $article->introtext );
+    $article->fulltext = $filter->clean( $article->fulltext );
+</pre>
+<br/>
+<h2>GeSHi Code Syntax highlighting with Joomla</h2>
+<a href="http://qbnz.com/highlighter/index.php">GeSHi - Generic Syntax Highlighter :: Home</a> - GeSHi's home<br/>
+By default GeSHi code syntax highlighting does not word wrap.  The following page gives you the needed CSS to stop your code snippets from breaking your page layout.<br/>
+<a href="http://www.gjcwebdesign.com/enable-line-wrap-geshi-plugin-joomla.html">How to enable line wrap in the Joomla Geshi plugin</a><br/>
+They changed the way in which you markup code in Joomla 1.5.  I ended up modifying my version of GeSHi to use the old mambo syntax. {(highlight)}<br/>
+<a href="http://www.howtojoomla.net/2008072289/how-tos/mambots/plugins/how-to-use-the-geshi-pluginmambot">How to use the GeSHi plugin/mambot | Mambots/Plugins | How-Tos</a><br/>
+<br/>
+<h2>Syntax highlighter for Joomla</h2>
+<a href="http://blog.burlock.org/joomla/96-easy-syntax-highlighter-for-joomla">Easy Syntax Highlighter for Joomla</a><br/>
+<a href="http://alexgorbatchev.com/wiki/SyntaxHighlighter">SyntaxHighlighter - Alex Gorbatchev</a><br/>
+<br/>
+<br/>
+<h2>Joomla Template Overrides</h2>
+Did you know that a template has the ability to override most all the output generated by the default Joomla core?  The template demonstrating this technique is "Beez"<br/>
+<a href="http://www.joomla-beez.com/index.php?option=com_content&view=article&id=49%3AMore+about+Beez&Itemid=1">Joomla Beez, what is it ?</a><br/>
+<a href="http://docs.joomla.org/Understanding_Output_Overrides">Understanding Output Overrides - Joomla! Documentation</a> - great article giving all the details...<br/>
+<a href="http://docs.joomla.org/How_to_override_the_output_from_the_Joomla!_core">How to override the output from the Joomla! core - Joomla! Documentation</a><br/>
+<br/>
+This is nice in that allows you to override the core without fear of losing those changes when the core gets changed.  However, this does mean that you'll be forsaking the new changes that get added to the core when it does get changed!  Also, since the overrides are template specific, you'll only override for one specific template.  I myself have quite a few changes to the core, and I manage those changes with source control (svn).  Though, template overrides are nice...<br/>
+<br/>
+I found all this information when researching how to make Joomla output &lt;h1&gt; tags, which it doesn't do out of the box in Joomla 1.5.<br/>
+<a href="http://www.joomlahacks.com/content/view/525/64/">Joomla Tips #9: Adding H1 Tag To Joomla Article Title</a><br/>
+<a href="http://www.newworlddesigns.co.uk/blog/joomla-contentheading-h1-with-no-core-hack/">Joomla contentheading H1 with no core Hack - New World Designs</a><br/>
+
+<h2>Joomla 1.5.x not properly escaping html entities in editor</h2>
+I see the following bug report with solution, however, it has not yet been committed to SVN.  I'm not sure why, as this is a REAL bug.<br/>
+<a href="http://joomlacode.org/gf/project/joomla/tracker/?action=TrackerItemEdit&tracker_item_id=18620">[#18620] Front-end version of com_content "edit" task fails to preserve escaped entities</a><br/>
+The solution is to modify /components/com_content/views/article/tmpl/form.php by adding the following after line 2:
+<pre>
+JFilterOutput::objectHTMLSafe( $this->article );
+</pre>
+It looks like the problem isn't visible when using a WYSIWYG editor...not sure why, maybe the editor is taking care of the escaping for you.  However, it is definitely a problem when using "No Editor" as I do.  To see it happen, create an article with a html entity (&amp;lt;), save it.  You'll see the entity properly preserved in the database, but if you edit you'll find that the encoded entity is now just the character itself.  So on subsequent save, you lose the escaping.  Not good.  This really should be committed to 1.5 branch for sure.<br/>
+<br/>
+<h2>Remove the generator meta information from Joomla 1.5.x output</h2>
+To remove the generator, goto "libraries/joomla/document/html/renderer/head.php" and comment out line 82.<br/>
+<pre>
+//$strHtml .= $tab.'<meta name="generator" content="'.$document->getGenerator().'" />'.$lnEnd;
+</pre>
+<br/>
+<br/>
+<h2>Joomla isn't showing all my content</h2>
+If pagination is turned off, it seems to me that all the items should be displayed.  The software isn't written like that.  Instead there is a $list_limit and $feed_limit in configuration.php which define the site wide limit.<br/>
+<br/>
+<h2>Joomla Caching</h2>
+<a href="http://www.theartofjoomla.com/joomla-caching-explained.html">Joomla Caching Explained - Page, View and Module Caching - How to speed up your Joomla Web site</a><br/>
+<br/>
+<br/>
+<h2>Shopping cart in Joomla</h2>
+<a href="http://virtuemart.net/home">Welcome to VirtueMart</a><br/>
+<br/>
+<br/>
+<h2>Newsletter</h2>
+<a href="http://support.educationgrove.com/content/using-joomla-letterman-newsletter-component">Using the Joomla Letterman Newsletter Component | CommunityGrove Support</a> - open source<br/>
+<a href="http://extensions.joomla.org/extensions/content-sharing/newsletter/174">Letterman Newsletter - Joomla! Extensions Directory</a><br/>
+<a href="http://www.phplist.com/">phplist.com : Homepage : home</a> - not exactly a joomla extension but a full mailinglist application.<br/>
+<br/>
+<br/>
+<h2>Joomla DST issues</h2>
+Ok, so it looks like there are issues with getting DST to work correctly with Joomla.  I can see that the system time is set correctly and the dst is being observed properly with date and `zdump -v EST5EDT | grep 2007`.  I also can see that the global config -> server -> timezone is set properly as EST.  Still time shows off by 1 hour?!  Finally, I was forced to edit the sites configuration.php and change $offset=-5 to $offset=-4.  Yuck.<br/>
+<br/>
+<br/>
+<a href="http://panaharjuna.wordpress.com/2009/07/02/joomla-1-5-lighttpd-and-squid-reverve-proxy/">Joomla 1.5 + lighttpd and squid reverve proxy « Because It Works!!</a><br/>
+<br/>
+<br/>
+<h2>removing mootools and caption.js from client and leaving it on administration.</h2>
+<a href="http://blog.x-if.com/2009/04/joomla-15-optimisation-removing-mootools/">Joomla 1.5 optimisation: removing mootools.js and caption.js | random notes</a><br/>
+<a href="http://docs.joomla.org/Jdoc_statements">jdoc statements - Joomla! Documentation</a> - the actual scripts are included from the libraries/joomla/html/html/behavior.php, wrap those calls in if ($app->isAdmin())<br/>
+
+<a href="http://stackoverflow.com/questions/12284450/joomla-check-to-see-if-we-are-in-admin-area-or-not">joomla2.5 - Joomla - Check to see if we are in admin area or not - Stack Overflow</a> - $app =& JFactory::getApplication(); if ($app->isSite())  echo 'Client'; if($app->isAdmin()) echo 'administrator';<br/>
+<a href="http://docs.joomla.org/Accessing_the_current_user_object">Accessing the current user object - Joomla! Documentation</a><br/>
+<br/>
+<br/>
+<h2>Parameter 1 to modMainMenuHelper::buildXML() expected to be a reference</h2>
+reports the error as being part of the /libraries/joomla/cache/handler/callback.php on line 99<br/>
+<a href="http://seyekuyinu.com/to-solve-warning-parameter-1-to-modmainmenuhelperbuildxml-expected-to-be-a-reference-value-given-in-librariesjoomlacachehandlercallback-php-on-line-99/">To solve- Warning: Parameter 1 to modMainMenuHelper::buildXML() expected to be a reference- Seye Kuyinu</a> - function buildXML(&amp;$params) remove the &amp; in front of &amp;$params within modules/mod_mainmenu/helper.php.<br/>
+<br/>
+<br/>
+<h2>Joomla 3.x</h2>
+<a href="https://github.com/joomla/joomla-cms">joomla/joomla-cms</a> - 3.0 <a href="http://joomla.org">http://joomla.org</a><br/>
+<a href="http://developer.joomla.org/">Joomla! Developer Network Home</a><br/>
+<a href="https://github.com/joomlashack/wright">joomlashack/wright The Joomlashack Template Framework</a> - Wright Framework is used to create Joomla Templates. <br/>
+<a href="http://docs.joomla.org/Git_for_Coders">Git for Coders - Joomla! Documentation</a><br/>
+<a href="http://lendr.sparkbuilt.com/">Lendr: Joomla! Component Tutorial</a> - A social library system with lending, tracking, wishlists and reviews. (Bootstrapped Native Joomla! 3.0)<br/>
+<br/>
+<br/>
+<h2>Joomla Security</h2>
+<a href="http://blog.spiderlabs.com/2013/06/exploiting-serialized-xss-in-joomla-return-of-the-undead-cve.html?utm_source=feedburner&amp;utm_medium=feed&amp;utm_campaign=Feed%3A+SpiderlabsAnterior+%28SpiderLabs+Anterior%29&amp;utm_content=FeedBurner">Exploiting Serialized XSS in Joomla! (return of the undead CVE) - SpiderLabs Anterior</a><br/>
+<br/>
+<br/>
+<h2>Joomla Search issues</h2>
+<a href="http://forum.joomla.org/viewtopic.php?p=2612073">Joomla! • View topic - Default search result to 5 records per page?</a> - /components/com_search/models/search.php:65<br/>
+<a href="http://forum.joomla.org/viewtopic.php?p=839042">Joomla! • View topic - How to override the searchword limit to be able to search for 21 or more chars?</a> - administrator/components/com_search/helpers/search.php:62<br/>
+<br/>
+<br/>
+<a href="http://dist.epipe.com/joomla/perl/">EPIPE Communications - /joomla/perl/</a> - Perl scripts for managing Joomla! CMS based web sites. CMS::Joomla<br/>
+<br/>
+<br/>
+<h2>Joomla upgrades</h2>
+Overall, I would have to say I am pretty disappointed in the upgrade process for Joomla.  When you branch, you should help your users along to that branch.  It seems the migration is always assumed to be done by third party components, by hand, or  something...<br/>
+<br/>
+the idea of starting fresh and recreating the site is a good one, but it also requires a lot of work to ensure that all of your precious URLs; that everyone knows; continue to work after the migration.  <br/>
+<br/>
+the amount of time wasted in hesitation and inquiry for simple data migration...by each Joomla site admin.  If I can't get my current data into the new system with <strong>minimal</strong> effort, you are asking a lot of your users.<br/>
+<br/>
+<br/>
+<a href="http://stackoverflow.com/questions/13320255/joomla-1-5-14-to-joomla-3-0-migration">Joomla 1.5.14 to Joomla 3.0 Migration - Stack Overflow</a> - 6/25/2013, still no simple free import available...aside from jupgrade and <a href="http://cyend.com/extensions/extensions/components/documentation/24-user-guide-how-to-migrate-to-joomla-16?showall=&amp;limitstart=">SPUpgrade</a><br/>
+<a href="http://stackoverflow.com/questions/14056160/jupgrade-joomla-upgrade-from-1-5-to-2-5">jupgrade-joomla upgrade from 1.5 to 2.5 - Stack Overflow</a><br/>
+the biggest issue in going from 1.5 to the other versions is that there is now an asset table that needs to be kept up to date and correct.  Migration of content into the system requires the proper level, parent_id, lft, and rgt parameters.<br/>
+<a href="https://github.com/joomla/joomla-cms/blob/master/libraries/joomla/table/nested.php#L806">joomla-cms/libraries/joomla/table/nested.php at master · joomla/joomla-cms</a> - class JTableNested extends JTable<br/>
+<a href="http://docs.joomla.org/Using_nested_sets">Using nested sets - Joomla! Documentation</a> - storing and retrieving hierarchical information in the form of "nested sets" in database tables. This support is used in the implementation of menus and categories in the core Joomla CMS from version 1.6 onwards<br/>
+<a href="http://docs.joomla.org/Fixing_the_assets_table">Fixing the assets table - Joomla! Documentation</a> - best place I've found so far to call out the level and parent_id stuff outside of code.<br/>
+<a href="https://github.com/elinw/AssetFix">elinw/AssetFix</a> - App for fixing assets. place in joomla root, tries to fix some of the more common problems in the asset table for components, categories and articles. corrupted assets. doesn't work with 3.x when I tried.<br/>
+<a href="https://github.com/elinw/AssetDiagnosis">elinw/AssetDiagnosis</a> - doesn't work with 3.x when I tried.<br/>
+<a href="https://github.com/ikajaste/Joomla-2.5-Asset-Weaver">ikajaste/Joomla-2.5-Asset-Weaver</a> - CLI php mentions (using jUpgrade) does not build the #_assets table correctly. Yes, really. *sigh*<br/>
+<a href="http://wiki.redcomponent.com/index.php?title=RedMIGRATOR:Table_of_Contents">RedMIGRATOR:Table of Contents - redWIKI</a> - Older Joomla Upgrade tools. No longer maintained at redCOMPONENT.com: jUpgrade and jUpgradePro.<br/>
+Doesn't it seem that the Joomla core should have great support for prior versions?!<br/>
+<br/>
+<br/>
+<h2>Joomla Migration Out || joomla exit strategy?</h2>
+<a href="https://drupal.org/project/joomla">Joomla to Drupal | Drupal.org</a> - Users,Sections & Categories into Taxonomy Vocabularies and Terms,Content items to nodes<br/>
+<br/>
+<br/>
+<h2>Joomla page count issues</h2>
+Joomla counts visits from members in page counts.  I don't like this, since I want my article hit counts to reflect the actual usage of my guest visitors.<br/>
+<a href="http://forum.joomla.org/viewtopic.php?f=48&amp;t=703270">Joomla! • View topic - Google Analytics vs Page Hits</a><br/>
+<a href="http://ux.joomla.org/forum/Roundtable-Discussion/797-not-count-own-hits-with-articles?limitstart=0&amp;start=8">Joomla User Experience Forum :: Topic: Not Count Own Hits with Articles (1/2)</a><br/>
+components/com_content/views/article/view.html.php:$model->hit();<br/>
+add the guest check to the block, and move it down if you'd like.  Since when fixing this, I also found that it'll mark a hit even if the user is unauthorized.<br/>
+<br/>
+if ($user->guest && !$params->get('intro_only') && ($this->getLayout() == 'default') && ($limitstart == 0))<br/>
+<br/>
+<br/>
+<h2>utf-8 issues in Joomla</h2>
+yap, latin1...just converting it to utf8 in the database is possible, but fields get truncated...<br/>
+<a href="http://forum.joomla.org/viewtopic.php?f=11&amp;t=55065">Joomla! • View topic - UTF-8 issues in Joomla 1.0.x series - a guide</a><br/>
+<br/>
+<br/>
+<h2>content creation plugins for Joomla</h2>
+I myself don't use a WYSIWYG editor when editing articles.  However, there are benefits to these editors than just the editing surface.  The editor components also provide image/file manipulation too, and are usually pretty complex themselves.<br/>
+<br/>
+For users that don't know HTML, the WYSIWYG is necessary and makes or breaks the experience for the content creator.<br/> 
+<a href="http://www.joomlackeditor.com/">JoomlaCK Editor - The next generation of html editors for Joomla!™ | JoomlaCK Editor</a><br/>
+<br/>
+<br/>
+<h2>remove weblinks, newsfeeds, contacts from search</h2>
+removing the code in plugins/system for contacts, weblinks, and newsfeeds will help, but you also need to remove the entries within the jos_plugins;<br/>
+<a href="http://forum.joomla.org/viewtopic.php?f=466&amp;t=396193">Joomla! • View topic - Remove: Categories &amp; Sections appear in Search results</a><br/>
+    <div style="border: 1px;">
+    Created: 2005-04-14 02:32:45
+    Modified: 2014-07-13 04:41:59
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+<a href="javascript:var%20s%20=%20document.createElement('script');s.type='text/javascript';document.body.appendChild(s);s.src='/eggs/asteroids.min.js';void(0);" id="secret">destory this webpage; if you will.</a>
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

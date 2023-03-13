@@ -1,0 +1,436 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>WMI, Event Log, WinLogon, SENS, UI Automation, MSAA</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/windows/">windows</a>
+    <h1>WMI, Event Log, WinLogon, SENS, UI Automation, MSAA</h1>
+   If you can't get a handle on your system events, then you aren't really aware of what is going on within a given machine.  For many years I have neglected my system event logs, but I'm working on doing a better job of it now....<br/>
+<br/>
+Windows is a strange beast when it comes to event and audit management...many sources of information and not many good tools to manage it.<br/>
+<br/>
+<br/>
+<h2>Event Log</h2>
+<a href="http://www.codeproject.com/dotnet/evtvwr.asp">Getting the most out of Event Viewer - The Code Project - .NET</a><br/>
+<a href="http://www.codeproject.com/useritems/LogParser_DataProvider.asp">LogParser DataProvider for ADO.NET</a><br/>
+<a href="http://www.hookedonlinq.com/EventLogViewerSample.ashx">Event Log Viewer Sample - Hooked on LINQ</a><br/>
+<a href="http://support.microsoft.com/default.aspx?scid=kb;EN-US;947226">Description of security events in Windows Vista and in Windows Server 2008</a><br/>
+<a href="http://blogs.msdn.com/ericfitz/archive/2008/08/20/tracking-user-logon-activity-using-logon-events.aspx">Windows Security Logging and Other Esoterica : Tracking User Logon Activity Using Logon Events</a><br/>
+<a href="http://blogs.msdn.com/ericfitz/archive/2007/05/08/the-trouble-with-logoff-events.aspx">Windows Security Logging and Other Esoterica : The Trouble With Logoff Events</a><br/>
+<a href="http://stam.blogs.com/8bits/2013/07/explore-copied-eventlog-with-powershell.html#more">8 bits: Explore copied eventlog with PowerShell</a> - <a href="http://www.cwflynt.com/logFixer/">Event Log Repair</a><br/>
+<pre>
+Get-Winevent -Oldest -Path .\SysEvent1.Evt | Out-Gridview
+</pre>
+<br/>
+<br/>
+<h2>ACLs and security</h2>
+Reading from 'Security' requires the privilege SeSecurityPrivilege in C#.<br/>  
+<a href="http://blogs.msdn.com/ericfitz/archive/2006/03/01/541462.aspx">Windows Security Logging and Other Esoterica : Default ACLs on Windows Event Logs</a><br/>
+<a href="http://msdn.microsoft.com/en-us/magazine/cc163823.aspx">Using .NET: Making Privileges Reliable, Secure, and Efficient</a><br/>
+<a href="http://www.mentalis.org/soft/class.qpx?id=7">WindowsController - C# and VB.NET</a> - class to restart, shutdown, sleep, and hibernate the PC using C# or VB.  It also includes wrappers to the native privilege methods.<br/>
+<a href="http://www.mentalis.org/soft/projects/droprights/">DropMyRights utility in C#</a> - utility to run apps under reduced privileges.<br/>
+<a href="http://vctipsplusplus.wordpress.com/2009/10/21/windows-privileges-issues/">Windows Privileges Issues !! « VC Tips++</a><br/>
+
+<br/>
+<br/>
+<h2>EventLog with .NET</h2>
+The old .NET standby EventLog.GetEventLogs() does not work as it should on Win2008 and Vista.<br/>
+When you use the EventLog, it will return results, but it will complain that it can't find description for the events.  EventLog has been replaced by a whole new system called ETW.<br/>
+<br/>
+<a href="http://msdn.microsoft.com/en-us/magazine/cc163437.aspx">Event Tracing: Improve Debugging And Performance Tuning With ETW</a><br/>
+<a href="http://blogs.msdn.com/thottams/archive/2008/05/29/diagnostics-using-etw-tracing-in-net-3-5.aspx">Thottam R. Sriram : Diagnostics: Using ETW tracing in .NET 3.5 (EventProviderTraceListener)</a><br/>
+<a href="http://blogs.msdn.com/peaceofmind/archive/2008/04/16/using-eventprovidertracelistener.aspx">Programming and Peace of Mind : Using EventProviderTraceListener</a><br/>
+<a href="http://blogs.microsoft.co.il/blogs/sasha/archive/2008/01/21/who-accessed-my-file.aspx">Who Accessed My File? - All Your Base Are Belong To Us</a><br/>
+<br/>
+There are a lot of event log products out there, here are some I've stumbled across.<br/>
+<a href="http://www.eventsentry.com/">EventSentry - Real-Time Event Log Monitoring Consolidation Suite</a><br/>
+<a href="http://www.ipsentry.com/HTMLHelp53/IPSENTRY/addins/evmon.index.htm">IPSentry Network Monitoring - Event Log Monitoring Add-In</a><br/>
+<a href="http://eventlogs.blogspot.com/">Dorian Software BLOG</a><br/>
+<a href="http://manageengine.adventnet.com/products/eventlog/index.html">Syslog & Event Log Monitoring & Reporting Software :: EventLog Analyzer</a><br/>
+
+<br/>
+<br/>
+<h2>WinLogon</h2>
+WinLogon a way to hook into the logon events within windows.  However, this interface has been deprecated in favor of the SENS notifications.<br/>
+(Note: WinLogon doesn't exist in Vista)<br/>
+<a href="http://technet2.microsoft.com/WindowsVista/en/library/6ec4ec6d-6b84-44c9-b3af-116589a42b861033.mspx?mfr=true">Winlogon Notification Packages Removed: Impact on Windows Vista Planning and Deployment</a><br/>
+<a href="http://msdn.microsoft.com/en-us/magazine/cc163489.aspx">Custom Login Experiences: Credential Providers in Windows Vista</a><br/>
+<a href="http://www.michaelflanakin.com/Weblog/tabid/142/articleType/ArticleView/articleId/1031/Programmatic-User-Login-aka-Win32-LogonUser.aspx">Programmatic User Login (aka Win32 LogonUser)</a><br/>
+<br/>
+<br/>
+<h2>WMI</h2>
+Windows XP comes with "wmic" which is a windows command line app for working with WMI classes.<br/>
+Windows XP also comes with Windows Management Instrumentation Tester - "wbemtest" which is a windows GUI app for working with WMI.<br/>
+<a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=6430f853-1120-48db-8cc5-f2abdc3ed314&displaylang=en">Download details: WMI Administrative Tools</a><br/>
+<a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=2cc30a64-ea15-4661-8da4-55bbc145c30e&displaylang=en">Download details: WMI Code Creator v1.0</a><br/>
+<a href="http://www.ondotnet.com/pub/a/dotnet/2003/04/07/wmi.html">A Quick Introduction to WMI from .NET | O'Reilly Media</a><br/>
+<a href="http://www.microsoft.com/technet/technetmag/issues/2006/09/WMIData/?related=/technet/technetmag/issues/2006/09/WMIData">System Management: Gathering WMI Data without Writing a Single Line of Code -- TechNet Magazine, September 2006</a><br/>
+<a href="http://www.microsoft.com/technet/technetmag/issues/2006/09/WMIEvents/">System Management: Unlocking the Mystery of WMI Events in MOM -- TechNet Magazine, September 2006</a><br/>
+<a href="http://msdn.microsoft.com/msdnmag/issues/02/08/SENS/">SENS: System Event Notification Services and WMI Enable Flexible, Efficient Mobile Network Computing -- MSDN Magazine, August 2002</a><br/>
+<a href="http://msdn.microsoft.com/msdnmag/issues/02/05/WMIMan/default.aspx">WMI and .NET: System.Management Lets You Take Advantage of WMI APIs within Managed Code -- MSDN Magazine, May 2002</a><br/>
+<a href="http://msdn2.microsoft.com/en-us/magazine/cc302051.aspx">WMI and .NET: System.Management Lets You Take Advantage of WMI APIs within Managed Code</a><br/>
+<a href="http://gsexdev.blogspot.com/2005/03/c-wmi-exchange-samples.html">Glen's Exchange Dev Blog: C# WMI Exchange samples</a><br/>
+<a href="http://msdn.microsoft.com/msdnmag/issues/02/05/WMIMan/default.aspx">WMI and .NET: System.Management Lets You Take Advantage of WMI APIs within Managed Code -- MSDN Magazine, May 2002</a><br/>
+<a href="http://msdn.microsoft.com/en-us/library/ms257360(VS.80).aspx">How To: Receive Management Events Without Waiting</a> (async using EventArrivedEventHandler delegate)<br/>
+<a href="http://www.codeproject.com/KB/system/WMI_RegistryMonitor.aspx">CodeProject: Asynchronous Registry Notification Using Strongly-typed WMI Classes in .NET.</a><br/>
+<a href="http://msdn.microsoft.com/en-us/magazine/cc301317.aspx">Windows Management Instrumentation: Create WMI Providers to Notify Applications of System Events</a><br/>
+<a href="http://msdn.microsoft.com/msdnmag/issues/0500/wmiprov/default.aspx">Say Goodbye to Quirky APIs: Building a WMI Provider to Expose Your Object Info -- MSDN Magazine, May 2000</a><br/>
+<a href="http://msdn2.microsoft.com/en-us/library/cc268228.aspx">Writing coupled WMI providers using WMI.NET Provider Extension 2.0</a><br/>
+<a href="http://codeidol.com/active-directory/actdir3/Scripting-with-WMI/Querying-the-Event-Logs/">CodeIdol - Thinking about Active Directory, 3rd Edition - Scripting With WMI - Querying The Event Logs</a><br/>
+<br/>
+<h2>WMI WQL</h2>
+<a href="http://www.codenewsgroups.net/group/microsoft.public.vb.general.discussion/topic906.aspx">WMI Select statement</a> - with date in query.<br/>
+<a href="http://msdn.microsoft.com/en-us/library/aa394606(VS.85).aspx">WQL (SQL for WMI) (Windows)</a><br/>
+<a href="http://www.aspfree.com/c/a/Windows-Scripting/Introduction-to-WQL-SQL-for-WMI/">Introduction to WQL: SQL for WMI</a> - talks about data, event, and schema querys.<br/>
+SELECT * FROM meta_class WHERE __this ISA "Win32_BaseService", is an example of a schema query...very cool, gives you back all the information about the given class.<br/>
+
+<br/>
+<a href="http://www.microsoft.com/technet/scriptcenter/resources/qanda/aug08/hey0821.mspx">Hey Scripting Guy! How Do I Calculate Server Uptime?</a><br/>
+<a href="http://msdn.microsoft.com/en-us/library/system.management.managementdatetimeconverter.todatetime.aspx">ManagementDateTimeConverter.ToDateTime Method (System.Management)</a> - this is a nice little .net class to convert dates from wmi.<br/>
+<br/>
+<a href="http://www.djkaty.com/wmicorruption">Tutorial: How To Fix WMI Corruption | Katy's Homepage</a> - nice read, for some reason, I've seen a lot of evt log corruption.<br/>
+<br/>
+<h2>SENS</h2>
+<a href="http://support.microsoft.com/kb/321381#appliesto">SAMPLE: Using ISensNetwork (SensNetDemo.exe)</a><br/>
+<a href="http://msdn2.microsoft.com/en-us/library/Aa376860.aspx">ISensLogon Interface (Windows)</a><br/>
+<a href="http://soa.sys-con.com/read/105651_1.htm">Catching SENS Events in .NET @ SOA WORLD MAGAZINE</a><br/>
+<a href="http://msdn.microsoft.com/en-us/library/aa480679.aspx">Accessing System Power and Network Status Using SENS</a><br/>
+<a href="http://www.codeproject.com/KB/COM/SystemTrayIconInSvc.aspx">CodeProject: Create a system tray icon and a dialog in the windows service.</a> - implements ISensLogon2 interface...<br/>
+<br/>
+<br/>
+<a href="http://www.codeproject.com/system/logonsessions.asp">Enumerating Logon Sessions - The Code Project - System</a><br/>
+
+<a href="http://www.codeproject.com/cs/system/C__PC_Audit.asp">A PC Audit Application in C# - The Code Project - System Programming</a><br/>
+<br/>
+<br/>
+<a href="http://msdn2.microsoft.com/en-us/library/ms974579.aspx">WMI Scripting Primer: Part 1</a><br/>
+<a href="http://msdn2.microsoft.com/en-us/library/ms974615.aspx">How's My Driving? Monitoring Performance Using WMI</a><br/>
+<a href="http://msdn2.microsoft.com/en-us/library/ms974554.aspx">WMI Helps Those Who Help Themselves</a><br/>
+<br/>
+<a href="http://pubs.logicalexpressions.com/pub0009/LPMArticle.asp?ID=70">Different Ways to Lock Windows XP</a><br/>
+<a href="http://www.thescripts.com/forum/thread445133.html">Handle the Windows Lock Desktop event/message? - .NET C#</a><br/>
+<a href="http://www.codeproject.com/cs/system/LSAEnumUserSessions.asp">Using the Local Security Authority to Enumerate User Sessions in .NET - The Code Project - System Programming</a><br/>
+<a href="http://blogs.insight4.com/lsa_enumerate_logon_sessions">Using the Local Security Authority to Enumerate Logon Sessions in .NET | Insight4 Blogs</a><br/>
+<a href="http://www.codeproject.com/system/logonsessions.asp">Enumerating Logon Sessions - The Code Project - System</a><br/>
+<a href="http://msdn2.microsoft.com/en-us/library/microsoft.win32.systemevents.sessionending.aspx">SystemEvents.SessionEnding Event (Microsoft.Win32)</a> - this event happens when user logs off or shutsdown, cancelable.<br/>
+<br/>
+<br/>
+<h2>UI Automation</h2>
+<a href="http://msdn.microsoft.com/en-us/magazine/cc163288.aspx">Test Run: The Microsoft UI Automation Library</a><br/>
+<a href="http://www.codeplex.com/AccCheck/Wiki/View.aspx?title=Home&version=4">UI Accessibility Checker - Home</a><br/>
+<a href="http://windowsclient.net/wpf/white-papers/wpf-app-quality-guide.aspx#manual">WPF Application Quality Guide - WindowsClient.net</a> - this actually provides quite a bit of information in terms of accessibility.<br/>
+<a href="http://msdn.microsoft.com/en-us/magazine/cc163288.aspx">Test Run: The Microsoft UI Automation Library</a><br/>
+<a href="http://msdn.microsoft.com/en-us/magazine/cc163288.aspx">Test Run: The Microsoft UI Automation Library</a><br/>
+<a href="http://www.geocities.com/krishnapg/EventTracking.html">Windows Event Tracking with Microsoft Active Accessibility</a><br/>
+<a href="http://www.devx.com/dotnet/Article/21755/1954">How to Build Accessible Windows Forms Applications with .NET</a><br/>
+<a href="http://weblogs.asp.net/spano/archive/2007/09/07/wpf-accessibility.aspx">WPF Accessibility - Soledad Pano's Blog</a><br/>
+<a href="http://blogs.msdn.com/b/oldnewthing/archive/2013/03/25/10404940.aspx">Using accessibility to monitoring windows as they come and go - The Old New Thing - Site Home - MSDN Blogs</a> - SetWinEventHook<br/>
+<br/>
+<br/>
+<h2>Microsoft Active Accessibility (MSAA)</h2>
+<a href="http://www.codeproject.com/KB/cpp/msaa_intro.aspx">CodeProject: Introduction to Microsoft Active Accessibility.</a><br/>
+<a href="http://blogs.msdn.com/oldnewthing/archive/2004/04/23/118893.aspx">The Old New Thing : How to retrieve text under the cursor (mouse pointer)</a><br/>
+<a href="http://blogs.msdn.com/saraford/default.aspx">Sara Ford's WebLog</a> - active in accessibility.<br/>
+<a href="http://www.geocities.com/krishnapg/EventTracking.html">Windows Event Tracking with Microsoft Active Accessibility</a><br/>
+Accessible Event Watcher (AccEvent) is in the <a href="http://blogs.msdn.com/b/windowssdk/">Windows SDK</a>.<br/>
+<a href="http://accessibility.linuxfoundation.org/a11yweb/util/accprobe/">AccProbe: Accessibility Probe</a> - The Accessibility Probe (AccProbe) is
+a standalone, Eclipse Rich-Client Product (<acronym title="Rich-Client Product (RCP)">RCP</acronym>) application that provides a view of the <a href="http://msdn2.microsoft.com/en-us/library/ms697707.aspx">Microsoft Active Accessibility (MSAA)</a> or <a href="http://a11y.org/ia2">IAccessible2</a> hierarchy of a currently running application or rendered
+document and of the properties of the accessible objects of that
+application or document. It can also serve as an event monitor for
+tracking the events fired by these accessible objects. It is meant to
+combine the functionality of tools like Microsoft's Inspect32, AccExplore,
+and AccEvent into one easy-to-use application for accessibility testing
+and debugging. AccProbe is an Eclipse RCP application.<br/>
+<a href="http://blog.paciellogroup.com/2013/03/aviewer-2013/">aViewer 2013 | The Paciello Group BlogThe Paciello Group Blog</a> - aViewer accessibility API information inspection tool. Exposes MSAA, iAccessible2, ARIA, HTML DOM and UI Automation properties.<br/>
+<br/>
+<br/>
+<h2>Accessibility tools and info</h2>
+<a href="https://developer.apple.com/library/mac/documentation/Accessibility/Conceptual/AccessibilityMacOSX/OSXAXTesting/OSXAXTestingApps.html">Accessibility Overview for OS X: Testing for Accessibility on OS X</a> - Xcode > Open Developer Tool > Accessibility Inspector<br/>
+<a href="http://dev.chromium.org/developers/design-documents/accessibility#TOC-How-Chrome-detects-the-presence-of-Assistive-Technology">Accessibility Technical Documentation - The Chromium Projects</a> - did you know assistive tech is off by default, unless you've got a screen reader... or use <a href="chrome://accessibility/">chrome://accessibility/</a>.<br/>
+<br/>
+<br/>
+<a href="http://msdn.microsoft.com/en-us/library/ms697388(VS.85).aspx">Network Awareness on Windows Vista</a><br/>
+<br/>
+<h2>Firewall/Packet filtering</h2>
+<a href="http://msdn.microsoft.com/en-us/library/aa366509(VS.85).aspx"><img border="0" alt="WFP architecture" src="http://i.msdn.microsoft.com/Aa366509.WFP_architecture(en-us,VS.85).png"/></a><br/>
+<a href="http://www.codeproject.com/KB/IP/packetfilteringnet.aspx">CodeProject: Packet Filtering in .NET.</a> - .NET class library for using pf* api.<br/>
+<a href="https://secure.codeproject.com/KB/IP/drvfltip.aspx">CodeProject: Developing Firewalls for Windows 2000/XP.</a> - Kernel Mode Filter-Hook driver in C++ with GUI.<br/>
+<a href="http://blogs.msdn.com/onoj/archive/2007/05/09/windows-vista-security-series-programming-the-windows-vista-firewall.aspx">Visual Studio : Windows Vista Security Series: Programming the Windows Vista Firewall</a> - FirewallSample.exe shows how to programmatically add and remove firewall rules.<br/>
+<a href="http://msdn.microsoft.com/en-us/library/aa366510.aspx">Windows Filtering Platform (Windows)</a> - in it, it states "The firewall hook and the filter hook drivers are not available in Windows Server 2008 and Windows Vista; applications that were using these drivers should use WFP instead."<br/>
+<a href="http://blogs.msdn.com/onoj/archive/2007/05/09/windows-filtering-platform-sample.aspx">Visual Studio : Windows Filtering Platform Sample</a> - WFP sample a context allows information to be passed from a user mode component, which installs and configures a packet filter, to a kernel mode component that performs the actual filtering. The context information is simple in this case; it specifies a word replacement to be performed on the TCP stream.<br/>
+<br/>
+<br/>
+<h2>Fast user switching</h2>
+<a href="http://support.microsoft.com/kb/310153">How to write an application that supports fast user switching in Windows XP</a><br/>
+<a href="http://www.csharp-dev.com/capture-session-locking-unlocking/">Capture session locking/unlocking | Csharp - Development</a> - uses WTSRegisterSessionNotification from .NET.<br/>
+<br/>
+<br/>
+<h2>Process / System monitoring in .NET</h2>
+<a href="http://yaprocmon.sourceforge.net/index.html">Yet Another Process Monitor (YAPM)</a> - application that allows to view and manage your running tasks, processes, threads, modules...etc. and your services on a local or on a remote machine. YAPM offers lots of features to manipulate them, such as privilege management, memory management, a complete history of statistics, a dependency viewer... etc. (Written in vb.net)<br/>
+<br/>
+<br/>
+<h2>GINA and Custom Login Credential Providers</h2>
+<a href="http://msdn.microsoft.com/msdnmag/issues/05/05/SecurityBriefs/">Security Briefs: Customizing GINA, Part 1 -- MSDN Magazine, May 2005</a><br/>
+<a href="http://msdn.microsoft.com/en-us/magazine/cc163489.aspx">Custom Login Experiences: Credential Providers in Windows Vista</a> - includes why GINA-based authentication was dropped<br/>
+<a href="http://blogs.msdn.com/b/securitytools/archive/2009/07/30/how-to-build-custom-logon-ui-s-in-windows-vista.aspx">How to Build Custom Logon UI’s in Windows Vista - Security Tools - Site Home - MSDN Blogs</a><br/>
+Sample credential providers are provided as part of the Windows SDK for Windows 7. See the projects and documentation under .\Samples\security\credentialproviders\ of the installed Windows SDK. (Thanks Alan Adams!)<br/>
+<a href="http://msdn.microsoft.com/en-us/windows/bb980924.aspx">Windows SDK: Download the Windows SDK for Windows 7 and More | MSDN</a><br/>
+<br/>
+<br/>
+<h2>EIF</h2>
+<a href="http://www.microsoft.com/download/en/details.aspx?displaylang=en&amp;id=3102">Download: Microsoft Enterprise Instrumentation Framework - Microsoft Download Center - Download Details</a><br/>
+<br/>
+<br/>
+<h2>Exception handling</h2>
+<a href="http://msdn.microsoft.com/en-us/magazine/dd419661.aspx">HANDLING CORRUPTED STATE EXCEPTIONS</a><br/>
+<a href="http://dotnetslackers.com/articles/net/All-about-Corrupted-State-Exceptions-in-NET4.aspx">All about Corrupted State Exceptions in .NET4</a><br/>
+    <div style="border: 1px;">
+    Created: 2007-10-20 12:22:38
+    Modified: 2013-09-03 12:01:48
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+$$\cos x = \sum\limits_{n = 0}^\infty {\frac{{\left( { - 1} \right)^n x^{2n} }}{{\left( {2n} \right)!}}}$$
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,387 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>Annoyances in the MS platform</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/windows/">windows</a>
+    <h1>Annoyances in the MS platform</h1>
+   being a developer, and having all of the things installed I have installed - <strong>what can go wrong, will go wrong</strong>.<br/>
+Windows has it's own unique set of issues.<br/>
+Here are some that urk me.<br/>
+<br/>
+<br/>
+<h2>"The filename, directory name, or volume label syntax is incorrect."</h2>
+This is a strange issue; whenever opening cmd.exe or calling additional batch files, you see "The filename, directory name, or volume label syntax is incorrect." within the output.<br/>
+First things first, regedit your "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Command Processor" and checkout the "AutoRun".  For me, it ended up being a bad path left over from clink, which had apparently been uninstalled, but this registry entry was remaining.  This can be a minor annoyance...  But also a terrible issue for testing/building software, when using strawberry perl I found that dmake would return NOT OK.  Replacing the invalid path with an empty string took dmake from NOT OK to dmake OK.  I might also mention that there is a "HKEY_LOCAL_MACHINE\Software\Wow6432Node\Microsoft\Command Processor" for x64 machines.  You might try <a href="http://technet.microsoft.com/en-us/sysinternals/bb963902.aspx">AutoRuns</a>.<br/>
+<br/>
+<br/>
+<h2>windows 8.1 upgrade options - keep personal files only or NOTHING</h2>
+If you ask me; it is ridiculous.  If you upgrade from windows 7 to windows 8.1 you will only be given the options of nothing or just your personal files.  If you prefer to keep all your applications; you'll want to upgrade to windows 8.0, which gives you a proper upgrade path.  Why did microsoft remove this functionality from the 8.1 release?  When you install with windows 8, you will find "Keep Windows settings, personal files, and apps".  Pretty standard stuff that you need to upgrade sequentially - for profits sake.<br/>
+<a href="http://www.winbeta.org/news/detailed-look-how-microsoft-different-technology-company-compared-rivals">A detailed look: How is Microsoft a different technology company compared to rivals?</a> - "MICROSOFT WILL SUPPORT YOU REGARDLESS OF YOUR DEVICE." on the latest release, sequentially, still requiring patches, and more importantly windows still needs to reboot for patching.<br/>
+<br/> 
+<h2>disable "Windows is checking for a solution"...</h2>
+disable this functionality so that the program just crashes!<br/>
+Click on start, type: Choose how to report problems, change it to Never check for solutions<br/>
+Control Panel | Action Center | Maintenance | Check for solutions to problem reports | Settings<br/>
+<a href="http://social.technet.microsoft.com/Forums/windows/en-US/41a7f6c1-fb1b-4c42-9952-d0531fd5e1d2/disable-windows-is-checking-for-a-solution?forum=itprovistadesktopui">Disable "Windows is checking for a solution..."</a><br/>
+<br/>
+<br/>
+<h2>Move a window when its title bar is off the screen</h2>
+This one is pretty frustrating, because with multi-monitor and mobile devices, it is obvious that such off screen situations might occur for the user.  Users have to know how to access the system menu (using the mouse or keyboard).<br/>
+1. Hold down Alt + Spacebar<br/>
+2. Press the M key<br/>
+3. Use the arrow keys to relocate the window<br/>
+4. Press the Enter key when you have the Window in the desired location.<br/>
+<br/>
+You will also find that when you do the Alt-Spacebar, M. You can't simply move your mouse to find your window.  If you move your mouse you'll find they won't register with your window.  Until you press an arrow key once (doesn't matter the direction), and then the window moves... It should work after hitting M.  It shouldn't be so easy to lose windows in invalid monitor locations.<br/> 
+<br/>
+<br/>
+<h2>XP stop asking me to restart</h2>
+XP windows update is great, but when it needs to reboot, you are given a dialog with two options: restart now or restart later.  Every ten minutes like clockwork.<br/>
+Tell XP to leave you alone<br/>
+<pre>
+The service will restart with the reboot.<br/>
+<br/>
+<h2>Vista/7/8 doesn't include elevate from cmdline</h2>
+If you are going to implement UAC.  Lets include su please for command line apps!  They do have the elevate power tools,but that should be in the base OS.
+On Vista, releasing/renewing an IP using ipconfig requires elevated privs.<br/>
+<a href="http://www.windowsdevcenter.com/pub/a/oreilly/windows/news/win2kcommands_0401.html#runas">WindowsDevCenter.com</a> - ok so runas is now included.<br/>
+and, you can always create an administrative cmd.exe by right clicking on the run as link and clicking "Run as Administrator"<br/>
+and and, Ctrl-Shift-Enter allows you to run things as admin both from the run dialog (Win-R) and from the start menu.<br/>
+<br/>
+<br/> 
+
+<h2>Printers</h2> - When printing in windows, sometimes the job gets stuck in the spooler.  Don't ask me why but when you try and delete the job from the printer dialog it says its deleting but it never goes away.  Turn of the print spooler in the services, and delete the job from the C:\windows\system32\spool\PRINTERS\.<br/>
+<br/>
+<h2>Windows Installer Problems</h2>
+I don't know why, but there are problems with the windows install/uninstall utilities.  Many times, I uninstall something and it still shows up.<br/>
+<a href="http://support.microsoft.com/?scid=kb;en-us;290301" target="_blank">Windows Installer CleanUp Utility</a><br/>
+<br/>
+<h2>Change your XP window key</h2>
+Microsoft has a <a href="http://support.microsoft.com/default.aspx?scid=kb;en-us;Q328874">KB</a> on how to change your product key.  They don't make it easy... but they do provide two vb scripts to get the job done.  It is amazing to me that this process is so hard, why doesn't Microsoft allow the user to view, backup, and edit the XP key?<br/>
+<br/>
+Anyways, there is a program to come to the rescue.<br/>
+<a href="http://www.magicaljellybean.com/keyfinder.shtml">Magical Jelly Bean Keyfinder v1.51</a><br/>
+<br/>
+<h2>Environment variables</h2>
+<a href="http://support.microsoft.com/kb/q104011/">How to propagate environment variables to the system</a><br/>
+<a href="http://vlaurie.com/computers2/Articles/environment.htm">Environment Variables in Windows XP</a><br/>
+<br/>
+<br/>
+<h2>Shutdown and restart</h2>
+Sometimes, it is hard to restart...the option disappears.  Had this problem on XP and Vista.<br/>
+<a href="http://www.aumha.org/win5/a/shutcut.php">Shutdown & Restart Shortcuts</a><br/>
+<br/>
+<br/>
+<h2>Removing removable harddrive from windows</h2>
+I find this the most annoying thing in windows.  I <strong>HATE</strong> that the OS doesn't provide a way to find open handles when removing devices.  Instead, we have to close all the apps we think might have the files open on the drive.  Someday, I'll solve this with my own util.....a link to given below:<br/>
+<a href="http://dave.thehorners.com/tech-talk/programming/339-usb-ejector-make-it-easy-to-disconnect-a-drive">USB ejector - make it easy to disconnect a drive.</a><br/>
+<br/>
+<br/>
+<h2>File Transfer Manager</h2>
+I'm not sure why, but you need File transfer manager(FTM) to download subscriber downloads.  FTM does not work all the time.  First you gotta download and install it.  Then, when downloading, my browser will download the file as an aspx, forcing me to browse to FTM and override the normal association.  Why not use silverlight?  I wish FTM would go away<br/>
+<a href="http://transfers.ds.microsoft.com/ftm/default.aspx?target=install">Microsoft File Transfer Manager</a><br/>
+<br/>
+<br/>
+<h2>Power savings and BSOD</h2> 
+win7 bad suspend,boom. 1.2ms BSOD on boot. you try repairing,you try restoring. BSOD persists. F8 in safe mode,runnable-sorta. windows. #par<br/>
+The error it says, if I hit F8 and disable automatic restart:<br/>
+<pre>
+STOP: C0000145 {Application Error}
+The application was unable to start correctly (0x80000003). Click OK to close the application.
+</pre>
+Really?  Really?  A click OK to close the application BSOD? in windows 7?  Really?<br/>
+<a href="http://www.ehow.com/how_7454612_do-stop-c0000145-application-error_.html">How do I Stop a C0000145 Application Error? | eHow.com</a><br/>
+above suggests, using scf /scannow...
+<a href="http://mikemstech.blogspot.com/2011/11/how-to-troubleshoot-0x9f.html">Mike's Technology and Finance Blog: How To Troubleshoot 0x9F DRIVER_POWER_STATE_FAILURE</a><br/>
+<a href="http://social.technet.microsoft.com/Forums/en-US/Forefrontclientgeneral/thread/8ee4a53e-2ae7-4e91-9ac9-173ee3b12650">Why is MsMpEng.exe using so much CPU?</a><br/>
+<br/>
+<br/>
+<h2>Developer,developer,developer</h2>
+<a href="http://devlicio.us/blogs/rob_eisenberg/archive/2012/04/18/the-manifold-blunders-of-xaml-part-1-version-and-platform-hell.aspx">The Manifold Blunders of Xaml–Part 1: Version and Platform Hell - .NET &amp; Funky Fresh - Devlicio.us - Just the Tasty Bits</a><br/>
+<br/>
+<br/>
+<h2>found.00x folders which require elevated perms to delete</h2>
+Does anyone use these found folders for anything?  Or are they just tell tail signs of some sort of corruption fixed by chkdisk?  Anyways, to remove them, you can't just delete them from explorer.  You've got to startup a admistrative cmd.exe and "rd found.000 /s" yourself.
+<br/>
+<br/>
+<h2>Hyperterminal and com port access</h2>
+vista and 7 don't include hyperterminal.  hyperterminal provides direct access to the serial ports on the computer.  They drop the feature, and provide no free replacement.  Some people have gone to extreme lengths and copied hyperterm from XP to Win7/Vista with success.  Others, jump through hoops and develop it themselves since apparently users have no serial ports anymore...<br/>
+<a href="http://windows.microsoft.com/en-US/windows-vista/What-happened-to-HyperTerminal">What happened to HyperTerminal?</a><br/>
+<br/>
+No one at MS wanted to write a terminal for serial control?  Guess, not.<br/>
+<a href="http://realterm.sourceforge.net/">realterm Terminal Software</a> - written in pascel, open source! works on win7!<br/>
+<br/>
+<br/>
+<h2>control-v (paste shortcut) doesn't work in cmd.exe</h2>
+Thanks for the ^V.<br/>Alt+Space,E,P (yuck)<br/>
+<a href="http://www.howtogeek.com/howto/25590/how-to-enable-ctrlv-for-pasting-in-the-windows-command-prompt/">How to Enable Ctrl+V for Pasting in the Windows Command Prompt - How-To Geek</a> using autohoykey for catching the paste...<br/>
+<pre>
+#IfWinActive ahk_class ConsoleWindowClass
+^V::
+SendInput {Raw}%clipboard%
+return
+#IfWinActive
+</pre>
+<br/>
+<br/>
+<h2>Windows key and other hotkeys not easy to manage</h2>
+it is a little silly that we do not have a nice utility to remap/disable keys in windows.  two new keys on keyboards, just for windows, causing millions everywhere to lose flow and tab out of their current application...  there are multiple kb's, deep technical information...  it's basic stuff.<br/>
+<a href="http://support.microsoft.com/kb/216893">How to disable the keyboard Windows key</a> via regedit.<br/>
+<a href="http://johnhaller.com/useful-stuff/disable-windows-key">Disable Windows Key | JohnHaller.com</a> - Mr. Haller has provided registry files. also <a href="http://johnhaller.com/useful-stuff/disable-caps-lock">Disable Caps Lock (or turn it into something else) | JohnHaller.com</a><br/>
+<a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ee416808(v=vs.85).aspx">Disabling Shortcut Keys in Games (Windows)</a> - using keyboard hook and SystemParametersInfo.<br/>
+<a href="https://wkeydisabler.codeplex.com/">WKey Disabler - Home</a> - system tray, and when you want to use the Windows keys
+again, just close the program.<br/>
+<a href="http://www.thewindowsclub.com/how-to-disable-the-windows-key-in-the-keyboard-to-improve-gaming-experience">Disable Windows key or WinKey in Windows 8 | 7</a> - not a fan of close source shareware, but this provides a gui with the ability to disable more than just the windows key.<br/>
+then there is always autohotkey.<br/>
+<a href="http://www.autohotkey.com/board/topic/25880-disable-the-windows-key/">Disable the windows key - Scripts - AutoHotkey Community</a><br/>
+<a href="http://www.autohotkey.com/board/topic/51631-disable-windows-key-start-menu-but-not-shortcuts/#entry327445">Disable windows key start menu but not shortcuts - Scripts - AutoHotkey Community</a><br/>
+<br/>
+<br/>
+<h2>Windows is not POSIX</h2>
+it should be at the top of the list; but I figure some already know this, and to the the others that don't, they probably don't care.  A lot of problems in development between windows and other os stem from the fact that windows is it's own api.  That api is not a Portable Operating System Interface, it's windows.<br/>
+<a href="http://en.wikipedia.org/wiki/POSIX#POSIX_for_Windows">POSIX - Wikipedia</a> we've been given <a href="http://en.wikipedia.org/wiki/Windows_Services_for_UNIX#Subsystem_for_UNIX-based_Applications_.28SUA.29">Windows Services for UNIX - Wikipedia</a><br/>
+<a href="http://technet.microsoft.com/en-us/library/cc754351.aspx">Subsystem for UNIX-based Applications and POSIX Compliance</a><br/>
+<a href="http://superuser.com/questions/495360/does-windows-8-still-implement-posix">sua - Does Windows 8 still implement POSIX? - Super User</a> -  SUA is still available through Windows Features, though listed as deprecated:<br/>
+<a href="http://stackoverflow.com/questions/4746043/where-does-microsoft-windows-7-posix-implementation-currently-stand">Where does Microsoft Windows' 7 POSIX implementation currently stand? - Stack Overflow</a><br/>
+<a href="http://stackoverflow.com/questions/1780599/i-never-really-understood-what-is-posix">linux - I never really understood: what is POSIX? - Stack Overflow</a><br/>
+<a href="http://dave.thehorners.com/tech-talk/windows-os/254-windows-and-cygwinmingwcolinux-dump-some-gpl-in-your-win32">Windows and Cygwin/MinGW/coLinux - dump some GPL in your WIN32 - Dave Horner's Website</a><br/>
+    <div style="border: 1px;">
+    Created: 2006-01-10 16:35:25
+    Modified: 2014-09-18 04:16:06
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+0, 1, 1, 2, 3, 5, 8, 13, 21, 34,...<br/>
+<b> x<sub>n</sub> = x<sub>n-1</sub> + x<sub>n-2</sub></b><br/>
+<!-- "Fibonacci" was his nickname, which roughly means "Son of Bonacci". -->
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

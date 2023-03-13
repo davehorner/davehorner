@@ -1,0 +1,285 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>Interfacing an LCD to an 8051.</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/programming/">programming</a>
+    <h1>Interfacing an LCD to an 8051.</h1>
+   LCDs are high up on the list of things to interface to because they provide a great way to debug your program and to display results to the outside world.&nbsp; Interfacing an LCD to a microcontroller can be a bit confusing if you haven't done it before.&nbsp; However, with a little work and determination you'll have your microcontroller yelling &quot;Hello World&quot; in no time.<br/>
+<br/>
+For this paper, I'll be interfacing directly to a HD44780 LCD controller.&nbsp; These LCDs are the most popular and easiest to procure.&nbsp; In fact, most text based LCDs are based on this chip.&nbsp; The HD44780 takes care of all the low level details when it comes to driving the LCD, you simply speak to the HD44780 and it takes care of the rest.&nbsp; There are many manufacterers but the main players are Hitachi, Sharp, and Optrex.&nbsp; If you are looking for a source for these LCDs goto ebay and search for <a target="_blank" href="http://search.ebay.com/search/search.dll?sofocus=bs&amp;sbrftog=1&amp;from=R10&amp;fstype=1&amp;catref=C6&amp;satitle=hd44780+lcd&amp;sacat=-1%26catref%3DC6&amp;bs=Search&amp;fsop=1%26fsoo%3D1&amp;coaction=compare&amp;copagenum=1&amp;coentrypage=search&amp;sargn=-1%26saslc%3D2&amp;sadis=200&amp;fpos=46825&amp;ftrt=1&amp;ftrv=1&amp;saprclo=&amp;saprchi=">&quot;hd44780 lcd&quot;</a> or look in any electronic component supplier's catalogs.<br/>
+<br/>
+Specifically, I'll be using a Sharp LM40X21A LCD.&nbsp; This is a <a href="http://en.wikipedia.org/wiki/Hitachi_HD44780_LCD_controller">Hitachi HD44780 (wikipedia)</a> based LCD with 2x20 characters (meaning two lines with twenty characters in each).&nbsp; First thing you'll want to do when you get your LCD board is look up the pin outs so that you understand where each of the singaling pins reside.&nbsp; I've saved a copy of the LM40X21A datasheets here.<br/>
+<br/>
+LCDs are typically very slow when compared to modern day microcontrollers so you'll need to make sure that you have your timing right.&nbsp; Otherwise, nothing will work. (again, if you have trouble, think timing)<br/>
+<br/>
+The HD44780A supports both an 8 bit and 4 bit interface.&nbsp; The 4 bit mode is essentially the same as the 8 bit mode but data transfers between the mcu and LCD controller are done in two cycles, a nibble (4 bits ) at a time.&nbsp; In the 4 bit mode data is transferred using lines BD7-DB4 lines DB3-DB0 are not used. The high order bit contents are transferred first (DB7-DB4) and then the low order (BD3-DB0).&nbsp; The 4-bit mode is useful when you are &quot;low&quot; on I/O lines, but I'm not &quot;low&quot; on I/O lines so I'll be controlling the LCD in the 8 bit mode.<br/>
+<br/>
+
+<a href="http://www.keil.com/appnotes/docs/apnt_161.asp">Application Note 161: Interface and Simulation of an LCD Text Display</a> - Keil app note<br/>
+<a href="http://mcu-programming.blogspot.com/2006/09/lcd-interfacing.html">Embedded Microcontroller Programming: LCD interfacing</a> - SDCC<br/>
+<a target="_blank" href="http://www.stelioscellar.com/AVR/SerialLCD/serial_lcd_interface_using_avr.htm">Serial LCD Interface</a>&nbsp; - some information<br/>
+<a target="_blank" href="http://www.latke.net/lcd/">Yet another 8051 to LCD program</a> - C code for the Keil compiler<br/>
+<a href="http://members.iinet.net.au/~vanluynm/">8051 LCD Keil</a><br/>
+<a target="_blank" href="http://www.pjrc.com/tech/8051/board5/lcd_example.html">SDCC LCD Project</a><br/>
+<a href="http://www.lennard.net.nz/electronics/lcd8051.html">Driving an HD44780 based display</a> - Silicon Labs C8051F005 includes custom characters - 3 frame pacman and smile face.<br/>
+<a href="http://www.pjrc.com/tech/8051/board5/lcd_example.html">8051 Development System Circuit Board</a><br/>
+<a href="http://joshuagalloway.com/lcd.html">HD44780 Controlled LCD</a> - joshuagalloway's page on hd44780<br/>
+<a href="http://blog.thelifeofkenneth.com/2008/07/hd44780-command-codes.html">The Life of Kenneth: HD44780 Command Codes</a><br/>
+<a href="http://blog.thelifeofkenneth.com/2008/06/no-name-lcd.html">The Life of Kenneth: No Name LCD</a> - just so happens to be the no name lcd I'm working with!  U can find these very cheap on ebay.<br/>
+<a href="http://blog.thelifeofkenneth.com/2009/09/conways-game-of-life-on-arduino.html">The Life of Kenneth: Conway's Game of Life on an Arduino</a><br/>
+<a href="http://www.electronics-lab.com/projects/mcu/015/index.html">3-Wire Serial LCD using a Shift Register</a><br/>
+
+<br/>
+<br/>
+<a href="http://www.circuitvalley.com/2011/12/16x2-char-lcd-with-ti-msp430-launch-pad.html">Microcontroller Projects: 16x2 Char LCD with TI MSP430 Launch Pad</a><br/>
+<a href="http://www.circuitvalley.com/2012/02/lcd-custom-character-hd44780-16x2.html">Microcontroller Projects: Custom Character Generations on 16x2 char lcd</a><br/>
+<a href="http://www.circuitvalley.com/2011/09/hd44780-16x2-char-lcd-interfacing-with.html">Microcontroller Projects: HD44780 16x2 Char LCD Interfacing with microcontroller</a><br/>
+<br/>
+<br/>
+<h2>Nokia 5110 LCD</h2>
+PCD8544 controller - 48 ´ 84 pixels monochrome matrix LCD 2.7 to 3.3 V<br/>
+contrast is digitally controlled and 4 white LEDs behind the LCD provide a backlight.<br/>
+<a href="http://hades.mech.northwestern.edu/index.php/NU32v2:_Nokia_5110_LCD">NU32v2: Nokia 5110 LCD - Northwestern Mechatronics Wiki</a><br/>
+<a href="http://forum.43oh.com/topic/1312-nokia-5110-display/">Nokia 5110 display - Projects - 43oh</a> - RobG's LCD library.<br/>
+<a href="https://sites.google.com/a/simpleavr.com/simpleavr/msp430-projects/bad-apple">bad apple - simpleavr</a><br/>
+<a href="http://forum.stellarisiti.com/topic/330-lcd-5110-lm4f120-sample-sketch-stellarpad-energia-branch/?hl=5110">LCD_5110_LM4F120 sample "Sketch" (Stellarpad Energia branch) - Energia - Stellaris Arm Community Forums</a><br/>
+<a href="http://learn.adafruit.com/downloads/pdf/nokia-5110-3310-monochrome-lcd.pdf">adafruit learning nokia 5110/3310 Tutorial PDF</a><br/>
+    <div style="border: 1px;">
+    Created: 2006-01-03 05:24:44
+    Modified: 2013-05-16 22:37:29
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+left side represents the beginning of mathematics; the right side represents the mysteries of infinity.<br/>
+1=0.999...
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

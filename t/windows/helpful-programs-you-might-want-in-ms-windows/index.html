@@ -1,0 +1,401 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>Helpful programs you might want in MS Windows.</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/windows/">windows</a>
+    <h1>Helpful programs you might want in MS Windows.</h1>
+   <a href="https://dave.thehorners.com/tech-talk/random-tech/464-ahk-autohotkey">ahk autohotkey - Dave Horner's Website</a> - if you haven't used Autohotkey, you should.<br/>
+<a href="http://chocolatey.org/">Chocolatey Gallery</a> - Chocolatey NuGet is a Machine Package Manager, somewhat like apt-get, but built with Windows in mind. <a href="https://github.com/chocolatey/chocolatey">chocolatey/chocolatey</a> create yourself a custom feed and automate your installs. <a href="http://melcher.it/2012/11/get-all-your-sharepoint-tools-installed-in-20-minutes/">Get ALL your #SharePoint tools installed in 20 minutes - Melcher.it</a><br/>
+<br/>
+<br/>
+<h2>Registry and Shell Extensions</h2>
+Import this registry file into your registry.  When you right click on .ocx and .dll files you will get a context menu for registering and unregistering the ocx/dll. Also shows OLEView and stuff for tlb,olb,etc.  Very handy. [<a href="http://dave.thehorners.com/personal/windows/regsvr.reg">Reg File</a>]<br/>
+<br/>
+Here is a registry file to remove the recent documents feature of WinXP.  Recent documents is a "feature" that I never use. [<a target="_blank" href="/personal/windows/NoRecent.reg">Reg File</a>]  Right click save as and import into your registry by double clicking.<br/>
+<br/>
+<h2>Copy path of a file to the clipboard from a context menu in explorer.</h2>
+I can't say how powerful this program is.  Paths are a pain in the butt.  This makes it so I can copy a normal path or even C quote a path for inclusion in code.  I believe it has saved me more time than I would like to know. (In Vista,Win7,etc hold down the shift key when right clicking into the context menu, you'll find "Copy as Path".  Maybe not as useful as the below extension, but it will save you time.)<br/>
+Copy the full path of a file to the clipboard from a context menu in explorer.  [<a href="http://www.codeproject.com/shell/copypathext.asp">Link</a>] [<a href="http://dave.thehorners.com/personal/windows/CopyPathExt.zip">Local Cache</a>] [<a href="http://dave.thehorners.com/personal/windows/CopyPathExt.dll">XP DLL</a>]<br/>
+Run exe files from content menu in explorer with command line params. [<a href="http://www.codeproject.com/shell/cmdlineext.asp">Link</a>] [<a href="http://dave.thehorners.com/personal/windows/CmdLineExt.zip">Local Cache</a>] [<a href="http://dave.thehorners.com/personal/windows/CmdLineExt.dll">XP DLL</a>]<br/>
+When you download files off the web, many times they provide MD5/SHA checksums. Get [<a target="_blank" href="http://www.beeblebrox.org/hashtab/index.php">Hashtab</a>].<br/>
+<br/>
+<h2>Helpful programs</h2>
+Restore deleted files on FAT and NTFS filesystems - <a href="http://dave.thehorners.com/personal/windows/Restoration.zip">Restoration</a><br/>
+FTP client and server with SCP support! - <a href="http://sourceforge.net/projects/filezilla">FileZilla</a><br/>
+A good program for keeping your passwords. <a href="http://keepass.sourceforge.net/">KeePass</a> (Even port to <a href="http://keepass.net/index.php?news">PocketPC</a>)<br/>
+Another FTP/SCP client but I use it mostly for SCP and SFTP. <a href="http://winscp.net/eng/index.php">WinSCP</a><br/>
+<a href="http://www.elby.ch/fun/software/index.html">Virtual CloneDrive</a> - mount ISOs in windows(vista too)...free<br/>
+<a href="http://www.magiciso.com/tutorials/miso-magicdisc-overview.htm">Freeware MagicISO Virtual CD/DVD-ROM(MagicDisc)</a> - usually I use the CloneDrive, but it doesn't have  x64 win2003 support yet.  This works too, and freeware.<br/>
+<a href="http://www.daemon-tools.cc/dtcc/announcements.php">daemontools</a> - another ISO mounter with 64 bit support. (free)<br/>
+<a href="http://www.imgburn.com/">The Official ImgBurn Website</a> - ImgBurn is a lightweight CD / DVD / HD DVD / Blu-ray burning application for windows.<br/>
+<br/>
+<br/>
+Looking for some a good codec for movies in windows?  Try using the <a href="http://ffdshow.sourceforge.net">ffdshow</a> filters.<br/>
+<br/>
+<br/>
+<h2>Putty</h2>
+<a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/">putty</a> is one of the best SSH clients out there for Windows.  The best part is that it is free.  However, I've always wanted tabbed ssh sessions.  Today I found <a href="http://www.raisin.de/putty-tabs/putty-tabs.html">PuttyTabs</a><br/>
+<a href="http://puttycm.free.fr/cms/">PuTTY Connection Manager</a><br/>
+<br/>
+<a href="http://code.google.com/p/putty-launchy-plugin/">putty-launchy-plugin - Google Code - A plugin for listing saved PuTTY sessions in Launchy</a><br/>
+<strong>Web resources</strong><br/>
+<a href="http://www.aoaforums.com/forum/os-software-firmware-and-bios/18935-winxp-faq.html">WinXP FAQ from aoaforums.</a><br/>
+<br/>
+<br/>
+<h2>Volumouse</h2>
+Volumouse is really cool for controlling the volume on your devices using your mouse.  I 
+use it exclusively for volume control on all my MS machines.  I leave all my speakers on and volume set high...makes it real easy to manage using synergy too.<br/>
+<a href="http://www.nirsoft.net/utils/volumouse.html">Volumouse</a><br/>
+<br/>
+<h2>Sysinternals - some of the best tools in windows...</h2>
+Sysinternals makes some really nice utilities for finding out information about processes in windows.<br/>
+All the tools are available from here... \\live.sysinternals.com\tools\procexp.exe<br/>
+Checkout <a href="http://www.microsoft.com/technet/sysinternals/processesandthreads/processmonitor.mspx">Process Monitor</a> and <a href="http://www.microsoft.com/technet/sysinternals/ProcessesAndThreads/ProcessExplorer.mspx">Process 
+Explorer</a><br/>
+Another great tool from sysinternals is <a href="http://technet.microsoft.com/en-us/sysinternals/bb963902.aspx">AutoRuns</a>, which allows you to see processes that start on boot.  Very handy to find information about startup programs but it also exposes a lot of information about other dlls / hooks that take place within windows.  Use it to get a better idea of what is happening in your machine!<br/>
+<br/>
+Then there's <a href="http://technet.microsoft.com/en-us/sysinternals/dd996900.aspx">ProcDump</a> a great utility to save crash dumps of a program that might hang or spike CPU usage.  The author's blog <a href="http://blogs.technet.com/b/markrussinovich/archive/2010/08/24/3351213.aspx">The Compound Case of the Outlook Hangs - Mark's Blog - Site Home - TechNet Blogs</a> talks about using procdump to catch hard to find issues... nice blog.<br/>
+<br/>
+<h2>Robocopy</h2>
+If you haven't seen it already, windows now has <a href="http://en.wikipedia.org/wiki/Robocopy">Robocopy</a> which provides better copy/move features than normal copies/moves.<br/>
+<a href="http://www.microsoft.com/technet/technetmag/issues/2006/11/UtilitySpotlight/default.aspx">Utility Spotlight: Robocopy GUI -- TechNet Magazine, November 2006</a><br/>
+<br/>
+<a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=9d467a69-57ff-4ae7-96ee-b18c4790cffd&displaylang=en">Download details: Windows Server 2003 Resource Kit Tools</a><br/>
+<br/>
+<br/>
+<a href="http://www.debugmode.com/wink/">Wink - a freeware tutorial recording app.</a><br/>
+<a href="http://www.petri.co.il/how_to_use_the_shadow_copy_client.htm">How to Use the Shadow Copy Client</a><br/>
+<br/>
+<a href="http://www.utorrent.com/index.php">ÂµTorrent - The Lightweight and Efficient BitTorrent Client</a><br/>
+<br/>
+<br/>
+<h2>Synergy: control many PCs with one keyboard and mouse / multi-platform support</h2>
+I would have to say that this is one of the coolest applications I've found in a long time.  This allows you to copy and paste between multiple platforms (ie. windows, mac, linux).  Control one PC till it makes you wait, then move on to the next machine.  I feel much more productive with it.  Give it a try.<br/>
+<a href="http://code.google.com/p/synergy-plus/">synergy-plus - Project Hosting on Google Code</a><br/>
+<a href="http://synergy2.sourceforge.net/">Synergy</a><br/>
+<a href="http://mycroes.blogspot.com/2007/08/synergy-when-you-need-it.html">mycroes all day long: Synergy when you need it</a><br/>
+<br/>
+<h2>Synergy: NOTE: cursor is locked to screen || DEBUG1: locked to screen</h2>
+woah, I did not know about scroll lock in synergy and it was frustrating.  I assume many other people to not know about the nature of scroll lock with synergy.  when scroll lock is on, the mouse is locked to that particular computer; so when you try scrolling into another computer, it will indicate cursor is locked to screen.  <strong>Scroll Lock</strong> to get the cursor moving from machine to machine again.<br/>
+<a href="http://superuser.com/questions/445443/synergy-stopped-moving-cursor-over-to-client-computer-config-worked-previously">windows - Synergy stopped moving cursor over to client computer (config worked previously) - Super User</a><br/>
+<br/>
+<br/>
+<a href="http://www.microsoft.com/windowsxp/using/digitalphotography/prophoto/synctoy.mspx">SyncToy: a free powertoy download for file synchronization</a><br/>
+<a href="http://www.microsoft.com/technet/sysinternals/Miscellaneous/BgInfo.mspx">BgInfo v4.12</a><br/>
+<br/>
+Looking for a free and easy to use MP3/OGG encoder?  <a href="http://www.rarewares.org/mp3-lamedrop.php">LameDropXPd</a> is a single exe that gives you the encoding power of LAME with drag-n-drop support... (includes source!)<br/>
+<br/>
+<br/>
+In windows, your start menu can get a bit large.  This makes launching programs a chore.  You end up searching visually for your application for a long time.  Using a windows launcher like <a href="http://www.launchy.net/">Launchy: The Open Source Keystroke Launcher for Windows</a>... you can keep your hands on the keyboard at all times.  Or at least you should be, sometimes programs don't have good tab field order.  This means you end up entering fields in the incorrect order.  (30 steps instead of 1)<br/>
+<br/>
+<br/>
+
+wingrep, or grep for windows with replacement!<br/>
+<a href="http://tools.tortoisesvn.net/grepWin">grepWin | Stefan's Tools</a> - Regular expression search and replace for Windows (ContextMenu!)<br/>
+<br/>
+<br/>
+<a href="http://vdm.codeplex.com/">Vista/XP Virtual Desktop Manager - Home</a> - expose for windows, without hot-corners, though it is opensource on codeplex.<br/>
+<br/>
+<h2>screenclip or animated gif cast</h2>
+<a href="http://cropper.codeplex.com/">Cropper - Home</a> - open source windows screen cap!<br/>
+<a href="http://cropperplugins.codeplex.com/Release/ProjectReleases.aspx?ReleaseId=4429">Cropper Plugins - Release: 1.1 Release</a> - includes a lot of really great plugins, my fav. is the animated gif plugin with neural network change detection to reduce redundant frames...<br/>
+<a href="http://gyazo.com/en">Welcome to Gyazo | Seriously Instant Screen-Grabbing</a><br/>
+<a href="http://github.com/gyazo/">gyazo's Profile - GitHub</a> - gyazo clients are open.<br/>
+<br/>
+<br/>
+<h2>Benchmarking tools</h2>
+<a href="http://crystalmark.info/software/CrystalDiskMark/index-e.html">Crystal Dew World - Software - CrystalDiskMark</a> - CrystalDiskMark is a disk benchmark software.<br/>
+<a href="http://www.wprime.net/">Measure Computer Performance | wPrime Multithreaded Benchmark</a><br/>
+<a href="http://unigine.com/download/">Download | Unigine (3D engine for games and real-time virtual worlds)</a> -Heaven Benchmark DirectX Benchmark<br/>
+<br/>
+<br/>
+<h2>Disk Defrag</h2>
+<a href="http://www.kevinhatfield.org/?p=440">Five Best Disk Defragmenters for Windows - Kevin Hatfield’s Blog</a><br/>
+<a href="http://www.auslogics.com/en/software/disk-defrag/#overview">Disk Defrag - Fast and Safe Defragmenter for Your Disks</a><br/>
+<a href="http://www.piriform.com/defraggler/download">Defraggler - Download</a><br/>
+<br/>
+<br/>
+<a href="http://deepxw.blogspot.com/2009/04/universal-termsrvdll-patch.html">TCP-Z, Best TCP/IP Patch: Universal Termsrv.dll Patch V1.0b Build 20090425 Release</a> - patch your system to allow for multiple rdp sessions at once.<br/>
+<br/>
+<br/>
+<a href="http://gimp-win.sourceforge.net/index.html">GIMP - Windows installers</a><br/>
+<br/>
+<br/>
+<h2>Turn off displays</h2>
+Yes, MS didn't give us a simple way to turn off the displays...  there are many ways to accomplish it using tools and win32 apis.<br/>
+SendMessage(HWND_BROADCAST, WM_SYSCOMMAND /*0x0112*/, SC_MONITORPOWER /*0xF170*/, 2);<br/>
+It's easier to install a tool, than to drag around a small binary that just broadcasts a message, I now use nircmd.<br/>
+<a href="http://superuser.com/questions/321342/turn-off-display-in-windows-7-without-additional-software">command line - Turn off display in Windows 7 without additional software - Super User</a><br/>
+<a href="http://www.nirsoft.net/utils/nircmd.html">NirCmd - Windows command line tool</a><br/>
+Install nircmd, run the following, and you'll find a shortcut on your desktop.<br/>
+<pre>
+<br/>
+<br/>
+<a href="http://www.homedev.com.au/free/patchcleaner">PatchCleaner - safely clean your windows installer directory</a><br/>
+    <div style="border: 1px;">
+    Created: 2006-01-10 16:30:56
+    Modified: 2017-10-28 06:28:44
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+<span id=daysToChristmas>x</span> days to Christmas.<br/>
+<span id=daysToNewYear>x</span> days to a new year.<br/>
+Happy Holidays!
+<script Language="JavaScript">
+function showtime () {
+        msPerDay = 24 * 60 * 60 * 1000 ; // Number of milliseconds per day
+        var now = new Date();
+        var year = now.getYear();
+        if (year < 1000)
+         year+=1900
+        nextXmas = new Date("December 25, 2000")
+        nextXmas.setYear(year)
+        daysLeft = (nextXmas.getTime() - now.getTime()) / msPerDay;
+        daysLeft = Math.round(daysLeft);
+        var span=document.getElementById('daysToChristmas');
+        span.removeChild(span.firstChild);
+        span.appendChild(document.createTextNode(daysLeft+''));
+        
+        nextXmas = new Date("December 31, 2000")
+        nextXmas.setYear(year)
+        daysLeft = (nextXmas.getTime() - now.getTime()) / msPerDay;
+        daysLeft = Math.round(daysLeft);
+
+        span=document.getElementById('daysToNewYear');
+        span.removeChild(span.firstChild);
+        span.appendChild(document.createTextNode(daysLeft+''));
+        setTimeout("showtime()",msPerDay);
+}
+showtime();
+</script>
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

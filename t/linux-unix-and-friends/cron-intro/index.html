@@ -1,0 +1,499 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>Cron intro</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/linux-unix-and-friends/">linux-unix-and-friends</a>
+    <h1>Cron intro</h1>
+   <u><strong>What is cron?<br />
+</strong></u><br />
+Cron is the name of program that enables unix users to execute commands or<br />
+scripts (groups of commands) automatically at a specified time/date. It is<br />
+normally used for sys admin commands, like <em>makewhatis</em>, which builds a<br />
+search database for the <em>man -k</em> command, or for running a backup script, <br />
+but can be used for anything. A common use for it today is connecting to <br />
+the internet and downloading your email.<br />
+<br />
+<u><strong>Using cron<br />
+</strong></u><br />
+In the <em>/etc</em> directory you will probably find some sub directories called <br />
+'<em>cron.hourly</em>', '<em>cron.daily</em>', '<em>cron.weekly</em>' and '<em>cron.monthly</em>'. If you place <br />
+a script into one of those directories it will be run either hourly, daily, <br />
+weekly or monthly, depending on the name of the directory. <br />
+<br />
+If you want more flexibility than this, you can edit a crontab (the name <br />
+for cron's config files). The main config file is normally <em>/etc/crontab</em>.<br />
+On a default RedHat install, the crontab will look something like this:<br />
+<strong><br />
+</strong>
+<strong><br />
+root@somehost # cat /etc/crontab</strong>
+<strong><br />
+SHELL=/bin/bash</strong>
+<strong><br />
+PATH=/sbin:/bin:/usr/sbin:/usr/bin</strong>
+<strong><br />
+MAILTO=root</strong>
+<strong><br />
+HOME=/</strong>
+<strong><br />
+</strong>
+<strong><br />
+# run-parts</strong>
+<strong><br />
+01 * * * * root run-parts /etc/cron.hourly</strong>
+<strong><br />
+02 4 * * * root run-parts /etc/cron.daily</strong>
+<strong><br />
+22 4 * * 0 root run-parts /etc/cron.weekly</strong>
+<strong><br />
+42 4 1 * * root run-parts /etc/cron.monthly</strong>
+<strong><br />
+</strong><br />
+The first part is almost self explanatory; it sets the variables for cron.<br />
+<br />
+<em>SHELL</em> is the 'shell' cron runs under. If unspecified, it will default to <br />
+the entry in the <em>/etc/passwd</em> file.<br />
+<br />
+<em>PATH</em> contains the directories which will be in the search path for cron <br />
+e.g if you've got a program 'foo' in the directory /usr/cog/bin, it might <br />
+be worth adding /usr/cog/bin to the path, as it will stop you having to use<br />
+the full path to 'foo' every time you want to call it.<br />
+<br />
+<em>MAILTO</em> is who gets mailed the output of each command. If a command cron is <br />
+running has output (e.g. status reports, or errors), cron will email the output <br />
+to whoever is specified in this variable. If no one if specified, then the <br />
+output will be mailed to the owner of the process that produced the output.<br />
+<br />
+<em>HOME</em> is the home directory that is used for cron. If unspecified, it will <br />
+default to the entry in the <em>/etc/passwd</em> file.<br />
+<br />
+Now for the more complicated second part of a crontab file.<br />
+An entry in cron is made up of a series of fields, much like the /etc/passwd<br />
+file is, but in the crontab they are separated by a space. There are normally<br />
+seven fields in one entry. The fields are:<br />
+<strong><br />
+minute hour dom month dow user cmd<br />
+</strong><br />
+<em>minute</em>	This controls what minute of the hour the command will run on,<br />
+	 and is between '0' and '59'<br />
+<br />
+<em>hour</em>	This controls what hour the command will run on, and is specified in<br />
+         the 24 hour clock, values must be between 0 and 23 (0 is midnight)<br />
+<br />
+<em>dom</em>	This is the Day of Month, that you want the command run on, e.g. to<br />
+	 run a command on the 19th of each month, the dom would be 19.<br />
+<br />
+<em>month</em>	This is the month a specified command will run on, it may be specified<br />
+	 numerically (0-12), or as the name of the month (e.g. May)<br />
+<br />
+<em>dow</em>	This is the Day of Week that you want a command to be run on, it can<br />
+	 also be numeric (0-7) or as the name of the day (e.g. sun).<br />
+<br />
+<em>user</em>	This is the user who runs the command.<br />
+<br />
+<em>cmd</em>	This is the command that you want run. This field may contain <br />
+	 multiple words or spaces.<br />
+<br />
+If you don't wish to specify a value for a field, just place a <em>*</em> in the <br />
+field.<br />
+<br />
+e.g.<strong><br />
+01 * * * * root echo &quot;This command is run at one min past every hour&quot;<br />
+17 8 * * * root echo &quot;This command is run daily at 8:17 am&quot;<br />
+17 20 * * * root echo &quot;This command is run daily at 8:17 pm&quot;<br />
+00 4 * * 0 root echo &quot;This command is run at 4 am every Sunday&quot;<br />
+* 4 * * Sun root echo &quot;So is this&quot;<br />
+42 4 1 * * root echo &quot;This command is run 4:42 am every 1st of the month&quot;<br />
+01 * 19 07 * root echo &quot;This command is run hourly on the 19th of July&quot;</strong><br />
+<br />
+Notes:<br />
+Under dow 0 and 7 are both Sunday.<br />
+<br />
+If both the dom and dow are specified, the command will be executed when<br />
+either of the events happen. <br />
+e.g.<strong><br />
+* 12 16 * Mon root cmd</strong><br />
+Will run cmd at midday every Monday and every 16th, and will produce the <br />
+same result as both of these entries put together would:<br />
+<br />
+<strong>* 12 16 * * root cmd<br />
+* 12 * * Mon root cmd</strong><br />
+Vixie Cron also accepts lists in the fields. Lists can be in the form, 1,2,3 <br />
+(meaning 1 and 2 and 3) or 1-3 (also meaning 1 and 2 and 3).<br />
+e.g.<br />
+<strong>59 11 * * 1,2,3,4,5 root backup.sh</strong><br />
+Will run backup.sh at 11:59 Monday, Tuesday, Wednesday, Thursday and Friday,<br />
+as will:<br />
+<strong>59 11 * * 1-5 root backup.sh </strong><br />
+<br />
+Cron also supports 'step' values.<br />
+A value of <em>*/2</em> in the dom field would mean the command runs every two days<br />
+and likewise, <em>*/5</em> in the hours field would mean the command runs every <br />
+5 hours.<br />
+e.g. <br />
+<strong>* 12 10-16/2 * * root backup.sh</strong><br />
+is the same as:<br />
+<strong>* 12 10,12,14,16 * * root backup.sh<br />
+<br />
+</strong>
+<strong>*/15 9-17 * * * root connection.test</strong><br />
+Will run connection.test every 15 mins between the hours or 9am and 5pm<br />
+<br />
+<br />
+Lists can also be combined with each other, or with steps:<br />
+<strong>* 12 1-15,17,20-25 * * root cmd</strong><br />
+Will run cmd every midday between the 1st and the 15th as well as the 20th <br />
+and 25th (inclusive) and also on the 17th of every month.<br />
+<strong>* 12 10-16/2 * * root backup.sh</strong><br />
+is the same as:<br />
+<strong>* 12 10,12,14,16 * * root backup.sh</strong><br />
+<br />
+When using the names of weekdays or months, it isn't case sensitive, but only<br />
+the first three letters should be used, e.g. Mon, sun or Mar, jul.<br />
+Comments are allowed in crontabs, but they must be preceded with a '#', and<br />
+must be on a line by them self.  <u><strong><br />
+<br />
+Multiuser cron</strong></u><br />
+As Unix is a multiuser OS, some of the apps have to be able to support <br />
+multiple users, cron is one of these. Each user can have their own crontab<br />
+file, which can be created/edited/removed by the command <em>crontab</em>. This<br />
+command creates an individual crontab file and although this is a text file,<br />
+as the <em>/etc/crontab</em> is, it shouldn't be edited directly. The crontab file is<br />
+often stored in <em>/var/spool/cron/crontabs/&lt;user&gt;</em> (Unix/Slackware/*BSD), <br />
+<em>/var/spool/cron/&lt;user&gt;</em> (RedHat) or <em>/var/cron/tabs/&lt;user&gt;</em> (SuSE), <br />
+but might be kept elsewhere depending on what Un*x flavor you're running.<br />
+<br />
+To edit (or create) your crontab file, use the command <em>crontab -e</em>, and this<br />
+will load up the editor specified in the environment variables <em>EDITOR</em> or <br />
+<em>VISUAL</em>, to change the editor invoked on Bourne-compliant shells, try: <br />
+<strong>cog@</strong><strong>somehost</strong><strong> $ export EDITOR=vi</strong><br />
+On C shells:<br />
+<strong>cog@somehost $ setenv EDITOR vi</strong><br />
+You can of course substitute vi for the text editor of your choice.<br />
+Your own personal crontab follows exactly the same format as the main<br />
+<em>/etc/crontab</em> file does, except that you need not specify the <em>MAILTO</em> <br />
+variable, as this entry defaults to the process owner, so you would be mailed<br />
+the output anyway, but if you so wish, this variable can be specified.<br />
+You also need not have the user field in the crontab entries. e.g.<br />
+<strong><br />
+min hr dom month dow cmd</strong><br />
+Once you have written your crontab file, and exited the editor, then it will<br />
+check the syntax of the file, and give you a chance to fix any errors.<br />
+If you want to write your crontab without using the crontab command, you can<br />
+write it in a normal text file, using your editor of choice, and then use the<br />
+crontab command to replace your current crontab with the file you just wrote.<br />
+e.g. if you wrote a crontab called cogs.cron.file, you would use the cmd<strong><br />
+<br />
+cog@</strong><strong>somehost</strong><strong> $ crontab cogs.cron.file</strong><br />
+to replace your existing crontab with the one in cogs.cron.file.<br />
+You can use <strong><br />
+cog@</strong><strong>somehost</strong><strong> $ crontab -l </strong><br />
+to list your current crontab, and<strong><br />
+<br />
+cog@</strong><strong>somehost</strong><strong> $ crontab -r</strong><br />
+will remove (i.e. delete) your current crontab.<br />
+<br />
+Privileged users can also change other user's crontab with<strong><br />
+root@</strong><strong>somehost</strong><strong> # crontab -u  <br />
+</strong><br />
+and then following it with either the name of a file to replace the <br />
+existing user's crontab, or one of the -e, -l or -r options.<br />
+<br />
+According to the documentation the <em>crontab</em> command can be confused by the <br />
+<em>su</em> command, so if you running a <em>su</em>'ed shell, then it is recommended you <br />
+use the -u option anyway.<br />
+<u><strong><br />
+Controlling Access to cron</strong></u><br />
+Cron has a built in feature of allowing you to specify who may, and who <br />
+may not use it. It does this by the use of <em>/etc/cron.allow</em> and <em>/etc/cron.deny</em><br />
+files. These files work the same way as the allow/deny files for other <br />
+daemons do. To stop a user using cron, just put their name in cron.deny, to<br />
+allow a user put their name in the cron.allow. If you wanted to prevent all<br />
+users from using cron, you could add the line <em>ALL</em> to the cron.deny file:<strong><br />
+<br />
+root@</strong><strong>somehost</strong><strong> # echo ALL &gt;&gt;/etc/cron.deny</strong><br />
+If you want user <strong>cog</strong> to be able to use cron, you would add the line <strong>cog</strong> <br />
+to the cron.allow file:<strong><br />
+root@</strong><strong>somehost</strong><strong> # echo cog &gt;&gt;/etc/cron.allow</strong><br />
+<br />
+If there is neither a cron.allow nor a cron.deny file, then the use of cron<br />
+is unrestricted (i.e. every user can use it).  If you were to put the name of<br />
+some users into the cron.allow file, without creating a cron.deny file, it<br />
+would have the same effect as creating a cron.deny file with ALL in it.<br />
+This means that any subsequent users that require cron access should be <br />
+put in to the cron.allow file.  <u><strong><br />
+<br />
+Output from cron</strong></u><br />
+As I've said before, the output from cron gets mailed to the owner of the<br />
+process, or the person specified in the <em>MAILTO</em> variable, but what if you<br />
+don't want that? If you want to mail the output to someone else, you can<br />
+just pipe the output to the command <em>mail</em>.<br />
+<br />
+e.g<strong><br />
+cmd | mail -s &quot;Subject of mail&quot; user</strong><br />
+<br />
+If you wish to mail the output to someone not located on the machine, in the<br />
+above example, substitute <em>user</em> for the email address of the person who <br />
+wishes to receive the output.<br />
+<br />
+If you have a command that is run often, and you don't want to be emailed <br />
+the output every time, you can redirect the output to a log file (or <br />
+<em>/dev/null</em>, if you really don't want the output).<br />
+e,g<strong><br />
+cmd &gt;&gt; log.file</strong><br />
+<br />
+Notice we're using two <em>&gt;</em> signs so that the output appends the log file and <br />
+doesn't clobber previous output.<br />
+The above example only redirects the standard output, not the standard error,<br />
+if you want all output stored in the log file, this should do the trick.<strong><br />
+cmd &gt;&gt; logfile 2&gt;&amp;1</strong><br />
+<br />
+You can then set up a cron job that mails you the contents of the file at<br />
+specified time intervals, using the cmd:<strong><br />
+mail -s &quot;logfile for cmd&quot; &lt;log.file<br />
+<br />
+</strong>This information was from a file found orginally at:<br />
+<a target="_blank" href="http://www.unixgeeks.org/security/newbie/unix/cron-1.html">http://www.unixgeeks.org/security/newbie/unix/cron-1.html</a><br />
+&copy; Copyright 2000 cogNiTioN<br />
+<br />
+<br />
+    <div style="border: 1px;">
+    Created: 2005-04-13 03:45:08
+    Modified: 2005-04-13 03:57:17
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+0, 1, 1, 2, 3, 5, 8, 13, 21, 34,...<br/>
+<b> x<sub>n</sub> = x<sub>n-1</sub> + x<sub>n-2</sub></b><br/>
+<!-- "Fibonacci" was his nickname, which roughly means "Son of Bonacci". -->
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

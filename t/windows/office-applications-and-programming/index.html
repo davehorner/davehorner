@@ -1,0 +1,302 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>Office applications and programming</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/windows/">windows</a>
+    <h1>Office applications and programming</h1>
+   Microsoft office and I have had a long time relationship.  There are times when I really love it, and other times I want to throw it out the window never to be seen again....  It is the most feature rich and powerful Office application around however. :)<br/>
+<br/>
+In Office 2007, you can create ribbon extensions for application/document wide customization.<br/>
+In Office 2003, you had things like the task pane, but it was document level.<br/>
+System.IO.Packaging - good for working with 2007 docx files.<br/>
+<br/>
+<br/>
+<a href="http://wvware.sourceforge.net/">wvWare</a><br/>
+<a href="http://www.abisource.com/">AbiWord</a><br/>
+<a href="http://www.linux.com/article.pl?sid=06/02/22/201247">Viewing Word files at the command line</a><br/>
+<a href="http://msdn.microsoft.com/msdnmag/issues/06/08/BusinessApps/">What You Need To Know About Using Office As A Development Platform</a><br/>
+<br/>
+<br/>
+<a href="http://forums.microsoft.com/MSDN/ShowForum.aspx?ForumID=16&SiteID=1">Visual Studio Tools for Office - MSDN Forums</a><br/>
+<a href="http://www.codeproject.com/Feature/Office2007/">CodeProject: Office 2007 Competition. Free source code and programming articles</a><br/>
+<a href="http://www.codeproject.com/Feature/Office2007/discussions.aspx">CodeProject: Office 2007 Competition Discussions. Free source code and programming articles</a><br/>
+<br/>
+<br/>
+<strong>Targeting</strong><br/>
+Office is an old and large beast.  It has many features and people love it.  I've had experience programming with all the versions of Office from 98 and above.  Office and IE forced me to learn COM in all its spender.  Now a days, you've got managed apis which make things much simpler.  However, you've still gotta deal with the primary interop assemblies(pia).  I'm interested to see how MS does the x64 port of Office...<br/>
+<br/>
+<a href="http://www.microsoft.com/downloads/details.aspx?FamilyId=3C9A983A-AC14-4125-8BA0-D36D67E0F4AD&amp;displaylang=en">Download details: Office 2003 Update: Redistributable Primary Interop Assemblies</a><br/>
+<a href="http://msdn2.microsoft.com/en-us/library/aa159923(office.11).aspx">Installing and Using the Office 2003 Primary Interop Assemblies</a><br/>
+<a href="http://www.microsoft.com/downloads/details.aspx?FamilyId=46B6BF86-E35D-4870-B214-4D7B72B02BF9&displaylang=en">Download details: VSTO Power Tools v1.0.0.0</a><br/>
+<a href="http://msdn2.microsoft.com/en-us/magazine/cc163373.aspx">Office Apps: Extend Your VBA Code With VSTO</a><br/>
+<a href="http://msdn2.microsoft.com/en-us/library/bb386106.aspx">Registry Entries for Application-Level Add-Ins</a><br/>
+<a href="http://msdn2.microsoft.com/en-us/magazine/cc163292.aspx">VSTO: Build Office-Based Solutions Using WPF, WCF, And LINQ</a><br/>
+<br/>
+<br/>
+<strong>VSTO Blogs</strong><br/>
+<a href="http://blogs.msdn.com/vsto/default.aspx">Visual Studio 2008: Microsoft Visual Studio Tools for Office</a><br/>
+<a href="http://blogs.msdn.com/pstubbs/default.aspx">Paul Stubbs</a> - VSTO for Mere Mortals and more<br/>
+<a href="http://blogs.msdn.com/mikeh/default.aspx">Mike Hernandez Blog</a><br/>
+<a href="http://blogs.msdn.com/johnrdurant/default.aspx">John R. Durant's WebLog</a><br/>
+<a href="http://blogs.msdn.com/mshneer/">Misha Shneerson</a><br/>
+<a href="http://blogs.msdn.com/andreww/">Andrew Whitechapel</a><br/>
+<a href="http://www.officezealot.com/Pages/index.aspx">Office Zealot</a><br/>
+<br/>
+<br/>
+Research projects coming from MS, (search for commands instead of using the ribbon?)<br/>
+<a href="http://www.officelabs.com/Pages/Default.aspx">Microsoft Office Labs</a><br/>
+<br/>
+<h2>Excel programming</h2>
+<a href="https://code.google.com/p/linqtoexcel/">linqtoexcel - Use LINQ to retrieve data from spreadsheets. - Google Project Hosting</a> - Use LINQ to retrieve data from spreadsheets.<br/>
+<a href="http://excel-dna.net/">Excel-DNA | Free and easy .NET for Excel</a> - <a href="http://exceldna.codeplex.com/">Excel-DNA - Home</a> - Install-Package Excel-DNA Excel-DNA is an independent project to integrate .NET into Excel. With Excel-DNA you can make native (.xll) add-ins for Excel using C#, Visual Basic.NET or F#, providing high-performance user-defined functions (UDFs), custom ribbon interfaces and more. Your entire add-in can be packed into a single .xll file requiring no installation or registration.<br/>
+<a href="https://github.com/spreadgit/excel-helpers">spreadgit/excel-helpers</a> - Minimalistic Excel-DNA demo.<br/>
+<a href="https://github.com/spreadgit/XLfacebook">spreadgit/XLfacebook</a> -  Add-In to retrieve Facebook analytics in Excel. Uses Excel-DNA and is written in C#.<br/>
+<a href="http://xll.codeplex.com/">Excel xll add-in library - Home</a> - creating xll add-ins for Excel from 97 through 2013. C/C++<br/>
+<a href="http://xllblog.wordpress.com/">xll add-in library | High performance add-ins for Excel</a> - xll add-in library blog.<br/>
+<a href="http://perlbuzz.com/2011/10/spreadsheetwriteexcel-is-dead-long-live-excelwriterxlsx.html">Spreadsheet::WriteExcel is dead. Long live Excel::Writer::XLSX. - Perlbuzz</a> <a href="http://jmcnamara.github.io/excel-writer-xlsx/">Excel::Writer::XLSX website</a> <a href="http://search.cpan.org/dist/Excel-Writer-XLSX/lib/Excel/Writer/XLSX.pm">Excel::Writer::XLSX - cpan.org</a><br/>
+<a href="http://stackoverflow.com/questions/21258823/how-to-write-excel-file-with-special-characters-through-perl-script">How to write excel file with special characters through Perl script? - Stack Overflow</a> - Encode::_utf8_on($str)<br/>
+<a href="https://github.com/brymck/finansu">brymck/finansu</a> - Live, streaming web import financial data.<br/>
+<br/>
+<br/>
+<a href="https://github.com/windweller/postgresql-excel-addIn">windweller/postgresql-excel-addIn</a> - PostgreSQL Excel Add-In that provides GUI for data import to Excel worksheet. Retrieve tables within one database,Retrieve specific columns in a table,Search for exact match of rows,Fuzzy search,Custom SQL execution<br/>
+<a href="http://jaimonmathew.wordpress.com/2011/08/23/excel_addin_to_work_with_unicode_csv/">An Excel Addin to work with Unicode CSV files « Jaimon's Blog</a> Excel treat .csv files as text files and will replace all Unicode characters with “?” when saved normally. If you want to preserve the Unicode characters, you would need to save the file as “Unicode text (*.txt)”, which is a Tab delimited file. preserve Unicode characters in CSV format. <a href="https://github.com/jaimonmathew/Unicode-CSV-Addin">jaimonmathew/Unicode-CSV-Addin</a><br/>
+    <div style="border: 1px;">
+    Created: 2006-10-03 15:08:29
+    Modified: 2014-07-19 02:44:32
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+0, 1, 1, 2, 3, 5, 8, 13, 21, 34,...<br/>
+<b> x<sub>n</sub> = x<sub>n-1</sub> + x<sub>n-2</sub></b><br/>
+<!-- "Fibonacci" was his nickname, which roughly means "Son of Bonacci". -->
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

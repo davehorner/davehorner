@@ -1,0 +1,522 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>hello world</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+"hello world" 
+<a href=http://dave.thehorners.com/>https://dave.thehorners.com</a><br/>
+<img id="banner"/>
+<script type="text/template" id="chessboardCSS">
+/*!
+ * from chessboard.js Copyright 2013 Chris Oakman
+ * Released under the MIT license
+ */
+.highlight-white {
+  -webkit-box-shadow: inset 0 0 3px 3px white;
+  -moz-box-shadow: inset 0 0 3px 3px white;
+  box-shadow: inset 0 0 3px 3px white;  
+}
+.highlight-black {
+  -webkit-box-shadow: inset 0 0 3px 3px black;
+  -moz-box-shadow: inset 0 0 3px 3px black;
+  box-shadow: inset 0 0 3px 3px black;  
+}Æ’
+
+/* clearfix */
+.clearfix-7da63 {
+  clear: both;
+}
+
+/* board */
+.board-b72b1 {
+  border: 2px solid #404040;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+}
+
+/* square */
+.square-55d63 {
+  float: left;
+  position: relative;
+
+  /* disable any native browser highlighting */
+  -webkit-touch-callout: none;
+    -webkit-user-select: none;
+     -khtml-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+}
+
+/* white square */
+.white-1e1d7 {
+  background-color: #f0d9b5;
+  color: #b58863;
+}
+
+/* black square */
+.black-3c85d {
+  background-color: #b58863;
+  color: #f0d9b5;
+}
+
+/* highlighted square */
+.highlight1-32417, .highlight2-9c5d2 {
+  -webkit-box-shadow: inset 0 0 3px 3px yellow;
+  -moz-box-shadow: inset 0 0 3px 3px yellow;
+  box-shadow: inset 0 0 3px 3px yellow;
+}
+
+/* notation */
+.notation-322f9 {
+  cursor: default;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  position: absolute;
+}
+.alpha-d2270 {
+  bottom: 1px;
+  right: 3px;
+}
+.numeric-fc462 {
+  top: 2px;
+  left: 2px;
+}
+</script>
+<br/>
+<div id="board" style="width: 200px;float: left; margin: 0px 5px 5px 0px;"></div>
+<br/>
+<div id="quote"></div>
+<br/>
+<br/>
+moves in current game:<span id=moves>0</span><br/>
+black:<span id=win_black>0</span> 
+white:<span id=win_white>0</span> draws:<span id=draws>0</span><br/>
+[<a id=stopper href="javascript:toggleRun()">stop</a>] [<a id=slower  href="javascript:moveSpeed('#slower',1000)">slower</a>] [<a id= faster href="javascript:moveSpeed('#faster',-1000)">faster</a>] <br/>
+last game:<strong><span id=lastmessage></span></strong><br/>
+min moves:<span id=min_moves></span> 
+max moves:<span id=max_moves>0</span><br/>
+total games:<span id=total>0</span> 
+total moves:<span id=total_moves>0</span>
+<script>
+// Conditionally Load jQuery (javascript)
+// Source: https://gist.github.com/gists/902090/
+var init, maybeLoadJq;
+var playingTimeout;
+var board,game,moves;
+var playRate=2000;
+var IwantToGetOff=0;
+var boardEl,
+  squareClass = 'square-55d63',
+  squareToHighlight,
+  colorToHighlight;
+
+function moveSpeed(element,factor)
+{
+if(playRate+factor>=0) {
+ playRate+=factor;
+$('#lastmessage').text('(playRate:'+playRate+')');
+} else {
+$('#lastmessage').text("(playRate: all she's got.)");
+}
+}
+function toggleRun()
+{
+if(!IwantToGetOff) {
+  IwantToGetOff=1;
+  window.clearTimeout(playingTimeout);
+  $('#stopper').text('start');
+} else {
+  IwantToGetOff=0;//and who doesn't
+  window.clearTimeout(playingTimeout);
+  playingTimeout=window.setTimeout(makeRandomMove, playRate);
+  $('#stopper').text('stop');
+}
+}
+
+function resetGame()
+{
+  var numMoves=Number(moves.text());
+  var d=$('#total'); d.text(Number(d.text()) + 1);
+  d=$('#total_moves'); d.text(Number(d.text()) + numMoves);
+  d=$('#max_moves'); if(numMoves>Number(d.text())) d.text(moves.text());
+  m=$('#min_moves'); if(!m.text() || numMoves<Number(m.text())) m.text(moves.text());   
+  moves.text('0');
+  game.reset();
+//  window.clearTimeout(playingTimeout);
+//  if(!IwantToGetOff) {   
+//playingTimeout=window.setTimeout(makeRandomMove, playRate);
+//  }
+}
+
+function makeRandomMove() {
+  if(IwantToGetOff) return;
+  var possibleMoves = game.moves();
+
+  moves.text(Number(moves.text())+1);
+  var randomIndex = Math.floor(Math.random() * possibleMoves.length);
+  var move=game.move(possibleMoves[randomIndex]); 
+  if (move.color === 'w') {
+    boardEl.find('.' + squareClass).removeClass('highlight-white');
+    boardEl.find('.square-' + move.from).addClass('highlight-white');
+    squareToHighlight = move.to;
+    colorToHighlight = 'white';
+  }
+  else {
+    boardEl.find('.square-55d63').removeClass('highlight-black');
+    boardEl.find('.square-' + move.from).addClass('highlight-black');
+    squareToHighlight = move.to;
+    colorToHighlight = 'black';    
+  }
+  board.position(game.fen());
+
+  // exit if the game is over
+  if (game.game_over() === true ||
+      game.in_draw() === true ||
+      possibleMoves.length === 0) {
+    if(game.in_draw()) { 
+        var d=$('#draws'); d.text(Number(d.text()) + 1);
+       $('#lastmessage').text('draw');
+       resetGame();
+    } else {
+       if(game.in_checkmate()){ 
+        var d; if(game.turn()==game.BLACK) {d=$('#win_white');$('#lastmessage').text('white');} 
+                                      else {d=$('#win_black');$('#lastmessage').text('black');}
+        d.text(Number(d.text()) + 1);
+       }
+       playingTimeout=window.setTimeout(resetGame, playRate);
+    }
+   return;
+ }
+};
+
+function onMoveEnd() {
+//console.log('.square-' + squareToHighlight+'  highlight-' + colorToHighlight);
+  boardEl.find('.square-' + squareToHighlight)
+    .addClass('highlight-' + colorToHighlight);
+if(!IwantToGetOff)    playingTimeout=window.setTimeout(makeRandomMove, playRate);
+};
+
+init = function() {
+  jQuery(document).ready(function() {
+var css = $("#chessboardCSS").html();
+ $('<style type="text/css"></style>').html(css).appendTo("head");
+
+   game = new Chess();
+   moves=$('#moves');
+   boardEl = $('#board');
+   var cfg = {
+        position: 'start',
+        onMoveEnd: onMoveEnd,
+        sparePieces: true
+      };
+    board = new ChessBoard('board', cfg);
+    window.setTimeout(makeRandomMove, playRate);
+  });
+};
+ 
+maybeLoadJq = function() {
+  var jQ;
+  if (!(typeof jQuery !== "undefined" && jQuery !== null)) {
+    jQ = document.createElement('script');
+    jQ.type = 'text/javascript';
+    jQ.onload = jQ.onreadystatechange = init;
+    jQ.src = '//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js';
+    return document.body.appendChild(jQ);
+  } else {
+    return init();
+  }
+};
+ 
+if (window.addEventListener) {
+  window.addEventListener('load', maybeLoadJq, false);
+} else if (window.attachEvent) {
+  window.attachEvent('onload', maybeLoadJq);
+}
+</script>
+<script src="/chess/chess.js"></script>
+<script src="/chess/chessboard.js"></script>
+<script>
+    function load(){
+	const burl = "/banners/banners.json";
+        fetch(burl)
+                  .then(response => response.json())
+                  .then(banners => {
+                    var q = banners[Math.floor(Math.random()*banners.length)];
+	                document.getElementById('banner').src=q.path;
+                  })
+                  .catch((err) => console.log("Can't access " + burl + " response." + err));
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+        }
+        load();
+</script>
+<script type="text/javascript" charset="utf-8">
+if ( window.addEventListener ) {
+   var kkeys = [], konami = "38,38,40,40,37,39,37,39";
+   var konami_done = false;
+   window.addEventListener("keydown", function(e){
+       kkeys.push( e.keyCode );
+       if ( kkeys.toString().indexOf( konami ) >= 0 && ! konami_done)
+           var s = document.createElement('script');s.type='text/javascript';document.body.appendChild(s);s.src='/eggs/asteroids.min.js';
+           konami_done = true;
+   }, true);
+}
+</script>
+
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+\begin{bmatrix} 1 & 0 & \ldots & 0 \\
+                0 & 1 & 0 & \vdots \\
+                \vdots & 0 & \ddots & 0\\
+                0 & \ldots &  0 & 1_{n}
+\end{bmatrix}
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

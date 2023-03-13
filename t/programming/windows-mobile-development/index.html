@@ -1,0 +1,430 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>Windows Mobile Development</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/programming/">programming</a>
+    <h1>Windows Mobile Development</h1>
+   <a href="http://msdn2.microsoft.com/en-us/windowsvista/aa905027.aspx">Mobile PC</a><br/>
+<a href="http://msdn2.microsoft.com/en-us/windowsmobile/default.aspx">Windows Mobile Developer Center</a><br/>
+<br/>
+When you install vs2008, if you have already installed the wm6.0 SDK, reinstall wm6.0 SDKs.<br/>
+<br/>
+Get your development environment setup:<br/>
+<a href="http://www.microsoft.com/downloads/details.aspx?familyid=dc6c00cb-738a-4b97-8910-5cd29ab5f8d9&displaylang=en">Download details: Windows Mobile 5.0 SDK for Smartphone</a><br/>
+<a href="http://www.microsoft.com/downloads/details.aspx?familyid=83A52AF2-F524-4EC5-9155-717CBE5D25ED&displaylang=en">Download details: Windows Mobile 5.0 SDK for Pocket PC</a><br/>
+<a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=e3821449-3c6b-42f1-9fd9-0041345b3385&displaylang=en">Download details: .NET Compact Framework 3.5 Redistributable</a><br/>
+<a href="http://www.microsoft.com/downloads/details.aspx?familyid=C8174C14-A27D-4148-BF01-86C2E0953EAB&displaylang=en">Download details: Power Toys for .NET Compact Framework 3.5</a><br/>
+<br/>
+<br/>
+ <a href="http://mdbf.codeplex.com/">Mobile Device Browser File - Home</a> Mobile Device Browser Definition File contains capability definitions for individual mobile devices and browsers<br/>
+<div style="text-align: justify;"><a href="http://www.pocketpcdn.com/" target="_blank">Pocket PC Developer Network</a><br/>
+<a href="http://blogs.msdn.com/windowsmobile/archive/2005/05/22/420884.aspx" target="_blank">WiFi Debugging</a> - debugging your apps over TCP/IP without active sync.<br/>
+</div>
+<p><a href="http://pockethal.droneship.com/index.html" target="_blank">PocketHal</a> - The C++ Hardware abstraction library.<br/>
+<a href="http://www.pocketpcdn.com/articles/run_at_startup.html" target="_blank">Write an application that will be run every time the device is switched on</a><br/>
+<br/>
+<a href="http://www.pocketpcdn.com/print/articles/?&atb.set(c_id)=45&atb.set(a_id)=6509&atb.perform(details)=&" target="_blank">A first glance at the GPS API in Windows Mobile 5.0</a><br/>
+<a href="http://www.viavirtualearth.com/vve/Gallery/VEMobile.ashx" target="_blank">Virtual Earth</a> a GPS solution for the PPC with source!<br/>
+<a href="http://blogs.msdn.com/windowsmobile/" target="_blank">Windows Mobile Team Blog</a><br/>
+<a href="http://blogs.msdn.com/iemobile/default.aspx" target="_blank">Windows IEMobile Team Blog</a><a href="http://blogs.msdn.com/vsdteam/default.aspx" class="headermaintitle" id="bp____ctl0___bt___BlogTitle"><br/>
+Visual Studio For Devices</a></p>
+<p><a href="http://blogs.msdn.com/iemobile/default.aspx" target="_blank"/></p>
+<p><a target="_blank" href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/mobilesdk5/html/mob5oricodesamples.asp">Mobile 5.0 Samples</a> <br/>
+<a href="http://msdn2.microsoft.com/en-us/library/ms172482.aspx">.NET Compact Framework How-to Topics</a><br/>
+<br/>
+Some information on the <a href="http://www.peterfoot.net/CategoryView,category,Bluetooth.aspx" target="_blank">bluetooth support in WM5</a> as well as sdk info.<br/>
+<a href="http://blogs.msdn.com/windowsmobile/" target="_blank"></a><br/>
+<a href="http://msdn.microsoft.com/mobility/windowsmobile/howto/ehowtos/default.aspx" target="_blank">Windows Mobile Development eHowTos</a><br/>
+<a href="http://www.resco.net/developer/" target="_blank">Resco.net Developer Tools</a><br/>
+<br/>
+<h2>WinForms CF style</h2><br/>
+<a href="http://blogs.microsoft.co.il/blogs/tamir/archive/2008/11/21/creating-transparent-buttons-panels-and-other-control-with-compact-framework-and-putting-one-into-other.aspx">Creating transparent buttons, panels and other control with Compact Framework and putting one into other - Just code - Tamir Khason</a><br/>
+<br/>
+<a href="http://fluid.codeplex.com/">Fluid - Windows Mobile .NET Touch Controls - Home</a><br/>
+<a href="http://www.codeproject.com/KB/mobile/MobilePasswordSafe.aspx">CodeProject: Windows Mobile Password Safe.</a> - using fluid to create a nice looking mobile experience, much like an iphone.<br/>
+<br/>
+<h2>Phone control on the smartdevice</h2><br/>
+I have to say I'm a bit disappointed in MS for the lack of a nice managed api for phone control.  You'd think a powerful phone api would be a priority for a smartphone....but all we get now is a single class and a single Call() method....gripe, gripe, gripe.  But, at least most things are possible with native libraries wrapped....but work.  (Do I really love TAPI and COM?)<br/>
+<br/>
+<a href="http://forums.microsoft.com/msdn/showpost.aspx?postid=962036&siteid=1">Generate DTMF on SmartPhone/PocketPC via C# at runtime - MSDN Forums</a> - not answered really...<br/>
+This indicates you can do the whole 'p' for pause on the dial, but you want to initiate the DTMF in call on demand.  There are URL protocol handlers to do it...<br/>
+<a href="http://blog.opennetcf.org/ncowburn/CommentView,guid,397f8f8f-7ebb-446a-aff9-0a84a0feea5d.aspx">Neil Cowburn - Interacting with Interactive Phone Services in 3 lines of code</a><br/>
+How do you detect DTMF?  I don't know if this is possible?<br/>
+<br/>
+<a href="http://msdn.microsoft.com/en-us/library/bb677132.aspx">What to do if the Phone Rings</a> - State and Notifications Broker (SNAPI) to detect calls and get out da way.<br/>
+<br/>
+<h2>Pocket Outlook Object Model</h2>
+Since the Smart phones revolve around PIM type information, the first and most important set of tools to get a handle on when developing in Windows Mobile would be the Outlook Object Model.  This is a set of objects that allow you to access the contact, task, calendar, etc. information from the Pocket Outlook object store.<br/>
+<br/>
+Here are some good references on POOM:<br/>
+<a target="_blank" href="http://www.devbuzz.com/content/zinc_evb_creating_POOM_items_PIE_pg1.asp">Creating POOM items using PIE web pages</a><br/>
+<a href="http://www.developer.com/ws/pc/article.php/10947_3556186_1" target="_blank">Fast and Simple Mobile Access to Pocket Outlook Data</a><br/>
+<a class="l" onmousedown="return clk(this.href,'res','1','')" href="http://msdn2.microsoft.com/en-us/library/ms181010.aspx"><font color="#551a8b"><b>Pocket Outlook</b> COM Interop <b>Sample</b></font></a><br/>
+<a href="http://www.developer.com/ws/pc/article.php/3521266" target="_blank">Developing Pocket Outlook Add-Ins</a><br/>
+<a href="http://developer.berlios.de/projects/poexport/" target="_blank">Pocket Outlook Export</a> - a script-like program that exports all the pocket outlook contacts from a PocketPC to a CSV file.<br/>
+<a href="http://developer.berlios.de/projects/poexport/">http://developer.berlios.de/projects/poexport/</a><br/>
+</p>
+<br/>
+<br/>
+<h2>.NET Compact Framework</h2>
+<a href="http://msdn2.microsoft.com/en-us/library/aa286583.aspx">msdn: Microsoft .NET Compact Framework Technical Articles</a><br/>
+<a href="http://blogs.msdn.com/netcfteam/">.NET Compact Framework Team</a><br/>
+<a href="http://blogs.msdn.com/andrewarnottms/default.aspx">msdn blog: Andrew Arnott</a><br/>
+<a href="http://netcf2.blogspot.com/">.NET Compact Framework Tutorials</a><br/>
+<br/>
+<br/>
+<a href="http://blogs.msdn.com/mgaur/archive/2006/12/21/lnk2019-unresolved-external-symbol-gshandlercheck.aspx">LNK2019: unresolved external symbol __GSHandlerCheck</a><br/>
+<a href="http://blogs.msdn.com/mgaur/default.aspx">msdn blog: Innovate from India (Development Center)</a><br/>
+<br/>
+<a href="http://msdn2.microsoft.com/en-us/library/aa454892.aspx">Step by Step: Developing a SQL Mobile Application with Visual Studio 2005 and SQL Server 2005</a><br/>
+<a href="http://www.code-magazine.com/article.aspx?quickid=0609051&page=1">CoDe Magazine - Article: Programming Windows Mobile 5.0 Applications Using the .NET Compact Framework</a><br/>
+<a href="http://blogs.msdn.com/jasonlan/attachment/1904298.ashx">Windows Mobile 5.0 vs. Windows Mobile 6 (PDF)</a><br/>
+<br/>
+<a href="http://safari.oreilly.com/0321174038/pref04">O'Reilly - Safari Books Online - 0321174038 - .NET Compact Framework Programming with C#</a><br/>
+<br/>
+<h2>.NET Micro Framework</h2>
+The .NET Micro framework is a CLR runtime that runs on embedded devices.  This means Windows CE/Windows Mobile is not required for its application.  It is made for small processors and allows managed code access to low level device interfaces.  Interesting to say the least.<br/>
+<a href="http://www.microframework.cz/index-en.html">Microsoft .NET Micro Framework Tools & Resources</a><br/>
+<br/>
+<br/>
+<h2>Deployment and debugging smart device applications</h2>
+When developing mobile software it is nice to use the emulator.  It is faster to turn code through the emulator than to test everything on a physical device.  A few notes on working with the emulator:<br/>1) Make sure you have ActiveSync installed and running.  Then, right-click its tray icon and choose "Connection Settings" from the context menu.  Make sure the check box for "Allow connections to one of the following:" is checked and select "DMA" in the combo box.<br/>
+2) Then in Visual Studio, go to the Tools menu and select "Device Emulator Manager..." to manage the activesync cradle functionality.<br/>
+3) If you get issues with certificates during deployment, you'll want to install the "Program Files\Microsoft Visual Studio 9.0\SmartDevices\SDK\SDKTools\VSDCerts.cab" development certificates.<br/>
+<br/>
+<br/>
+<h2>Mobile databases</h2>
+Data is king.  Thankfully, MS is packaging an in-process relational database engine.  It is also nice that it runs on all Windows platforms including Windows XP, Vista, Pocket PC, and Smartphone.  They are also giving us some very powerful tools, like LINQ for Mobile!<br/>
+<a href="http://www.pluralsight.com/blogs/jimw/archive/2008/04/18/50753.aspx">Using LINQ to Access SQL Server Compact Directly – A follow up</a><br/>
+<br/>
+<br/>
+<a href="http://www.microsoft.com/sql/editions/compact/sscecomparison.mspx">Choosing Between SQL Server Compact 3.5 and SQL Server 2005 Express Edition</a><br/>
+<a href="http://www.microsoft.com/downloads/details.aspx?familyid=75FEF59F-1B5E-49BC-A21A-9EF4F34DE6FC&displaylang=en">Download details: Sync Services for ADO.NET for devices</a><br/>
+<a href="http://msdn2.microsoft.com/en-us/library/ms172361(SQL.100).aspx">Installing and Deploying on a Device (SQL Server Compact)</a><br/>
+<a href="http://www.microsoft.com/downloads/details.aspx?FamilyId=E6BC81E8-175B-46EA-86A0-C9DACAA84C85&displaylang=en">Download details: SQL Server Compact Edition Books Online (March 2007)</a><br/>
+<a href="http://www.microsoft.com/downloads/details.aspx?FamilyId=02989F70-49AA-43D7-81B8-A651120F8D65&displaylang=en">Download details: Microsoft Synchronization Services for ADO.NET Books Online</a><br/>
+<a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=1ff0529a-eb1f-4044-b4b7-40b00710f7b7&displaylang=en">Download details: SQL Server Compact 3.5 Books Online and Samples</a><br/>
+
+<br/>
+<a href="http://www.microsoft.com/downloads/details.aspx?familyid=E9AA3F8D-363D-49F3-AE89-64E1D149E09B&displaylang=en">Download details: SQL Server 2005 Compact Edition Developer SDK</a><br/>
+<a href="http://www.microsoft.com/sql/editions/sqlmobile/installsdk.mspx">Installing the Microsoft SQL Server 2005 Mobile Edition Device SDK</a><br/>
+<a href="http://windowsmobile.msmobiles.com/?p=9">Windows Mobile tips, tricks and revelations » installing SQL Server Mobile 2005 - how to install SQL Server Mobile 2005 ?</a><br/>
+<br/>
+<a href="http://netcf2.blogspot.com/2006/01/create-sql-mobile-database-part-1.html">.NET Compact Framework Tutorials: Create a SQL Mobile database (part 1)</a><br/>
+<a href="http://blogs.msdn.com/stevelasker/archive/2007/03/31/creating-your-sql-server-compact-edition-database-and-schema-in-code.aspx">Steve Lasker's Web Log : Creating your SQL Server Compact Edition database and schema in code</a><br/>
+<br/>
+<br/>
+<br/>
+<h2>Mobile related blogs</h2>
+<a href="http://blogs.msdn.com/markprenticems/">Mark Prentice - Developing Device Solutions using .NET Compact Framework</a><br/>
+<a href="http://blogs.msdn.com/stevelasker/default.aspx">Steve Lasker's Web Log</a> - talks a lot about Windows Smart Client platform and Occasionally Connected Systems<br/>
+<a href="http://blogs.msdn.com/croman/default.aspx">Constanze's Mobile Musings</a><br/>
+<a href="http://blogs.msdn.com/robtiffany/default.aspx">Rob Tiffany's Windows Mobile Accelerator</a><br/>
+<a href="http://blogs.msdn.com/sqlservercompact/">SQL Server Compact - Compact & Capable</a><br/>
+<a href="http://www.peterfoot.net/">Peter Foot</a> - Microsoft Device Application Development MVP<br/>
+<a href="http://www.christec.co.nz/blog/">Windows Mobile Development</a><br/>
+<a href="http://blogs.msdn.com/vsdteam/default.aspx">Visual Studio For Devices</a><br/>
+<a href="http://blogs.msdn.com/melsam/">MelSam's Blog</a><br/>
+<a href="http://blogs.msdn.com/synchronizer/">The Synchronizer</a><br/>
+<a href="http://nativemobile.blogspot.com/">Native Mobile</a><br/>
+<br/>
+<br/>
+<br/>
+<a href="http://www.microsoft.com/downloads/details.aspx?FamilyId=428E4C3D-64AD-4A3D-85D2-E711ABC87F04&displaylang=en">Download details: Windows Mobile LOB Accelerator 2008</a><br/>
+<a href="http://www.satter.org/2008/03/mobile-lob-ac-1.html#more">Satter Ramblings: Mobile LOB Accelerator 2008 Architecture</a><br/>
+<br/>
+<br/>
+Synchronization Services provides a set of components to synchronize data between data services and a local store.<br/>
+<a href="http://www.microsoft.com/downloads/details.aspx?FamilyId=75FEF59F-1B5E-49BC-A21A-9EF4F34DE6FC&displaylang=en">Download details: Sync Services for ADO.NET for devices</a><br/>
+<br/>
+<br/>
+<br/>
+<h2>WCF on Mobile</h2>
+WCF is some exciting bits.  The power of programming by contract on multiple transports is very powerful indeed.  The compact framework 3.5 now includes WCF with multiple bindings....though some are missing.<br/>
+<br/>
+NetCFSvcUtil.exe, enables you to generate a Windows Communication Foundation (WCF) client proxy.<br/>
+<pre>"C:\Program Files\Microsoft.NET\SDK\CompactFramework\v3.5\bin\NetCFSvcUtil.exe"</pre><br/>
+(NetCFSvcUtil.exe proxies can be generated only for services that are exposed through basicHttpBinding or email transports.  WCF for NETCF includes a subset of WS-Security.)<br/>
+<br/>
+<a href="http://blogs.msdn.com/markprenticems/archive/2007/03/27/introduction-to-windows-communication-foundation-for-the-net-compact-framework-messaging-stack.aspx">Mark Prentice : Introduction to Windows Communication Foundation for the .NET Compact Framework Messaging Stack</a><br/>
+<a href="http://blogs.msdn.com/andrewarnottms/archive/2007/08/21/The-WCF-subset-supported-by-NetCF.aspx">Andrew Arnott : The WCF subset supported by NetCF</a><br/>
+<a href="http://blogs.msdn.com/markprenticems/archive/2007/04/25/introduction-to-the-windows-communication-foundation-for-the-net-compact-framework-store-and-forward-messaging.aspx">Mark Prentice : Introduction to the Windows Communication Foundation for the .NET Compact Framework, Store and Forward Messaging</a><br/>
+<a href="http://msdn2.microsoft.com/en-us/library/bb397828.aspx">Walkthrough: Using the WCF Exchange Server Mail Transport</a><br/>
+<a href="http://msdn2.microsoft.com/en-us/library/bb397805.aspx">How to: Use the HTTP Transport</a><br/>
+<a href="http://msdn2.microsoft.com/en-us/magazine/cc164240.aspx">Mobile WCF: Write an IM App with the .NET Compact Framework</a><br/>
+<a href="http://blogs.msdn.com/danhorbatt/archive/2007/11/01/remote-logging-wcf-on-net-compact-framework.aspx">Dan Horbatt's Blog : Remote Logging WCF on .NET Compact Framework</a><br/>
+
+<br/>
+<br/>
+<h2>Camera / Video programming on Mobile</h2>
+Fastest and quickest way to get going is to use:
+CameraCaptureDialog from Microsoft.WindowsMobile.Forms namespace...<br/>
+<a href="http://www.christec.co.nz/blog/archives/208">Windows Mobile Development » Blog Archive » Capturing photos without using the CameraCaptureDialog class</a><br/>
+<a href="http://blogs.msdn.com/marcpe/archive/2006/03/03/542941.aspx">Marcus Perryman's WebLog : Timed Camera Capture</a><br/>
+<br/>
+<br/>
+<h2>3d graphics and game engines for mobile</h2>
+<a href="http://www.mperfect.net/cfMDX/">/cfMDX : Windows Mobile DirectX and Direct3D</a><br/>
+<a href="http://blogs.msdn.com/markprenticems/archive/2005/08/01/446111.aspx">Mark Prentice : Managed Sprite Sample and 2D Game Whitepapers for Devices</a><br/>
+<a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/dnnetcomp/html/pocketbots.asp">Pocket Bots: Writing a Battle Game for Smartphones</a><br/>
+<br/>
+<br/>
+<h2>Provisioning XML</h2>
+Provisioning XML allows you to manage settings on the handset.<br/>
+<a href="http://blogs.msdn.com/hegenderfer/archive/2008/04/03/inside-the-mobile-developer-bag-of-tricks-provisioning-xml.aspx">The Windows Mobile RSS (Reed and Steve Stuff) Feed : Inside the Mobile Developer bag of tricks: Provisioning XML</a><br/>
+<br/>
+    <div style="border: 1px;">
+    Created: 2006-02-19 17:51:33
+    Modified: 2009-09-23 13:00:34
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+\begin{bmatrix} 1 & 0 & \ldots & 0 \\
+                0 & 1 & 0 & \vdots \\
+                \vdots & 0 & \ddots & 0\\
+                0 & \ldots &  0 & 1_{n}
+\end{bmatrix}
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,466 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>.NET Data story (MSSQL, MS SQL Express, SQL Compact, TSQL, LINQ, EF)</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/programming/">programming</a>
+    <h1>.NET Data story (MSSQL, MS SQL Express, SQL Compact, TSQL, LINQ, EF)</h1>
+   MSSQL, MS SQL Express, SQL Compact, TSQL, LINQ<br/>
+<br/>
+<br/>
+<h2>Entity Framework (EF)</h2>
+I am very excited about the entity framework.  Multi vendor support is also going to be very nice.<br/>
+EDMX - entity framework mapping BI objects to data tables.<br/>
+<a href="http://blogs.msdn.com/dsimmons/pages/ef-faq-entity-services.aspx#Section_17">system.data.objects dev guy : Entity Services, Metadata & Mapping</a><br/>
+<a href="http://www.scip.be/index.php?Page=ArticlesNET16">SCIP.be - Artikelen : .NET - ADO.NET Entity Framework & LINQ to Entities - deel 3</a><br/>
+<a href="http://blogs.microsoft.co.il/blogs/bursteg/archive/2007/12/07/from-ado-net-2-0-to-ado-net-entity-framework-e-sql.aspx">From ADO.Net 2.0 to ADO.Net Entity Framework E-SQL - Guy Burstein's Blog</a><br/>
+<a href="http://coolthingoftheday.blogspot.com/2008/01/databinding-entity-framework-to-free.html">Greg's Cool [Insert Clever Name] of the Day: Databinding the Entity Framework to the Free Xceed WPF DataGrid</a><br/>
+<a href="http://msdn2.microsoft.com/en-us/data/default.aspx">Data Platform Center</a> - news on happens in things data @ microsoft.<br/>
+<a href="http://code.msdn.microsoft.com/esql">Entity SQL - Home</a><br/>
+<a href="http://code.msdn.microsoft.com/EFMappingHelper">Entity Framework Mapping Helper - Home</a><br/>
+<a href="http://code.msdn.microsoft.com/entitybag/">Perseus: Entity Framework EntityBag - Home</a><br/>
+<a href="http://code.msdn.microsoft.com/EFExtensions">ADO.NET Entity Framework Extensions - Home</a><br/>
+<a href="http://efvote.wufoo.com/forms/ado-net-entity-framework-vote-of-no-confidence/">ADO .NET Entity Framework Vote of No Confidence</a><br/>
+<br/>
+<br/>
+<br/>
+<h2>Sync Framework</h2>
+<a href="http://msdn2.microsoft.com/en-us/sync/bb821992.aspx">Introduction to the Microsoft Sync Framework Runtime</a><br/>
+<a href="http://msdn2.microsoft.com/en-us/sync/default.aspx">Microsoft Sync Framework Developer Center</a><br/>
+<br/>
+<h2>SQL Server 2008</h2>
+<a href="http://www.codeplex.com/SqlServerSamples/">Microsoft SQL Server Community & Samples - Home</a><br/>
+<a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=66ab3dbb-bf3e-4f46-9559-ccc6a4f9dc19&amp;displaylang=en">Download details: SQL Server 2008 SP1</a><br/>
+<a href="http://technet.microsoft.com/en-us/sqlserver/ff977043.aspx">SQL Server 2008 MCM Readiness Videos</a><br/>
+<br/>
+
+<h2>ADO.net</h2>
+ADO.net transactional support dataset/table adapter.<br/>
+<a href="http://asp.net/learn/data-access/#basic">Data Access Tutorials : The Official Microsoft ASP.NET Site</a><br/>
+<a href="http://sourceforge.net/projects/sqlite-dotnet2">SourceForge.net: ADO.NET 2.0 Provider for SQLite</a><br/>
+<a href="http://www.pnpguidance.net/post/LINQToSQLORMapperADONETDataAccessLayerQueries.aspx">LINQ To SQL O/R Mapper for ADO.NET Data Access Layer Queries</a><br/>
+<br/>
+<br/>
+<h2>Database stuff</h2>
+<a href="http://msdn2.microsoft.com/en-us/library/ms130214.aspx">Microsoft SQL Server 2005 Books Online</a><br/>
+<a href="http://blogs.msdn.com/smartclientdata/archive/2005/11/02/488258.aspx">Smart Client Data : Installing Northwind on SqlExpress</a><br/>
+<a href="http://blogs.msdn.com/adonet/default.aspx">ADO.NET team blog</a><br/>
+<a href="http://www.topxml.com/sqlxml/">TopXML : Learn SQLXML in .NET Tutorial (.NET Framework)</a><br/>
+<a href="http://www.developer.com/db/article.php/3341881">Using the SQLXML Managed Classes</a><br/>
+<br/>
+<h2>SQL Server</h2>
+Predictive analytics<br/>
+<a href="http://en.wikipedia.org/wiki/SQL_Server_Integration_Services">SQL Server Integration Services - Wikipedia, the free encyclopedia</a><br/>
+<a href="http://www.microsoft.com/technet/prodtechnol/sql/2005/intro2is.mspx">An Introduction to SQL Server 2005 Integration Services: Microsoft TechNet SQL Server TechCenter</a><br/>
+<a href="http://www.sqlserverdatamining.com/ssdm/">SQL Server Data Mining > Home</a><br/>
+<a href="http://codeplex.com/SqlServerSamples">Microsoft SQL Server Samples & Community Projects - Home</a><br/>
+<a href="http://weblogs.sqlteam.com/mladenp/archive/2007/11/20/Free-SQL-Server-tools-that-might-make-your-life-a.aspx">Free SQL Server tools that might make your life a little easier</a><br/>
+<br/>
+<br/>
+<h2>nHibernate - ORMs</h2>
+<a href="http://www.codeproject.com/aspnet/NHibernateBestPractices.asp">NHibernate Best Practices with ASP.NET, 1.2nd Ed. - The Code Project - ASP.NET</a><br/>
+<a href="http://www.hibernate.org/343.html">hibernate.org - NHibernate for .NET</a><br/>
+<a href="http://blogs.hibernatingrhinos.com/nhibernate/archive/2008/05/14/how-to-map-a-tree-in-nhibernate.aspx">How to map a tree in NHibernate</a><br/>
+<a href="http://code.google.com/p/fluent-nhibernate/">fluent-nhibernate - Google Code</a><br/>
+<a href="http://nhibernate.fluffnstuff.org/">NHibernate - NHibernate.DataBinding</a><br/>
+<a href="http://www.iamnotmyself.com/2008/07/02/NHibernateTestingThePerformanceUrbanLegend.aspx">I Am Not Myself - NHibernate: Testing The Performance Urban Legend</a><br/>
+<a href="http://blog.napalmpiri.com/archives/95">Napalmpiri · A quickstart with NHibernate for Dummies like me.</a><br/>
+<a href="http://www.codeproject.com/KB/database/Nhibernate_Made_Simple.aspx">CodeProject: NHibernate Made Simple.</a><br/>
+<a href="http://www.codeproject.com/KB/database/TDD_and_SqlCE.aspx">CodeProject: TDD using SqlCE and NHibernate.</a><br/>
+<a href="http://blog.vuscode.com/malovicn/archive/2009/01/03/fluent-nhibernate-nhibernate-without-configuration-files-automap-magic.aspx">Fluent NHibernate – Convention over configuration – AutoPersistenceModel auto map magic - VusCode - Coding dreams since 1998!</a><br/>
+<a href="http://nhprof.com/home">The NHibernate Profiler</a> - NHibernate Profiler is a real-time visual debugger allowing a development team to gain valuable insight and perspective into their usage of NHibernate.<br/>
+<br/>
+<br/>
+<h2>SQL Server 2008 Express manager</h2>
+<a href="http://www.microsoft.com/downloads/details.aspx?FamilyId=7522A683-4CB2-454E-B908-E805E9BD4E28&displaylang=en">Download details: Microsoft SQL Server 2008 Express with Tools</a> which might also require <a href="http://www.microsoft.com/downloadS/details.aspx?familyid=5A58B56F-60B6-4412-95B9-54D056D6F9F4&displaylang=en">Download details: Windows Installer 4.5</a><br/>
+<br/>
+<br/>
+<h2>T-SQL</h2>
+<a href="http://erikej.blogspot.com/2007/08/hidden-gem-rename-table.html">Erik EJ blogs about .net and related stuff: Hidden gem: Rename table</a><br/>
+Looking to rename a table...<a href="http://msdn.microsoft.com/en-us/library/ms188351.aspx">sp_rename (Transact-SQL)</a><br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<h2>LINQ</h2>
+I have to say that I'm pretty excited about LINQ.  There is a lot of very neat things possible with it.  Very clean code.<br/>
+<a href="http://objectsharp.com/cs/blogs/barry/archive/2005/09/13/3395.aspx">Barry Gervin's Software Architecture Perspectives : Linq Resources</a><br/>
+<a href="http://msdn2.microsoft.com/en-us/vbasic/bb688088.aspx">101 LINQ Samples</a><br/>
+<a href="http://blog.maartenballiauw.be/post/2007/12/LINQ-to-filesystem.aspx">LINQ to filesystem</a><br/>
+<a href="http://www.linqpad.net/">LINQPad</a> - Execute LINQ queries and Regular Expressions interactively, comes loaded with examples too.<br/>
+<a href="http://www.codeproject.com/KB/WPF/MyFriends.aspx#Conc">CodeProject: MyFriends : A simple contact keeper using XLINQ/LINQ/WPF.</a><br/>
+<a href="http://www.develop.com/us/email/developments/developmentsfinal091107.html">developments - Introducing LINQ: Language-Integrated Query - September 11th, 2007</a><br/>
+<a href="http://linqinaction.net/blogs/main/archive/2007/09/05/linq-support-on-net-2.0.aspx">LINQ in Action - LINQ Book & News : LINQ support on .NET 2.0</a><br/>
+<a href="http://blogs.msdn.com/charlie/archive/2006/10/05/Links-to-LINQ.aspx">Charlie Calvert's Community Blog : Links to LINQ</a><br/>
+Bunch of videos on C# and Linq.<br/>
+<a href="http://blogs.msdn.com/charlie/archive/2008/03/28/anders-hejlsberg-film-festival-the-c-and-other-vsl-teams-at-the-movies.aspx">Charlie Calvert's Community Blog : Anders Hejlsberg Film Festival: The C# and other VS Language Teams at the Movies</a><br/>
+<a href="http://www.codeproject.com/KB/linq/Compact_LINQ.aspx">CodeProject: LINQ Challenges and SQL Server Compact Edition.</a><br/>
+<a href="http://blogs.msdn.com/mirceat/archive/2008/03/13/linq-framework-design-guidelines.aspx">Mircea Trofin's blog : LINQ Framework Design Guidelines</a><br/>
+<a href="http://msdn.microsoft.com/en-us/library/bb386927.aspx">Walkthrough: Manipulating Data (C#) (LINQ to SQL)</a><br/>
+<a href="http://www.albahari.com/nutshell/linqbridge.aspx">C# 3.0 in a Nutshell - LINQBridge</a> - LINQ for .net 2.0<br/>
+<a href="http://linqtobittorrent.codeplex.com/">LinqToBitTorrent</a> - LINQ to BitTorrent is a custom .NET LINQ query provider implementation that translates LINQ queries into HTTP requests that accesses various BitTorrent search engine APIs and RSS feeds.<br/>
+<a href="http://scottchamberlin.tumblr.com/post/55152416452/linqinterview">Scott Chamberlin — LINQ Ruined My Favorite Interview Question</a><br/>
+<pre>
+//Return the top 10 most frequently occurring words in a string.
+    var words = s.Split(' ');
+    var wordCounts = words.GroupBy(x => x).Select(x => new { Name = x.Key, Count = x.Count() }).OrderByDescending(x => x.Count);  
+    var countedWords = wordCounts.Select(x => x.Name).Take(10).ToList();
+</pre>
+<br/>
+
+<br/>
+<h2>SQL Compact, SQLCE</h2>
+<a href="http://blogs.msdn.com/sqlservercompact/default.aspx">SQL Server Compact - Compact & Capable</a> - SQL Server Compact Team Blog<br/>
+<a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=dc614aee-7e1c-4881-9c32-3a6ce53384d9&displaylang=en">Download details: SQL Server Compact 3.5 SP1 and Synchronization Services for ADO.NET v1.0 SP1 for Windows Desktop</a><br/>
+<a href="http://www.codeplex.com/ExportSqlCE">SQL Compact data and schema export utility - Home</a> - remember to use correct arg. format, if you just spec the file, it'll crash.<br/>
+<a href="http://erikej.blogspot.com/">Erik EJ blogs about .net and related stuff</a> - includes a lot of great info about SQL Compact<br/>
+<a href="http://blogs.msdn.com/stevelasker/archive/2007/03/31/creating-your-sql-server-compact-edition-database-and-schema-in-code.aspx">Steve Lasker's Web Log : Creating your SQL Server Compact Edition database and schema in code</a><br/>
+<a href="http://oakleafblog.blogspot.com/2008/05/upgraded-northwindsdf-file-for-ssce-v35.html">OakLeaf Systems: Upgraded Northwind.sdf File for SSCE v3.5 Available for Download</a><br/>
+<a href="http://blogs.msdn.com/stevelasker/archive/2008/10/31/pdc-2008-embedding-sql-server-compact-in-desktop-and-device-applications.aspx">Steve Lasker's Web Log : PDC 2008 - Embedding SQL Server Compact In Desktop And Device Applications</a> - focused on the deployment aspects of SQL Server Compact, including the new 64bit deployment scenarios.<br/>
+<a href="http://erikej.blogspot.com/2009/01/binding-sql-compact-data-to-wpf-in-less.html">Erik EJ blogs about .net and related stuff: Binding SQL Compact data to WPF in less than 100 lines of code</a><br/>
+<a href="http://blogs.msdn.com/sqlservercompact/archive/2007/08/21/linq-with-sql-server-compact-a-ka-dlinq-over-sql-ce.aspx">SQL Server Compact - Compact & Capable : LINQ with SQL Server Compact (a.k.a. DLINQ with SQL CE)</a><br/>
+<a href="http://blogs.msdn.com/matt/archive/2008/09/09/sql-ce-3-5-with-linq-to-sql.aspx">This Blog Can Also Be A Hat : SQL CE 3.5 with LINQ to SQL</a> - talks a bit about using LINQ on SQLCe, notes a passing an SQLCeConnection into the DataContext to reduce startup/teardown of the SQLCe connections.  It includes a ConnectionPool which handles threading issues associated with SQLCeConnection.<br/>
+<a href="http://bembengarifin-tech.blogspot.com/2008/02/aspnet-dynamic-data-sql-compact-edition.html">Technical Issues & Solutions: ASP.Net 3.5 Extension Dynamic Data, SQL Compact Edition 3.5, Linq, IIS7</a><br/>
+<a href="http://nativemobile.blogspot.com/2009/04/sql-compact-and-threads.html">Native Mobile: SQL Compact and threads</a><br/>
+<br/>
+<h2>SQLCE identity columns and EF</h2> 
+<a href="http://blog.stpworks.com/archive/2008/05/30/ado.net-entity-framework-sqlce-and-identity-columns.aspx">ADO.NET Entity Framework, SQLCE and identity columns</a><br/>
+argh, SQL Server Compact does not support entities with server-generated keys or values when it is used with the Entity Framework.<br/>
+You get an error like this: {"Server-generated keys and server-generated values are not supported by SQL Server Compact."}<br/>
+<a href="http://technet.microsoft.com/en-us/library/cc835494.aspx">Entity Framework (SQL Server Compact)</a><br/>
+<a href="http://blogs.msdn.com/stevelasker/archive/2008/10/22/privately-deploying-sql-server-compact-with-the-ado-net-entity-provider.aspx">Steve Lasker's Web Log : Privately Deploying SQL Server Compact with the ADO.NET Entity Provider</a><br/>
+<br/>
+<h2>SQL Server Compact DLLs</h2>
+sqlcese35.dll - Native Storage Engine<br/>
+sqlceqp35.dll - Native Query Processor<br/> 
+sqlceme35.dll - Native / Managed Translation Layer<br/> 
+System.Data.SqlServerCe.dll - ADO.NET Managed Provider<br/>
+sqlcecompact35.dll - 	Compression & Upgrade APIs<br/>
+sqlceca35.dll - Merge Replication, RDA Client APIs Only needed for Merge & RDA, Not needed for Sync Services for ADO.NET<br/>
+sqlceoledb35.dll - 	OleDB API –Needed for C++, VB Classic,  & Merge/RDA OleDB APIs Designed for Mobile Devices Not a full desktop OleDB Implementation<br/>
+sqlceer35EN.dll - Localized Error Strings, only needed when errors returned directly to the user<br/>
+<br/>
+<br/>
+<h2>asp.net dynamic data services (astoria)</h2>
+Astoria is now ADO.NET Dynamic Data<br/>
+<a href="http://www.asp.net/dynamicdata/">ASP.NET Dynamic Data : The Official Microsoft ASP.NET Site</a><br/>
+<a href="http://astoria.mslivelabs.com/Default.aspx">Microsoft Project Codename "Astoria"</a><br/>
+<a href="http://blogs.msdn.com/astoriateam/default.aspx">Project Astoria Team Blog</a><br/>
+<a href="http://www.asp.net/dynamicdata/">ASP.NET Dynamic Data : The Official Microsoft ASP.NET Site</a><br/>
+<a href="http://weblogs.asp.net/jimwang/archive/2008/11/05/working-with-ado-net-data-services-in-ajax.aspx">Working with ADO.NET Data Services in AJAX - Jim Wang's Blog</a><br/>
+<a href="http://alexduggleby.com/2008/08/11/dynamic-data-guidsuniqueidentifiers-as-primary-keys/">Dynamic Data – GUIDs/uniqueidentifiers as primary keys « Alex Duggleby’s Palace of Words</a> - changes the dynamic data master template and implements a context menu where you can generate a GUID in the textbox for the primary key.<br/>
+<a href="http://forums.asp.net/t/1192966.aspx?PageIndex=2">ASP.NET Dynamic Data + guid - ASP.NET Forums</a> - this also suggests to update the XML and let the DB create the GUID.<br/>
+StoreGeneratedPattern="Computed"      // EF<br/>
+IsDbGenerated="true"                 // L2S <br/>
+<a href="http://blogs.msdn.com/morebits/archive/2009/05/19/walkthrough-filtering-table-rows-in-dynamic-data.aspx">Technical Notes : Walkthrough: Filtering Table Rows in Dynamic Data</a> - blog with other good dynamic data entries as well...<br/>
+<a href="http://blogs.msdn.com/rickandy/default.aspx">Ricka on Dynamic Data</a><br/>
+<a href="http://blogs.msdn.com/morebits/default.aspx">Technical Notes</a> - another blog on dynamic data<br/>
+<a href="http://msdn.microsoft.com/en-us/magazine/gg535665.aspx">MSDN Magazine: ASP.NET Dynamic Data - Build a Data-Driven Enterprise Web Site in 5 Minutes</a><br/>
+<br/>
+<br/>
+<h2>Reports (ssis and rdlc)</h2>
+<a href="http://weblogs.asp.net/rajbk/archive/2006/03/02/How-to-render-client-report-definition-files-_28002E00_rdlc_2900_-directly-to-the-Response-stream-without-preview.aspx">How to render client report definition files (.rdlc) directly to the Response stream without preview - Raj Kaimal</a><br/>
+<a href="http://jclaes.blogspot.com/2009/05/programmaticallydynamically-building.html">JEF CLAES ON .NET AND LIFE: Programmatically/Dynamically building an RDLC</a><br/>
+<br/>
+<br/>
+<h2>TSQL / MSSQL specifics</h2>
+<a href="http://blog.sqlauthority.com/2009/12/15/sql-server-difference-temptable-and-table-variable-temptable-in-memory-a-myth/">SQL SERVER – Difference TempTable and Table Variable – TempTable in Memory a Myth « Journey to SQL Authority with Pinal Dave</a><br/>
+<a href="http://beyondrelational.com/tc/">beyondrelational.com</a> - I like the tsql challenges...<br/>
+<a href="http://www.kodyaz.com/articles/sql-server-listing-all-databases-using-t-sql.aspx">Listing All MS SQL Server Databases Using T-SQL</a><br/>
+<a href="http://www.kodyaz.com/articles/sp_MSForEachTable-example-count-all-rows-in-all-table-in-sql-database.aspx">sp_MSForEachTable Example T-SQL Code to Count all Rows in all Tables in MS SQL Server Database</a>
+<br/>
+quick, how do I add a user to a SQL Express server?<br/>
+<pre>
+USE MASTER;
+sp_addLogin 'user','pass','defdatabase';
+sp_addsrvrolemember 'user','sysadmin';
+use yourdb;
+exec sp_adduser 'user';
+</pre>
+add uid=user;pwd=pass to your connection string;<br/>
+<br/>
+<br/>
+<br/>
+<h2>object hierarchies</h2>
+<a href="http://weblogs.asp.net/gunnarpeipman/archive/2009/09/15/using-linq-to-query-object-hierarchies.aspx">
+	Using LINQ to query object hierarchies - Gunnar Peipman's ASP.NET blog
+</a><br/>
+<a href="http://blogs.msdn.com/jasonall/archive/2009/11/25/hierarchical-data-trees-with-a-database.aspx">Jason Allor's Blog : Hierarchical Data Trees with a Database</a><br/>
+<a href="http://www.scip.be/index.php?Page=ArticlesNET18">SCIP.be - Articles : .NET - LINQ AsHierarchy() extension method - part 1</a><br/>
+<a href="http://www.scip.be/index.php?Page=ArticlesNET23&amp;Lang=EN">SCIP.be - Articles : .NET - LINQ AsHierarchy() extension method - part 2</a><br/>
+<a href="http://blogs.msdn.com/ericwhite/archive/2008/07/10/how-to-create-hierarchy-from-flat-data-using-linq.aspx">Eric White's Blog : How to Create Hierarchy from Flat Data using LINQ</a><br/>
+<br/>
+<br/>
+<h2>OData</h2>
+<a href="http://www.halnesbitt.com/pages/netflix.php">Hal Nesbitt | Querying Netflix oData Catalog via JSON and jQuery</a><br/>
+<a href="http://kentbrewster.com/netflix-odata/">Netflix OData Query Maker</a><br/>
+<a href="http://developer.netflix.com/docs/oData_Catalog">OData Catalog API (Preview)</a><br/>
+<a href="http://infinity88.com/jquery-tmpl/movies/movies.htm">jQuery + OData + Netflix Catalog API</a><br/>
+<a href="https://github.com/nje/jquery-tmpl/">nje/jquery-tmpl - GitHub</a><br/>
+<a href="http://encosia.com/2010/10/05/using-external-templates-with-jquery-templates/">Using external templates with jQuery Templates - Encosia</a><br/>
+<a href="http://stephenwalther.com/blog/archive/2010/04/01/netflix-jquery-jsonp-and-odata.aspx">Netflix, jQuery, JSONP, and OData</a><br/>
+<a href="http://www.bondigeek.com/blog/2010/10/10/blogstipation-cleared-jquery-templates/#more-1404">Blogstipation cleared – jQuery Templates – bondigeek.com</a><br/>
+<br/>
+<br/>
+<h2>SQL Server Performance tuning</h2>
+<a href="http://sqlserverperformance.wordpress.com/">Glenn Berry's SQL Server Performance | Semi-random musings about SQL Server performance</a><br/>
+<a href="http://www.sqlio.org/">SQLIO.orgSQLIO.org - A resource site for all things related to SQLIO</a><br/>
+<a href="http://tools.davidklee.net/sqlio/sqlio-analyzer-instructions.aspx">SQLIO Analyzer Instructions - Tools.DavidKlee.net</a><br/>
+<a href="http://skreebydba.com/">skreebydba | fun with sql server</a><br/>
+<br/>
+<br/>
+<a href="http://www.martin-evans.me.uk/node/171">New release of Perl DBD::ODBC with support for MS SQL Server Query Notification | martin-evans.me.uk</a><br/>
+    <div style="border: 1px;">
+    Created: 2009-01-19 13:42:48
+    Modified: 2014-05-10 01:53:45
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<a href="http://en.wikipedia.org/wiki/E_%28mathematical_constant%29" target=_blank>$$e = \sum_{n=0}^\infty \frac{1}{n!}$$</a>
+
+
+satis dictum.
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

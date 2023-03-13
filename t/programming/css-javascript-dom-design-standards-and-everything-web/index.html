@@ -1,0 +1,717 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>CSS, javascript, DOM, design, comet, stomp, jquery, and everything web.</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/programming/">programming</a>
+    <h1>CSS, javascript, DOM, design, comet, stomp, jquery, and everything web.</h1>
+   <a href="http://fortuito.us/diveintohtml5/index.html">Dive Into HTML5</a><br/>
+<a href="http://webplatformdaily.org/">Open Web Platform Daily Digest</a><br/>
+<a href="http://craig.is/killing/mice">Mousetrap - Keyboard shortcuts in Javascript</a><br/>
+<a href="http://www.jqmobi.com/">jqMobi</a><br/>
+<a href="http://slbkbs.org/jsgif/">jsgif</a> - jsgif: A GIF player in JavaScript (step through animated gifs on the web with this bookmarklet)<br/>
+<a href="http://jsbeautifier.org/">Online javascript beautifier</a><br/>
+<a href="https://github.com/liammclennan/JavaScript-Koans">liammclennan/JavaScript-Koans - GitHub</a> - JavaScript Koans is an interactive learning environment that uses failing tests to introduce students to aspects of JavaScript in a logical sequence. <br/>
+<a href="http://dailyjs.com/">DailyJS: A JavaScript Blog</a><br/>
+<a href="http://badassjs.com/">Badass JavaScript</a> - A showcase of awesome JavaScript code that pushes the boundaries of what's possible on the web.<br/>
+If you haven't found the power of CSS, you should sit and move through some of the <a href="http://www.csszengarden.com/">css Zen Garden: The Beauty in CSS Design</a>, George, I mean it...<br/>
+Then, please make sure you check out Google's <a href="http://www.chromeexperiments.com/">Chrome Experiments - Home</a>.<br/>
+<br/>
+<a href="http://css.maxdesign.com.au/floatutorial/tutorial0916.htm">Tutorial 9 - Liquid three column layout - all steps combined</a><br/>
+<a href="http://24ways.org/2008/absolute-columns">24 ways: Absolute Columns</a><br/>
+<a href="http://css.maxdesign.com.au/index.htm">css.maxdesign.com.au - CSS resources and tutorials for web designers and web developers</a><br/>
+<br/>
+<a href="http://www.patterncooler.com/index.php">PatternCooler | Cool Seamless Background Pattern Designs for Web and Graphic Projects, Blogs, Twitter, MySpace, Mobile Phone Wallpapers</a> - wow some very nice patterns, reminds me of esher a lot...<br/>
+<a href="http://kuler.adobe.com/#">kuler</a> - color scheme selector.<br/>
+<a href="http://24ways.org/2010/golden-spirals/">24 ways: Golden Spirals</a> - create spirals using nothing but divs;define a div container with bounds specified, fill with divs. The 1st and every 4th div are given a cycle class selector.<br/>
+<br/>
+<a href="http://mudcu.be/sphere/">Sphere: Color Theory Visualizer</a><br/>
+<a href="https://sketch.io/sketchpad/">Sketchpad - Free Online Drawing</a><br/>
+<a href="http://raw.densitydesign.org/">Raw</a> - The missing link between spreadsheets and vector graphics. built on the very popular <a href="http://d3js.org/">D3.js - Data-Driven Documents</a><br/>
+
+<h2>Typography for the web</h2>
+<a href="http://fittextjs.com/">FitText - A plugin for inflating web type</a><br/>
+<a href="http://www.typetester.org/">Typetester – Compare fonts for the screen</a><br/>
+<a href="http://letteringjs.com/">Lettering.js - A jQuery plugin for radical web typography.</a><br/>
+<a href="http://css-tricks.com/viewport-sized-typography/">Viewport Sized Typography | CSS-Tricks</a><br/>
+<br/>
+<br/>
+<a href="http://brucejohnson.ca/SpecialCharacters.html">HTML Special Characters</a> - a list of some HTML entities for when you forget the &#9658; entity is marked up as &amp;#9658;<br/>
+<a href="http://processingjs.org/">Processing.js</a> - a Javascript port of the Processing Visualization Language<br/>
+<a href="http://vis.stanford.edu/protovis/">Protovis</a> - a graphical toolkit for visualization<br/>
+<a href="http://senchalabs.github.com/philogl/">PhiloGL: A WebGL Framework for Data Visualization, Creative Coding and Game Development</a><br/>
+<a href="http://thejit.org/">JavaScript InfoVis Toolkit</a> - The JavaScript InfoVis Toolkit provides tools for creating Interactive Data Visualizations for the Web.<br/>
+<a href="http://www.azarask.in/blog/post/contextfreejs-algorithm-ink-making-art-with-javascript/">ContextFree.js &amp; Algorithm Ink: Making Art with Javascript «  Aza on Design</a><br/>
+<a href="http://code.google.com/p/contextfree/source/browse/trunk/contextfree.js">contextfree.js - 
+ contextfree - Project Hosting on Google Code</a><br/>
+<a href="http://code.google.com/closure/library/">Closure Library - Google Code</a> - Closure Library is a broad, well-tested, modular, and cross-browser JavaScript library.<br/>
+<a href="http://baselinecss.com/">Baseline - a designer framework by ProjetUrbain.com</a> - Built with typographic standards in mind, Baseline makes it easy to develop a website with a pleasing grid and good typography.<br/>
+<a href="http://www.blueprintcss.org/">Blueprint: A CSS Framework | Spend your time innovating, not replicating</a> - typographic with grid...<br/>
+<a href="http://purecss.io/">Pure</a><br/>
+<a href="http://www.iecss.com/">Internet Explorer UA Style Sheets</a> - lists and compares the different default style sheets used to render HTML in the four major versions of Internet Explorer; IE6, IE7, IE8, and IE9 Platform Preview.<br/>
+<a href="http://css3please.com/">CSS3 Please! The Cross-Browser CSS3 Rule Generator</a><br/>
+<a href="http://lesscss.org/">LESS « The Dynamic Stylesheet language</a> - A set of small, responsive CSS modules that you can use in every web project. yui<br/>
+<br/>
+<a href="http://ejohn.org/">John Resig - JavaScript Programmer</a><br/>
+<a href="http://addyosmani.com/blog/">AddyOsmani.com | jQuery &amp; JavaScript Articles For The Community</a><br/>
+<br/>
+<br/>
+<a href="https://github.com/tmpvar/jsdom">tmpvar/jsdom - GitHub</a> - CommonJS implementation of the DOM intended to be platform independent and as minimal/light as possible while completely adhering to the w3c DOM specifications.<br/>
+<a href="http://svgkit.sourceforge.net/SVGCanvas.html">SVGCanvas</a> - SVGCanvas is a JavaScript implimentation of most of the Canvas drawing API which creates SVG grapics elements instead of drawing to a pixel buffer. <br/>
+<br/>
+<h2>Javascript micro templating</h2>
+<a href="http://uberpwn.spaces.live.com/blog/cns!3FC3980D58CF7EFB!523.entry">Fat-Free Templating with Barebones Javascript - Windows Live</a><br/>
+<a href="http://ejohn.org/blog/javascript-micro-templating/">John Resig -   JavaScript Micro-Templating</a><br/>
+<a href="http://handlebarsjs.com/">Handlebars.js: Minimal Templating on Steroids</a><br/>
+<a href="http://coenraets.org/blog/2011/12/tutorial-html-templates-with-mustache-js/#more-2660">Tutorial: HTML Templates with Mustache.js</a><br/>
+<a href="http://beebole.com/pure/">JavaScript Templates Engine PURE | BeeBole</a> - Simple and ultra-fast templating tool
+to generate HTML from JSON data.<br/>
+
+<br/>
+<br/>
+<h2>three.js</h2>
+<a href="https://github.com/mrdoob/three.js">mrdoob/three.js - GitHub</a> - Javascript 3D Engine - engine can render using &lt;canvas&gt;, &lt;svg&gt; and WebGL.<br/>
+<a href="http://learningthreejs.com/">Learning Three.js</a> <a href="http://jetienne.com/">Jerome Etienne Homepage</a> <a href="https://github.com/jeromeetienne?tab=repositories">jeromeetienne (Jerome Etienne) github</a> <a href="http://blog.jetienne.com/">Jerome Etienne.js Blog</a><br/>
+<br/>
+<br/>
+<h2>HTML 5 Games / Javascript games</h2>
+<a href="http://www.schillmania.com/arkanoid/">DHTML Arkanoid V1.2B | Schillmania!</a> -This is an attempt at recreating the classic "Arkanoid" in Object-Oriented Javascript/DHTML.<br/>
+<a href="http://labs.brianstoner.com/spacecannon/">Space Cannon 3D: A music-driven, 3D HTML5 / Javascript Game</a> - using <a href="https://github.com/mrdoob/three.js">mrdoob/three.js - GitHub</a>, echonest api.<br/>
+<a href="http://alokmenghrajani.github.com/tron/">javascript game of tron in 219 bytes</a><br/>
+<a href="http://www.browserleaks.com/webgl">WebGL Browser Report — WebGL Detection — WebGL Tester</a><br/>
+
+<br/>
+<br/>
+<h2>CSS cubes || isometric visions</h2>
+<a href="http://www.fofronline.com/2009-04/3d-cube-using-css-transformations/">3D Cube using CSS transformations – Paul Hayes & FofR Online; web design portfolio and experiments</a><br/>
+<a href="http://ajaxian.com/archives/fun-with-3d-css-and-video">Ajaxian » Fun with 3D CSS and video</a><br/>
+<a href="http://wxs.ca/iso/">Iso</a> - Isometric cubes<br/>
+<a href="http://jdan.github.io/isomer/?utm_source=davethehornersdotcom&amp;utm_medium=web">Isomer – an isometric graphics library for HTML5 canvas</a> - Simple isometric graphics library for HTML5 canvas <a href="https://github.com/jdan/isomer">jdan/isomer</a><br/>
+<br/>
+<br/>
+<h2>CSS 3</h2>
+<a href="http://www.smashingmagazine.com/2010/02/01/50-brilliant-css3-javascript-coding-techniques/">50 Brilliant CSS3/JavaScript Coding Techniques - Smashing Magazine</a><br/>
+<a href="http://net.tutsplus.com/tutorials/html-css-techniques/11-classic-css-techniques-made-simple-with-css3/">11 Classic CSS Techniques Made Simple with CSS3 | Nettuts+</a><br/>
+<a href="http://css3.bradshawenterprises.com/">CSS3 Transitions, Transforms and Animation Tutorial</a><br/>
+<a href="http://adamschwartz.co/magic-of-css/">Magic of CSS — Adam Schwartz</a><br/>
+<br/>
+<br/>
+<h2>JSON && E4X ECMAscript for XML</h2>
+content moved to <a href="https://dave.thehorners.com/tech-talk/random-tech/524-data-interchange-formats-csv-xml-json-bson-yaml-haml-toml-and-others">data interchange formats- CSV, XML, JSON*, BSON, YAML, HAML, TOML and others</a><br/>
+<br/>
+<br/>
+<h2>Web syntax highlighting / Web code editing</h2>
+<a href="http://alexgorbatchev.com/wiki/SyntaxHighlighter">SyntaxHighlighter - Alex Gorbatchev</a> - javascript code syntax highlighter for the web.<br/>
+<a href="http://pygments.org/">Pygments — Python syntax highlighter</a><br/>
+<a href="http://hg.mozilla.org/labs/bespin/">bespin: Summary</a> - Mozilla bespin code, code ide from html5 canvas.<br/>
+<a href="http://labs.mozilla.com/bespin/">Mozilla Labs » bespin</a> - open extensible web-based framework for code editing that aims to increase developer productivity, enable compelling user experiences, and promote the use of open standards.<br/>
+<a href="http://codemirror.net/">CodeMirror</a> - In-browser code editing
+   made bearable.<br/>
+<a href="http://jsfiddle.net/pborreli/pJgyu/">jquery tweets - jsFiddle - Online Editor for the Web (JavaScript, MooTools, jQuery, Prototype, YUI, Glow and Dojo, HTML, CSS)</a><br/>
+<a href="http://www.cloud9ide.com/">Cloud9 IDE - Ajax.org</a> - Cloud9 IDE is aiming to be the IDE for Javascript developers. (<a href="http://github.com/ajaxorg/cloud9">github</a>)<br/>
+<a href="https://github.com/ether/etherpad-lite">ether/etherpad-lite</a> - Really real-time collaborative document editing for the rest of us <a href="http://etherpad.org/">Etherpad</a><br/>
+<a href="http://ace.c9.io/#nav=about">Ace - The High Performance Code Editor for the Web</a> - replaces bespin.<br/>
+<br/>
+<br/>
+<h2>Lists of things CSS</h2>
+I dunno y, but the whole web designer field always has these lists...<br/>
+<a href="http://alistapart.com/">A List Apart</a> - Good site on elements of design for web designers.<br/>
+<a href="http://www.smashingmagazine.com/2007/01/19/53-css-techniques-you-couldnt-live-without/">53 CSS-Techniques You Couldn't Live Without</a><br/>
+<a href="http://www.smashingmagazine.com/2009/01/12/10-useful-web-application-interface-techniques/">10 Useful Web Application Interface Techniques | How-To | Smashing Magazine</a><br/>
+<a href="http://www.smashingmagazine.com/2009/02/08/50-extremely-useful-javascript-tools/">50 Useful JavaScript Tools | Developer's Toolbox | Smashing Magazine</a><br/>
+<a href="http://www.balkhis.com/web-designs-resources/55-extremely-useful-online-generators-for-designers/">55+ Extremely Useful Online Generators for Designers</a><br/>
+<a href="http://www.ajaxcrawler.com/2008_11_01_archive.html">AJAX Crawler - Collection of DHTML and AJAX Samples.: November 2008</a><br/>
+<a href="http://line25.com/articles/15-must-read-articles-for-css-beginners">15 Must Read Articles for CSS Beginners</a><br/>
+<a href="http://www.wired.com/geekdad/2010/09/10-geeky-web-tricks-with-html5-and-css3/">10 Geeky Web Tricks with HTML5 and CSS3 | GeekDad | Wired.com</a><br/>
+<br/>
+<h2>Components, Widgets, and what have yous.</h2>
+Icons, Forms, Validation, Key support, etc all make and break the website usability.  In this day in age, I believe in standing on the shoulders of giants.  Don't re-invent your own datagrid if one is already out there!  I'm in the process of choosing widgets for datagrids and menus.<br/>
+<a href="http://www.smashingmagazine.com/2007/05/30/tables-and-data-grids-with-ajax-dhtml-javascript/">Data Grids with AJAX, DHTML and JavaScript | Developer's Toolbox | Smashing Magazine</a><br/>
+<br/>
+<br/>
+Some sites I'm currently looking at:<br/>
+<a href="http://activewidgets.com/grid/">Active Widgets</a> - A very pretty looking set of widgets, however, it is all javascript based so I'm not sure what kind of work it would be to integrate this in my theme based widget code for my applications.
+<br/>
+<h2>Cool concepts on websites</h2>
+<p>
+Using a pronunciation guide on your website!</br>
+<p>
+<div>
+My name is Thomer M. Gil [<a href="http://thomer.com/pronunciation.html"><img
+class="noborder" src="http://thomer.com/pics/audio.gif"></img></a>].
+</div>
+You should have the ability to get the pronunciation of whatever word you what on your website.  The standard words are defined using a web dictionary and the dictionary's wav files.  However, for things like product names, people's names, and accent studies you should record your own pronunciation so that others can hear how your say it.  Interesting to think that you could do a survey on how people most pronounce a word.  How cool!  You could take a vote from the internet on the real way to say tomato, cache, linux, deamon, char *, or any other pet peeve that you think you know how to pronounce and others don't.
+</p>
+</p>
+<br/>
+<a href="http://shadow.sh/mario/">Mario Wallpaper | ./shadow.sh</a> - <a href="http://shadow.sh/stuff/mario_demo/">Mario Desktop</a><br/>
+<br/>
+<a href="http://royal.pingdom.com/?p=305">Royal Pingdom » Javascript framework usage among top websites</a><br/>
+<br/>
+<h2>dojo</h2>
+<a href="http://dojotoolkit.org/about">dojo</a><br/>
+<a href="http://www.dojotoolki.com/offline/">dojo offline</a><br/>
+<br/>
+<br/>
+<h2>MooTools</h2>
+<a href="http://mootools.net/">mootools - compact, modular, Object-Oriented JavaScript framework</a><br/>
+<a href="http://smoothgallery.jondesign.net/what/">JonDesign's (Javascript) SmoothGallery 2.0: Improved Mootools Mojo for Images</a><br/>
+<a href="http://www.smashingmagazine.com/2009/07/28/mootools-tutorials-and-resources-round-up/">MooTools Tutorials and Resources Round-Up | Developer's Toolbox | Smashing Magazine</a><br/>
+<a href="http://mochaui.com/">MochaUI - A web applications user interface library</a> - built on mootools<br/>
+<a href="http://www.moord.it/">moo.rd - A lightweight Mootools extension</a><br/>
+<br/>
+<br/>
+<h2>Prototype</h2>
+<a href="http://www.prototypejs.org/">Prototype JavaScript framework: Easy Ajax and DOM manipulation for dynamic web applications</a><br/>
+<a href="http://script.aculo.us/">script.aculo.us - web 2.0 javascript</a><br/>
+<a href="http://developer.yahoo.com/yui/examples/autocomplete/ysearch_flat.html">Example (YUI): AutoComplete Widget :: Flat-file Data</a><br/>
+<a href="http://www.jackslocum.com/blog/2006/11/24/resizable-reloaded/">Resizable Reloaded - A reusable component for resizing elements</a><br/>
+<a href="http://www.csslicingguide.com/">CSS slicing guide</a><br/>
+<a href="http://ajaxian.com/">http://ajaxian.com/</a><br/>
+<a href="http://www.nikhilk.net/Entry.aspx?id=168">Script Class Browsing Utility</a><br/>
+<br/>
+<br/>
+<h2>CSS compatibility - chasing the CSS dragon</h2>
+<a href="http://www.mycelly.com/">Nice and Free CSS Templates</a> - the simplest of CSS templates, but enough to get the job done.<br/>
+<a href="http://www.positioniseverything.net/">Position Is Everything - Modern browse bugs explained in detail!</a><br/>
+<a href="http://www.quirksmode.org/sitemap.html">QuirksMode - sitemap</a><br/>
+<a href="http://msdn2.microsoft.com/en-us/library/bb250496.aspx">Cascading Style Sheet Compatibility in Internet Explorer 7</a><br/>
+<a href="http://blogs.msdn.com/ie/archive/2005/10/12/480242.aspx">IEBlog : Call to action: The demise of CSS hacks and broken pages</a><br/>
+<a href="http://www.addedbytes.com/cheat-sheets/css-cheat-sheet/">CSS Cheat Sheet (V2) - Cheat Sheets - Added Bytes</a><br/>
+<a href="http://www.smashingmagazine.com/2008/11/12/12-principles-for-keeping-your-code-clean/">12 Principles For Keeping Your Code Clean | CSS | Smashing Magazine</a><br/>
+<a href="http://www.modernizr.com/">Modernizr</a><br/>
+<a href="http://www.smashingmagazine.com/2011/05/03/using-css3-older-browsers-and-common-considerations/">Using CSS3: Older Browsers And Common Considerations - Smashing Magazine</a><br/>
+<a href="http://yepnopejs.com/">yepnope.js | A Conditional Loader For Your Polyfills!</a> - love the name.  yep.  nope.<br/>
+<br/>
+<br/>
+<h2>Development tools</h2>
+When working with CSS, you'll find yourself needing something to highlight page elements so you can view CSS props.  There are many good browser plugins for this sort of thing of course.  Here are some that I have found useful over the years:<br/>
+<a href="http://chrispederick.com/work/web-developer/">Web Developer</a> - very cool (Firefox, Flock, Mozilla  and Seamonkey) plugin, works cross platform!<br/>
+<a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=e59c3964-672d-4511-bb3e-2d5e1db91038&displaylang=en">Download details: Internet Explorer Developer Toolbar</a><br/>
+<a href="http://www.getfirebug.com/">Firebug - Web Development Evolved</a><br/>
+<br/>
+<br/>
+<h2>Images, icons, and media</h2>
+Getting a nice visual look is important....which requires some work with images.<br/>
+<a href="http://www.famfamfam.com/lab/icons/">famfamfam.com: Icons</a> - silk and other icon sets which are free to use.<br/>
+<br/>
+<br/>
+<a href="http://www.smashingmagazine.com/2008/12/09/50-really-useful-css-tools/">50 Extremely Useful And Powerful CSS Tools | CSS | Smashing Magazine</a><br/>
+<br/>
+<br/>
+<h2>Comet (bayeux)</h2>
+<a href="http://en.wikipedia.org/wiki/Comet_(programming)">Comet (programming)</a><br/>
+<a href="http://cometdaily.com/2008/11/12/using-rest-channels-in-dojo/">Comet Daily » Blog Archive » Using REST Channels in Dojo</a><br/>
+<a href="http://ajaxpatterns.org/HTTP_Streaming">HTTP Streaming - Ajax Patterns</a>r/>
+<a href="http://cometdaily.com/2008/10/07/server-centric-comet-with-itsnat/">Comet Daily » Blog Archive » Server-Centric Comet With ItsNat</a><br/>
+<a href="/http/www.codeplex.com/ncomet">nComet</a> is a .NET implementation of the Comet (reverse-AJAX push) architecture. This server-side pipeline uses long-lived client-initiated HTTP connections to push messages to the client. Once the client receives a response, it immediately opens another HTTP request, which the server holds until a message is ready. This architecture allows the server to push dynamic html/xml/json/etc to the browser, rather than the browser polling the server.<br/>
+<a href="http://svn.cometd.org/trunk/bayeux/bayeux.html">The Bayeux Protocol</a> - Bayeux is a protocol for transporting asynchronous messages (primarily over HTTP), with low latency between a web server. (The Dojo Foundation)<br/>
+cometd's svn is available at: http://svn.cometd.org/trunk/.<br/>
+<a href="http://cometd.vox.com/">Cometd dev blog - Vox</a><br/>
+<a href="http://coe.google.com/p/jquerycomet/source/checkout">jquerycomet - Google Code</a> - use jquery with comet.<br/>
+<a href="http://ajaxpatterns.org/HTTP_Streaming">HTTP Streaming - Ajax Patterns</a><br/>
+<a href="http://cometdaily.com/2007/11/06/comet-is-always-better-than-polling/">Comet Daily » Blog Archive » Comet is Always Better Than Polling</a> - includes some pretty graphs.<br/>
+<br/>
+<br/>
+
+<h2>HTML 5 WebSocket</h2>
+<a href="http://www.kaazing.org/confluence/display/KAAZING/Home">Home - KAAZING.ORG - Home - Kaazing Gateway</a><br/>
+<a href="http://cometdaily.com/2008/08/07/comet-gazing-websocket/">Comet Daily » Blog Archive » Comet Gazing: WebSocket</a><br/>
+<br/>
+<br/>
+
+<h2>jQuery</h2>
+The jquery section of this page grew, and grew, and grew, until one day, I created another page for that content. <a href="http://dave.thehorners.com/tech-talk/programming/429-jquery">jQuery</a>.
+<br/>
+
+<br/>
+<br/>
+<a href="http://www.lamberta.org/blog/doodle/">Doodle.js?—?A Sprite Library for Canvas | notebook</a><br/>
+<a href="http://www.bbc.co.uk/glow/">BBC - Glow JavaScript Library</a> - DOM manipulation, event handling, animations, and user interface widgets.<br/>
+<br/>
+<br/>
+<h2>Ext</h2>
+<a href="http://extjs.com/products/extjs/#">Ext JS - Client-side JavaScript Framework</a><br/>
+<a href="http://googleajaxsearchapi.blogspot.com/2009/06/ext-core-ready-to-go.html">Google AJAX APIs Blog: Ext-core ready to go</a><br/>
+<a href="http://examples.extjs.eu/">Saki's Ext Examples Page</a><br/>
+<a href="http://www.miamicoder.com/post/2009/02/ExtJS-And-PHP-ndash3b-Grid-Panel-Sample.aspx">Ext JS And PHP – Grid Panel Sample</a><br/>
+<br/>
+<br/>
+<h2>Javascript</h2>
+<a href="http://net.tutsplus.com/tutorials/javascript-ajax/24-javascript-best-practices-for-beginners/">24 JavaScript Best Practices for Beginners - Nettuts+</a><br/>
+<a href="http://www.jslint.com/">JSLint, The JavaScript Code Quality Tool</a><br/>
+<a href="http://wiki.commonjs.org/wiki/CommonJS">CommonJS Spec Wiki</a> - building up the JavaScript ecosystem for web servers, desktop and command line apps and in the browser. <br/>
+<a href="http://benalman.com/code/projects/javascript-debug/docs/files/ba-debug-js.html">JavaScript Debug: A simple wrapper for console.log</a><br/>
+<a href="http://code.google.com/p/v8/">v8 - Project Hosting on Google Code</a> - V8 is Google's open source JavaScript engine. V8 is written in C++ and is used in Google Chrome, the open source browser from Google. <br/>
+<br/>
+<br/>
+<h2>Server-side Javascript / HTTP server in Javascript</h2>
+I pushed all my node.js content to:<br/>
+<a href="http://dave.thehorners.com/tech-talk/programming/423-nodejs-npm-and-that-wonderful-javascript-world">Node.js npm and that wonderful javascript world.</a><br/>
+<br/>
+<br/>
+<h2>Controls and what nots</h2>
+<a href="http://www.nogray.com/time_picker.php">JavaScript Time Component | NoGray.com</a> - nice time picker.  click with analog hands.<br/>
+<a href="http://dansnetwork.com/mootools/events-calendar/">MooTools Events Calendar</a><br/>
+<a href="http://www.electricprism.com/aeron/calendar/">Calendar: a Javascript class for Mootools that adds accessible and unobtrusive date pickers to your form elements</a><BR/>
+<a href="http://www.phatfusion.net/roundedcorners/">phatfusion : roundedcorners</a> - give div elements rounded corners easy. (mootools)<br/>
+<a href="http://icebeat.bitacoras.com/mootools/growl/">Window.Growl 2.0 with MooTools 1.2beta2</a> - growl notifications for your browser.<br/>
+<a href="http://www.shawnmclean.com/blog/2012/03/detecting-if-user-is-idle-away-or-back-by-using-idle-js/">Detecting if user is idle, away or back by using Idle.js | Shawn Mclean | Software Engineer | Jamaica</a> <a href="https://github.com/shawnmclean/Idle.js">shawnmclean/Idle.js</a> - Javascript activity library for the browser. (onHidden, onVisible, onAway,onAwayBack,awayTimeout)<br/>
+<br/>
+<br/>
+<h2>PubSubHubbub</h2>
+<a href="http://www.readwriteweb.com/archives/real-time_web_protocol_pubsubhubbub_explained.php">Real-Time Web Protocol PubSubHubbub Explained</a><br/>
+<a href="http://code.google.com/p/pubsubhubbub/">pubsubhubbub - Project Hosting on Google Code</a><br/>
+<a href="http://code.google.com/p/pubsubhubbub/wiki/BuildingAHub">BuildingAHub - pubsubhubbub - How to build a hub - Project Hosting on Google Code</a><br/>
+<br/>
+<br/>
+<a href="http://www.odata.org/">Open Data Protocol</a><br/>
+<br/>
+<br/>
+<h2>HTML 5 Video</h2>
+<a href="http://videojs.com/">HTML5 Video Player | Video JS</a><br/>
+<a href="http://www.kaltura.org/project/HTML5_Video_Media_JavaScript_Library">HTML5 Video &amp; Media JavaScript Library | Kaltura: Open Source Video Developer Community</a><br/>
+<a href="http://www.projekktor.com/">Projekktor Zwei - HTML5 video player</a><br/>
+<a href="http://fitvidsjs.com/">FitVids.JS - A lightweight, easy-to-use jQuery plugin for fluid width video embeds.</a><br/>
+<a href="http://davatron5000.github.io/TimeJump/">TimeJump – Deep linking for Podcasts</a><br/>
+
+<br/>
+<br/>
+<h2>Javascript regex randomness</h2>
+<pre>
+s=s.replace(/(\n|\r)+$/, ''); // remove \n or \r
+s=s.replace(/^\s+|\s+$/g,""); // trim whitespace beginning and ending
+
+// http://cass-hacks.com/articles/code/js_url_encode_decode/
+function URLEncode (clearString) {
+  var output = '';
+  var x = 0;
+  clearString = clearString.toString();
+  var regex = /(^[a-zA-Z0-9_.]*)/;
+  while (x < clearString.length) {
+    var match = regex.exec(clearString.substr(x));
+    if (match != null && match.length > 1 && match[1] != '') {
+    	output += match[1];
+      x += match[1].length;
+    } else {
+      if (clearString[x] == ' ')
+        output += '+';
+      else {
+        var charCode = clearString.charCodeAt(x);
+        var hexVal = charCode.toString(16);
+        output += '%' + ( hexVal.length < 2 ? '0' : '' ) + hexVal.toUpperCase();
+      }
+      x++;
+    }
+  }
+  return output;
+}
+function URLDecode (encodedString) {
+  var output = encodedString;
+  var binVal, thisString;
+  var myregexp = /(%[^%]{2})/;
+  while ((match = myregexp.exec(output)) != null
+             && match.length > 1
+             && match[1] != '') {
+    binVal = parseInt(match[1].substr(1),16);
+    thisString = String.fromCharCode(binVal);
+    output = output.replace(match[1], thisString);
+  }
+  return output;
+}
+</pre>
+<br/>
+<br/>
+<h2>Upload tools</h2>
+<a href="http://www.plupload.com/index.php">Plupload - A tool for uploading files using Flash, Silverlight, Google Gears, HTML5 or Browserplus</a> - developers of TinyMCE brings you Plupload, a highly usable upload handler for your Content Management Systems or similar.(flash,gears,html5,silverlight)<br/>
+<br/>
+<br/>
+<h2>Reactive Rx</h2>
+<a href="http://msdn.microsoft.com/en-us/devlabs/ee794896.aspx">Reactive Extensions for .NET (Rx)</a><br/>
+<a href="http://blogs.msdn.com/b/jeffva/archive/2010/03/17/reactive-extensions-for-javascript-the-time-flies-like-an-arrow-sample.aspx">Reactive Extensions for JavaScript: The Time flies like an arrow sample - Jeffrey rambles about Rx, .NET and programming in general. - Site Home - MSDN Blogs</a><br/>
+<a href="http://blogs.msdn.com/b/jeffva/">Jeffrey rambles about Rx, .NET and programming in general. - Site Home - MSDN Blogs</a><br/>
+<a href="http://blogs.msdn.com/b/jeffva/archive/2010/04/14/node-js-bindings-for-rxjs.aspx">Node JS Bindings for RxJS - Jeffrey rambles about Rx, .NET and programming in general. - Site Home - MSDN Blogs</a><br/>
+<a href="http://channel9.msdn.com/shows/Going+Deep/Expert-to-Expert-Brian-Beckman-and-Erik-Meijer-Inside-the-NET-Reactive-Framework-Rx/">Expert to Expert: Brian Beckman and Erik Meijer - Inside the .NET Reactive Framework (Rx) | Going Deep | Channel 9</a><br/>
+<br/>
+<br/>
+<h2>Dynamic fav icons using javascript</h2>
+<a href="http://remysharp.com/2010/08/24/dynamic-favicons/">Dynamic favicons</a> - remysharp: Google Calendar favicon which renders the current day instead of a generic "31"<br/>
+<a href="http://www.schillmania.com/projects/soundmanager2/demo/360-player/canvas-visualization.html">360° MP3 player UI demo (SoundManager 2): Javascript + Canvas Visualization</a> - fav icon is level meter!<br/>
+<a href="http://www.p01.org/releases/DEFENDER_of_the_favicon/">DEFENDER of the favicon | Mathieu 'p01' Henri | July 2008</a><br/>
+<br/>
+<br/>
+<h2>HTML Audio</h2>
+<a href="http://www.schillmania.com/projects/soundmanager2/">SoundManager 2: JavaScript Sound For The Web</a><br/>
+<br/>
+<br/>
+<h2>Javascript MVC/MVVM/MVP/ETC</h2>
+<a href="https://github.com/bitovi/todomvc">bitovi/todomvc · GitHub</a> - Helping you select an MV* framework - Todo apps for Backbone.js, Ember.js, AngularJS, Spine and many more.<br/>
+<a href="http://javascriptmvc.com/#&amp;search=home&amp;who=index">JavaScriptMVC</a> - JavaScriptMVC is an open-source framework containing the best ideas in enterprise JavaScript development.<br/>
+<a href="http://agilityjs.com/">Agility.js Javascript MVC library</a> <a href="https://github.com/arturadib/thewall#readme">arturadib/thewall · GitHub</a> Anonymous Twitter-like wall (Agility.js demo)<br/>
+<a href="http://spinejs.com/">Spine</a> - Build Awesome JavaScript MVC Applications (Spine.app,hem,CoffeeScript)<br/>
+<a href="https://github.com/Shopify/batman">Shopify/batman · GitHub</a> - batman.js is a framework for building rich single-page browser applications. It is written in CoffeeScript and its API is developed with CoffeeScript in mind, but of course you can use plain old JavaScript too.<br/>
+<a href="http://sporto.github.io/blog/2013/04/12/comparison-angular-backbone-can-ember/">A comparison of Angular, Backbone, CanJS and Ember - Sebastian's Blog</a><br/>
+<a href="http://vuejs.org/">vue.js</a> - MVVM Made Simple Vue.js is a library for building interactive web interfaces. It provides data-driven components with a simple and flexible API.<br/>
+<br/>
+<br/>
+<h2>Angular.js</h2>
+<a href="/tech-talk/programming/485-angularjs">Angular.js - Dave Horner's Website</a><br/>
+<a href="http://angularjs.org/#/">AngularJS — Superheroic JavaScript MVC Framework</a><br/>
+<a href="http://ngmodules.org/">Popular Modules - AngularJS Modules, Plugins and Directives</a><br/>
+<a href="http://coenraets.org/blog/2012/02/sample-application-with-angular-js/">Sample Application with Angular.js</a> - wine celler in angular.js<br/>
+<a href="https://github.com/angular-ui/ui-router">angular-ui/ui-router · GitHub</a> - <a href="http://angular-ui.github.io/ui-router/sample/#/about">about - ui-router</a>  flexible routing with nested views, organize the parts of your interface into a state machine. States are bound to named, nested and parallel views.<br/>
+<a href="http://angular-ui.github.io/bootstrap/">Angular directives for Twitter's Bootstrap</a> - Bootstrap components written in pure AngularJS by the AngularUI Team. no dependency on jQuery or bootstrap's javascript.<br/>
+<a href="http://stackoverflow.com/questions/11605917/this-vs-scope-in-angularjs-controllers">this vs $scope in AngularJS controllers - Stack Overflow</a><br/>
+<br/>
+<br/>
+<h2>Can.js || canjs</h2>
+<a href="http://canjs.com/">CanJS</a> - can be used with jquery,epto,dojo,mootools,yui<br/>
+<a href="http://bitovi.com/blog/">Blog Archives » Bitovi</a> - blog about CanJs and Jquery++<br/>
+<a href="https://github.com/bitovi/canjs/wiki/CanJS-blog-posts,-tutorials,-and-examples">CanJS blog posts, tutorials, and examples · bitovi/canjs Wiki</a><br/>
+<a href="http://donejs.com/docs.html#!">DoneJS</a><br/>
+<a href="https://github.com/retro/Tonfa.js">retro/Tonfa.js · GitHub</a> - Tonfa.js is a glue library between CanJS and jQueryMobile<br/>
+<a href="https://github.com/jupiterjs/cantodo">jupiterjs/cantodo · GitHub</a> - CanJS TodoMVC Demos using each of the external libraries supported by Can.JS.<br/>
+<a href="http://net.tutsplus.com/tutorials/javascript-ajax/diving-into-canjs/">Diving into CanJS | Nettuts+</a><br/>
+<a href="http://bitovi.github.io/canui/">CanUI</a> <a href="https://github.com/bitovi/canui">bitovi/canui · GitHub</a><br/>
+<br/>
+<br/>
+<h2>Backbone</h2>
+<a href="http://documentcloud.github.com/backbone/">Backbone.js</a> - Backbone supplies structure to JavaScript-heavy applications by providing models with key-value binding and custom events, collections with a rich API of enumerable functions, views with declarative event handling, and connects it all to your existing application over a RESTful JSON interface.<br/>
+<a href="http://arturadib.com/hello-backbonejs/">Hello Backbone.js Tutorial</a><br/>
+<a href="https://github.com/larrymyers/backbone-koans">larrymyers/backbone-koans · GitHub</a> - A set of jasmine powered koans for learning Backbone.js.<br/>
+<a href="https://github.com/addyosmani/backbone-fundamentals">addyosmani/backbone-fundamentals · GitHub</a> - This is the home of ‘Developing Backbone.js Applications’, an (in-progress) book about the Backbone.js framework for structuring JavaScript applications.<br/>
+<a href="https://github.com/unspace/faux">unspace/faux - GitHub</a> - Faux is a Javascript library for building Single Page Interface (or "SPI") applications with Backbone.js's Model, View, and Controller classes.<br/>
+<a href="https://github.com/raganwald">raganwald's Profile - GitHub</a> - Reg Braithwaite has quite a few examples of using faux and backbone.js together.<br/>
+<a href="https://github.com/powmedia/backbone-forms">powmedia/backbone-forms · GitHub</a> - Form framework for BackboneJS with nested forms, editable lists and validation.<br/>
+<a href="http://jonathanotto.com/blog/make_big_forms_fast_in_backbone_js.html">Make Big Backbone.js Forms Change Models Fast</a><br/>
+<a href="http://lostechies.com/derickbailey/2011/07/24/awesome-model-binding-for-backbone-js/">Awesome Model Binding For Backbone.js | ThoughtStream.new :derick_bailey</a><br/>
+<a href="http://recipeswithbackbone.com/">Recipes with Backbone</a><br/>
+<a href="http://richarddingwall.name/2012/03/15/mini-book-review-recipes-with-backbone/">Mini book review: Recipes With Backbone | Richard Dingwall</a><br/>
+<a href="http://andyet.net/blog/2010/oct/29/building-a-single-page-app-with-backbonejs-undersc/">Building a single page app with Backbone.js, underscore.js and jQuery | &amp;yet | the blog</a><br/>
+<a href="http://blog.chariotsolutions.com/2012/02/using-jquerymobile-and-backbonejs-for.html">Chariot Solutions: Using jQueryMobile and Backbone.js for handling forms</a><br/>
+<a href="http://blog.shinetech.com/2011/08/05/building-a-shared-calendar-with-backbone-js-and-fullcalendar-a-step-by-step-tutorial/#more-947">Building a shared calendar with Backbone.js and FullCalendar: A step-by-step tutorial | The Shine Technologies Blog</a><br/>
+<a href="http://backbonetraining.net/resources">Backbone.js Training - A Multi-Day, Hands-On, Training Class</a><br/>
+<a href="http://aaronhardy.com/javascript/javascript-architecture-the-basics/">AaronHardy.com » JavaScript Architecture: The Basics</a><br/>
+<a href="http://backboneboilerplate.com/#/">Backbone Boilerplate</a> -  self-documenting example app useful for quick developer and/or learning backbone.js.  (Backbone.js, Underscore.js, Require.js, Html5Boilerplate)<br/>
+<a href="https://github.com/PaulUithol/Backbone-relational">PaulUithol/Backbone-relational · GitHub</a> - Get and set relations (one-to-one, one-to-many, many-to-one) for Backbone models.<br/>
+<a href="http://lostechies.com/derickbailey/2011/07/24/awesome-model-binding-for-backbone-js/">Awesome Model Binding For Backbone.js | ThoughtStream.new :derick_bailey</a> - nice article talking about backbone.modelbinding<br/>
+<a href="https://github.com/derickbailey/backbone.modelbinding">derickbailey/backbone.modelbinding · GitHub</a> - awesome model binding for Backbone.js<br/>
+<a href="https://github.com/logicalparadox/backbone.iobind">logicalparadox/backbone.iobind · GitHub</a> - Bind socket.io events to backbone models & collections. Also includes a drop-in replacement for Backbone.sync using socket.io.<br/>
+<a href="http://weblogs.asp.net/cibrax/archive/2012/02/17/integrating-backbone-js-with-asp-net-web-api.aspx">Integrating Backbone.js with ASP.NET Web API - Pablo M. Cibraro (aka Cibrax)</a><br/>
+<a href="http://lostechies.com/derickbailey/2012/05/17/backbone-syphon-serialize-form-inputs-to-javascript-objects/?utm_source=feedburner&amp;utm_medium=feed&amp;utm_campaign=Feed%3A+LosTechies+%28LosTechies%29&amp;utm_content=Google+Reader">Backbone.Syphon: Serialize Form Inputs To JavaScript Objects | ThoughtStream.new :derick_bailey</a><br/>
+<a href="https://github.com/derickbailey/backbone.syphon">derickbailey/backbone.syphon · GitHub</a> - Serialize a Backbone.View in to a JavaScript object.<br/>
+<br/>
+<br/>
+<h2>QR code</h2>
+<a href="http://en.wikipedia.org/wiki/QR_code">QR code - Wikipedia, the free encyclopedia</a><br/>
+<img src="http://chart.apis.google.com/chart?cht=qr&chs=250x250&chl=http://dave.thehorners.com" alt="qr for my website"/><br/>
+Did you know you could use google charts to make qr codes?<br/> "http://chart.apis.google.com/chart?cht=qr&chs=250x250&chl=http://dave.thehorners.com"<br/>
+<br/>
+<br/>
+<br/>
+<h2>underscore and functional javascript</h2>
+<a href="http://github.com/documentcloud/underscore/">documentcloud's underscore at master - GitHub</a> - Functional Programming Aid for Javascript. Works well with jQuery.<br/>
+<a href="http://united-coders.com/christian-harms/javascript-functional-programming-with-underscore-or-ecmascript5">Javascript Functional programming with Underscore or ECMAScript5 | united-coders.com</a><br/>
+<a href="http://lodash.com/">Lo-Dash</a> - Created as a fork of the Underscore project. Lo-Dash is your utility belt.<br/>
+<a href="http://kitcambridge.be/blog/say-hello-to-lo-dash/">Say "Hello" to Lo-Dash - Kit Cambridge</a><br/>
+<a href="http://baconjs.github.io/">Bacon.js - Functional Reactive Programming library for JavaScript</a> <a href="https://github.com/baconjs/bacon.js">baconjs/bacon.js</a><br/>
+<br/>
+<br/>
+<h2>Canvas - SVG</h2>
+<a href="http://ie.microsoft.com/testdrive/Performance/FishIETank/">FishIE Tank</a><br/>
+<a href="http://kangax.github.com/fabric.js/">Fabric.js Javascript Canvas Library</a><br/>
+<a href="http://raphaeljs.com/">Raphaël—JavaScript Library</a><br/>
+<a href="http://readysetraphael.com/">SVG To RaphaelJS Converter - Ready.Set.Raphael.</a><br/>
+<a href="http://inkscape.org/">Inkscape. Draw Freely.</a><br/>
+<br/>
+<br/>
+<h2>HTML slides (hypercard stacks)</h2>
+<a href="http://www.htmlfivewow.com/slide1">HTML5 Showcase for Web Developers: The Wow and the How</a> - great html5 slides demo.<br/>
+<a href="http://code.google.com/p/html5wow/">html5wow - HTML5 Showcase for Developers: The Wow and the How - Google Project Hosting</a> - source for htmlfivewow.com.<br/>
+<a href="http://www.htmlfivewow.com/demos/terminal/terminal.html">HTML5 Terminal</a> - great example in slide deck.<br/>
+<a href="http://paulrouget.com/dzslides/">dzslides</a> - DZSlides is a one-page-template to build your presentation in HTML5 and CSS3.<br/>
+<a href="https://github.com/adamzap/landslide">adamzap/landslide - GitHub</a> - Generate a slideshow using the slides that power the html5-slides presentation<br/>
+<a href="http://f.souza.cc/2011/09/creating-html-5-slide-presentations-using-landslide/">Creating HTML 5 slide presentations using landslide</a><br/>
+<a href="http://www.html5rocks.com/en/">HTML5 Rocks - A resource for open web HTML5 developers</a><br/>
+<a href="http://slides.html5rocks.com/#landing-slide">HTML5 Presentation</a><br/>
+<a href="http://bartaz.github.com/impress.js/">impress.js | presentation tool based on the power of CSS3 transforms and transitions in modern browsers | by Bartek Szopka @bartaz</a><br/>
+<a href="http://geraldb.github.com/slideshow-impress.js/">impress.js - S9 Template Pack by geraldb</a><br/>
+<a href="http://hsivaram.com/impressionist/0.1/app.html#">impressionist - v 0.0.1.0</a> - impress.js gui<br/>
+<a href="http://tantaman.github.com/Strut/web/index.html">Strut - ALPHA</a> - impress.js gui<br/>
+<br/>
+<br/>
+<h2>Bootstrap</h2>
+<a href="/tech-talk/programming/517-twitter-bootstrap">Twitter bootstrap - Dave Horner's Website</a><br/>
+<br/>
+<br/>
+<h2>HTML KickStart</h2>
+another reset, bootstrap.<br/>
+<a href="http://www.99lime.com/">HTML KickStart - Ultra–Lean HTML Building Blocks for Rapid Website Production - KickStart your Website Production - 99Lime.com</a><br/>
+<a href="https://github.com/floarc/HtmlKickstartBundle">floarc/HtmlKickstartBundle · GitHub</a><br/>
+<br/>
+<br/>
+<h2>Ender</h2>
+<a href="http://ender.no.de/">Ender - the no-library library.</a> - Ender is a full featured package manager for your browser. think dselect,apt-get,nuget,npm (jquery,require.js,CommonJS).<br/>
+<br/>
+<br/>
+<h2>tooltips</h2>
+<a href="http://bassistance.de/jquery-plugins/jquery-plugin-tooltip/">bassistance.de » jQuery plugin: Tooltip</a> (<a href="http://jquery.bassistance.de/tooltip/demo/">jQuery Tooltip Plugin Demo</a>)<br/>
+<a href="http://onehackoranother.com/projects/jquery/tipsy/">tipsy</a> - Tipsy is a jQuery plugin for creating a Facebook-like tooltips effect based on an anchor tag's title attribute.<br/>
+<a href="https://github.com/Trenker/Twipsy">Trenker/Twipsy · GitHub</a> - Mootools port of the jQuery plugin Twipsy<br/>
+<br/>
+<br/>
+<a href="http://amsul.ca/pickadate.js/index.htm">pickadate.js</a><br/>
+<a href="http://fgnass.github.com/spin.js/">spin.js</a> - javascript only spiner<br/>
+<a href="http://lipka.github.com/piecon/">Piecon / Pie charts in your favicon!</a><br/>
+<a href="http://rivetsjs.com/#usage-notes">Rivets.js — A declarative data binding facility</a><br/>
+<a href="http://knockoutjs.com/">Knockout : Home</a> - another MVC data binding observables library.<br/>
+<a href="http://workshop.chromeexperiments.com/examples/gui/#1--Basic-Usage">dat.GUI</a> <a href="https://code.google.com/p/dat-gui/">dat-gui - A lightweight controller library for JavaScript. - Google Project Hosting</a><br/>
+<br/>
+<br/>
+<h2>compile javascript</h2>
+<a href="http://ejohn.org/blog/asmjs-javascript-compile-target/">John Resig - Asm.js: The JavaScript Compile Target</a><br/>
+<a href="http://asmjs.org/">asm.js</a><br/>
+<br/>
+<br/>
+<h2>device orientation</h2>
+<a href="https://developer.mozilla.org/en-US/Apps/Build/gather_and_modify_data/responding_to_device_orientation_changes">Keep it level: responding to device orientation changes - App Center | MDN</a> <a href="https://github.com/franciov/rolling-ball">franciov/rolling-ball</a><br/>
+<a href="https://developer.mozilla.org/en-US/docs/Games/Workflows/HTML5_Gamedev_Phaser_Device_Orientation">Introduction to HTML5 Game Development with Phaser and the Device Orientation API - Game development | MDN</a><br/>
+    <div style="border: 1px;">
+    Created: 2006-07-16 05:35:38
+    Modified: 2014-07-13 02:54:49
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+0, 1, 1, 2, 3, 5, 8, 13, 21, 34,...<br/>
+<b> x<sub>n</sub> = x<sub>n-1</sub> + x<sub>n-2</sub></b><br/>
+<!-- "Fibonacci" was his nickname, which roughly means "Son of Bonacci". -->
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

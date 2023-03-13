@@ -1,0 +1,388 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>Docker linux container engine - portable applications.</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/linux-unix-and-friends/">linux-unix-and-friends</a>
+    <h1>Docker linux container engine - portable applications.</h1>
+   Dockerize all things!<br/>
+<br/>
+<a href="https://www.docker.io/">Homepage - Docker: the Linux container engine</a> - Ubuntu 14.04 LTS now with Docker support.<br/>
+<a href="https://coreos.com/">CoreOS is Linux for Massive Server Deployments</a> - Consumes 50% less RAM on boot than an average Linux installation. partition A partition B patching.  made with Docker in mind.<br/>
+<a href="http://www.projectatomic.io/">Project Atomic</a> - tool and patterns of container-based application and service deployment.<br/>
+<h2>LXC || Linux Containers</h2>
+<a href="https://linuxcontainers.org/">LXC - Linux Containers</a><br/>
+<a href="https://en.wikipedia.org/wiki/Cgroups">cgroups - Wikipedia</a> - Resource limiting,Prioritization,Accounting,Control. cgroups (control groups) is a Linux kernel feature to limit, account, and isolate resource usage (CPU, memory, disk I/O, etc.) of process groups.<br/>
+<iframe width="420" height="315" src="//www.youtube.com/embed/wW9CAH9nSLs?rel=0" frameborder="0" allowfullscreen></iframe>
+<br/>
+<a href="http://kuhnza.com/2013/03/27/docker-makes-creating-secure-sandboxes-easier-than-ever/">Docker Makes Creating Secure Sandboxes Easier Than Ever | Fragments</a><br/>
+<a href="https://github.com/google/lmctfy/">google/lmctfy</a> - lmctfy is the open source version of Google’s container stack, which provides Linux application containers.<br/>
+<br/>
+<a href="http://containerops.org/2013/11/19/lxc-networking/">Exploring LXC Networking - Container Ops</a> - vagrant ubu;lxc-create -t ubuntu;lxc-console and VLAN review.<br/>
+<br/>
+<h2>Docker</h2>
+<a href="https://github.com/cameron/docker">cameron/docker</a> - Docker - the open-source application container engine <a href="https://www.docker.io/">Homepage - Docker: the Linux container engine</a><br/>
+<a href="https://www.docker.com/docker-toolbox">Docker Toolbox | Docker</a> - Docker Toolbox is an installer to quickly and easily install and setup a Docker environment on your computer. Available for both Windows and Mac, the Toolbox installs Docker Client, Machine, Compose, Kitematic and VirtualBox.<br/>
+<a href="https://hub.docker.com/">Docker Hub</a> - Dev-test pipeline automation, 100,000+ free apps, public and private registries.<br/>
+<a href="https://index.docker.io/">Home | Docker Index</a><br/>
+<a href="http://ijonas.com/devops-2/building-a-docker-based-mysql-server/">Building a Docker-based MySQL Serverijonas | ijonas</a><br/>
+<a href="http://ijonas.com/devops-2/building-a-mongodb-cluster-using-docker-containers/">Building a MongoDB Cluster using Docker Containersijonas | ijonas</a><br/>
+<a href="http://ijonas.com/devops-2/a-docker-container-folder-structure-thats-flexible-and-scales/">A Docker Container folder structure that’s flexible and scalesijonas | ijonas</a><br/>
+<a href="http://orchardup.github.io/fig/">Fig | Fast, isolated development environments using Docker</a><br/>
+<br/>
+<br/>
+<a href="http://blog.kablamo.org/2013/11/13/docker/">Down a rabbit hole - Docker - KABLAMO</a> - yes Docker is written in <a href="/tech-talk/programming/505-go-gopher">Go - Dave Horner's Website</a>.<br/>
+<br/>
+<br/>
+<a href="https://github.com/gocircuit/circuit">gocircuit/circuit</a> - Circuit is a programmable platform-as-a-service (PaaS) and/or Infrastructure-as-a-Service (IaaS), for management, discovery, synchronization and orchestration of services and hosts comprising cloud applications.<br/>
+<a href="http://blog.docker.com/2013/07/docker-desktop-your-desktop-over-ssh-running-inside-of-a-docker-container/">Docker Desktop: Your Desktop over ssh running inside of a Docker container | Docker Blog</a><br/>
+<a href="http://ptone.com/dablog/2013/06/introducing-jiffylab/">ptone : Introducing JiffyLab</a> <a href="https://github.com/ptone/jiffylab">ptone/jiffylab</a> - zero configuration Python/Unix web based teaching env<br/>
+<br/>
+<br/>
+<a href="http://progrium.com/blog/2013/06/19/dokku-the-smallest-paas-implementation-youve-ever-seen/">Dokku: The smallest PaaS implementation you've ever seen :: Jeff Lindsay</a><br/>
+<a href="http://robknight.org.uk/blog/2013/05/drupal-on-docker/">Drupal on Docker - Rob Knight's blog</a><br/>
+<a href="https://github.com/progrium/dokku">progrium/dokku</a> - Docker powered mini-Heroku. The smallest PaaS implementation you've ever seen.<br/>
+<br/>
+<br/>
+<a href="http://blog.tjll.net/docker-dvwa-container/">Tyblog | Docker DVWA Container How-To</a> - damn vulnerable web app in a container.<br/>
+<a href="http://www.techbar.me/wordpress-docker/">WordPress Docker | TechBar</a><br/>
+<a href="https://github.com/komljen/docker">komljen/docker</a> - Dockerfile examples<br/>
+<a href="http://www.jedelman.com/home/docker-networking">Docker Networking - Jason Edelman's Blog</a><br/>
+<a href="http://docs.docker.com/articles/networking/">Advanced networking - Docker Documentation</a><br/>
+<br/>
+<br/>
+<h2>Dockercon</h2>
+<a href="http://blog.docker.com/2014/06/keynote-videos-from-dockercon14-day-1/">Keynote videos from Dockercon14 – Day 1 | Docker Blog</a><br/>
+<a href="http://blog.docker.com/category/dockercon-2/">DockerCon | Docker Blog</a><br/>
+
+<br/>
+<br/>
+<h2>libcontainer</h2>
+<a href="http://www.infoworld.com/t/application-virtualization/4-reasons-why-dockers-libcontainer-big-deal-244182">4 reasons why Docker's libcontainer is a big deal | Application virtualization - InfoWorld</a><br/>
+<a href="https://github.com/docker/libcontainer">docker/libcontainer</a> - libcontainer - reference implementation for containers<br/>
+<a href="http://www.zdnet.com/docker-libcontainer-unifies-linux-container-powers-7000030397/#ftag=RSSf468ffe">Docker libcontainer unifies Linux container powers | ZDNet</a><br/>
+<a href="http://www.infoq.com/news/2014/03/docker_0_9">Docker drops LXC as default execution environment</a> - in favor of libcontainer as default.<br/>
+<br/>
+<br/>
+<h2>libchan</h2>
+Libchan is an ultra-lightweight networking library which lets network services communicate in the same way that goroutines communicate using channels.<br/>
+<a href="https://github.com/docker/libchan">docker/libchan</a><br/>
+<a href="https://news.ycombinator.com/item?id=7873619">Libchan: Like Go channels over the network | Hacker News</a><br/>
+<br/>
+<br/>
+<h2>libswarm</h2>
+It defines a standard interface for services in a distributed system to communicate with each other. (without vendor lockin)<br/>
+libswarm enables… a swarm of Docker containers available through a unified API.<br/>
+<a href="https://github.com/docker/libswarm">docker/libswarm</a><br/>
+<br/>
+<br/>
+<br/>
+<a href="https://github.com/docker/spdystream">docker/spdystream</a><br/>
+<script async class="speakerdeck-embed" data-id="bb9f9ae0debf0131ffed2ad9291baba4" data-ratio="1.33333333333333" src="//speakerdeck.com/assets/embed.js"></script><br/>
+<a href="https://gist.github.com/mrallen1/44a415c302139af78dde">mrallen1:Dockerfile</a><br/>
+<br/>
+<br/>
+<h2>gaudi || docker DSL</h2>
+yaml config, gaudi, all your containers are up.<br/>
+<a href="http://gaudi.io/">gaudi - a simple orchestrator using Docker containers</a> - describe a system of Docker containers using a simple DSL.<br/>
+<br/>
+<br/>
+<h2>Ansible</h2>
+<a href="http://www.ansible.com/home">Ansible is Simple IT Automation</a><br/>
+<a href="http://thechangelog.com/ansible-docker/">The Why and How of Ansible and Docker - The Changelog</a><br/>
+<br/>
+<br/>
+<a href="http://www.go.cd/">Go - Continuous Delivery software</a> - open source by ThoughtWorks, Java/JRuby on Rails project <a href="https://github.com/gocd/gocd/">gocd/gocd</a><br/>
+<a href="http://highops.com/insights/continuous-delivery-pipelines-gocd-vs-jenkins/">Continuous Delivery: GoCD vs Jenkins</a><br/>
+<br/>
+<br/>
+<a href="https://github.com/GoogleCloudPlatform/kubernetes">GoogleCloudPlatform/kubernetes</a> - Container Cluster Manager<br/>
+<a href="https://coreos.com/">CoreOS is Linux for Massive Server Deployments</a><br/>
+<a href="https://github.com/boot2docker/boot2docker">boot2docker/boot2docker</a> - Boot2Docker is a lightweight Linux distribution made specifically to run Docker containers. It runs completely from RAM, is a small ~24MB download and boots in ~5s (YMMV). boot2docker manages VboxManage (virtualbox)<br/>
+<br/>
+<br/>
+<h2>3rd Party Repository: Docker</h2>
+<a href="http://www.ubuntuupdates.org/ppa/docker">UbuntuUpdates - PPA: Docker</a> - 3rd Party Repository: Docker - when I tried docker.io was running 1.2 of docker using lxc-docker you can get 1.5<br/>
+<a href="https://blog.dahanne.net/2015/11/09/bash-completion-for-docker/">bash completion for Docker | Anthony Dahanne's blog</a> - Anthoney does a nice job of documenting getting bash-completions working for docker,docker-compose, and docker-machine.<br/>
+<br/>
+<br/>
+<h2>HyperV Docker</h2>
+<a href="http://searchitchannel.techtarget.com/feature/Configuring-virtual-networking-for-Microsoft-Hyper-V">Configuring virtual networking for Microsoft Hyper-V</a><br/>
+<a href="http://sa.muel.be/2015/run-docker-on-hyper-v-with-docker-machine/">Run Docker on Hyper-V with Docker Machine · Samuel Debruyn</a><br/>
+<br/>
+<br/>
+<h2>Docker registry || DTR || Docker Trusted Registry</h2>
+<a href="https://docs.docker.com/registry/deploying/">Deploying a registry server - Docker</a><br/>
+<br/>
+<br/>
+<a href="https://jpetazzo.github.io/orchestration-workshop/#1">Docker Orchestration Workshop</a> Orchestration at Scale with Docker <a href="https://github.com/jpetazzo/dockercoins">jpetazzo/dockercoins</a> <a href="https://github.com/jpetazzo/orchestration-workshop">jpetazzo/orchestration-workshop</a><br/>
+<br/>
+<br/>
+<h2>Security scanning for containers</h2>
+<a href="https://github.com/coreos/clair">coreos/clair: Vulnerability Static Analysis for Containers</a><br/>
+    <div style="border: 1px;">
+    Created: 2014-05-23 14:17:01
+    Modified: 2017-05-17 17:56:06
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+<span id=daysToChristmas>x</span> days to Christmas.<br/>
+<span id=daysToNewYear>x</span> days to a new year.<br/>
+Happy Holidays!
+<script Language="JavaScript">
+function showtime () {
+        msPerDay = 24 * 60 * 60 * 1000 ; // Number of milliseconds per day
+        var now = new Date();
+        var year = now.getYear();
+        if (year < 1000)
+         year+=1900
+        nextXmas = new Date("December 25, 2000")
+        nextXmas.setYear(year)
+        daysLeft = (nextXmas.getTime() - now.getTime()) / msPerDay;
+        daysLeft = Math.round(daysLeft);
+        var span=document.getElementById('daysToChristmas');
+        span.removeChild(span.firstChild);
+        span.appendChild(document.createTextNode(daysLeft+''));
+        
+        nextXmas = new Date("December 31, 2000")
+        nextXmas.setYear(year)
+        daysLeft = (nextXmas.getTime() - now.getTime()) / msPerDay;
+        daysLeft = Math.round(daysLeft);
+
+        span=document.getElementById('daysToNewYear');
+        span.removeChild(span.firstChild);
+        span.appendChild(document.createTextNode(daysLeft+''));
+        setTimeout("showtime()",msPerDay);
+}
+showtime();
+</script>
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

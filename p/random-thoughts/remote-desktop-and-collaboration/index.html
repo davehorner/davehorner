@@ -1,0 +1,321 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>Pairing - Remote desktop and collaboration</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/p/">Personal</a>
+<a href="/p/random-thoughts/">random-thoughts</a>
+    <h1>Pairing - Remote desktop and collaboration</h1>
+   <h2>Pairing || Pair programming</h2>
+<a href="https://www.google.com/+/learnmore/hangouts/">Google+ Hangouts</a> and Skype are often used.  Video and audio of both people's display with minimal effort to make changes on both people machine...<br/>
+<a href="https://github.com/ingydotnet/...">ingydotnet/...</a>  Unix dot file management and sharing <a href="https://github.com/sharpsaw">Sharpsaw!org</a><br/>
+<br/>
+<br/>
+http://www.apple.com/remotedesktop/<br/>
+<a href="http://wiki.centos.org/FreeNX">NX server using FreeNX</a><br/>
+<a href="http://www.nomachine.com/products.php">NoMachine NX - Terminal Server, Desktop Virtualization and 
+Access Management Software</a><br/>
+<a href="https://secure.logmein.com/US/home.aspx">LogMeIn - Remote Access and Desktop Control Software for Your Computer</a><br/>
+<a href="http://www.freerdp.com/">FreeRDP</a> - FreeRDP is a free implementation of the Remote Desktop Protocol (RDP), released under the Apache license. <a href="https://github.com/FreeRDP/FreeRDP/wiki/Compilation">Compilation · FreeRDP/FreeRDP Wiki</a> details Linux, MacOSX, Minggw windows support.<br/>
+<a href="http://sudo2.blogspot.com/2012/02/remote-desktop-to-windows-7-or-windows.html">Sudo: Remote desktop to Windows 7 (or Windows 2008 server) which requires Network Level Authentication using freeRDP</a> - As of January 2012, FreeRDP adds support for Network Level Authentication. You can then use FreeRDP to connect to Windows 7 or Windows Server 2008 which requires NLA by default.<br/>
+<br/>
+<br/>
+<a href="http://www.redhat.com/magazine/006apr05/features/vnc/">Taking your desktop virtual with VNC</a><br/>
+<a target="_blank" href="http://www.google.com/search?q=vnc+recorder&start=0&ie=utf-8&oe=utf-8&client=firefox-a&rls=org.mozilla:en-US:official">VNC Recording</a><br/>
+<a class="l" href="http://www.cs.purdue.edu/homes/aliaga/pmr_submitted.pdf">A Collaborative Undergraduate Curriculum for Pen-based Computing <b>...</b></a><br/>
+<br/>
+<a href="http://support.microsoft.com/kb/q233175/">How to Use Remote Desktop Sharing in NetMeeting</a><br/>
+<a href="http://support.microsoft.com/kb/878451">How to turn on the Remote Desktop Sharing feature of Windows NetMeeting in Windows XP Service Pack 2 or in Windows XP Tablet PC Edition 2005</a><br/>
+<strong>Terminal Services for Windows</strong><br/>
+<a href="http://blogs.msdn.com/ts/archive/2007/01/22/vista-remote-desktop-connection-authentication-faq.aspx">Terminal Services Team Blog : Vista Remote Desktop Connection Authentication FAQ</a><br/>
+<br/>
+<h2>Remote Desktop Shortcut Keys</h2>
+Using Terminal Server shortcut keys...If you choose not to apply Windows key combinations to your Remote Desktop sessions, you can use these Terminal Server shortcut keys to perform many of the same functions. For more information about applying Windows key combinations, see To configure Windows shortcut keys in a session.<br/>
+<br/>
+Shortcut key Description <br/>
+ALT+PAGE UP Switches between programs from left to right. <br/>
+ALT+PAGE DOWN Switches between programs from right to left. <br/>
+ALT+INSERT Cycles through the programs in the order they were started. <br/>
+ALT+HOME Displays the Start menu. <br/>
+CTRL+ALT+BREAK Switches the client between a window and full screen. <br/>
+CTRL+ALT+END Brings up the Windows Security dialog box. <br/>
+ALT+DELETE Displays the Windows menu.  <br/>
+CTRL+ALT+Minus (-) symbol on the numeric keypad Places a snapshot of the active window, within the client, on the Terminal server clipboard (provides the same functionality as pressing PrintScrn on a local computer.)  <br/>
+CTRL+ALT+Plus (+) symbol on the numeric keypad Places a snapshot of the entire client window area on the Terminal server clipboard (provides the same functionality as pressing ALT+PrintScrn on a local computer.)  <br/>
+<a href="http://support.microsoft.com/kb/186624">Terminal Server Client Shortcut Key Combinations</a><br/>
+<br/>
+<br/>
+<a href="http://macapper.com/2007/03/19/vnc-remote-desktop-for-free/">VNC: Remote Desktop for Free</a><br/>
+<a href="http://www-306.ibm.com/software/tivoli/products/remote-control/">IBM Tivoli Remote Control 5.1 - Product overview</a><br/>
+<br/>
+<br/>
+<strong>Screen capture / screencasting</strong><br/>
+Doesn't really belong here, but oh well.<br/>
+<a href="http://www.debugmode.com/wink/" target="_blank">Wink</a> - desktop recording and tutorial making.<br/>
+<a href="http://www.jingproject.com/">Jing Project: Visual conversation starts here. Mac or Windows.</a><br/>
+<a href="http://screenr.com/">Screenr - Create screencasts and screen recordings the easy way</a><br/>
+<br/>
+<a href="http://connect.microsoft.com/site/sitehome.aspx?SiteID=94">Connect: Microsoft SharedView</a><br/>
+<br/>
+<a href="http://www.dimdim.com/">Dimdim: Web conferencing that just works. Dimdim provides easy, open, affordable collaboration. Use for online meetings, eLearning, desktop sharing, training, distance education, unified collaboration, webinar, free web meetings and more.</a><br/>
+
+<h2>Hamachi / LogMeIn</h2>
+<a href="http://en.wikipedia.org/wiki/Hamachi">Hamachi - Wikipedia, the free encyclopedia</a><br/>
+<a href="http://www.playhamachi.com/EN/about.php">About Play Hamachi - Hamachi Games Listing</a><br/>
+<a href="https://secure.logmein.com/products/hamachi2/download.aspx">LogMeIn - Download LogMeIn Hamachi</a><br/>
+<a href="http://logmeinwiki.com/wiki/Hamachi:Warcraft_3_-_Reign_of_Chaos,_The_Frozen_Throne">Hamachi:Warcraft 3 - Reign of Chaos, The Frozen Throne - LogMeInWiki.com</a><br/>
+<br/>
+<br/>
+    <div style="border: 1px;">
+    Created: 2006-04-30 20:51:09
+    Modified: 2014-06-25 18:32:46
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+\begin{bmatrix} 1 & 0 & \ldots & 0 \\
+                0 & 1 & 0 & \vdots \\
+                \vdots & 0 & \ddots & 0\\
+                0 & \ldots &  0 & 1_{n}
+\end{bmatrix}
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

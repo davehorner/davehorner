@@ -1,0 +1,338 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>Recreational Math -  you gotta love math.</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/biology-math-science/">biology-math-science</a>
+    <h1>Recreational Math -  you gotta love math.</h1>
+   You know when you think about it... vectors are one of the most powerful things in math.  Most times they allow us to represent math and physical science in a single language.  Pretty fantastic stuff.<br/>
+<br/>
+Actually.  Math is generally the most awesome stuff.<br/>
+<blockquote class="twitter-tweet"><p>mathematics, rightly viewed. possesses not only truth, but supreme beauty. cold and austere.&#10;&#10;<a href="http://t.co/Wq7XYdNSei">http://t.co/Wq7XYdNSei</a>&#10;<a href="http://t.co/74EB2VOSUg">http://t.co/74EB2VOSUg</a></p>&mdash; davehorner (@davehorner) <a href="https://twitter.com/davehorner/statuses/394480268976746496">October 27, 2013</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script><br/>
+<img src="http://upload.wikimedia.org/math/9/f/5/9f567574dfe4b8d681cf36561f7237e2.png" title="the most remarkable formula in mathematics -Feynman"/><br/>
+<a href="http://mathbeauty.wordpress.com/">mathbeauty | For those who care about beauty, even in mathematics.</a> - cause math is beautiful.<br/>
+<a href="http://video.ias.edu/1213/special-lecture/1211-bombieri">Beauty in Mathematics | IAS Video Lectures</a><br/>
+<br/>
+<a href="http://en.wikipedia.org/wiki/Matrix_(mathematics)">Matrix (mathematics) - Wikipedia</a><br/>
+<a href="http://en.wikipedia.org/wiki/Mathematical_model">Mathematical model - Wikipedia, the free encyclopedia</a><br/>
+<br/>
+<br/>
+<h2>Recreational Mathematics</h2>
+<a href="http://en.wikipedia.org/wiki/Recreational_mathematics">Recreational mathematics - Wikipedia</a><br/>
+<a href="http://projecteuler.net/">Project Euler</a> - Project Euler exists to encourage, challenge, and develop the skills and enjoyment of anyone with an interest in the fascinating world of mathematics. Math problems just for you.<br/>
+<a href="http://rmm.ludus-opuscula.org/">Ludus-Opuscula RMM</a> - Recreational mathematics magazine<br/>
+<a href="http://www.shlomifish.org/puzzles/">Puzzles, Riddles and Brain-teasers</a><br/>
+<a href="http://www.matholympiad.info/Documents/TeachingWithKenKen.pdf">Enjoying Math:
+Learning Problem Solving
+with KenKen Puzzles</a><br/>
+<a href="http://www.essentialmath.com/tutorial.htm">Essential Math for Games Programmers</a> <a href="http://www.essentialmath.com/blog/">Essential Math Weblog</a><br/>
+<a href="http://chortle.ccsu.edu/VectorLessons/vectorIndex.html">Vector Math for 3D Computer Graphics</a><br/>
+<br/>
+<br/>
+<a href="http://www.hawaii.edu/powerkills/UC.HTM">Understanding Correlation</a><br/>
+<a href="http://www.analytictech.com/mb813/handouts/distance_and_correlation.htm">Distance and Correlation</a><br/>
+<a href="http://www.ncgia.ucsb.edu/projects/tobler/Vector_Fields/tsld043.htm">Is There a Method of Computing the Correlation Between Vector Fields?</a><br/>
+<br/>
+<a href="http://www.imaging.robarts.ca/coders/content/programmingLinks/TheMathematicsofthe3DRotationMatrix.htm">The Mathematics of the 3D Rotation Matrix</a><br/>
+<br/>
+Look even space and time is nothing but a basis..<br/>
+<a href="http://en.wikipedia.org/wiki/Minkowski_space">Minkowski space - Wikipedia, the free encyclopedia</a><br/>
+<a href="http://www.adamauton.com/warp/index.html">Special Relativity Simulator (Warp)</a><br/>
+<a href="http://en.wikipedia.org/wiki/Lorentz_transformation">Lorentz transformation</a><br/>
+<a href="http://en.wikipedia.org/wiki/Logarithm">Logarithm - Wikipedia, the free encyclopedia</a> - admirable artifice which, by reducing to a few days the labour of many months, doubles the life of the astronomer, and spares him the errors and disgust inseparable from long calculations. --<a href="/wiki/Pierre-Simon_Laplace">Pierre-Simon Laplace</a><br/>
+<a href="http://www.nysdsc.org/resources/Larrys_speakeasy.pdf">Handbook for
+Spoken Mathematics</a><br/>
+<a href="http://intothecontinuum.tumblr.com/">archery</a> - animated gif math art with code (most mathematica)<br/>
+<a href="http://intothecontinuum.tumblr.com/post/35613004207/circles-moving-in-circles-mathematica"><img src="http://24.media.tumblr.com/tumblr_mcsnjgOWVC1qfjvexo1_500.gif" border="0" alt=""/></a><br/>
+<br/>
+<a href="http://curvebank.calstatela.edu/newmath/newmath.htm">Tom Lehrer Deposit #10</a> - new math, Hooray for New Math<br/>
+<a href="http://jeremykun.com/primers/">Primers | Math ? Programming</a><br/>
+<a href="http://blog.visual.ly/45-ways-to-communicate-two-quantities/">45 Ways to Communicate Two Quantities | Visual.ly Blog</a><br/>
+<a href="http://www.math.uga.edu/~azoff/courses/halmos.pdf">How to write mathematics (pdf)</a> - or more precisely, how P. R. Halmos writes mathematics.<br/>
+<a href="http://blog.sigfpe.com/">A Neighborhood of Infinity</a><br/>
+<a href="http://www.jimloy.com/logic/logic.htm">Jim Loy's Logic Page</a><br/>
+<a href="http://blog.sciencevsmagic.net/">Science vs Magic</a><br/>
+<a href="http://arachnoid.com/index.html">* arachnoid.com</a> - Paul Lutus's website. <a href="http://arachnoid.com/TrigonometricRelations/index.html">* Trigonometric Relations</a> <a href="http://arachnoid.com/binomial_probability/index.html">Binomial Probability</a><br/>
+<br/>
+<br/>
+<h2>Gödel</h2>
+incompleteness and self-reference.<br/>
+isomorphisms, recursion, paradox, infinity, formal systems.<br/>
+<a href="http://en.wikipedia.org/wiki/G%C3%B6del,_Escher,_Bach">Gödel, Escher, Bach - Wikipedia, the free encyclopedia</a><br/>
+<a href="http://www.logicmatters.net/igt/further-notes/godel-without-tears/">Gödel Without (Too Many) Tears | Logic Matters</a> <a href="http://www.logicmatters.net/igt/">Introduction to Gödel’s Theorems | Logic Matters</a><br/>
+<iframe width="420" height="315" src="//www.youtube.com/embed/lWZ2Bz0tS-s" frameborder="0" allowfullscreen></iframe>
+<br/>
+<a href="http://jeffreykegler.blogspot.com/">The Ontological Blog</a> - A blog whose concept requires it to exist. (Jeffrey Kegler)<br/>
+<br/>
+<h2>abacus and slide rules</h2>
+humans are a clever bunch.<br/>
+<a href="http://www.uwgb.edu/breznayp/cs353/napier.html">Napier's rods, abacus and slide rule</a><br/>
+<br/>
+<br/>
+<h2>The most beautiful 8-dimensional model of elementary particles and forces...the most beautiful math.</h2>
+<a href="http://dave.thehorners.com/tech-talk/science-and-math/272-physics">Physics - Dave Horner's Website</a> - See theory of everything and E8 <a href="http://mathworld.wolfram.com/LieGroup.html">lie group</a>. Symmetry and beauty are often interlinked.<br/>
+<br/>
+<br/>
+<h2>Primes</h2>
+<a href="http://en.wikipedia.org/wiki/Furstenberg%27s_proof_of_the_infinitude_of_primes">Furstenberg's proof of the infinitude of primes - Wikipedia, the free encyclopedia</a><br/>
+<br/>
+<br/>
+<a href="http://www.evanmiller.org/mathematical-hacker.html">The Mathematical Hacker</a> - 
+Mathematics, in the end, does not help you understand computer programming. It is not about finding metaphors, or understanding “fundamentals” that will never be applied. Rather, mathematics is a tool for understanding phenomena in the world: the motion of the planets, the patterns in data, the perception of color, or any of a myriad things in the world that might be understood better by manipulating equations. It is the hacker's job to figure out how to encode the insight into a piece of code that will be used over and over.<br/>
+<br/>
+<a href="http://mathwithbaddrawings.com/">Math with Bad Drawings | Math, teaching, copious metaphors, and drawings that will never ever earn a spot on the fridge</a><br/>
+<a href="http://gametheory101.com/">Game Theory 101: Game Theory Made Easy</a><br/>
+    <div style="border: 1px;">
+    Created: 2006-07-22 21:04:49
+    Modified: 2014-09-03 13:35:10
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<a href="http://en.wikipedia.org/wiki/E_%28mathematical_constant%29" target=_blank>$$e = \sum_{n=0}^\infty \frac{1}{n!}$$</a>
+
+
+satis dictum.
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

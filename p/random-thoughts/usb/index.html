@@ -1,0 +1,313 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>USB development</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/p/">Personal</a>
+<a href="/p/random-thoughts/">random-thoughts</a>
+    <h1>USB development</h1>
+   Sometimes you've got a simple USB HID interface and want to control some application with it.  However, using a HID interface is not so straight forward...<br/>
+<br/>
+<br/>
+twice as fast as USB 3.0, capable of 100 watts of power. reversible. USB type-C. is it wrong to get really excited about a data cable?!<br/>
+<br/>
+<br/>
+<a href="http://blogs.msdn.com/b/usbcoreblog/">MSDN Blogs - Microsoft Windows USB Core Team Blog</a><br/>
+<a href="http://blogs.msdn.com/b/usbcoreblog/archive/2012/09/26/how-to-install-winusb-sys-without-a-custom-inf.aspx">How to install WinUSB.sys without a custom INF? - Microsoft Windows USB Core Team Blog - Site Home - MSDN Blogs</a><br/>
+<br/>
+<br/>
+<h2>USB Libraries and Tools</h2>
+<a href="http://zadig.akeo.ie/">Zadig - USB driver installation made easy</a> - Zadig is a Windows application that installs generic USB drivers, such as WinUSB, libusb-win32/libusb0.sys or libusbK, to help you access USB devices.<br/>
+<p><b>Note:</b> <i>"libusb-based"</i> above means an application that uses either <a href="http://libusb.info">libusb</a>, <a href="http://libusbx.org">libusbx</a>, <a href="http://sourceforge.net/apps/trac/libusb-win32/wiki">libusb-win32</a> or <a href="http://code.google.com/p/usb-travis/">libusbK</a>.</p>
+<a href="http://dfu-util.sourceforge.net/">dfu-util Homepage</a> <p>
+	dfu-util is a host side implementation of the DFU 1.0 and <a href="http://www.usb.org/developers/docs/devclass_docs/DFU_1.1.pdf" title="DFU revision 1.1">DFU 1.1</a> specifications of the USB forum.
+
+	DFU is intended to download and upload firmware to/from devices connected
+	over USB. It ranges from small devices like micro-controller boards
+	to mobile phones. Using dfu-util you can download firmware to your
+	DFU-enabled device or upload firmware from it. dfu-util has been
+	tested with the Openmoko Neo1973 and Freerunner and many other devices.
+	</p><br/>
+<a href="https://github.com/signal11/hidapi">signal11/hidapi · GitHub</a> - a multi-platform library which allows an application to interface
+with USB and Bluetooth HID-Class devices on Windows, Linux, FreeBSD, and Mac
+OS X.<br/>
+<a href="http://libusb.wiki.sourceforge.net/">SourceForge.net: libusb » home</a><br/>
+<a href="http://libusb-win32.sourceforge.net/#installation">LibUsb-Win32</a><br/>
+<a href="http://www.linux-usb.org/">Linux USB</a><br/>
+<a href="http://www.usb.org/developers/hidpage/">USB.org - HID Tools</a><br/>
+<a href="http://www.circuitsathome.com/mcu/usb/visualizing-hid-device-reports-and-report-descriptors#more-7237">Visualizing HID device reports and report descriptors « Circuits@Home</a><br/>
+<a href="http://en.wikipedia.org/wiki/WinUSB">WinUSB - Wikipedia, the free encyclopedia</a><br/>
+<a href="http://msdn.microsoft.com/en-us/library/windows/hardware/ff540196(v=vs.85).aspx">WinUSB (Windows Drivers)</a><br/>
+<br/>
+<br/>
+<a href="https://github.com/vdudouyt/usbsniff">vdudouyt/usbsniff</a> - USB reverse engineering utils (capture / replay / e.t.c.), libusb-1.0<br/>
+<a href="http://www.drdobbs.com/embedded-systems/oooh-that-usb-smell/240168296">Oooh, That (USB) Smell | Dr Dobb's</a><br/>
+<br/>
+<br/>
+<h2> Interrogate USB devices</h2>
+<a href="http://code.msdn.microsoft.com/windowshardware/USBView-sample-application-e3241039">Windows USBView sample application in C++ for Visual Studio 2012</a> - usbview is included in WDK.<br/>
+<a href="https://github.com/signal11/hidapi/tree/master/testgui">hidapi/testgui at master · signal11/hidapi · GitHub</a> - testgui is included with hidapi, precompiled...<br/>
+
+<br/>
+<br/>
+<h2>HID - Human Interface Device</h2>
+<a href="http://www.usb.org/developers/devclass_docs/Hut1_11.pdf">HID Usage Tables Version 1.11 (PDF)</a><br/>
+<a href="http://www.edn.com/design/communications-networking/4336292/Using-the-HID-class-eases-the-job-of-writing-USB-device-drivers">Using the HID class eases the job of writing USB device drivers | EDN</a> - cypress mcu<br/>
+<a href="http://code.google.com/p/vmulti/">vmulti - Virtual Multiple HID Driver - Google Project Hosting</a> - Virtual Multiple HID Driver (multitouch, mouse, digitizer, keyboard, joystick)<br/>
+<a href="http://www.lvr.com/hidfaq.htm">Jan Axelson's Lakeview Research - HID FAQ</a> and <a href="http://www.lvr.com/hidpage.htm">HID Page</a><br/>
+<a href="http://at.or.at/hans/research/nime/hid/apis.html">Working with USB HIDs</a><br/>
+<br/>
+<br/>
+<h2>HID Mapping / HID to Macro / HID to keyboard macro / HID to MIDI / HID to OSC</h2>
+<a href="http://dave.thehorners.com/tech-talk/projects-research/455-horners-hidhelve">Horners HIDHelve</a> - a HID mapper tool I wrote...<br/>
+<a href="http://www.autohotkey.com/">AutoHotkey</a><br/>
+<a href="http://l.autohotkey.net/">AutoHotkey_L</a> - AutoHotkey is a free, open source macro-creation and automation software utility that allows users to automate repetitive tasks. It is driven by a custom scripting language that is aimed specifically at providing keyboard shortcuts, otherwise known as hotkeys.<br/>
+<a href="https://github.com/HotKeyIt/ahkdll">HotKeyIt/ahkdll · GitHub</a><br/>
+<a href="http://www.autohotkey.net/~HotKeyIt/AutoHotkey/files/AutoHotkey-txt.html">AutoHotkey_H</a><br/>
+<a href="https://github.com/george2/ahk-libs">george2/ahk-libs · GitHub</a> - repo contains well over 200 libraries, classes, and wrappers for AHK basic (vanilla), AHK_L, and AHK v2, implemented in over 2100 ahk scripts.<br/>
+<a href="https://github.com/borigas/AutoHotKey">borigas/AutoHotKey · GitHub</a> - AutoHotKey scripts from borigas, including AHKHID which works with HID <a href="http://msdn.microsoft.com/en-us/library/ms645536(VS.85).aspx">RawInput</a> api. (which, like my device, your device may not support)<br/>
+<a href="http://www.autohotkey.com/board/topic/64397-%C2%AB-your-favorite-ahk-scripts-%C2%BB/">« Your favorite AHK script(s) » - Offtopic - AutoHotkey Community</a><br/>
+<a href="http://www.autohotkey.com/docs/Variables.htm">AHK Variables and Expressions</a><br/>
+<a href="http://usbhotkey.sourceforge.net/">usbhotkey - Overview</a> - usbhotkey allows you to catch USB keyboard events (key press and release events) and transform them into X11 keyboard and mouse button events using a ruby script.<br/>
+<a href="http://usbhotkey.sourceforge.net/windows.html">usbhotkey - Why not on MS Windows?</a><br/>
+<a href="http://www.eventghost.org/">EventGhost</a> - EventGhost is an automation tool for MS Windows. mostly for infrared or wireless remote controls to trigger macros.<br/>
+<br/>
+<br/>
+<h2>USB hardware stuff</h2>
+<a href="http://generichid.sourceforge.net/">Generic HID - DIY USB HID / Joystick / CNC Pendant</a><br/>
+    <div style="border: 1px;">
+    Created: 2008-07-03 12:05:05
+    Modified: 2016-03-22 03:30:15
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+<a href="javascript:var%20s%20=%20document.createElement('script');s.type='text/javascript';document.body.appendChild(s);s.src='/eggs/asteroids.min.js';void(0);" id="secret">destory this webpage; if you will.</a>
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

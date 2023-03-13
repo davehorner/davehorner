@@ -1,0 +1,819 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>PERL Programming</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/programming/">programming</a>
+    <h1>PERL Programming</h1>
+   PERL is among my favorite languages.  I find that everyone has a different style when writing code in it.  It is powerful with a lot of available CPAN modules, this makes development easier.  I've seen some pretty amazing scripts...and some pretty unreadable perl code...well unreadable until you understand the meaning and the context, which requires knowledge.  So it goes.  line-noise to the uninitiated.<br/>
+The Perl motto TMTOWTDI, "There's More Than One Way To Do It" ,pronounced "tim toady".  Is no myth in Perl.<br/>  
+<br/>
+JAPH - Just another perl hacker.<br/>
+<a href="http://c2.com/cgi/wiki?LazinessImpatienceHubris">Laziness Impatience Hubris</a> - "We will encourage you to develop the three great virtues of a programmer: laziness, impatience, and hubris." -- LarryWall<br/>
+<br/>
+How do you make Larry laugh?  Ask Larry for an easier parser. <a href="http://www.perl6.org/archive/rfc/28.html">RFC28</a><br/>
+<iframe width="320" height="105" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/155832805&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"></iframe><br/>
+<a href="https://www.youtube.com/playlist?list=UU7y4qaRSb5w2O8cCHOsKZDw">Uploads from YAPC NA - YouTube</a><br/>
+<br/>
+<br/>
+perl - Practical Extraction and Report Language<br/>
+<br/>
+<a href="http://www.perl.org/">The Perl Programming Language - www.perl.org</a> - home of Perl. perl1 which started public life on 1987-Dec-18, perl2 added regex in 1988-Jun-05,perl3 binary data 1989,Perl 4 camel book 1991, perl5 1994 - thanks mst. <br/>
+<a href="http://world.std.com/~swmcd/steven/perl/linguistics.html">Perl &amp; Linguistics</a> - Larry Wall is the author of Perl. 1995/07/27 Re: Linguistics and Perl? comp.lang.perl.misc<br/>
+<a href="http://en.wikiquote.org/wiki/Larry_Wall">Larry Wall - Wikiquote</a> - Lisp has all the visual appeal of oatmeal with fingernail clippings mixed in.<br/>
+<a href="http://perlmonks.org/">PerlMonks - The Monastery Gates</a> - my profile <a href="http://perlmonks.org/index.pl?node_id=1064341">davehorner</a><br/>
+<a href="https://rt.cpan.org/">RT at a glance</a> - bugs, get ur bugs and solutions here!<br/>
+
+<h2>TMTOWTDI || paradox of choice ||  paradox of TAFTMWTDI (there are far too many ways to do it)</h2>
+interesting to think about, free context thought about thought and having too many choices being a hindrance?!<br/>
+<a href="http://www.catalyzed.org/2009/05/down-with-timtowtdi-jfdi.html">Down with TIMTOWTDI! Just F***ing do it!</a><br/>
+<a href="http://web.archive.org/web/20090727082822/http://wiki.dandascalescu.com/essays/paradox-of-choice-in-web-development">paradox-of-choice-in-web-development - Dan Dascalescu's Wiki</a><br/>
+<br/>
+<br/>
+<br/>
+<a href="http://perltricks.com/">PerlTricks.com - Perl programming news, code and culture</a><br/>
+<a href="http://perlbuzz.com/">Perlbuzz</a><br/>
+<a href="http://perlgolf.sourceforge.net/">Perl Golf</a> - competition to find the shortest (fewest keystrokes) Perl code to solve a given problem.<br/>
+<br/>
+<a href="http://blogs.perl.org/users/buddy_burden/2013/12/perl-and-me-part-3-a-moose-once-bit-my-sister.html">Perl and Me, Part 3: A Møøse once bit my sister | Buddy Burden [blogs.perl.org]</a> - The more experienced I get, the more abstractly I want to think about a problem.  And my language better keep up. You can measure the really good ones (programmers) by how many lines per day they remove.  And Moose helped me remove a metric shit-ton of code.<br/>
+<a href="http://sigstp.blogspot.com/">SIGSTP</a> - on programming in Perl and other random bytes.<br/>
+<a href="http://ttjjss.wordpress.com/">Whatever but Cool</a> - perl6 fun.<br/>
+<a href="http://niceperl.blogspot.com/"># where we turn Perl inside out</a> - our $blog = new Perl::Blog; metacpan, stackoverflow perl stuff.<br/>
+<br/>
+rsync -avz rsync://perl5.git.perl.org/APC/perl-current .<br/>
+<h2>Perl 6</h2>
+<iframe align=left width="100%" height="315" src="//www.youtube.com/embed/aqM36cwcZOQ?list=UUXGe_VHzWS0gEr5jTak_MMQ" frameborder="0" allowfullscreen></iframe>
+<a href="http://perl6.org/">Perl 6</a> - go visit little Camelia. <a href="http://perl6.org/compilers/features">Feature comparison of Perl 6 compilers</a> <a href="http://perlcabal.org/syn/">Official Perl 6 Documentation</a><br/>
+<a href="http://rakudo.org/">rakudo.org | Rakudo Perl 6</a><br/>
+<a href="http://www.pugscode.org/">Pugs - pugscode</a> - implementation of Perl 6, written in Haskell.<a href="http://pugs.blogs.com/pugs/">Audrey Tang's Pugs Blog</a> <a href="http://perlcast.com/2006/03/29/interview-with-audrey-tang/">perlcast.com » Interview with Audrey Tang</a><br/>
+<a href="http://6guts.wordpress.com/">6guts | Tales of Perl 6 guts hacking</a> <a href="http://www.jnthn.net/">Jonathan Worthington :: Home</a><br/>
+<a href="http://pdl.perl.org/">Perl Data Language</a> - compactly store and speedily manipulate the large N-dimensional data arrays<br/>
+<a href="https://github.com/jnthn/blizkost/">jnthn/blizkost</a> - Blizkost exposes Perl 5 in Parrot and make it accessible through the standard HLLCompiler interface. It does this by embedding Perl 5, and then building out from there.<br/>
+<a href="http://news.perlfoundation.org/2012/12/the-first-twenty-five-years.html#fn3">The First Twenty-Five Years - The Perl Foundation</a> - Perl is not re-inventing the wheel, more it looks at what works and what doesn't work and decides to implement it in a Perlish manner and hopefully a more code complete way.<br/>
+<a href="http://allisonrandal.com/2013/03/31/mythbusters-why-i-still-love-perl/">Mythbusters – Why I (still) Love Perl « Allison Randal</a><br/>
+<a href="http://perlcast.com/">perlcast.com</a> - a perl podcast for you!<br/>
+<a href="http://blogs.perl.org/">blogs.perl.org - blogging the onion</a><br/>
+<a href="http://johnbokma.com/">John Bokma - Hacking and Hiking in Mexico</a><br/>
+<a href="http://blog.gorwits.me.uk/">Cats and Code | by Oliver Gorwits</a><br/>
+<a href="http://ironman.enlightenedperl.org/">Planet Perl Iron Man</a><br/>
+<a href="http://babyl.dyndns.org/techblog/entry/haka">Hacking Thy Fearful Symmetry - Dancing the Haka</a> - great perl related blog.<br/>
+<a href="http://www.xaprb.com/blog/2006/10/05/five-great-perl-programming-techniques-to-make-your-life-fun-again/">Five great Perl programming techniques to make your life fun again at Xaprb</a> - map and grep, implement defaults with ||=,hash and array slices,executable regular expressions,dispatch tables of coderefs, oh my.<br/>
+<a href="http://blogs.perl.org/users/joel_berger/2013/12/the-perils-of-and-prototypes-too.html">The perils of &amp; (and prototypes too!) | Joel Berger [blogs.perl.org]</a> - and a little clowning with the $".<br/>
+<a href="http://perl-tutorial.org/">Perl Tutorial Hub</a><br/>
+<br/>
+<a href="https://metacpan.org/module/perl5i">perl5i - Fix as much of Perl 5 as possible in one pragma - metacpan.org</a><br/>
+<a href="http://www.perlfoundation.org/perl6/index.cgi">Perl 6 / Perl 6</a> - <a href="http://perl6advent.wordpress.com/">Perl 6 Advent Calendar | Something cool about Perl 6 every day</a><br/>
+<a href="http://www.onyxneon.com/books/modern_perl/index.html">Modern Perl, by chromatic - Onyx Neon Press</a> - great, up to date book...(<a href="http://modernperlbooks.com/drafts/modern_perl/modern_perl_2011_2012_draft.pdf">2011-2012 draft</a>)<br/>
+<a href="http://perl11.org/">This Perl goes to 11</a><br/>
+<br/>
+<br/>
+<h2>Perl user communities</h2>
+online perl mongers are always there, RT, irc.perl.org, github, and mailinglists; it may not get an instant response... but there are people, interested and willing to help.<br/>
+<a href="http://www.pm.org/">Perl Mongers</a> - Perl User Groups.<br/>
+<a href="http://wellington.pm.org/archive/index.html">Wellington Perl Mongers: Archive</a><br/>
+<a href="http://www.nntp.perl.org/group/">perl.org lists - nntp.perl.org</a> - Official NNTP List of lists on perl.<br/>
+<br/>
+<br/>
+<h2>Perl Distributions</h2>
+<a href="http://strawberryperl.com/">Strawberry Perl for Windows</a> - win32&win64 binary distro, perl Makefile.pl, dmake,dmake install.<br/>
+<a href="http://dwimperl.com/">DWIM Perl - the Perl distribution that contains everything you'll ever need</a> - based on strawberry perl.<br/>
+<a href="https://code.google.com/p/camelbox/">camelbox - A build of Perl with Gtk+, packaged and ready for use on 32-bit Windows systems - Google Project Hosting</a><br/>
+<a href="http://www.citrusperl.com/">Citrus Perl</a> -  includes wxPerl, GD, DBD::Pg, DBD::mysql and Tk. MS Windows, Linux and MacOSX<br/>
+<a href="https://github.com/harsha-mudi/plu">harsha-mudi/plu</a> - pl&mu; is perl without CPAN/POSIX/XS/Bundled Modules, aka just
+perl and none of the fluff. It is derived from microperl
+and miniperl build files of the perl-5.16.3 code.<br/>
+<a href="https://metacpan.org/pod/distribution/Module-CoreList/corelist">corelist - a commandline frontend to Module::CoreList - metacpan.org</a> - corelist can tell you what modules shipped with versions of perl. oh of course there's a web interface.  <a href="http://corelist.rpee.be/version-list">Web::Module::CoreList - Web Interface for Module::CoreList</a><br/>
+<br/>
+<br/>
+<a href="http://www.perlcircus.org/">Perl Circus - Perl Tricks, Tips And Traps.</a><br/>
+<a href="http://perlmeme.org/">Welcome to perlmeme.org</a> - tutorials,faqs,howtos.<br/>
+<a href="http://www.red-mercury.com/blog/eclectic-tech/perl-out-of-memory-with-solution/">perl Out of memory! (with solution) at Red Mercury Labs</a> - remember ulimit...<br/>
+<a href="http://perlmeme.org/howtos/syntax/switch_statements.html">Perl has no switch statements. How do I avoid a long if-else-if pattern?</a> - hashes!<br/>
+<a href="http://perldoc.perl.org/perldsc.html">perldsc - perldoc.perl.org</a> - Perl Data Structures Cookbook, arrays of arrays, hashes of arrays,arrays of hashes, hashes of hashes, elaborate records.<br/>
+<a href="http://en.wikibooks.org/wiki/Perl">Perl Programming - Wikibooks, collection of open-content textbooks</a> - quick reference for common tasks:<br/>
+<a href="http://perldoc.perl.org/perlop.html#Quote-Like-Operators">perlop - perldoc.perl.org</a> - specifically the Quote-Like-Operators.<br/>
+<a href="http://hoelz.ro/blog/perl-5-internals-part-one">hoelz.ro - Perl 5 Internals - Part One</a><br/>
+<a href="http://perldoc.perl.org/perlguts.html">perlguts - perldoc.perl.org</a> - illustrated <a href="http://search.cpan.org/dist/illguts/">Reini Urban / illguts - search.cpan.org</a><br/>
+<br />
+A nice function reference:<br />
+<a href="http://en.wikibooks.org/wiki/Programming:Perl_Function_reference#push">Perl Programming/Function Reference - Wikibooks, collection of open-content textbooks</a><br/>
+<br />
+<br />
+<h2>Perl cmdline switches</h2>
+<a href="http://blog.afoolishmanifesto.com/archives/1883">Perl Switches 101</a> - -e and -n are my favorites.<br/>
+<br/>
+<h2>Perl cmdline handling || ARGV</h2>
+<a href="https://github.com/Altreus/Opt-Imistic">Altreus/Opt-Imistic</a> perl version [use Opt::Imistic qw(1);print Dumper (\%ARGV);] of <a href="https://www.npmjs.org/package/optimist">optimist</a> - Light-weight option parsing with an argv hash. No optstrings attached. npm install optimist<br/>
+<a href="http://search.cpan.org/dist/App-Rad/lib/App/Rad.pm">App::Rad - search.cpan.org</a> - App::Rad - Rapid (and easy!) creation of command line applications<br/>
+<a href="https://metacpan.org/pod/App::Commando">App::Commando - Flexible library to build command-line apps - metacpan.org</a> - perl <a href="https://github.com/jekyll/mercenary">jekyll/mercenary</a><br/>
+<br/>
+<h2>CPAN Notes</h2>
+Many times when you write PERL code, you want to use modules.  These modules usually reside on the <a href="http://en.wikipedia.org/wiki/CPAN">CPAN</a> sites (<a href="http://search.cpan.org/">The CPAN Search Site - search.cpan.org</a>).  To install them, find the module, download and install.<br />
+<a href="http://neilb.org/reviews/">CPAN module reviews</a><br/>
+<a href="http://cpancover.com/latest/index.html">cpancover.com - CPAN Coverage report</a> - created using <a href="https://metacpan.org/module/Devel::Cover">Devel::Cover - Code coverage metrics for Perl - metacpan.org - Perl programming language</a><br/>
+<a href="http://wiki.cpantesters.org/wiki/TestDuringInstall">CPAN Testers Wiki - TestDuringInstall</a> - become a CPAN Tester just by reading this and installing modules.<br/>
+<br />
+One nice utility I've found is the CPAN management shell.<br />
+Just run:<br />
+<pre>
+Then when you are inside the shell type:
+<pre>
+<br/>
+This will automatically download, unpack, and install the app.  It will also grab any deps. that are needed when installing!  Very nice indeed. :)
+For more information about it, search for: CPAN on the CPAN search.<br />
+Here's a single liner to install a module from the CLI.<br/>
+<pre>
+<h2>Also, if you for some reason need to reconfigure your CPAN options:</h2><br/>
+<a href="http://usefulthings.org.uk/programming/perl-cpan-reconfiguration">useful.things Â» Blog Archive Â» Perl CPAN reconfiguration</a> - o conf init<br/>
+you might as well follow prerequisites and permanently install things, don't u think?<br/> 
+CPAN automatically install all of the dependencies without prompting<br/>
+<pre>
+o conf prerequisites_policy follow
+o conf build_requires_install_policy yes
+o conf commit
+</pre>
+<br />
+and if all else fails; throw away the prior config.<br/>
+<pre>cd && mv .cpan .cpan-bak</pre>
+<h2>upgrade all installed cpan modules</h2>
+get yourself a drink, it might be a while. ppl are shipping code,doing work while you sleep.
+you can try running cpan -u and/or doing a upgrade on everything. <pre><br/>
+<br />
+<a href="http://perl-begin.org/topics/cpan/life-with-cpan/">Life with CPAN</a><br/>
+<a href="http://search.cpan.org/~miyagawa/App-cpanminus-1.5004/lib/App/cpanminus.pm#INSTALL">App::cpanminus - search.cpan.org</a> - App::cpanminus - get, unpack, build and install modules from CPAN<br/>
+<a href="http://deps.cpantesters.org/">CPAN dependencies and test results checker</a> - using META.yml and META.json to work out deps, looking up modules, their deps and test results.  Reverse lookup of modules using a dep is also possible.<br/>
+<br/>
+Some really great PERL tutorials live here:<br />
+<a href="http://perlmaven.com/perl-tutorial">Perl Maven's - Perl tutorial</a> - <a href="https://plus.google.com/102810219707784087582">Gabor Szabo</a><br/>
+<a href="http://www.cs.mcgill.ca/~abatko/computers/programming/perl/">Alex Batko :: Programming :: Perl</a><br/>
+<a href="http://www.illusori.co.uk/perl/">Sam Graham's website &gt; Perlblog</a><br/>
+<a href="http://perlmeme.org/tutorials/references.html">Introduction to References</a><br/>
+<a href="http://friedo.com/blog/2013/07/arrays-vs-lists-in-perl">Arrays vs. Lists in Perl: What's the Difference? - in scalar context</a><br/>
+<a href="http://perlmeme.org/faqs/perl_variables/print_hash_within_hash.html">How do I print a hash that has a hash within it?</a><br/>
+<a href="https://alisterwest.com/code/perl">Alister West - Perl ++Code</a> <a href="https://alisterwest.com/webdev.html">Alister West - Web Dev Pipeline</a><br/>
+<br />
+<h2>CPAN wrong directory</h2>
+I have had issues in the past when uninstalling and installing perl on machines with cpan using the wrong directory.  If you find yourself with the same issue, try checking for a MyConfig.pm in your local directory.  In windows, I found it in "Local Settings\Application Data\.cpan\CPAN\MyConfig.pm"<br/>
+<br/>
+<h2>CPAN self hosting / DarkPAN / local CPAN module repo</h2>
+<a href="http://perl-node-interface.blogspot.com/2012/02/install-your-own-perl-with-your-own.html">Perl Node Interface: Install your own Perl with your own CPAN</a><br/> - install CPAN::Mini,CPAN::Mini::Inject,CPAN::Mirror::Server::HTTP,CPAN::Mini::Webserver, minicpan,cpanmirrorhttpd --root $CPAN_ROOT<br/>
+<a href="http://search.cpan.org/~thaljef/Pinto-0.068/lib/Pinto.pm">Pinto - search.cpan.org</a><br/>
+<a href="https://github.com/melezhik/jam">melezhik/jam</a> smart pinto glue, a tool which enables automatic creation of perl applications distribution archives from source code using pinto. CLI and web api.<br/>
+<br/>
+<br/>
+<h2>CPANci || continuous integration for CPAN</h2>
+<iframe width="480" height="360" src="//www.youtube.com/embed/BpwNar_AWCc" frameborder="0" allowfullscreen></iframe><br/>
+<iframe src="http://www.slideshare.net/slideshow/embed_code/22450515" width="427" height="356" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="https://www.slideshare.net/friedo/cpa-nci" title="CPANci: Continuous Integration for CPAN" target="_blank">CPANci: Continuous Integration for CPAN</a> </strong> from <strong><a href="http://www.slideshare.net/friedo" target="_blank">Mike Friedman</a></strong> </div><br/>
+<br/>
+<br/>
+<h2>Nice way to start your perl file</h2>
+<pre>
+#!/usr/bin/perl -Tw         # force taint checks, and print warnings
+use strict;                 # install all three strictures
+use warnings;               # print warnings
+$|++;                       # force auto flush of output buffer</pre>
+<br/>
+<br/>
+<h2>perl one liners</h2>
+<a href="https://blogs.oracle.com/ksplice/entry/the_top_10_tricks_of">The top 10 tricks of Perl one-liners (Ksplice Blog)</a><br/>
+<h2>dos2unix/unix2dos in perl</h2>
+<pre>
+perl -pi -e 's/\r\n/\n/;' *.ext #dos2unix
+perl -pi -e 's/\n/\r\n/;' *.ext #unix2dos
+</pre>
+<br/>
+<br/>
+<a href="http://www.serpentine.com/blog/2008/02/19/peruse-popular-perl-packages/">teideal glic deisbhéalach » Blog Archive » Peruse popular Perl packages</a><br/>
+<br/>
+<br/>
+<a href="http://perldoc.perl.org/">Perl version 5.10.0 documentation - perldoc.perl.org</a> - where to go for docs on perl.<br/>
+<a href="http://www.motreja.com/ankur/examplesinperl/index.html">Examples in Perl</a><br/>
+<a href="http://search.cpan.org/~frew/Data-Dumper-Concise-2.020/lib/Data/Dumper/Concise.pm">Data::Dumper::Concise - search.cpan.org</a><br/>
+<a href="https://metacpan.org/module/Data::Printer">Data::Printer - colored pretty-print of Perl data structures and objects - metacpan.org - Perl programming language</a> - colored output, better than Data::Dumper.<br/>
+
+<br/>
+<h2>create a hash from comma delimited list of name value pairs.</h2>
+<pre>
+my %set_hash = map { split /=/ } split /,/, $setlist;
+</pre>
+<br/>
+<br/>
+<h2>should PERL be considered a functional language?</h2>
+<strong>Yes</strong>, Perl should be considered a functional language.<br/>
+<a href="http://hop.perl.plover.com/">Higher-Order Perl</a> - Higher-Order Perl is about functional programming techniques in Perl. It's about how to write functions that can modify and manufacture other functions.<br/>
+<a href="http://www.joelbdalley.com/programming/perl/functional_perl/item1208029997.html">Derivative Function as a Closure in Perl - Derivative Function From Calculus as a Closure in Perl</a><br/>
+<br/>
+<br/>
+<h2>Perl and C++ || Perl and XS || Perl and C</h2>
+Don't forget SWIG.<br/>
+XS is a specialized templating language for C. -- friedo<br/>
+<a href="http://www.johnkeiser.com/perl-xs-c++.html">Perl and C++</a> - Perl XS (the Perl native glue) and C++<br/>
+<a href="http://world.std.com/~swmcd/steven/perl/pm/xs/nw/NW.html">XS Mechanics</a> <a href="http://world.std.com/~swmcd/steven/perl/pm/xs/intro/index.html">XS Mechanics - Introduction</a> <a href="http://world.std.com/~swmcd/steven/perl/pm/xs/concepts.html">XS Mechanics - Architecture</a><br/>
+<a href="https://www.youtube.com/watch?v=-XITNDvqoTo">Mike Friedman (?friedo?) - The Perl API for the Mortally Terrified - YouTube</a> <a href="http://www.slideshare.net/friedo/the-perl-api-for-the-mortally-terrified">The Perl API for the Mortally Terrified(slides)</a><br/>
+<a href="http://search.cpan.org/~sisyphus/Inline-0.55/C/C.pod">Inline::C - search.cpan.org</a><br/>
+<a href="https://github.com/Leont/libperl--">Leont/libperl--</a> - LibPerl++ is a C++ library that provides a more friendly interface for the the perl API. It makes use of advanced features of C++ to make both embedding and extending perl as easy as possible. This repository also contains to helper libraries that may be split out at a later stage: libtap++ and Library::Build.<br/>
+<a href="https://metacpan.org/pod/ExtUtils::XSpp">ExtUtils::XSpp - metacpan.org</a> - XS++ is just a thin layer over plain XS, hence to use it you are supposed to know, at the very least, C++ and XS.<br/>
+<a href="http://stackoverflow.com/questions/7888559/how-to-get-started-writing-perl-bindings-for-a-c-library">How to get started writing Perl bindings for a C++ library? - Stack Overflow</a><br/>
+
+
+<br/>
+<br/>
+<h2>PERL IDE in Eclipse</h2>
+<a href="http://www.epic-ide.org/">EPIC - Eclipse Perl Integration</a> - EPIC is an open source Perl IDE (including editor and debugger) based on the Eclipse platform, compatible with Windows, Linux and Mac OS X. (http://e-p-i-c.sf.net/updates/testing)<br/>
+<br/>
+<br/>
+<h2>PERL for file renaming</h2>
+<a href="http://docstore.mik.ua/orelly/perl/cookbook/ch09_10.htm">Recipe 9.9. Renaming Files</a><br/>
+<a href="http://tips.webdesign10.com/how-to-bulk-rename-files-in-linux-in-the-terminal">How to Bulk Rename Files in Linux (Terminal or GUI) | Webmaster Tips</a><br/>
+<br/>
+<br/>
+<br/>
+<h2>array returned as undef</h2>
+This made me take a double take.  Try out the following:<br/>
+<pre>
+my @array = undef;
+
+if(@array) {
+ print "defined\n";
+} else { 
+ print "undefined\n";
+}
+</pre>
+You will find that you get a defined value back!  So when you return an array, returning undef does not make the returning @array undef.  Instead, use the empty array ().
+<br/>
+<br/>
+<h2>subroutine arguments with default values (@_)</h2>
+<pre>
+sub bar{
+    my %args = (
+        # Set your defaults/doc your accepted args here
+        aNiceandLongName => 'default'
+        @_ # Passed-in args replace your defaults
+    );
+}
+bar( aNiceandLongName => 'woodchuck');
+</pre>
+<a href="https://gist.github.com/4611203">Perl named, self-documenting subroutine arguments with default values</a><br/>
+<br/>
+<h2>Logging in perl</h2>
+<a href="http://www.netlinxinc.com/netlinx-blog/52-perl/126-eight-loglog4perl-recipes.html">8 Useful Log::Log4perl Recipes</a><br/>
+<a href="http://log4perl.sourceforge.net/releases/Log-Log4perl/docs/html/Log/Log4perl/FAQ.html">Log::Log4perl::FAQ - Frequently Asked Questions on Log::Log4perl</a><br/>
+<a href="http://perlmeister.com/talks/yapc_log4perl.ppt">Smart Logging With Log4per (PPT)</a> or google <a href="http://www.google.com/url?sa=t&source=web&cd=4&ved=0CC4QxQEwAw&url=http%3A%2F%2Fdocs.google.com%2Fviewer%3Fa%3Dv%26q%3Dcache%3Ap5cridOaT3EJ%3Aperlmeister.com%2Ftalks%2Fyapc_log4perl.ppt%2Blog4perl%2Bcategory%26hl%3Den%26gl%3Dus%26pid%3Dbl%26srcid%3DADGEESgEz8oPL8n9ntNG1zk954aLP2TQJPvTaoEORxeUaS0WEcQB4u5Mjjvlv4s331w2vhjMUjMZygqmepFZJDRAUZ7OfwzTXO4jsugJthFAOCO6C55k_IfQMY2pLcyeWEpBDVdXN8mH%26sig%3DAHIEtbRltSFwb6l47KXfGsIJ2D-xJ85htA&ei=NB0CTqnpKcHm0QHaipCuDg&usg=AFQjCNHEIAoWeS4LGESe2dSo9FLGy4KkNw">quickview</a> - really great set of slides.<br/>
+<a href="http://www.easysoft.com/developer/languages/perl/dbi-debugging.html">Debugging Perl DBI</a> - gives quite a good intro on DBIx::log4perl.<br/>
+<a href="http://search.cpan.org/~lammel/MooseX-Log-Log4perl-0.46/lib/MooseX/Log/Log4perl.pm">MooseX::Log::Log4perl - search.cpan.org</a><br/>
+<br/>
+<br/>
+<h2>Email in perl</h2>
+<a href="http://www.revsys.com/writings/perl/sending-email-with-perl.html">Sending Email with Perl Best Practice</a> - I'll agree using MIME::Lite::TT::HTML is pretty awesome.<br/>
+<br/>
+<br/>
+<h2>Random CPAN modules</h2>
+<a href="http://padre.perlide.org/">Padre, the Perl IDE</a> - install Padre::Perl, uses wxWidgets, as such it is <a href="http://www.scintilla.org/">Scintilla and SciTE</a> based.<br/>
+<a href="https://metacpan.org/pod/http_this">http_this - export the current directory over HTTP - metacpan.org</a><br/>
+<a href="http://perldoc.perl.org/FindBin.html">FindBin - perldoc.perl.org</a> - module figures out where the script was invoked.  useful for relative paths...<br/>
+<a href="https://metacpan.org/source/INGY/IO-All-0.44/README">IO-All README - metacpan.org</a><br/>
+<a href="http://asterisk.gnuinter.net/">The home of asterisk-perl</a> - A PERL module for Asterisk:<br />
+<a href="http://search.cpan.org/~apeiron/local-lib-1.008004/lib/local/lib.pm">local::lib - search.cpan.org</a> -  - create and use a local lib/ for perl modules with PERL5LIB<br/>
+<a href="http://search.cpan.org/~jjnapiork/App-local-lib-helper-0.07/lib/App/local/lib/helper/rationale.pod">App::local::lib::helper::rationale - search.cpan.org</a><br/>
+<a href="http://perlbrew.pl/">Perlbrew</a> - perlbrew is a admin-free perl installation management tool. Manage perl installations in your $HOME.<br/>
+<a href="https://metacpan.org/module/App::FatPacker">App::FatPacker - pack your dependencies onto your script file - metacpan.org</a> -<a href="http://www.perladvent.org/2012/2012-12-14.html">Perl Advent Calendar 2012 - Self-contained applications</a><br/>
+<br/>
+<br/>
+<h2>Plack || PSGI</h2>
+<pre>
+# from PSGI.pod
+my $app = sub {
+      my $env = shift;
+      return [
+          '200',
+          [ 'Content-Type' => 'text/plain' ],
+          [ "Hello World" ], # or IO::Handle-like object
+      ];
+  };
+</pre>
+perl code ref, accepts hash returns array ['statuscode',[content-type:hash],[handle or content]]<br/>
+<a href="http://plackperl.org/">PSGI/Plack - Perl Superglue for Web Frameworks and Web Servers</a><br/>
+<a href="http://www.catalystframework.org/calendar/2009/23">Catalyst Advent Calendar - Day 23</a> - Plack - A Fantastic Layer To Make Your App Deployment Easier<br/>
+<a href="https://metacpan.org/module/PSGI">PSGI - metacpan.org - Perl programming language</a> - PSGI - Perl Web Server Gateway Interface Specification<br/>
+<a href="http://advent.plackperl.org/">Plack Advent Calendar</a><br/>
+<br/>
+<br/>
+<h2>Perl Web Frameworks</h2>
+<a href="http://meteorserver.org/">Meteor</a> - perl web 2.0 http server<br/>
+<a href="https://metacpan.org/release/Web-Simple">Web-Simple - A quick and easy way to build simple web applications - metacpan.org</a><br/>
+<a href="https://github.com/jjn1056/Shutterstock-Guestbook-Web">jjn1056/Shutterstock-Guestbook-Web - GitHub</a> - example web application using Web::Simple, Moo and HTML::Zoom.<br/>
+<a href="https://github.com/mfontani/Brocco">mfontani/Brocco · GitHub</a> - Blog engine written in Perl using Dancer DBIx::Class Text::MultiMarkdown <a href="https://metacpan.org/pod/DBIx::Class::Schema::Loader">DBIx::Class::Schema::Loader</a><br/>
+<a href="https://metacpan.org/release/HTML-Zoom">HTML-Zoom - selector based streaming template engine</a> - HTML::Zoom is the cure for JQuery envy.<br/>
+<br/>
+<br/>
+<h2>Dancer</h2>
+<a href="http://perldancer.org/">Dancer - Perl Web Framework for easy and fun webapp development</a><br/>
+<a href="https://metacpan.org/module/YANICK/Dancer-1.3117/lib/Dancer/Cookbook.pod">Dancer::Cookbook - a quick-start guide to the Dancer web framework - metacpan.org - Perl programming language</a><br/>
+<a href="https://metacpan.org/module/YANICK/Dancer-1.3117/lib/Dancer/Deployment.pod">Dancer::Deployment - common ways to put your Dancer app into use - metacpan.org - Perl programming language</a><br/>
+<a href="https://metacpan.org/module/Dancer::Plugin::Database">Dancer::Plugin::Database - easy database connections for Dancer applications - metacpan.org - Perl programming language</a><br/>
+<a href="https://github.com/berekuk/questhub">berekuk/questhub</a> - <a href="http://questhub.io/">Questhub.io</a><br/>
+<br/>
+<br/>
+<br/>
+
+<h2>Catalyst</h2>
+<a href="http://www.catalystframework.org/">Catalyst | Perl MVC web application framework</a> - PERL MVC install Task::Catalyst<br/>
+<a href="http://wiki.catalystframework.org/wiki/">Catalyst::Wiki</a><br/>
+<a href="https://github.com/yanick/galuga">yanick/Galuga - GitHub</a> - Galuga - Yet another blog engine (Catalyst)<br/>
+<a href="http://www.catalystframework.org/calendar/">Catalyst Advent Calendar</a><br/>
+<a href="https://metacpan.org/module/Catalyst::Plugin::AutoCRUD">Catalyst::Plugin::AutoCRUD - Instant AJAX web front-end for DBIx::Class - metacpan.org</a><br/>
+<a href="http://search.cpan.org/~karman/CatalystX-CRUD-0.55/lib/CatalystX/CRUD.pm">CatalystX::CRUD - search.cpan.org</a><br/>
+<a href="http://blogs.perl.org/users/j0e/2012/09/using-jqgrid-with-catalyst-tutorial-with-examples-for-newbies.html">Using jqGrid with Catalyst: Tutorial with Examples for Newbies | j0e [blogs.perl.org]</a><br/>
+<a href="http://blogs.perl.org/users/j0e/2012/09/using-catalystcontrollerrest-with-jqgrid-tutorial-with-examples-for-newbies.html">Using Catalyst::Controller::REST with jqGrid: Tutorial with Examples for Newbies | j0e [blogs.perl.org]</a><br/>
+<a href="https://github.com/shlomif/catable/tree/master/App-Catable">catable/App-Catable at master · shlomif/catable</a> - Catable is a blog engine based on Catalyst, DBIx::Class and other technologies.<br/>
+
+<h2>Mojolicious</h2>
+<a href="http://mojolicio.us/">Mojolicious - Perl real-time web framework</a><br/>
+<a href="https://github.com/kraih/mojo/wiki/Writing-websocket-chat-using-Mojolicious-Lite">Writing websocket chat using Mojolicious::Lite · kraih/mojo Wiki · GitHub</a><br/>
+<a href="https://github.com/kraih/mojo/wiki/Example-applications">Example applications · kraih/mojo Wiki · GitHub</a><br/>
+<a href="http://mojolicio.us/perldoc/Mojolicious/Guides/Cookbook">Mojolicious::Guides::Cookbook - Cookbook</a><br/>
+<a href="https://github.com/kraih/mojo">kraih/mojo · GitHub</a> <a href="https://github.com/kraih/mojo/wiki">Home · kraih/mojo Wiki · GitHub</a>
+<br/>
+<a href="https://github.com/plu/github-meets-cpan">plu/github-meets-cpan · GitHub</a> - The app is deployed to dotCloud and uses MongoDB for storing the data. The software is written in Perl using the Mojolicious framework.<br/>
+<a href="https://github.com/tempire/mojoexample">tempire/MojoExample · GitHub</a> - Mojolicious example with DBIx::Class schema load, deploy, fixtures, and tests.<br/>
+<a href="http://blogs.perl.org/users/joel_berger/">Joel Berger [blogs.perl.org]</a><br/>
+<a href="https://github.com/jberger/Galileo">jberger/Galileo · GitHub</a> - Galileo is a Perl CMS written using Mojolicious, DBIx::Class, PageDown,Bootstrap,jQuery,HumaneJS,<a href="https://metacpan.org/module/DBIx::Class::DeploymentHandler#THIS-SUCKS">DBIx::Class::DeploymentHandler</a>,Module::Build,<a href="https://github.com/jberger/Mojolicious-Plugin-InstallablePaths">jberger/Mojolicious-Plugin-InstallablePaths</a><br/>
+<a href="http://memowe.github.com/contenticious/">Welcome to Contenticious - build web sites from markdown files - Contenticious</a><br/>
+<a href="https://github.com/memowe/contenticious">memowe/contenticious · GitHub</a>  - build web sites from markdown files<br/>
+<a href="http://search.cpan.org/~sri/Mojolicious-3.82/lib/Mojolicious/Plugin/Mount.pm">Mojolicious::Plugin::Mount - search.cpan.org</a> - a plugin that allows you to mount whole Mojolicious applications.<br/>
+<a href="https://code.google.com/p/catz/">catz - The world's most advanced cat show photo engine</a> - see what happens behind the scene! @ <a href="http://catza.net/en/">catza.net - the meowing revolution of cat show photos</a><br/>
+<br/>
+<h2>issues I've found with Mojo,hypno,and mango</h2>
+if you install EV on windows, morbo will crash telling you that "EV does not work with ithreads."<br/>
+<a href="https://github.com/kraih/mojo/issues/391">morbo startup failure on Windows 7 with Perl v5.14.2 built for MSWin32-x86-multi-thread · Issue #391 · kraih/mojo · GitHub</a> - the solution is to "set MOJO_REACTOR=Mojo::IOLoop::Poll" which makes mojo not use EV for the event loop and instead uses a pure-Perl event loop that always works.<br/>
+<br/>
+Looking at old code from github it looks like at one point mojo allowed the use of b() within templates.  The code imports the Mojo::ByteStream module as 'b', but that doesn't flow through to the templates as it did?<br/>
+Running example code I would get something like: Undefined subroutine &Mojo::Template::SandBox::b called at template<br/>
+anyways, one solution as specified in the <a href="http://mojolicio.us/perldoc/Mojo/Template">Mojo::Template</a> docs, is to create a new Mojo::ByteSteam inline.<br/>
+Replace b() with Mojo::ByteStream->new().<br/>
+<br/>
+Sometimes I recieve a "Non-blocking operations in progress at Mango/Cursor.pm" when hosting out of hypnotoad.<br/>
+<a href="https://www.google.com/search?sclient=psy-ab&amp;safe=off&amp;espv=213&amp;es_sm=122&amp;q=Non-blocking+operations+in+progress+at+Mango%2FCursor.pm&amp;oq=&amp;gs_l=serp.3...0.0.1.11821.0.0.0.0.0.0.0.0..0.0....0...1c..40.chrome-search..0.0.0.anogK3wiqPY">Non-blocking operations in progress at Mango/Cursor.pm - Google Search</a> - show some others experiencing the trouble too..<br/>
+<br/>
+<br/>
+<a href="http://www.steve.org.uk/Software/templer/">Steve.org.uk: The templer static-site generator</a> - <a href="https://github.com/skx/templer">skx/templer</a> - A static-site-generator, written in perl with per-page variables and layouts. Textile, Markdown, or plain HTML<br/>
+<a href="https://github.com/skx/static-site-generators">skx/static-site-generators</a> - A mini-review of static site generators from Templer's author.<br/>
+<br/>
+<br/>
+<a href="https://metacpan.org/module/Devel::Declare">Devel::Declare - Adding keywords to perl, in perl - metacpan.org</a><br/>
+<h2>Dependency Injection || Inversion of Control in Perl || IoC in Perl</h2>
+containers, and containers of containers providing services so your doesn't have to worry about it.<br/>
+<a href="http://search.cpan.org/dist/Bread-Board/lib/Bread/Board.pm">Bread::Board - search.cpan.org</a><br/>
+<a href="https://metacpan.org/module/Bread::Board::Declare">Bread::Board::Declare - create Bread::Board containers as normal Moose objects - metacpan.org</a> - services declared as attributes.<br/>
+<br/>
+<br/>
+<h2>Object Systems in Perl</h2>
+package namespaces and subroutines, and you could <a href="http://perldoc.perl.org/functions/bless.html">bless</a> anything to an object.<br/>
+<a href="http://perldoc.perl.org/perlobj.html">perlobj - perldoc.perl.org</a><br/>
+<pre>
+cpan> m /^M(?:o(?:o|[ou]se)?)?$/<br/>
+Module  < M
+Module  < Mo
+Module  < Moo
+Module  < Moose
+Module  = Mouse
+</pre>
+Moose,Mouse (uses XS,faster),Any::Moose (uses Mouse unless Moose already loaded)<br/>
+<a href="https://github.com/stevan/p5-mop">stevan/p5-mop - GitHub</a> - Meta Object Protocol, or MOP, to be perhaps included in a future version of Perl 5.<br/>
+<a href="http://qore.org/index.php">Qore Programming Language</a> - embeddable multi-threaded programming language.<br/>
+<a href="http://moose.iinteractive.com/">Moose - A postmodern object system for Perl</a><br/>
+<a href="http://perlcast.com/2010/07/12/stevan-little-on-moose/">perlcast.com » Stevan Little on Moose</a><br/>
+<a href="http://search.cpan.org/dist/Moose/">Jesse Luehrs / Moose - search.cpan.org</a><br/>
+<a href="http://search.cpan.org/dist/Moose/">Dave Rolsky / Moose - search.cpan.org</a> -Moose is a complete object system for Perl 5.<br/>
+<a href="http://blog.moose.perl.org/">Call of the Moose</a> - Moose blog<br/>
+<a href="https://metacpan.org/module/perl5i">perl5i - Fix as much of Perl 5 as possible in one pragma - metacpan.org</a><br/>
+<a href="http://search.cpan.org/~mstrout/Moo/">Matt S Trout / Moo - search.cpan.org</a> - Moo - Minimalist Object Orientation (with Moose compatiblity)<br/>
+<a href="http://search.cpan.org/~jdhedden/Object-InsideOut/lib/Object/InsideOut.pod">Object::InsideOut - search.cpan.org</a> - support for implementing classes using the inside-out object model.<br/>
+<a href="http://babyl.dyndns.org/perl/oio/oio-cheatsheet.pdf">Object::InsideOut
+Quick Reference</a> - <a href="http://babyl.dyndns.org/techblog/">Yani</a><br/>
+<br/>
+<br/>
+<h2>DBIx || DBIx::Class || DBIC</h2>
+<a href="http://www.modernperlbooks.com/mt/2011/05/testing-dbix-models-without-the-database.html">Testing DBIx::Class Models without the Database - Modern Perl Books, a Modern Perl Blog</a><br/>
+<a href="http://www.dbix-class.org/">DBIx::Class — An ORM for Perl that is extensible and flexible</a><br/>
+<a href="http://babyl.dyndns.org/techblog/entry/dbix-class-deploymenthandler-rocks">Hacking Thy Fearful Symmetry - DBIx::Class::DeploymentHandler is Awesome</a><br/>
+<a href="http://search.cpan.org/dist/DBIx-Class-DeploymentHandler/">Arthur Axel "fREW" Schmidt / DBIx-Class-DeploymentHandler - search.cpan.org</a><br/>
+<a href="http://search.cpan.org/~ribasushi/DBIx-Class-0.08250/lib/DBIx/Class/Manual/DocMap.pod">DBIx::Class::Manual::DocMap - search.cpan.org</a><br/>
+<a href="http://search.cpan.org/~abraxxa/DBIx-Class-0.08195/lib/DBIx/Class/Manual/Intro.pod">DBIx::Class::Manual::Intro - search.cpan.org</a><br/>
+<a href="http://search.cpan.org/~ribasushi/DBIx-Class-0.08250/lib/DBIx/Class/Manual/Cookbook.pod">DBIx::Class::Manual::Cookbook - search.cpan.org</a><br/>
+<a href="http://search.cpan.org/~kimoto/DBIx-Custom-0.27/lib/DBIx/Custom.pm">DBIx::Custom - search.cpan.org</a><br/>
+<a href="http://search.cpan.org/dist/DBIx-QueryLog/lib/DBIx/QueryLog.pm">DBIx::QueryLog - search.cpan.org</a> - Logging queries for DBI <a href="http://perl-users.jp/articles/advent-calendar/2011/dbix/9">I want to full view the SQL that is run by DBI in DBIx :: QueryLog! - Perl Advent Calendar Japan 2011 Dbix Track</a><br/>
+<a href="http://search.cpan.org/dist/SQL-Interp/lib/SQL/Interp.pm">SQL::Interp - search.cpan.org</a> - Interpolate Perl variables into SQL statements <a href="http://d.hatena.ne.jp/ZIGOROu/20090731/1249052854">SQL :: Interp - Yet Another Hackadelic</a><br/>
+<a href="http://www.slideshare.net/motemen/introduction-to-dbixlite-kyotopm-tech-talk-2">Introduction to DBIx::Lite - Kyoto.pm tech talk #2</a><br/>
+<a href="http://search.cpan.org/~ilmari/Catalyst-Model-DBIC-Schema-0.61/lib/Catalyst/Model/DBIC/Schema.pm">Catalyst::Model::DBIC::Schema - search.cpan.org</a><br/>
+<a href="http://www.catalystframework.org/calendar/2007/16">Catalyst Advent Calendar - Day 16</a> - Advanced Search in web DBIx::Class based applications (with tags, full text search and searching by location)<br/>
+<a href="http://search.cpan.org/perldoc?DBSchema%3A%3ASample">DBSchema::Sample - search.cpan.org</a><br/>
+<a href="http://search.cpan.org/perldoc?DBIx%3A%3ARecordset%3A%3APlayground">DBIx::Recordset::Playground - search.cpan.org</a><br/>
+<br/>
+<br/>
+<h2>Unicode in Perl</h2>
+<a href="http://training.perl.com/tcpc/OSCON2011/gbu/gbu.html">Unicode: Good, Bad, &amp; Ugly</a><br/>
+<a href="http://training.perl.com/tcpc/OSCON2011/index.html">Tom Christiansen’s Materials for OSCON 2011</a><br/>
+<a href="http://search.cpan.org/~bdfoy/Unicode-Tussle-1.03/lib/Unicode/Tussle.pm">Unicode::Tussle - search.cpan.org</a><br/>
+<a href="http://ajct.info/2012/07/20/unicode-perl-best-practices.html">Unicode Perl Best Practices | ADAM JC TAYLOR</a><br/>
+<br/>
+<br/>
+<h2>Perl v6</h2>
+<a href="http://perl6maven.com/perl5-to-perl6-arrays">Perl 5 to Perl 6 - Arrays</a><br/>
+<a href="https://metacpan.org/module/perl5i">perl5i - Fix as much of Perl 5 as possible in one pragma - metacpan.org</a><br/>
+<a href="http://www.perlfoundation.org/perl6/index.cgi">Perl 6 / Perl 6</a><br/>
+<br/>
+<br/>
+<h2>packaging modules, dists, tasks, etc.</h2>
+<a href="http://www.ibm.com/developerworks/library/l-make/index.html">Building Perl projects with MakeMaker</a><br/>
+<br/>
+<br/>
+<h2>perldoc</h2>
+  Internals and C Language Interface<br/>
+        perlembed           Perl ways to embed perl in your C or C++ application<br/>
+        perldebguts         Perl debugging guts and tips<br/>
+        perlxstut           Perl XS tutorial<br/>
+        perlxs              Perl XS application programming interface<br/>
+        perlxstypemap       Perl XS C/Perl type conversion tools<br/>
+        perlclib            Internal replacements for standard C library functions<br/>
+        perlguts            Perl internal functions for those doing extensions<br/>
+        perlcall            Perl calling conventions from C<br/>
+        perlmroapi          Perl method resolution plugin interface<br/>
+        perlreapi           Perl regular expression plugin interface<br/>
+        perlreguts          Perl regular expression engine internals<br/>
+
+        perlapi             Perl API listing (autogenerated)<br/>
+        perlintern          Perl internal functions (autogenerated)<br/>
+        perliol             C API for Perl's implementation of IO in Layers<br/>
+        perlapio            Perl internal IO abstraction interface<br/>
+
+        perlhack            Perl hackers guide<br/>
+        perlsource          Guide to the Perl source tree<br/>
+        perlinterp          Overview of the Perl interpreter source and how it works<br/>
+        perlhacktut         Walk through the creation of a simple C code patch<br/>
+        perlhacktips        Tips for Perl core C code hacking<br/>
+        <a href="http://perldoc.perl.org/perlpolicy.html">perlpolicy</a> Perl development policies<br/>
+        <a href="http://perldoc.perl.org/perlrepository.html">perlrepository</a>           Using git with the Perl repository<br/>
+<a href="http://perldoc.perl.org/perlobj.html">perlobj</a> -  Perl object reference<br/>
+<a href="http://learn.perl.org/faq/perlfaq1.html">perlfaq1</a> – General Questions About Perl<br/>
+<a href="http://learn.perl.org/faq/perlfaq2.html">perlfaq2</a> – Obtaining and Learning about Perl<br/>
+<a href="http://learn.perl.org/faq/perlfaq3.html">perlfaq3</a> – Programming Tools<br/>
+<a href="http://learn.perl.org/faq/perlfaq4.html">perlfaq4</a> – Data Manipulation<br/>
+<a href="http://learn.perl.org/faq/perlfaq5.html">perlfaq5</a> – Files and Formats<br/>
+<a href="http://learn.perl.org/faq/perlfaq6.html">perlfaq6</a> – Regexes<br/>
+<a href="http://learn.perl.org/faq/perlfaq7.html">perlfaq7</a> – General Language Issues<br/>
+<a href="http://learn.perl.org/faq/perlfaq8.html">perlfaq8</a> – System Interaction<br/>
+<a href="http://learn.perl.org/faq/perlfaq9.html">perlfaq9</a> – Networking<br/>
+<br/>
+<br/>
+<h2>HTTP in perl</h2>
+<a href="http://www.perlmonks.org/?node_id=865148">Simple http server one-liner for some static files?</a><br/>
+<a href="http://search.cpan.org/~melo/App-HTTPThis-0.002/lib/App/HTTPThis.pm">App::HTTPThis</a> - App::HTTPThis - Export the current directory over HTTP (using plack)<br/>
+<a href="http://search.cpan.org/~aufflick/HTTP-Server-Brick-0.1.4/lib/HTTP/Server/Brick.pm">HTTP::Server::Brick</a> - HTTP::Server::Brick - Simple pure perl http server for prototyping "in the style of" Ruby's WEBrick. using LWP.<br/>
+<a href="https://github.com/miyagawa/Twiggy">miyagawa/Twiggy</a> - AnyEvent based non-blocking PSGI web server (like Thin) <br/>
+<a href="http://www.perlmonks.org/?node_id=922226">Mechanize and Bypassing SSL Certificate Check</a> - export PERL_LWP_SSL_VERIFY_HOSTNAME=0, or constructor option WWW::Mechanize-&gt;new(ssl_opts =&gt; {verify_hostname =&gt; 0, },);<br/>
+<br/>
+<br/>
+<h2>slaughter</h2>
+<a href="http://www.steve.org.uk/Software/slaughter/">Steve.org.uk - The Slaughter System Administration &amp; Automation Tool</a> - <a href="https://github.com/skx/slaughter">skx/slaughter</a><br/>
+<a href="http://www.steve.org.uk/Software/slaughter/guide/#what">The Definitive Slaughter Guide</a> - <a href="https://github.com/skx/slaughter-book">skx/slaughter-book</a> - The definitive slaughter guide<br/>
+<a href="https://github.com/skx/slaughter-policies">skx/slaughter-policies</a> - slaughter policies skx uses on his hosts.<br/>
+<br/>
+<br/>
+<h2>App::cmd</h2>
+<a href="https://metacpan.org/module/App::Cmd">App::Cmd - write command line apps with less suffering - metacpan.org</a><br/>
+<a href="http://deps.cpantesters.org/depended-on-by.pl?module=App%3A%3ACmd">Reverse CPAN dependencies: App-Cmd</a> - list of cmdline apps using App::Cmd depended-on-by.pl<br/>
+<br/>
+<br/>
+<h2>Debug perl || step through perl code</h2>
+<a href="https://metacpan.org/module/Devel::hdb">Devel::hdb - Perl debugger as a web page and REST service - metacpan.org</a><br/>
+<a href="http://blogs.perl.org/users/ovid/2013/10/how-to-use-the-debugger-with-moose.html">How to use the debugger with Moose | Ovid [blogs.perl.org]</a> - use <a href="https://metacpan.org/pod/DB::Skip">DB::Skip - make the perl debugger skip statements in given packages or subs</a><br/>
+<br/>
+<br/>
+<h2>Managing multiple perls</h2>
+<a href="http://oylenshpeegul.typepad.com/blog/2013/08/acme-envy.html">Acme Envy - oylenshpeegul's blog</a> - the latest versions of Perl, Python, and Ruby at your disposal. <br/>
+<a href="http://weblog.bulknews.net/post/58079418600/plenv-alternative-for-perlbrew">plenv, alternative for perlbrew - Tatsuhiko Miyagawa's blog</a><br/>
+<a href="https://github.com/tokuhirom/plenv">tokuhirom/plenv</a> - plenv - perl binary manager<br/>
+<br/>
+<br/>
+<h2>Perl module packaging tips and stuff</h2>
+<a href="http://neilb.org/2013/07/24/adopt-a-module.html">Adopt a CPAN module</a> - The good, the bad, and the beautiful<br/>
+<a href="http://bratislava.pm.org/en/tutorial/new-module.html">How to make CPAN-like module</a><br/>
+<a href="https://metacpan.org/release/Git-CPAN-Patch">Git-CPAN-Patch-1.3.1 - Patch CPAN modules using Git - metacpan.org - Perl programming language</a><br/>
+<a href="https://metacpan.org/module/Distribution::Cooker">Distribution::Cooker - Create a module directory from your own templates - metacpan.org - Perl programming language</a><br/>
+<a href="https://metacpan.org/module/XSAWYERX/Module-Starter-1.60/bin/module-starter">module-starter - creates a skeleton module distribution - metacpan.org - Perl programming language</a><br/>
+<a href="https://metacpan.org/pod/Dist::Milla#WHY">Dist::Milla - Distribution builder, Opinionated but Unobtrusive - metacpan.org - Perl programming language</a> - milla new Dist-Name;cd Dist-Name;milla build;milla release<br/>
+<br/>
+<br/>
+<h2>App::Ack</h2>
+ack, an awesome grep replacement.<br/>
+<a href="http://beyondgrep.com/">Beyond grep: ack 2.08, a source code search tool for programmers</a> - ack is simple to install, via CPAN.<br/>
+<a href="http://powdahound.com/2009/10/colorize-log-output-with-ack">Colorize log output with ack | powdahound.com</a><br/>
+<a href="https://www.digitalocean.com/community/articles/how-to-install-and-use-ack-a-grep-replacement-for-developers-on-ubuntu-14-04">How To Install and Use Ack, a Grep Replacement for Developers, on Ubuntu 14.04 | DigitalOcean</a><br/>
+<pre>
+echo '--pager=less -RFX' >> ~/.ackrc
+</pre>
+
+<br/>
+<br/>
+<h2>Testing in perl</h2>
+<a href="https://metacpan.org/module/Test::Tutorial">Test::Tutorial - A tutorial about writing really basic tests - metacpan.org</a><br/>
+<a href="https://metacpan.org/module/Test::BDD::Cucumber::Manual::Tutorial">Test::BDD::Cucumber::Manual::Tutorial - Quick Start Guide - metacpan.org</a><br/>
+<br/>
+<br/>
+<h2>Perl::Critic</h2>
+<a href="http://perlcritic.com/">Perl::Critic</a> - Some Ways Are Better Than Others (LOVE tag line)<br/>
+<a href="https://metacpan.org/pod/Params::Validate">Params::Validate - metacpan.org - Perl programming language</a> - Validate method/function parameters<br/>
+<br/>
+<br/>
+<h2>Performance in Perl</h2>
+<a href="https://metacpan.org/module/Dumbbench">Dumbbench - More reliable benchmarking with the least amount of thinking - metacpan.org - Perl programming language</a><br/>
+<a href="http://search.cpan.org/~mlehmann/Coro-6.33/Coro.pm">Coro - search.cpan.org</a><br/>
+<a href="http://www.slideshare.net/semuelf/perl-coro-asynchronous">Perl: Coro asynchronous</a><br/>
+<a href="http://foertsch.name/perldoc/Coro::Intro">Introduction to Coro</a><br/>
+<br/>
+<br/>
+<h2>Mason</h2>
+<a href="http://search.cpan.org/perldoc?Mason">Mason</a> - Mason - Powerful, high-performance templating for the web and beyond<br/>
+<a href="http://search.cpan.org/perldoc?Poet">Poet - search.cpan.org</a> - Poet -- a modern Perl web framework for Mason developers<br/>
+<a href="http://search.cpan.org/perldoc?Poet%3A%3AManual%3A%3ATutorial">Poet::Manual::Tutorial - search.cpan.org</a><br/>
+<br/>
+<br/>
+<h2>PerlPowerTools || ppi || cool things to do with perl</h2>
+There seems to be quite a few power tools for perl.  A Unix Reconstruction idea, implementing things that might not normally come out of the box... banner and all.<br/>
+<a href="https://metacpan.org/release/ppt">ppt-0.14 - - metacpan.org</a> by <a href="https://metacpan.org/author/CWEST">Casey West (CWEST) - metacpan.org</a><br/>
+<a href="https://metacpan.org/pod/PerlPowerTools">PerlPowerTools - BSD utilities written in pure Perl - metacpan.org</a> by <a href="https://metacpan.org/author/BDFOY">brian d foy (BDFOY) - metacpan.org</a><br/>
+TMTOWTDI - you can name things however you like. <a href="http://hoelz.ro/talks/perl-power-tools/index.html">Perl Power Tools</a> <a href="https://github.com/hoelzro/perl-power-tools">hoelzro/perl-power-tools</a> - <a href="http://hoelz.ro/">Rob Hoelz</a> from booking.com talk on cpanm,local::lib, and other favorites;<br/>
+<br/>
+
+<a href="https://en.wikipedia.org/wiki/Schwartzian_transform">Schwartzian transform - Wikipedia</a> - Schwartzian transform is a version of a Lisp idiom known as decorate-sort-undecorate, which avoids recomputing the sort keys by temporarily associating them with the input items. first implemented in perl...<br/>
+<br/>
+<br/>
+
+<strong>Dare I say? Perl itself is a power tool.  Stop; You're all right.</strong>
+    <div style="border: 1px;">
+    Created: 2005-05-04 23:20:10
+    Modified: 2017-04-13 02:30:33
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+<span id=daysToChristmas>x</span> days to Christmas.<br/>
+<span id=daysToNewYear>x</span> days to a new year.<br/>
+Happy Holidays!
+<script Language="JavaScript">
+function showtime () {
+        msPerDay = 24 * 60 * 60 * 1000 ; // Number of milliseconds per day
+        var now = new Date();
+        var year = now.getYear();
+        if (year < 1000)
+         year+=1900
+        nextXmas = new Date("December 25, 2000")
+        nextXmas.setYear(year)
+        daysLeft = (nextXmas.getTime() - now.getTime()) / msPerDay;
+        daysLeft = Math.round(daysLeft);
+        var span=document.getElementById('daysToChristmas');
+        span.removeChild(span.firstChild);
+        span.appendChild(document.createTextNode(daysLeft+''));
+        
+        nextXmas = new Date("December 31, 2000")
+        nextXmas.setYear(year)
+        daysLeft = (nextXmas.getTime() - now.getTime()) / msPerDay;
+        daysLeft = Math.round(daysLeft);
+
+        span=document.getElementById('daysToNewYear');
+        span.removeChild(span.firstChild);
+        span.appendChild(document.createTextNode(daysLeft+''));
+        setTimeout("showtime()",msPerDay);
+}
+showtime();
+</script>
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

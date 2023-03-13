@@ -1,0 +1,352 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>PostgreSQL</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/random-technology/">random-technology</a>
+    <h1>PostgreSQL</h1>
+   <h2>PostgreSQL</h2>
+<a href="http://www.postgresql.org/">PostgreSQL: The world's most advanced open source database</a> - the official homepage.<br/>
+<a href="http://www.postgresql.org/docs/manuals/">PostgreSQL: Manuals</a><br/>
+<a href="https://wiki.postgresql.org/wiki/Main_Page">PostgreSQL wiki</a><br/>
+<a href="http://interlinked.org/tutorials/postgresql.html">The Most Amazing PostgreSQL Database - IMHO</a><br/>
+<a href="http://pg-versus-ms.com/">PostgreSQL vs. MS SQL Server</a> - Why PostgreSQL is way, way better than MS SQL Server<br/>
+<a href="http://wiki.postgresql.org/wiki/Things_to_find_out_about_when_moving_from_MySQL_to_PostgreSQL">Things to find out about when moving from MySQL to PostgreSQL - PostgreSQL wiki</a> - PostgreSQL has many features MySQL doesn't.<br/>
+<a href="http://www.craigkerstiens.com/2012/04/30/why-postgres/">Why Postgres | Craig Kerstiens</a> <a href="http://www.craigkerstiens.com/2012/05/07/why-postgres-part-2/">Part 2 | Craig Kerstiens</a><br/>
+<a href="http://mcpantz.org/blog/2012/05/23/building-dbd-pg-for-perlbrew-on-ubuntu/">Building DBD::Pg for perlbrew on Ubuntu - M.C. Pantz</a><br/>
+<pre>
+sudo apt-get install libpq5 postgresql-server-dev-9.1
+POSTGRES_HOME='/usr/lib/postgresql/9.1' POSTGRES_INCLUDE='/usr/include/postgresql' cpanm Bundle::DBD::Pg
+</pre>
+<br/>
+<br/>
+<h2>quick how do I use it?</h2>
+<a href="http://stackoverflow.com/questions/1471571/how-to-configure-postgresql-for-the-first-time">database - How to configure postgresql for the first time? - Stack Overflow</a> - sudo -u postgres psql template1;ALTER USER postgres with encrypted password '';sudo -u postgres createuser -U postgres -d -e -E -l -P -r -s root;createdb ;psql template1<br/>
+then psql /? and (/q or Ctrl+D) to exit.<br/>
+PGDATA,PGPORT,PGHOST,PGPASSWORD,PGUSER are all env variables of interest.<br/>
+<br/>
+<br/>
+<h2>posgresql password config</h2>
+~.pgpass;localhost:5432:dbname:user:secret;chmod 0600 ~.pgpass;<br/>
+runas /user:postgres "cmd";cd %appdata%;mkdir postgresql;cd postgresql;notepad pgpass.conf;
+<h2>show me the databases</h2>
+select * from pg_database; or \l from psql<br/>
+<br/>
+<h2>show me the tables</h2>
+SELECT * FROM pg_catalog.pg_tables<br/>
+SELECT
+    table_schema || '.' || table_name
+FROM
+    information_schema.tables
+WHERE
+    table_type = 'BASE TABLE'
+AND
+    table_schema NOT IN ('pg_catalog', 'information_schema');<br/>
+<a href="http://stackoverflow.com/questions/769683/show-tables-in-postgresql">show tables in postgresql - Stack Overflow</a><br/>
+<br/>
+<h2>PostgreSQL Notify/Listen</h2>
+<a href="http://www.divillo.com/">HOWTO: Automatically Responding To PostgreSQL Table Changes With Twisted</a><br/>
+<a href="https://metacpan.org/pod/AnyMQ::Pg">AnyMQ::Pg - Use built-in PostgreSQL 'LISTEN' and 'NOTIFY' commands for message-passing. - metacpan.org</a><br/>
+<a href="http://blog.endpoint.com/2010/09/listennotify-improvements-in-postgresql.html">Listen/Notify improvements in PostgreSQL 9.0 | End Point Blog</a><br/>
+<a href="http://www.bzerk.org/documents/postgresperl/">BZERK Open Source</a> - Executing perl code on PostgreSQL triggers.<br/>
+<a href="https://github.com/ryandotsmith/queue_classic">ryandotsmith/queue_classic</a> -QueueClassic Simple, efficient worker queue for Ruby & PostgreSQL  isten/notify & row locking.<br/>
+<a href="https://github.com/chanks/que">chanks/que</a> - high-performance alternative to DelayedJob or QueueClassic that improves the reliability of your application by protecting your jobs with the same ACID guarantees as the rest of your data. primary goal is reliability, secondary goal is performance. Que Ruby Postgres with JSON datatype.<br/>
+<br/>
+<br/>
+<h2>Load balance || connection pool || replication || parallel query</h2>
+<a href="http://www.pgpool.net/mediawiki/index.php/Main_Page">pgpool Wiki</a><br/>
+<a href="http://manojadinesh.blogspot.com/2013/12/pgpool-configuration-failback.html">DevAdmin: Pgpool Configuration &amp; Failback</a><br/>
+<br/>
+<br/>
+<h2>9.3 apt packages</h2>
+<a href="http://wiki.postgresql.org/wiki/Apt#Quickstart">Apt - PostgreSQL wiki</a> BSD<br/>
+<br/>
+<br/>
+<h2>Foreign Data Wrapper (FDW)</h2>
+PostgreSQL is not just about the data in PostgreSQL.<br/>
+installing the client couldn't be easier<br/>
+apt-get install pgxnclient,yum install pgxnclient,pip install pgxnclient,easy_install pgxnclient<br/>
+<br/>
+<a href="http://wiki.postgresql.org/wiki/Foreign_data_wrappers">Foreign data wrappers - PostgreSQL wiki</a><br/>
+<a href="http://pgsnake.blogspot.com/2011/08/postgresql-91-meet-mysql.html">Dave's Postgres Blog: PostgreSQL 9.1, meet MySQL</a><br/>
+<a href="http://manojadinesh.blogspot.com/2012/11/foreign-tables.html">DevAdmin: FOREIGN TABLES</a><br/>
+<a href="https://github.com/dpage/mysql_fdw">dpage/mysql_fdw</a> - MySQL FDW for PostgreSQL 9.1+<br/>
+<br/>
+<br/>
+<h2>Javascript in your PostgreSQL</h2>
+9.3 gave us JSON datatypes, plv8 gives us procedures in javascript; Node.js in PostgreSQL, why yes.<br/>
+<a href="http://pgxn.org/dist/plv8/">plv8: A procedural language in JavaScript powered by V8 / PostgreSQL Extension Network</a><br/>
+<a href="https://github.com/clkao/plv8x">clkao/plv8x</a> - Helpers for managing plv8 javascript modules<br/>
+<a href="http://blog.endpoint.com/2013/11/using-javascript-in-postgresql.html">Using JavaScript in PostgreSQL | End Point Blog</a><br/>
+<a href="http://pgre.st/">PgREST: Node.js in the Database</a><br/>
+<a href="https://github.com/poga/pgrest-schemaless">poga/pgrest-schemaless</a> - a schemaless database with firebase API on PgREST<br/>
+<br/>
+<br/>
+<a href="http://jmorano.moretrix.com/2013/12/postgresql-9-3-creating-index-json-attribute">Postgresql 9.3: Creating an index on a JSON attribute | Johnny Morano's Blog</a> - indexing JSON document by key;<br/>
+CREATE SEQUENCE data_seq START WITH 1 INCREMENT BY 1    
+    NO MINVALUE    
+    NO MAXVALUE    
+    CACHE 1;<br/> 
+CREATE TABLE data (    
+    id bigint DEFAULT nextval('data_seq'::regclass) NOT NULL,
+    form_name TEXT,
+    form_data JSON
+);<br/>
+CREATE INDEX ON data USING btree (form_name, json_extract_path_text(form_data,'name'));<br/>
+<br/>
+<h2>PostgreSQL and perl</h2>
+my $dbh = DBI->connect("DBI:Pg:dbname=x;host=localhost", "user", "secret", {'RaiseError' => 1});<br/>
+<a href="http://search.cpan.org/dist/DBD-Pg/Pg.pm">DBD::Pg - search.cpan.org</a><br/>
+<a href="http://search.cpan.org/~arc/DBD-PgPP-0.08/lib/DBD/PgPP.pm">DBD::PgPP - search.cpan.org</a><br/>
+<a href="http://jawnsy.wordpress.com/2009/01/19/installing-dbdpg-with-strawberry-perl/">Installing DBD::Pg with Strawberry Perl | Jawnsy's Journal on Life, Software and Engineering</a><br/>
+<br/>
+<br/>
+<h2>Postgres games</h2>
+<a href="https://github.com/gciolli/pgChess">gciolli/pgChess</a> - pgxnclient install pgchess;pgxnclient install pg2podg;create extension pgchess;create extension pg2podg;<br/>
+<a href="http://raghavt.blogspot.com/2012/11/psql-client-can-be-chess-board-now.html">Relational Database Technologies: psql client can be a chess board now...</a><br/>
+<br/>
+<br/>
+<h2>pgModeler</h2>
+<a href="http://www.pgmodeler.com.br/">pgModeler - PostgreSQL Database Modeler</a><br/>
+<a href="https://www.openshift.com/blogs/er-mapping-with-openshift-getting-started-with-pgmodeler">ER-Mapping with OpenShift, Getting Started with pgModeler | Openshift Blog</a><br/>
+<br/>
+<a href="http://musicbrainz.org/doc/MusicBrainz_Database">MusicBrainz Database - MusicBrainz</a> - MusicBrainz Database is built on the PostgreSQL relational database engine and contains all of MusicBrainz' music metadata. This data includes information about artists, release groups, releases, recordings, works, and labels, as well as the many relationships between them.<br/>
+    <div style="border: 1px;">
+    Created: 2014-03-09 23:14:42
+    Modified: 2015-01-03 06:31:50
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+0, 1, 1, 2, 3, 5, 8, 13, 21, 34,...<br/>
+<b> x<sub>n</sub> = x<sub>n-1</sub> + x<sub>n-2</sub></b><br/>
+<!-- "Fibonacci" was his nickname, which roughly means "Son of Bonacci". -->
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

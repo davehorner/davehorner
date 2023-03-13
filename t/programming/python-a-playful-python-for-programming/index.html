@@ -1,0 +1,750 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>Python - a playful python for programming</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/programming/">programming</a>
+    <h1>Python - a playful python for programming</h1>
+   Python is a great programming language.  One of the best parts of this language is that it can be  used tightly with C and C++.  Python is concise and cleanly formatted.  Python is portable.  It can be used cross platforms.<br />
+<br/>
+Everything in Python is an object and multiple inheritance is allowed.<br/>
+<br/>
+<strong>Remember: Beautiful is better than ugly.</strong><br/>
+<br/>
+<a href="http://openbookproject.net/py4fun/">Python for Fun</a><br/>
+<a href="http://sysblogd.wordpress.com/2007/11/17/learning-python-a-easy-yet-powerfull-scriptingprogramming-language/">Learn Python in 100 Python Session Log Lines: A Python Demo « sysblogd</a><br/>
+<a href="http://www.siafoo.net/article/52">Python Tips, Tricks, and Hacks - Siafoo</a> - pretty great page on all sorts of things python.<br/>
+<a href="http://effbot.org/zone/index.htm">zone.effbot.org</a><br/>
+<br/>
+<a href="http://www.doughellmann.com/articles/CompletelyDifferent-2007-11-science/index.html">Python in Science: How long until a Nobel Prize? | And Now For Something Completely Different, Nov. 2007</a><br/>
+<br/>
+<a href="http://code.activestate.com/recipes/66531/">Singleton? We don't need no stinkin' singleton: the Borg design pattern « ActiveState Code</a><br/>
+<a href="https://www.youtube.com/watch?feature=player_embedded&amp;v=OSGv2VnC0go#!">Transforming Code into Beautiful, Idiomatic Python - YouTube</a>  <a href="https://speakerdeck.com/pyconslides/transforming-code-into-beautiful-idiomatic-python-by-raymond-hettinger">Transforming code into Beautiful, Idiomatic Python by Raymond Hettinger (Speaker Deck)</a><br/><br/>
+<br/>
+<a href="https://github.com/kachayev/fn.py">kachayev/fn.py</a> - Functional programming in Python: implementation of missing features to enjoy FP<br/>
+<br/>
+<h2>__repr__ and  __str__</h2>
+So whats the difference with __repr__ vs __str__?<br/>
+__repr__ is usually equal to __str__, but __repr__ is constrained by the following truth:<br/>
+eval(obj.__repr__()) = obj<br/>
+__str__ is used many times to pretty up or format the data within.<br/>
+<a href="http://pyref.infogami.com/__str__">The __str__ method ((An Unofficial) Python Reference Wiki)</a><br/>
+<a href="http://stackoverflow.com/questions/61517/python-dictionary-from-an-objects-fields">Python dictionary from an object's fields - Stack Overflow</a> - sometimes you want to quickly print the member variables of a python object...__dict__ gives you that...<br/>
+<br/>
+<br/>
+<a href="http://www.diveintopython.net/">Dive Into Python</a> - A very nice tutorial on python....a good read.<br />
+<a href="http://www.whoishostingthis.com/resources/python/">Python Scripting: Overview, Resources and Books</a><br/>
+<a href="http://www.python.org/doc/2.5.2/tut/tut.html">Python Tutorial (release 2.5.2)</a>
+<a href="http://www.python.org/doc/lib/">Python Library Reference</a><br />
+<a href="http://www.python.org/doc/newstyle/">New-style Classes</a> - references on class definitions and what not.<br/>
+<a href="http://ilab.cs.byu.edu/python/"> Python Network Programming</a><br />
+<br/>
+<br/>
+<h2>easy_install and setuptools</h2>
+<a href="http://peak.telecommunity.com/DevCenter/setuptools">Building and Distributing Packages with setuptools</a><br />
+<a href="http://peak.telecommunity.com/DevCenter/EasyInstall#installation-instructions">PEAK - Easy Install</a><br />
+<a href="http://www.groovie.org/articles/2005/09/29/setuptools-and-python-paste">setuptools and Python Paste</a><br />
+<a href="http://tools.assembla.com/yolk">Yolk - Trac</a> - yolk will tell you what you've installed with  setuptools, easy_install and distutils.  Also query tool for pypi. <br/>
+Installing easy_install on Fedora, or other yum based systems.<br/>
+<pre>
+yum provides \*/easy_install
+yum install python-setuptools-devel
+</pre>
+<br/>
+<br />
+<a href="http://www.ragestorm.net/tutorial?id=21">Tutorial - Embedded Python</a><br /> 
+<br/>
+<br/>
+<h2>Python ORMs and query stuff</h2>
+<a href="http://www.quicksort.co.uk/DeeDoc.html">Dee</a> - think linq for python.<br/>
+<a href="http://wiki.python.org/moin/HigherLevelDatabaseProgramming">HigherLevelDatabaseProgramming - PythonInfo Wiki</a> - list of ORMs for python...and other stuff.<br/>
+<a href="https://storm.canonical.com/">FrontPage - Storm</a> - Storm is an object-relational mapper (ORM) for Python developed at Canonical.<br/>
+<a href="http://www.aminus.net/geniusql/">Geniusql - Trac</a> - low-level Object-Relational Mapper for Python applications.<br/>
+<a href="http://www.aminus.net/dejavu">Dejavu - Trac</a> - Dejavu uses Geniusql behind the scenes for RDBMS back ends, but allows you to mix and match them with RAM, filesystem, and other stores.<br/>
+<br/>
+<br/>
+<h2>mysqldb</h2>
+<a href="http://www.kitebird.com/articles/pydbapi.html">Writing MySQL Scripts with Python DB-API</a><br/>
+<a href="http://mysql-python.sourceforge.net/MySQLdb.html">MySQLdb User's Guide</a><br/>
+Not sure why, but I get Python AttributeError: 'Cursor' object has no attribute 'insert_id' when using int(cursor.insert_id()) with mysqldb.  Instead use (cursor.lastrowid)...which works! :)<br/>
+<a href="http://stackoverflow.com/questions/645943/mysql-for-python-in-windows">MySQL for Python in Windows - Stack Overflow</a><br/><br/>
+<br/>
+<h2>SQLObject - ORM</h2>
+<a href="http://www.ibm.com/developerworks/opensource/library/os-pythonsqlo/">Connecting databases to Python with SQLObject</a><br/>
+
+<h2>SQLAlchemy - ORM</h2>
+<a href="http://www.sqlalchemy.org/">SQLAlchemy - The Database Toolkit for Python</a><br/>
+<a href="http://code.google.com/p/sqlalchemy-migrate/">sqlalchemy-migrate - Google Code</a> - auto generate schema and python models.<br/>
+<a href="http://www.sqlalchemy.org/docs/05/ormtutorial.html">SQLAlchemy 0.5 Documentation - Object Relational Tutorial</a><br/>
+<a href="http://elixir.ematia.de/trac/wiki">Elixir – Trac</a> - Elixir is a declarative layer on top of the SQLAlchemy <br/>
+<a href="http://code.google.com/p/formalchemy/">formalchemy - Project Hosting on Google Code</a> - Auto-generated, customizable HTML input form fields from your SQLAlchemy mapped classes.<br/>
+<a href="http://docs.formalchemy.org/current/">Welcome to FormAlchemy’s documentation! — FormAlchemy v1.3.4 documentation</a><br/>
+<br/>
+<br/>
+<h2>Django</h2>
+<a href="http://www.djangoproject.com/">Django</a><br/>
+<a href="http://www.djangobook.com/">The Django Book</a><br/>
+<a href="http://www.djangobook.com/en/2.0/">The Django Book: Version 2.0 (English)</a><br/>
+<a href="http://thinkhole.org/wp/django-on-windows/">import this. » Django on Windows</a><br/>
+<a href="http://shitmores.blogspot.com/2008/04/exploring-django-basic-cygwin-setup-1.html">Sh*tmores: Exploring Django - The Basic Cygwin Setup (1)</a><br/>
+<a href="http://djangoplugables.com/">Django Pluggables • Find reusable applications for your Django project, quickly and easily!</a><br/>
+<a href="http://www.djangosnippets.org/popular/rated/">Django snippets: Top-rated snippets</a><br/>
+<a href="http://www2.lamptraining.com/screencast/1/">Quick tour screencast showing django</a><br/>
+<a href="http://code.google.com/p/django-rest-interface/w/list">django-rest-interface - Google Code</a><br/>
+<a href="http://code.google.com/p/django-tinymce/">django-tinymce - Project Hosting on Google Code</a><br/>
+<a href="http://code.google.com/p/django-filebrowser/wiki/installationbasic">installationbasic - django-filebrowser - Project Hosting on Google Code</a><br/>
+<a href="http://www.djangosnippets.org/">Django snippets: Welcome</a><br/>
+<a href="http://pinaxproject.com/">Pinax</a> - built up using django.<br/>
+<a href="http://pinaxproject.com/docs/dev/contributing.html">Contributing to Pinax — Pinax v0.9alpha1 documentation</a> - developer notes for working from git.<br/>
+<a href="http://thisweekindjango.com/">This Week in Django</a> - <a href="http://thisweekindjango.com/">This Week in Django</a><br/>
+<a href="http://clemesha.org/blog/2009/apr/23/Django-on-Twisted-using-latest-twisted-web-wsgi/">Django on Twisted Web - Using the latest twisted.web.wsgi functionality</a><br/>
+<a href="http://github.com/sunlightlabs/django-secretballot/">sunlightlabs's django-secretballot at master - GitHub</a><br/>
+<a href="http://github.com/ericflo/twissandra#readme">ericflo's twissandra at master - GitHub</a> - Twissandra is an example project, created to learn and demonstrate how to use Cassandra. Running the project will present a website that has similar functionality to Twitter. (python virtualenv,pip,cassandra,<a href="http://wiki.apache.org/thrift/FrontPage">Thrift</a>)<br/>
+<a href="http://bitbucket.org/jespern/django-piston/wiki/Home#">jespern / django-piston / wiki / Home — bitbucket.org</a><br/>
+<a href="https://github.com/montylounge/django-mingus">montylounge/django-mingus - GitHub</a> -a Django blog engine leveraging reusable apps for all its features. <br/>
+<a href="http://joshbohde.com/2010/03/18/speeding-mingus/">Speeding Up Mingus | joshbohde.com</a> - Using <a href="https://github.com/luckythetourist/staticgenerator">StaticGenerator</a> to make Mingus fast.<br/>
+<a href="http://blog.hndigest.com/django-plugins-i-start-my-with/">Django plugins you shouldn't start without</a><br/>
+<br/>
+<br/>
+<h2>Pylons</h2>
+Pylons is a lightweight web framework emphasizing flexibility and rapid development.  Pylons’ core tools including FormEncode, Mako, SQLAlchemy, and Routes.  Built up from other successful python projects...<br/>
+<a href="http://pylonshq.com/">PylonsHQ - Home</a> - pylons home.<br/>
+<a href="http://pylonsbook.com/en/1.1/">The Definitive Guide to Pylons - James Gardner — Pylons Book v1.1 documentation</a> - pylons book<br/>
+<a href="http://spyced.blogspot.com/2008/10/small-admin-app-for-pylons.html">Jonathan Ellis's Programming Blog - Spyced: A small admin app for Pylons</a><br/>
+<br/>
+<br/>
+<h2>GeoDjango - did YOU know about django's GIS capabilities?</h2>
+<a href="http://geodjango.org/">GeoDjango</a> - GIS extensions to django!<br/>
+<a href="http://www.stereoplex.com/two-voices/installing-geodjango-with-postgresql-and-zc-buildout">Installing GeoDjango with PostgreSQL and zc.buildout — Stereoplex</a><br/>
+<br/>
+<br/>
+<h2>JSON in python</h2>
+<a href="http://svn.red-bean.com/bob/simplejson/tags/simplejson-1.3/docs/index.html">simplejson -- A simple, fast, extensible JSON encoder and decoder</a><br/>
+<br/>
+<br/>
+<h2>JSON response in django</h2>
+simple use of simplejson on someobj.<br/>
+<pre>
+from django.utils import simplejson
+return HttpResponse(simplejson.dumps(someobj), content_type='application/json; charset=UTF-8')
+</pre>
+<br/>
+<br/>
+I've needed to do this sorta stuff before when using old code...<br/>
+<a href="http://oebfare.com/blog/2008/jul/20/newforms-admin-migration-and-screencast/">newforms-admin Migration and Screencast | oebfare</a><br/>
+<a href="http://code.djangoproject.com/wiki/NewformsAdminBranch">NewformsAdminBranch - Django - Trac</a><br/>
+Everyblock is written in Python, using the Django Web framework. It requires PostgreSQL and PostGIS. <br />
+<a href="http://www.everyblock.com/">EveryBlock — A news feed for your block</a><br/>
+<a href="http://code.google.com/p/ebcode/">ebcode - Project Hosting on Google Code</a><br/>
+<br/>
+<br/>
+<br/>
+<a href="http://www.devshed.com/c/a/Python/Python-and-IRC/">Python and IRC</a><br/>
+<a href="http://www.pyzine.com/Issue006/Section_Articles/article_GettingTwisted.html"> 	
+Getting Twisted</a><br/>
+<a href="http://www.pyzine.com/">pyzine.com</a> -online zine for python<br/>
+<br/>
+<a href="http://www.language-binding.net/pyplusplus/pyplusplus.html">Py++</a>     is an object-oriented framework for creating a code generator for <a href="http://www.boost.org/libs/python/doc/index.html">Boost.Python</a> library.<br/>
+<a href="http://python-ogre.python-hosting.com/">Python-Ogre</a><br/>
+
+<a href="http://www.ogre3d.org/wiki/index.php/PyOgre">PyOgre</a><br/>
+<a href="http://gumuz.looze.net/wordpress/index.php/archives/2005/04/07/python-md5-duplicate-files-finder/">Python, MD5, duplicate files finder</a><br/>
+<a href="http://www.jorendorff.com/articles/python/path/">The path Python module</a><br/>
+<br/>
+<a href="http://www.cacr.caltech.edu/projects/pyre/">Pyre.</a><br/>
+<a href="http://www.google.com/url?sa=t&ct=res&cd=1&url=http%3A%2F%2Fwww.cisl.ucar.edu%2Fnews%2F05%2Flead%2Fsc05%2Fpython.ppt&ei=ak0DRtyJBKCSjgGr2MjVDg&usg=__pS0JEwDQlONJvz1pf6r7eQJLHyQ=&sig2=2qOw3oqHBgCHJdOS4Bh5EQ">Python Frameworks for Geoscience Visualization and Analysis</a><br/>
+<br/>
+<a href="http://language-binding.net/pygccxml/pygccxml.html">pygccxml</a><br/>
+<a href="http://videocapture.sourceforge.net/">VideoCapture</a> - win32 extension for video in python.<br/>
+<a href="http://mapserver.gis.umn.edu/community/conferences/MUM3/workshop/python/">Open Source Python GIS Hacks</a><br/>
+
+<br/>
+<br/>
+<h2>Module search path</h2>
+1. current directory (interpreter prompt) or directory of the input script <br/>
+2. directories specified in the PYTHONPATH environment variable <br/>
+3. installation-dependent system paths, such as c:\python24\lib for the 
+library of standard modules and c:\python24\lib\site-packages for 
+installed non-standard modules. <br/>
+<br/>
+The PYTHONPATH variable is useful with uninstalled bundles such FWTools.<br/>
+<br/>
+<a href="http://www.pythonmac.org/packages/">Pre-built packages for Python on Mac OS X</a><br/>
+<br/>
+<br/>
+<h2>Linguistics and NLP</h2>
+<a href="http://www-128.ibm.com/developerworks/linux/library/l-cpnltk.html">Charming Python: Get started with the Natural Language Toolkit</a><br/>
+<br/>
+<br/>
+<h2>Science/Math Tools</h2>
+<a href="http://www.scipy.org/SciPy">SciPy: Scientific Tools for Python</a><br/>
+<a href="http://scipy-lectures.github.io/index.html">Python Scientific Lecture Notes — Scipy lecture notes</a><br/>
+<a href="http://matplotlib.sourceforge.net/">Matplotlib</a> - RIP John Hunter (1968-2012) matplotlib is a python 2D plotting library which produces publication quality figures in a variety of hardcopy formats and interactive environments across platforms.<br/>
+<a href="http://www.oreillynet.com/pub/ct/12">Numerically Python</a><br/>
+<br/>
+<a href="http://www.loni.ucla.edu/Software/Software_Detail.jsp?software_id=27">Pygr</a><br/>
+<a href="https://networkx.lanl.gov/wiki">NetworkX</a><br/>
+<a href="http://www.tarind.com/depgraph.html">generating python module dependency graphs</a><br/>
+<a href="http://www.physik.tu-dresden.de/~baecker/qmaps.html">Computing eigenvalues for quantum maps (using python)</a><br/>
+<a href="http://www.astro.cornell.edu/staff/loredo/statpy/">StatPy: Statistical Computing with Python</a><br/>
+<a href="http://effbot.org/zone/import-confusion.htm#introduction">Importing Python Modules</a><br/>
+<a href="http://www.pubmedcentral.nih.gov/articlerender.fcgi?artid=317364">PyEvolve: a toolkit for statistical modeling of molecular evolution</a><br/>
+<br/>
+<br/>
+<h2>Refactoring in pythong</h2>
+<a href="http://rope.sourceforge.net/">Rope, a python refactoring library ...</a><br/>
+<a href="http://rope.sourceforge.net/overview.html">Rope Overview</a><br/>
+<h2>Python Unittests</h2>
+<a href="http://pyunit.sourceforge.net/pyunit.html#OVERVIEW">Python Unit Testing Framework</a><br/>
+<a href="http://pyunit.sourceforge.net/">PyUnit</a><br/>
+<a href="http://somethingaboutorange.com/mrl/projects/nose/">Installation and quick start — nose documentation</a><br/>
+<a href="http://codespeak.net/py/dist/test/index.html">py.test index</a><br/>
+<a href="http://pythoscope.org/">Your way out of The Lack of Testing Death Spiral - Pythoscope</a><br/>
+<a href="https://www.ibm.com/developerworks/aix/library/au-cleancode/">Writing clean, testable, high quality code in Python</a><br/>
+<br/>
+<h2>Python Projects</h2>
+<a href="http://www.jardinpresente.com.ar/trac/itaka/">Itaka</a> - on-demand screen capture server<br/>
+<a href="http://pycallgraph.slowchop.com/pycallgraph/wiki/WikiStart#About">Python Call Graph</a><br/>
+<a href="http://pyobjc.sourceforge.net/">PyObjC</a> -  The Python <-> Objective-C Bridge<br/>
+<a href="http://visionegg.org/Intro_and_Overview">Vision Egg</a> - a powerful, flexible, and free way to produce stimuli for vision research experiments.<br/>
+<a href="http://pyro.sourceforge.net/">Pyro - About</a> - PYthon Remote Objects provides an object-oriented form of RPC.<nr/>
+<a href="http://mikeal.github.com/couchquery/">couchquery – A Python library for CouchDB — couchquery v0.3 documentation</a><br/>
+<br/>
+<br/>
+<h2>C/C++ wrapping</h2>
+<a href="http://www.riverbankcomputing.co.uk/sip/">Riverbank : SIP : Overview</a><br/>
+<a href="http://www.swig.org/">Simplified Wrapper and Interface Generator</a><br/>
+<a href="http://www-128.ibm.com/developerworks/linux/library/l-wrap/">Wrap GObjects in Python</a><br/>
+<br/>
+<a href="http://nuitka.net/">Nuitka</a> - python to C++! <a href="https://github.com/kayhayen/Nuitka">kayhayen/Nuitka</a><br/>
+
+
+
+<h2>IronPython</h2>
+IronPython is Python in the .NET DLR.<br./>
+Mono ships IronPython<br/>
+IronPython goes to MSIL so you get the advantage of using all the power of visual studio debugging support!  Very cool<br/>
+<a href="http://www.codeplex.com/IronPython">IronPython</a> is a new implementation of the Python programming language running on .NET.<br/>
+<a href="http://www.codeplex.com/Release/ProjectReleases.aspx?ProjectName=IronPython&ReleaseId=423">IronPython - Release: 1.0 Production</a> - (check here for the 1.0 samples)<br/>
+<a href="http://blogs.msdn.com/ironpython/default.aspx">IronPython Blog</a><br/>
+<a href="http://www.codeplex.com/IronPythonStudio">IronPython Studio</a> - integrate IronPython into Visual Studio.<br/>
+(IronPython Studio requires the vs shell)<br/>
+<a href="http://www.microsoft.com/downloads/details.aspx?FamilyId=ACA38719-F449-4937-9BAC-45A9F8A73822&displaylang=en">Download details: Visual Studio 2008 Shell (isolated mode)</a><br/>
+<a href="http://www.voidspace.org.uk/ironpython/planet/">Planet IronPython</a><br/>
+<a href="http://www.ironpython.info/index.php/Main_Page">Main Page - IronPython Cookbook</a><br/>
+<a href="http://www.ironpython.info/index.php/Basic_Handwriting_Recognition">Basic Handwriting Recognition - IronPython Cookbook</a><br/>
+FePy project aims to provide enhancements and addons to IronPython.<br/>
+<a href="http://fepy.sourceforge.net/">FePy</a> - project aims to provide enhancements and add-ons for IronPython, an implementation of Python programming language.<br/>
+<a href="http://fepy.blogspot.com/">FePy Blog</a><br/>
+*IronPython run in Silverlight outperforms traditional Javascript by a couple of orders of magnitude*<br/>
+Qouted from <a href="http://www.voidspace.org.uk/ironpython/silverlight/introduction.shtml">Introduction to IronPython & Silverlight</a>.<br/>
+<a href="http://blog.pixelingene.com/?p=332">IronPython is the new IValueConverter, IMultiValueConverter</a><br/>
+<a href="http://blog.pixelingene.com/?p=340">The PyBinding MarkupExtension: use Python statements for Data Binding</a><br/>
+<a href="http://research.microsoft.com/en-us/projects/sho/">Sho - Microsoft Research</a> - Sho is an interactive environment for data analysis and scientific computing that lets you seamlessly connect scripts (in IronPython) with compiled code (in .NET) to enable fast and flexible prototyping.<br/>
+<a href="http://pytools.codeplex.com/wikipage?title=NumPy%20and%20SciPy%20for%20.Net">NumPy and SciPy for IronPython / .Net</a><br/>
+
+
+
+<br/>
+<br/>
+<h2>Editors</h2>
+<a href="http://www.die-offenbachs.de/eric/index.html">The Eric Python IDE</a><br/>
+<a href="http://pydev.sourceforge.net/">Pydev</a> - Eclipse plugin which makes eclipse an excellent auto-completing python editor.<br/>
+<a href="http://pytools.codeplex.com/">Python Tools for Visual Studio</a><br/>
+<br/>
+<br/>
+<h2>interfaces to python || python shell</h2>
+<a href="http://ipython.scipy.org/moin/">FrontPage - IPython</a> - IPython: an interactive computing environment<br/>
+<a href="http://www.doughellmann.com/articles/CompletelyDifferent-2008-02-ipython-and-virtualenv/index.html">IPython and virtualenv | And Now For Something Completely Different</a><br/>
+<a href="http://bpython-interpreter.org/">bpython interpreter</a><br/>
+<a href="http://www.dreampie.org/">Welcome to DreamPie!</a><br/>
+<a href="http://www.pythoncentral.io/review-of-bpython-and-dreampie-alternative-python-shells/">Review of bpython and DreamPie (alternative Python shells) - Python Central</a><br/>
+<br/>
+<br/>
+If you ever get an error like:<br/>
+<pre>
+error: invalid Python installation: unable to open /usr/lib/python2.5/config/Makefile
+</pre>
+You can fix it by installing the development packages for your python installation.  ie.  yum install python2.5-devel<br/>
+<br/>
+<a href="http://mdp.cti.depaul.edu/examples/default/index">web2py Enterprise Web Framework</a><br/>
+<br/>
+<br/>
+<a href="http://effbot.org/zone/element-index.htm">ElementTree Overview</a> - xml processing library for python, comes with 2.5 out of the box.<br/>
+<br/>
+<br/>
+
+<br/>
+<h2>REST in python</h2>
+<a href="http://www.cherrypy.org/wiki/CherryPyTutorial">CherryPy Tutorial - CherryPy - Trac</a><br/>
+<a href="http://www.cherrypy.org/wiki/intro/1">Intro to CherryPy - CherryPy - Trac</a><br/>
+<a href="http://lukearno.com/projects/selector/">selector - WSGI Delegation</a><br/>
+<br/>
+<br/>
+<h2>Template languages</h2>
+As always, there are 1000 template choices....<br/>
+<a href="http://www.makotemplates.org/">Mako Templates for Python</a><br/>
+<a href="http://kid-templating.org/">Kid</a> - Pythonic, XML-based Templating<br/>
+<a href="http://cheetahtemplate.org/">Cheetah - The Python-Powered Template Engine</a><br/>
+<br/>
+<br/>
+<h2>HTML parsing</h2>
+<a href="http://www.crummy.com/software/BeautifulSoup/">Beautiful
+Soup</a> is an HTML/XML parser for Python that can turn even invalid
+markup into a parse tree.<br/>
+<a href="http://code.google.com/p/html5lib/">html5lib - Project Hosting on Google Code</a> - Library for working with HTML documents (Python and PHP implementations of a HTML parser based on the WHATWG HTML5 specification)<br/>
+<a href="http://arshaw.com/scrapemark/">Scrapemark - Easy Python Scraping Library</a> - a regex oriented scraper.<br/>
+<br/>
+<br/>
+<h2>concurrency</h2>
+<a href="http://www.stackless.com/">Stackless.com - About Stackless</a> - concurrency<br/>
+<a href="http://www.kamaelia.org/Home">Kamaelia</a><br/>
+<a href="http://mpi4py.scipy.org/">MPI for Python</a> PI for Python (mpi4py) provides bindings of the Message Passing Interface (MPI) standard for the Python programming language, allowing any Python program to exploit multiple processors.<br/>
+<a href="http://www.kitware.com/blog/home/post/716.">The Kitware Blog - mpi4py and VTK</a><br/>
+<br/>
+<br/>
+<a href="http://www.farbs.org/pycap.html">PyCap</a> - Pycap wraps the sweet sweet PopCap Game Framework in a super friendly high level python interface. With Pycap you can start building pretty 2D games without installing a compiler or learning C++.<br/>
+<br/>
+<br/>
+<h2>twisted async network programming</h2>
+<a href="http://twistedmatrix.com/projects/core/documentation/howto/index.html">Twisted Documentation: Twisted Documentation</a><br/>
+<a href="http://www.saltycrane.com/blog/2008/10/running-twisted-perspective-broker-example-twistd/">Running a Twisted Perspective Broker example with twistd - SaltyCrane Blog</a><br/>
+<a href="http://www.linuxjournal.com/article/7871">Event-Driven Programming with Twisted and Python</a><br/>
+<a href="http://twistedmatrix.com/projects/core/documentation/howto/gendefer.html">Twisted Documentation: Generating Deferreds</a><br/>
+<a href="http://www.eflorenzano.com/blog/post/writing-markov-chain-irc-bot-twisted-and-python/">Writing an Markov-Chain IRC Bot with Twisted and Python - Die in a Fire - Eric Florenzano’s Blog</a><br/>
+<a href="http://wokkel.ik.nu/">Wokkel</a> - enhancements to the Jabber/XMPP protocol implementation as found in Twisted Words, that are meant to eventually move there.<br/>
+<br/>
+<br/>
+<h2>orbited</h2>
+<a href="http://www.orbited.org/">Orbited – Networking for the Web</a> - uses twisted and <a href="http://morbidq.com/">MorbidQ</a> to support STOMP.  Quite simple to install using easy_install.<br/>
+easy_install orbited<br/>
+easy_install simplejson<br/>
+<a href="http://www.enthought.com/~cwebster/TraitsWeb/how_it_works.html">Traits and Orbited</a><br/>
+<br/>
+<br/>
+<h2>Python on the mac</h2>
+Using fink makes it painless to install python and some popular python libraries. 
+<pre>
+# as always it is nice to update fink (things work better that way)
+fink selfupdate
+fink update-all
+fink install scipy-py25
+fink install matplotlib-py25
+fink install pygame-py25
+fink install ipython-py25
+# create this link to make python2.5 the default python on the cmdline.
+sudo ln -s /sw/bin/python2.5 /sw/bin/python
+</pre>
+<br/>
+<h2>Python on windows</h2>
+I just install the standard python installer for the latest...<br/>
+<a href="http://www.python.org/download/">Download Python Software</a><br/>
+Then you'll wanna add python and python\scripts to the path in your environment.<br.>
+Then I install easy_install using the script.<br/>
+http://peak.telecommunity.com/dist/ez_setup.py  download and run with python.<br/>
+Then I install the pywin32 package as well.<br/>
+<a href="http://sourceforge.net/projects/pywin32/files/">Browse Python for Windows extensions Files on SourceForge.net</a><br/>
+<a href="http://www.lfd.uci.edu/~gohlke/pythonlibs/">Python Extension Packages for Windows - Christoph Gohlke</a> - includes numpy-MKL and scipy.<br/>
+<a href="http://arctrix.com/nas/python/standalone.html">Stand alone Python for Windows</a> - It includes all of the extension modules that are included with the official release. It does not use the registry and can be installed in any directory.<br/>
+<br/>
+<br/>
+
+<a href="http://www.pyweek.org/">pyweek</a>  - contest where people write python games in a week...<br/> 
+<a href="http://pyglet.org/">pyglet</a> - a cross-platform windowing and multimedia library for Python.<br/>
+<br/>
+<br/>
+<h2>cocos2d</h2>
+<a href="http://github.com/city41/CocosNet">city41's CocosNet at master - GitHub</a> - port of Cocos2D to C#.<br/>
+<a href="http://cocos2d.org/">cocos2d</a> - a framework for building 2D games, demos, and other graphical/interactive applications.<br/>
+<a href="http://code.google.com/p/devdev-python/wiki/Cocograph">Cocograph - devdev-python - Project Hosting on Google Code</a><br/>
+<a href="http://www.cocos2d-iphone.org/forum/forum/1">cocos2d games « cocos2d for iPhone</a> - forum where people post info about the cocos2d games in the app store.<br/>
+<br/>
+<br/>
+<a href="http://wiki.python.org/moin/PythonGameLibraries">PythonGameLibraries - PythonInfo Wiki</a> - python has a lot of libraries....woow.<br/>
+<br/>
+<h2>WSGI in python</h2>
+<a href="http://www.aminus.net/wiki/ModPythonGateway">ModPythonGateway - AMinus projects - Trac</a> - How to set up mod_python for use as a WSGI server <br/>
+<a href="http://trac.saddi.com/flup">flup: random Python WSGI stuff - Trac</a><br/>
+<a href="http://articles.slicehost.com/2009/9/3/ubuntu-hardy-using-mod_wsgi-to-serve-your-application">Slicehost Articles: Ubuntu Hardy - Using mod_wsgi to Serve Your Application</a><br/>
+<a href="http://code.google.com/p/modwsgi/">modwsgi - Project Hosting on Google Code</a> - simple to use Apache module which can host any Python application which supports the Python WSGI interface.<br/>
+<a href="http://code.google.com/p/modwsgi/wiki/IntegrationWithTrac">IntegrationWithTrac - modwsgi - How to use Trac with mod_wsgi. - Project Hosting on Google Code</a><br/>
+<a href="http://wsgiwar.com/">WSGI Wrestle 2013</a><br/>
+<a href="http://uwsgi-docs.readthedocs.org/en/latest/index.html">The uWSGI project — uWSGI 2.0 documentation</a> - a full stack for building hosting services.<br/>
+<br/>
+
+<br/>
+<br/>
+<h2>Mercurial python DVCS</h2>
+<a href="http://bitbucket.org/tawm/mercurial-recipe/">tawm / Mercurial Recipe / overview — bitbucket.org</a> - zc.buildout recipe for cloning and/or pulling a Mercurial repository.<br/>
+<a href="http://kunxi.org/archives/2009/09/howto-setup-the-mercurial-with-nginx-in-centos-4/">Refactor the Life » Blog Archive » HOWTO setup the Mercurial with Nginx in CentOS 4</a><br/>
+<a href="http://bitbucket.org/tortoisehg/stable/wiki/Home">tortoisehg / stable / wiki / Home — bitbucket.org</a> - TortoiseHg is a Windows shell extension much like TortoiseSVN and a series of applications for the Mercurial distributed revision control system.  It even uses TortoiseSVN overlays.<br/>
+<br/>
+<h2>Buildout</h2>
+<a href="http://www.buildout.org/docs/tutorial.html">Buildout Tutorial — Buildout v1.2.1 documentation</a><br/>
+<a href="http://jacobian.org/writing/django-apps-with-buildout/">Developing Django apps with zc.buildout</a><br/>
+<br/>
+<br/>
+<h2>Paver</h2>
+<a href="http://www.blueskyonmars.com/projects/paver/">Paver: Easy Scripting for Software Projects — Paver v1.0.1 documentation</a><br/>
+<a href="http://code.google.com/p/paver/">paver - Project Hosting on Google Code</a> - Paver: easy build and deployment scripting<br/>
+<a href="http://us.pycon.org/2009/conference/schedule/event/82/">Paver: easy build and deployment automation for Python projects (#13) - PyCon 2009 - Chicago - A Conference for the Python Community</a><br/>
+<a href="http://broadcast.oreilly.com/2009/01/converting-from-make-to-paver.html">Converting from Make to Paver - O'Reilly Broadcast</a><br/>
+<a href="http://github.com/dinoboff/paver-templates">dinoboff's paver-templates at master - GitHub</a> - Create the the layout of a paver-enable package (paster create -t paver_package &lt;package name&gt;)<br/><br/>
+<br/>
+<br/>
+<h2>Fabric</h2>
+<a href="http://morethanseven.net/2009/07/27/fabric-django-git-apache-mod_wsgi-virtualenv-and-p/">Fabric, Django, Git, Apache, mod_wsgi, virtualenv and pip deployment | Morethanseven</a><br/>
+<a href="http://clemesha.org/blog/2009/jul/05/modern-python-hacker-tools-virtualenv-fabric-pip/">Tools of the Modern Python Hacker: Virtualenv, Fabric and Pip</a><br/>
+<a href="http://wiki.fabfile.org/Recipes">Recipes - wiki.fabfile.org</a> - Fabric's wiki on Fab recipes.<br/>
+<a href="http://docs.fabfile.org/0.9.0/">Fabric — Fabric v0.9 documentation</a><br/>
+<a href="http://www.saltycrane.com/blog/2009/10/notes-python-fabric-09b1/">Notes on Python Fabric 0.9b1 « SaltyCrane Blog</a><br/>
+
+<br/>
+<br/>
+<h2>Sphinx</h2>
+<a href="http://broadcast.oreilly.com/2009/02/writing-technical-documentatio.html">Writing Technical Documentation with Sphinx, Paver, and Cog - O'Reilly Broadcast</a><br/>
+<a href="http://sphinx.pocoo.org/">Overview — Sphinx v0.6.3 documentation</a><br/>
+<br/>
+<h2>Cog code generator</h2>
+Cog transforms files in a very simple way: it finds chunks of Python code embedded in them, executes the Python code, and inserts its output back into the original file.<br/>
+<a href="http://nedbatchelder.com/code/cog/index.html#h_Installation">Ned Batchelder: Cog</a> - embed python code generation tool.<br/> 
+<a href="http://blogs.acceleration.net/ryan/articles/577.aspx">Code Generation with Python, Cog, and Nant</a><br/>
+
+<br/>
+<br/>
+<h2>virtualenv</h2>
+making isolated envs in python is way cool.<br/>
+<a href="http://neuroimaging.scipy.org/site/doc/manual/html/devel/tools/virtualenv-tutor.html">Setting up virtualenv — NIPY Documentation</a><br/>
+<a href="http://arthurkoziel.com/2008/10/22/working-virtualenv/">Working with virtualenv — Arthur Koziel</a><br/>
+
+<br/>
+<br/>
+<h2>Python HTTP automation and other web python thingys</h2>
+<a href="http://wwwsearch.sourceforge.net/mechanize/">mechanize</a> - Stateful programmatic web browsing in Python, after Andy Lester's Perl module WWW::Mechanize.<br/>
+<a href="http://twill.idyll.org/">twill: a simple scripting language for Web browsing</a><br/>
+<br/>
+<br/>
+<h2>Zope and related things</h2>
+<a href="http://repoze.org/">Repoze</a> -  Repoze is a collection of technologies which bridges WSGI and Zope .<br/>
+<a href="http://feneric.blogspot.com/2009/06/buildout-with-repoze-zope-and-plone.html">Revotera Voja?o: Buildout with Repoze, Zope, and Plone</a><br/>
+<br/>
+<br/>
+<br/>
+<h2>Unicode in Python</h2>
+<a href="http://evanjones.ca/python-utf8.html">How to Use UTF-8 with Python</a><br/>
+<a href="http://stackoverflow.com/questions/1342000/how-to-replace-non-ascii-characters-in-string">How to replace non ascii characters in string? - Stack Overflow</a><br/>
+<br/>
+<br/>
+<h2>Python internationalization</h2>
+<a href="http://babel.edgewall.org/">Babel</a> - A collection of tools for internationalizing Python applications (gettext message catalogs, CLDR (Common Locale Data Repository))<br/>
+<br/>
+<br/>
+<a href="http://pyx.sourceforge.net/index.html">PyX - Python graphics package</a> - Python package for the creation of PostScript and PDF files.<br/>
+<br/>
+<br/>
+<h2>PIL decoder JPEG not available</h2>
+<a href="http://effbot.org/zone/pil-decoder-jpeg-not-available.htm">"decoder jpeg not available"</a><br/>
+<br/>
+<br/>
+<h2>Silver Lining</h2>
+open source cloud automation, great stuff....<br/>
+<a href="http://incubator.apache.org/libcloud/">libcloud python library - a unified interface to cloud server providers</a><br/>
+<a href="http://cloudsilverlining.org/#">Silver Lining — Silver Lining v0.0 documentation</a><br/>
+<a href="http://bel-epa.com/posts/shabti-silver-cloud.xml">Silver Lining, Shabti and “the cloud”</a><br/>
+<br/>
+<br/>
+<a href="https://github.com/tobami/overmind#readme">tobami/overmind - GitHub</a> -  project aims to provider a complete server provisioning and configuration management application. (django,libcloud,django-celery,RabbitMQ,django-piston)<br/>
+<a href="https://github.com/ssimasanti/boatyard">ssimasanti/boatyard - GitHub</a> - Git push to deploy python web app using nginx + uwsgi + virtualenv + pip. <br/>
+<a href="https://github.com/ssimasanti/rockets">ssimasanti/rockets - GitHub</a> - Cloud server management tools using fabric + libcloud + django cli.<br/>
+<br/>
+<br/>
+<h2>greenlet</h2>
+<a href="http://packages.python.org/greenlet/">greenlet: Lightweight concurrent programming</a> - A "greenlet" is a small independent pseudo-thread<br/>
+<a href="http://codysoyland.com/2011/feb/6/evented-django-part-one-socketio-and-gevent/?utm_source=feedburner&amp;utm_medium=feed&amp;utm_campaign=Feed%3A+codysoyland+%28codysoyland.com+feed%29">Evented Django part one: Socket.IO and gevent | codysoyland.com</a><br/>
+<a href="https://bitbucket.org/Jeffrey/gevent-socketio/src">Jeffrey / gevent-socketio / source – Bitbucket</a><br/>
+<br/>
+<br/>
+<h2>Celery</h2>
+<a href="http://celeryproject.org/">Celery - The Distributed Task Queue</a><br/>
+Celery is an open source asynchronous task queue/job queue based on distributed message passing. It is focused on real-time operation, but supports scheduling as well. The recommended message broker is RabbitMQ.<br/>
+<a href="https://github.com/ssimasanti/celery">ssimasanti/celery - GitHub</a><br/>
+<a href="http://joshbohde.com/2011/02/10/async-workers-in-django-with-celery/">Async Workers in Django with Celery | joshbohde.com</a><br/>
+<br/>
+<br/>
+<h2>Syntax highlighting in python</h2>
+<a href="http://pygments.org/">Pygments — Python syntax highlighter</a><br/>
+<br/>
+<br/>
+<a href="http://nikola.ralsina.com.ar/">Nikola | Nikola</a> - Nikola is a Static Site and Blog Generator (python 2 & 3)<br/>
+<br/>
+<br/>
+<h2>Flask</h2>
+<a href="http://flask.pocoo.org/">Welcome | Flask (A Python Microframework)</a> <a href="https://github.com/mitsuhiko/flask">mitsuhiko/flask</a><br/>
+<a href="https://github.com/mitsuhiko/worldtime-scheduler">mitsuhiko/worldtime-scheduler</a> - A small flask application for scheduling events across different timezones.<br/>
+<a href="http://pypix.com/python/building-flask-blog-part-1/">Building a Flask Blog: Part 1 | Pypix</a><br/>
+<br/>
+<br/>
+<h2>Fatal Python error: Py_Initialize: unable to load the file system codec</h2>
+um ya, huh.  This turned out to be Python33 being in the path in front of Python27.  Try not to mix up the PYTHONPATH and PATH vars with versions of python, you will get something that looks like this.  Cheers.<br/>
+<br/>
+<a href="https://github.com/albertz/pydbattach">albertz/pydbattach</a> - inject c code into running python process, c code creates new python thread and runs python script.<br/>
+<br/>
+<br/>
+<h2>cmdline processing in python</h2>
+<a href="http://docopt.org/">docopt—language for description of command-line interfaces</a> - started as a python implementation, all sorts of languages now supported.<br/>
+<a href="https://docs.python.org/2/library/getopt.html">15.6. getopt — C-style parser for command line options — Python v2.7.8 documentation</a> - you knew I was gonna say getopt.<br/>
+<a href="https://docs.python.org/dev/howto/argparse.html#id1">Argparse Tutorial — Python 3.5.0a0 documentation</a><br/>
+<a href="https://docs.python.org/dev/library/argparse.html">16.4. argparse — Parser for command-line options, arguments and sub-commands — Python 3.5.0a0 documentation</a><br/>
+    <div style="border: 1px;">
+    Created: 2006-10-25 15:45:05
+    Modified: 2016-01-17 04:47:33
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<a href="http://en.wikipedia.org/wiki/E_%28mathematical_constant%29" target=_blank>$$e = \sum_{n=0}^\infty \frac{1}{n!}$$</a>
+
+
+satis dictum.
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

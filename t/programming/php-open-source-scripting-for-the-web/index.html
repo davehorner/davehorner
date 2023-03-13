@@ -1,0 +1,420 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>PHP - open source scripting for the web.</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/programming/">programming</a>
+    <h1>PHP - open source scripting for the web.</h1>
+   PHP has been a friend of mine since I was in high school.  I used to sit around and crank out web code for a home jukebox in PHP 3.  In fact, I believe I was there for the alpha and beta stages of PHP 3.  Today we have PHP 5 and we are moving toward PHP 6.<br/>
+<br/>
+There are many reasons to like PHP.  For one, it feels a lot like C and C++.  For the longest time PHP has lacked in the OO dept.  Today with PHP5 that all changes.  PHP is nice because it feels much like programming in straight C/C++, but it takes care of all the binary deps. that you would normally have to compile/link yourself.  Download a pre-compiled dep, add a config include, and *TADA* you've got that functionality exposed to your scripts.  PHP is quick because there isn't a need to compile, save the script and reload in the browser...<br/>
+<br/>
+<br/>
+<a href="http://owncloud.org/">ownCloud.org | Your Cloud, Your Data, Your Way!</a><br/>
+<a href="https://github.com/facebook/hiphop-php">facebook/hiphop-php · GitHub</a> - Source code transformer from PHP to C++.  HipHop is a high performance PHP toolchain. Currently supported platforms are Linux and FreeBSD. There is no OS X support. (cmake friendly)<br/>
+<a href="http://sam.bitmorse.com/posts/install-and-enable-alternative-php-cache-apc-on-ubuntu-12.04-lts/">Install and enable Alternative PHP Cache (APC) on Ubuntu 12.04 LTS • sam's bits</a><br/>
+<a href="http://wengki.blogspot.com/2012/12/installing-zend-optimizer-on-ubuntu.html">Believe, Strategize, and Strike: Installing Zend Optimizer on Ubuntu</a><br/>
+<br/>
+<br/>
+<h2>Misc PHP Links</h2>
+<a href="http://www.onlamp.com/pub/a/php/2004/07/15/UpgradePHP5.html" target="_blank">Why PHP 5 rocks!</a><br/>
+<a href="http://me.veekun.com/blog/2012/04/09/php-a-fractal-of-bad-design/">PHP: a fractal of bad design - fuzzy notepad</a><br/>
+<a href="http://gynvael.coldwind.pl/?id=492">gynvael.coldwind/vx.log - PHP equal operator ==</a><br/>
+<a href="http://www.oreillynet.com/ruby/blog/2007/09/7_reasons_i_switched_back_to_p_1.html">7 reasons I switched back to PHP after 2 years on Rails - O'Reilly Ruby</a><br/>
+<a href="http://www.smashingmagazine.com/2009/01/20/50-extremely-useful-php-tools/">50 Extremely Useful PHP Tools - Smashing Magazine</a><br/>
+<a href="http://www.onlamp.com/pub/a/php/2001/05/17/php_foundations.html">Advanced PHP Variables and Functions</a><br/>
+<a href="http://talks.php.net/" target="_blank">PHP Presentation System</a><br/>
+<a href="http://www.phing.info/trac/">phing</a> - PHing Is Not GNU make<br/>
+<a href="http://www.onlamp.com/pub/a/php/2004/12/09/three_tier.html?page=1">Three-Tier Development with PHP 5</a><br/>
+<a href="http://www.oreillynet.com/onlamp/blog/2004/08/web_forms_are_the_most_dreary.html">Web forms are the most dreary damn things to write</a><br/>
+<a href="http://prism-perfect.net/archive/php-tag-cloud-tutorial/">PHP Tag Cloud Tutorial</a><br/>
+<a href="http://www.phpsh.org/">phpsh -- an interactive shell for php</a><br/>
+<a href="http://nikic.github.io/">nikic's Blog</a> <a href="http://nikic.github.io/2012/01/28/htmlspecialchars-improvements-in-PHP-5-4.html">htmlspecialchars() improvements in PHP 5.4</a><br/>
+<br/>
+<br/>
+<h2>PHP PEAR & PECL</h2>
+<a href="http://www.phpkitchen.com/index.php?/archives/237-Getting-Up-and-Running-with-the-PEAR-Web-Installer.html">Getting Up and Running with the PEAR Web Installer</a><br/>
+<a href="http://www.zend.com/pear/tutorials/howtopackage.php">PEAR and PECL Packaging Tutorial</a><br/>
+<a href="http://blog.php-tools.net/archives/147-Creating-PEAR-installable-nightly-builds.html">Creating PEAR-installable nightly builds</a><br/>
+<a href="http://www.developer.com/lang/article.php/3505276">Taking Advantage of PEAR</a><br/>
+<a href="http://pear.php.net/manual/en/">PEAR Manual</a><br/>
+<a href="http://www.phpkitchen.com/index.php?/archives/668-PEAR-Tutorials.html">A list of PEAR Tutorials from PHP Kitchen</a><br/>
+<br/>
+<br/>
+<h2>Code Generation and PHP</h2>
+<a href="http://code.roadsend.com/rphp">Roadsend PHP</a> - rewrite of Roadsend PHP (rphp), based on LLVM and a new C++ runtime.<br/>
+<br/>
+<br/>
+<h2>Vcards in PHP</h2>
+<a href="http://www.bitfolge.de/phpvcard-en.html">PHP vCard class v2.0</a><br/>
+<a href="http://wiki.ciaweb.net/yawiki/index.php?wiki=Contact_Vcard&page=ContactVcardParse">Contact_Vcard_Parse</a> -PEAR package for parsing and building vCards. <br/>
+<br/>
+<br/>
+<h2>iCalender (ical) in PHP</h2>
+<a href="http://www.kigkonsult.se/iCalcreator/index.php">iCalcreator</a>  creates valid iCal files.<br/>
+<br/>
+<br/>
+<br/>
+<h2>PHP Data access</h2>
+What is there to love in PHP?  How about the database abstraction libraries?!  There are quite a few now available...<br/>
+Here are the reasons I love the <a href="http://pear.php.net/manual/en/package.database.db-dataobject.php">DB_DataObject</a>.<br/>
+<a href="http://www.askbee.net/articles/php/DB_DataObject/introduction.html">Introduction
+to DB_DataObject by AskBee.NET</a><br/>
+<a href="http://www.samalyse.com/code/pear/dgdo/">Database frontend with DB_DataObject and DataGrid.</a><br/>
+<a href="http://driverred.blogspot.com/2005/06/dbdataobjectformbuilder-simple.html"> DB_DataObject_FormBuilder :: A Simple Tutorial</a><br/>
+<br/>
+<h2>PHP QuickForms</h2>
+Then there is the <a href="http://pear.php.net/package/html_quickform/">HTML_QuickForm</a>,<br/>
+<a href="http://www.midnighthax.com/quickform.php">PEAR HTML_QuickForm - Getting Started Guide</a><br/>
+<a href="http://www.devarticles.com/c/a/Web-Design-Usability/Using-HTML-QuickForm-To-Manage-Web-Forms-Part-2/">Using HTML_QuickForm To Manage Web Forms, Part 2</a><br/>
+<a href="http://davidmintz.org/presentations/show.php/QuickForm_and_Smarty/">Using HTML_QuickForm & Smarty</a><br/>
+<a href="http://karma.nucleuscms.org/item/96">HTML_QuickForm and Smarty</a> - awesome.<br/>
+<br/>
+<h2>Paypal PHP</h2>
+<a href="http://www.zend.com/zend/tut/tutorial-paypal.php">Paypal, the PHP approach</a><br/>
+<a href="http://weblogs.about.com/od/improvingweblogs/ht/donatepaypal.htm">How To Set Up a Donation System Using Paypal</a><br/>
+<br/>
+<br/>
+<h2>Frameworks...</h2>
+<a href="http://www.prontoproject.com/">The Pronto Project</a><br/>
+<a href="http://ajaxpatterns.org/PHP_Ajax_Frameworks">AJAX Frameworks in PHP</a><br/>
+<a href="http://www.pluf.org/">Pluf : Pluf, PHP WebApp Framework</a><br/>
+<br/>
+<br/>
+<h2>Symfony</h2>
+<a href="http://www.symfony-project.com/">symfony</a><br/>
+<a href="http://www.symfony-project.org/jobeet/1_4/Doctrine/en/">Practical symfony | symfony | Web PHP Framework</a> - great set of docs on getting to know symfony.<br/>
+<a href="http://sf.khepin.com/2010/10/easy-ajax-forms-with-sfdoctrinedynamicformrelationsplugin/">Easy ajax forms with sfDoctrineDynamicFormRelationsPlugin | Synofony</a><br/>
+<a href="https://github.com/kriswallsmith/sfDoctrineDynamicFormRelationsPlugin">kriswallsmith/sfDoctrineDynamicFormRelationsPlugin</a> - Common sense embedded forms for your symfony 1.4 project. <br/>
+<a href="http://sf.khepin.com/2011/11/symfony-backbone-js-for-highly-dynamic-apps/">Symfony + Backbone.js for highly dynamic apps | Synofony</a><br/>
+
+<br/>
+<br/>
+<h2>CakePHP</h2>
+<a href="http://bakery.cakephp.org/">http://bakery.cakephp.org/</a><br/>
+<br/>
+<br/>
+<h2>Setting php config values in .htaccess</h2>
+For those legacy apps, turn on the register_long_arrays within your .htaccess...instead of in the global php.ini<br/>
+<pre>
+php_value register_long_arrays On
+php_value upload_max_filesize 8M
+php_value magic_quotes_gpc 0
+php_flag magic_quotes_gpc off
+</pre>
+<br/>
+<br/>
+<h2>PHP in Windows world</h2>
+<a href="http://www.php-compiler.net/doku.php">Phalanger</a> - PHP in .net!<br/>
+<a href="http://phpdataservices.codeplex.com/">Toolkit for PHP with ADO.NET Data Services</a> - The Toolkit for PHP with ADO.NET Data Services is based on an utility (PHPDataSvcUtil) that is used to generate a proxy class from an ADO .NET Data Service, the class is then used in the PHP application to connect/edit/add/delete or browse records from the Data Service.<br/>
+<img src="http://blogs.msdn.com/blogfiles/interoperability/WindowsLiveWriter/AnewbridgeforPHPdevelope.NETDataServices_7FB3/PHP_ADO_DATA_SERVICEArchitecture_4.png" alt="PHP ADO DATA SERVICE Architecture"/><br/>
+<a href="http://blogs.msdn.com/interoperability/archive/2009/08/21/a-new-bridge-for-php-developers-to-net-through-rest-php-toolkit-for-ado-net-data-services.aspx">Interoperability @ Microsoft : A new bridge for PHP developers to .NET through REST: Toolkit for PHP with ADO.NET Data Services</a><br/>
+<br/>
+<br/>
+<h2>Debugging PHP code</h2>
+<a href="http://www.xdebug.org/index.php">Xdebug - Debugger and Profiler Tool for PHP</a><br/>
+<a href="http://robsnotebook.com/php_debugger_pdt_xdebug">How To Setup a Free PHP Debugger using Eclipse PDT + XDebug</a><br/>
+<a href="http://code.google.com/p/xdebugclient/">xdebugclient - Google Code</a> - is a simple Microsoft Windows frontend for the PHP debugger (C#)<br/>
+<a href="http://devzone.zend.com/article/2803-Introducing-xdebug">Introducing xdebug</a><br/>
+<a href="http://blog.florindinu.ro/posts/how-to-use-xdebug-from-behind-a-nat.html">How to use Xdebug from behind a NAT | Florin Dinu</a> - reverse ssh tunnel localhost port 9000.<br/>
+<br/>
+<br/>
+
+<h2>PHP documentation tools</h2>
+<a href="http://www.phpdoc.org/features.php">phpDocumentor: The complete documentation solution for PHP</a> - Similar to Javadoc, and written in php, phpDocumentor can be used from the command line or a web interface to create professional documentation from php source code.  (HTML,pdf,chm,docbook xml,etc)<br/>
+<a href="http://phpcallgraph.sourceforge.net/">phpCallGraph - A Static Call Graph Generator for PHP</a><br/>
+<a href="http://westhoffswelt.de/projects/phuml.html">phUML - Westhoffswelt - Welcome to the real world</a> - phUML is fully automatic UML class diagramm generator written PHP.<br/>
+<a href="http://www.stack.nl/~dimitri/doxygen/index.html">Doxygen</a> - did you know doxygen can take care of PHP code?<br/>
+<br/>
+<br/>
+<h2>PHP CMS/Blog/Etc</h2>
+<a href="http://www.s9y.org/1.html">Serendipity Weblog System</a> - a PHP Weblog/Blog software (BSD license using Smarty templates)<br/>
+<br/>
+<br/>
+
+
+<h2>PHP testing</h2>
+<a href="http://www.phpunit.de/">PHPUnit</a> - PHPUnit seems to be the most used unit testing framework for PHP.  xUnit implementation...port of JUnit,jMock,DbUnit.(<a href="http://www.phpunit.de/manual/current/en/">PHPUnit Manual</a>)<br/>
+<a href="http://www.simpletest.org/">SimpleTest - Unit Testing for PHP</a><br/>
+<a href="http://www.symfony-project.org/jobeet/1_4/Doctrine/en/08">Practical symfony | Day 8: The Unit Tests | symfony | Web PHP Framework</a> - unit tests in symfont using lime<br/>
+<br/>
+<br/>
+
+<h2>PHP code analysis</h2>
+<a href="http://github.com/sebastianbergmann/phpcpd/#readme">sebastianbergmann's phpcpd at master - GitHub</a> - phpcpd is a Copy/Paste Detector (CPD) for PHP code. (get a quick overview of duplicated code in a project)<br/>
+<a href="http://pear.php.net/package/PHP_CodeSniffer/redirected">PHP_CodeSniffer</a> - phpcs (PHP_CodeSniffer) tokenises PHP, JavaScript and CSS files and detects violations of a defined set of coding standards.<br/>
+<a href="http://pdepend.org/documentation/getting-started.html">PHP Depend - Software Metrics for PHP</a> - pdepend (PHP Depend) produces code metrics of your php source.<br/>
+<a href="http://phpmd.org/about.html">PHPMD - PHP Mess Detector</a> - phpmd (PHP Mess Detector) is a spin-off of PHP Depend and aims to be like PMD for java.<br/>
+<br/>
+<br/>
+<h2>Idiorm & Paris</h2>
+<a href="http://j4mie.github.com/idiormandparis/">Idiorm and Paris - object relational mapper (ORM), fluent SQL query builder and Active Record implementation for PHP</a><br/>
+<a href="https://github.com/j4mie/idiorm">j4mie/idiorm</a> - A lightweight nearly-zero-configuration object-relational mapper and fluent query builder for PHP5.<br/>
+<a href="https://github.com/j4mie/paris">j4mie/paris</a> - A lightweight Active Record implementation for PHP5, built on top of Idiorm<br/>
+<br/>
+<a href="http://www.phpactiverecord.org/">PHP ActiveRecord - An easy to use ORM for PHP</a><br/>
+<a href="http://www.phpactiverecord.org/projects/main/wiki/Basic_CRUD">PHP ActiveRecord - Basic CRUD - An easy to use ORM for PHP</a><br/>
+<a href="http://silentworks.co.uk/blog/development/using-phpactiverecord-with-slim-framework.html">Using PHPActiveRecord with Slim Framework » Silent Works</a><br/>
+<br/>
+<br/>
+<h2>Php microframework (sinatra/restful) slim</h2>
+<a href="http://net.tutsplus.com/tutorials/php/rapid-application-prototyping-in-php-using-a-micro-framework/">Rapid Application Prototyping in PHP Using a Micro Framework | Nettuts+</a><br/>
+<a href="https://github.com/codeguy/Slim-Extras">codeguy/Slim-Extras</a> - Additional resources for the Slim Framework for PHP 5<br/>
+<a href="http://silentworks.co.uk/blog/development/using-twig-with-slim-framework.html">Using Twig with Slim Framework » Silent Works</a><br/>
+<br/>
+<br/>
+<a href="http://fueldevdocs.exite.eu/index.html">FuelPHP Documentation</a><br/>
+<a href="http://lithify.me/">#li3 &gt; Lithium: the most rad php framework &gt;</a><br/>
+<a href="https://github.com/lampjunkie/php-datatables#">lampjunkie/php-datatables</a> - This is a PHP library which wraps around the <a href="http://www.datatables.net">DataTables</a>) plugin for jQuery in an object-oriented fashion.<br/>
+<br/>
+<br/>
+<h2>Laravel</h2>
+<a href="http://laravel.com/">Welcome! - Laravel PHP Framework</a><br/>
+<a href="https://github.com/davemo/end-to-end-with-angularjs">davemo/end-to-end-with-angularjs · GitHub</a> - laravel 4 and angularjs.<br/>
+<br/>
+<br/>
+<h2>spl_autoload_register autoloading classes</h2>
+(PHP 5 >= 5.1.2)<br/>
+spl_autoload_register() provides a more flexible alternative for autoloading classes. For this reason, using __autoload() is discouraged and may be deprecated or removed in the future.<br/>
+<a href="http://www.php.net/manual/en/function.spl-autoload-register.php">PHP: spl_autoload_register - Manual</a><br/>
+<a href="http://www.phpro.org/tutorials/SPL-Autoload.html">PHP Tutorials Examples SPL Autoload</a><br/>
+<a href="http://stackoverflow.com/questions/11831967/php-what-is-the-benefit-of-spl-autoload-register-performance-of-includes">PHP : What is the benefit of spl_autoload_register? Performance of includes - Stack Overflow</a><br/>
+<a href="http://php.blogaboutwhatever.com/2011/12/howto-make-your-live-easier-with-an-autoloader/">Howto make your live easier with an autoloader | php rookie</a><br/>
+    <div style="border: 1px;">
+    Created: 2006-03-22 13:09:30
+    Modified: 2014-01-13 04:59:50
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+left side represents the beginning of mathematics; the right side represents the mysteries of infinity.<br/>
+1=0.999...
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

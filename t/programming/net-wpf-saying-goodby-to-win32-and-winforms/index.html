@@ -1,0 +1,559 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>.NET WPF - so much more than win32</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/programming/">programming</a>
+    <h1>.NET WPF - so much more than win32</h1>
+   Parts of this content was once part of my <a href="http://dave.thehorners.com/tech-talk/programming/315-net-programming">.NET programming</a> article, you might also be interested in that...<br/>
+<a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=ab99342f-5d1a-413d-8319-81da479ab0d7&displaylang=en">Download details: .NET Framework 3.5 Service pack 1</a><br/>
+<br/>
+<br/>
+<h2>WPF - Windows Presentation Foundation</h2>
+The WPF api surface is bigger than ASP.net and WinForms put together!<br/>
+<a href="http://windowsclient.net/wpf/white-papers/wpf-app-quality-guide.aspx">WPF Application Quality Guide - WindowsClient.net</a><br/>
+<br/>
+<h2>Random WPF facts</h2>
+To use WPF, you'll need to include references to WindowsBase, PresentationCore, PresentationFramework.  Also ensure that  your main thread is marked STA.<br/>
+[System::STAThreadAttribute] (on WinMain)<br/>
+If you don't have a WinMain to attribute set "/CLRTHREADATTRIBUTE:STA" in "Configuration Props" -> Linker -> Advanced -> CLR Thread Attribute property.<br/>
+WPF defines device-independent pixels as 1/96th of an inch.  So setting a width or height property to 96 should measure 1 include wide.  WPF will use as many physical pixels as are required to fill 1 inch.  Very nice.<br/>
+<br/>
+<br/>
+<h2>Apps using WPF</h2>
+Everyone mentions vs2010 as being the primary example.<br/>
+<a href="http://code.google.com/p/wittytwitter/w/list">Wiki Pages - wittytwitter - Project Hosting on Google Code</a><br/>
+<br/>
+<br/>
+<a href="http://timl.net/2008/02/wpf-frame-content-and-contentrendered.html">TimL on C#.NET: WPF Frame, Content and ContentRendered</a><br/>
+<br/>
+<br/>
+<a href="http://www.codeproject.com/KB/WPF/CustomListBoxLayoutInWPF.aspx">Custom ListBox Layout in WPF - CodeProject</a><br/>
+<a href="http://stuff.seans.com/2008/09/01/writing-a-screen-saver-in-wpf/">Writing a Screen Saver in WPF « Sean’s Stuff</a><br/>
+<a href="http://msdn2.microsoft.com/en-us/library/ms742522.aspx">WPF and Win32 Interoperation Overview</a><br/>
+<a href="http://blogs.msdn.com/mswanson/articles/WPFToolsAndControls.aspx">Mike Swanson's Blog : Windows Presentation Foundation Tools and Controls</a><br/>
+<a href="http://blogs.msdn.com/tims/articles/475132.aspx">Tim Sneath : Windows Presentation Foundation Blogs</a><br/>
+<a href="http://www.codeproject.com/kb/WPF/">CodeProject: Windows Presentation Foundation</a><br/>
+<a href="http://blogs.msdn.com/karstenj/archive/2006/06/15/632639.aspx">IRhetoric - Karsten Januszewski : My Five Day Course For Hitting the WPF Curve/Cliff</a><br/>
+<a href="http://msdn2.microsoft.com/en-us/netframework/aa663326.aspx">MSDN: Windows Presentation Foundation</a><br/>
+<a href="http://www.codeproject.com/WPF/TheWpfThoughtProcess.asp">The Code Project - The WPF Thought Process</a><br/>
+
+<a href="http://www.wpflearningexperience.com/">WPF Learning Experience</a><br/>
+<a href="http://windowsclient.net/Default.aspx">WindowsClient.net</a><br/>
+<a href="http://contentpresenter.com/index.php">ContentPresenter.com - WPF Video Tutorials from Lee Brimelow</a><br/>
+<a href="http://www.thirteen23.com/experiences/">thirteen23 :: experiences :: wpf design and development</a><br/>
+<a href="http://blois.us/Snoop/">Snoop</a> - a Spy++ like utility for WPF applications, but cooler.<br/>
+
+<h2>Performance and WPF</h2>
+<a href="http://windowsclient.net/wpf/perf/wpf-perf-tool.aspx">What's New for Performance Profiling Tools for WPF - WindowsClient.net</a> - talks about new WpfPerf performance tools in Microsoft Windows SDK v7.0.<br/>
+<a href="http://jeremiahmorrill.com/2011/02/14/a-critical-deep-dive-into-the-wpf-rendering-system/">A Critical Deep Dive into the WPF Rendering System « Jer's Hacks</a><br/>
+<br/>
+<br/>
+<h2>online wpf books</h2>
+<a href="http://www.scribd.com/doc/12923852/WPF-Recipes">WPF Recipes</a>- scribd.com seems to have the whole wpf recipes book up there.  I like the book's format.<br/>
+<br/>
+<br/>
+<h2>Random cool wpf template/style/font stuff</h2>
+<a href="http://www.bennedik.de/2007/10/wpf-fast-font-drop-down-list.html">Martin Bennedik: WPF: A fast font drop down list</a> - two ways of doing a font combobox dropdown.<br/>
+<a href="http://www.beacosta.com/blog/?p=40">Beatriz Costa Â» The power of Styles and Templates in WPF</a><br/>
+<a href="http://www.code-magazine.com/article.aspx?quickid=0803061&page=1">CoDe Magazine - Article: WPF Meets the iPhone</a> - styling an iphone clone.<br/>
+<a href="http://www.drwpf.com/Blog/Default.aspx?tabid=36&EntryID=53">Dr. WPF > ItemsControl: 'L' is for Lookless (a.k.a., "Styles, Templates, and Triggers... Oh My!")</a><br/>
+<a href="http://jmorrill.hjtcentral.com/Home/tabid/428/EntryId/403/Glass-Behavior-for-WPF.aspx">Jer's One Stop Shop > Home - Glass Behavior for WPF</a><br/>
+<a href="http://josheinstein.com/blog/index.php/2010/02/fullscreenbehavior-wpf/">FullScreenBehavior makes full-screen apps in WPF easy</a><br/>
+
+<br/>
+<br/>
+<h2>3d and animation</h2>
+<a href="http://www.codeproject.com/KB/WPF/WPF3D_1.aspx">CodeProject: WPF 3D : Part 1 of n.</a><br/>
+<a href="http://blogs.msdn.com/wpf3d/archive/2007/09/05/subclassing-uielement3d.aspx">WPF3D Team Blog : Subclassing UIElement3D</a><br/>
+<a href="http://www.brains-n-brawn.com/default.aspx?vDir=wpfaugreal">brains-N-brawn.com / wpfAugReal</a> - Augmented Reality with Windows Presentation Foundation.<br/>
+A nice paper on animation and doing interpolation.<br/>
+<a href="http://msdn2.microsoft.com/en-us/magazine/cc163397.aspx">Foundations: Extending the WPF Animation Classes</a><br/>
+<a href="http://dotnetslackers.com/articles/wpf/IntroductionToWPFAnimations.aspx">Introduction to WPF Animations</a><br/>
+<a href="http://dotnetslackers.com/articles/wpf/MoreWPFAnimations.aspx">More WPF Animations</a><br/>
+<a href="http://www.charlespetzold.com/3D/">3D Programming for Windows by Charles Petzold</a><br/>
+<a href="http://chriscavanagh.wordpress.com/2007/04/08/3d-physics-xbap/">3D Physics XBAP « Chris Cavanagh’s Blog</a><br/>
+<a href="http://sweux.com/blogs/smoura/index.php/wpf/2009/07/08/playing-storyboards-on-datatriggers-to-animate-a-path/">Playing Storyboards on DataTriggers to animate a Path | Samuel Moura's DevUX</a><br/>
+<br/>
+<br/>
+<h2>Hmmm cool.</h2>
+<a href="http://www.charlespetzold.com/blog/2007/04/191200.html">Petzold Book Blog - Lines with Arrows</a> - talks about Petzold.Media3D which includes arrow primitives which are defined in XAML and support animation.<br/>
+<a href="http://www.codeproject.com/KB/smart/Perceptor.aspx">CodeProject: Perceptor: An artificially intelligent guided navigation system for WPF.</a><br/>
+<br/>
+<br/>
+<br/>
+<h2>WPF games</h2>
+<a href="http://mtaulty.com/CommunityServer/blogs/mike_taultys_blog/archive/2009/06/03/wpf-pong.aspx">Mike Taulty's Blog : WPF: Pong</a> - pong in wpf, but also includes silverlight in his other posts...<br/>
+<a href="http://www.codeproject.com/KB/WPF/WPF_Snakes.aspx?display=Print">CodeProject: WPF : The Classic Snakes WPF'ed.</a><br/>
+<a href="http://www.codeproject.com/KB/WPF/NetwonDynExtensionsWPF.aspx">CodeProject: Newton Game Dynamics Extensions for the WPF - The Moon Lander Game.</a><br/>
+<br/>
+<br/>
+<a href="http://nerddawg.blogspot.com/2005/12/more-on-resource-loading-in-wpf.html">Even a chimp can write code: More on resource loading in WPF: Ashish Shetty's weblog</a> - talks a bit about pack uris.<br/>
+<br/>
+<br/>
+<h2>WPF controls</h2>
+<a href="http://www.codeplex.com/AvalonDock">AvalonDock - Home</a> - visual studio like docking features for wpf. (New BSD)<br/>
+<a href="http://sofawpf.codeplex.com/">Sofa, a WPF docking library for composite applications</a> - Sofa, a WPF framework for AvalonDock based composite application.<br/>
+<a href="http://fluidkit.codeplex.com/">FluidKit - Home</a> - a lot of cool stuff in this, checkout <a href="http://fluidkit.codeplex.com/Wiki/View.aspx?title=Screenshots">FluidKit - Screenshots</a>.<br/>
+<a href="http://www.hardcodet.net/projects/wpf-notifyicon">hardcodet.net » WPF NotifyIcon</a><br/>
+<a href="http://www.lazarciuc.ro/ioan/2008/06/01/auto-complete-for-textboxes-in-wpf/">Auto Complete for Textboxes in WPF « Ioan Lazarciuc’s Weblog</a><br/>
+<a href="http://thriple.codeplex.com/">Thriple</a> - library of 3D controls and panels, for use in WPF applications.<br/>
+
+<br/>
+<br/>
+<h2>Formatting</h2>
+<a href="http://blogs.msdn.com/mikehillberg/archive/2008/05/29/trying-out-binding-stringformat.aspx">Data See, Data Do : Trying out Binding.StringFormat</a><br/>
+<a href="http://blogs.msdn.com/llobo/archive/2008/05/19/wpf-3-5-sp1-feature-stringformat.aspx">Lester's WPF blog : WPF 3.5 SP1 feature: StringFormat</a><br/>
+<br/>
+<br/>
+<h2>Debugging WPF</h2>
+<a href="http://blogs.msdn.com/mikehillberg/archive/2006/09/14/WpfTraceSources.aspx">Data See, Data Do : Trace sources in WPF</a><br/>
+<a href="http://wpfxaml.spaces.live.com/blog/cns!97DD5FD32788695B!167.entry?wa=wsignin1.0">How to debug binding problems - Windows Live</a><br/>
+<br/>
+<br/>
+<h2>Linq and continuous linq</h2>
+<a href="http://www.codeplex.com/bindablelinq">Bindable LINQ - Home</a> - is a set of extensions to LINQ that add data binding and change propagation capabilities to standard LINQ queries.<br/>
+<a href="http://www.paulstovell.com/blog/page/4">Paul Stovell says… - Bindable LINQ: Threading</a><br/>
+<a href="http://www.codeplex.com/clinq">Continuous LINQ - Home</a><br/>
+<br/>
+<br/>
+<a href="http://www.interact-sw.co.uk/iangblog/2006/03/31/groupedwpfmenus">IanG on Tap: Creating Office-Style Textual Separators in WPF with Grouped Menus</a> - very nice article with groupings inside menus.<br/>
+<a href="http://bea.stollnitz.com/blog/?p=23">Bea Stollnitz » How do I insert Separator objects in a data bound MenuItem?</a><br/>
+<a href="http://bea.stollnitz.com/blog/?p=17">Bea Stollnitz » How do I sort groups of data items?</a><br/>
+<br/>
+<br/>
+<h2>drag and drop in wpf</h2>
+<a href="http://blogs.msdn.com/marcelolr/archive/2007/06/09/basics-of-data-bound-drag-drop-in-wpf.aspx">Marcelo's WebLog : Basics of data-bound drag-drop in WPF</a><br/>
+<br/>
+<br/>
+<h2>Parts and states with VisualStateManager</h2>
+<a href="http://scorbs.com/2008/06/11/parts-states-model-with-visualstatemanager-part-1-of">Parts & States Model with VisualStateManager (Part 1 of 4)</a><br/>
+<a href="http://scorbs.com/2008/06/18/parts-states-model-with-visualstatemanager-part-2-of-4">Parts & States Model with VisualStateManager (Part 2 of 4)</a><br/>
+<a href="http://scorbs.com/2008/06/23/parts-states-model-with-visualstatemanager-part-3-of-4">Parts & States Model with VisualStateManager (Part 3 of 4)</a><br/>
+<a href="http://scorbs.com/2008/06/25/parts-states-model-with-visualstatemanager-part-4-of-4">Parts & States Model with VisualStateManager (Part 4 of 4)</a><br/>
+<br/>
+<br/>
+<h2>WPF CAL CAG - Prism</h2>
+prism - modularity and ui composition (composite application guidance)<br/>
+In CAB, you had to take everything....and it was mostly based on inheritance.<br/>
+In prism, it is supposed to be lightweight, using composition over inheritance.<br/>
+In prism, the container can be anything you want.<br/>
+Services are how you do things, and services are found through the container.<br/>
+Services are really just interfaces..really.<br/>
+Breaks screens up into regions.<br/>
+Containers - dep. injection. container - ioc - inversion of control<br/>
+Containers are like factories, in that types get registered in the container based on interfaces.<br/>
+Containers help with maintainable and testable....by loosing the deps between objects.<br/>
+Modules are classes that implement the IModule.<br/>
+Use bootstraper, create module, in module grab region manager, views go in the regions.<br/>
+Event aggregation, allows the modules to talk to one another without direct deps.<br/>
+<a href="http://msdn.microsoft.com/en-us/library/cc707819.aspx">Composite Application Guidance for WPF</a><br/>
+<a href="http://blogs.msdn.com/dphill/archive/2009/05/29/prism-quick-start-kit.aspx">David Hill's WebLog : Prism Quick Start Kit</a><br/>
+
+<a href="http://blogs.msdn.com/gblock/archive/2007/10/26/wpf-composite-client-guidance-it-s-coming.aspx">My Technobabble : WPF Composite Client, it's coming!</a><br/>
+<a href="http://www.slickthought.net/category/WPF-Composite-App.aspx">SlickThought.Net - WPF Composite App</a><br/>
+<a href="http://msdn.microsoft.com/en-us/library/cc707819.aspx">Composite Application Guidance for WPF</a><br/>
+<a href="http://www.pnpguidance.net/Category/Prism.aspx">Prism Tutorials Samples and Examples</a> - from pnpguidance.net<br/>
+<a href="http://www.microsoft.com/downloads/details.aspx?FamilyId=6DD3D0C1-D5B4-453B-B827-98E162E1BD8D&displaylang=en">Download details: Composite Application Guidance for WPF June 2008</a><br/>
+<a href="http://www.codeplex.com/CompositeWPF/Release/ProjectReleases.aspx?ReleaseId=14975">patterns & practices: Composite WPF and Silverlight - Release: Composite Application Guidance for WPF 2008</a><br/>
+<a href="http://blogs.msdn.com/erwinvandervalk/archive/2009/04/29/how-to-build-an-outlook-style-application-with-prism-v2-part-2.aspx">Erwin van der Valk's blog: Practicing patterns : how to build an outlook style application with prism v2 – Part 2</a><br/>
+<a href="http://www.telerik.com/products/salesdashboard.aspx">Telerik Sales Dashboard for Silverlight &amp; WPF - Silverlight Controls, WPF Controls, code reuse</a> - telerik prism sample with wpf and silverlight shared codebase.<br/>
+<br/>
+<br/>
+<h2>error MC3074: The tag 'TaskbarNotifierBase' does not exist in XML namespace 'clr-namespace:YourNamespace;assembly='.</h2>
+Then I found, 
+<a href="http://msdn.microsoft.com/en-us/library/ms747086.aspx">XAML Namespaces and Namespace Mapping</a>, which says 'Custom classes cannot be used as the root element of a page if defined in the same assembly.'<br/>
+Hmm, I wonder why this requirement exists?!<br/>
+<br/>
+<br/>
+<h2>WPF controls</h2>
+<a href="http://odyssey.codeplex.com/">Odyssey WPF Controls - Home</a> - includes OutlookBar, ExplorerBar, BreadcrumbBar, and RibbonBar<br/>
+<a href="http://wpg.codeplex.com/">WPF Property Grid - Home</a><br/>
+<br/>
+<br/>
+
+<h2>WPF Model-View-ViewModel (MVVM)</h2>
+<a href="http://www.codeplex.com/wpfonyx">WPF Onyx - Home</a> - <i>Onyx</i> provides a framework that aids in the creation of WPF applications that follow the <a href="http://wpfonyx.codeplex.com/Wiki/View.aspx?title=MVVM&referringTitle=Home">Model-View-ViewModel</a> design pattern.<br/>
+<a href="http://www.codeproject.com/KB/WPF/WPFOynxApp.aspx">CodeProject: WPF : FlipTile 3D.</a> - example of wpf Oynx.<br/>
+<a href="http://tard.codeplex.com/">Simple Framework for MVVM</a> - MVVM related framework for Silverlight (and probably works in WPF) for slow duck tape programmers like my self. (MVVM for Tarded Folks Like Me)<br/>
+<a href="http://wpf.codeplex.com/Wiki/View.aspx?title=WPF%20Model-View-ViewModel%20Toolkit">Windows Presentation Foundation (WPF) - Home</a><br/>
+<a href="http://www.galasoft.ch/mvvm/getstarted/">GalaSoft - MVVM Light Toolkit</a><br/>
+<a href="http://wpf.codeplex.com/wikipage?title=WPF%20Model-View-ViewModel%20Toolkit&ProjectName=wpf">Windows Presentation Foundation (WPF)</a> - The Model-View-ViewModel toolkit is intended to introduce the Model-View-ViewModel design pattern for building WPF applications to the broad WPF developer community.<br/>
+<a href="http://www.paulstovell.com/micromodels-introduction">Introducing MicroModels - the smallest ViewModels for WPF</a> - MicroModels is inspired by Fluent NHibernate and uses TypeDescriptors to dynamically define properties, collections and commands.<br/>
+<a href="http://mvvmfoundation.codeplex.com/">MVVM Foundation</a><br/>
+<br/>
+<br/>
+<h2>wpftoolkit datagrid</h2>
+<a href="http://dotnet.org.za/rudi/archive/2008/10/30/show-me-the-detail.aspx">Show me the detail - Rudi Grobler</a> - info on RowDetails.<br/>
+<a href="http://blogs.msdn.com/vinsibal/archive/2008/12/17/wpf-datagrid-dynamically-updating-datagridcomboboxcolumn.aspx">Vincent Sibal's Blog : WPF DataGrid – Dynamically updating DataGridComboBoxColumn</a><br/>
+<a href="http://blogs.msdn.com/jaimer/archive/2008/11/22/forwarding-the-datagrid-s-datacontext-to-its-columns.aspx">Jaime Rodriguez : Forwarding the DataGrid’s DataContext to its’ columns..</a><br/>
+<a href="http://blogs.msdn.com/vinsibal/archive/2008/10/31/wpf-datagrid-datagridcomboboxcolumn-v1-intro.aspx">Vincent Sibal's Blog : WPF DataGrid - DataGridComboBoxColumn v1 Intro</a><br/>
+<a href="http://sweux.com/blogs/smoura/index.php/wpf/2009/05/19/wpf-toolkit-datagrid-part-iii-playing-with-datagridcolumns-and-datagridcells/">WPF Toolkit DataGrid, Part III – Playing with Columns and Cells | Samuel Moura's DevUX</a><br/>
+<a href="http://blogs.msdn.com/vinsibal/archive/2009/04/10/launching-a-custom-dialog-to-edit-items-in-a-datagrid-with-mvvm.aspx">Vincent Sibal's Blog : Launching a custom Dialog to edit items in a DataGrid (with MVVM)</a><br/>
+
+<a href="http://blogs.msdn.com/vinsibal/archive/2009/04/14/5-more-random-gotchas-with-the-wpf-datagrid.aspx">Vincent Sibal's Blog : 5 More Random Gotchas with the WPF DataGrid</a><br/>
+<br/>
+<br/>
+<h2>ObjectDataProvider</h2>
+<a href="http://blogs.telerik.com/blogs/09-01-14/how_to_wpf_declarative_binding_to_linq_to_sql_using_objectdataprovider.aspx">Telerik Blogs > How To: WPF declarative binding to LINQ to SQL using ObjectDataProvider</a><br/>
+<a href="http://bea.stollnitz.com/blog/?p=22">Bea Stollnitz » Why should I use ObjectDataProvider?</a><br/>
+<a href="http://blogs.msdn.com/kaevans/archive/2008/03/21/wpf-and-databinding.aspx">Kirk Evans Blog : WPF and DataBinding</a><br/>
+<br/>
+<br/>
+<h2>DataTemplates in WPF</h2>
+<a href="http://blogs.microsoft.co.il/blogs/tomershamam/archive/2007/05/17/WPF-Data-Templates-and-the-Composite-Pattern.aspx">WPF Data Templates and the Composite Pattern - Essential WPF</a><br/>
+<a href="http://www.codeproject.com/KB/WPF/WpfMatrix.aspx">CodeProject: Displaying a Data Matrix in WPF.</a> - Reviews a matrix control that can be data bound and visually styled with ease.<br/>
+<br/>
+<br/>
+<h2>Cool WPF examples</h2>
+<a href="http://www.codeproject.com/KB/WPF/MefFX.aspx">CodeProject: Windows 7 / VS2010 demo app.</a> - Using Windows7 / VS2010 and some of the new bits such as TaskBar/JumpList, Drag & Drop, and MEF.<br/>
+<br/>
+<br/>
+<h2>Setting the WPF webbrowser silent to hide javascript debug error dialogs</h2>
+There isn't a way to directly tell the new WPF browser control to silence javascript debug errors.  However, you can do a little work to get the COM interface to do all the things you wanted to do...like make the browser not pop ugly input grabbing dialogs....<br/>
+<pre>
+// add ref. "Microsoft Internet Controls" - SHDocVw for browser types...
+using mshtml;
+using System.Runtime.InteropServices;
+
+[ComImport, InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
+[Guid("6d5140c1-7436-11ce-8034-00aa006009fa")]
+internal interface IServiceProvider
+{
+    [return: MarshalAs(UnmanagedType.IUnknown)]
+    object QueryService(ref Guid guidService, ref Guid riid);
+}
+
+static readonly Guid SID_SWebBrowserApp = new Guid("0002DF05-0000-0000-C000-000000000046");
+
+// Example usage would be after you have a valid document...
+// browser.Navigate(new Uri("about:blank", UriKind.RelativeOrAbsolute));
+// MakeComBrowserSilent();
+private void MakeComBrowserSilent()
+{
+    Guid serviceGuid = SID_SWebBrowserApp;
+    Guid iid = typeof(SHDocVw.IWebBrowser2).GUID;
+    IServiceProvider serviceProvider = (IServiceProvider)browser.Document;
+    if (serviceProvider != null)
+    {
+        SHDocVw.IWebBrowser2 comBrowser = (SHDocVw.IWebBrowser2)serviceProvider.QueryService(ref serviceGuid, ref iid);
+        if (comBrowser != null)
+        {
+            comBrowser.Silent = true;
+
+            // Additional code for setting browser options, left here for grins.
+            //IOleObject obj = (IOleObject)comBrowser;
+            //if (obj != null)
+            //{
+            //    boptions.SetBrowser(comBrowser);
+            //    obj.SetClientSite(boptions);
+            //}
+            //IOleControl objc = (IOleControl)comBrowser;
+            //if (objc != null)
+            //    objc.OnAmbientPropertyChange(-5512);
+        }
+    }
+}
+
+</pre>
+<br/>
+<br/>
+<h2>WPF animated gif</h2>
+WPF does not handle animated gif out of the box... here are some articles that do it.<br/>
+<a href="http://69.10.233.10/KB/WPF/wpfgifanimator.aspx">GIF animation in WPF - CodeProject</a><br/>
+<a href="http://www.codeproject.com/KB/WPF/animatedgifinwpf.aspx">Another approach to animated GIF in WPF, with transparency - CodeProject</a><br/>
+<a href="http://www.solidrockstable.com/blogs/PragmaticTSQL/Lists/Posts/Post.aspx?List=5777009a%2D090e%2D40ed%2Da5f9%2D62154028bf0e&ID=37">My animated .gif control for WPF - Pragmatic TSQL Programmer</a><br/>
+<a href="http://eladm.wordpress.com/2009/04/02/animated-gif-support-behavior/#comments">Animated GIF Support Behavior « Elad’s WPF Blog</a> - WPF behavior using WIC.<br/>
+
+<a href="http://social.msdn.microsoft.com/Forums/en-US/windowswic/thread/5014fd2d-1721-4ea7-a4a6-9940b142d935">System.Windows.Media.Imaging and GifBitmapDecoder with animated gif transparency</a><br/>
+<a href="http://social.msdn.microsoft.com/forums/en-US/wpf/thread/93d50a97-0d8d-4b18-992e-cd3200693337/">How to use an animated gif?</a> - another forum post...lots of people still use gif...<br/>
+<br/>
+<br/>
+<h2>Flash and WPF</h2>
+<a href="http://infosysblogs.com/microsoft/2008/07/hosting_flash_movie_in_a_wpf_p.html">Infosys | Microsoft: Hosting Flash movie in a WPF project</a><br/>
+<br/>
+<br/>
+<h2>WPF Navigation</h2>
+<a href="http://www.paulstovell.com/magellan">Magellan - WPF Navigation Framework using the MVC Pattern</a> -  * Model-View-Controller framework, * Blend behaviors and Commands to make navigation easy, * Transitions between pages, * Action filters for cross-cutting concerns such as authorization and redirection, * Integration with Composite WPF<br/>
+<a href="http://www.paulstovell.com/magellan-quickstart">Magellan Quickstart</a> - very straight forward with single test.<br/>
+<br/>
+<br/>
+<h2>“Validatexaml” task failed unexpectedly.</h2>
+<a href="http://www.smallworkarounds.net/2009/12/error-1-validatexaml-task-failed.html">SmallWorkarounds: Error 1 The “Validatexaml” task failed unexpectedly.System.IO.FileLoadException.Could not load file or assembly.</a> - did you know there was actually a "block" flag on dlls downloaded from the internet?  To unblock, goto Properties on the file, in General there is an "Unblock"<br/>
+<br/>
+<br/>
+<h2>multithreaded ui in wpf</h2>
+<a href="http://www.reactiveui.net/">ReactiveUI</a> - Use the Reactive Extensions for .NET along with Silverlight, WPF, or Windows Phone 7 to create elegant, testable User Interfaces.<br/>
+<a href="http://blogs.msdn.com/b/dwayneneed/archive/2007/04/26/multithreaded-ui-hostvisual.aspx">Multithreaded UI: HostVisual - Presentation Source - Site Home - MSDN Blogs</a><br/>
+<a href="http://blog.quantumbitdesigns.com/2008/07/22/stop-polluting-the-ui-thread-use-a-delegatemarshaler/">Quantum Bit Designs » Blog Archive » Stop Polluting the UI Thread – Use a DelegateMarshaler</a><br/>
+<a href="http://blog.quantumbitdesigns.com/2008/07/22/wpf-cross-thread-collection-binding-part-4-the-grand-solution/">Quantum Bit Designs » Blog Archive » WPF Cross-Thread Collection Binding – Part 4 – The Grand Solution</a><br/>
+<br/>
+<br/>
+<a href="http://blogs.msdn.com/b/changov/archive/2009/10/26/hosting-wpf-ui-cross-thread-and-cross-process.aspx">Hosting WPF UI cross-thread and cross-process - Diaries of a Software Plumber - Site Home - MSDN Blogs</a><br/>
+<a href="http://caliburnmicro.com/">Caliburn.Micro · Xaml made easy</a><br/>
+    <div style="border: 1px;">
+    Created: 2009-01-09 14:33:21
+    Modified: 2014-06-03 03:37:13
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+<span id=daysToChristmas>x</span> days to Christmas.<br/>
+<span id=daysToNewYear>x</span> days to a new year.<br/>
+Happy Holidays!
+<script Language="JavaScript">
+function showtime () {
+        msPerDay = 24 * 60 * 60 * 1000 ; // Number of milliseconds per day
+        var now = new Date();
+        var year = now.getYear();
+        if (year < 1000)
+         year+=1900
+        nextXmas = new Date("December 25, 2000")
+        nextXmas.setYear(year)
+        daysLeft = (nextXmas.getTime() - now.getTime()) / msPerDay;
+        daysLeft = Math.round(daysLeft);
+        var span=document.getElementById('daysToChristmas');
+        span.removeChild(span.firstChild);
+        span.appendChild(document.createTextNode(daysLeft+''));
+        
+        nextXmas = new Date("December 31, 2000")
+        nextXmas.setYear(year)
+        daysLeft = (nextXmas.getTime() - now.getTime()) / msPerDay;
+        daysLeft = Math.round(daysLeft);
+
+        span=document.getElementById('daysToNewYear');
+        span.removeChild(span.firstChild);
+        span.appendChild(document.createTextNode(daysLeft+''));
+        setTimeout("showtime()",msPerDay);
+}
+showtime();
+</script>
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

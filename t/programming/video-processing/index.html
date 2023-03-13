@@ -1,0 +1,616 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>Video processing</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/programming/">programming</a>
+    <h1>Video processing</h1>
+   <a href="http://handbrake.fr/">HandBrake: Open Source Video Transcoder</a><br/><h2>Codecs</h2>
+<a href="http://www.cccp-project.net/">Combined Community Codec Pack</a><br/>
+<a href="http://www.mydigitallife.info/2007/01/19/download-free-vista-codec-package-423/">Download Free Vista Codec Package 4.2.3 Â» My Digital Life</a><br/>
+<a href="http://neuron2.net/www.math.berkeley.edu/benrg/huffyuv.html">Huffyuv</a> - a very fast, lossless Win32 video codec with C++ source! - also see <a href="http://neuron2.net/www.math.berkeley.edu/benrg/huffyuv.html#MJPEG">Why not use Motion JPEG?</a><br/>
+<a href="http://sourceforge.net/projects/mp4cam2avi/?source=dlp">MP4Cam2AVI Easy Converter | Free Audio &amp; Video software downloads at SourceForge.net</a> - MP4Cam2AVI is a MP4/MOV/M2TS to AVI repackaging tool for digital photo-video cameras, it makes their clips editable in VirtualDub, MovieMaker and other AVI editors. Also it can combine (join) multiple clips from camera into a single AVI movie, preserving audio/video sync.
+No video recompression (by default), no quality loss, fast operation (5-20x realtime). No installation needed - just download, unzip and run mp4cam2avi.exe.<br/>
+<a href="http://sourceforge.net/projects/ffdshow/">ffdshow | Free Audio &amp; Video software downloads at SourceForge.net</a><br/>
+<br/>
+<a href="http://www.matroska.org/">Matroska Media Container - Homepage | Matroska</a><br/>
+<a href="http://www.kreanimate.co.uk/site/index.php/Tutorials/Linux-Tutorials/MPlayer-for-Animators.html">KRE Animate.co.uk - MPlayer for Animators</a> - great info on using mplayer to play sequences of JPEGs while playing a sound, mirroring, and encoding.  Nice.<br/>
+<a href="http://www.virtualdub.org/index.html">Welcome to virtualdub.org! - virtualdub.org</a> - VirtualDub is a video capture/processing utility for 32-bit and 64-bit Windows platforms<br/>
+<a href="http://en.wikipedia.org/wiki/H.264/MPEG-4_AVC">H.264/MPEG-4 AVC - Wikipedia, the free encyclopedia</a><br/>
+<a href="http://www.h264tscutter.de/show_artikel.php?id=5">H264TS_Cutter</a> - H264TS_Cutter is a program to cut and merge AVC / H.264 Transportstreams.<br/>
+<a href="http://en.wikipedia.org/wiki/High_Efficiency_Video_Coding">High Efficiency Video Coding - Wikipedia, the free encyclopedia</a> - HEVC stands for High Efficiency Video Coding — it’s the recently-ratified successor to AVC, otherwise known as H.264. Being the next generation of codec onwards from H.264, HEVC is also referred to as H.265. HEVC can be twice as detailed as video encoded in H.264, or can show the same detail as H.264 at half the file size.<br/>
+<a href="https://github.com/strukturag/libde265">strukturag/libde265</a> - Open h.265 video codec implementation.<br/>
+
+<br/>
+<br/>
+<h2>FFMPEG and libavformat/libavcodec info</h2>
+<a href="http://howto-pages.org/ffmpeg/">ffmpeg audio/video manipulation</a><br/>
+<a href="http://ffmpeg.zeranoe.com/builds/#">Zeranoe FFmpeg - Builds</a><br/>
+<a href="http://ffmpeg.org/documentation.html">FFmpeg Documentation</a><br/>
+<a href="http://www.inb.uni-luebeck.de/~boehme/using_libavcodec.html">Using libavformat and libavcodec</a><br/>
+<a href="http://www.inb.uni-luebeck.de/~boehme/libavcodec_update.html">Using libavformat and libavcodec: An Update</a><br/>
+<a href="http://graphcomp.com/ffmpeg/">Grafman's FFMPEG Developer Info</a><br/>
+<a href="http://soenkerohde.com/tutorials/ffmpeg/">Sönke Rohde » FFMPEG</a> - get FFMPEG going on MinGW.<br/>
+<a href="http://www.salyens.com/mingw/">Building FFmpeg on Windows HowTo (MinGW)</a><br/>
+<a href="http://vinsol.com/blog/2014/07/30/cross-compiling-ffmpeg-with-x264-for-android/comment-page-1/#comment-142795">Cross Compiling FFmpeg with x264 for Android | Vinsol - Ruby on Rails, iOS, Android Consulting and Development</a> <a href="https://github.com/hiteshsondhi88/ffmpeg-android/">hiteshsondhi88/ffmpeg-android</a><br/>
+<br/>
+<a href="http://www.cs.cmu.edu/~iwan/1394/">CMU 1394 Digital Camera Driver</a><br/>
+<a href="http://freej.dyne.org/?info=description">FreeJ :: vision mixer</a><br/>
+<h2>flip mp4 || ffmpeg flip video upside down</h2> 
+Rotating videos:<br/>
+<pre>
+ffmpeg -i in.mov -vf "transpose=1" out.mov
+transpose parameter can take on the following paramters:
+0 = 90CounterCLockwise and Vertical Flip (default)
+1 = 90Clockwise
+2 = 90CounterClockwise
+3 = 90Clockwise and Vertical Flip
+</pre>
+<a href="http://superuser.com/questions/578321/how-to-flip-a-video-180%C2%B0-vertical-upside-down-with-ffmpeg">How to flip a video 180° (vertical/upside down) with FFmpeg? - Super User</a> -  -vf "hflip,vflip"(no re-encoding), -vf "transpose=2,transpose=2"<br/>
+<br/>
+<br/>
+<h2>ffmpeg video clipping</h2>
+cut a inputmovie, starting at ss, for duration of t<br/>
+ffmpeg -i inputmovie.mp4 -ss 00:00:05 -t 00:00:10 output.mp4<br/>
+<br/>
+<br/>
+<h2>ffmpeg video cropping</h2>
+ffmpeg -i in.mp4 -filter:v "crop=out_width:out_height:xoffset:yoffset" out.mp4<br/>
+<br/>
+<br/>
+<a href="http://trac.ffmpeg.org/wiki/Scaling%20(resizing)%20with%20ffmpeg">Scaling (resizing) with ffmpeg – FFmpeg</a> - -vf scale=320,-1 or -vf scale=iw*2:ih<br/>
+<a href="http://v2v.cc/~j/ffmpeg2theora/examples.html">ffmpeg2theora</a> - A simple command line converter to create Ogg Theora files.<br/>
+<br/>
+<br/>
+<h2>Video capture</h2>
+<a href="http://dorgem.sourceforge.net/">Dorgem - Open Source Webcam Capture Application</a><br/>
+<a href="http://lundie.ca/fwink/">Fwink - Free Webcam Software</a><br/>
+<a href="http://videocapture.sourceforge.net/">VideoCapture - A Win32 Python Extension for Accessing Video Devices (e.g. a USB WebCam, a TV-Card, ...)</a><BR/>
+<a href="http://www.wedesoft.demon.co.uk/hornetseye-api/files/HornetsEye-txt.html">HornetsEye - Computer Vision for the Robotic Age - HornetsEye</a><br/>
+<a href="http://camstudio.hg.sourceforge.net/hgweb/camstudio/camstudio/">SourceForge: camstudio/camstudio: Summary</a><br/>
+<a href="http://www.hyperionics.com/hc/">HyperCam</a><br/>
+<a href="https://github.com/Freeseer/freeseer">Freeseer/freeseer</a> A set of tools designed for capturing presentations. The main tool is capable of capturing VGA output and audio, and mixing them together to produce a video. <br/>
+
+<br/>
+<br/>
+<h2>DirectShow</h2>
+<a href="http://wpfmediakit.codeplex.com/">WPF MediaKit - For webcam, DVD and custom video support in WPF - Home</a><br/>
+<a href="http://blogs.msdn.com/mikewasson/default.aspx">VIDEOINFO: A DirectShow Blog</a><br/>
+<a href="http://download.microsoft.com/download/9/1/1/911e67d3-f7cc-4035-b76c-67d38e06784c/ReleaseNotes.Htm">Windows SDK Release Notes</a><br/>
+<a href="http://blogs.msdn.com/mikewasson/archive/2007/02/05/directshow-in-the-windows-sdk-for-vista.aspx">Mike Wasson's Blog : DirectShow in the Windows SDK for Vista</a><br/>
+<a href="http://forums.microsoft.com/MSDN/ShowPost.aspx?PostID=1218052&SiteID=1">Re: Base classes compile problem with Vista SDK - MSDN Forums</a><br/>
+<a href="http://www.gdcl.co.uk/gmfbridge/">The GMFBridge Toolkit</a><BR/>
+<a href="http://www.codeproject.com/KB/directx/directshownet.aspx">CodeProject: DirectShow.NET.</a><br/>
+<a href="http://directshownet.sourceforge.net/index.html">DirectShowNet library</a><br/>
+<a href="http://sourceforge.net/projects/dsvideolib/">SourceForge.net: DSVideoLib</a><br/>
+<a href="http://www.quickcamteam.net/documentation/how-to/how-to-control-pan-tilt-zoom-on-logitech-cameras">How to control pan/tilt/zoom on Logitech cameras â?? QuickCam Team</a><br/>
+<a href="http://blogs.msdn.com/markhsch/archive/2007/11/19/c-webcam-user-control-source.aspx">Mark Schmidt's Abode : C# WebCam User Control Source</a><br/>
+<a href="http://www.informikon.com/directshow-tutorials/directshow-and-c-the-final-frontier--.html">Informikon - DirectShow and C#: The final frontier ;-)</a><br/>
+<a href="http://www.codeplex.com/XNADSPlayer">XNA DirectShow Video Player - Home</a><br/>
+<a href="http://www.xiph.org/dshow/">Directshow Filters for Ogg Vorbis, Speex, Theora and FLAC :: Main / HomePage</a><br/>
+<a href="http://www.tedspence.com/index.php?entry=entry070705-111722">Technology Consulting - Making Thumbnails for Videos using DirectShow.NET</a><br/>
+<br/>
+<br/>
+<h2>Screen capture / Full system audio capture / sensible-cinema</h2>
+<a href="http://betterlogic.com/roger/">Roger's woze Blog</a><br/>
+<a href="https://github.com/rdp/screen-capture-recorder-to-video-windows-free">rdp/screen-capture-recorder-to-video-windows-free - GitHub</a><br/>
+<a href="http://betterlogic.com/roger/2010/07/how-to-use-vlc-as-a-free-open-source-alternative-to-playon-tv/">how to use VLC to stream your desktop live (windows) with audio (or stream a DVD) « Roger's woze</a><br/>
+<a href="https://github.com/rdp/virtual-audio-capture-grabber-device">rdp/virtual-audio-capture-grabber-device - GitHub</a><br/>
+<a href="http://rogerdpack.t28.net/sensible-cinema/">Sensible Cinema</a><br/>
+<a href="https://github.com/rdp/sensible-cinema/tree/master/zamples/edit_decision_lists/dvds">zamples/edit_decision_lists/dvds at master from rdp/sensible-cinema - GitHub</a> - sample edls<br/>
+<br/>
+<br/>
+<h2>VideoLAN - VLC</h2>
+<a href="http://www.videolan.org/">VideoLAN - VLC: Official site - Free multimedia solutions for all OS!</a><br/>
+<a href="http://vlcdotnet.codeplex.com/">VideoLan DotNet for WinForm &amp; WPF</a> - Vlc.DotNet libraries provide the audio/video control of VideoLan on WinForm (.Net 2.0) or Windows Presentation Foundation (.Net 3.5). Now you can stream audio/video in C# or VB.Net.<br/>
+<a href="https://wiki.videolan.org/Win32Compile/#Mingw-w64">Win32Compile - VideoLAN Wiki</a> - mingw-w64 cross-compilation<br/>
+<br/>
+<br/>
+<h2>EVR - Enhanced Video Renderer</h2>
+enhanced video renderer (EVR) is a component that displays video on the user's monitor (Direct3d &DirectX Video Acceleration (DXVA)).<br/>
+<a href="http://msdn.microsoft.com/en-us/library/ms694916%28VS.85%29.aspx">Enhanced Video Renderer (Windows)</a> - The EVR media sink, for Media Foundation applications. The EVR filter, for DirectShow applications.<br/>
+<a href="http://groups.google.com/group/wpf-disciples/browse_thread/thread/60766bedd2897747?pli=1">WPF MediaKit: Now with 100% more EVR - WPF Disciples | Google Groups</a><br/>
+<br/>
+<br/>
+<h2>Media Foundation</h2>
+<a href="http://msdn2.microsoft.com/en-us/library/ms696274.aspx">About the Media Foundation SDK</a><br/>
+<a href="http://mfnet.sourceforge.net/">Media Foundation .NET</a> - managed api for MF (only works in vista however)<br/>
+<a href="http://forums.microsoft.com/MSDN/ShowPost.aspx?PostID=2713398&SiteID=1">How to build a DShow Filter in VS2005 for Mobile 5? - MSDN Forums</a><br/>
+<br/>
+<br/>
+<h2>WPF and WPF/E video support</h2>
+WPF and Silverlight have support for video.<br/>
+<a href="http://thewpfblog.com/?p=30">theWPFblog » WPF Video Filmstrip</a><br/>
+<a href="http://code.msdn.microsoft.com/ManagedMediaHelpers">ManagedMediaHelpers - Home</a> - The MediaStreamSource is a piece of the Silverlight runtime that removes a the influence of a media file's container, giving developers direct access to APIs for manipulating encoded elementary audio and video streams.<br/>
+<a href="http://www.wiredprairie.us/journal/2007/04/extracting_thumbnails_from_a_j.html">WiredPrairie: Extracting thumbnails from a JPEG/JPG in .NET 3.0</a><br/>
+<a href="http://blog.nerdbank.net/2006/01/generating-non-pixelated-thumbnail.html">JMPInline: Generating non-pixelated thumbnail images in .NET</a><br/>
+<a href="http://www.codeplex.com/wpfcap/Release/ProjectReleases.aspx?ReleaseId=13380">WebCam control for WPF - Release: Initial release</a><br/>
+<a href="http://wpfmediakit.codeplex.com/">WPF MediaKit - For webcam, DVD and custom video support in WPF</a> - A library to quickly build DirectShow and MediaFoundation media player controls in WPF. The kit comes with a MediaElement replacement, a VideoCaptureElement for web cams and a DVDPlayerElement that plays DVDs and supports interactive menus.<br/>
+<a href="http://wpfvideothumbnail.codeplex.com/">WPF Video Thumbnail Screencapture</a> - This project is for getting WPF thumbnails / screen shots from a video clip in both a threaded and non-threaded way.<br/>
+<a href="http://learnwpf.com/Posts/PostsByCategory.aspx?categoryId=851b9683-69b8-4d66-9381-1944b3a3a854">LearnWPF.com - Adding Simeltaneous Video Recording + Playback to WPFMediaKit's VideoCaptureElement</a><br/>
+<a href="http://videorendererelement.codeplex.com/">VideoRendererElement</a> - VideoRendererElement allows for high-performance, custom video in WPF. (uses DirectShow)<br/>
+<a href="http://www.thomasclaudiushuber.com/blog/2008/04/06/take-snapshots-of-videos-with-wpf/">.NET Rocker » Blog Archive » Take Snapshots of Videos with WPF</a><br/>
+<a href="http://cnedelcu.blogspot.com/2008/10/wpf-drawing-video-using-mediaplayer.html">Clement Nedelcu's Journal: WPF: drawing a video using MediaPlayer, VideoDrawing and DrawingBrush</a><br/>
+
+<br/>
+<br/>
+<br/>
+<h2>Stereo vision</h2>
+This really should be on another page, but until I move it...<br/>
+<a href="http://www.videredesign.com/vision/stereo_products.htm">Stereo Cameras from Videre Design</a><br/>
+<br/>
+<br/>
+<a href="http://www.openmovieeditor.org/">Open Movie Editor</a><br/>
+<a href="http://www.linuxjournal.com/article/9931">Multitrack Video Editor Roundup</a><br/>
+<br/>
+<br/>
+<a href="http://neuron2.net/www.math.berkeley.edu/benrg/avisynth.html">Avisynth</a> - an amazing .dll scripting language and a collection of filters for simple non-linear editing tasks.  The scripts are viewed from .avs files with any app supporting directshow.<br/>
+
+<br/>
+<br/>
+<h2>WiC -Windows Imaging Component</h2>
+(doesn't belong here, i'll move it some day)<br/>
+<a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=a6d6ec6a-e4f2-405e-842d-7c3bcb5b1390&displaylang=en">Download details: Windows Imaging Component Code Samples and Tools</a><br/>
+<a href="http://blogs.msdn.com/rwlodarc/archive/2007/07/18/using-wpf-s-inplacebitmapmetadatawriter.aspx">Robert A. Wlodarczyk's Blog (MSFT) : Using WPF's InPlaceBitmapMetadataWriter</a><br/>
+<a href="http://blogs.msdn.com/rwlodarc/archive/2007/01/03/wpf-bitmapsource-and-gdi-bitmap-interop.aspx">Robert A. Wlodarczyk's Blog (MSFT) : WPF BitmapSource and GDI+ Bitmap Interop</a><br/>
+<a href="http://blogs.msdn.com/b/dwayneneed/archive/2008/06/20/implementing-a-custom-bitmapsource.aspx">Implementing A Custom BitmapSource - Presentation Source - Site Home - MSDN Blogs</a><br/>
+<br/>
+<h2>Windows Media Format</h2>
+<a href="http://windowsmedianet.sourceforge.net/about.html">WindowsMedia.NET Library - About</a> - access to Windows Media Format functionality from within .NET. Additionally, it provides definitions for the waveIn*, waveOut*, and MMIO* methods of the Windows Multimedia SDK.<br/>
+<a href="http://69.10.233.10/KB/audio-video/videosav.aspx">CodeProject: Video File Saving in Windows Media Video Format for the DirectX.Capture Class Library.</a><br/>
+<br/>
+<br/>
+<h2>gstreamer</h2>
+<a href="http://gstreamer.freedesktop.org/features/index.html">GStreamer: features</a><br/>
+<a href="http://code.google.com/p/ossbuild/">ossbuild - Open Source Software Build Environment - Google Project Hosting</a> - OSSBuild ("oh-ess-ess build") provides a build system that is compatible with the autotools and MS Visual Studio build environments. It is mainly to support GStreamer and its plugins for Windows (XP/Vista/7) and Linux environments.<br/>
+<a href="http://people.freedesktop.org/~wtay/">GStreamer RTSP server</a><br/>
+<a href="http://rtmpdump.mplayerhq.hu/">RTMPDump</a> - rtmpdump is a toolkit for RTMP streams. All forms of RTMP are supported, including rtmp://, rtmpt://, rtmpe://, rtmpte://, and rtmps://. Also includes rtmpsrv and rtmpsuck.<br/>
+<a href="http://gsvideo.sourceforge.net/">GSVideo</a> - A library by <a href="http://interfaze.info/">Andres Colubri</a> for the programming environment <a href="http://www.processing.org" target="_blank">processing</a>. (uses gstreamer)<br/>
+<br/>
+<br/>
+<br/>
+<h2>MeediOS</h2>
+(really belongs with my MythTV stuff, but is is video related...)<br/>
+<a href="http://www.meedios.com/">MeediOS - The HTPC app of the future</a><br/>
+<a href="http://sourceforge.net/projects/meedios/">sourceforge.net MeediOS</a> - MeediOS is and open source Home Theater application based on the closed source Meedio.<br/>
+<a href="http://www.meedios.com/">MeediOS - The HTPC app of the future</a><br/>
+<br/>
+<br/>
+<h2>animated gif</h2>
+I know it doesn't really belong on this page, but I don't want to move it, right now.<br/>
+<a href="http://www.lcdf.org/gifsicle/">Gifsicle: Command-Line Animated GIFs</a><br/>
+Too bad you have to install the Gimp GAP separate even in version 2.8.  I found that version 2.6 of the GAP worked for me.  Otherwise, you won't have a video menu.<br/>
+<iframe src="http://www.slideshare.net/slideshow/embed_code/3348730" width="427" height="356" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen> </iframe><br/>
+<a href="http://photocomix-resources.deviantart.com/art/GAP-2-6-for-Gimp-2-6-Windows-135464357">GAP-2.6 for Gimp 2.6-Windows by photocomix-resources on deviantART</a><br/>
+<a href="https://github.com/GNOME/gimp-gap">GitHub - GNOME/gimp-gap: GIMP Animation Package</a><br/>
+<br/>
+<br/>
+<h2>visual quality and sttuufff</H2>
+<a href="http://www.animemusicvideos.org/guides/avtech31/">A&amp;E's Technical Guides to All Things Audio and Video (v3)</a><br/>
+<a href="http://www.animemusicvideos.org/guides/avtech/avspostqual.html">AMV Post Production - Visual Quality</a> - Improving Visual Quality and Compressibility for Internet Encoding<br/>
+<a href="http://www.animemusicvideos.org/guides/avtech31/amvapp.html">AMV App</a> - basically just a package containing most of the software used in these above mentioned guides.<br/>
+<br/>
+<br/>
+<h2>blender vse</h2>
+<a href="http://blendervse.wordpress.com/2011/12/28/vse-hdr-quick-and-dirty-8bit/">VSE &amp; HDR, quick and dirty 8bit « Blender's VSE</a><br/>
+<br/>
+<br/>
+<h2>Kdenlive & Media Lovin</h2>
+<a href="http://www.kdenlive.org/">Kdenlive | Free and open source video editor for GNU/Linux, Mac OS X and FreeBSD</a><br/>
+<a href="http://www.mltframework.org/twiki/bin/view/MLT/">WebHome &lt; MLT &lt; MLT Wiki</a> - Media Lovin' Toolkit (MLT) is an open source multimedia framework, designed and developed for television broadcasting.<br/>
+<br/>
+<br/>
+<a href="http://graduateschool.vt.edu/slashdot.html?page=StoringDataInVideo">GSITWiki: Storing Data In Video</a> using <a href="https://code.google.com/p/zxing/">zxing - Multi-format 1D/2D barcode image processing library with clients for Android, Java - Google Project Hosting</a> and <a href="http://www.xuggle.com/xuggler">Xuggler</a> to store data within video.<br/>
+<br/>
+<br/>
+<h2>HTML 5 video support</h2>
+<a href="http://en.wikipedia.org/wiki/HTML5_video#Table">HTML5 video - Wikipedia</a><br/>
+<a href="http://diveintohtml5.info/video.html">Video - Dive Into HTML5</a><br/>
+I like to have videos autoplay, but I also understand how they quickly turn into an annoyance, much like a blink tag.  Most times, I think the user should have the ability to click the video to pause and restart play of the video. You can see my first HTML5 video post here: <a href="http://dave.thehorners.com/tech-talk/programming/459-android-programming">Android Programming - Dave Horner's Website</a>, Andy gives you a little wave.<br/>
+<a href="http://stackoverflow.com/questions/2988050/html5-audio-player-jquery-toggle-click-play-pause">html5 audio player - jquery toggle click play/pause? - Stack Overflow</a><br/>
+<a href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Using_HTML5_audio_and_video?redirectlocale=en-US&amp;redirectslug=Web%2FHTML%2FUsing_HTML5_audio_and_video#Controlling_media_playback">Using HTML5 audio and video - Web developer guide | MDN</a><br/>
+<br/>
+<br/>
+<a href="http://lav.io/2014/06/videogrep-automatic-supercuts-with-python/">Videogrep: Automatic Supercuts with Python – Sam Lavigne</a> - Videogrep searches through dialog in video files (using .srt subtitle tracks) and makes supercuts based on what it finds. <a href="https://github.com/antiboredom/videogrep">antiboredom/videogrep</a><br/>
+<a href="http://zulko.github.io/moviepy/">MoviePy — MoviePy documentation</a> - MoviePy is a Python module for script-based movie editing. It enables basic operations (cuts, concatenations, title insertions) to be done in a few lines, and can be used for advanced compositing and special effects. It can read and write to many formats, including animated GIFs.<br/>
+    <div style="border: 1px;">
+    Created: 2007-04-11 15:44:28
+    Modified: 2018-10-03 04:53:35
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+<a target="_blank" href="/tech-talk/programming/107-algorithms-patterns-and-things-cs"><canvas id="c" width="170" height="172" title="conway glider"></canvas></a><br/>
+L:<span id=loop>0</span> I:<span id=iteration>0</span> A:<span id=active>0</span>
+<script>
+/** Conway's Game of Life.
+ * ankr started; modified by horner.
+ */
+var c=document.getElementById('c');
+var canvas = c.getContext('2d'),
+    cells = [];
+var drawRate=1200;
+var iter=0;
+var l=0;
+init();
+draw();
+
+function setSpan(name,value)
+{
+var span = document.getElementById(name);
+while( span.firstChild ) {
+    span.removeChild( span.firstChild );
+}
+span.appendChild(document.createTextNode(value));
+}
+function init() {
+setSpan('loop',l);
+    for (var i=0; i<c.width; i++) {
+        cells[i] = [];
+        for (var j=0; j<c.height; j++) {
+            cells[i][j] = 0;
+        }
+    }
+    var gliderT=[
+                [3, 1], [3,3], [2,3], [4, 2], [4, 3]
+               ];
+    var reflectorT=[
+                [0, 0], [0,1], [1,0], [1, 2], [2, 2]
+               ];
+    var sT=[
+                [0, 2], [0,3], [1,2],[2,0],[2,2],[3,0],[3,1]
+               ];
+    var boxT=[
+                [0, 0], [0,1], [1,1], [1,0]
+               ];
+
+    gliderT.forEach(function(point) {
+        cells[point[0]-1][point[1]-1] = 1;
+    });
+    gliderT.forEach(function(point) {
+        cells[point[0]+7][point[1]+7] = 1;
+    });
+    gliderT.forEach(function(point) {
+        cells[point[0]+3][point[1]+3] = 1;
+    });
+    gliderT.forEach(function(point) {
+        cells[point[0]+12][point[1]+12] = 1;
+    });
+if(l>1)  {
+var maxX=12;
+    var randomX=Math.floor(Math.random() * maxX);
+    var randomY=Math.floor(Math.random() * maxX);
+    sT.forEach(function(point) {
+        cells[point[0]+randomX][point[1]+randomY] = 1;
+    });
+    randomX=Math.floor(Math.random() * maxX);
+    randomY=Math.floor(Math.random() * maxX);
+    boxT.forEach(function(point) {
+        cells[point[0]+randomX][point[1]+randomY] = 1;
+    });
+    randomX=Math.floor(Math.random() * maxX);
+    randomY=Math.floor(Math.random() * maxX);
+    reflectorT.forEach(function(point) {
+        cells[point[0]+randomX][point[1]+randomY] = 1;
+    });
+}
+
+}
+
+function whos_alive() {
+    
+    var result = [];
+    var active= 0;
+    
+    /**
+     * Return amount of alive neighbours for a cell
+     */
+    function _countNeighbours(x, y) {
+        var amount = 0;
+        
+        function _isFilled(x, y) {
+            return cells[x] && cells[x][y];
+        }
+        
+        if (_isFilled(x-1, y-1)) amount++;
+        if (_isFilled(x,   y-1)) amount++;
+        if (_isFilled(x+1, y-1)) amount++;
+        if (_isFilled(x-1, y  )) amount++;
+        if (_isFilled(x+1, y  )) amount++;
+        if (_isFilled(x-1, y+1)) amount++;
+        if (_isFilled(x,   y+1)) amount++;
+        if (_isFilled(x+1, y+1)) amount++;
+        
+        return amount;
+    }
+    
+    cells.forEach(function(row, x) {
+        result[x] = [];
+        row.forEach(function(cell, y) {
+            var alive = 0,
+                count = _countNeighbours(x, y);
+            
+            if (cell > 0) {
+                alive = count === 2 || count === 3 ? 1 : 0;
+            } else {
+                alive = count === 3 ? 1 : 0;
+            }
+            if(alive) active++;
+            result[x][y] = alive;
+        });
+    });
+    
+    cells = result;
+    setSpan('active',active);
+    draw();
+}
+function draw() {
+    if(iter>60) { iter=0; l++; init(); }
+    else if(iter>10 && iter%20==0) {
+    if(drawRate>10) { drawRate-=10; }
+    var gliderT=[
+                [3, 1], [3,3], [2,3], [4, 2], [4, 3]
+               ];
+
+     gliderT.forEach(function(point) {
+        cells[point[0]][point[1]] = 1;
+    });
+    }
+setSpan('iteration',iter);
+    canvas.clearRect(0, 0, c.width, c.height);
+    cells.forEach(function(row, x) {
+        row.forEach(function(cell, y) {
+            canvas.beginPath();
+            if (cell) {
+                if(l%2==0) {
+                canvas.rect(x*8, y*8, 8, 8);
+                canvas.fillStyle = 'black';
+                } else {
+                canvas.beginPath();
+                canvas.arc(x*8, y*8,3 , 0, 2 * Math.PI, false);
+                canvas.fillStyle = 'black';
+                }
+                canvas.fill();
+                canvas.stroke();
+            } else {
+                if(l%2==0){
+                canvas.strokeStyle = '#e1e1e1';
+                canvas.rect(x*8, y*8, 8, 8);
+                canvas.stroke();
+                }
+            }
+        });
+    });
+    iter++;
+    setTimeout(function() {whos_alive();}, drawRate);
+}
+</script>
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

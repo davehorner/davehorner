@@ -1,0 +1,351 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>IPTABLES - a real mans firewall</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/linux-unix-and-friends/">linux-unix-and-friends</a>
+    <h1>IPTABLES - a real mans firewall</h1>
+   Update Mar-25-2007: Code can now be downloaded from IPOpener package under the dynhosts folder. (some ppl have complained about copy/paste problems)<br/>
+IPOpener is available [<a href="/tech-talk/projects-research/ipopener">here</a>]
+<hr>
+There are many reason to like iptables.  For one, it is free and you can modify it.  But mostly I like it because I can write scripts to modify the rules dynamically.  Dynamic firewall rules give you A LOT of power.<br />  <br />  For instance, I want to block everyone from access the port for ssh on my box.  But I DO want to be able to access it from my dynamic IP address @ my home box.  To do this, I created an account with a dynamic dns service  provider (someone like <a target="_blank" href="http://www.dyndns.com">http://www.dyndns.com</a>) that will resolve a name to my home machine.  My home machine will tell the dynamic dns service what my home machine's external ip address is.<br />  <br />  Now I need to add rules on my firewall for the hostname.  However, since iptables does a single lookup when adding rules, you need a script to repeatedly lookup the IP for the home machine.  Here are some script to do such a thing.<br />  <br />  The script below lookups up a hostname's ip address, caches it to a directory, and adds a rule to allow it.  When the script observes that the host's ip address has changed, the old ip is remove from iptables and the new one is added.<br />
+<pre>
+#!/bin/bash
+# filename: firewall-dynhosts.sh
+#
+# A script to update iptable records for dynamic dns hosts.
+# Written by: Dave Horner (http://dave.thehorners.com)
+# Released into public domain.
+#
+# Run this script in your cron table to update ips.
+#
+# You might want to put all your dynamic hosts in a sep. chain.
+# That way you can easily see what dynamic hosts are trusted.
+#
+# create the chain in iptables.
+# /sbin/iptables -N dynamichosts
+# insert the chain into the input chain @ the head of the list.
+# /sbin/iptables -I INPUT 1 -j dynamichosts
+# flush all the rules in the chain
+# /sbin/iptables -F dynamichosts
+
+HOST=$1
+HOSTFILE="/root/dynhosts/host-$HOST"
+CHAIN="dynamichosts"  # change this to whatever chain you want.
+IPTABLES="/sbin/iptables"
+
+# check to make sure we have enough args passed.
+if [ "${#@}" -ne "1" ]; then
+    echo "$0 hostname"
+    echo "You must supply a hostname to update in iptables."
+    exit
+fi
+
+# lookup host name from dns tables
+IP=`/usr/bin/dig +short $HOST | /usr/bin/tail -n 1`
+if [ "${#IP}" = "0" ]; then
+    echo "Couldn't lookup hostname for $HOST, failed."
+    exit
+fi
+
+OLDIP=""
+if [ -a $HOSTFILE ]; then
+    OLDIP=`cat $HOSTFILE`
+    # echo "CAT returned: $?"
+fi
+
+# has address changed?
+if [ "$OLDIP" == "$IP" ]; then
+    echo "Old and new IP addresses match."
+    exit
+fi
+
+# save off new ip.
+echo $IP>$HOSTFILE
+
+echo "Updating $HOST in iptables."
+if [ "${#OLDIP}" != "0" ]; then
+    echo "Removing old rule ($OLDIP)"
+    `$IPTABLES -D $CHAIN -s $OLDIP/32 -j ACCEPT`
+fi
+echo "Inserting new rule ($IP)"
+`$IPTABLES -A $CHAIN -s $IP/32 -j ACCEPT`
+</pre>
+
+<br /> 
+ <br /> 
+Now all you have to do to use this script is run:<br/>
+<pre>
+firewall-dynhosts.sh theremotename.dyndns.org
+</pre>
+This would insert a rule for theremotename.dyndns.org into your firewall.<br/>
+<br/>
+I usally create a large script of trusted ddns hosts that I setup to be called many times throughout the day(using cron.d).  I do this using cron.d in the /etc/cron.d.<br />
+<pre>
+# Run the dynamic firewall script every 5 minutes
+*/5 * * * * root /root/dynamic-firewall > /dev/null  2>&
+</pre><br />
+Done!  Now you have a firewall that adds rules dynamically every five minutes so your trusted friends with dynamic IP addresses can access the machine.<br />  <br />
+<br/>
+<h2>MyDNS Dynamic Hosts</h2>
+If you are looking to actually broadcast the ip change to others...and you have mydns in place... you can use the following.<br/>
+<a href="http://www.miljan.org/wiki/index.php?title=Simple_Dynamic_DNS_with_MyDNS">Simple Dynamic DNS with MyDNS - Blink</a> - provides a web php script for updating mydns records from a wget shell script on the remote server.<br/>
+<br/>
+<h2>Userspace filtering with libipq and iptables</h2>
+<a href="http://www.cs.princeton.edu/~nakao/libipq.htm">Manpage of LIBIPQ</a><br/>
+<a href="http://www.imchris.org/projects/libipq.html">Quick Intro to libipq</a><br/>
+<a href="http://www.superhac.com/?cat=4">SuperHac.com » LIBIPQ</a> - a few articles about libipq and example C code.<br/>
+<a href="http://michael.toren.net/slides/lkm-alternatives/slide016.html">iptables libipq: DNS payload inspection</a> - using libipq and perl's Net::DNS::Packet module to perform payload inspection.<br/>
+<a href="http://4j.blogspot.com/2007/11/passing-packets-from-kernel-land-to.html">4J: Passing packets from kernel land to userland - libipq and Perl</a><br/>
+<a href="http://www.0xdecafbad.com/?p=140">Magic Jack SIP auth proxy | 0xdecafbad.com</a><br/>
+<br/>
+<br/>
+<a href="http://paulsuela.wordpress.com/2009/05/29/iptables-auto-allow-user-using-dyndns-org-source-dns/">iptables – auto-allow user using dyndns.org source dns « Papa Delta Sierra</a> - blog of paul suela, thanks for the link!<br/>
+<a href="http://ryanbowlby.com/2009/10/12/dyndns-with-iptables/comment-page-1/#comment-15">DynDNS with iptables | www.ryanbowlby.com</a> - thank you to Joe and ryanbowlby blog for mention and link!<br/>
+<a href="http://notepad2.blogspot.com/2012/06/shell-script-update-ufw-rules-for-hosts.html?utm_source=feedburner&amp;utm_medium=feed&amp;utm_campaign=Feed%3A+WilsonsNotes+%28Wilson%27s+Notes%29&amp;utm_content=Google+Reader">shell script: update ufw rules for the hosts with dynamic ip addresses</a><br/>
+<a href="http://www.devincollier.com/automatically-update-iptables-on-ddwrt-with-dynamic-ip-address/">Automatically Update IPTables on DDWRT with Dynamic IP Address | DevinCollier.com</a><br/>
+<br/>
+<br/>
+<a href="http://lubos.rendek.org/remove-all-iptables-prerouting-nat-rules/">Remove all iptables PREROUTING nat rules - Lubos Rendek</a><br/>
+<pre>
+for i in $( iptables -t nat --line-numbers -L | grep ^[0-9] | awk '{ print $1 }' | tac ); do echo $i; iptables -t nat -D POSTROUTING $i; done
+iptables --flush
+iptables -L -t nat --line-numbers
+</pre>
+    <div style="border: 1px;">
+    Created: 2005-04-25 04:21:35
+    Modified: 2017-10-13 15:48:54
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+<a href="javascript:var%20s%20=%20document.createElement('script');s.type='text/javascript';document.body.appendChild(s);s.src='/eggs/asteroids.min.js';void(0);" id="secret">destory this webpage; if you will.</a>
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

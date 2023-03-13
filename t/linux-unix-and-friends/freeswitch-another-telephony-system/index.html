@@ -1,0 +1,325 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>Freeswitch - carrier grade telephony system.</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/linux-unix-and-friends/">linux-unix-and-friends</a>
+    <h1>Freeswitch - carrier grade telephony system.</h1>
+   <a href="http://www.freeswitch.org/">Freeswitch</a><br/>
+FreeSWITCH gets a long nice with a lot of different languages.<br/>
+FreeSWITCH is well written, I like the projects style and I'm impressed with the state of the cross platform development.  I've built it on windows, linux, and mac.  I'm sure I'll be doing it on others too....<br/>
+<br/>
+BTW: if you haven't already, read the <a href="http://wiki.freeswitch.org/wiki/Main_Page">FreeSWITCH Wiki</a><br/>
+<br/>
+<a href="http://blog.krisk.org/2014/06/verto-webrtc-and-freeswitch-get-hitched.html">Not Just AstLinux Stuff: Verto - WebRTC and FreeSWITCH Get Hitched</a><br/>
+<a href="https://webrtc.freeswitch.org/verto/verto.html#page-main">FreeSWITCH Verto Demo</a><br/>
+To checkout the source you'll want to do a:<br/>
+<pre>
+git clone https://stash.freeswitch.org/scm/fs/freeswitch.git freeswitch.git
+export CFLAGS="-g -ggdb"
+export MOD_CFLAGS="-g -ggdb"
+./bootstrap.sh
+./configure
+make
+make installall
+</pre>
+<br/>
+If I am doing an update:<br/>
+<pre>
+make current
+</pre>
+If I am newly building, remember to run bootstrap<br/>
+<pre>
+./bootstrap
+./configure
+make installall
+</pre>
+<br/>
+<a href="http://wiki.freeswitch.org/wiki/Mod_conference">Mod conference - FreeSWITCH Wiki</a><br/>
+<a href="http://wiki.freeswitch.org/wiki/Mod_event_socket">Mod event socket - FreeSWITCH Wiki</a><br/>
+<br/>
+<br/>
+<br/>
+<h2>Web Interfaces</h2>
+<a href="http://www.freepbx.org/">FreePBX | FreePBX</a> - Asterisk and FreeSWITCH support!<br/>
+<br/>
+<br/>
+<h2>Jabber XMPP and dingaling with FreeSWITCH</h2>
+<a href="http://jajahdevblog.com/tzah/2009/02/how-to-run-freeswitch-mod_dingaling-on-windows/">Tzah 2.0 » Blog Archive » How to run Freeswitch mod_dingaling on windows</a><br/>
+<br/>
+<a href="http://wiki.freeswitch.org/wiki/Debugging_Freeswitch">Debugging Freeswitch - FreeSWITCH Wiki</a><br/>
+<br/>
+<br/>
+<h2>Python and FreeSWITCH</h2>
+<a href="http://code.google.com/p/eventsocket/">eventsocket - Project Hosting on Google Code</a> - twisted reactor framework for python.<br/>
+Inside libs/esl make pymod, it is a SWIG wrapper for the c ESL client.  I've used this too and it works fine.<br/>
+<br/>
+<br/>
+<br/>
+<h2>Ruby/Rails and Freeswitch</h2>
+<a href="http://code.google.com/p/telegraph/wiki/Main">Main - telegraph - Welcome to the Telegraph Documentation- What Lies Between Voice and Rails - Project Hosting on Google Code</a><br/>
+<a href="http://developer.idapted.com/plugins/telegraph">Idapted Developer's Blog Telegraph</a> - Rails MVC voice applications.<br/>
+<a href="http://www.liverpie.com/index.html">Liverpie 0.5</a> - Liverpie is a FreeSWITCH proxy which accepts and posts FreeSWITCH commands and results to your webapps.  The requests contain events coming from FreeSWITCH and the responses from the webapp should contain FreeSWITCH commands, and expected events. (it uses YAML)<br/>
+<a href="http://adhearsion.com/">Adhearsion: Open-Source Telephony Development Framework</a><br/>
+<br/>
+<br/>
+<h2>sipML5 HTML5 SIP client</h2>
+<a href="http://www.sipml5.org/">sipML5 - The world's first open source HTML5 SIP client</a><br/>
+<a href="https://code.google.com/p/sipml5/">sipml5 - The world's first HTML5 SIP client - Google Project Hosting</a><br/>
+<a href="https://webrtc.freeswitch.org/sipml5/">FreeSWITCH sipML5 Demo</a><br/>
+<a href="http://www.webrtc2sip.org/">webrtc2sip - Smart SIP and Media Gateway to connect WebRTC endpoints</a><br/>
+<br/>
+<a href="https://www.bionicspirit.com/blog/2009/02/20/tips-for-creating-voip-dialer.html">FreeSWITCH - Tips for Creating a Dialer</a> - javascript scripting<br/>
+    <div style="border: 1px;">
+    Created: 2006-07-20 16:47:19
+    Modified: 2014-08-02 04:35:06
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<a href="http://en.wikipedia.org/wiki/E_%28mathematical_constant%29" target=_blank>$$e = \sum_{n=0}^\infty \frac{1}{n!}$$</a>
+
+
+satis dictum.
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

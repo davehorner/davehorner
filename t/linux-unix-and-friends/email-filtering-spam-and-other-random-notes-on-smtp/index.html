@@ -1,0 +1,338 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>Email filtering, spam, and other random notes on SMTP.</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/linux-unix-and-friends/">linux-unix-and-friends</a>
+    <h1>Email filtering, spam, and other random notes on SMTP.</h1>
+   It is amazing to me how complex SMTP can be at times.  Simple mail gets complicated due to the unending arms race between the spammers and the users.<br/>
+<iframe width="560" height="315" src="//www.youtube.com/embed/JENdgiAPD6c" frameborder="0" allowfullscreen></iframe><br/>
+Email hates you and wants you to be unhappy. Compatibility is favored over elegance.<br/>
+<br/>
+<h2>Mail server prerequisites</h2>
+Make sure that the IP of your server resolves back to your domain name.  If you don't then most mail servers will flag your mail as spam.  This is something I always forget when setting up a new server...<br/>
+So you should be able to do an nslookup yourname.com and get an IP, then take that IP and do an nslookup IP.  You should get your name back.<br/>
+<br/>
+<h2>SPF - Sender Policy Framework</h2>
+<a href="http://www.openspf.org/Introduction">SPF: Introduction</a><br/>
+<a href="http://old.openspf.org/wizard.html?mydomain=dev.tecdev.com&a=yes&ptr=no&a_colon=regular+hostnames&mx_colon=domain+names&ip4_colon=IP+addresses&include=example.com&record_so_far=%22v%3Dspf1+a%22&use_built_from_args=1">The SPF Setup Wizard</a> - helps you build SPF txt records.<br/>
+<br/>
+<h2>Qmail</h2>
+Lately I setup a Qmail server using CentOS:
+I used the following directions and I was very pleased. (btw: qmail-showctl is a nice program to view settings for qmail.)<br />
+<a href="http://www.qmail.org/top.html">qmail: Second most popular MTA on the Internet</a><br/>
+<a href="http://qvcs-guide.sourceforge.net/qvcs-guide.html#id2881812">POP-Toaster using Qmail, Vmailmgr, Courier, and Squirrelmail</a><br/>
+<a href="http://untroubled.org/vmailmgr/">VMailMgr</a><br/>
+<a href="http://dev.publicshout.org/qmrtg/index.html">QMRTG - a qmail activity analyzer</a><br/>
+<a href="http://www.chrishardie.com/tech/qmail/qmail-antispam.html">Chris Hardie - qmail Anti-Spam HOWTO</a><br/>
+<a href="http://sourceforge.net/projects/qmhandle/">SourceForge.net: qmHandle - a tool for the qmail queue</a><br/>
+<a href="http://jeremy.kister.net/howto/dk.html">DomainKeys with qmail Howto</a><br/>
+<a href="http://www.saout.de/misc/spf/">qmail SPF (Sender Policy Framework) patch</a><br/>
+<br/>
+<br/>
+<h2>Exim</h2>
+<a href="http://www.humans-enabled.com/2012/04/easy-mail-by-smarthost-smtp-server-in.html">Linux + GNU = Humans Enabled: Easy 'mail by smarthost' SMTP server in Ubuntu 12.04 GNU/Linux</a> - dpkg-reconfigure exim4-config<br/>
+<br/>
+<br/>
+<h2>Postfix</h2>
+<a href="http://www.howtoforge.org/virtual-users-and-domains-postfix-courier-mysql-fedora8">Virtual Users And Domains With Postfix, Courier And MySQL (Fedora 8) | HowtoForge - Linux Howtos and Tutorials</a><br/>
+<a href="http://www.opensourcehowto.org/how-to/mysql/mysql-users-postfixadmin-postfix-dovecot--squirrelmail-with-userprefs-stored-in-mysql.html">OpenSourceHowTo.org - MySQL users, PostfixAdmin, Postfix, Dovecot & SquirrelMail with userprefs stored in mySQL</a><br/>
+<a href="http://johnny.chadda.se/2007/04/15/mail-server-howto-postfix-and-dovecot-with-mysql-and-tlsssl-postgrey-and-dspam/">Johnny Chadda .se : Mail server HOWTO - Postfix and Dovecot with MySQL and TLS/SSL, Postgrey and DSPAM</a><br/>
+<a href="http://directory.fedoraproject.org/wiki/Howto:Postfix">Howto:Postfix - Fedora Directory Server</a><br/>
+<a href="http://postfix.wiki.xs4all.nl/index.php?title=Main_Page">Postfix Wiki</a><br/>
+<a href="http://www.postfix.org/BACKSCATTER_README.html">Postfix Backscatter Howto</a><br/>
+<a href="http://postfixadmin.sourceforge.net/">Postfix Admin - Web based administration interface</a><br/>
+<a href="http://www.postfix.org/MYSQL_README.html">Postfix MySQL Howto</a><br/>
+<a href="http://www.labcoding.com/linux/installing-a-postfix-mailserver-on-centos-5/">Labcoding » Blog Archive » Installing a Postfix mailserver on CentOS 5</a><br/>
+<br/>
+<br/>
+<h2>SPAM filtering</h2>
+SPAM.  SPAM.  SPAM.  Why do you fill my inbox so?  Emails without valuable payload.  The words have no meaning for you or me.  Only to serve as an annoyance for the economical gain of another.  The spammers are an intelligent bunch.  They know about filtering too.  So there is a constant game of cat and mouse.    One day it will all go away and I will think of you no more.<br/>
+<a href="http://www.projecthoneypot.org/about_us.php">About Us | Project Honey Pot</a><br/>
+<br/>
+<br/>
+<h2>Challenge-response and Email passwords</h2>
+<a href="http://tmda.net/">Tagged Message Delivery Agent (TMDA) Homepage</a><br/>
+<a href="http://www.templetons.com/brad/spam/challengeresponse.html">Proper principles for Challenge/Response anti-spam systems</a><br/>
+<a href="http://taint.org/2006/12/14/130136a.html">taint.org: Justin Masonâ??s Weblog Â» An anti-challenge-response Xmas linkfest</a><br/>
+<br/>
+<h2>Mail filtering (tagging/proc stuff)</h2>
+<span class="bodytext">Here are four very good articles on mail filtering by Brian Hatch on SecurityFocus.</span><br />
+<span class="bodytext"><a href="http://www.securityfocus.com/infocus/1593">Filtering E-Mail with Postfix and Procmail, Part One</a><br />
+</span><span class="bodytext"><a href="http://www.securityfocus.com/infocus/1598">Filtering E-Mail with Postfix and Procmail, Part Two</a><br />
+</span><span class="bodytext"><a href="http://www.securityfocus.com/infocus/1606">Filtering E-Mail with Postfix and Procmail, Part Three</a>  <br />
+</span><span class="bodytext"><a href="http://www.securityfocus.com/infocus/1611">Filtering E-Mail with Postfix and Procmail, Part Four</a><br />
+<br />
+</span>
+<br/>
+Another good looking project is <a href="http://dspam.nuclearelephant.com/index.shtml#screenshots">DSPAM</a><br/>
+
+<a href="http://a-s-k.sourceforge.net/index.html">Active Spam Killer</a><br/>
+<a href="http://www.tech-recipes.com/google_tips878.html">Check Google E-Mail (Gmail) from an RSS Feed - Tech-Recipes.com</a><br/>
+
+<h2>DomainKeys</h2>
+<a href="http://en.wikipedia.org/wiki/DomainKeys">DomainKeys - Wikipedia, the free encyclopedia</a><br/>
+<a href="http://domainkeys.sourceforge.net/policycheck.html">DomainKey Policy Record Tester</a><br/>
+<a href="http://www.jkurtzman.com/blog/2008/06/setting-up-domainkeys-on-centos">Setting up DomainKeys on Centos | Josh's Blog</a><br/>
+<a href="http://www.abuse.net/relay.html">Mail relay testing</a><br/>
+<a href="http://www.spamresource.com/2007/02/backscatter-what-is-it-how-do-i-stop-it.html">Spam Resource: Backscatter: What is it? How do I stop it?</a><br/>
+<a href="http://www.backscatterer.org/">Backscatterer.org</a> - backscatter ip tester<br/>
+<a href="http://www.openspf.org/Implementations">SPF: Implementations</a><br/>
+<a href="http://www.openspf.org/">SPF: Project Overview</a><br/>
+<a href="http://www.2realms.com/info/stopspamwithspf">Email Help, Backscatter, and How to Stop Spam Spoofing with SPF â?? 2Rrealms.com</a><br/>
+<br/>
+<br/>
+<h2>graphing/analysis</h2>
+<a href="http://mailgraph.schweikert.ch/">Mailgraph Homepage</a> - simple mail statistics RRDtool frontend for Postfix and Sendmail.<br/>
+<a href="http://www.codeproject.com/KB/cs/NHawk.aspx">CodeProject: "C# Hooks For RRDtool".</a><br/>
+<br/>
+<a href="http://rimuhosting.com/support/settingupemail.jsp?mta=postfix&t=local#local">Setting Up Email: A Postfix/Dovecot HOWTO - RimuHosting</a><br/>
+<a href="http://www.dovecot.org/">Dovecot</a><br/>
+<br/>
+<br/>
+<h2>Google hosted / gmail</h2>
+<a href="http://marklyon.org/gmail/download.htm">Mark Lyon's GMail Loader (GML) - Import Your Mail into GMail</a><br/>
+<a href="https://gist.github.com/sshtmc/3952294">Ubuntu sendmail using smtp.gmail.com</a><br/>
+<br/>
+<br/>
+<h2>cmdline mail stmp clients</h2>
+<a href="https://code.google.com/p/mailsend/">mailsend - Send mail via SMTP protocol from command line - Google Project Hosting</a> - open source written in ANSI c. MacOSX,Linux,Windows. <a href="https://code.google.com/p/mailsend/wiki/examples">examples - mailsend</a><br/>
+<a href="http://www.blat.net/">Blat - Windows Command Line SMTP Mailer</a> - Blat is a Windows (32 & 64 bit) command line utility that sends eMail using SMTP or post to usenet using NNTP. Small,Fast,Easy to use,RFC Compliant. <a href="http://sourceforge.net/projects/blat/">sforge hosted Blat</a><br/><br/>
+    <div style="border: 1px;">
+    Created: 2005-05-31 01:47:51
+    Modified: 2013-11-29 19:00:02
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+left side represents the beginning of mathematics; the right side represents the mysteries of infinity.<br/>
+1=0.999...
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

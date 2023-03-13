@@ -1,0 +1,319 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>Text editors keyboard shortcuts macros and appreciation for the most useful app on your machine.</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/programming/">programming</a>
+    <h1>Text editors keyboard shortcuts macros and appreciation for the most useful app on your machine.</h1>
+   I apparently have a thing for text editors.<br/>
+<a href="https://dave.thehorners.com/tech-talk/programming/480-text-hex-editors">Text HEX editors - Dave Horner's Website</a><br/>
+<a href="https://dave.thehorners.com/tech-talk/programming/227-rectangular-selection-or-column-mode-the-best-text-editor-feature-ever">Rectangular selection or column mode - the best text editor feature ever. - Dave Horner's Website</a><br/>
+<a href="https://dave.thehorners.com/tech-talk/random-tech/402-jedit-programming-text-editor">jEdit - programming text editor - Dave Horner's Website</a><br/>
+<a href="https://dave.thehorners.com/tech-talk/unix-linux-bsd-osx-etc/97-vim-improved-qvisual-editorq">ViM - IMproved "visual editor" - Dave Horner's Website</a><br/>
+<br/>
+It isn't about any particular editor specifically.  Just all of them, the idiosyncrasies of each.  As computer users, we're forced to learn where each of them fall down when working with different types of data, or trying to extract certain data quickly.  The fact that notepad has shipped pretty much unchanged since windows 3.1 has always bothered me.  The fact, that wordpad is a better editor than notepad when reading unix/mac formatted files, is something that we all shouldn't have to learn on a base install of our favorite OS.  (not to mention, Ctrl-G, doesn't work with word wrap enabled) Why hasn't notepad been replaced with something like Notepad++, or heck the isolated visual studio shell?  I don't know. <strong>We install what we need.</strong><br/>
+<br/>
+<br/>
+<h2>and then there's some editors we don't even need to install</h2>
+hosted, or host your own online text editor.<br/>
+<a href="https://c9.io/site/pricing/">Sign up for Standard or Premium! | Cloud9 IDE | Online IDE – Your code anywhere, anytime</a><br/>
+<a href="http://ace.c9.io/#nav=about">Ace - The High Performance Code Editor for the Web</a><br/>
+<a href="http://etherpad.org/">Etherpad</a> - <a href="https://github.com/ether/etherpad-lite">ether/etherpad-lite</a><br/>
+<br/>
+<br/>
+<h2>Common keyboard textual shortcuts</h2>
+Move to start of previous word. – Ctrl+Left Arrow<br/>
+Move to start of next word. – Ctrl+Right Arrow<br/>
+Delete previous word. – Ctrl+Backspace<br/>
+Delete next word – Ctrl+Delete<br/>
+<br/>
+<br/>
+<h2>Notepad can't goto line when wordwrap is enabled.</h2>
+No really.  Apparently the lines wrap, and that math is hard or something.<br/>
+<br/>
+<h2>VS2013 introduces ALT+Up and ALT+down to shift lines up and down</h2>
+<a href="http://www.kunal-chowdhury.com/2013/08/new-in-visual-studio-2013-code-shifting.html">Do you know that you can easily shift code lines in #VisualStudio 2013?</a><br/>
+<iframe width="420" height="315" src="//www.youtube.com/embed/_HmLqWk6qVo" allowfullscreen></iframe><br/>
+<br/>
+<h2>Atom</h2>
+<a href="https://atom.io/">Atom</a> <a href="http://www.elijahmanor.com/github-atom-packages/">Recommended GitHub Atom Packages for Web Developers</a><br/>
+<br/>
+<br/>
+<h2>emacs</h2>
+emacs is an environment and world unto itself.  It is more than just a text editor.<br/>
+<a href="http://orgmode.org/">Org mode for Emacs – Your Life in Plain Text</a> - Org mode is for keeping notes, maintaining TODO lists, planning projects, and authoring documents with a fast and effective plain-text system.<br/>
+<a href="http://www.emacswiki.org/emacs/">EmacsWiki: Site Map</a><br/>
+<a href="http://readline.kablamo.org/emacs.html">Readline Cheat Sheet</a> - Emacs editing mode, you could man readline, or man bash and search ^READLINE but this cheat sheet is so much more pretty.<br/>
+<a href="http://www.emacswiki.org/emacs/MultiTerm">EmacsWiki: Multi Term</a> - MultiTerm is a mode based on term.el, for managing multiple terminal buffers in Emacs.<br/>
+<a href="http://aquamacs.org/">Aquamacs: Emacs for Mac OS X</a> - Ctrl-H t built in tutorial.<br/>
+<a href="http://howardism.org/">Howardism: The Thoughts of Howard Abrams</a><br/>
+<a href="http://ergoemacs.org/">ErgoEmacs</a> ErgoEmacs is a modernized version of emacs. It improves emacs's difficult keyboard shortcuts, menus, outdated terminologies, and with many more added packages.<br/>
+<a href="http://www.emacswiki.org/emacs/Evil">EmacsWiki: Evil</a> - Evil is an extensible vi layer for Emacs. It provides Vim features like Visual selection and text objects, and is the successor to Vimpulse and vim-mode.<br/>
+<br/>
+<br/>
+<h2>Multiple Cursor || good selection and input tools</h2>
+Most people credit SublimeText with best or most well known "Multiple Cursor" support, the feature is very similar to <a href="https://dave.thehorners.com/tech-talk/programming/227-rectangular-selection-or-column-mode-the-best-text-editor-feature-ever">Rectangular selection or column mode - the best text editor feature ever.</a>, but having sparse insert entry is pretty cool.<br/> 
+<a href="https://www.sublimetext.com/docs/2/multiple_selection_with_the_keyboard.html">Multiple Selection with the Keyboard - Sublime Text 2 Documentation</a><br/>
+<a href="https://github.com/magnars/multiple-cursors.el">magnars/multiple-cursors.el</a> - <br/>
+<a href="http://emacsrocks.com/e13.html">Emacs Rocks!</a> - Episode 13: multiple-cursors<br/>
+<iframe width="560" height="315" src="//www.youtube.com/embed/jNa3axo40qM?rel=0" allowfullscreen></iframe>
+<a href="http://blog.jetbrains.com/idea/2014/03/intellij-idea-13-1-rc-introduces-sublime-text-style-multiple-selections/">IntelliJ IDEA 13.1 RC Introduces Sublime Text Style Multiple Selections | JetBrains IntelliJ IDEA Blog</a><br/>
+<a href="https://docs.c9.io/multiple_cursors.html">Multiple Cursors | Cloud9 User Documentation</a> - Ctrl-Alt Selection &gt; Multiple Selections<br/>
+<a href="http://blog.jetbrains.com/ruby/2014/03/whats-mining-multiple-cursors-and-selection/">What’s Mining: Multiple Cursors and Selection | JetBrains RubyMine Blog</a><br/>
+<a href="http://blog.brackets.io/2014/04/15/brackets-0-38-release-multiple-cursors/">Brackets 0.38 Release (Multiple cursors) – Brackets Blog</a><br/>
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+<div class="g-post" data-href="https://plus.google.com/108279965103494223859/posts/JnNY3jnz3pn"></div>
+    <div style="border: 1px;">
+    Created: 2013-08-29 15:58:24
+    Modified: 2014-07-28 23:51:50
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+\begin{bmatrix} 1 & 0 & \ldots & 0 \\
+                0 & 1 & 0 & \vdots \\
+                \vdots & 0 & \ddots & 0\\
+                0 & \ldots &  0 & 1_{n}
+\end{bmatrix}
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

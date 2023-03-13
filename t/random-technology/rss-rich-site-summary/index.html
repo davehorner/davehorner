@@ -1,0 +1,366 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>RSS Rich Site Summary</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/random-technology/">random-technology</a>
+    <h1>RSS Rich Site Summary</h1>
+   RSS Rich Site Summary<br/>
+<a href="http://en.wikipedia.org/wiki/RSS">RSS - Wikipedia, the free encyclopedia</a><br/>
+<br/>
+<br/>
+RSS (and this website) have become the way in which I process information on the web.  For a long time, I have maintained a list of feeds within Google reader.  When browsing the web, if I find a website interesting; I will look for an RSS feed so that I can store off that url for future use.  I don't often read the articles that come out of my reader.  It is more a <a href="http://en.wikipedia.org/wiki/Hansel_and_Gretel">Hansel and Gretel</a> scheme, where I store off something to remind me of my prior visit.  Tagging the feed with related words provides a word map over the links.<br/>
+<br/>
+So what am I left with.  A notice of termination.  A OPML export. (hey, I'm grateful to have the data available I suppose)<br/>
+When I began using Google Reader long ago, I thought I was being like Hansel laying a trail of white pebbles.  Something lasting...but as of July 15th 2013 the data won't be available through takeout anymore.  They don't even archive the data for more than a year?  Breadcrumbs indeed.<br/>
+<br/>
+So what do I do?  Export my data and send it all over the internet of course.  Now I've got my feeds imported within multiple external rss readers.  Each of them importing partial information, some of the feeds don't make it through using each of the external services I've tried.  Or the reader wants to be something more than what I want.  I just want a database of feeds with word association.  Reading is a secondary goal.<br/>
+<br/>
+Round tripping the data from import to export was important to me, as going through this loss of service has caused a bit of frustration.  Many of the services do not provide export...making the service a no go from the get go.<br/>
+<br/>
+<br/>
+I'm currently interested in Tiny-Tiny-RSS, the import was successful, with some of the feeds and tags not showing up.  Trying to validate the import and find the discrepancies from reader's subscriber.xml export....<br/>
+<br/>
+<br/> 
+<h2>RSS OPML parsers readers and apis</h2>
+<a href="http://dev.opml.org/">OPML Outline Processor Markup Language</a> - OPML an XML-based format that allows exchange of outline-structured information between applications running on different operating systems and environments.<br/>
+<a href="http://home.opml.org/">HowTo: OPML Editor home</a><br/>
+<a href="http://search.cpan.org/~madghoul/XML-OPML-0.26/OPML.pm">XML::OPML - search.cpan.org</a> - XML::OPML - creates and updates OPML (Outline Processor Markup Language) files<br/>
+<a href="https://github.com/grimnebulin/rss-tree">grimnebulin/rss-tree</a> - A programming framework for transforming, filtering, and splitting RSS feeds<br/>
+<a href="http://johnbokma.com/perl/rss-web-feed-builder.html">Create an RSS web feed automatically using Perl</a><br/>
+<a href="http://www.theperlreview.com/articles/xslt.html">The Perl Review: Processing RSS Files with XSLT</a><br/>
+<a href="http://perlgems.blogspot.com/2012/06/simple-perl-based-rss-to-email-program.html">Perl Gems: A Simple Perl-Based RSS to Email Program</a><br/>
+<a href="http://www.perlmonks.org/index.pl?node_id=413299">Perl RSS aggregator</a> - using <a href="http://search.cpan.org/~sburke/XML-RSS-TimingBot-2.03/lib/XML/RSS/TimingBot.pod">XML::RSS::TimingBot</a><br/>
+<a href="http://search.cpan.org/~miyagawa/Plagger-0.7.17/lib/Plagger.pm">Plagger - search.cpan.org</a> - Plagger - Pluggable RSS/Atom Aggregator<br/>
+<a href="http://paul.kinlan.me/serializing-opml-via-an-opml-object-model/">Serializing OPML via an OPML Object Model - Tales of a Developer Advocate</a> - a C# object model to be more specific.<br/>
+<a href="http://www.codeproject.com/Articles/5656/RSS-2-0-Framework">RSS 2.0 Framework - CodeProject</a><br/>
+<a href="https://code.google.com/p/feedparser/">feedparser - Parse Atom and RSS feeds in Python - Google Project Hosting</a> - feedparser is a Python library that parses feeds in all known formats, including Atom, RSS, and RDF. It runs on Python 2.4 all the way up to 3.3.<br/>
+<a href="https://code.google.com/p/jsrss/">jsrss - jsRSS - A javascript RSS 2.0 library - Google Project Hosting</a> - jsRSS is to realize a RSS 2.0 javascript parser.<br/>
+<a href="https://github.com/danmactough/node-feedparser">danmactough/node-feedparser</a> - Robust RSS, Atom, and RDF feed parsing in Node.js<br/>
+<a href="https://github.com/madimalo/rss-to-mongodb">madimalo/rss-to-mongodb</a> - uses node-feedparser<br/>
+<a href="http://malderhout.wordpress.com/2013/05/20/how-to-fetch-rss-feeds-into-mongodb-with-groovy/">How to Fetch RSS feeds into MongoDB with Groovy | Maikel Alderhout's Blog</a><br/>
+<a href="https://github.com/kballard/feedparser">kballard/feedparser</a> - A Cocoa RSS/Atom parser for Mac OS X and the iPhone NSXMLParser-based<br/>
+<a href="http://home.gna.org/ruby-feedparser/">Ruby-Feedparser</a> - Ruby-Feedparser is an RSS and Atom parser for Ruby. uses <a href="http://www.germane-software.com/software/rexml/">REXML</a>.<br/>
+<a href="http://qdfeed.codeplex.com/">Quick and Dirty Feed Parser - Home</a> - Windows Phone 7 and Silverlight .net feedparser.<br/>
+<a href="https://developers.google.com/feed/v1/devguide">Google Feed API Developer's Guide - Google Feed API — Google Developers</a> - Google Feed API, you can download any public Atom or RSS feed using only JavaScript<br/>
+<a href="http://www.victusspiritus.com/2010/11/12/rocking-chair-portable-realtime-feeds-ala-couchdb/">Rocking Chair, Portable Realtime Feeds ala CouchDB — Victus Spiritus</a><br/>
+<a href="https://github.com/julien51/rocking-chair">julien51/Rocking-Chair</a> - A CouchDB feed Reader, with Superfeedr inside!<br/>
+<a href="https://github.com/maxogden/couchpubtato">maxogden/couchpubtato</a> - Feed archiving using Node.js and CouchDB<br/>
+<a href="http://www.rssowl.org/">RSSOwl - Powerful RSS / RDF / Atom News Feed Reader with Google Reader Synchronization</a><br/>
+<br/>
+<br/>
+<h2>Tiny Tiny RSS</h2>
+<a href="https://github.com/gothfox/Tiny-Tiny-RSS">gothfox/Tiny-Tiny-RSS</a> - A PHP and Ajax feed reader 
+http://tt-rss.org/<br/>
+<a href="http://tt-rss.org/redmine/projects/tt-rss/wiki">WikiStart - Tiny Tiny RSS</a><br/>
+<a href="http://www.linux.com/learn/tutorials/322446-weekend-project-replacing-google-reader-with-tiny-tiny-rss">Weekend Project: Replacing Google Reader with Tiny Tiny RSS | Linux.com</a><br/>
+<a href="http://lifehacker.com/5992404/how-to-build-your-own-syncing-rss-reader-with-tiny-tiny-rss-and-kick-google-reader-to-the-curb">How to Build Your Own Syncing RSS Reader with Tiny Tiny RSS and Kick Google Reader to the Curb</a><br/>
+<a href="http://simplepie.org/">SimplePie: Super-fast, easy-to-use, RSS and Atom feed parsing in PHP.</a><br/>
+<a href="http://magpierss.sourceforge.net/">Magpie RSS - PHP RSS Parser</a><br/>
+<a href="https://github.com/gothfox">gothfox (Andrew Dolgov)</a> - author of Tiny Tiny RSS<br/>
+<a href="https://github.com/mboinet/ttrss-mobile">mboinet/ttrss-mobile</a> - A mobile webapp for Tiny Tiny RSS jquery mobile,backbone.js,requireJS connects to JSON api.<br/>
+<a href="http://commons.apache.org/dormant/feedparser/">Commons Feedparser - Overview - Jakarta FeedParser</a> - Jakarta FeedParser is a Java RSS/Atom parser<br/>
+<a href="http://feedparser.luaforge.net/">feedparser: use me to parse RSS and Atom feeds</a> - An RSS and Atom feed parser, using expat via the luaExpat binding.<br/>
+<br/>
+<br/>
+<h2>TTR android</h2>
+The android app is in the google play store as a 7 day trial with a $2 purchase.  The source is licensed GPL, but the source does not come with any documentation on how to build it.<br/>
+<a href="https://play.google.com/store/apps/details?id=org.fox.ttrss&amp;feature=search_result">Tiny Tiny RSS - Android Apps on Google Play</a> - from author Andrew Dolgov. <br/>
+<a href="http://tt-rss.org/redmine/projects/tt-rss-android/wiki/">Wiki - Tiny Tiny RSS - Android Client - Tiny Tiny RSS</a><br/>
+<a href="https://github.com/gothfox/Tiny-Tiny-RSS-for-Honeycomb">gothfox/Tiny-Tiny-RSS-for-Honeycomb · GitHub</a> - Tiny Tiny RSS client for Android devices, the actual code for the android app.<br/>
+These three libraries should be checked out one directory above the source.<br/>
+<a href="http://viewpagerindicator.com/">ViewPagerIndicator</a> <a href="https://github.com/JakeWharton/Android-ViewPagerIndicator">JakeWharton/Android-ViewPagerIndicator</a> - Paging indicator widgets compatible with the ViewPager from the Android Support Library and ActionBarSherlock. Originally based on Patrik Åkerfeldt's ViewFlow.<br/>
+<a href="http://actionbarsherlock.com/">ActionBarSherlock - Home</a> <a href="https://github.com/JakeWharton/ActionBarSherlock">JakeWharton/ActionBarSherlock</a> - ActionBarSherlock is an extension of the support library designed to facilitate the use of the action bar design pattern across all versions of Android with a single API. native action bar on Android 4.0+ and a custom implementation on pre-4.0 through a single API and theme.<br/>
+<a href="https://github.com/jfeinstein10/SlidingMenu">jfeinstein10/SlidingMenu</a> - An Android library that allows you to easily create applications with slide-in menus.<br/>
+Using eclipse, File->New->Project->Android->Android Project From Existing Code, browse to the folder containing all the code.  select actionbarsherlock,org.fox.ttrss, library (renamed to SlidingMenuLibrary by pressing F2), and library (renamed to ViewPageIndicatorLibrary using F2).  This will get the code into eclipse.  I had to do a little fiddling with the android-support-v4.jar that came with each of the projects, I simply removed the offending jars from the projects and pasted the jar that came with org.fox.ttrss.  This provided me with a working build.<br/>
+<a href="https://play.google.com/store/apps/details?id=org.ttrssreader">TTRSS-Reader - Android Apps on Google Play</a> - Nils Braden's ttrss-reader-fork<br/>
+<a href="https://code.google.com/p/ttrss-reader-fork/">ttrss-reader-fork - RSS-Reader for Android, accessing the API of the Tiny Tiny RSS-Reader for PHP (http://tt-rss.org/) - Google Project Hosting</a><br/>
+<br/>
+<br/>
+
+<h2>Feedly</h2>
+<a href="http://cloud.feedly.com/">http://cloud.feedly.com/</a><br/>
+<a href="http://blog.feedly.com/">Building Feedly | Re-imagine how people keep in touch with their favorite sites.</a><br/>
+<a href="http://cloud.feedly.com/#opml">OPML</a> - you can export your data via opml.<br/>
+<br/>
+<br/>
+<a href="https://www.inoreader.com/">InoReader • Light and Fast RSS Reader</a><br/>
+<a href="http://digg.com/reader">Digg Reader</a><br/>
+<a href="https://www.rivered.io/">Rivered</a> - $<br/>
+<a href="http://superfeedr.com/">Real-time cloud feed parsing - PubSubHubbub, XMPP</a><br/>
+<br/>
+<a href="https://en.wikipedia.org/wiki/RSS_Cloud">RSS Cloud - Wikipedia, the free encyclopedia</a> - RSS Cloud is an optional sub-element of the RSS protocol's &lt;channel&gt; element that enables realtime (immediate) push notifications or distributed publish/subscribe communication for feeds.<br/>
+<a href="http://en.wikipedia.org/wiki/PubSubHubbub">PubSubHubbub - Wikipedia, the free encyclopedia</a> - In essence it provides for pushed HTTP notifications instead of requiring clients to poll whole resources to monitor change.  publishers, subscribers, and hubs<br/>
+<a href="http://blog.superfeedr.com/pubsubhubbub-0-4/">Superfeedr : PubSubHubbub v0.4</a><br/>
+<a href="http://blog.superfeedr.com/rss-mistakes/">Superfeedr : RSS: let's not do the same mistakes</a><br/>
+<br/>
+<br/>
+<h2>RSS browser extensions</h2>
+<a href="https://chrome.google.com/webstore/detail/rss-subscription-extensio/nlbjncdgjeocebhnmkbbbdekmmmcbfjd">Chrome Web Store - RSS Subscription Extension (by Google)</a><br/>
+<br/>
+<br/>
+<h2>sitemap.xml to delicious</h2>
+It really deserves its own page, but it stays here for now...<br/>
+<a href="http://stackoverflow.com/questions/14200804/using-phantomjs-to-crawl-a-sitemap">javascript - Using phantomjs to crawl a sitemap - Stack Overflow</a><br/>
+<a href="http://search.cpan.org/perldoc?Net%3A%3ADelicious">Net::Delicious - OOP for the del.icio.us API</a><br/>
+<a href="http://blogs.perl.org/users/robhammond/2013/02/web-scraping-with-perl-phantomjs.html">Web Scraping with Perl &amp; PhantomJS | Rob Hammond [blogs.perl.org]</a><br/>
+<a href="http://www.slideshare.net/motemen/wight-phantoms-perl-friend-yapcasia-2012">Wight: Phantom’s Perl friend - YAPC::Asia 2012</a><br/>
+<a href="https://metacpan.org/module/Wight">Wight - Communicate with PhantomJS - metacpan.org - Perl programming language</a><br/>
+<a href="http://chocolatey.org/packages/PhantomJS">Chocolatey Gallery | PhantomJS 1.9.1</a><br/>
+<br/>
+<br/>
+<a href="https://github.com/fogleman/FeedNotifier">fogleman/FeedNotifier</a> - Feed Notifier is a Windows&amp;mac application that resides in the system tray and displays pop-up notifications on your desktop when new items arrive in your subscribed RSS or Atom feeds <a href="http://www.feednotifier.com/">Feed Notifier</a> wxWidgets python<br/>
+<br/>
+<br/>
+<h2>RDF && RDFS && triplestore or RDF metadata data model store stuff</h2>
+ RDF is the data model of the Semantic Web.<br/>
+<a href="http://www.w3.org/RDF/">RDF - Semantic Web Standards</a><br/>
+<a href="http://www.cambridgesemantics.com/semantic-university/rdf-101">RDF-101 | Cambridge Semantics</a> - one of the three foundational Semantic Web technologies, the other two being SPARQL and OWL.<br/>
+<a href="https://en.wikipedia.org/wiki/Triplestore">Triplestore - Wikipedia, the free encyclopedia</a> - triplestore or RDF store is a purpose-built database for the storage and retrieval of triples through semantic queries. A triple is a data entity composed of subject-predicate-object, like "Bob is 35" or "Bob knows Fred".<br/>
+<a href="http://www.w3.org/TR/rdf-primer/">Latest "RDF Primer" versions</a>
+<br/>
+<a href="http://www.cambridgesemantics.com/semantic-university/rdfs-introduction">RDFS Introduction | Cambridge Semantics</a><br/>
+<a href="http://rdfsharp.codeplex.com/">RDFSharp - Start playing with RDF! - Home</a> - modeling, storing and querying RDF data in C#.<br/>
+<a href="http://www.marklogic.com/what-is-marklogic/pricing/">MarkLogic Pricing | MarkLogic</a><br/>
+<a href="http://docs.marklogic.com/guide/semantics/loading">Loading Triples (Semantics Developer's Guide) — MarkLogic 8 Product Documentation</a><br/>
+<a href="http://developer.marklogic.com/features/samplestack">Samplestack — MarkLogic Developer Community</a> <a href="https://github.com/marklogic/marklogic-samplestack">marklogic/marklogic-samplestack</a> -  sample implementation of the MarkLogic Reference Architecture<br/>
+<br/>
+<br/>
+<a href="http://release.niem.gov/niem/3.0/">NIEM 3.0</a> -   National Information Exchange Model (NIEM) 3.0 reference schemas (Core, code lists, domains, type adapters for external standards, as well as the schemas, schema profiles, or adaptations for those standards). It also contains a spreadsheet of the model, a spreadsheet for all code lists, a change log, and an XML catalog. NIEM provides practitioners and developers with a baseline set of reusable XML Schema components for building Information Exchange Package Documentation (IEPDs).<br/>
+    <div style="border: 1px;">
+    Created: 2013-07-04 14:32:49
+    Modified: 2015-09-06 10:48:08
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+<a href="javascript:var%20s%20=%20document.createElement('script');s.type='text/javascript';document.body.appendChild(s);s.src='/eggs/asteroids.min.js';void(0);" id="secret">destory this webpage; if you will.</a>
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

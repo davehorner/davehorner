@@ -1,0 +1,343 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>roku development</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/programming/">programming</a>
+    <h1>roku development</h1>
+   <a href="https://developer.roku.com/developer">Roku | Developer Home</a><br/>
+<a href="https://sdkdocs.roku.com/display/sdkdoc/Roku+SDK+Documentation">Roku SDK Documentation - Roku SDK Documentation - Developer Documentation</a><br/>
+<a href="https://sdkdocs.roku.com/display/sdkdoc/Developer+Guide">Developer Guide - Roku SDK Documentation - Developer Documentation</a><br/>
+<a href="https://twitter.com/rokudev">Roku Developers (@RokuDev) | Twitter</a><br/>
+<a href="https://www.reddit.com/r/Roku/">reddit/r/Roku</a><br/>
+<br/>
+<br/>
+<h2>roku channels</H2>
+<a href="https://www.rokuchannels.tv/channels/private/">Private | Roku Channels</a><br/>
+<br/>
+<h2>roku apps</h2>
+<a href="https://github.com/Protuhj/myvideobuzz">Protuhj/myvideobuzz: MyVideoBuzz</a> - This project is a fork of Roku YouTube by jesstech. Updates include API fixes, additional features, and the removal of OAuth settings.<br/>
+<br/>
+<br/>
+<H2>making games on roku</h2>
+<a href="https://www.madewithmarmalade.com/roku">Developing for Roku with Marmalade</a> - Quickly create games for Roku in C++<br/>
+<br/>
+<br/>
+<h2>roku channel development</h2>
+<a href="http://www.instanttvchannel.com/roku/quick">How to Create a Roku Channel in 5 Minutes</a> - instanttvchannel channels.<br/>
+<a href="http://www.zype.com/">Zype - Video Business Made Simple</a> <a href="http://dev.zype.com/">Zype Developer Portal | Home</a><br/>
+<br/>
+<br/>
+<h2>roku libraries</h2>
+<a href="http://developers.ustream.tv/player-sdk/roku.html">Player SDK for Roku - Ustream Developers</a> - Ustream Player SDK lets you play Ustream live and recorded videos in your native applications. Using the SDK gives you full control over the embedded Player, including a customizable native user interface, callbacks on status changes<br/>
+<a href="https://github.com/plexinc/roku-client-public">plexinc/roku-client-public</a> -  official Plex client for the Roku.<br/>
+<br/>
+<br/>
+<h2>roku easter eggs || roku hidden features</h2>
+From: <a href="https://rokufordummies.wordpress.com/2013/06/07/roku-secrets/">Roku Secrets | Roku for Dummies</a><br/>
+<p>To access undocumented features of your Roku, enter the following key sequences on the remote. &nbsp;You should be at the home position before beginning with no errors on the screen.</p>
+<p><strong>Secret Screen (System Info, Resets, USB Test, Logging)</strong></p>
+<p>Home x5<br />
+Fast Forward x3<br />
+Rewind x2</p>
+<p><strong>Platform Secret Screen (Temp, IP, SSID, WIFI Details)</strong></p>
+<p>(Per Roku Chat Support, Roku LT, Roku 2 XS, and Roku 3 all operate at 40-45 degree celsius)</p>
+<p>Home Button x 5<br />
+FF x 1<br />
+Play x 1<br />
+RW x 1<br />
+Play x 1<br />
+FF x 1</p>
+<p><strong>Channel Version Screen</strong></p>
+<p>Home Button x 3<br />
+Up x 2<br />
+Left&nbsp;x 1<br />
+Right&nbsp;x 1<br />
+Left&nbsp;x 1<br />
+Right&nbsp;x 1<br />
+Left&nbsp;x 1</p>
+<p><strong>Access Roku Debug/Bandwith Cap Screen</strong></p>
+<p>Home Button x 5<br />
+RW x 3<br />
+FF x 2</p>
+<p><strong>Access Roku Developer Mode (“Side-Load” a Roku Channel)</strong></p>
+<p>Home Button x 3<br />
+Up x 2<br />
+Right&nbsp;x 1<br />
+Left&nbsp;x 1<br />
+Right&nbsp;x 1<br />
+Left&nbsp;x 1<br />
+Right&nbsp;x 1<br />
+Note URL of Roku<br />
+Select Enable Installer<br />
+Accept Developer Agreement<br />
+Open URL of Roku in Browser</p>
+<p><strong>Roku 3 Enable Speakers Plus Headphone Jack Toggle (no R3 to test this on)</strong></p>
+<p>To toggle it on and off, press these buttons on the remote volume control while the headphone is inserted…</p>
+<p>Up x 2<br />
+Down x 2<br />
+Up x 3<br />
+Down x 3</p>
+<p><strong>Roku 2 ‘Downgrade’ from firmware 5.x to 4.9 &nbsp;(start at Home screen)</strong></p>
+<p>Home x 5<br />
+FF x 3<br />
+RW x 2<br />
+click on “Update software”</p>
+<br/>
+<br/>
+
+<h2>roku hack || roku hacking || roku rooting || roku root</h2> 
+<a href="http://www.jpsaman.org/node/3">Hacking Roku | Jean-Paul Saman</a> - rooting the Roku HD1000<br/>
+<a href="https://www.exploitee.rs/index.php/Exploiting_Roku">Exploiting Roku - Exploitee.rs</a><br/>
+<br/>
+<br/>
+    <div style="border: 1px;">
+    Created: 2016-04-09 17:05:11
+    Modified: 2016-04-10 01:30:22
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+$$\cos x = \sum\limits_{n = 0}^\infty {\frac{{\left( { - 1} \right)^n x^{2n} }}{{\left( {2n} \right)!}}}$$
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,455 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>Algorithms, patterns, and things CS</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/programming/">programming</a>
+    <h1>Algorithms, patterns, and things CS</h1>
+   Computer science is an art.  It is the brain's work solidified into physical form.  Interactive, empowering, consistent, and beautiful.  I love programming.<br/>
+<br/>
+<a href="http://en.wikipedia.org/wiki/Computer_science">Computer science - Wikipedia, the free encyclopedia</a><br/>
+<a href="http://www.cs.mtu.edu/~john/whatiscs.html">What is Computer Science?</a><br/>
+<a href="http://en.wikipedia.org/wiki/P_%3D_NP_problem">P versus NP problem - Wikipedia, the free encyclopedia</a><br/>
+<a href="http://www.martinhilbert.net/WorldInfoCapacity.html">THE WORLD’S TECHNOLOGICAL CAPACITY TO STORE, COMMUNICATE, AND COMPUTE INFORMATION</a><br/>
+<a href="https://github.com/sindresorhus/awesome">GitHub - sindresorhus/awesome: A curated list of awesome lists</a><br/><br/>
+<br/>
+<br/>
+<a href="http://acmeism.org/home/">Acmeism - Programming Has No Borders</a> - open technology that serves all languages as equally as possible.<br/>
+<a href="http://corte.si/posts/code/devsurvey/index.html">cortesi - The impact of language choice on github projects</a><br/>
+<a href="http://hyperpolyglot.org/">Programming Languages - Hyperpolyglot</a> - look at syntax differences between languages...<br/>
+<br/>
+<br/>
+I enjoy the dining philosopher problems.  The silent, two-hand eating, thinking philosopher problems.  forks, chopsticks, pasta, meatballs, whatever.  Just get me food, and let me think.  it isn't an easy problem; keeping a philosopher fed without contention...<br/>
+<a href="http://en.wikipedia.org/wiki/Dining_philosophers_problem">Dining philosophers problem - Wikipedia, the free encyclopedia</a><br/>
+<a href="http://en.wikipedia.org/wiki/File:Dining_philosophers.png"><img src="/images/stories/misc/Dining_philosophers.png" alt="silent, two handed eating, thinking philosophers"/></a><br/>
+<br/>
+<a href="http://en.wikipedia.org/wiki/De_Morgan's_laws">De Morgan's laws - Wikipedia, the free encyclopedia</a> - because it shows up everywhere, in source, in hardware, De Morgan's Law. or's flipping to and's, negation. it is a law.<br/>
+<a href="http://msdn2.microsoft.com/en-us/library/ms973861.aspx">Inheritance and Interfaces</a><br/>
+<a href="http://www.cs.iastate.edu/~lumpe/CBs/">Integration of the Classbox Concept in the .NET Framework</a><br/>
+<br/>
+<a href="http://en.wikipedia.org/wiki/List_of_algorithms">Wikipedia List of Algorithms</a><br />
+<a href="http://www.nist.gov/dads/">NIST: Dictionary of Algorithms and Data Structures</a><br/>
+<br/>
+<br/>
+<h2>in awe of sorts</h2>
+A neat page that has visual representations of most sorting algs. <a href="http://cg.scs.carleton.ca/~morin/misc/sortalg/">Sorting</a><br />
+<a href="http://pyalgoviz.appspot.com/">PyAlgoViz - Home</a><br/>
+<a href="http://linux.wku.edu/~lamonml/algor/sort/index.html">Sorting Algorithms</a></p> <p><a href="http://linux.wku.edu/~lamonml/algor/sort/heap.html">Heap Sort Algorithm Analysis</a><br /> <a href="http://en.wikipedia.org/wiki/Heapsort">Heapsort@Wikipedia</a> implementation seems flawed checkout discussion page.<br /> <br /> 
+<br/>
+<a href="http://www.teuton.org/~stranger/code/emoticon/emoticon.html">Emoticon v1.4</a><br/>
+<a href="http://random.irb.hr/">Quantum Random Bit Generator</a><br/>
+<br/>
+<br/>
+<h2>interpolation || tweening</h2>
+<a href="https://github.com/sole/tween.js">sole/tween.js</a> - Javascript tweening engine which incorporates optimized Robert Penner's equations.<br/>
+<a href="http://www.robertpenner.com/easing/">Robert Penner's Easing Functions</a><br/>
+<a href="http://www.gamedev.net/reference/articles/article1497.asp">Smooth interpolation of irregularly spaced keyframes</a><br />
+<a href="https://github.com/jsm174/libtween">jsm174/libtween</a> - libtween is a tweening engine written in C.<br/>
+<br/>
+<br/>
+<a href="http://en.wikipedia.org/wiki/Tree_traversal">Tree traversal - Wikipedia, the free encyclopedia</a> - oh and my other page on graphs...<a href="http://dave.thehorners.com/tech-talk/science-and-math/290-graphs">Graphs - Dave Horner's Website</a><br/>
+<a href="http://www.idryman.org/blog/2012/04/14/recursion-best-practices/">Recursion best practices - Carpe diem (Felix's blog)</a> -  recursion is hard to write, and even harder to write it well. <strong>To iterate is human, to recurse, divine.</strong><br/>
+<br/>
+<br/>
+<h2>Big-Ohh || Big-O || algorithm complexity analysis</h2>
+<a href="http://en.wikipedia.org/wiki/Big_O_notation">Big O notation - Wikipedia, the free encyclopedia</a><br/>
+<a href="http://bigocheatsheet.com/">Big-O Algorithm Complexity Cheat Sheet</a><br/>
+<a href="http://en.wikipedia.org/wiki/Time_complexity">Time complexity - Wikipedia, the free encyclopedia</a><br/>
+<a href="http://discrete.gr/complexity/">A Gentle Introduction to Algorithm Complexity Analysis</a> - Big Ohh so gentle.<br/>
+<br/>
+<h2>Programmers' Day</h2>
+celebrated on the 256th (hexadecimal 100th, or the 2^8th) day of each year (September 13 during common years and on September 12 in leap years). 256 is the highest power of two that is less than 365, and just so happens to be the size of a byte.<br/>
+<a href="http://en.wikipedia.org/wiki/Programmers'_Day">Programmers' Day - Wikipedia, the free encyclopedia</a><br/>
+<iframe width="420" height="315" src="//www.youtube.com/embed/0SARbwvhupQ" allowfullscreen></iframe><br/>
+<a href="http://rosettacode.org/wiki/Honeycombs#Perl">Honeycombs - Rosetta Code</a> - games of coding in which the game is to provide another solution in another language...<br/>
+<br/>
+<br/>
+<h2>Bit manip</h2>
+<a href="http://graphics.stanford.edu/~seander/bithacks.html">Bit Twiddling Hacks</a><br/>
+(unsigned ints of course)<br/>
+x=1;y=2;x^=y;y^=x;x^=y : swap to variables without intermediary.<br/>
+number & 1 == 0: even.<br/>
+number &lt;&lt; 1 : double number<br/>
+number &gt;&gt; 1 : half number<br/>
+sometimes it's best to leave optimization to the compiler, and the code for humans to read...
+<h2>Design patterns</h2>
+Do programmers have any specific superstitions?  Yeah, but we call them best practices.<br/>
+<a href="http://asio.sourceforge.net/asio-0.3.7/doc/design/designproactor.html">asio Design: Proactor</a><br/>
+<a href="http://ui-patterns.com/">UI-patterns.com</a><br/>
+<br/>
+<a href="http://smc.sourceforge.net/">SMC: The State Machine Compiler</a>
+<a href="http://www.galois.com/blog/2008/09/11/theorem-proving-for-verification/">Galois › Blog › Blog » Theorem Proving for Verification</a><br/>
+<br/>
+<br/>
+<a href="http://www.fandev.org/">Fan Programming Language</a> - interesting programming language.  Compiles to Java VM or .NET CLR.  Awesome, will it get traction?<br/>
+<br/>
+<br/>
+<a href="http://people.cs.uchicago.edu/~varmaa/mini_c/">Atul's Mini-C Compiler</a> - C compiler written in python.<br/>
+<br/>
+<a href="http://docs.sun.com/source/806-3568/ncg_goldberg.html">What Every Computer Scientist Should Know About Floating-Point Arithmetic</a><br/>
+<a href="http://apfelmus.nfshost.com/articles/monoid-fingertree.html">apfelmus - Monoids and Finger Trees</a><br/>
+<a href="http://comonad.com/reader/">The Comonad.Reader</a><br/>
+<br/>
+<br/>
+<h2>Coffeescript</h2>
+<a href="http://autotelicum.github.com/Smooth-CoffeeScript/interactive/interactive-coffeescript.html">Interactive Smooth CoffeeScript</a><br/>
+<a href="http://willbailey.name/conway/">Conway's Game of Life</a> - <a href="http://willbailey.name/conway/docs/conway.html">conway.coffee</a> - written using coffee.<br/>
+<a href="http://elentok.com/gol-coffee/">Game of Life</a> -  David Elentok's coffee implementation.<br/>
+<a href="http://autotelicum.github.com/Smooth-CoffeeScript/CoffeeScript%20Quick%20Ref.pdf">CoffeeScript
+Quick Reference</a><br/>
+<a href="http://coffeescript.org/">CoffeeScript</a> - CoffeeScript is a little language that compiles into JavaScript. (official site)<br/>
+<a href="http://autotelicum.github.com/Smooth-CoffeeScript/literate/underscore.html">Underscore Reference — Smooth CoffeeScript</a><br/>
+
+<br/>
+<br/>
+<h2>Smalltalk</h2>
+<a href="http://www.squeak.org/">Squeak Smalltalk</a> -Squeak is a modern, open source, full-featured implementation of the powerful Smalltalk programming language and environment.<br/>
+<a href="http://jtalk-project.org/">Jtalk Smalltalk</a> - Jtalk is an implementation of the Smalltalk language that runs on top of the JavaScript runtime.<br/>
+<a href="http://scg.unibe.ch/archive/papers/Scha03aTraits.pdf">Traits: Composable Units of Behaviour (pdf)</a><br/>
+<br/>
+<br/>
+<h2>Lua</h2>
+<a href="http://moonscript.org/">MoonScript, a language that compiles to Lua</a><br/>
+<a href="https://love2d.org/">LÖVE - Free 2D Game Engine</a> - 2D games in Lua. It's free, open-source, and works on Windows, Mac OS X and Linux.<br/>
+<a href="http://www.phailed.me/2011/02/learn-lua-the-hard-way-1/">Learn Lua the Hard Way | Sanity Phailed.me</a><br/>
+<br/>
+<br/>
+<a href="http://jim.tcl.tk/index.html/doc/www/www/index.html">Jim Tcl - The Jim Interpreter</a> - Jim is an opensource small-footprint implementation of the Tcl programming language. It implements a large subset of Tcl and adds new features like references with garbage collection, closures, built-in Object Oriented Programming system, Functional Programming commands, first-class arrays and UTF-8 support. All this with a binary size of about 100-200kB<br/>
+
+<h2>conways game of life and other cellular automata</h2>
+<a href="http://en.wikipedia.org/wiki/Conway's_Game_of_Life">Conway's Game of Life - Wikipedia, the free encyclopedia</a><br/>
+<a href="http://en.m.wikipedia.org/wiki/Cellular_automaton">Cellular automaton - Wikipedia, the free encyclopedia</a><br/>
+<a href="http://www.mirekw.com/ca/index.html">Mirek's Cellebration - 1-D and 2-D Cellular Automata viewer, explorer and editor by Mirek Wojtowicz</a><br/>
+<a href="http://blog.sciencevsmagic.net/">Science vs Magic</a><br/>
+<iframe width="420" height="315" src="//www.youtube.com/embed/QtJ77qsLrpw" allowfullscreen></iframe><br/>
+<a href="http://cafaq.cafaq.com/lifefaq/index.php">Cellular Automata FAQ - Conway's Game of Life</a><br/>
+<a href="http://victusfate.github.io/life/">victusfate/life @ GitHub</a> - conway's game of life with coffeescript and html5 canvas<br/>
+<iframe width="420" height="315" src="//www.youtube.com/embed/FdMzngWchDk" allowfullscreen></iframe>
+<iframe width="420" height="315" src="//www.youtube.com/embed/k2IZ1qsx4CM" allowfullscreen></iframe><br/>
+<iframe width="560" height="315" src="//www.youtube.com/embed/E8kUJL04ELA" allowfullscreen></iframe><br/>
+<a href="http://suspended-chord.info/academic-work/simulations-research-work/complexity/">complexity | suspended-chord.info</a><br/>
+did you know that if you google "<a href="https://www.google.com/search?q=conway%27s+game+of+life">conway's game of life</a>, they have an implementation on the search result page...<br/>
+<a href="http://jsfiddle.net/ankr/tgjLA/">Conway's Game of Life - JSFiddle</a> - ankr's canvas.<br/>
+<a href="http://www.ics.uci.edu/~eppstein/ca/">Gliders in "Life"-Like Cellular Automata</a><br/>
+<br/>
+<br/>
+<h2>nerds our sexy dames</h2>
+<a href="http://www.theatlantic.com/technology/archive/2013/01/the-never-before-told-story-of-the-worlds-first-computer-art-its-a-sexy-dame/267439/">The Never-Before-Told Story of the World's First Computer Art (It's a Sexy Dame) - Benj Edwards - The Atlantic</a> -  if the pin-up displayed correctly on the screen, then data was being transferred between the A and B computers correctly..or a pretty picture to stare at while at work.<br/>
+<a href="http://computervision.wikia.com/wiki/Lenna">Lenna - Computer vision</a> - Lena is in quite a few respectable books..<br/>
+<a href="http://vimeo.com/7088524">Jason Scott: The Atomic Level of Porn on Vimeo</a><br/>
+<br/>
+<br/>
+<h2>hardware of old</h2>
+<a href="http://oldcomputers.net/atari-vcs.html">Atari VCS game console</a><br/>
+<a href="http://ascii.textfiles.com/">ASCII by Jason Scott</a><br/>
+<a href="http://www.neocomputer.org/projects/et/">Fixing E.T. for the Atari 2600</a><br/>
+<br/>
+<br/>
+<h2>Assembly Language asm</h2>
+<a href="http://www.nasm.us/doc/nasmdoc0.html">NASM Manual</a> - The Netwide Assembler: NASM - NASM, the Netwide Assembler: an assembler targetting the Intel x86 series of processors, with portable source.<br/>
+<a href="http://en.wikipedia.org/wiki/RDOFF">RDOFF - Wikipedia, the free encyclopedia</a><br/>
+<br/>
+<a href="https://idea.popcount.org/2013-07-24-ir-is-better-than-assembly/">IR is better than assembly — Idea of the day</a><br/>
+<br/>
+<br/>
+<a href="http://www.cs.virginia.edu/~robins/YouAndYourResearch.html">You and Your Research</a> - <a href="http://www.youtube.com/watch?v=a1zDuOPkMSw">Hamming, "You and Your Research" (June 6, 1995) - YouTube</a> - the unexamined life is not worth living; examine your life. right problem, at the right time, in the right way. <strong>style is everything.</strong> now that I've told you these things-- these things no one told me. I've told you how to succeed: you have no excuse not doing better than I did.<br/>
+<a href="http://blog.jenniferdewalt.com/">Jennifer Dewalt</a> - 180 websites in 180 days<br/>
+<br/>
+<br/>
+<h2>Quines && Qlobes</h2>
+<a href="http://en.wikipedia.org/wiki/Quine_(computing)">Quine (computing) - Wikipedia</a> - A quine is a computer program which takes no input and produces a copy of its own source code as its only output.<br/>
+<a href="http://www.nyx.net/~gthompso/quine.htm">The Quine Page (self-reproducing code)</a><br/>
+<a href="https://github.com/mame/quine-relay">mame/quine-relay</a> - An uroboros program with 50 programming languages. Ruby program that generates Scala program that generates Scheme program that generates ...(through 50 languages)... REXX program that generates the original Ruby code again.<br/>
+<a href="http://www.madore.org/~david/computers/quine.html">Quines (self-replicating programs)</a><br/>
+<a href="http://mamememo.blogspot.com/">mamememo</a> - <a href="http://mamememo.blogspot.com/2010/09/qlobe.html">mamememo: The Qlobe</a> - a ruby implementation, actually may be original, not sure...<br/>
+Here is a javascript implementation:<br/>
+<iframe height=300 width=600 src="http://aem1k.com/world/"></iframe><br/>
+<a href="http://www.youtube.com/watch?v=RTxtiLp1C8Y&amp;feature=youtu.be">Martin Kleppe: 1024+ Seconds of JS Wizardry -- JSConf EU 2013 - YouTube</a> - talk which includes discussion of the above JS Qlobe.<br/>
+<br/>
+<h2>Hardest problem of all.  Naming things.</h2>
+&quot;There are 2 hard problems in computer science: cache invalidation, naming, and off-by-1 errors&quot;<br/>
+<a href="https://en.wikipedia.org/wiki/Ontology_(information_science)">Ontology (information science) - Wikipedia</a> - Computer scientists are more concerned with establishing fixed, controlled vocabularies, while philosophers are more concerned with first principles, such as whether there are such things as fixed essences or whether entities must be ontologically more primary than processes.<br/>
+<a href="http://bit.ly/18r1YhP">When I can no longer tell whether my implementation is faithful to the semantics or not.</a><br/>
+<a href="http://www.objectmentor.com/resources/articles/Naming.pdf">
+Introduction Use Intention-revealing Names - Object Mentor (PDF)</a><br/>
+<a href="https://sites.google.com/site/yacoset/Home/naming-tips">Naming Tips - Software Engineering Tips</a><br/>
+<a href="http://java.dzone.com/articles/4-most-important-skills">The 4 Most Important Skills for a Software Developer | Javalobby</a> - When people ask me what I do all day, I mostly say &quot;read things other people name and name things.&quot;<br/>
+<a href="http://en.wikipedia.org/wiki/Semantics">Semantics - Wikipedia, the free encyclopedia</a><br/>
+<div class="g-post" data-href="https://plus.google.com/105725977711317285348/posts/4sg4RpbQHA3"></div>
+<br/>
+<br/>
+<h2>Finite State Machines || State Transition Tables || FSM</h2>
+The machine is in only one state at a time; the state it is in at any given time is called the current state. It can change from one state to another when initiated by a triggering event or condition; this is called a transition. A particular FSM is defined by a list of its states, and the triggering condition for each transition.<br/>
+<a href="http://en.wikipedia.org/wiki/Finite_state_machine">Finite-state machine - Wikipedia, the free encyclopedia</a><br/>
+<a href="http://en.wikipedia.org/wiki/State_transition_table">State transition table - Wikipedia, the free encyclopedia</a><br/>
+<a href="http://www.perl.com/pub/2004/09/23/fsms.html">Building a Finite State Machine Using DFA::Simple - Perl.com</a><br/>
+<a href="http://smc.sourceforge.net/">SMC: The State Machine Compiler</a><br/>
+<a href="http://ef.gy/fsm-recursive-sql">ef.gy :: Finite-State Machines with recursive SQL</a><br/>
+<a href="http://www.state-machine.com/qp/index.php">QP active object frameworks for embedded systems by Quantum Leaps</a> - active objects keep tasks data local to the task itself,async eventing, tasks process events one at a time to completion. TI Stellaris support!<br/>
+<a href="http://en.wikipedia.org/wiki/QP_(framework)">QP (framework) - Wikipedia, the free encyclopedia</a> - hierarchical state machines - UML statecharts , C/C++<br/>
+<a href="http://codeandlife.com/2013/10/06/tutorial-state-machines-with-c-callbacks/">Code and Life – Tutorial: State Machines with C Callbacks</a><br/>
+<br/>
+<br/>
+<h2>Modulo math</h2>
+<div class="g-post" data-href="https://plus.google.com/105725977711317285348/posts/ghABZG6Xprj"></div>
+<br/>
+<br/>
+<blockquote class="twitter-tweet" lang="en"><p>Knock knock&#10;Race condition&#10;Who&#39;s there?</p>&mdash; I Am Devloper (@iamdevloper) <a href="https://twitter.com/iamdevloper/statuses/399991896862638081">November 11, 2013</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+<br/>
+<br/>
+<h2>Daniel J. Bernstein</h2>
+<a href="https://en.wikipedia.org/wiki/Daniel_J._Bernstein">Daniel J. Bernstein - Wikipedia, the free encyclopedia</a><br/>
+<a href="https://cr.yp.to/djb.html">D. J. Bernstein</a> - personal website<br/>
+<a href="http://www.aaronsw.com/weblog/djb">djb (Aaron Swartz's Raw Thought)</a> - I think it’s time to remind people that D. J. Bernstein is the greatest programmer in the history of the world.<br/>
+<a href="http://skarnet.org/software/skalibs/djblegacy.html">skalibs: the djb legacy</a> - Who is this DJB guy, and why is he so special anyway? So, in short, DJB is not a guru, I'm not a mindless brainwashed fan, and the "DJB advocates" are not a cult. We just think DJB brought something to Unix and more generally to the software programming world; we learned from him, we write software following sound principles that he was one of the first to really apply, and we give credit where credit is due.<br/>
+    <div style="border: 1px;">
+    Created: 2005-07-26 21:14:05
+    Modified: 2016-03-27 22:29:33
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+$$\cos x = \sum\limits_{n = 0}^\infty {\frac{{\left( { - 1} \right)^n x^{2n} }}{{\left( {2n} \right)!}}}$$
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

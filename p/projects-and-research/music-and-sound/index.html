@@ -1,0 +1,520 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>Music, sound, visuals, art.</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/p/">Personal</a>
+<a href="/p/projects-and-research/">projects-and-research</a>
+    <h1>Music, sound, visuals, art.</h1>
+   Lately I've found myself playing more and more with creating music.  drums, bass guitar, uke, keyboard, and sorta vocals.<br/>
+<br/>
+Here are some random things I've done with audio...<br/>
+<a href="http://dave.thehorners.com/personal/podcast/The Problem Is.mp3">The Problem Is</a><br/>
+<a href="http://dave.thehorners.com/personal/podcast/Your%20name%20is%20BillyBob.mp3">Your name is BillyBob</a><br/>
+<a href="http://dave.thehorners.com/personal/podcast/Noah%20Blues.mp3">Noah Blues</a><br/>
+<a href="http://dave.thehorners.com/personal/podcast/A%20programmer%20wasting%20time.mp3">A programmer wasting time.</a><br/>
+<a href="https://soundcloud.com/mrhornertoyou">Mr. Horner To You.’s stream on SoundCloud</a><br/>
+<a href="https://soundcloud.com/hornershead">From Horner's Head’s stream on SoundCloud</a><br/>
+<br/>
+I was lucky enough to grow up in a house with a casio SK-1 with the yellow sample button.<br/>
+<a href="http://www.vintagesynth.com/casio/sk1.php">Casio SK-1 | Vintage Synth Explorer</a><br/>
+<br/>
+If you haven't already, you might wanna checkout my videos I've created...<br/>
+<a href="http://dave.thehorners.com/aboutme/videos">Personal videos I've made...</a><br/>
+<br/>
+Someday I might take the time to setup some podcast feeds...<br/>
+<a href="http://podcastgen.sourceforge.net/">Podcast Generator in PHP</a><br/><br/>
+<br/>
+<h2>people in live coding</h2>
+<a href="http://algorave.com/">algorave</a><br/>
+<a href="http://chordpunch.com/">CP0x0d — Broken, for free download now » ChordPunch</a> - algorithmic music<br/>
+<a href="http://musicnumbers.wordpress.com/">Music is the time of numbers | Computer/electronic experimental music news &amp; personal netlabel.</a><br/>
+<a href="http://yaxu.org/">Alex McLean | Making music with text</a><br/>
+<a href="http://kindohm.com/music/">Mike Kindohm: Live-Coded Music</a><br/>
+<br/>
+<br/>
+Useful and interesting links<br/>
+<a href="http://rg3.github.com/youtube-dl/">youtube-dl</a> - nice cmd line python script for downloading youtube videos and other sites...<br/>
+<a href="http://audio.tutsplus.com/">Audio and production tutorials, from beginner to advanced | Audiotuts+</a><br/>
+<a href="http://code.google.com/p/practicesharp/">practicesharp - PracticeSharp (or Practice#) - A utility for practicing your musical instrument with playback. - Google Project Hosting</a><br/>
+<a href="http://jamnet.codeplex.com/">JamNet</a> - example silverlight sound sequencing<br/>
+<a href="http://www.wikihow.com/Remix">How to Remix - wikiHow</a><br/>
+<a href="http://mekentosj.com/widgets/pianochords/index.html">mekentosj.com | Pianochords Widget</a><br/>
+<a href="http://www.toplap.org/index.php/Main_Page">Toplap</a><br/>
+(Temporary | Transnational | Terrestrial |Transdimensional) Organisation for the (Promotion | Proliferation | Permanence | Purity) of Live (Algorithm|Audio|Art|Artistic) Programming<br/>
+<a href="http://createdigitalmusic.com/">Create Digital Music</a> - nice webzine music related.<br/>
+<a href="http://matrixsynth.blogspot.com/">MATRIXSYNTH</a> - EVERYTHING SYNTH<br/>
+<a href="http://www.synthtopia.com/">synthtopia.com - Synthesizer and electronic music news, synth and music software reviews and more!</a><br/>
+<a href="http://openartisthq.org/">openArtist</a> - a linux distribution based on ubuntu for artists. <a href="http://openartist.openmaterials.org/">Index of openartist/</a><br/>
+<a href="http://rafalcieslak.wordpress.com/2013/02/10/vmodsynth-1-0-released/">vModSynth 1.0 released | Rafa? Cie?lak's blog</a> - a modular software synthesizer for Linux.<br/>
+<a href="http://harmonyseq.wordpress.com/">harmonySEQ homepage | A MIDI sequencing studio</a><br/>
+<br/>
+<a href="https://github.com/jdan/Melopy">jdan/Melopy</a> - Python music library melopy, scales, and utility key_to_frequency,key_to_note,note_to_frequency,note_to_key,frequency_to_key,frequency_to_note<br/>
+<a href="https://github.com/AlexNisnevich/melody.py">AlexNisnevich/melody.py</a> - Brute-force generation of ten-note cantus firmus melodies and first species counterpoint || Heuristics for music generation <br/>
+<a href="http://www.perl.com/pub/a/2004/08/31/livecode.html">perl.com: Hacking Perl in Nightclubs</a> - PERL music using OSC and SuperCollider. <br/>
+<a href="http://www.scoop.it/t/computational-music-analysis">Computational Music Analysis | Scoop.it</a> - Curated by Olivier Lartillot<br/>
+<br/>
+<br/>
+<a href="http://rwm.macba.cat/">RWM - RWM</a> - RWM is a nonprofit online radio project for popular education. (podcasts)<br/>
+<a href="http://www.radiolab.org/stations/">WNYC Radiolab</a> - (podcast)<br/>
+<a href="http://suspended-chord.info/">~suspended-chord~</a> - programmer/cognitive scientist/computer theorist who happens to produce a few creative artifacts every now and again. ~suspended-chord (a.k.a. Jacob Peck)<br/>
+<a href="http://csc490.suspended-chord.info/">Jacob Peck // CSC 490 Web Presence</a> - CSC 490 Cognitive Musicology<br/>
+<a href="http://www.pawfal.org/dave/blog/">dave’s blog of art and programming</a><br/>
+<a href="http://hakim.se/experiments/html5/keylight/03/">Keylight - an audio rhythm experiment.</a> - A playhead travels between keys which resonate in sound depending on where they are placed in the room.  Also, checkout the other HTML5 experiments...<a href="http://hakim.se/experiments/">The HTML5 Experiments of Hakim El Hattab</a> - 
+<a href="https://www.youtube.com/watch?feature=player_embedded&amp;v=46w99bZ3W_M">? Mark Applebaum: The mad scientist of music - YouTube</a><br/>
+<a href="http://jeremywentworth.com/">jeremywentworth.com</a><br/>
+<a href="http://freeldssheetmusic.org/">freeldssheetmusic.org | 2500+ LDS/Christian Arrangements</a><br/>
+<br/>
+When creating music, visuals many times come into play....<br/>
+<h2>Visual programming</h2>
+<a href="http://vvvv.org/tiki-index.php">vvvv: a multipurpose toolkit : vvvv : a multipurpose toolkit</a> - a toolkit for real time video synthesis.<br/>
+<a href="http://www.vvvvjs.com/">VVVV.js - Visual Web Client Programming</a><br/>
+<a href="http://www.contextfreeart.org/index.html">Context Free Art</a> - generates images from written instructions called a grammar.<br/>
+<a href="http://nodebox.net/code/index.php/Home">NodeBox | Home</a> - a free Mac OS X application that lets you create 2D visuals (static, animated or interactive) using Python programming code and export them as a PDF or a QuickTime movie.<br/>
+<a href="http://seriouslyjs.org/">Seriously.js</a><br/>
+<a href="https://github.com/brianchirls/Seriously.js">brianchirls/Seriously.js</a> - A real-time, node-based video effects compositor for the web built with HTML5, Javascript and WebGL<br/>
+<a href="http://glx.sourceforge.net/index.html">GLE - Graphics Layout Engine: Quality Graphs, Plots, Diagrams, and Figures</a> - GLE (Graphics Layout Engine) is a graphics scripting language designed for creating publication quality figures (e.g., a chart, plot, graph, or diagram) . <a href="http://www-astro.physics.ox.ac.uk/~ptg/COMPUTING/GLE_tips.html">Paul Goodall's Computing GLE perl tips</a><br/> <br/>
+<a href="http://livecodelab.net/">Livecodelab</a> - a web based livecoding environment 
+ <a href="https://github.com/davidedc/livecodelab">davidedc/livecodelab</a><br/>
+<a href="http://cyrilcode.com/">Cyril - Live Coding Visuals</a>  (openFrameworks) programming language is designed for fast prototyping of visualisations and live coding visuals. <a href="https://github.com/darrenmothersele/cyril">darrenmothersele/cyril</a><br/>
+<a href="http://www.pawfal.org/fluxus/">(fluxus)</a><br/>
+<br/>
+<br/>
+<h2>processing</h2>
+<a href="http://processing.org/">processing.org</a> - open source programming language and environment for people who want to program images, animation, and interactions.<br/>
+<a href="http://shiffman.net/blog/">Daniel Shiffman</a> <a href="http://natureofcode.com/">The Nature of Code</a> <a href="https://github.com/shiffman/The-Nature-of-Code">shiffman/The-Nature-of-Code</a><br/>
+<a href="http://www.learningprocessing.com/">Learning Processing: A Beginner's Guide to Programming Images, Animation, and Interaction by Daniel Shiffman</a><br/>
+<a href="https://github.com/shiffman/LearningProcessing">shiffman/LearningProcessing</a> - A repo for examples from the book Learning Processing<br/>
+<a href="http://www.openprocessing.org/">OpenProcessing - Share your sketches!</a><br/>
+<br/>
+<br/>
+<h2>Interactive art</h2>
+<a href="http://www.kreativrauschen.com/video/dave/">Dave: The Interactive Music Video Installation</a> - cool art project which lets people interact with light pillars to change things within the video shown on multiple screens.<br/>
+<br/>
+<br/>
+<br/>
+<h2>Generative art</h2>
+<a href="http://www.looksgood.de/log/2007/02/03/seelenlose-automaten/">Benedikt Groß » Seelenlose Automaten</a> - awesome video. (used vvvv for visuals)<br/>
+<a href="http://www.semiconductorfilms.com/root/nanowebbers/nanowebbers.htm">200 Nanowebbers</a> - a pretty cool example of generative work.<br/>
+<br/>
+<br/>
+<h2>Interfacing</h2>
+<a href="http://gainer.cc/About/About">GAINER.cc | About / About GAINER</a> - Gainer lets the user handle sensors and/or actuators with a PC on various programming environments such as Flash, Max/MSP, Processing and so on.  Open source + Open hardware.<br/>
+Of course midi and network control provide great interfaces, I have another page for that...<br/>
+<a href="/tech-talk/programming/77-programming-information/273-midi-and-opensound-control-network-osc-and-all-things-midi">MIDI and OpenSound Control- network OSC and all things MIDI</a><br/>
+<a href="http://reactable.iua.upf.edu/">reactable</a> - vision pattern recognition based using <a href="http://reactable.iua.upf.edu/?software">reactable software</a> TUI protocol.  (open software!)<br/>
+<br/>
+<br/>
+<a href="http://www.moldeo.org/principal/home/e-home.php">Moldeo.org - Open Source Interactive Framework</a><br/>
+<br/>
+<br/>
+<h2>openFrameworks</h2>
+<a href="http://www.openframeworks.cc/">openFrameworks</a> - looks like a neat C++ library for creative coding.  (not released yet....)<br/>
+<a href="http://wiki.openframeworks.cc/index.php?title=OfxiPhone_comprehensive_guide">OfxiPhone comprehensive guide - OF wiki</a><br/>
+<a href="http://www.openframeworks.cc/forum/index.php?sid=4e1f81793df46dacfcf500e2e0c49d6c">openframeworks.cc • Index page</a><br/>
+<a href="http://github.com/openframeworks/openFrameworks">openframeworks's openFrameworks at master - GitHub</a><br/>
+<a href="https://github.com/chriskiefer/OpenFrameworks-Supercollider-Host">chriskiefer/OpenFrameworks-Supercollider-Host - GitHub</a> - Cinder is a community-developed, free and open source library for professional-quality creative coding in C++.<br/>
+<br/>
+<br/>
+<h2>Cinder</h2>
+<a href="http://libcinder.org/">Cinder | The library for professional-quality creative coding in C++</a><br/>
+<a href="https://github.com/cinder/Cinder">cinder/Cinder</a><br/>
+<a href="http://roberthodgin.com/">Robert Hodgin | Portfolio</a><br/>
+<br/>
+<br/>
+<h2>video game music</h2>
+It is amazing to me to hear what is possible with NES and gameboys.<br/>
+I do remember some good game soundtracks and it is fun to reminisce. :)<br/> 
+<a href="http://weekendamerica.publicradio.org/display/web/2008/12/06/blip_festival/">Weekend America: Blip Festival</a><br/>
+<a href="http://www.slack.net/~ant/nes-emu/">Blargg's Video Game Sound Emulation</a><br/>
+<a href="http://www.slack.net/~ant/libs/audio.html#snes_spc">Blargg's Audio Libraries</a> - C++ LGPL woot.<br/>
+<a href="http://famitracker.shoodot.net/index.php">FamiTracker</a> - a free windows tracker for producing music for the NES/Famicom-systems..based on MadTracker.<br/>
+<a href="http://www.geocities.co.jp/Playtown-Denei/9628/">The Best Game Music!!! 6th</a> - bunch of game music references.<br/>
+<a href="http://bit.shifter.net/index.php">:: BIT SHIFTER ::</a><br/>
+<br/>
+<br/>
+<h2>circuit bending</h2>
+<a href="http://secondhandsynth.wordpress.com/">Second Hand Synth | Circuit bending, electronics, experimentation and hobbies</a><br/>
+<br/>
+<h2>Chiptunes and Trackers</h2>
+<a href="http://upnotnorth.net/">Jonathan M. Guberman - Up, not North</a> and <a href="http://www.andrewkilpatrick.org/?p=home">Andrew Kilpatrick</a> made <a href="http://www.pianocade.com/">Pianocade chiptunes synthesizer</a> <a href="https://github.com/PortmanteauDevices/Pianocade">PortmanteauDevices/Pianocade</a> - sound hardware of the Nintendo NES and Game Boy , written in C using <a href="http://www.atmel.com/devices/at90usb646.aspx">Atmel AT90USB646</a>, Pianocade is monophonic: only one note sounds at a time. When multiple notes are sounded simultaneously, the Pianocade arpeggiates them (switches between them quickly). Both the rate and the order of arpeggiation can be set on a per-patch basis.<br/>
+<a href="http://inversephase.bandcamp.com/album/pretty-eight-machine">&#9658; Pretty Eight Machine | Inverse Phase</a> - Pretty Hate Machine, re-imagined in its entirety on eight different 8-bit systems, so I've named it "Pretty Eight Machine". Sound configurations include: SID/6581 (Commodore 64), POKEY (Atari 800), straight 2A03 (NES), AY/SCC+ (MSX+Metal Gear 2 or Snatcher cartridge), SN76489 (Sega Master System), 2A03+VRC6 (Famicom+Castlevania 3 cartridge), LR35902 (Game Boy), and OPLL (MSX-MUSIC or Japanese Sega Master System). <br/>
+<br/>
+<br/>
+<h2>Using rock band drums for music creation.</h2>
+My friend let me borrow the rock band 2 drumkit.  But my kids are a bit too young to play still.  I wish there were a way to just associate sounds and allow the kids to play around with creating music. Because the drum kit functions like a std. controller and MS gives us XNA it should be possible.  Wheres the app at?  Looking....<br/> 
+<a href="http://www.ziggyware.com/readarticle.php?article_id=211">XNA Tutorials and XNA Tools - Procedural Music</a><br/>
+<a href="http://createdigitalmusic.com/2007/11/26/game-day-use-rock-band-drums-as-midi-controller-windows-yes-mac-soon/">Create Digital Music » Game Day: Use Rock Band Drums as MIDI Controller - Windows, Yes, Mac, Soon?</a><br/>
+<a href="http://www.dxprog.com/entry/rb-drums/">dxprog media - RB Drums</a> - .NET 2.0 code to use the Rock Bad drums as a MIDI controller.<br/>
+<a href="http://tattiebogle.net/index.php/ProjectRoot/Xbox360Controller/OsxDriver">Tattiebogle.net - Mac OS X driver</a> - drivers for mac to use the XBox 360 Controllers.<br/>
+Well looks like it is possible to controller computer apps...but still not found the xbox 360 babysmash app yet....<br/>
+<br/>
+<br/>
+<a href="http://www.alligatorboogaloo.com/uke/tabs/020811.html">UKULELE BOOGALOO presents "SOMEWHERE OVER THE RAINBOW"</a><br/>
+<a href="http://en.wikipedia.org/wiki/Melodica">Melodica - Wikipedia, the free encyclopedia</a><br/>
+<br/>
+<br/>
+<br/>
+
+<h2>Soundfont and sampler stuff</h2>
+<a href="http://swami.resonance.org/trac">Swami</a> - Sampled Waveforms And Musical Instruments - is a collection of free software for editing and sharing MIDI instruments and sounds. Swami aims to provide cross platform (Linux, Windows and Mac OSX) instrument editing and sharing software for instrument formats such as SoundFont, DLS and GigaSampler. <br/>
+<a href="http://swami.resonance.org/trac/wiki/libInstPatch">libInstPatch – Swami</a> - a shared library which handles instrument editing and also contains a reference implementation of CRAM for instrument compression.<br/>
+<br/>
+<br/>
+
+<h2>Fuildsynth</h2>
+<a href="http://fluidsynth.resonance.org/trac">FluidSynth</a> - FluidSynth is a real-time software synthesizer based on the SoundFont 2 specifications.<br/>
+<a href="https://sourceforge.net/p/fluidsynth/wiki/Applications/">FluidSynth / Wiki / Applications</a><br/>
+<br/>
+<br/>
+
+<h2>Sample repositories</h2>
+<a href="http://sounds.resonance.org/patches.py">Resonance Instrument DB - Menu</a> - database of free audio samples and instrument sounds and also provide a place for users to share their own creations. Currently supported file formats include: SoundFont 2, DLS and GigaSampler.<br/>
+<a href="http://www.bandshed.net/avldrumkits/index.html">AVLDrumkits</a> - AVL Drumkits are a free GPL collection of sampled drum sound libraries in various formats recorded from two 'working' acoustic drumkits for music creation with MIDI sequencers or DAWs.<br/>
+<a href="http://www.bandshed.net/sounds/">AV Linux Sounds FTP</a> contains more than just AVL drumkits, a large collection of 'JeffG's' SFZ's and more by others! <br/>
+<br/>
+<br/>
+<h2>PureData || pd</h2>
+Pd is a major branch of the family of patcher programming languages known as Max.<br/>
+<a href="http://puredata.info/">Pure Data — PD Community Site</a> - runs on most everything including Raspberry Pi.<br/>
+<a href="https://github.com/eschaefer/field">eschaefer/field · GitHub</a> - PureData library for the "Playing the Field" audiovisual installation by Nicholas Houde and myself. aggregate the velocity of movement in the space, which will generate a sound sequence adjusted in ratio to the velocity (tempo).<br/>
+<br/>
+<br/>
+<h2>Super Collider</h2>
+<a href="http://www.linuxjournal.com/article/7432">At the Sounding Edge: OpenMusic and SuperCollider3</a><br/>
+<a href="http://superdupercollider.blogspot.com/">superdupercollider</a> - nice blog.<br/>
+<a href="http://superdupercollider.blogspot.com/2009/04/using-bbcut-and-simple-drum-machine.html">superdupercollider: Using BBCut and a Simple Drum Machine</a><br/>
+<a href="http://www.rossbencina.com/code/supercollider-internals-book-chapter">SuperCollider internals book chapter | Ross Bencina</a> specifically the server internals, checkout <a href="http://www.rossbencina.com/tag/computer-music">Computer-music | Ross Bencina</a><br/>
+<br/>
+<br/>
+<h2>echo-nest</h2>
+<a href="http://lindsay.at/work/remix/overview.html">@lindsay.at :: Projects :: Remix (music) :: API Overview</a><br/>
+<a href="http://developer.echonest.com/pages/overview">The Echo Nest : API : Overview</a><br/>
+<a href="http://musicmachinery.com/">Music Machinery</a><br/>
+<a href="http://code.google.com/p/echo-nest-remix/">echo-nest-remix - Project Hosting on Google Code</a><br/>
+<a href="http://code.google.com/p/pyechonest/">pyechonest - Project Hosting on Google Code</a> - Python wrapper to the Echo Nest Web API<br/>
+<a href="http://blip.tv/file/3359637">PyCon 2010:Remixing Music Pythonically (#157)</a> - great video on using echo nest <a href="http://atl.me/remix/">@lindsay.at :: Projects :: Remix (music)</a><br/>
+<a href="http://musicmachinery.com/">Music Machinery</a> - a blog about music technology by Paul Lamere<br/>
+<a href="http://visualizer.fm/static/index.html#">visualizer.fm</a><br/>
+<a href="https://github.com/Rodeoclash/Echonest-jQuery-Plugin">Rodeoclash/Echonest-jQuery-Plugin - GitHub</a><br/>
+<br/>
+<br/>
+<a href="http://audiogeneticslab.com/instruments/free/magnus-chord-organ">Magnus Chord Organ « Audio Genetics Lab</a><br/>
+<a href="http://audiogeneticslab.com/instruments/free/tongue-drum">Tongue Drum « Audio Genetics Lab</a><br/>
+<a href="http://www.dbeconline.com/magnus/insidelook.htm">How it Works: Magnus Electric Chord Organ</a><br/>
+<br/>
+<br/>
+<h2>vst</h2>
+<a href="http://www.djtechtools.com/2012/01/01/5-free-vsts-that-every-dj-needs/">DJ TechTools  |  5 Free VSTs That Every DJ Needs</a><br/>
+<a href="http://illformed.org/plugins/glitch/">Glitch | Illformed</a> - currently windows only.<br/>
+<a href="http://mdsp.smartelectronix.com/">Mdsp @ Smartelectronix | free VST and AudioUnit plugins</a><br/>
+<a href="http://mdsp.smartelectronix.com/livecut/">Livecut | Mdsp @ Smartelectronix</a> - based on BBCut from SuperCollider, but in VST plugin.<br/>
+<br/>
+<h2>VexFlow - music notation & a bit of the music theory</h2>
+<a href="http://www.vexflow.com/">VexFlow - HTML5 Music Engraving</a><br/>
+<a href="http://vexflow.com/vextab/tutorial.html">VexFlow TabDiv Demo</a> - The VexTab Tutorial<br/>
+<a href="http://vexflow.com/tabdiv/">VexFlow TabDiv</a> - embed tablature on your website using vexflow and a class="vex-tabdiv".<br/>
+<a href="http://0xfe.blogspot.com/2011/03/music-theory-api.html">0xFE - 11111110b - 0376 - 254 - b9#9: A Music Theory API</a> - it can also answer music theory questions...<br/>
+<a href="http://mit.edu/music21/doc/html/contents.html">Music21 Documentation — music21 Documentation</a> - Music21 is a Python-based toolkit for computer-aided musicology. you can output to vexFlow using <a href="http://mit.edu/music21/doc/html/moduleVexflowBase.html">moduleVexflowBase</a><br/>
+<br/>
+<a href="http://www.lilypond.org/">LilyPond – Music notation for everyone: LilyPond... music notation for everyone</a><br/>
+<a href="http://musescore.org/en">MuseScore | Free music composition and notation software</a><br/>
+<a href="http://tuxguitar.herac.com.ar/">.:: TuxGuitar ::. Open Source Tablature Editor :: TuxGuitar</a><br/>
+<br/>
+<br/>
+<a href="http://www.stephenhobley.com/blog/category/midi-and-music/">Steve Hobley's MIDI and Music</a> <a href="http://www.stephenhobley.com/blog/cool-toys/">Steve Hobley's Pitch To MIDI Tracker|MIDI Camera</a>($10)<br/>
+<a href="http://spiral.qet.me/">Spiral musical keyboard</a> implemented using <a href="http://mudcu.be/midi-js/">MIDI.js - Sequencing in Javascript.</a><br/>
+<a href="http://rhythmiclight.com/archives/ideas/colorscales.html">RhythmicLight.com Color Scales?</a> - Of all of the possible correspondences between the elements of color (hue, saturation and value) and those of sound (pitch, amplitude, and tone color), the most often proposed mapping is of pitch to hue. Many such mappings have been proposed and some were built into light instruments.<br/>
+<a href="https://github.com/mudcube/MIDI.js/blob/master/js/MusicTheory/Synesthesia.js">MIDI.js/js/MusicTheory/Synesthesia.js at master · mudcube/MIDI.js</a><br/>
+<br/>
+<br/>
+<h2>Scales</h2>
+<a href="http://adriangin.wordpress.com/2012/11/18/music-major-and-minor-keys/">Music Major and Minor Keys | Electronic Design</a><br/>
+<a href="http://www.i-love-guitar.com/guitar-chords-major-keys.html">Guitar Chords in Major Keys | Diatonic Triads | I IV V Major | ii iii vi minor | viio diminished</a><br/>
+<a href="http://www.muzuu.org/new_life/pics/simpleblog/scales/scalesadvice.html">MuZuu - Scales Advice</a> <a href="http://www.muzuu.org/new_life/pics/simpleblog/pythonstuff/gsa.html">MuZuu -  Guitar Scale Application</a><br/>
+<a href="http://www.jeanpierrepoulin.com/">LINE MUSIC: improvise solos on the right the right chords!</a><br/>
+<a href="http://www.lucytune.com/scales/">2394 Unique Musical Scales</a><br/>
+<br/>
+<br/>
+<h2>12 Bar Blues</h2>
+1 4 5. I IV V.<br/>
+<a href="http://www.celticguitarmusic.com/blues.htm">How to play 12 Bar blues in 7 keys By Glenn Weiser</a><br/>
+<br/>
+<br/>
+<h2>three.js</h2>
+Matt Hobbs's <a href="http://nooshu.com/category/three-js">nooshu:kneeling on the shoulders of giants - Three.js Archives</a> <a href="http://nooshu.com/lab">Matt Hobbs’ Digital Lab</a><br/>
+<a href="http://alteredqualia.com/">AlteredQualia</a><br/>
+<a href="http://ricardocabello.com/blog">ricardo cabello* blog*</a><br/>
+<br/>
+<br/>
+<h2>Genetic Programming</h2>
+<a href="http://rogeralsing.com/2008/12/07/genetic-programming-evolution-of-mona-lisa/">Genetic Programming: Evolution of Mona Lisa | Roger Alsing Weblog</a><br/>
+<a href="http://alteredqualia.com/visualization/evolve/">alteredqualia.com - Image evolution</a><br/>
+<br/>
+<br/>
+<h2>Bacteria Art</h2>
+<a href="http://tamar.tau.ac.il/~eshel/html/Bacteria_art_gallery.html">BACTERIA ART GALLERY</a> - Raymond and Beverly Sackler School of Physics and Astronomy,
+Tel Aviv University...wow.<br/>
+<br/>
+<br/>
+<h2>Fractal Art</h2>
+<iframe width="420" height="315" src="//www.youtube.com/embed/RCFcya99hHM" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="//www.youtube.com/embed/S530Vwa33G0" frameborder="0" allowfullscreen></iframe>
+<br/>
+<br/>
+<h2>Live coding in vim || Overtone</h2>
+<a href="http://overtone.github.io/">Overtone - Collaborative Programmable Music</a> <a href="https://github.com/overtone/overtone">overtone/overtone</a> - Collaborative Programmable Music, closure api to SuperCollider,musical functions, OSC,freesound.org api,event system. <br/>
+<a href="http://thelackthereof.org//Music_Gear_and_Setup">The Lack Thereof: Music Gear and Setup</a><br/>
+<a href="http://thelackthereof.org//TLT/2013.12.24/Overtone_Adventures_3/TLT/2013.12.22/Overtone_Adventures_1">The Lack Thereof: TLT - 2013.12.22 - Overtone Adventures 1</a> <a href="http://thelackthereof.org//TLT/2013.12.23/Overtone_Adventures_2">2</a> <a href="http://thelackthereof.org//TLT/2013.12.24/Overtone_Adventures_3">3</a> <a href="http://thelackthereof.org//TLT/2013.12.26/Overtone_Adventures_4">4</a><br/>
+<br/>
+<br/>
+<h2>Tidal</h2>
+<a href="http://yaxu.org/tidal/">Tidal | Alex McLean</a> - Tidal is a mini-language embedded in Haskell, for the live coding of pattern. <a href="https://github.com/yaxu/Tidal">yaxu/Tidal</a><br/>
+<a href="https://raw.githubusercontent.com/yaxu/Tidal/master/doc/farm/farm.pdf">Making programming languages to dance to: Live Coding with Tidal (PDF)</a><br/>
+<a href="https://github.com/yaxu/Tidal/wiki">Home · yaxu/Tidal Wiki</a><br/>
+<a href="http://retiary.org/ls/writings/musical_manip.html">Laurie Spiegel's "Manipulations of Music Patterns"</a> - transposition, reversal, rotation, phase offset, rescaling, interpolation, extrapolation, fragmentation, substitution, combination, sequencing, repetition<br/>
+<a href="http://toplap.org/tidal/">Tidal – mini language for live coding pattern | TOPLAP</a><br/>
+<a href="http://kindohm.com/posts/2014/01/21/tidal-breakbeats/">Slicing Up Breaks with Tidal</a><br/>
+<a href="http://365tidalpatterns.tumblr.com/">365 Tidal Patterns</a><br/>
+<a href="http://tidalexperiments.tumblr.com/">Tidal Experiments</a><br/>
+<a href="http://hughrawlinson.me/live-coding/post/tidal-is-great-fun/">Tidal is great fun</a><br/>
+<a href="https://github.com/yaxu/Dirt">yaxu/Dirt</a> - impressive thingie for playing bits of samples with some level of accuracy. written in C, jack api, includes zmq osc to dirt.<br/>
+<a href="http://louisduhamel.fr/live-coding-haskell-dirt-tidal/">Louis Duhamel | Live-coding in Haskell with Dirt and Tidal</a><br/>
+<a href="http://kindohm.com/#livecoding">Mike Hodnick - live coded music and web programming</a> - 2014 Tidal pattern a day.<a href="http://kindohm.com/posts/2013/12/02/live-coding-with-tidal/">Live Coding With Tidal</a><br/>
+<a href="http://kindohm.com/posts/2014/01/21/live-coding-with-tidal/">20 Minutes of Live Coded Audio With Tidal</a><br/>
+    <div style="border: 1px;">
+    Created: 2007-07-13 13:18:29
+    Modified: 2016-02-18 02:56:47
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+<a href="javascript:var%20s%20=%20document.createElement('script');s.type='text/javascript';document.body.appendChild(s);s.src='/eggs/asteroids.min.js';void(0);" id="secret">destory this webpage; if you will.</a>
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,491 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>Samsung Galaxy</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/random-technology/">random-technology</a>
+    <h1>Samsung Galaxy</h1>
+   The <a href="#s3">S3</a> was the first Android phone for me.  Next I moved to the <a href="#S4">S4</a>. and now S5. <br/>
+<br/>
+<h2>Samsung Galaxy S5 - Samsung-SM-G900A</h2>
+A lot of new trinkets - fingerprint sensor, water proof, heart beat sensor, 16MP Rear, 2.0MP Front,4K video recording,2800mAh battery,2G ram, gargantuan USB 3.0 connector with water proof cover - no real protrusions for those of us with little/no finger nails.  We quietly lost the cool eye tracking/scrolling features touted in the S4.  I've been shown that there are iphone apps for finger pulse tracking...as accurate?...does it matter?  Still the use case aside from being obsessive about your personal health is not clear to me.<br/>
+<a href="http://en.wikipedia.org/wiki/Samsung_Galaxy_S5">Samsung Galaxy S5 - Wikipedia, the free encyclopedia</a><br/>
+<a href="http://www.samsung.com/global/microsite/galaxys5/specs.html">Samsung GALAXY S5 Specs</a><br/>
+<a href="http://www.samsung.com/us/support/owners/product/SM-G900AZWAATT">Support - AT&amp;T Cell Phones SM-G900A | Samsung Cell Phones</a><br/>
+<a href="http://downloadcenter.samsung.com/content/UM/201404/20140402111855054/SM-G900F_UM_EU_Kitkat_Eng_D06_140312.pdf">Samsung Galaxy S5 User Manual (pdf)</a> - Userguide<br/>
+<a href="http://developer.samsung.com/develop">SAMSUNG Developers</a> - know that you enable developer mode by going to Settings->About Device->repeatedly tapping build number.  poof, you a developer now.<br/>
+<a href="http://www.fool.com/investing/general/2014/04/16/the-big-problem-with-samsungs-galaxy-s5.aspx">The Big Problem With Samsung's Galaxy S5 (SSNLF)</a> - not sure I agree that SSNLF's BOM for the S5 @ $256 vs $236 cost to build and reduction in price Galaxy S4 $700-$800 vs S5  $600-$700 is a problem. fierce competition to be the computer in our pockets. Surprising to me that all of these devices have 2GB ram and 16GB/32BG config, the pressure to increase these isn't there.<br/>
+<a href="http://www.forbes.com/sites/gordonkelly/2014/06/18/new-samsung-galaxy-s5-launched-slaughters-original/">New Samsung Galaxy S5 Launched. Slaughters Original - Forbes</a> - Galaxy S5 LTE-A looks like finally a 3gb ram phone, just 2 months out from Samsung-SM-G900A. 2560x1440 mouth watering (577ppi)<br/>
+<a href="http://www.andromods.com/download-files/newest-version-samsung-galaxy-s5-usb-adb-drivers.html">Get the most recent version of Samsung Galaxy S5 USB Drivers and ADB | AndroMods</a> - I usually use KIES 3 to get my device drivers from Samsung, but if you want to download msi's from other people.<br/>
+<a href="http://connect.dpreview.com/post/0315472077/samsung-explains-the-galaxy-s5-isocell-sensor">Samsung explains the Galaxy S5's ISOCELL sensor: Connect</a> - pretty impressive, 30% less crosstalk between individual pixels. first mobile camera with this technology.<br/>
+<br/>
+<br/>
+<h2>S5 - where'd my menu button go?</h2>
+<a href="http://www.androidcentral.com/samsung-galaxy-s5-menu-button-hidden">The Samsung Galaxy S5 still has a menu button, it's just hidden | Android Central</a> - the S5 replaced the S3/S4 menu button with a multitasking  button.  The S3 and S4, you held down the home button to present the running applications.  S5, provides the multitasking button direct, and a long press of the multitasking button provides the menu button.  Nice, once you know.<br/>
+<br/>
+<br/>
+<h2>S5 forget alternative password? || recover alternate password || S5 stop finger scanner</h2>
+The S5 comes with a finger print scanner. You can change the lock screen from using the finger print scanner but you need to authenticate by fingerprint or alternate password before you can disable the fingerprint authentication.  <strong>Delete all the fingerprints registered (verifying by fingerprint or alternative password) inside the Fingerprint manager (settings-&gt;Finger Scanner).  When all registered prints are removed (long pressing and deleting each registered print), the lock screen will go back to swipe.</strong><br/>
+<br/>
+Additionally, you can try using the <a href="https://www.google.com/android/devicemanager">Android Device Manager</a>, which apparently has a "Lock" and "Erase" feature that overrides whatever password or lock already on the device.  The issue with this method is that you need to setup Android Device Manager with special privileges before remote unlock will work.  Within ADM you won't even see "Lock" or "Erase" until you go through the "setup lock & erase" notification process. (so don't forget your creds, until you've enabled remote admin for ADM...har har) Locking the device remotely shows the device as locked, turn off/lock the screen, your new password should work now.<br/>
+<br/>   
+The number of attempts to scan your finger should be something configurable.  Currently, you get 5 attempts, and then you better know a normal password.  Pretty disappointing if you ask me.  Close though...<br/>
+I would rather not have an alternative password at all, aside from remote unlock. Which they seem to provide, however using the google unlock from the lock screen did not work for me. (I swear I know my Google password and typed it correctly)<br/>
+<br/>
+The scanner stands out among the crowd because it is already being used by companies outside of Samsung.  Chiefly Paypal comes out of the box.  But 3rd party developers are supposed to have an SDK..<br/>
+<a href="http://forums.androidcentral.com/samsung-galaxy-s5/381333-forgot-my-alternate-password.html">Forgot my Alternate Password... - Android Forums at AndroidCentral.com</a><br/>
+being locked out of my S5 was one of the first things I did after unboxing. consider +1'ing this page if it helped you. Thanks!<br/>
+<br/>
+<br/>
+<h2>transfer data between s4 and s5</h2>
+First off there is backup and restore with <a href="http://www.samsung.com/us/kies/">SAMSUNG KIES</a>, which works with both windows and mac.<br/>
+But Samsung has given us SmartSwitch, which makes it very easy..and wireless to get all your txt/mms/contacts/pictures/etc.<br/>
+<a href="http://www.samsung.com/us/smart-switch/">Samsung Smart Switch™ | Samsung</a><br/>
+<a href="https://play.google.com/store/apps/details?id=com.sec.android.easyMover">Samsung Smart Switch Mobile - Android Apps on Google Play</a><br/>
+<br/>
+<br/>
+<h2 id=S4>Samsung I9500 Galaxy S4 || GT-I9500 Galaxy S IV || GT-I9195 || GT-I9505 ||  SGH-I537</h2>
+2 GB ram.<br/>
+<a href="http://en.wikipedia.org/wiki/Samsung_Galaxy_S4">Samsung Galaxy S4 - Wikipedia, the free encyclopedia</a><br/>
+<br/>
+<br/>
+<h2 id=s3>gallaxy s3 i9300</h2>
+2 GB ram.<br/>
+<a href="http://en.wikipedia.org/wiki/Samsung_Galaxy_S_III">Samsung Galaxy S III - Wikipedia, the free encyclopedia</a><br/>
+<a href="http://opensource.samsung.com/reception/receptionSub.do?method=search&amp;searchValue=I9300">Open Source Release Center</a> - samsung's releases of source for gallaxy s3 i9300<br/>
+<br/>
+<br/>
+<h2>Rooting all Samsung Galaxy devices looks to be straight forward</h2>
+most use a tool called Odin.<br/>
+<a href="http://true-android.blogspot.com/2013/10/benefits-of-rooting-android-devices.html">Benefits of Rooting Android Devices | True Android | #1 Custom Android Resource</a> - apps on sd card, root only apps, custom roms.<br/>
+<a href="http://true-android.blogspot.com/2014/04/how-to-root-galaxy-s5-sm-g900i-easy.html">How To Root Galaxy S5 SM-G900I –Easy Guide | True Android | #1 Custom Android Resource</a><br/>
+<a href="https://play.google.com/store/apps/details?id=com.joeykrim.rootcheck">Root Checker - Android Apps on Google Play</a> - if you want to run an app that gives you a warm fuzzy<br/>
+<a href="http://www.ibtimes.com/how-root-t-mobile-variant-samsung-galaxy-s5-sm-g900t-android-442-kitkat-using-cf-auto-root-1571695">How To Root T-Mobile Variant Of Samsung Galaxy S5 SM-G900T On Android 4.4.2 KitKat Using CF-Auto-Root [Tutorial]</a><br/>
+<br/>
+<br/>
+<a href="http://dave.thehorners.com/tech-talk/programming/459-android-programming">Android Programming - Dave Horner's Website</a><br/>
+Watching all the S5 devices hit this page is fun in Google analytics.<br/>
+Hello S5 devices SM-G900F,SM-G900V,SM-G900A,SM-G900P,SM-G900H,GT-I9300,SM-G900W8,SM-G900I, thanks for visiting, I promise a more responsive layout soon...
+<br/>
+<br/>
+<h2>MacOSX move files from android || AFT (Android File Transfer)</h2>
+Kies will break the use of AFT from MacOSX, so if you want to move files around on MacOSX, you'll want to use Kies.<br/>
+<a href="http://www.android.com/filetransfer/">Android file transfer</a> - no need for this on windows, they did it right.<br/>
+<br/>
+<h2>remove "Emergency Call" from lock screen || Emergency Call on Lock Screen</h2>
+I've had calls to 911 due to the phone's lock screen emergency dialer calling 911.  It is also concerning with an old phone that you might give your child... since a phone without service can still make calls to 911.<br/>
+easiest method to avoid butt-calls is by locking your smartphone's home screen; but with the emergency dialr being such a hit target on the lockscreen, you need to turn the screen off to reduce butt-dialing.<br/>
+I have found no way to remove the emergency call button from the factory lock screen.  The only non-root solution seems to be disabling the factory lock screen and installing a 3rd party screen lock.  Which means swipe||none only and you forgo the all secure locks (pattern,fingerprint,pin,password). garh.  Not cool to call E911 from your lock screen! Lock screens were ment to stop my phone from calling people on accident; E911 needs this same protection from the jostling of my trousers.<br/>  
+<a href="https://play.google.com/store/apps/details?id=com.coverscreen.cover&amp;hl=en">Cover Lock Screen (beta) - Android Apps on Google Play</a> - easy solution, replacing the lock screen with something that doesn't have an emergency dialr; there are many options out there <a href="https://play.google.com/store/search?q=lockscreen&amp;c=apps">lockscreen - Android Apps on Google Play</a>, however, I did find that you do need to turn off the factory lockscreen, as I still ended up calling E911 with Cover installed!<br/>
+<a href="http://www.galaxys4forums.net/forum/6-galaxy-s4-general-discussion/1176-getting-rid-emergency-call.html">galaxys4forums.net: getting rid of emergency call</a><br/>
+<a href="http://android.stackexchange.com/questions/56043/how-do-i-make-emergency-call-harder-to-hit-i-keep-pocket-calling-911">lock screen - How do I make "Emergency Call" harder to hit? I keep pocket calling 911! - Android Enthusiasts Stack Exchange</a><br/>
+not only is the emergency dialer problematic for butt-dials; it may also represent a security hole on your device! <a href="http://techcrunch.com/2013/03/20/tell-me-if-youve-heard-this-one-before-lock-screen-security-flaw-found-on-samsungs-android-phones/">Lock Screen Security Hole Found On Some Android-Powered Samsung Galaxy Phones | TechCrunch</a> - demonstrates a brief moment after the emergency dialer is closed, there is a window of opportunity for a hacker to launch apps or place calls. (Samsung's Android 4.1.2 it's probably patched on your phone; but still)<br/>
+<a href="http://shkspr.mobi/blog/2013/03/samsung-lock-screen-security-flaw/">Samsung Lock Screen Security Flaw ? Terence Eden's Blog</a><br/>
+<br/>
+There is a real need for tools to disable E911 from phones which are used for toy.  I can't believe that root'ing the device is required to disable such functionality or that placing a dialing mechanism on the LOCK SCREEN was thought to be a good idea...  I would like to see the numbers on false calls to E911 by phone device; these Samsung devices would stand out.<br/>
+
+<h2>no customization||disabling of emergency dialer on lock screen possible without root access!</h2>
+<a href="http://androidforums.com/samsung-galaxy-s4/720587-emergency-call-button.html">Emergency Call button - Android Forums</a> - Root the phone,Download SuperSU,Download SQLite Editor;data --> data --> com.android.providers.contacts --> databases -->contacts2.db --> emergency (edit one only entry within whatever number you'd like to butt dial)<br/>
+<a href="http://forum.xda-developers.com/showthread.php?t=2313680">[Q] Remove Emergency Call / Add Swipe | Galaxy S4 | XDA Forum</a><br/>
+<a href="http://www.droidforums.net/threads/removal-of-emergency-call-button-from-lock-screen.102079/">Removal of emergency call button from lock screen? | Android Forums at DroidForums.net</a><br/>
+    <div style="border: 1px;">
+    Created: 2014-04-11 01:14:35
+    Modified: 2014-08-05 22:09:27
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+<a target="_blank" href="/tech-talk/programming/107-algorithms-patterns-and-things-cs"><canvas id="c" width="170" height="172" title="conway glider"></canvas></a><br/>
+L:<span id=loop>0</span> I:<span id=iteration>0</span> A:<span id=active>0</span>
+<script>
+/** Conway's Game of Life.
+ * ankr started; modified by horner.
+ */
+var c=document.getElementById('c');
+var canvas = c.getContext('2d'),
+    cells = [];
+var drawRate=1200;
+var iter=0;
+var l=0;
+init();
+draw();
+
+function setSpan(name,value)
+{
+var span = document.getElementById(name);
+while( span.firstChild ) {
+    span.removeChild( span.firstChild );
+}
+span.appendChild(document.createTextNode(value));
+}
+function init() {
+setSpan('loop',l);
+    for (var i=0; i<c.width; i++) {
+        cells[i] = [];
+        for (var j=0; j<c.height; j++) {
+            cells[i][j] = 0;
+        }
+    }
+    var gliderT=[
+                [3, 1], [3,3], [2,3], [4, 2], [4, 3]
+               ];
+    var reflectorT=[
+                [0, 0], [0,1], [1,0], [1, 2], [2, 2]
+               ];
+    var sT=[
+                [0, 2], [0,3], [1,2],[2,0],[2,2],[3,0],[3,1]
+               ];
+    var boxT=[
+                [0, 0], [0,1], [1,1], [1,0]
+               ];
+
+    gliderT.forEach(function(point) {
+        cells[point[0]-1][point[1]-1] = 1;
+    });
+    gliderT.forEach(function(point) {
+        cells[point[0]+7][point[1]+7] = 1;
+    });
+    gliderT.forEach(function(point) {
+        cells[point[0]+3][point[1]+3] = 1;
+    });
+    gliderT.forEach(function(point) {
+        cells[point[0]+12][point[1]+12] = 1;
+    });
+if(l>1)  {
+var maxX=12;
+    var randomX=Math.floor(Math.random() * maxX);
+    var randomY=Math.floor(Math.random() * maxX);
+    sT.forEach(function(point) {
+        cells[point[0]+randomX][point[1]+randomY] = 1;
+    });
+    randomX=Math.floor(Math.random() * maxX);
+    randomY=Math.floor(Math.random() * maxX);
+    boxT.forEach(function(point) {
+        cells[point[0]+randomX][point[1]+randomY] = 1;
+    });
+    randomX=Math.floor(Math.random() * maxX);
+    randomY=Math.floor(Math.random() * maxX);
+    reflectorT.forEach(function(point) {
+        cells[point[0]+randomX][point[1]+randomY] = 1;
+    });
+}
+
+}
+
+function whos_alive() {
+    
+    var result = [];
+    var active= 0;
+    
+    /**
+     * Return amount of alive neighbours for a cell
+     */
+    function _countNeighbours(x, y) {
+        var amount = 0;
+        
+        function _isFilled(x, y) {
+            return cells[x] && cells[x][y];
+        }
+        
+        if (_isFilled(x-1, y-1)) amount++;
+        if (_isFilled(x,   y-1)) amount++;
+        if (_isFilled(x+1, y-1)) amount++;
+        if (_isFilled(x-1, y  )) amount++;
+        if (_isFilled(x+1, y  )) amount++;
+        if (_isFilled(x-1, y+1)) amount++;
+        if (_isFilled(x,   y+1)) amount++;
+        if (_isFilled(x+1, y+1)) amount++;
+        
+        return amount;
+    }
+    
+    cells.forEach(function(row, x) {
+        result[x] = [];
+        row.forEach(function(cell, y) {
+            var alive = 0,
+                count = _countNeighbours(x, y);
+            
+            if (cell > 0) {
+                alive = count === 2 || count === 3 ? 1 : 0;
+            } else {
+                alive = count === 3 ? 1 : 0;
+            }
+            if(alive) active++;
+            result[x][y] = alive;
+        });
+    });
+    
+    cells = result;
+    setSpan('active',active);
+    draw();
+}
+function draw() {
+    if(iter>60) { iter=0; l++; init(); }
+    else if(iter>10 && iter%20==0) {
+    if(drawRate>10) { drawRate-=10; }
+    var gliderT=[
+                [3, 1], [3,3], [2,3], [4, 2], [4, 3]
+               ];
+
+     gliderT.forEach(function(point) {
+        cells[point[0]][point[1]] = 1;
+    });
+    }
+setSpan('iteration',iter);
+    canvas.clearRect(0, 0, c.width, c.height);
+    cells.forEach(function(row, x) {
+        row.forEach(function(cell, y) {
+            canvas.beginPath();
+            if (cell) {
+                if(l%2==0) {
+                canvas.rect(x*8, y*8, 8, 8);
+                canvas.fillStyle = 'black';
+                } else {
+                canvas.beginPath();
+                canvas.arc(x*8, y*8,3 , 0, 2 * Math.PI, false);
+                canvas.fillStyle = 'black';
+                }
+                canvas.fill();
+                canvas.stroke();
+            } else {
+                if(l%2==0){
+                canvas.strokeStyle = '#e1e1e1';
+                canvas.rect(x*8, y*8, 8, 8);
+                canvas.stroke();
+                }
+            }
+        });
+    });
+    iter++;
+    setTimeout(function() {whos_alive();}, drawRate);
+}
+</script>
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

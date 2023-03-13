@@ -1,0 +1,363 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>MIDI and OpenSound Control- network OSC and all things MIDI</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/programming/">programming</a>
+    <h1>MIDI and OpenSound Control- network OSC and all things MIDI</h1>
+   <a href="http://archive.cnmat.berkeley.edu/OpenSoundControl/">OpenSoundControl</a><br/>
+<a href="http://www.rossbencina.com/code/oscpack">oscpack - a simple C++ OSC packet manipulation library | Ross Bencina</a><br/>
+<a href="http://www.rossbencina.com/code/oscgroups">peer-to-peer internet OSC multicast without the pain | Ross Bencina</a><br/>
+<a href="http://blog.agektmr.com/2013/10/web-music.html">Tender Surrender: how far web or can be fused with the musical instrument? I held a ~ Web Music Hakkason</a><br/>
+<a href="http://matt.west.co.tt/music/jasmid-midi-synthesis-with-javascript-and-html5-audio/">jasmid – MIDI synthesis with Javascript and HTML5 audio « matt.west.co.tt</a><br/>
+<a href="https://github.com/gasman/jasmid">gasman/jasmid</a> - A MIDI file reader and synthesiser in Javascript: Mozilla Audio Data API,Web Audio API,a Flash fallback originally taken from <a href="https://github.com/bfirsh/dynamicaudio.js">bfirsh/dynamicaudio.js</a> - An interface for writing audio with Firefox's audio data API with a Flash fall back for older browsers<br/>
+<a href="https://github.com/bfirsh/dynamicaudio.js">bfirsh/dynamicaudio.js</a><br/>
+<a href="http://webaudio.github.io/web-midi-api/">Web MIDI API</a><br/>
+<a href="http://chimera.labs.oreilly.com/books/1234000001552">Web Audio API</a> - oreilly Web Audio API book, free online reading.<br/>
+<a href="http://webaudiodemos.appspot.com/slides/index.html#/">Making the Web Rock: Web Audio (slides)</a> <a href="http://webaudiodemos.appspot.com/">Web Audio Demos</a> - graph editor,Vocoder,synth,input effects,audio recording,oscilloscope,pitch detection,novation launchpad integration with Web MIDI,and more.<br/>
+<a href="http://chromium.googlecode.com/svn/trunk/samples/audio/">chromium - Revision 4535: /trunk/samples/audio</a> - go to chrome://flags/#enable-web-midi, enable it, and restart your Chrome Canary.<br/>
+<a href="http://sound.io/midi-monitor">MIDI Monitor</a> <a href="http://sound.io/midi-hub">MIDI Hub</a><br/>
+<a href="https://github.com/cwilso/WebMIDIAPIShim">cwilso/WebMIDIAPIShim</a> - Polyfill using the Jazz NPAPI MIDI plugin to implement the Web MIDI API on Mac and Windows.<br/>
+<a href="https://github.com/mizuhiki/WebMIDIAPIShimForiOS">mizuhiki/WebMIDIAPIShimForiOS</a> - shim to enable Web MIDI API on iOS.<br/>
+<a href="http://www.ius.edu/ComputerScience/Projects/b438/NetMidi.htm">Network MIDI</a> - Transmitting Music via MIDI over a Local Area Network<br/>
+<a href="http://www.soundonsound.com/sos/jul05/articles/tiger.htm">Mac OS X Tiger: A Musician's Guide</a><br/>
+<a href="http://www.hackaday.com/2005/08/23/how-to-control-csound-with-a-custom-midi-controller/">How-To Control Csound with a Custom Midi Controller: Introduction (1 of 2)</a><br/>
+<a href="http://www.sreal.com:8000/~div/midi-utilities/">Div's MIDI Utilities</a><br/>
+<a href="http://abcnotation.com/blog/2013/04/10/the-problem-with-midi/">The problem with midi « abc notation blog</a><br/>
+<br/>
+<br/>
+electronic drums are usually MIDI.<br/>
+<a href="http://dave.thehorners.com/aboutme/80-random-thoughts/454-drums">Drum stuff - Dave Horner's Website</a><br/>
+<br/>
+<br/>
+<a href="http://www.osculator.net/wiki/Main/Download">OSCulator</a> - Do music or motion with unusual inputs<br/>
+<a href="http://opensoundcontrol.org/introduction-osc">Introduction to OSC | opensoundcontrol.org</a><br/>
+<a href="http://liblo.sourceforge.net/">liblo: Lightweight OSC implementation</a> - POSIX  C/C++<br/>
+
+<a href="http://reactable.iua.upf.edu/?software">reacTIVision</a>is a standalone application, which sends OpenSound Control messages via UDP port 3333 to any connected client application. It implements the <a href="http://www.iua.upf.es/mtg/reacTable/pdfs/GW2005-KaltenBoverBencinaConstanza.pdf">TUIO protocol</a>, which was specially designed for transmitting the state of tangible objects and multi-touch control on a table surface.<br/>
+<br/>
+<a href="http://www.ucapps.de/">www.uCApps.de</a> - bunch of midi related stuff and links.<br/>
+<a href="http://github.com/atsushieno/mldsp">atsushieno's mldsp at master - GitHub</a> - visual MIDI player for Moonlight.<br/>
+<a href="http://hexler.net/software/touchosc">h e x l e r . n e t | TouchOSC</a> - TouchOSC is a universal iPhone / iPod Touch / iPad application that lets you send and receive Open Sound Control messages over a Wi-Fi network using the UDP protocol.<br/>
+<a href="http://raspberrypisynthesizer.blogspot.com/">Raspberry Pi Synthesizer</a><br/>
+<br/>
+<br/>
+<a href="http://csc490.suspended-chord.info/">Jacob Peck // CSC 490 Web Presence</a> - work from a CSC 490 - Cognitive Musicology class<br/>
+<a href="http://thesis.suspended-chord.info/">Main : Jacob Peck // Algorithmic Composition // Thesis</a>  - algorithmic compositions with regards to cellular automata systems<br/>
+<a href="http://csc380.suspended-chord.info/">Team La-a's MIDI Humanizer Wiki | Main / Home Page</a> - humanize a straight midi track.<br/>
+<br/>
+<br/>
+<a href="http://www.sojamo.de/libraries/oscP5/">Andreas Schlegel - oscP5</a> - OSC implementation for processing.<br/>
+<br/>
+<br/>
+<a href="http://www.autohotkey.com/board/topic/28056-midi-input-library/page-6">MIDI input library - Page 6 - Scripts - AutoHotkey Community</a> <a href="http://ihme.org/~orbik/midi4ahk/">Index of /~orbik/midi4ahk</a><br/>
+<a href="https://github.com/mudcube/MIDI.js">mudcube/MIDI.js · GitHub</a> <a href="http://mudcu.be/midi-js/">MIDI.js - Sequencing in Javascript.</a><br/>
+<a href="http://www.rossbencina.com/code/midipic">DIY MIDI controllers using PIC microcontrollers and Basic Stamps | Ross Bencina</a><br/>
+<a href="http://adam.fulara.com/software">Free JS/VST software by Adam Fulara</a><br/>
+<a href="https://github.com/sksmatt/nodejs-ableton-piano">sksmatt/nodejs-ableton-piano</a> - Simple Keyboard to control Ableton Live ( or any other Host ) via the browser in real time using Node.JS, Express, Socket.IO and MIDI.<br/>
+<a href="http://midiwriter.sourceforge.net/">MidiWriter</a> - MidiWriter is a framework for algorithmic music composition. It includes a lot of generic functions, a midi reader and writer, a huge collection of different generators for small chunks and some variation functions. C++ GPL<br/>
+<br/>
+<br/>
+<h2>software midi controller || software midi keyboards</h2>
+<a href="http://www.manyetas.com/creed/midikeys.html">MidiKeys</a> - MidiKeys is a small application for Mac OS X that presents a miniature MIDI keyboard onscreen.<br/>
+<br/>
+<h2>midi automation</h2>
+<a href="http://charlie-roberts.com/midiStroke/">midiStroke</a> - midiStroke converts midi note, program or CC messages into keystrokes. Mac OSX 10.3 and higher. <a href="https://github.com/charlieroberts/midiStroke">charlieroberts/midiStroke</a><br/>
+<h2>Midi files</h2>
+<a href="http://www.bachcentral.com/midiindex.html">A Johann Sebastian Bach Midi Index Page</a>- Johann Sebastian Bach Midis<br/>
+<a href="http://www.madore.org/~david/music/midi/">MIDI music files</a> - classical music pieces & orginals.<br/>
+<a href="http://mudcu.be/piano/">Color Piano—Learn to play songs on the piano!</a><br/>
+<br/>
+<br/>
+<h2>light sequencing</h2>
+<a href="http://ptone.com/dablog/2010/11/an-object-oriented-approach-to-light-show-sequencing/">ptone : An object oriented approach to light show sequencing</a><br/>
+<br/>
+<br/>
+<a href="https://pedals.io/">Pedals.io - Guitar effects in the cloud!</a> - <a href="http://dashersw.github.io/pedalboard.js/">Pedalboard.js by dashersw</a> - Open-source JavaScript framework for developing audio effects with Web Audio API<br/>
+<br/>
+<br/>
+<iframe width="560" height="315" src="//www.youtube.com/embed/wZrNI-86zYI?rel=0" allowfullscreen></iframe><br/>
+<h2>online webapi instruments || web api synths</h2>
+<a href="http://artpolikarpov.github.io/garmoshka/">Garmoshka accordion</a> Move the bellows [:||||||||||||:]  -  resize your browser window
+<br/>
+<a href="https://github.com/artpolikarpov/garmoshka">artpolikarpov/garmoshka</a><br/>
+<a href="http://leaks.audiotool.com/demo/01/">Audiotool Leaks</a><br/>
+<a href="http://demo.agektmr.com/drumpad/">Web Audio Drumpad</a><br/>
+<a href="http://www.taktech.org/takm/WebFMSynth/">Web FM synthesizer made with HTML5</a><br/>
+<a href="http://www.g200kg.com/archives/2013/04/airtheremin-1.html">AirTheremin | g200kg Music &amp; Software</a> - WebCam+WebAudioAPI demo<br/>
+<br/>
+<br/>
+<h2>Knobs</h2>
+<a href="http://demo.agektmr.com/polymer/knob/">[Polymer] WebAudio Knob Examples</a> Visual knob element for Web Audio using Polymer. <a href="https://github.com/agektmr/webaudio-knob">agektmr/webaudio-knob</a><br/>
+<a href="http://www.g200kg.com/en/webknobman/gallery.php">Knob Gallery | g200kg Music &amp; Software</a> Knob Gallery is a free sharing space for ".knob" files created with KnobMan or WebKnobMan.<br/>
+<br/>
+<br/>
+<a href="https://code.google.com/p/midi-dot-net/">midi-dot-net - A library for MIDI programming in C# / .NET. - Google Project Hosting</a> - threadsafe access to MIDI devices: pinvoke of winmm.dll methods<br/>
+<a href="http://stackoverflow.com/questions/5928061/using-a-piano-keyboard-as-a-computer-keyboard">midi - Using a piano keyboard as a computer keyboard - Stack Overflow</a><br/>
+<a href="http://elekslabs.com/2014/06/programming-on-a-keyboard-a-piano-keyboard.html">Programming on a Keyboard... a Piano Keyboard | ELEKS Labs</a><br/>
+<a href="https://github.com/YuriyGuts/midichlorian">YuriyGuts/midichlorian</a> - Visual Studio extension that allows you to write code and automate the IDE using MIDI musical instruments.<br/>
+<a href="http://neo-sanskrit.tumblr.com/post/15234215179/fun-project-make-midi-keyboard-act-as-real-keyboard">Fun project: Make midi keyboard act as real keyboard? - Neo Sanskrit</a> - using ruby and midipipe<br/>
+<br/>
+<br/>
+<a href="http://matthias-nutt.no-limit.de/sound/keenlittlerabbitears/">Keen little rabbit ears - ear training software</a> Keen little rabbit ears is a simple ear training program for Linux and Windows. It is free of charge. You can exercise the recognition of intervals, chords, scales and chord progressions. Perl (Version 5), Tk, MIDI::Simple and an external MIDI player, like timidity<br/>
+<a href="http://timidity.sourceforge.net/">TiMidity++</a> - TiMidity++ is a software synthesizer. It can play MIDI files by converting them into PCM waveform data; give it a MIDI data along with digital instrument data files, then it synthesizes them in real-time, and plays. It can not only play sounds, but also can save the generated waveforms into hard disks as various audio file formats.<br/>
+<br/>
+<br/>
+<h2>Linux midi and audio stuff</h2>
+<a href="http://tedfelix.com/linux/linux-midi.html">Ted's Linux MIDI Guide</a> - Ted Felix has a great write up on all think linux midi and audio.<br/>
+There are linux distros built for music/video production:<br/>
+<a href="http://www.bandshed.net/AVLinux.html">AV Linux, Install...Create</a><br/>
+<a href="http://ubuntustudio.org/">Ubuntu Studio</a> <a href="https://help.ubuntu.com/community/UbuntuStudio/ProAudioIntro">UbuntuStudio/ProAudioIntro - Community Help Wiki</a> - the nice thing about this distro is that the latency settings/jackd/pulseaudio stuff is already configured out of the box...<br/>
+<a href="http://www.rosegardenmusic.com/">Rosegarden: music software for Linux</a> - nice software midi/notation. sudo apt-get install rosegarden <a href="http://www.rosegardenmusic.com/tutorials/">Rosegarden Tutorials</a><br/>
+<a href="http://www.hydrogen-music.org/hcms/">Hydrogen | advanced drum machine for GNU/Linux</a> - sudo apt-get install hydrogen <a href="http://packages.ubuntu.com/wily/sound/hydrogen">Ubuntu – Details of package hydrogen in wily</a><br/>
+<a href="https://lmms.io/">LMMS • Home</a> <a href="https://github.com/LMMS/lmms.io">github: LMMS/lmms.io: LMMS's official website</a><br/>
+<a href="https://lmms.io/documentation/Tested_VSTs">LMMS • Documentation - Tested VSTs</a><br/>
+<br/>
+<br/>
+<h2>JACK stuff</h2>
+Could not connect to JACK server as client. - Overall operation failed. - Unable to connect to server.<br/>
+check your /etc/security/limits.d/audio.conf and make sure that @audio   -  rtprio     99 to get realtime access, or uncheck the realtime flag in qjackCtl. dpkg-reconfigure -p high jackd<br/>
+sudo apt-get install qjackctl; qjackctl<br/>
+<a href="http://www.jackaudio.org/applications/">JACK Audio Connection Kit|Applications</a><br/>
+<br/>
+<a href="https://www.christian-jackson.com/reaper">Reaper Timecode — Christian Jackson</a><br/>
+<a href="https://www.tobias-erichsen.de/software/loopmidi.html">loopMIDI | Tobias Erichsen</a> - midi loop<br/>
+    <div style="border: 1px;">
+    Created: 2007-03-20 19:44:47
+    Modified: 2020-03-05 03:32:06
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+0, 1, 1, 2, 3, 5, 8, 13, 21, 34,...<br/>
+<b> x<sub>n</sub> = x<sub>n-1</sub> + x<sub>n-2</sub></b><br/>
+<!-- "Fibonacci" was his nickname, which roughly means "Son of Bonacci". -->
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

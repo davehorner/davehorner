@@ -1,0 +1,361 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>Facts on the human body</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/biology-math-science/">biology-math-science</a>
+    <h1>Facts on the human body</h1>
+   I love facts on the human body because we really are amazing machines.  Many times I sit and think about how simple our technology is today.  When I compare technology today with the human body, it makes me think <a href="http://dave.thehorners.com/tech-talk/science-and-math/206-math-you-gotta-love-vectors">abacus and slide rule</a>.<br/>
+<ul>
+	<li>The average human brain has about 100 billion nerve cells, 100 trillion connections.</li>
+	<li>Nerve impulses to and from the brain travel as fast as 170 miles (274 km) per hour.</li>
+	<li>The only jointless bone in your body is the hyoid bone in your throat</li>
+	<li>It's impossible to sneeze with your eyes open.</li>
+	<li>Your stomach needs to produce a new layer of mucus every two weeks or it would digest itself.</li>
+	<li>It takes the interaction of 72 different muscles to produce human speech.</li>
+	<li>The average life of a taste bud is 10 days.</li>
+	<li>The average cough comes out of your mouth at 60 miles (96.5 km) per hour.</li>
+	<li>Relative to size, the strongest muscle in the body is the tongue.</li>
+	<li>If you go blind in one eye you only lose about one fifth of your vision but all your sense of depth.</li>
+	<li>The average human head weighs about 8 pounds.</li>
+	<li>Our eyes are always the same size from birth, but our nose and ears never stop growing.</li>
+	<li>In the average lifetime, a person will walk the equivalent of 5 times around the equator.</li>
+	<li>An average human scalp has 100,000 hairs.</li>
+	<li>The length of the finger dictates how fast the fingernail grows. Therefore, the nail on your middle finger grows the fastest, and on average, your toenails grow twice as slow as your fingernails.</li>
+	<li>The average human blinks their eyes 6,205,000 times each year.</li>
+	<li>The entire length of all the eyelashes shed by a human in their life is over 98 feet (30 m).</li>
+	<li>Your skull is made up of 29 different bones.</li>
+	<li>Your ears and nose continue to grow throughout your entire life.</li>
+	<li>The average surface of the human intestine is 656 square feet (200 m).</li>
+	<li>A healthy adult can draw in about 200 to 300 cubic inches (3.3 to 4.9 liters) of air at a single breath, but at rest only about 5% of this volume is used.</li>
+	<li>The surface of the human skin is 6.5 square feet (2m).</li>
+	<li>15 million blood cells are destroyed in the human body every second.</li>
+	<li>The pancreas produces Insulin.</li>
+	<li>The most sensitive cluster of nerves is at the base of the spine.</li>
+	<li>The human body is comprised of 80% water.</li>
+	<li>The average human will shed 40 pounds of skin in a lifetime.</li>
+	<li>Every year about 98% of the atoms in your body are replaced.</li>
+	<li>The human heart creates enough pressure to squirt blood 30 feet (9 m).</li>
+	<li>You were born with 300 bones. When you get to be an adult, you have 206.</li>
+	<li>Human thighbones are stronger than concrete.</li>
+	<li>Every human spent about half an hour as a single cell.</li>
+	<li>There are 45 miles (72 km) of nerves in the skin of a human being.</li>
+	<li>The average human heart will beat 3,000 million times in its lifetime and pump 48 million gallons of blood.</li>
+	<li>Each square inch (2.5 cm) of human skin consists of 20 feet (6 m) of blood vessels.</li>
+	<li>During a 24-hour period, the average human will breathe 23,040 times.</li>
+	<li>Human blood travels 60,000 miles (96,540 km) per day on its journey through the body.</li>
+	<li>The average brain uses the equivalent of 20 watts of power</li>
+	<li>The average power consumption of a typical adult is about 100 Watt - "Body, Physics of." Macmillan Encyclopedia of Physics. New York: Macmillan, 1996.</li>
+	<li></li>
+	<li></li>
+</ul>
+<a href="http://faculty.washington.edu/chudler/facts.html">Brain Facts and Figures</a><br/>
+<a href="http://hypertextbook.com/facts/2001/JacquelineLing.shtml">Power of a Human Brain</a> - "The human brain is only 2% of the weight of the body, but it consumes about 20% of the total energy in the body at rest."<br/>
+<a href="http://listosaur.com/science-a-technology/5-surprising-facts-about-the-human-brain.html">5 Surprising Facts About the Human Brain</a><br/>
+<a href="http://www.disabled-world.com/artman/publish/brain-facts.shtml">Human Brain Facts and Answers</a><br/>
+<a href="http://news.cnet.com/8301-11386_3-57607926-76/how-ibm-is-making-computers-more-like-your-brain-for-real/">How IBM is making computers more like your brain. For real | Cutting Edge - CNET News</a> - October 17, 2013; Our brain is a volumetric, dense, object. <br/>
+<a href="http://faculty.washington.edu/chudler/neurok.html"><img src="/images/stories/misc/vert2.gif" title="physical system,integrated components,open for extension." alt="physical system,integrated components,open for extension."></a><br/>
+Matter, Mind, Life.<br/>
+<a href="http://en.wikipedia.org/wiki/Proprioception">Proprioception - Wikipedia, the free encyclopedia</a> -  "one's own perception" - sense of the relative position of neighboring parts of the body and strength of effort being employed in movement.<br/>
+The cerebellum is largely responsible for coordinating the unconscious aspects of proprioception.<br/>
+<a href="http://en.wikipedia.org/wiki/Proprioception#mediaviewer/File:Cerebrum_lobes.svg"><img src="/images/stories/misc/CerebrumLobesProprioceptionWikipedia.png" title="cerebrum lobes" alt="cerebrum lobes"></a><br/>
+<br/>
+<br/>
+<h2>Neurocosmology</h2>
+world view that ones view of the universe is restrained by the nervous system's ability to process information<br/>
+<br/>
+emergent fusion of information at all levels of life.<br/>
+<br/>
+Information gathering technologies will ultimately be limited in their ability to make a difference to the extent that the human user is limited in ability to exploit/visualize/understand that information.<br/>
+<br/>
+Physiologic Modulation of states of consciousness which may enhance the cognitive results of interaction with information. Modulated Bioenergetics, Bioacoustics, Psychopharmacology, Perceptualization, Physioinformatics.<br/>
+<br/>
+<a href="http://en.wikipedia.org/wiki/Todd_Siler">Todd Siler - Wikipedia, the free encyclopedia</a> - Creativity is any unconditioned response.<br/>
+<a href="http://books.google.com/books/about/Breaking_the_mind_barrier.html?id=q_lwPb0OuSsC">Breaking the mind barrier: the artscience of neurocosmology - Todd Siler - Google Books</a> - shows that the things we create are reflections of the brain itself, while the brain is a reflection of the larger universe. Photographs and line drawings throughout.<br/>
+<a href="http://www.jstor.org/discover/10.2307/1578087?uid=3739256&amp;uid=2134&amp;uid=2&amp;uid=70&amp;uid=4&amp;sid=21102764814817">JSTOR: Leonardo, Vol. 18, No. 1 (1985), pp. 1-10</a> - Neurocosmology: Ideas and Images Towards an Art-Science-Technology Synthesis, Todd Siler<br/>
+<br/>
+<a href="http://futurfocus.blogspot.com/2011/04/2-neurocosmology.html">Future Focus: (2) Neurocosmology</a> - there equally as many neurons in the human brain as stars in the Milky Way.<br/>
+<a href="http://www.nature.com/scitable/blog/brain-metrics/are_there_really_as_many">Are There Really as Many Neurons in the Human Brain as Stars in the Milky Way? | Brain Metrics | Learn Science at Scitable</a><br/>
+<a href="http://quasar.org/2007/0603.anakin1/neurocosmology99/neurocosm.html">Please title this page. (Page 1)</a> - NEURO-COSMOLOGY<br/>
+<a href="http://www.neurocosmology.net/">NeuroCosmology</a> - personal homepage of James E. Beichler, PhD<br/>
+Answering questions such as 'What is the role and purpose of life and consciousness within the context of the greater reality of the universe?' Yet there also exists a separate but growing scientific movement for studying consciousness alone in its many different unique aspects, while the main thrust of physical consciousness studies is to find the neural correlates of consciousness. At this level of scientific inquiry physics is used to model consciousness as a 'thing' separate from the material brain but somehow dependent on the brain. In other words, physics is not only used to study the observable external world represented by the material universe (including the material body and brain), but also the internal world created by mind and consciousness that is interpreting our individual observations of the external material world. This dichotomy between the internal and external world of consciousness represents the central problem of neurocosmology.<br/>
+<a href="http://sunzi.lib.hku.hk/ER/detail/hkul/2692733">HKUL: Electronic Resources - First principle of physio-informatic systems : neurocosmology</a><br/>
+<br/>
+<br/>
+<h2>embodied cognition and disembodied minds</h2>
+<img src="http://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Descartes_mind_and_body.gif/400px-Descartes_mind_and_body.gif" title="Descartes believed inputs are passed on by the sensory organs to the epiphysis in the brain and from there to the immaterial spirit." style="float:right"/>
+dis·em·bod·ied - separated from or existing without the body.<br/>
+<a href="http://en.wikipedia.org/wiki/Mind">Mind - Wikipedia</a><br/>
+it seems obvious we need to have a body to have a physical brain and mind.  but not so obvious that the same physical brain manifests a/many disembodied mind(s) which communicate and interact with other physical cognitive minds.  technology provides humanity's physical mind with the ability to type/communicate words/thoughts once, but many machines/minds consume it ad infinitum, or until sometime breaks...<br/>
+<a href="http://en.wikipedia.org/wiki/Embodied_cognition">Embodied cognition - Wikipedia</a> - In philosophy, the embodied mind thesis holds that the nature of the human mind is largely determined by the form of the human body.<br/>
+<a href="http://blogs.scientificamerican.com/guest-blog/2011/11/04/a-brief-guide-to-embodied-cognition-why-you-are-not-your-brain/">A Brief Guide to Embodied Cognition: Why You Are Not Your Brain | Guest Blog, Scientific American Blog Network</a> - <strong>our cognition isn't confined to our cortices.</strong><br/>
+<a href="http://notjustcute.com/2012/05/25/the-disembodied-mind/">The Disembodied Mind | Not Just CuteNot Just Cute</a> - "What does it mean to learn biology strictly from words, pictures, and other symbols, without first having rich, personal experience with plant and animal life?  Or to learn principles of physics — principles such as velocity, force, and balance — without lots of experience throwing, hammering, seesawing, and climbing?  The child learns symbols, but without the personal, bodily, sensory experiences that make the symbols meaningful."<br/>
+<a href="http://upbphilosophy.blogspot.com/2013/10/incompatibilities-and-contradictions-in.html">Steinblog: Incompatibilities and Contradictions in Disembodied Experiences: A Possible Implication for the Law of Karma</a><br/>
+<a href="http://scienceblogs.com/mixingmemory/2006/11/28/disembodied-cognition-or-putti/">Disembodied Cognition, or Putting Your Self Out There – Mixing Memory</a> - According to many theories of embodied cognition (particularly type 5), perception is designed to facilitate bodily action, and therefore perception and movement are deeply connected. The connection between perception and action is dependent on where we represent the self in space.<br/>
+<br/>
+<br/>
+<h2>humans are themselves an emergent property of microbes</h2>
+more microbial than human!<br/>
+<a href="http://www.sciencedaily.com/releases/2008/06/080603085914.htm">Humans Have Ten Times More Bacteria Than Human Cells: How Do Microbial Communities Affect Human Health?</a><br/>
+<a href="http://www.princeton.edu/physics/graduate-program/theses/theses-from-2011-1/G.Lambertthesis.pdf">Emergent collective behavior of microorganisms</a> - 2011, Guillaume Lambert Dept. of Physics Princeton University Adviser: Robert H. Austin<br/>
+<br/>
+<br/>
+<a href="http://www.exponentialtimes.net/videos/if-brains-computers-what-kind-computers-daniel-dennett-keynote-pt-ai-2013">If brains are computers, what kind of computers are they? - Daniel Dennett keynote at PT-AI 2013 | Video | Exponential Times</a> - competence without comprehension.<br/>
+<iframe width="420" height="315" src="//www.youtube.com/embed/OlRHd-r2LOw" frameborder="0" allowfullscreen></iframe><br/>
+<div style="clear:both">
+robots, made of robots, made of robots, ...<br/>
+</div>
+<br/>
+<br/>
+<a href="http://sydney.edu.au/news/84.html?newscategoryid=1&amp;newsstoryid=13715">2 July 2014: A step closer to bio-printing transplantable tissues and organs - News and Events - University of Sydney</a> - To illustrate the scale and complexity of the bio-engineering challenge we face, consider that every cell in the body is just a hair's width from a supply of oxygenated blood. 'bio-printing' transplantable tissues!<br/>
+<a href="http://www.theguardian.com/science/2012/apr/29/neuroscience-david-eagleman-raymond-tallis">Who's in charge – you or your brain? | Science | The Observer</a> - It is clear at this point that we are irrevocably tied to the 3lb of strange computational material found within our skulls. the mental is not separable from the physical.<br/>
+    <div style="border: 1px;">
+    Created: 2006-07-13 13:35:17
+    Modified: 2014-08-29 14:23:12
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+$$\cos x = \sum\limits_{n = 0}^\infty {\frac{{\left( { - 1} \right)^n x^{2n} }}{{\left( {2n} \right)!}}}$$
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

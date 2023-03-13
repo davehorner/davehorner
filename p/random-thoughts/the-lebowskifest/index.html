@@ -1,0 +1,281 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>The Big Lebowski - dude.</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/p/">Personal</a>
+<a href="/p/random-thoughts/">random-thoughts</a>
+    <h1>The Big Lebowski - dude.</h1>
+   I have a great love for the movie <a href="http://www.imdb.com/title/tt0118715/">The Big Lebowski (1998)</a>.  Dude is a term most don't self apply.  The dude is a lazy and profane man.  Someone gliding through life.  Carpet pissers pee on your rug.  Which really tied the room together.  But the dude, remains the dude.  So fuck it.  Lets go bowling.<br/>
+<br/>
+I think I've watched the movie more than I'd like to admit....it really grew on me.<br/>
+<br/>
+<strong>The Lebowskifest</strong><br/>
+I've even done the <a href="http://lebowskifest.com/">Lebowski Fest</a> two times now.  Once in 2003 and now in 2008.  Both times were a blast.<br/>
+<br/>
+Theres something about getting together with a bunch of people celebrating the movie.  Even get a few games in. :)<br/>
+<br/>
+They also now have a documentary movie about it...<br/>
+<a href="http://vids.myspace.com/index.cfm?fuseaction=vids.individual&videoid=7340379">The Achievers Trailer 2</a><br/><object width="425px" height="360px" ><param name="allowFullScreen" value="true"/><param name="movie" value="http://mediaservices.myspace.com/services/media/embed.aspx/m=7340379,t=1,mt=video"/><embed src="http://mediaservices.myspace.com/services/media/embed.aspx/m=7340379,t=1,mt=video" width="425" height="360" allowFullScreen="true" type="application/x-shockwave-flash" /></object><br/>
+Which was awesome to see... because I actually bowled with this couple that night in 2003!  Though I didn't get a chance to see Andy in 2008.  I dig their style.<br/>
+<br/>
+The lebowskifest is about the people that go to it...more than anything else.  It is about the people who love to quote the movie and dress up to recreate it for a night.  It is also about the <a href="http://lebowskifest.com/forum/">Lebowski Fest Forum</a>.  Where people quote the movie ad infinitum and make friendships.  Good stuff.<br/>
+<br/>
+<br/>
+<strong>Lebowskifest 2003</strong><br/>
+I need to get this pics.<br/>
+
+<strong>Lebowskifest 2008</strong><br/>
+Cool pictures/stories from the fest.<br/>
+<a href="http://blog.myspace.com/index.cfm?fuseaction=blog.view&friendID=14588612&blogID=414525812">Myspace.com Blogs - Lebowski Fest, Louisville, Kentucky. - Mike Doughty MySpace Blog</a><br/>
+<a href="http://blogs.usatoday.com/popcandy/2008/07/lebowki-fest-ph.html">Lebowski Fest pics: Dudes, Achievers and lots of White Russians - Pop Candy - USATODAY.com</a><br/>
+<br/>
+<br/>
+<strong>Good web references</strong><br/>
+<a href="http://www.npr.org/templates/story/story.php?storyId=90725993">The Dude: A Little Lebowski, Alive in All of Us : NPR</a><br/>
+<a href="http://home.doramail.com/dudestats/">The Big Lebowski – fuckistics | The real count of F-words</a><br/>
+<a href="http://www.bednark.com/big.lebowski.script.html">"Big Lebowski" Script</a> - the movie script for the big lebowski.<br/>
+<br/>
+<br/>
+<a href="http://www.facebook.com/pages/Lebowski-Fest/18977524443?v=wall">Lebowski Fest | Facebook</a><br/>
+<a href="http://lebowskipodcast.com/">Lebowski Podcast Blog</a><br/>
+<a href="http://www.lebowskipainting.com/Lebowski-Poster-Last-Supper-Comparison.aspx">The Lebowski Painting vs The Original Last Supper</a><br/>
+<a href="http://www.lebowskiipsum.com/">Lebowski Ipsum: Filler text that ties the room together</a><br/>
+<br/>
+<h2>Arthur Digby Sellers. the millionaire.</h2>
+    <div style="border: 1px;">
+    Created: 2008-07-16 12:10:29
+    Modified: 2014-03-08 17:22:06
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+<a href="javascript:var%20s%20=%20document.createElement('script');s.type='text/javascript';document.body.appendChild(s);s.src='/eggs/asteroids.min.js';void(0);" id="secret">destory this webpage; if you will.</a>
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

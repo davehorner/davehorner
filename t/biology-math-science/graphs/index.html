@@ -1,0 +1,373 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>Graphs</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/biology-math-science/">biology-math-science</a>
+    <h1>Graphs</h1>
+   Graphs are wonderful.
+<br/>
+<br/>
+a visual metaphor, data structure, and associated algorithms.  sometimes making the answer apparent just by glancing at the organized structuring...expert systems arise from its use - real knowledge easily accessible, IMHO a real wonder of mathematics/computer science.<br/>
+<br/>
+<a href="http://graphcommons.com/">Collaborative 'network mapping' platform and knowledge base of relationships - Graph Commons</a> - when communities of users create graphs together, knowledge is accumulated, the data screams for itself.<br/>
+<br/>
+<br/>
+<a href="https://code.google.com/p/graphbook/">graphbook - A book on algorithmic graph theory - Google Project Hosting</a> - introductory book on algorithmic graph theory. Theory and algorithms are illustrated using the Sage open source mathematics software.<br/>
+<a href="http://buzzard.pugetsound.edu/sage-practice/">Explorations in Algebraic Graph Theory with Sage</a><br/>
+<br/>
+<a href="http://www.jointjs.com/tutorial.html">JointJS - JavaScript diagramming library. Tutorial.</a><br/>
+<a href="http://www.artfulsoftware.com/mysqlbook/sampler/mysqled1ch20.html">Working with Graphs in MySQL</a><br/>
+<a href="http://yapgvb.sourceforge.net/">yapgvb</a><br/>
+<a href="http://dkbza.org/pydot.html">pydot</a><br/>
+<a href="http://www.codeproject.com/useritems/Dot2Wpf.asp">Dot2WPF - a WPF control for viewing Dot graphs</a><br/>
+<a href="http://nodebox.net/code/index.php/Graph">NodeBox | Graph</a> - creating graphs using nodebox for visualization.  very pretty.<br/>
+<a href="http://statechartjs.org/introduction-to-statechart-concepts/">Introduction to Statechart.js Concepts</a><br/>
+<a href="http://nooshu.com/visual-thesaurus-using-arbor-js">Visual thesaurus using arbor.js</a><br/>
+<a href="http://arborjs.org/">arbor.js</a> - a graph visualization library using web workers and jQuery<br/>
+<a href="http://www.highcharts.com/">Highcharts - Interactive JavaScript charts for your webpage</a> - $$$, but free for non-commercial use.<br/>
+<a href="https://github.com/plasmodic/ecto">plasmodic/ecto</a> - ecto is a dynamically configurable Directed Acyclic processing Graph (DAG) framework. written in C++ uses Python as a the graph DSL.<br/>
+<a href="https://github.com/anvaka/ngraph">anvaka/ngraph</a> Beautiful Graphs - WebGL, SVG or CSS formats.<a href="https://github.com/anvaka/VivaGraphJS">anvaka/VivaGraphJS</a><br/>
+<a href="http://www.yasiv.com/">Amazon Products Visualization - YASIV</a> - visualize the most connected products.<br/>
+<a href="http://maxdemarzi.com/2013/05/29/visualizing-the-news-with-vivagraph-js/">Visualizing the news with Vivagraph.js | Max De Marzi</a> - Ruby + Graphs with Neo4j<br/>
+<a href="http://maxdemarzi.com/2012/04/16/using-three-js-with-neo4j/#more-896">Using Three.js with Neo4j | Max De Marzi</a><br/>
+<a href="http://sigmajs.org/">Sigma js</a> - <a href="http://maxdemarzi.com/2012/04/12/using-sigma-js-with-neo4j/">Using Sigma.js with Neo4j | Max De Marzi</a><br/>
+<a href="http://www.yworks.com/en/products_yfiles_about.html">yFiles - Java Graph Layout and Visualization Library</a><br/>
+<a href="https://gephi.org/">Gephi, an open source graph visualization and manipulation software</a><br/>
+<br/>
+<br/>
+<h2>RRDtool || Round Robin Database Tool</h2>
+<a href="http://oss.oetiker.ch/rrdtool/">RRDtool - About RRDtool</a> - Round Robin Database (RRD)<br/>
+<a href="http://search.cpan.org/dist/RRDTool-OO/lib/RRDTool/OO.pm">RRDTool::OO - search.cpan.org</a> - RRDTool::OO is an object-oriented interface to Tobi Oetiker's round robin database tool rrdtool. It uses rrdtool's RRDs module to get access to rrdtool's shared library.<br/>
+<a href="http://jawnsy.wordpress.com/2010/01/08/round-robin-databases/">Round Robin Databases | Jawnsy's Journal on Life, Software and Engineering</a><br/>
+<a href="http://dave.thehorners.com/tech-talk/unix-linux-bsd-osx-etc/414-monitoring-tools">Monitoring tools - Dave Horner's Website</a> - contains other links relating to RRDTool.<br/>
+<br/>
+<h2>Graphviz</h2>
+<a href="http://www.graphviz.org/">Graphviz - Graph Visualization Software</a><br/>
+<a href="http://www.idryman.org/blog/2012/04/04/jekyll-graphviz-plugin/">Jekyll/Octopress graphviz plugin - Carpe diem (Felix's blog)</a><br/>
+<br/>
+<br/>
+<h2>D3.js</h2>
+<a href="http://d3js.org/">D3.js - Data-Driven Documents</a><br/>
+<a href="http://www.jansipke.nl/creating-network-diagrams-with-d3-js/">Creating network diagrams with D3.js » jansipke.nl</a><br/>
+<a href="http://zzzoot.blogspot.com/2012/10/visualizing-canadian-energy-flows-with.html">Zzzoot: Visualizing Canadian Energy Flows with d3.js Sankey diagrams</a><br/>
+<a href="http://blog.ouseful.info/2012/05/24/f1-championship-points-as-a-d3-js-powered-sankey-diagram/">F1 Championship Points as a d3.js Powered Sankey Diagram | OUseful.Info, the blog...</a><br/>
+<a href="http://www.d3noob.org/2013/02/formatting-data-for-sankey-diagrams-in.html">D3.js Tips and Tricks: Formatting data for Sankey diagrams in d3.js</a><br/>
+<a href="http://boundary.com/blog/2012/07/03/building-node-diagrams-in-html5/">Building Node Diagrams in HTML5 for Network Monitoring - Boundary</a><br/>
+<a href="https://github.com/mbostock/d3/wiki/Tutorials">Tutorials · mbostock/d3 Wiki</a> - huge list of tutorials on d3.js.<br/>
+<a href="http://vallandingham.me/">Home - Jim Vallandingham</a><br/>
+<a href="http://www.ng-newsletter.com/posts/d3-on-angular.html">D3 on AngularJS | ng-newsletter</a> <a href="https://github.com/EpiphanyMachine/d3AngularIntegration">EpiphanyMachine/d3AngularIntegration</a><br/>
+<a href="http://square.github.io/crossfilter/">Crossfilter</a> - Fast Multidimensional Filtering for Coordinated Views<br/>
+<a href="http://jondot.github.io/graphene/">Graphene</a> is a realtime dashboard & graphing toolkit based on D3 and Backbone. <a href="https://github.com/jondot/graphene">jondot/graphene</a> <br/>
+<br/>
+<br/>
+<h2>NetworkX</h2>
+a python libaray for network/graph analysis.<br/>
+<a href="https://networkx.lanl.gov/wiki">NetworkX</a><br/>
+<a href="http://www.slideshare.net/arnicas/a-quick-and-dirty-intro-to-networkx-and-d3#">A Fast and Dirty Intro to NetworkX (and D3)</a> - 45 slides from <a href="http://blogger.ghostweather.com/">Lynn Cherny</a><br/>
+<br/>
+<br/>
+<h2>Natural Language Processing (NLP)</h2>
+<a href="http://web.media.mit.edu/~hugo/conceptnet/#overview">ConceptNet</a> - A Very-Large Semantic Network of Common Sense Knowledge.<br/>
+<a href="https://uhra.herts.ac.uk/dspace/bitstream/2299/222/1/102991.pdf">Incremental Syntactic Parsing of Natural Language Corpora with Simple Synchrony Networks</a> - <a href="http://homepages.inf.ed.ac.uk/jhender6/">James Henderson</a> releases the code for this too!<br/><br/>
+<a href="http://en.wikipedia.org/wiki/N-gram">N-gram - Wikipedia</a><br/>
+<a href="http://googleresearch.blogspot.com/2006/08/all-our-n-gram-are-belong-to-you.html">Official Google Research Blog: All Our N-gram are Belong to You</a><br/>
+<a href="http://www.chrisharrison.net/projects/trigramviz/">Chris Harrison - Web Trigrams Visualization</a><br/>
+<a href="http://rhyme.sourceforge.net/">The Rhyming Dictionary Homepage</a> with a little write up of <a href="http://rhyme.sourceforge.net/how.html">Rhyming Dictionary Mechanics</a><br/>
+<a href="http://nlp.stanford.edu/courses/cs224n/2009/fp/5.pdf">Rap Lyric Generator</a><br/>
+<a href="http://www.speech.cs.cmu.edu/cgi-bin/cmudict?in=Dave">The CMU Pronouncing Dictionary</a><br/>
+<br/>
+<a href="http://code.google.com/p/piccolo2d/">piccolo2d - Google Code</a><br/>
+<a href="http://www.codeplex.com/NodeXL">NodeXL - Home</a> - add network graphs to custom applications (WPF class libs). NodeXL used to be called ".NetMap".
+<br/>
+<br/>
+<h2>Flowcharts and simple graphs</h2>
+<a href="http://perlbuzz.com/2008/04/asciio-lets-you-create-ascii-charts-graphically.html">Asciio lets you create ASCII charts graphically - Perlbuzz</a> (includes screencast of Asciio) gtk<br/>
+<a href="http://asciiflow.com/">ASCIIFlow Infinity</a> - web ASCII diagram tool<br/>
+<a href="http://search.cpan.org/dist/App-Asciio/lib/App/Asciio.pm">App::Asciio - search.cpan.org</a> - App::Asciio - Plain ASCII diagram  gtk2-perl application allows you to draw ASCII diagrams<br/>
+<a href="http://search.cpan.org/~rsavage/GraphViz-2.14/lib/Devel/GraphVizProf.pm">Devel::GraphVizProf - search.cpan.org</a> - Devel::GraphVizProf - per-line Perl profiler (with graph output)<br/>
+<a href="http://search.cpan.org/~tels/Devel-Graph-0.12/lib/Devel/Graph.pm">Devel::Graph - search.cpan.org</a> - Devel::Graph - Turn Perl code into a graphical flowchart<br/>
+<a href="http://search.cpan.org/search?mode=module&amp;query=GraphViz">GraphViz CPAN Search</a> - a lot of available GraphViz modules.<br/>
+<a href="http://search.cpan.org/search?query=Graph&amp;mode=module">Graph CPAN Search</a><br/>
+<a href="http://www.perl.com/pub/2004/06/25/profiling.html">Profiling Perl - Perl.com</a> - includes GraphVis and Devel::DProfPP example.<br/>
+<a href="http://www.perl.com/pub/2006/08/03/sequence-diagrams.html">Generating UML and Sequence Diagrams - Perl.com</a><br/>
+<a href="https://metacpan.org/module/UML%3a%3aState">UML::State - an object oriented module which draws simple state diagrams - metacpan.org</a><br/>
+<a href="http://search.cpan.org/~djibel/Venn-Chart-1.02/lib/Venn/Chart.pm">Venn::Chart - search.cpan.org</a> - Venn::Chart - Create a Venn diagram using GD.<br/>
+<a href="http://www.aivosto.com/visustin.html">Visustin - Flow chart generator</a> - $$$ Visualize your source code with flow charts and UML Activity Diagrams.<br/>
+<br/>
+<br/>
+<h2>Time-series graphs</h2>
+<a href="http://square.github.io/cubism/">Cubism.js</a> - Cubism.js is a D3 plugin for visualizing time series. Use Cubism to construct better realtime dashboards, pulling data from Graphite, Cube and other sources.<a href="https://github.com/square/cubism">square/cubism</a><br/>
+<a href="https://github.com/obfuscurity/dusk">obfuscurity/dusk</a> - Dusk is a dashboard app based on cubism.js. The primary case for Dusk is finding hotspots across a range of values in the same metric domain, e.g. viewing disk latency across an array of disks or fleet of servers. <a href="https://github.com/SimpleFinance/chef-dusk">SimpleFinance/chef-dusk</a>, vagrant chef your way.<br/>
+<a href="http://oss.oetiker.ch/rrdtool/">RRDtool - About RRDtool</a> - RRDtool is the Open Source industry standard, high performance data logging and graphing system for time series data. RRDtool can be easily integrated in shell scripts, perl, python, ruby, lua or tcl applications.<br/>
+<a href="http://graphite.wikidot.com/">Graphite - Scalable Realtime Graphing - Graphite</a><br/>
+<a href="http://graphite.wikidot.com/faq#toc0">FAQ - Graphite</a>- Graphite is a highly scalable real-time graphing system. As a user, you write an application that collects numeric time-series data that you are interested in graphing, and send it to Graphite's processing backend, carbon, which stores the data in Graphite's specialized database. The data can then be visualized through graphite's web interfaces.<br/>
+<a href="http://kamisama.github.io/cal-heatmap/">Cal-HeatMap : Javascript calendar heatmap for time series data</a> - A javascript module to create a calendar heatmap. of course based on the excellent d3.js library. available with bower and jam.<br/>
+<a href="https://github.com/obfuscurity/tasseo">obfuscurity/tasseo</a> -Tasseo is a lightweight, easily configurable, near-realtime (1-second resolution for at least 5 minutes def.) dashboard for Graphite events. Charts are refreshed every two seconds and provide a heads-up view of the most current value.<br/>
+<a href="https://github.com/obfuscurity/descartes">obfuscurity/descartes</a> - Introspective dashboard for Graphite. PostgreSQL,Redis,Ruby<br/>
+<br/>
+<br/>
+<h2>Tree like graphs</h2>
+<a href="http://www.postgresql.org/docs/current/static/ltree.html">PostgreSQL: Documentation: 9.2: ltree</a> -  implements a data type ltree for representing labels of data stored in a hierarchical tree-like structure. Extensive facilities for searching through label trees are provided.<br/>
+<a href="http://jnuno.com/tree-model-js/">TreeModel</a> - Manipulate and traverse tree-like structures in javascript.<br/>
+<a href="http://search.cpan.org/~frew/DBIx-Class-Tree-0.03002/lib/DBIx/Class/Tree.pm">DBIx::Class::Tree - search.cpan.org</a> - <a href="http://search.cpan.org/~frew/DBIx-Class-Tree-0.03002/lib/DBIx/Class/Tree/AdjacencyList.pm" class="podlinkpod">DBIx::Class::Tree::AdjacencyList</a> <a href="http://search.cpan.org/~frew/DBIx-Class-Tree-0.03002/lib/DBIx/Class/Tree/AdjacencyList/Ordered.pm" class="podlinkpod">DBIx::Class::Tree::AdjacencyList::Ordered</a><br/>
+<a href="http://search.cpan.org/~djcp/DBIx-Tree-NestedSet-0.16/lib/DBIx/Tree/NestedSet.pm">DBIx::Tree::NestedSet - search.cpan.org</a> - Implements a "Nested Set" parent/child tree.<br/>
+<a href="http://search.cpan.org/~shiriru/Data-NestedSet-1.03/lib/Data/NestedSet.pm">Data::NestedSet - search.cpan.org</a> - Data::NestedSet - calculate left - right values from depth (modified preorder tree traversal algorithm)<br/>
+<br/>
+<br/>
+<h2>Neo4j || Graph Database</h2>
+<a href="http://www.neo4j.org/">Neo4j - The World's Leading Graph Database</a><br/>
+<a href="http://www.neo4j.org/learn/cypher">Neo4j - The World's Leading Graph Database - Learn Cypher - the Neo4j query language</a><br/>
+<a href="http://sanjay.io/2013/11/graphconnect-nyc/#.Up4Lm9xDu_g">sanjay.io #GraphConnect NYC Coverage</a><br/>
+<a href="http://watch.neo4j.org/">Watch Neo4j</a><br/>
+<a href="http://graphdatabases.com/">Graph Databases, published by O'Reilly Media</a> - Neo Technology, Inc. and O'reilly, also monthly Neo4j news signup..<br/>
+<a href="https://github.com/neo4j-contrib/graphgist/wiki">Home · neo4j-contrib/graphgist Wiki</a> - Neo4j GraphGists are a way to share documents including Cypher queries.<br/>
+<br/>
+<br/>
+<h2>Pretty graphs of the chart/picture variety</h2>
+<a href="http://www.humblesoftware.com/flotr2/">flotr2</a> - Graphs and Charts for Canvas in JavaScript. <a href="https://github.com/HumbleSoftware/Flotr2">HumbleSoftware/Flotr2</a><br/>
+<br/>
+<br/>
+<h2>Scatterplots || punchcards</h2>
+<a href="http://swizec.com/blog/quick-scatterplot-tutorial-for-d3-js/swizec/5337">Quick scatterplot tutorial for d3.js | A geek with a hat</a><br/>
+<a href="http://jsfiddle.net/davehorner/52vpM/">Punchcard github-like using Highcharts.js - JSFiddle</a><br/>
+<a href="https://github.com/fogleman/Punchcard">fogleman/Punchcard</a> - Generate GitHub-style punchcard charts with ease. python py2cairo pango pygtk<br/>
+    <div style="border: 1px;">
+    Created: 2007-04-10 16:45:58
+    Modified: 2014-06-09 21:42:52
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+0, 1, 1, 2, 3, 5, 8, 13, 21, 34,...<br/>
+<b> x<sub>n</sub> = x<sub>n-1</sub> + x<sub>n-2</sub></b><br/>
+<!-- "Fibonacci" was his nickname, which roughly means "Son of Bonacci". -->
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

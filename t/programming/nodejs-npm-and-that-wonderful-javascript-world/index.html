@@ -1,0 +1,436 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>Node.js npm and that wonderful javascript world.</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/programming/">programming</a>
+    <h1>Node.js npm and that wonderful javascript world.</h1>
+   <a href="http://dailyjs.com/">DailyJS: A JavaScript Blog</a><br/>
+<a href="http://badassjs.com/">Badass JavaScript</a><br/>
+and I don't feel bad putting the above two links, they are usually posts about npm modules. :)<br/>
+<a href="http://nodeschool.io/">NodeSchool</a> - open source lesson modules<br/>
+<br/>
+<h2>Server-side Javascript / HTTP server in Javascript</h2>
+<a href="http://nodejs.org/">node.js</a> -  Evented I/O for V8 javascript. ex. web server<br/>
+<a href="http://nodejs.org/api.html">node(1) -- evented I/O for V8 JavaScript</a><br/>
+<br/>
+<a href="https://www.npmjs.org/package/optimist">optimist</a> - Light-weight option parsing with an argv hash. No optstrings attached. npm install optimist<br/>
+<a href="https://github.com/substack/stream-handbook">substack/stream-handbook</a> - how to write node programs with streams<br/>
+<br/>
+<a href="http://www.slideshare.net/nsm.nikhil/writing-native-bindings-to-nodejs-in-c">Writing native bindings to node.js in C++</a><br/>
+<a href="http://github.com/ry/node_chat">ry's node_chat at master - GitHub</a> - simple chat demo for node<br/>
+<a href="http://github.com/sixtus/node-couch">sixtus's node-couch at master - GitHub</a> - A CouchDB interface for node.js<br/>
+<a href="http://github.com/DracoBlue/enhanced-node-api/blob/master/doc.js">doc.js at master from DracoBlue's enhanced-node-api - GitHub</a><br/>
+<a href="http://howtonode.org/">How To Node - NodeJS</a> - git <a href="http://github.com/creationix/howtonode.org">creationix's howtonode.org at master - GitHub</a> - based on <a href="http://github.com/creationix/wheat">creationix's wheat at master - GitHub</a><br/>
+<a href="http://spludo.com/">Server Side JS Framework</a> - Spludo is a high performance evented, server side Javascript Webframework with MVC, prototype based, includes DI+AOP and a Convention-Over-Configuration Approach. It's running on the node.JS-platform, which employs the lightning fast V8-Engine.<br/>
+<a href="http://github.com/visionmedia/express#readme">visionmedia's express at master - GitHub</a> - Insanely fast (and small) server-side JavaScript web development framework built on node.js and the V8 JavaScript engine.<br/>
+<a href="http://github.com/visionmedia/kiwi">visionmedia's kiwi at master - GitHub</a> - node.js package management system -- feature rich, fast, inspired by GIT / RubyGems / Gemcutter / Kiwi Fruits :D<br/>
+<a href="http://github.com/jed/fab">jed's fab at master - GitHub</a> - a modular async web framework for node.js<br/> 
+<a href="http://github.com/senchalabs/connect#readme">senchalabs's connect at master - GitHub</a> - Connect is a middleware layer for Node.js<br/>
+<a href="http://blog.nodejitsu.com/nodejs-cloud-server-in-three-minutes">node.js cloud server in three minutes - blog.nodejitsu.com - scaling node.js applications one callback at a time.</a><br/>
+<a href="http://github.com/chrisdickinson/wilson">chrisdickinson's wilson at master - GitHub</a> - a node.js framework that glues together routes, views, orms, and things. designed to help tim allen navigate his day.<br/>
+<a href="http://github.com/mde/geddy/">mde's geddy at master - GitHub</a> - Web framework for Node.js <br/>
+<a href="http://nodeknockout.posterous.com/countdown-to-knockout-post-5-an-introduction">Countdown to Knockout: Post 5 - An introduction to Geddy - nodeknockout</a><br/>
+<a href="http://github.com/learnboost/mongoose">LearnBoost's mongoose at master - GitHub</a> - Node.JS MongoDB utility library with ORM-like functionality<br/>
+<a href="http://github.com/LearnBoost/soda">LearnBoost's soda at master - GitHub</a> - Selenium Node.JS adapter<br/>
+
+<a href="http://socket.io/">Socket.IO: the cross-browser WebSocket for realtime apps.</a><br/>
+
+<a href="http://github.com/visionmedia/express">visionmedia's express at master - GitHub</a> - Sinatra inspired web development framework for node -- insanely fast, insanely sexy <br/>
+
+<a href="http://projects.nuttnet.net/hummingbird/">mnutt/hummingbird @ GitHub</a> - realtime web traffic visualization using node.js and mongoDB.<br/>
+<a href="http://github.com/felixge/node-paperboy/">felixge's node-paperboy at master - GitHub</a> - A node.js module for delivering static files.<br/>
+<a href="http://blog.davidpadbury.com/2010/10/03/using-nodejs-to-render-js-charts-on-server/">Using NodeJs to render JavaScript charts on the server « David Padbury</a><br/>
+<a href="https://github.com/mishoo/UglifyJS/">mishoo/UglifyJS - GitHub</a> - JavaScript parser / mangler / compressor / beautifier library for NodeJS<br/>
+<a href="https://github.com/philipwalton/html-inspector">philipwalton/html-inspector</a> - built-in rules which fall into one of three main categories: validation, best-practices, and convention. <a href="http://philipwalton.com/articles/introducing-html-inspector/">Introducing HTML Inspector — Philip Walton</a><br/>
+<a href="http://gruntjs.com/">Grunt: The JavaScript Task Runner</a><br/>
+<br/>
+<br/>
+<h2>npm</h2>
+<a href="http://npm.mape.me/">npm (node package manager)</a><br/>
+<a href="http://github.com/isaacs/npm#readme">isaacs's npm at master - GitHub</a> - a little package manager for node<br/>
+<br/>
+<br/>
+<h2>front end package managers</h2>
+<a href="http://bower.io/">BOWER: A package manager for the web</a> - front-end package management written by Twitter. runs with git.<br/>
+<a href="https://github.com/bower/bower">bower/bower</a> - Bower depends on Node and npm. Bower installs git paths, resolves dependencies from a bower.json, checks versions, and then provides api which tells you what it did.<br/>
+<a href="http://sindresorhus.com/bower-components/">Bower components</a> - listing of bower components.<br/>
+<a href="http://jamjs.org/">Jam - The JavaScript package manager</a><br/>
+<br/>
+<br/>
+<h2>Yeoman</h2>
+<a href="http://yeoman.io/">Yeoman - Modern workflows for modern webapps</a> <a href="https://github.com/yeoman/yeoman">yeoman/yeoman</a><br/>
+<a href="http://yeoman.io/packagemanager.html">Yeoman - PACKAGE MANAGER</a> - discusses Bower in relation to <a href="http://jamjs.org/">Jam</a>,<a href="http://ender.jit.su/">Ender</a>,<a href="https://github.com/volojs/volo">volo</a><br/>
+<a href="http://www.youtube.com/watch?feature=player_embedded&amp;v=Mk-tFn2Ix6g">Google I/O 2012 - Better Web App Development Through Tooling - YouTube</a> - talk from paul irish covering Yeoman. <a href="https://developers.google.com/chrome-developer-tools/docs/javascript-debugging">sourceURL</a>,<a href="http://www.jslint.com/">JSLint</a>,<a href="http://jshint.com/">JSHint</a>,<a href="http://qunitjs.com/">QUnit</a><br/>
+<a href="https://www.youtube.com/watch?feature=player_embedded&amp;v=iUQ1fvdO9GY">Automating Your Front-End Workflow With Yeoman 1.0 - YouTube</a><br/>
+<a href="http://decodize.com/css/installing-yeoman-front-end-development-stack-windows/">Installing Yeoman Front-end development stack in Windows - Decodize</a><br/>
+<a href="http://wingkaiwan.com/2012/11/25/bower-errors-on-windows/">Bower Errors on Windows | Ricky Wan's Technical Blog</a><br/>
+<a href="http://net.tutsplus.com/tutorials/tools-and-tips/meet-bower-a-package-manager-for-the-web/">Meet Bower: A Package Manager For The Web | Nettuts+</a><br/>
+<a href="http://rockyj.in/2013/05/11/yeoman_and_backbone.html">Rocky Jaiswal Building HTML5 Apps with Yeoman and Backbone</a><br/>
+<a href="http://rockyj.in/2013/05/02/ajaxify_with_backbone.html">Rocky Jaiswal Ajaxify a Form with Backbone</a><br/>
+<a href="http://ericterpstra.com/2012/10/install-yeoman-and-all-its-dependencies-in-ubuntu-linux/">Install Yeoman and all its dependencies in Ubuntu Linux » Eric Terpstra</a><br/>
+<a href="http://ryanbigg.com/2010/12/ubuntu-ruby-rvm-rails-and-you/">Blog of Ryan Bigg - Ubuntu, Ruby, RVM, Rails, and You</a><br/>
+<a href="http://evgeny-goldin.com/blog/3-ways-install-git-linux-ubuntu/">3 ways to install Git on Linux (Ubuntu) | println it</a><br/>
+<a href="https://github.com/retro/generator-canjs">retro/generator-canjs</a> - CanJS generator for Yeoman.<br/>
+<a href="https://github.com/yeoman/generator-angular">yeoman/generator-angular</a> - Yeoman generator for AngularJS<br/>
+<a href="https://github.com/yeoman/generator-backbone">yeoman/generator-backbone</a> - Backbone.js generator<br/>
+<br/>
+<br/>
+<h2>Assemble.io</h2>
+<a href="http://assemble.io/index.html">Welcome to Assemble.io! | Assemble</a><br/>
+<a href="https://github.com/assemble/assemble">assemble/assemble</a> - Grunt.js plugin. Assemble makes it dead simple to build modular sites, documentation and components from reusable templates and data. Includes options for using JSON, YAML, YAML front matter, Handlebars templates, pages, partials, layouts, helpers and much more. 
+<br/>
+<br/>
+<h2>Cabin</h2>
+<a href="http://colinwren.github.io/Cabin/">Cabin</a> - Cabin is a simple and extensible static site generator powered by <a href="http://gruntjs.com/">Grunt</a>.<br/>
+<br/>
+<h2>node.js included with editor</h2>
+<a href="http://kodapp.com/">Kod</a> - Kod is a programmers' editor for OS X with integrated scripting environment based on Node.js.<br/>
+<br/>
+<a href="http://thechangelog.com/post/1293058752/orona-multiplayer-websockets-tank-warefare-node-js">orona: Multiplayer websockets tank warfare game powered by Node.js - The Changelog - Open Source moves fast. Keep up.</a><br/>
+<a href="https://github.com/stephank/orona">stephank/orona - GitHub</a> - Bolo, a game of tank warfare, rewritten for modern browsers.<br/>
+<br/>
+<a href="http://addyosmani.com/blog/spotlight-issue1/">Spotlight – Recommend Node.js Projects For January</a><br/>
+<br/>
+<br/>
+<a href="https://github.com/visionmedia/should.js">visionmedia/should.js - GitHub</a> - should is an expressive, readable, test framework agnostic, assertion library for node.<br/>
+<a href="http://thechangelog.com/post/2482305274/tobi-tobi-expressive-server-side-functional-testing-with">tobi: Expressive server-side functional testing with jQuery - The Changelog - Open Source moves fast. Keep up.</a><br/>
+<a href="https://github.com/LearnBoost/tobi">LearnBoost/tobi - GitHub</a> - Tobi: Expressive server-side functional testing with jQuery and <a href="https://github.com/tmpvar/jsdom">jsdom</a><br/>
+<a href="http://mcavage.github.com/node-restify/">API Guide | restify</a> - restify is a node.js module built specifically to enable you to build correct REST web services.<br/>
+<br/>
+<br/>
+<a href="http://substack.net/">The Universe of Discord</a> - an awesome blog from dnode creator -- James Halliday.<br/>
+<a href="https://github.com/substack/rap-battle">substack/rap-battle - GitHub</a> <a href="https://github.com/substack/singsong">substack/singsong - GitHub</a><br/>
+<br/>
+<a href="http://net.tutsplus.com/tutorials/javascript-ajax/how-to-scrape-web-pages-with-node-js-and-jquery/">How to Scrape Web Pages with Node.js and jQuery | Nettuts+</a><br/>
+<br/>
+<a href="http://teddziuba.com/2011/10/node-js-is-cancer.html">Node.js is Cancer</a><br/>
+<a href="http://rhyolight.posterous.com/nodejs-is-not-cancer">Node.js is Not Cancer - rhyolight's posterous</a><br/>
+
+<h2>node.js and traditional database</h2>
+<a href="http://nodejsdb.org/">Node.js database drivers</a><br/>
+<a href="http://nodejsdb.org/db-mysql/">db-mysql: Node.js MySQL driver | Node.js Database Drivers</a><br/>
+<br/>
+<br/>
+<h2>IIS node</h2>
+<a href="https://github.com/tjanczuk/iisnode">tjanczuk/iisnode - GitHub</a> - Hosting node.js applications in IIS on Windows <br/>
+<a href="http://www.hanselman.com/blog/InstallingAndRunningNodejsApplicationsWithinIISOnWindowsAreYouMad.aspx">Installing and Running node.js applications within IIS on Windows - Are you mad? - Scott Hanselman</a><br/>
+<br/>
+<h2>twss</h2>
+<a href="https://github.com/DanielRapp/twss.js#readme">DanielRapp/twss.js - GitHub</a> - classifies if a sentence can be replied with "that's what she said". ( naive bayes classifier (nbc) || a k-nearest neighbor algorithm (knn)) haha!<br/>
+<br/>
+<br/>
+<h2>node.js tools</h2>
+<a href="https://github.com/remy/nodemon">remy/nodemon · GitHub</a> - (npm install nodemon -g)nodemon will watch the files in the directory that nodemon was started, and if they change, it will automatically restart your node application.<br/>
+<br/>
+<br/>
+<h2>React</h2>
+<a href="http://facebook.github.io/react/">React | A JavaScript library for building user interfaces</a> - npm install -g react-tools <a href="https://github.com/facebook/react">facebook/react on github</a><br/>
+<br/>
+<br/>
+<a href="http://codeascraft.com/2011/02/15/measure-anything-measure-everything/">Measure Anything, Measure Everything « Code as Craft</a><br/>
+<a href="https://github.com/etsy/statsd">etsy/statsd</a> - <p>A network daemon that runs on the <a href="http://nodejs.org">Node.js</a> platform and
+listens for statistics, like counters and timers, sent over <a href="http://en.wikipedia.org/wiki/User_Datagram_Protocol">UDP</a>
+and sends aggregates to one or more pluggable backend services (e.g.,
+<a href="http://graphite.wikidot.com">Graphite</a>).</p><br/>
+<a href="http://jpadilla.com/post/45648058126/vagrant-vm-for-statsd-graphite">José Padilla - Vagrant VM for StatsD + Graphite</a><br/>
+<a href="https://coderwall.com/p/pb74zq">Amos Lanka : Provision a StatsD server on EC2 using Vagrant and Chef</a><br/>
+<a href="http://www.krisbuytaert.be/blog/category/graphite">graphite | Everything is a Freaking DNS problem</a><br/>
+<a href="http://www.slideshare.net/itnig/collecting-metrics-with-graphite-and-statsd">Collecting metrics with Graphite and StatsD</a><br/>
+<a href="http://welcometothebundle.com/easily-install-statsd-and-graphite-with-vagrant/">Giulio De Donato | liuggio :: Easily install statsd and graphite with vagrant</a><br/>
+<a href="http://warwickp.com/2012/03/vagrant-box-with-graphite-statsd-gdash-nginx">A Vagrant Box with Graphite, StatsD, GDash, Nginx on Debian: Warwick Poole</a><br/>
+<br/>
+<br/>
+<a href="https://github.com/DanWahlin/CustomerManager">DanWahlin/CustomerManager</a> - git clone,npm install Node.js/Express/MongoDB/Mongoose - AngularJS /BreezeJS<br/>
+<br/>
+<br/>
+<a href="http://mcollina.github.io/mosca/">Mosca by mcollina</a> The multi-transport MQTT broker for node.js. It supports AMQP, Redis, MongoDB, ZeroMQ or just MQTT. 
+<a href="https://github.com/mcollina/mosca">mcollina/mosca</a>  <br/>
+<h2>Embedded JavaScript templates || EJS</h2>
+<a href="http://embeddedjs.com/">EJS - JavaScript Templates</a> - Embedded JavaScript templates for node.<br/>
+<a href="https://github.com/visionmedia/ejs">visionmedia/ejs</a> - Embedded JavaScript templates for node.<br/>
+<a href="http://justjs.com/posts/page-templates-with-ejs-finally-we-can-have-nice-things">justjs: Page Templates With EJS: Finally, We Can Have Nice Things</a> - discussion of ejs node use.<br/>
+<a href="http://canjs.com/guides/EJS.html">EJS - CanJS Guides</a> - <a href="http://canjs.com/docs/can.stache.html">can.stache - CanJS API</a> is now suggested in place of <a href="http://canjs.com/docs/can.ejs.html">can.ejs - CanJS API</a><br/>
+<br/>
+<br/>
+<a href="https://github.com/Valve/fingerprintjs">Valve/fingerprintjs</a> - reduce your user's browsers to unique 32bit integer and track them. agent string, screen color depth, language, installed plugins with supported mime types, timezone offset and other capabilities, such as local storage and session storage. Then these values are passed through a <a href="http://en.wikipedia.org/wiki/MurmurHash">MurmurHash</a> function to produce a fingerprint that gives weak guarantees of uniqueness.<br/>
+<a href="http://vorg.github.io/pex/">Pex</a> - set of JavaScript libraries for computational thinking in Plask/Node.js and WebGL in the browser.<br/>
+<br/>
+<br/>
+<a href="https://babeljs.io/">Babel · The compiler for writing next generation JavaScript</a> - ES6 and beyond<br/>
+<a href="http://www.typescriptlang.org/">Welcome to TypeScript</a> - typed superset of JavaScript that compiles to plain JavaScript.<br/>
+<a href="http://flowtype.org/">Flow | Flow | A static type checker for JavaScript</a><br/>
+<br/>
+<br/>
+<a href="http://facebook.github.io/react/">A JavaScript library for building user interfaces | React</a> - Lots of people use React as the V in MVC, virtual dom, and one way data flows.<br/>
+<a href="http://facebook.github.io/flux/">Flux | Application Architecture for Building User Interfaces</a><br/>
+<br/>
+<br/>
+<h2>native nodejs modules</h2>
+<a href="https://github.com/nodejs/node-gyp">nodejs/node-gyp: Node.js native addon build tool</a> - not everything in nodejs is javascript.  For example <a href="https://github.com/voodootikigod/node-serialport">voodootikigod/node-serialport: Node.js package to access serial ports for reading and writing OR Welcome your robotic JavaScript overlords. Better yet, program them!</a> requires having a C/C++ compiler on your machine!<br/>
+    <div style="border: 1px;">
+    Created: 2010-11-04 13:09:42
+    Modified: 2016-01-17 04:56:11
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+<span id=daysToChristmas>x</span> days to Christmas.<br/>
+<span id=daysToNewYear>x</span> days to a new year.<br/>
+Happy Holidays!
+<script Language="JavaScript">
+function showtime () {
+        msPerDay = 24 * 60 * 60 * 1000 ; // Number of milliseconds per day
+        var now = new Date();
+        var year = now.getYear();
+        if (year < 1000)
+         year+=1900
+        nextXmas = new Date("December 25, 2000")
+        nextXmas.setYear(year)
+        daysLeft = (nextXmas.getTime() - now.getTime()) / msPerDay;
+        daysLeft = Math.round(daysLeft);
+        var span=document.getElementById('daysToChristmas');
+        span.removeChild(span.firstChild);
+        span.appendChild(document.createTextNode(daysLeft+''));
+        
+        nextXmas = new Date("December 31, 2000")
+        nextXmas.setYear(year)
+        daysLeft = (nextXmas.getTime() - now.getTime()) / msPerDay;
+        daysLeft = Math.round(daysLeft);
+
+        span=document.getElementById('daysToNewYear');
+        span.removeChild(span.firstChild);
+        span.appendChild(document.createTextNode(daysLeft+''));
+        setTimeout("showtime()",msPerDay);
+}
+showtime();
+</script>
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

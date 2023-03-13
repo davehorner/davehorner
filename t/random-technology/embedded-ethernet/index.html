@@ -1,0 +1,362 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>Embedded ethernet</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/random-technology/">random-technology</a>
+    <h1>Embedded ethernet</h1>
+   The day when you can create very cheap network enabled computers is almost upon us!  This year for about 100 bucks you can get the "<a href="http://www.silabs.com/tgwWebApp/public/web_content/products/Microcontrollers/en/EthernetDK.htm">Embedded Ethernet Development Kit</a>" from <a href="http://www.silabs.com/">Silicon Labratories</a>.  It is a mixed signal enhanced 8051  microcontroller with a 10Mbit ethernet controller!  100 bucks is really cheap considering that is the design board cost...so custom spec'ing a board for quantity will really drive the cost down.<br/>
+<br/>
+We are finally to the point where I can write low level sensor computers that report information and recieve information from any node on the network!  This means all sorts of fun projects are possible.<br/>
+<br/>
+Plus, I love the fact that the chips are mixed signal and 8051 based.  That means I can write code in C and later be able to port the system to any 8051 clone I want.  (possibily even a soft-core)<br/>
+<br/>
+Anyways, this page will serve as my information warehouse regarding my experiments with network microcontrollers.<br/>
+<br/>
+<a href="http://www.silabs.com/Support%20Documents/TechnicalDocs/C8051F12x-DK.pdf">C8051F12x-DK.pdf</a> - C8051F12X DEVELOPMENT KIT USER’S GUIDE<br/>
+<a href="http://www.silabs.com/Support%20Documents/TechnicalDocs/C8051F12x-13x.pdf">C8051F12x-13x.pdf</a> C8051F12X datasheet<br/>
+update 8/9/2012 <a href="http://www.supplier-direct.com/silabs/Cart.aspx?supplierUVID=63410000&amp;quantity=1&amp;issample=0&amp;partnumber=C8051F120-TB&amp;pd=C8051F120">SILICON LABORATORIES - C8051F120-TB</a> 64 bucks now!<br/>
+<a href="http://www.mouser.com/ProductDetail/Silicon-Labs/C8051F996-TB/?qs=sGAEpiMZZMuk%252b7HJuOzfqOUu9Obv1R6UQRn7mW5bQkg%3d">C8051F996-TB Silicon Labs | Mouser</a> - 66 bucks and it has QuickSense, 14 capacitive sensing inputs!<br/>
+<br/>
+
+<h2>si labs cp2200 ethernet</h2>
+<a href="http://www.silabs.com/public/documents/tpub_doc/anote/Microcontrollers/Precision_Mixed-Signal/en/an237.pdf">TCP/IP LIBRARY PROGRAMMERâ??S GUIDE</a> <a href="http://premier-electric.com/ii/CP220x_an237.pdf">mirror CP220x_an237.pdf</a> - using silabs CP2200 <a href="http://www.silabs.com/products/interface/ethernetcontrollers/Pages/default.aspx">Ethernet Controller IC; Single-Chip Ethernet Controllers with Integrated MAC and 10Base-T PHY</a><br/>
+<a href="http://www.silabs.com/products/mcu/Pages/EmbeddedEthernetDK.aspx">Embedded Ethernet DK Microcontroller Development Kit</a> - kit has been discontinued.<br/>
+The kit did include the <a href="http://www.cmx.com/micronet.htm">CMX Systems, Inc</a> TCP/IP stack, which is what the above programmer's guides discuss.<br/>
+The library does require the use of the "Large" compiler argument.
+nice forum posts from cygnal about the dev kit and talk about some of the issues I've run into...<br/>
+<a href="http://www.cygnal.org/ubb/Forum1/HTML/002118.html">Microcontroller and Ethernet -</a><br/>
+<a href="http://www.cygnal.org/ubb/Forum1/HTML/001727.html">CP220x Undocumented registers -</a><br/>
+<br/>
+<br/>
+<h2>beaglebone</h2>
+<a href="https://www.adafruit.com/products/513">Beagle Bone A6 + Extras [Rev. A6 ] ID: 513 - $89.00 : Adafruit Industries, Unique &amp; fun DIY electronics and kits</a><br/>
+
+<br/>
+<br/>
+<h2>XBee 802.15.4 Wireless communication</h2>
+Not really for the embedded ethernet page, but it goes here for now..<br/>
+<a href="http://electricstitches.com/blog/2012/03/22/xbee-beaglebone-communication/">XBee BeagleBone Communication |</a><br/>
+<a href="https://www.sparkfun.com/products/8687?">XBee Explorer USB - SparkFun Electronics</a><br/>
+<a href="http://www.faludi.com/itp_coursework/meshnetworking/XBee/XBee_example.html">XBee Example</a> from <a href="http://shop.oreilly.com/product/9780596807740.do">Building Wireless Sensor Networks - O'Reilly Media</a><br/>
+<a href="http://code.google.com/p/python-xbee/">python-xbee - Python tools for working with XBee radios - Google Project Hosting</a><br/>
+<br/>
+<br/>
+<h2>silabs usb connectivity cp21xx</h2>
+Not really for the embedded ethernet page, but it goes here for now..<br/>
+<a href="http://www.silabs.com/Support%20Documents/Software/CP210x_CP211x_OverviewTechnical.pdf">Ease the Burden of USB Connectivity 
+with CP21xx USB Bridges</a> - pdf slides on cp21xx usb bridges.<br/>
+<a href="http://www.silabs.com/Marcom%20Documents/Resources/USB%20Bridge%20Solutions.pdf">pdf overview on cp21xx usb line</a><br/>
+<a href="http://www.silabs.com/products/mcu/Pages/USBXpress.aspx">USBXpress</a> - The USBXpress® development kit<br/>
+<a href="http://www.silabs.com/products/mcu/pages/usbtouartbridgevcpdrivers.aspx">USB to UART Bridge VCP Drivers</a> - amazing compatibility! XP,Server2003,Vista,7,2K,WinCE,OSX,Linux 2.6.x,2.4.36<br/>
+<a href="http://www.silabs.com/products/mcu/Pages/C8051F064EK.aspx">C8051F064EK Microcontroller Evaluation Kit</a> -Evaluation Board with C8051F064 and CP2101<br/>
+<a href="http://www.mouser.com/ProductDetail/Silicon-Laboratories/C8051F064EK/?qs=%2fha2pyFadujFGDmMRe8Z02%252bmwh0GgIatG8mnjwqITclh0NycNbA0UA%3d%3d">C8051F064EK Silicon Labs | Mouser</a> - 115 bucks as of 8/2012<br/>
+<a href="http://www.silabs.com/Support%20Documents/TechnicalDocs/C8051F064-EK.pdf">C8051F064 EVALUATION KIT USER ’S GUIDE-C8051F064-EK.pdf</a><br/>
+<br/>
+<br/>
+<h2>other embedded ethernet web resources</h2>
+<a href="http://www.ethernut.de/en/hardware/index.html">Embedded Ethernet Boards for Ethernut</a><br/>
+<a href="http://en.wikipedia.org/wiki/Embedded_HTTP_server">Wikipedia on Embedded HTTP server</a><br/>
+<a href="http://en.wikipedia.org/wiki/Tiny_web_servers">Wikipedia on Tiny web servers</a><br/>
+<a href="http://www.kernelthread.com/empeg/irda.html">TCP/IP over Infra-red on the Empeg</a><br/>
+<br/>
+<h2>Stepper motors and CNC</h2>
+<a href="http://www.kelinginc.net/CNCRouter.html">CNC Router Engraver Milling machine</a><br/>
+<br/>
+<br/>
+<h2>Raspberry Pi</h2>
+<a href="http://www.raspberrypi.org/">Raspberry Pi | An ARM GNU/Linux box for $25. Take a byte!</a><br/>
+<a href="http://www.smallbulb.net/2012/225-emulating-raspberry-pi">Emulating Raspberry Pi | welcome to the world of...</a> - qemu,pi debian image,pi/suse,startx<br/>
+<a href="http://littlebirdelectronics.com/blogs/frontpage/6418750-interface-a-raspberry-pi-to-msp430-via-spi">Interface a Raspberry Pi to MSP430 via SPI | Little Bird Electronics</a><br/>
+<a href="http://rpix86.patrickaalto.com/rblog.html">rpix86 by Patrick Aalto blog</a> <a href="http://rpix86.patrickaalto.com/index.html">rpix86</a><br/>
+<a href="https://github.com/architek/pistat">architek/pistat</a> - Raspberry Pi XHR Web page using Perl Dancer<br/>
+<a href="https://www.raspberrypi.org/forums/viewtopic.php?t=121195">Raspberry Pi • View topic - Guide: Chromium 51 on Raspbian Jessie</a> <br/>
+<pre>wget -qO - http://bintray.com/user/downloadSubjectPublicKey?username=bintray | sudo apt-key add -
+echo "deb http://dl.bintray.com/kusti8/chromium-rpi jessie main" | sudo tee -a /etc/apt/sources.list
+sudo apt-get update
+sudo apt-get install chromium-browser rpi-youtube -y</pre><br/>
+<a href="https://learn.adafruit.com/adding-a-real-time-clock-to-raspberry-pi/set-rtc-time">Set RTC Time | Adding a Real Time Clock to Raspberry Pi | Adafruit Learning System</a><br/>
+<a href="https://learn.adafruit.com/adding-a-real-time-clock-to-raspberry-pi/set-rtc-time">Set RTC Time | Adding a Real Time Clock to Raspberry Pi | Adafruit Learning System</a><br/>
+<pre>
+set 
+sudo dpkg-reconfigure tzdata
+sudo apt-get update
+sudo apt-get install ntpdate
+sudo /etc/init.d/ntp stop
+sudo ntpd -q -g
+sudo /etc/init.d/ntp stop
+</pre>
+
+<br/>
+<br/>
+<h2>CC3000 embedded wifi</h2>
+<a href="http://processors.wiki.ti.com/index.php/CC3000_Wi-Fi_for_MCU">CC3000 Wi-Fi for MCU - Texas Instruments Embedded Processors Wiki</a><br/>
+<br/>
+<br/>
+<h2>enc28j60</h2>
+Microchip's <a href="http://www.microchip.com/wwwproducts/Devices.aspx?dDocName=en022889">ENC28J60</a> is a 28-pin, 10BASE-T stand alone Ethernet Controller with an on-board MAC & PHY, 8 Kbytes of Buffer RAM and SPI serial interface.
+<a href="https://github.com/xpgdk/stellaris-enc28j60">xpgdk/stellaris-enc28j60 · GitHub</a><br/>
+<a href="http://forum.stellarisiti.com/topic/287-enc28j60-booster-pack/">ENC28J60 Booster Pack - Stellaris Launchpad Booster Packs - Stellaris Arm Community Forums</a><br/>
+<a href="http://www.mikroe.com/add-on-boards/communication/serial-ethernet/">Serial Ethernet Board - ENC28J60 Development Tool</a><br/>
+<a href="http://www.ebay.com/sch/i.html?_nkw=ENC28J60+Ethernet+LAN+Module+Network+Module&amp;rt=nc&amp;LH_BIN=1">ENC28J60 Ethernet LAN Module Network Module | eBay</a> - modules on ebay as low as 4.10 shipped (BIN).<br/>
+<br/>
+<br/>
+<h2>ESP8266</h2>
+<a href="http://benlo.com/esp8266/esp8266QuickStart.html">ESP8266 Quick Start Guide</a><br/>
+<a href="https://nurdspace.nl/ESP8266#Technical_Overview">ESP8266 - NURDspace</a><br/>
+<a href="http://arduining.com/2015/08/15/nodemcu-esp-12-development-kit-v1-0/">NodeMCU ESP-12 Development Kit V1.0 | Arduining</a><br/>
+<a href="http://www.adafruit.com/products/2471?gclid=Cj0KEQiAnJqzBRCW0rGWnKnckOIBEiQA6qDBah0ULy2ytrh1fkDlbA6tKnI6ILU9TSV78qZwqyqHDAYaAg8d8P8HAQ">Adafruit HUZZAH ESP8266 Breakout ID: 2471 - $9.95 : Adafruit Industries, Unique &amp; fun DIY electronics and kits</a> - 10 bucks wifi breakout<br/>
+<br/>
+<br/>
+<h2>Particle Photon</h2>
+<a href="http://dave.thehorners.com/tech-talk/random-tech/545-particle-photon-sparkcore">Particle Photon SparkCore - Dave Horner's Website</a><br/>
+    <div style="border: 1px;">
+    Created: 2006-10-01 00:45:36
+    Modified: 2016-09-27 12:59:40
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+$$\cos x = \sum\limits_{n = 0}^\infty {\frac{{\left( { - 1} \right)^n x^{2n} }}{{\left( {2n} \right)!}}}$$
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

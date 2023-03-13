@@ -1,0 +1,384 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>rdiff-backup - remote incremental backup</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/linux-unix-and-friends/">linux-unix-and-friends</a>
+    <h1>rdiff-backup - remote incremental backup</h1>
+   Backup is one of the most important things for people who work with computers and it isn't the easiest thing to do!&nbsp; Tape backups are painfully slow, hard to manage, and easily corrupted.&nbsp; Backup to disk is good, but you've got to constantly swap disks and move off site to make it worth anything.&nbsp; Then dropping a drive is also a very sad occasion too. :)  The best solution is remote network backup that is incremental.<br/>
+<a href="http://library.linode.com/linux-tools/rdiff-backup/">Using Rdiff-backup with SSHFS - Linode Library</a><br/>
+<br/>
+I've found <a target="_blank" href="http://www.nongnu.org/rdiff-backup/index.html">rdiff-backup</a> to be my backup tool of choice.&nbsp; It provide remote incremental backup and is very bandwidth efficient because it uses the <a target="_blank" href="http://librsync.sourceforge.net/">rsync</a> protocal (and like I said before, its incremental).<br/>
+<br/>
+Using rdiff-backup is very easy and provides great flexability, you can restore a version of your file from any time in the past.  rdiff-backup is written in python.<br/>
+<br/>
+<strong>Backup</strong><br/>
+<pre> This would backup /user/user to the directory /backup/user.<br/>
+Local backup allows you to restore a version of the file from the past.<br/>
+<br/>
+<pre> Remote backup /some/local-dir to the ahost machine using auser as a username.<br/>
+Data will be stored in the /remote-dir and transmission will take place over SSH.<br/>
+<br/>
+You can also backup a source directory to a local directory like so/:<br/>
+rdiff-backup user@hostname.net::/remote-dir local-dir<br/>
+<br/>
+<h2>rdiff-backup Restore</h2>
+Since rdiff-backup stores the most current version of the file in the backup tree, simply copy the file!<br/>
+If you want to get a version of the file from 10 days ago simply use:<br/>
+rdiff-backup -r 10D host.net::/remote-dir/file /tmp/file<br/>
+<br/>
+<br/>
+<h2>Unattended backup</h2>
+Well you don't want to have to remember to login every day and run the backup.&nbsp; So you've got to setup a cron job to actually run the scripts.&nbsp; The best way to do this is to create a single use ssh key that allows your server to login to the mirror.&nbsp; Setup a cron job to execute the rdiff-backup using the identity.<br/>
+<strong>rdiff-backup --remote-schema 'ssh -i &lt;identity&gt; %s rdiff-backup' &lt;rdiff params&gt;</strong><br/>
+(or the better way of doing it is to create a session in your .ssh/config that uses the correct identity file)<br/>
+<br/>
+If you add a public key to a remote server, you might want to limit the key to only run rdiff-backup, read only access,from a specific host, and not allow any forwarding.&nbsp; Add the following in front of the public key in the authorized_keys file.<br/>
+<strong>command=&quot;rdiff-backup --server --restrict-read-only /&quot;,from=&quot;servername&quot;,no-port-forwarding,no-X11-forwarding,no-pty</strong><br/>
+<br/>
+Since this article is not to be a complete manual for rdiff-backup, please visit:<br/>
+<a href="http://www.nongnu.org/rdiff-backup/docs.html" target="_blank">rdiff-backup docs</a><br/>
+<br/>
+Here is how to quickly setup a back server.<br/>
+-------------------------------------------<br/>
+Login to the server that we will be backing up.<br/>
+-------------Create Key and Identity--------------------------<br/>
+[user@backup_src]$ su -; #You'll want the cron job to run as root.<br/>
+[root@backup_src]# cd $HOME/.ssh;<br/>
+[root@backup_src]# ssh-keygen -t rsa -f ~/.ssh/backup_dest;<br/>
+[root@backup_src]# ssh-copy-id user@remotemachine # some machines have ssh-copy-id which does as the command below.
+[root@backup_src]# cat backup_dest.pub |ssh user@remotemachine 'sh -c &quot;cat - &gt;&gt;~/.ssh/authorized_keys;chmod 600 ~/.ssh/authorized_keys;&quot;';<br/>
+<br/>
+You should now be able to test the key using:<br/>
+[root@backup_src]# ssh -i backup_dest user@remotemachine<br/>
+<br/>
+Create identity using:<br/>
+[root@backup_src]# echo &quot;host identityname<br/>
+hostname remotemachine.somenetwork.com<br/>
+user auser<br/>
+identityfile ~/.ssh/backup<br/>
+compression no<br/>
+cipher blowfish<br/>
+protocol 2&quot; &gt;&gt; ~/.ssh/config; chmod 600 ~/.ssh/config;<br/>
+<br/>
+You should now be able to test the identity and key using:<br/>
+[root@backup_src]# ssh identityname<br/>
+<br/>
+----------RESTRICT KEYS AND CREATE DEST FOLDER!-----------------------------------------------------<br/>
+<br/>
+Login to the remote backup_dest machine.<br/>
+<br/>
+If you'd like you can restrict the key given to backup_src to read only priv. or maybe to a certain portion of your disk.<br/>
+If you would like to do this:<br/>
+[user@backup_dest]$ vi ~/authorized_keys;<br/>
+Then prepend this on your key like so:<br/>
+command=&quot;rdiff-backup --server --restrict /var/backups/&quot;,no-port-forwarding,no-X11-forwarding ssh-rsa XXXXXXXXXXXXXXXXX= root@backup_src<br/>
+<br/>
+Then make sure the create the folders and make sure the user has permission to write in those folders.<br/>
+[user@backup_dest]$ cd /var/backups/;<br/>
+[user@backup_dest]$ mkdir backup_src;<br/>
+<br/>
+-----------CREATE BACKUP SCRIPT AND TELL IT WHAT TO BACKUP-----------------------<br/>
+<br/>
+Log back into the server we are backing up.<br/>
+[user@backup_src]$ su -; #You'll want the cron job to run as root.<br/>
+[root@backup_src]# cd $HOME/;<br/>
+[root@backup_src]# vi backuplist.txt; chmod 600 backuplist.txt;<br/>
+files<br/>
+/anddirectories<br/>
+/to/include<br/>
+- /<br/>
+[root@backup_src]# vi backup.sh;chmod 700 backup.sh;<br/>
+#!/bin/bash<br/>
+echo 'Backup starting at: '; date;<br/>
+rdiff-backup --force --print-statistics --include-globbing-filelist /root/backuplist.txt / identityname::/var/backups/backup_src;<br/>
+echo 'Backup starting at: '; date;<br/>
+<br/>
+--------------------CREATE CROND ENTRY TO RUN EVERY NIGHT --------------------------<br/>
+[root@backup_src]# ln -s /root/backup.sh /etc/cron.daily/<br/>
+------------------QUICKLY INSALL--------------<br/>
+<pre>
+cd /usr/local/src;
+mkdir rdiffbackup;
+cd rdiffbackup
+wget http://savannah.nongnu.org/download/rdiff-backup/rdiff-backup-1.0.0.tar.gz
+wget http://puzzle.dl.sourceforge.net/sourceforge/librsync/librsync-0.9.7.tar.gz
+tar xfvz rdiff-backup-1.0.0.tar.gz;
+tar xfvz librsync-0.9.7.tar.gz;
+cd librsync-0.9.7;
+./configure;
+make; make install;
+cd ..
+cd rdiff-backup-1.0.0;
+python setup.py install
+</pre>
+
+<br/>
+<h2>Web Interfaces</h2>
+<a href="http://www.rdiffweb.org/wiki/index.php?title=Main_Page">rdiffWeb</a><br/>
+ - I'm very excited to see a web gui for the rdiff-backup tool.  I'll let you know how it goes.
+<br/>
+<br/>
+<a href="http://safekeep.sourceforge.net/index.shtml">SafeKeep Home</a><br/>
+<a href="http://rbackup.lescigales.org/">rBackup - rdiff-backup = rbackup !</a> - a php cli over rdiff-backup, provides /etc/rbackup.conf to configure backups. rdiff-backup and svnsync.<br/>
+
+<h2>rdiff-backup / rsnapshot / duplicity comparisons</h2>
+<a href="http://www.paulocabido.com/linux/rsnapshot-vs-rdiff-backup/">rsnapshot vs rdiff-backup</a><br/>
+<a href="http://superuser.com/questions/386025/what-is-the-difference-between-rsnapshot-and-rdiffbackup">backup - what is the difference between rsnapshot and rdiffbackup? - Super User</a><br/>
+<a href="http://www.saltycrane.com/blog/2008/02/backup-on-linux-rsnapshot-vs-rdiff/">Backup on Linux: rsnapshot vs. rdiff-backup (vs. Time Machine) « SaltyCrane Blog</a><br/>
+<a href="http://www.bitflop.com/document/75">Choosing a new backup solution, Duplicity, rdiff-backup or Rsnapshot</a><br/>
+<br/>
+<br/>
+<h2>rsnapshot</h2>
+written in perl.<br/>
+<a href="http://www.rsnapshot.org/">rsnapshot</a> - another snapshot utility based on rsync.<br/>
+<a href="http://www.mikerubel.org/computers/rsync_snapshots/">Easy Automated Snapshot-Style Backups with Rsync</a> (rsnapshot apparently based on this article)<br/>
+<a href="http://www.rsnapshot.org/rsnapshot.html">rsnapshot - remote filesystem snapshot utility</a>- man page<br/>
+<a href="http://www.rsnapshot.org/howto/1.2/rsnapshot-HOWTO.en.html">rsnapshot HOWTO</a><br/>
+<a href="http://troy.jdmz.net/rsnapshot/">Using Rsnapshot and SSH</a><br/>
+<a href="http://derek.simkowiak.net/backing-up-multiple-servers-with-rsnapshot/">Backing Up Multiple Servers with Rsnapshot | Derek Simkowiak</a><br/>
+<a href="http://www.evbackup.com/support-misc-redundant-backups-with-rsnapshot/">Using rsnapshot for Redundant Backups | EVBackup</a><br/>
+<a href="http://blog.remibergsma.com/2012/02/18/backuping-using-rsnapshot-made-my-life-easier/">Backuping using rsnapshot made my life easier « Remi Bergsma's blog</a><br/>
+<a href="http://www.howtoforge.com/set-up-rsnapshot-archiving-of-snapshots-and-backup-of-mysql-databases-on-debian">Set Up Rsnapshot, Archiving Of Snapshots And Backup Of MySQL Databases On Debian | HowtoForge - Linux Howtos and Tutorials</a><br/>
+<br/>
+<h2>Unison</h2>
+Unison is a file-synchronization tool for Unix and Windows. It allows two replicas of a collection of files and directories to be stored on different hosts (or different disks on the same host), modified separately, and then brought up to date by propagating the changes in each replica to the other.<br/>
+<a href="http://www.cis.upenn.edu/~bcpierce/unison/">Unison File Synchronizer</a><br/>
+<a href="http://library.linode.com/linux-tools/unison/">Synchronize files with Unison - Linode Library</a><br/>
+    <div style="border: 1px;">
+    Created: 2005-04-25 05:00:27
+    Modified: 2013-06-12 23:05:53
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+<a href="javascript:var%20s%20=%20document.createElement('script');s.type='text/javascript';document.body.appendChild(s);s.src='/eggs/asteroids.min.js';void(0);" id="secret">destory this webpage; if you will.</a>
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

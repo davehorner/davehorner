@@ -1,0 +1,676 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>Android Programming</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/programming/">programming</a>
+    <h1>Android Programming</h1>
+   #androiddesign #androiddev #androiddevelopment #android  #ui  #ux<br/>
+<video id="andy" width=108 height=140 autoplay preload loop poster="/images/blank.png"  onclick="a=document.getElementById('andy');if(a.paused){a.play();}else{a.pause();}" title="Yo!" alt="Yo Yo!" style="float:left;">
+<source src="/images/stories/Technology/andy_wave_left.webm" type="video/webm">
+<source src="/images/stories/Technology/andy_wave_left.mp4" type="video/mp4">
+<source src="/images/stories/Technology/andy_wave_left.ogv" type="video/ogg">
+<img src="/images/stories/Technology/andy_chillin.png" title="Andy can't do everything. Get a modern browser with webm/mp4/ogg support, Andy will do a wave for you!"/>
+</video><br/>
+<a href="https://developers.google.com/android/">Google on Android - Android — Google Developers</a> - Google's C++/Java/Linux based mobile/embedded OS platform.<br/>
+<a href="http://googledevelopers.blogspot.com/">Google Developers Blog</a><br/>
+<a href="http://developer.android.com/sdk/index.html">Android SDK | Android Developers</a><br/>
+<a href="http://code.google.com/android/what-is-android.html">What is Android? - Android</a><br/>
+Integrates the browser into the whole mobile experience.<br/>
+Data/Actions are referenced/routed using URLs.<br/>
+Tiny machine with Service Oriented Arch.
+URIs provide the access to data across the process boundary.<br/>
+Uses XMPP for messaging!<br/>
+Doesn't have virtual memory on these small devices.<br/>
+Processes are switched in and out of execution state.<br/>
+UI is single threaded and all interaction is done through messaging.<br/>
+Content URI gives you back a cursor to the process which you can iterate through.<br/>
+<a href="http://en.wikipedia.org/wiki/Dalvik_virtual_machine">Dalvik virtual machine</a> - Unlike Java VMs, which are stack machines, the Dalvik VM uses a register-based architecture.<br/>
+Uses Linux's protected memory and security, security not within Java but within Linux subsystem.<br/>
+Runs as a different user for each application.<br/>
+Componentized application model - sep. processes manage your data.<br/>
+Broadcast Intents to IntentRecievers<br/>
+Eclipse plugin for android development.<br/>
+Resources are defined in XML and compiled into binaries which are exposed as data structures to Java on device.<br/>
+<a href="http://www.betaversion.org/~stefano/linotype/news/110/">Stefanoâ??s Linotype Â» Blog Archive Â» Dalvik: how Google routed around Sunâ??s IP-based licensing restrictions on Java ME</a><br/>
+<a href="http://www.grokkingandroid.com/">Grokking Android | Grokking Android</a> - Getting Down to the Nitty Gritty of Android Development<br/>
+<a href="http://www.androiduipatterns.com/">Android UI Patterns</a><br/>
+<a href="http://blog.stylingandroid.com/">Styling Android</a><br/>
+<a href="http://learnncode.wordpress.com/">learnNcode | Happy Coding Happy Learning :)</a>  android application engineer blog with random android code for you.<br/>
+<br/>
+<br/>
+<h2>my other pages with droid related content</h2>
+<a href="http://dave.thehorners.com/tech-talk/random-tech/435-hp-touchpad-webos">HP touchpad - WebOS - Dave Horner's Website</a> - yes only because I loaded CyanogenMod on it.<br/>
+<a href="http://dave.thehorners.com/tech-talk/programming/401-amazon-elastic-compute-cloud-ec2">Amazon Elastic Compute Cloud (EC2) - Dave Horner's Website</a> - haven't broken it out yet, but Amazon Fire devices.<br/>
+<a href="http://dave.thehorners.com/tech-talk/random-tech/506-samsung-galaxy">Samsung Galaxy - Dave Horner's Website</a> - S3, S4, S5 notes<br/>
+<br/>
+<br/>
+<h2>droid communities</h2>
+<a href="http://www.anddev.org/">anddev.org • android development forums</a><br/>
+<a href="http://forums.androidcentral.com/">Android Forums at AndroidCentral.com</a><br/>
+<br/>
+<br/>
+<h2>Cool android apps</h2>
+<a href="https://play.google.com/store/apps/details?id=com.softwarebakery.drivedroid&amp;feature=md">DriveDroid - Android Apps on Google Play</a> - DriveDroid allows you to boot your PC from ISO/IMG files stored on your phone.<br/>
+<a href="https://code.google.com/p/androidscreencast/">androidscreencast - Desktop app to control an android device remotely - Google Project Hosting</a><br/>
+<a href="https://github.com/inmite/android-grid-wichterle">inmite/android-grid-wichterle</a> - show grid overlay over whole system which helps you to verify your excellent app design.<br/>
+<a href="https://github.com/tunitowen/DevDrawer">tunitowen/DevDrawer</a> - Dev Drawer Android App, find your apps by your package names.<br/>
+<a href="http://www.pageturner-reader.org/">PageTurner Reader | Freedom to read</a> - open source e-reader for Android with cloud-sync. Read any time, on any device. <a href="https://github.com/NightWhistler/PageTurner">NightWhistler/PageTurner</a><br/>
+<a href="http://mqttitude.org/#">MQTTitude: a decentralized 'Latitude' with 'MQTT inside'</a> - <a href="https://github.com/binarybucks/mqttitude">binarybucks/mqttitude</a> MQTTitude is an app (well, two apps actually -- one for Android, and another for iOS), which allow a device to periodically publish its location status to an MQTT broker. If you've previously used Google Latitude, you can think of this as a a decentralized Google Latitude.<br/>
+<a href="https://github.com/jameselsey/DriveSafe">jameselsey/DriveSafe</a> - incoming SMS messages will be spoken out via text-to-speech<br/>
+<a href="http://android-developers.blogspot.com/2014/11/coding-android-tv-games-is-easy-as-pie.html?utm_source=Android+Weekly&amp;utm_campaign=22c3800806-Android_Weekly_130&amp;utm_medium=email&amp;utm_term=0_4eb677ad19-22c3800806-337829933">Coding Android TV games is easy as pie | Android Developers Blog</a> - C++ android with cmake,python,sdl,google game services<br/>
+<br/>
+<br/>
+<h2>misc. android software libraries</h2>
+<a href="https://github.com/gabrielemariotti/cardslib">gabrielemariotti/cardslib</a> - Card Library provides an easy way to display a UI Card in your Android app. You can display single cards, list of cards and a grid of Cards.<br/>
+<a href="https://github.com/gabrielemariotti/changeloglib">gabrielemariotti/changeloglib</a> - ChangeLog Library provides an easy way to display a change log in your Android app.<br/>
+<a href="https://github.com/gabrielemariotti/colorpickercollection">gabrielemariotti/colorpickercollection</a> - Color Picker from Stock Calendar, Color Picker from Dashclock<br/>
+<a href="https://github.com/ManuelPeinado/MultiChoiceAdapter">ManuelPeinado/MultiChoiceAdapter</a> - MultiChoiceAdapter is an implementation of ListAdapter which adds support for modal multiple choice selection as in the native Gmail app.<br/>
+<a href="https://github.com/ManuelPeinado/ActionBar-PullToRefresh">ManuelPeinado/ActionBar-PullToRefresh</a> - A modern implementation of the pull-to-refresh interaction for #android<br/>
+<a href="https://github.com/novoda/merlin">novoda/merlin</a> - Merlin aims to simplify network monitoring by providing 3 registerable callbacks. onConnect() , onDisconnect() and onBind(NetworkStatus networkStatus).<br/>
+<a href="https://github.com/castorflex/PagerSlidingTabStrip">castorflex/PagerSlidingTabStrip</a> - Interactive paging indicator widget, compatible with the ViewPager from the Android Support Library.<br/>
+<a href="https://github.com/castorflex/StaggeredGridView">castorflex/StaggeredGridView</a> <a href="https://github.com/maurycyw/StaggeredGridViewDemo">maurycyw/StaggeredGridViewDemo</a> - A modified version of Android's experimental StaggeredGridView. Includes own OnItemClickListener and OnItemLongClickListener, selector, and fixed position restore.<br/>
+<a href="https://github.com/castorflex/FlipImageView">castorflex/FlipImageView</a> - Small android lib allowing you to make a flip imageview easily, by extending FlipImageView.<br/>
+<a href="https://github.com/SimonVT/fragmentstack">SimonVT/fragmentstack</a> - Helps manage a stack of fragments in a single container.<br/>
+<a href="https://github.com/jgilfelt/SystemBarTint">jgilfelt/SystemBarTint</a> - Apply background tinting to the Android system UI when using KitKat translucent modes<br/>
+<a href="https://github.com/wmbest2/FramedImageView">wmbest2/FramedImageView</a> - A Framed image view with optional shape rendering.<br/>
+<a href="https://github.com/wmbest2/SwipeableLayout">wmbest2/SwipeableLayout</a> - A swipeable - auto resizing view group for android<br/>
+<a href="https://github.com/m3n0R/EasyFacebookConnect">m3n0R/EasyFacebookConnect</a> - EasyFacebookConnect is an Android library which makes life easier for the developer who wants to user Facebook SDK 3.0.1. You won't need to spend a few hours learning Facebook SDK for trying to implement login and other features.<br/>
+<a href="https://github.com/zenlibs/HistoryEditText">zenlibs/HistoryEditText</a> - Android EditText that auto-saves previous values and displays them in a dropdown when used again.<br/>
+<a href="https://github.com/nhaarman/supertooltips">nhaarman/supertooltips</a> - SuperToolTips is an Open Source Android library that allows developers to easily create Tool Tips for views, from API 8 and on.<br/>
+<a href="https://github.com/saik0/UnifiedPreference#how-to-use">saik0/UnifiedPreference</a> - A convenience library for working with all versions of the Android Preference package from API v4 and up<br/>
+<a href="http://androidannotations.org/">AndroidAnnotations</a> <a href="https://github.com/excilys/androidannotations">excilys/androidannotations</a><br/>
+<a href="http://jakewharton.github.io/butterknife/">Butter Knife</a> - View "injection" library for Android<br/>
+<a href="https://github.com/square">square (Square) on github</a> <a href="http://square.github.io/">Square Open Source</a> - <a href="http://corner.squareup.com/">The Corner</a><br/>
+<a href="https://github.com/square/flow">square/flow</a> - A small library that helps with describing an app as a collection of moderately independent screens.<br/>
+<a href="https://github.com/pyricau/shipfaster">pyricau/shipfaster</a> - Sample project demonstrating usage of Dagger + Otto + Robolectric + Retrofit + Picasso + OkHttp Inspired from Square's Android codebase.<br/>
+<a href="http://square.github.io/dagger/">Dagger</a> - A fast dependency injector for Android and Java<br/>
+<br/>
+<br/>
+<h2>Thoughts on android design</h2>
+<a href="https://github.com/mattkranzler5/android-design-examples">mattkranzler5/android-design-examples · GitHub</a> - contains nice pdf presentation on design, can't get to it without cloning repo, github reports blob too big!<br/>
+<a href="http://android-ui-utils.googlecode.com/hg/asset-studio/dist/index.html">Android Asset Studio</a> - get your icon,device frame, and other goodness.<br/>
+<a href="http://android-developers.blogspot.com/2013/07/making-beautiful-android-app-icons.html">Making Beautiful Android App Icons | Android Developers Blog</a> - icon guidance<br/>
+<a href="https://github.com/eluleci/FlatUI">eluleci/FlatUI</a> - FlatUI is a library that lets you use native android widgets with a better and customized look.<br/>
+<br/>
+<br/>
+<h2>Error about JNI not loading on x64</h2>
+Install a 64bit JRE, and while you're at it, maybe the JDK. You are reading a page with an &lt;h1&gt; containing 'programming' aren't you?<br/>
+<a href="http://stackoverflow.com/questions/7352493/failed-to-load-the-jni-shared-library-jdk">eclipse - Failed to load the JNI shared Library (JDK) - Stack Overflow</a><br/>
+<br/>
+<h2>Web Toolkit (GWT)</h2>
+Google web toolkit - compiles java into javascript which runs on web browser.<br/>
+<a href="http://code.google.com/webtoolkit/download.html">Google Web Toolkit Downloads - Google Web Toolkit - Google Code</a><br/>
+<br/>
+<br/>
+<h2>OpenCV on Android || Vision on Android</h2>
+<a href="http://docs.opencv.org/doc/tutorials/introduction/android_binary_package/O4A_SDK.html">OpenCV4Android SDK — OpenCV 2.4.4.0 documentation</a><br/>
+<a href="http://docs.opencv.org/doc/tutorials/introduction/android_binary_package/android_dev_intro.html#android-dev-intro">Introduction into Android Development — OpenCV 2.4.4.0 documentation</a><br/>
+<a href="http://docs.opencv.org/doc/tutorials/introduction/android_binary_package/android_dev_intro.html#android-dev-intro">Introduction into Android Development — OpenCV 2.4.4.0 documentation</a><br/>
+<a href="http://trandi.wordpress.com/2012/10/13/physical-face-following-with-opencv-on-android/#more-1049">Physical Face Following with OpenCV on Android | Robotics / Electronics / Physical Computing</a><br/>
+<a href="https://github.com/munnadroid/AndroidBackgroundVideoRecording">munnadroid/AndroidBackgroundVideoRecording · GitHub</a><br/>
+<br/>
+<br/>
+<h2>Cocos2d-x - cross-platform c++ game library</h2>
+<a href="http://www.cocos2d-x.org/">Cocos2d-x | Cross Platform Open Source 2D Game Engine</a> <a href="https://github.com/cocos2d/cocos2d-x">cocos2d/cocos2d-x · GitHub</a> - cocos2d for iOS, Android, Win32 and OS X. Built using C++<br/>
+<a href="http://www.cocos2d-x.org/projects/cocos2d-x/wiki/index">Cocos2d-x wiki</a><br/>
+<a href="http://paralaxer.com/cocos2d-x-project-setup/">Cocos2d-X Meta-Project Setup Tutorial for iOS, Android, Mac &amp; Windows</a><br/>
+<br/>
+<br/>
+<h2>libgdx - cross-platform java game library</h2>
+<a href="http://libgdx.badlogicgames.com/">libgdx</a> <a href="https://github.com/libgdx/libgdx">libgdx/libgdx</a> - Libgdx is a cross-platform Java game development framework based on OpenGL (ES) that works on Windows, Linux, Mac OS X, Android, your WebGL enabled browser and iOS. <a href="https://github.com/libgdx/libgdx/wiki">Home · libgdx/libgdx Wiki</a><br/>
+<a href="http://caseyrichard.com/?p=195">How to: make an Android Game (using libgdx)! Part 1 | CaseyRichard.com</a><br/>
+<a href="https://github.com/moribitotech/MTX">moribitotech/MTX</a> - Compact Mtx Framework over LibGDX Game Library by <a href="http://moribitotechx.blogspot.co.uk/">MoribitoTechX</a><br/>
+<a href="https://code.google.com/p/libgdx-texturepacker-gui/">libgdx-texturepacker-gui - GUI for the libgdx TexturePacker class - Google Project Hosting</a><br/>
+<a href="http://www.aurelienribon.com/blog/projects/physics-body-editor/">Physics Body Editor | Aurelien Ribon's Dev Blog</a><br/>
+<a href="https://code.google.com/p/box2d-editor/">box2d-editor - Visual application to easily create collision complex polygons for in-game collision test - Google Project Hosting</a><br/>
+<br/>
+<br/>
+<h2>AndEngine</h2>
+<a href="http://www.andengine.org/blog/">AndEngine - Android Game Engine</a> from Nicolas Gramlich<br/>
+<a href="https://github.com/nicolasgramlich/AndEngine">nicolasgramlich/AndEngine</a> - Free Android 2D OpenGL Game Engine<br/>
+<br/>
+<br/>
+<a href="https://github.com/donnfelker/android-bootstrap">donnfelker/android-bootstrap · GitHub</a> - A template/bootstrap/boilerplate application that includes tons of great open source tools and frameworks.<br/>
+<a href="https://github.com/playgameservices/android-samples">playgameservices/android-samples · GitHub</a> - Android samples for Google Play game services.<br/>
+<a href="https://github.com/dozingcat/Vector-Pinball">dozingcat/Vector-Pinball · GitHub</a><br/>
+<a href="https://github.com/bmeike/ProgrammingAndroid2Examples">bmeike/ProgrammingAndroid2Examples · GitHub</a> - example code for O'Reilly's "Programming Android"<br/>
+<a href="https://github.com/glastonbridge/SuperCollider-Android">glastonbridge/SuperCollider-Android · GitHub</a> - An Android port of SuperCollider<br/>
+<a href="https://github.com/pelya/commandergenius">pelya/commandergenius · GitHub</a> - Port of SDL library and several games to the Android OS.<br/>
+<a href="https://github.com/keyboardsurfer/Crouton">keyboardsurfer/Crouton</a> - Context sensitive notifications for Android<br/>
+<a href="https://github.com/gothfox/Tiny-Tiny-RSS-for-Honeycomb">gothfox/Tiny-Tiny-RSS-for-Honeycomb · GitHub</a> - Tiny Tiny RSS client for Android devices, the actual code for the android app.<br/>
+These three libraries should be checked out one directory above the source.<br/>
+<a href="http://viewpagerindicator.com/">ViewPagerIndicator</a> <a href="https://github.com/JakeWharton/Android-ViewPagerIndicator">JakeWharton/Android-ViewPagerIndicator</a> - Paging indicator widgets compatible with the ViewPager from the Android Support Library and ActionBarSherlock. Originally based on Patrik Åkerfeldt's ViewFlow.<br/>
+<h2>Menus on android || menuing systems for android</h2>
+<a href="https://github.com/jfeinstein10/SlidingMenu">jfeinstein10/SlidingMenu</a> - An Android library that allows you to easily create applications with slide-in menus.<br/>
+<a href="http://simonvt.github.io/android-menudrawer/">MenuDrawer</a> - A slide-out menu implementation, which allows users to navigate between views in your app. <a href="https://github.com/SimonVT/android-menudrawer">SimonVT/android-menudrawer</a><br/>
+<a href="https://github.com/levelup/Android-HttpClient">levelup/Android-HttpClient</a> - <a href="http://square.github.io/okhttp/">OkHttp</a> - HTTP & SPDY client for Android and Java applications<br/>
+<br/>
+<br/>
+<h2>Data access on android</h2>
+<a href="http://www.datadroidlib.com/">DataDroid</a> <a href="https://github.com/foxykeep/datadroid">foxykeep/DataDroid</a> - An Android Library for data management (REST)<br/>
+<a href="https://github.com/greenrobot/greenDAO">greenrobot/greenDAO</a> - greenDAO is a light & fast ORM solution for Android that maps objects to SQLite databases. Being highly optimized for Android, greenDAO offers great performance and consumes minimal memory.<br/>
+<br/>
+<br/>
+<h2>ActionBarSherlock and Action Bar</h2>
+<a href="http://actionbarsherlock.com/">ActionBarSherlock - Home</a> <a href="https://github.com/JakeWharton/ActionBarSherlock">JakeWharton/ActionBarSherlock</a> - ActionBarSherlock is an extension of the support library designed to facilitate the use of the action bar design pattern across all versions of Android with a single API. native action bar on Android 4.0+ and a custom implementation on pre-4.0 through a single API and theme.<br/>
+<a href="http://gmariotti.blogspot.com/2013/07/actionbarsherlock-vs-actionbarcompat.html">ActionBarSherlock vs ActionBarCompat | ONGOING DEV</a><br/>
+<a href="http://developer.android.com/guide/topics/ui/actionbar.html">Action Bar | Android Developers</a><br/>
+<a href="https://github.com/ManuelPeinado/FadingActionBar">ManuelPeinado/FadingActionBar</a> - FadingActionBar is a library which implements the cool fading action bar effect that can be seen in the new Play Music app.<br/>
+<a href="http://cyrilmottier.com/2013/05/24/pushing-the-actionbar-to-the-next-level/">Pushing the ActionBar to the next level - Cyril Mottier</a><br/>
+<a href="http://www.grokkingandroid.com/adding-actionviews-to-your-actionbar/">Adding ActionViews to Your ActionBar | Grokking Android</a><br/>
+<br/>
+<br/>
+<h2>actionbarsherlock and org.fox.ttrss</h2>
+Using eclipse, File->New->Project->Android->Android Project From Existing Code, browse to the folder containing all the code.  select actionbarsherlock,org.fox.ttrss, library (renamed to SlidingMenuLibrary by pressing F2), and library (renamed to ViewPageIndicatorLibrary using F2).  This will get the code into eclipse.  I had to do a little fiddling with the android-support-v4.jar that came with each of the projects, I simply removed the offending jars from the projects and pasted the jar that came with org.fox.ttrss.  This provided me with a working build.<br/>
+<br/>
+<br/>
+<h2>Android Versions</h2>
+<img src="/images/stories/Technology/android_deserts.jpg"/><br/>
+<a href="http://en.wikipedia.org/wiki/Android_version_history">Android version history - Wikipedia</a><br/>
+Cupcake,Donut,Eclair,Froyo,Gingerbread,Honeycomb,Ice Cream Sandwich,Jelly Bean,KitKat<br/>
+<a href="https://android.googlesource.com/">android Git repositories - Git at Google</a><br/>
+<a href="https://github.com/android">github.com - android</a> -  it's all there even the <a href="https://github.com/android/platform_packages_apps_calculator">android/platform_packages_apps_calculator</a><br/>
+<br/>
+<br/>
+<h2>Intel's Hardware Accelerated Execution Manager (Intel HAXM)</h2>
+<a href="http://software.intel.com/en-us/articles/speeding-up-the-android-emulator-on-intel-architecture">Speeding Up the Android* Emulator on Intel® Architecture | Intel® Developer Zone</a><br/>
+<br/>
+<h2>Android Debug Bridge adb</h2>
+an indispensable tool for android development, control your emulator or device from the command line.<br/> 
+<a href="http://developer.android.com/tools/help/adb.html">Android Debug Bridge | Android Developers</a> - You can find the adb tool in &lt;sdk&gt;/platform-tools/.<br/>
+<br/>
+Each device has a different way to turn on "Developer Options" and "USB debugging" which are required to be enabled on the device before using adb.  Some devices don't make it apparent on how to get to the developer options.  For instance to enable adb debugging with my samsung galaxy s4, you have to go to "Settings"->"About"->tap the build number entry seven times->"Back"->"Developer Options" now appears.  Oh the hoops and ladders.<br/>
+<a href="http://stackoverflow.com/questions/16256048/eclipse-android-sdk-cannot-see-new-samsung-galaxy-s4-device-via-a-usb-connection">Eclipse Android SDK cannot see new Samsung Galaxy S4 device via a USB connection - Stack Overflow</a><br/>
+<br/>
+<a href="http://www.howtogeek.com/125769/">How To Install and Use ADB, the Android Debug Bridge Utility</a><br/>
+<a href="http://www.howtogeek.com/125375/how-to-create-a-full-android-phone-or-tablet-backup-without-rooting-or-unlocking-your-device/">How To Create a Full Android Phone or Tablet Backup Without Rooting or Unlocking Your Device</a> - adb devices,adb backup -apk -shared -all -f path,adb restore path<br/>
+<a href="http://www.howtogeek.com/114667/how-to-install-android-apps-to-the-sd-card-by-default-move-almost-any-app-to-the-sd-card/">How to Install Android Apps to the SD Card by Default &amp; Move Almost Any App to the SD Card</a> - "adb shell pm setInstallLocation 2",revert using "adb shell pm setInstallLocation 0", 0 represents your device’s internal storage, and is the default. 2 represents the external storage, whether it’s an SD card or USB storage.<br/>
+<a href="http://stackoverflow.com/questions/12949609/android-uninstall-through-adb-shell-command">Android uninstall through adb shell command - Stack Overflow</a> - "adb shell am start -a android.intent.action.DELETE -d package:<your app package>"<br/>
+<a href="http://stackoverflow.com/questions/14654718/adb-shell-when-multiple-devices">android - ADB Shell when Multiple Devices - Stack Overflow</a> - adb -s <specific device> shell<br/>
+<a href="http://www.guidingtech.com/15008/adb-control-keypress-broken-android-keys/">How to Use ADB to Control Keypress events on Android</a><br/>
+<a href="http://www.michaelevans.org/blog/2014/03/03/adb-over-wifi/">ADB over WiFi - Gadget Habit</a> - adb tcpip 5555(free to unplug) adb connect &lt;device IP&gt;<br/>
+<br/>
+<a href="https://github.com/mttkay/replicant">mttkay/replicant - a repl for adb</a> - ruby and bash/zsh requirements, provides interactive adb, command history, etc.<br/>
+<br/>
+<br/>
+<a href="http://developer.android.com/tools/help/systrace.html">Systrace | Android Developers</a><br/>
+<a href="http://antoine-merle.com/introduction-to-the-monkey-runner-tool-2/">Introduction to the Monkey Runner tool - An Android Dev Blog</a><br/>
+<a href="http://developer.android.com/tools/help/monkeyrunner_concepts.html">monkeyrunner | Android Developers</a> - monkeyrunner tool provides an API for writing programs that control an Android device or emulator from outside of Android code. With monkeyrunner, you can write a Python program that installs an Android application or test package, runs it, sends keystrokes to it, takes screenshots of its user interface, and stores screenshots on the workstation.<br/>
+<br/>
+<br/>
+<h2>Android Studio start apk on usb device</h2>
+Create Run Configuration... in that General Tab select Target Device, USB Device.<br/>
+<a href="http://stackoverflow.com/questions/16585055/android-studio-doesnt-start-with-connected-device">Android Studio doesn't start with connected device - Stack Overflow</a><br/>
+<br/>
+<br/>
+<h2>Android NDK || Native Development Kit for Android</h2>
+<a href="http://developer.android.com/tools/sdk/ndk/index.html#Installing">Android NDK | Android Developers</a><br/>
+<a href="http://www.crystax.net/android/ndk.php">CrystaX .NET - Android NDK</a> - improved Android NDK (Native Development Kit).<br/>
+<a href="https://code.google.com/p/vs-android/">vs-android - Integrated development of Android NDK C/C++ software under Visual Studio - Google Project Hosting</a><br/>
+<br/>
+<br/>
+<h2>"android update project -p . -s" no target set</h2>
+The NDK docs tell you to just use "android update project -p . -s" to generate a build.xml file.  But you'll find that you get a no target set error when running android.bat.<br/>
+<a href="http://stackoverflow.com/questions/11568066/updating-hellojni-example">android - Updating HelloJni example - Stack Overflow</a> - use android list, and use --target android-??, or whatever you've got installed that meets min reqs.<br/>
+<br/>
+<br/>
+<h2>Android reverse engineering</h2>
+<a href="http://blog.djodjo.org/">jj crackers | round &amp; round</a><br/>
+<a href="https://code.google.com/p/android-apktool/">android-apktool - A tool for reverse engineering Android apk files - Google Project Hosting</a><br/>
+<br/>
+<br/>
+<h2>android crypto</h2>
+<a href="http://android-developers.blogspot.com/2013/02/using-cryptography-to-store-credentials.html">Using Cryptography to Store Credentials Safely | Android Developers Blog</a><br/>
+<a href="http://nelenkov.blogspot.com/2013/05/code-signing-in-androids-security-model.html">Code signing in Android's security model | Android Explorations</a><br/>
+<br/>
+<br/>
+<h2>voice recognition || speech to text on android</h2>
+Android 4.0 has voice typing.  integrate Google voice typing into third party IMEs.<br/>
+<a href="http://android-developers.blogspot.com/2011/12/add-voice-typing-to-your-ime.html?utm_source=feedburner&amp;utm_medium=feed&amp;utm_campaign=Feed:+blogspot/hsDu+%28Android+Developers+Blog%29">Add Voice Typing To Your IME | Android Developers Blog</a><br/>
+<a href="https://code.google.com/p/google-voice-typing-integration/">google-voice-typing-integration - How to integrate Google voice typing in third-party IMEs - Google Project Hosting</a><br/>
+<br/>
+<br/>
+<h2>Gradle</h2>
+<a href="http://ant.apache.org/">Ant</a>, <a href="http://maven.apache.org/what-is-maven.html">Maven</a>, <a href="http://www.gradle.org/">gradle</a>.<br/>
+<a href="http://www.gradle.org/">Gradle - Build Automation Evolved</a><br/>
+<a href="http://www.gradle.org/docs/current/userguide/userguide.html">Gradle User Guide</a><br/>
+<a href="http://player.vimeo.com/video/61707541?title=1&amp;byline=0&amp;portrait=0&amp;color=ffffff">LONDON ANDROID USER GROUP THE NEW GRADLE BASED ANDROID BUILD SYSTEM HANS DOCKTER 12.03.2013 from Skills Matter on Vimeo</a><br/>
+<iframe width="560" height="315" src="//www.youtube.com/embed/LCJAgPkpmR0" frameborder="0" allowfullscreen></iframe><br/>
+<a href="https://github.com/JakeWharton/sdk-manager-plugin">JakeWharton/sdk-manager-plugin</a> - Gradle plugin will manage SDK dependencies for you automatically.<br/>
+<br/>
+<br/>
+<a href="https://code.google.com/p/maven-android-plugin/">maven-android-plugin - (renamed to android-maven-plugin) Easy to use Maven plugin for Android™! - Google Project Hosting</a> <a href="https://github.com/jayway/maven-android-plugin">jayway/maven-android-plugin</a><br/>
+<a href="https://github.com/mosabua/maven-android-sdk-deployer">mosabua/maven-android-sdk-deployer</a> - A tool to install components of the Android SDK to use with the Maven Android Plugin.<br/>
+<br/>
+<br/>
+<h2>Android Sample Apps</h2>
+<a href="https://github.com/castorflex/ChuckNorrisFacts">castorflex/ChuckNorrisFacts</a> - Simple Android app which display chuck norris facts.<br/>
+<a href="https://code.google.com/p/iosched/">iosched - Google I/O App for Android - Google Project Hosting</a> - Google I/O App for Android<br/>
+<br/>
+<br/>
+<h2>Android App Stores</h2>
+<a href="https://f-droid.org/">F-Droid</a> - F-Droid is an installable catalogue of FOSS (Free and Open Source Software) applications for the Android platform.<br/>
+<a href="https://play.google.com/store">Google Play</a><br/>
+<a href="https://www.amazon.com/gp/feature.html?ie=UTF8&amp;docId=1000626391&amp;ref_=mas_dl_appstore_rr">Amazon Appstore: Getting Started</a> - <a href="/tech-talk/programming/401-amazon-elastic-compute-cloud-ec2">Amazon Elastic Compute Cloud (EC2)</a> has other content from me about the FireOS and other Amazon things.<br/>
+<br/>
+<br/>
+<h2>Ruby on Android</h2>
+<a href="http://ruboto.org/">Ruboto</a> - Ruboto is a framework and tool chain to develop native Android apps, using the Ruby. Ruboto CLI,Ruboto-Core,Ruboto-IRB - useful apps. using <a href="http://jruby.org/">JRuby</a><br/>
+<a href="http://rubylearning.com/blog/ruboto-quick-start/">Quick Start guide to creating Android apps with Ruboto under Windows</a><br/>
+<a href="http://www.ibm.com/developerworks/web/library/wa-ruby/index.html">Ruboto: Ruby on Android</a> - article from ibm.<br/>
+<br/>
+<br/>
+<h2>Android Bluetooth</h2>
+<a href="https://github.com/akexorcist/Android-BluetoothSPPLibrary">akexorcist/Android-BluetoothSPPLibrary</a> - Bluetooth Serial Port Profile which comfortable to developer application to communication with microcontroller via bluetooth<br/>
+<br/>
+<br/>
+<h2>Mac android development</h2>
+it happened to me when trying to run the eclipse that comes bundled in the ADT bundle for mac.<br/>
+Open an app from an unidentified developer - right click and open the app, it will provide a dialog to override and actually run the app you downloaded.  double clicking does not provide the same dialogs.
+<br/>
+<br/>
+<h2>perl android</h2>
+Perl 5.20.0+ on android!!<br/>
+<a href="http://perltricks.com/article/97/2014/6/16/How-to-build-Perl-on-Android-4-4">How to build Perl on Android 4.4</a><br/>
+    <div style="border: 1px;">
+    Created: 2013-02-17 02:33:09
+    Modified: 2014-12-09 02:09:13
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+<a target="_blank" href="/tech-talk/programming/107-algorithms-patterns-and-things-cs"><canvas id="c" width="170" height="172" title="conway glider"></canvas></a><br/>
+L:<span id=loop>0</span> I:<span id=iteration>0</span> A:<span id=active>0</span>
+<script>
+/** Conway's Game of Life.
+ * ankr started; modified by horner.
+ */
+var c=document.getElementById('c');
+var canvas = c.getContext('2d'),
+    cells = [];
+var drawRate=1200;
+var iter=0;
+var l=0;
+init();
+draw();
+
+function setSpan(name,value)
+{
+var span = document.getElementById(name);
+while( span.firstChild ) {
+    span.removeChild( span.firstChild );
+}
+span.appendChild(document.createTextNode(value));
+}
+function init() {
+setSpan('loop',l);
+    for (var i=0; i<c.width; i++) {
+        cells[i] = [];
+        for (var j=0; j<c.height; j++) {
+            cells[i][j] = 0;
+        }
+    }
+    var gliderT=[
+                [3, 1], [3,3], [2,3], [4, 2], [4, 3]
+               ];
+    var reflectorT=[
+                [0, 0], [0,1], [1,0], [1, 2], [2, 2]
+               ];
+    var sT=[
+                [0, 2], [0,3], [1,2],[2,0],[2,2],[3,0],[3,1]
+               ];
+    var boxT=[
+                [0, 0], [0,1], [1,1], [1,0]
+               ];
+
+    gliderT.forEach(function(point) {
+        cells[point[0]-1][point[1]-1] = 1;
+    });
+    gliderT.forEach(function(point) {
+        cells[point[0]+7][point[1]+7] = 1;
+    });
+    gliderT.forEach(function(point) {
+        cells[point[0]+3][point[1]+3] = 1;
+    });
+    gliderT.forEach(function(point) {
+        cells[point[0]+12][point[1]+12] = 1;
+    });
+if(l>1)  {
+var maxX=12;
+    var randomX=Math.floor(Math.random() * maxX);
+    var randomY=Math.floor(Math.random() * maxX);
+    sT.forEach(function(point) {
+        cells[point[0]+randomX][point[1]+randomY] = 1;
+    });
+    randomX=Math.floor(Math.random() * maxX);
+    randomY=Math.floor(Math.random() * maxX);
+    boxT.forEach(function(point) {
+        cells[point[0]+randomX][point[1]+randomY] = 1;
+    });
+    randomX=Math.floor(Math.random() * maxX);
+    randomY=Math.floor(Math.random() * maxX);
+    reflectorT.forEach(function(point) {
+        cells[point[0]+randomX][point[1]+randomY] = 1;
+    });
+}
+
+}
+
+function whos_alive() {
+    
+    var result = [];
+    var active= 0;
+    
+    /**
+     * Return amount of alive neighbours for a cell
+     */
+    function _countNeighbours(x, y) {
+        var amount = 0;
+        
+        function _isFilled(x, y) {
+            return cells[x] && cells[x][y];
+        }
+        
+        if (_isFilled(x-1, y-1)) amount++;
+        if (_isFilled(x,   y-1)) amount++;
+        if (_isFilled(x+1, y-1)) amount++;
+        if (_isFilled(x-1, y  )) amount++;
+        if (_isFilled(x+1, y  )) amount++;
+        if (_isFilled(x-1, y+1)) amount++;
+        if (_isFilled(x,   y+1)) amount++;
+        if (_isFilled(x+1, y+1)) amount++;
+        
+        return amount;
+    }
+    
+    cells.forEach(function(row, x) {
+        result[x] = [];
+        row.forEach(function(cell, y) {
+            var alive = 0,
+                count = _countNeighbours(x, y);
+            
+            if (cell > 0) {
+                alive = count === 2 || count === 3 ? 1 : 0;
+            } else {
+                alive = count === 3 ? 1 : 0;
+            }
+            if(alive) active++;
+            result[x][y] = alive;
+        });
+    });
+    
+    cells = result;
+    setSpan('active',active);
+    draw();
+}
+function draw() {
+    if(iter>60) { iter=0; l++; init(); }
+    else if(iter>10 && iter%20==0) {
+    if(drawRate>10) { drawRate-=10; }
+    var gliderT=[
+                [3, 1], [3,3], [2,3], [4, 2], [4, 3]
+               ];
+
+     gliderT.forEach(function(point) {
+        cells[point[0]][point[1]] = 1;
+    });
+    }
+setSpan('iteration',iter);
+    canvas.clearRect(0, 0, c.width, c.height);
+    cells.forEach(function(row, x) {
+        row.forEach(function(cell, y) {
+            canvas.beginPath();
+            if (cell) {
+                if(l%2==0) {
+                canvas.rect(x*8, y*8, 8, 8);
+                canvas.fillStyle = 'black';
+                } else {
+                canvas.beginPath();
+                canvas.arc(x*8, y*8,3 , 0, 2 * Math.PI, false);
+                canvas.fillStyle = 'black';
+                }
+                canvas.fill();
+                canvas.stroke();
+            } else {
+                if(l%2==0){
+                canvas.strokeStyle = '#e1e1e1';
+                canvas.rect(x*8, y*8, 8, 8);
+                canvas.stroke();
+                }
+            }
+        });
+    });
+    iter++;
+    setTimeout(function() {whos_alive();}, drawRate);
+}
+</script>
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

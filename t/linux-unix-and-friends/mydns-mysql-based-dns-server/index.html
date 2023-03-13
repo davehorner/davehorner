@@ -1,0 +1,318 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>MyDNS - mysql based dns server.</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/linux-unix-and-friends/">linux-unix-and-friends</a>
+    <h1>MyDNS - mysql based dns server.</h1>
+   <a href="http://www.mydns-ng.com/home.php">MyDNS - Next Generation DNS Server</a> - looks like a new fork of MyDNS with more features...<br/>
+<br/>
+<a href="http://mydns.bboy.net/">MyDNS: Home</a> - serve records directly from an SQL database<br/>
+MyDNS is pretty neat in that you can use the mydnsimport to import zones from existing DNS servers with AXFR transfers. 'mydnsimport -axfr=bindserver.sample.net sample.net' (may have to perform permissions updates as described below)<br/>
+<a href="http://www.linux.com/feature/52171">Linux.com :: My domains, MyDNS</a><br/>
+<a href="http://howtoforge.com/installing-mydns-mydnsconfig-centos-5.1">Installing MyDNS And The MyDNSConfig Control Panel On CentOS 5.1 | HowtoForge - Linux Howtos and Tutorials</a><br/>
+<a href="http://www.miljan.org/wiki/index.php?title=Simple_Dynamic_DNS_with_MyDNS">Simple Dynamic DNS with MyDNS - Blink</a> - scripts to do dynamic dns with mydns.<br/>
+<br/>
+<br/>
+<h2>Testing your mydns server</h2>
+Make sure you have "allow-axfr = yes" and "listen = 127.0.0.1" or "listen = *" in /etc/mydns.conf.<br/>
+dig @localhost -t axfr <yourdomainnamehere><br/>
+<a href="http://www.intodns.com/">intoDNS: checks DNS and mail servers health</a><br/>
+<br/>
+<br/>
+<h2>Permissions with MyDnsConfig</h2>
+When I first installed MyDnsConfig, I got the following error:<br/>
+<b>Error: You don't have the permission to view this record or this record does not exist!</b><br/>
+With a little work, I found a place to debug the queries...and this was the offending SQL.<br/>
+SELECT * FROM soa WHERE id = 1 AND ((sys_userid = 1 AND sys_perm_user like '%u%') OR  (sys_groupid IN 
+(1,2) AND sys_perm_group like '%u%') OR sys_perm_other like '%u%')<br/>
+<br/>
+So, looks like you need to make sure to set a default on the rr and soa table for sys_userid and sys_perm_user to match the sys_userid of admin.  I used the mydnsimport tool to create records, and the defaults were 0 and empty string.  Not good, not associated to any user!<br/>
+<pre>
+--set the defaults to 1, and u for user based auth.
+ ALTER TABLE `soa` CHANGE `sys_userid` `sys_userid` INT( 11 ) NOT NULL DEFAULT '1';
+ ALTER TABLE `soa` CHANGE `sys_perm_user` `sys_perm_user` VARCHAR( 5 ) 
+ CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL DEFAULT 'riud'; 
+ ALTER TABLE `rr` CHANGE `sys_userid` `sys_userid` INT( 11 ) NOT NULL DEFAULT '1';
+ ALTER TABLE `rr` CHANGE `sys_perm_user` `sys_perm_user` VARCHAR( 5 )
+ CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL DEFAULT 'riud';
+
+--update the existing records
+UPDATE soa SET `sys_userid`='1', `sys_groupid`='1', `sys_perm_user`='riud', `sys_perm_group`='riud';
+UPDATE rr SET `sys_userid`='1', `sys_groupid`='1', `sys_perm_user`='riud', `sys_perm_group`='riud';
+</pre>
+<br />
+
+<a href="http://www.yodnsconf.com/web/">YoDNSConf</a> - a fork of the MyDNSConfig project...<br/>
+<br/>
+<br/>
+<h2>DNS servers (doesn't belong on this page, but hey, it works)</h2>
+<a href="http://www.frankb.us/dns/">Free Secondary DNS</a><br/>
+<a href="http://networking.ringofsaturn.com/Unix/freednsservers.php">Free Secondary DNS Services</a><br/>
+<a href="https://puck.nether.net/dns/login">PUCK Free Secondary DNS Service</a><br/>
+<a href="http://www.buddyns.com/activate/">BuddyNS - Secondary DNS with no delays - Activate</a><br/>
+<a href="https://www.opendns.com/start/best_practices/#proxy">OpenDNS > Use OpenDNS > Best Practices</a> - opendns is free recursive dns servers with content filtering.<br/>
+<a href="http://www.dyndns.com/">DynDNS.com: DNS Hosting, E-mail Delivery, VPS Hosting and Other Services</a> - free dynamic DNS hosting.  But, using something like <a href="http://dave.thehorners.com/tech-talk/unix-linux-bsd-osx-etc/395-mydns-mysql-based-dns-server">MyDNS - mysql based dns server.</a> would make it a little nicer. ;)<br/>
+<a href="http://code.google.com/speed/public-dns/docs/using.html">Using Google Public DNS</a> - Google now provides free public DNS name resolution! *8.8.8.8 *8.8.4.4<br/>
+<a href="http://code.google.com/p/namebench/">namebench - Project Hosting on Google Code</a> - Open-source DNS Benchmark Utility.<br/>
+<a href="https://calomel.org/unbound_dns.html">Unbound DNS Server Tutorial @ Calomel.org</a><br/>
+<a href="https://calomel.org/nsd_dns.html">NSD DNS Server Tutorial @ Calomel.org</a><br/>
+<a href="http://freedns.afraid.org/">FreeDNS - Free DNS - Dynamic DNS - Static DNS subdomain and domain hosting</a><br/>
+<br/>
+<br/>
+<h2>DNS resolution (client code)</h2>
+<a href="https://github.com/bagder/c-ares">bagder/c-ares · GitHub</a> - c-ares is a C library that performs DNS requests and name resolves asynchronously. <br/>
+<br/>
+<br/>
+<h2>DNS encryption</h2>
+<a href="http://dnscrypt.org/">DNSCrypt by jedisct1</a><br/>
+<a href="http://dnscurve.org/">Introduction to DNSCurve</a><br/>
+<br/>
+<br/>
+<h2>rate limiting dns</h2>
+<a href="http://www.redbarn.org/dns/ratelimits">Response Rate Limiting in the Domain Name System (DNS RRL) | Red Barn</a> - BIND<br/>
+<br/>
+<br/>
+<h2>powerdns and poweradmin</h2>
+<a href="https://www.powerdns.com/">Welcome to PowerDNS</a><br/>
+<a href="http://www.poweradmin.org/">Poweradmin - a web-based control panel for PowerDNS</a><br/>
+<a href="https://github.com/PowerDNS/pdns/wiki/Migrating-DBs-FROM-MyDNS">Migrating DBs FROM MyDNS · PowerDNS/pdns Wiki</a><br/>
+checking that all your records are good: pdnssec check-all-zones<br/>
+Which is now renamed and called "pdnsutil" so pdnsutil check-all-zones<br/>
+    <div style="border: 1px;">
+    Created: 2009-02-26 06:10:53
+    Modified: 2017-11-14 05:30:08
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+<a href="javascript:var%20s%20=%20document.createElement('script');s.type='text/javascript';document.body.appendChild(s);s.src='/eggs/asteroids.min.js';void(0);" id="secret">destory this webpage; if you will.</a>
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

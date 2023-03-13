@@ -1,0 +1,276 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>Install linux on your 1850r</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/linux-unix-and-friends/">linux-unix-and-friends</a>
+    <h1>Install linux on your 1850r</h1>
+   <p><IMG alt="" hspace=0 src="personal/1850r.jpg" align=top border=0><br/>I bought a proliant 1850r to run linux.&nbsp; I'm tired of single processor systems with single drives.&nbsp; I want something reliable so I thought I'd purchase a nice server.<br/><br/>Look on ebay for old proliant servers.&nbsp;&nbsp;These servers are typically mounted on racks in climate controlled data centers.&nbsp; You can find a proliant like mine for under $300&nbsp;which is&nbsp;a good deal for something with dual processors, ECC ram, and a raid array.<br/><br/>Here are some links I used to setup my server:<br/><br/><a href="http://starbreeze.knoware.nl/~hugo/compaq/">SmartArray Tools</a> (utils for linux)<br/><a href="http://www.cpqlinux.com/pl1600_debian.html">Step through</a> Someone else's attempts on a similar proliant<br/><a href="http://www.cpqlinux.com/">Compaq Servers and Linux</a><br/><a href="http://www.geocities.com/rlcomp_1999/manual-smartstart.html">HOWTO install proliant without SmartStart discs</a><br/><br/>The system is&nbsp;running and working great.<br/><br/>
+<HR>
+<br/><STRONG>A few words on Fedora</STRONG><br/>For some time now I've been using debian because of the rock solid package management software dselect and apt.&nbsp; I've used many distros in the past.&nbsp; Some of them without package management systems and some with.&nbsp; But its hard to strike a balance between a bloated overloaded system and a fully customized sleek install.&nbsp; Redhat was a nice distro (5-8)&nbsp;but the RPM system was lacking a good interface to keep the rpm packages up to date.&nbsp; Then Redhat came out with their up2date rpm update utility but this required registration on Redhat's servers.&nbsp; (I can't say I liked that AT ALL)&nbsp; up2date also didn't provide the ability to easily select new packages to install, it was more for keeping installed packages up to date.&nbsp; When Fedora first came out I sat around from quite some time because I didn't like the way Redhat's old systems required at least 2gigs out the door and didn't have a package management system to manage that bloat.&nbsp; I stuck with my tried and true Debian because I could install a base system with the bare essentials and dselect the packages I needed...when I needed them.&nbsp; If the package wasn't there or I needed something special I could always compile the source.<br/><br/>Well, I finally installed Fedora to see if the package management problem had been solved.&nbsp; I was presently surprised to see a package management system called yum much like apt installed by default.&nbsp; Yum allows for RPM updates through normal HTTP queries and leaves RPM to manage the dependency checking, conflicts, etc.&nbsp; In addition, apt is available for Fedora!<br/><br/>So far the experience has been a pleasant one.&nbsp; Only time will tell.&nbsp; I'll update you in a few. <br/>---Update----<br/>Ok, well I had some problems with yum the other day.&nbsp; I added the some extra yum repositories and did an update.&nbsp; I didn't say yes to the update.&nbsp; However, sometime after I ran yum, all of my important startup files were set to zero length.&nbsp; Not sure if it was something weird on my machine or if I got wacked with a nasty yum archive.&nbsp; But from now on I'm sticking to the Fedora core release files.<br/><br/>Some links of interest for Fedora<br/><a href="http://www.fedoratracker.org/">FedoraTracker</a><br/><a href="http://fedoraguide.org/fc2/fc2beginnersguide.html">Unoffical Fedora Core 2 Guide for Beginners</a><br/><a href="http://linux-sxs.org/internet_serving/apache2.html">Setup SSL with apache on fedora</a><br/><br/>Security:<br/>Here is a pam module that will execute a script when people login.<br/><a href="/personal/linuxstuff/pam_preprofile.tgz">pam_preprofile.tgz</a><br/><br/><STRONG>SNMP:</STRONG><br/><a href="http://www.mibdepot.com/index.shtml">MibDepot</a> <br/><br/><STRONG>Linux Kernel Development</STRONG><br/>I've decided on doing some linux development.&nbsp; More to come.<br/><a href="http://www.tldp.org/LDP/lki/lki.html">Doc on Linux Internals</a> <br/><a href="http://www.kernelnewbies.org">Kernel Newbies</a><br/><a href="http://www.engin.umich.edu/caen/systems/Linux/code/misc/2.3/20000110/linux-acct.patch">32-bit UID BSD Accounting patch</a><br/><a href="http://www.elis.rug.ac.be/~fcorneli/">Linux Input Replay</a><br/><a href="http://vger.kernel.org/vger-lists.html">Linux Related Mailinglists</a><br/>
+    <div style="border: 1px;">
+    Created: 2004-08-01 15:45:19
+    Modified: 2010-02-15 11:58:47
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+<span id=daysToChristmas>x</span> days to Christmas.<br/>
+<span id=daysToNewYear>x</span> days to a new year.<br/>
+Happy Holidays!
+<script Language="JavaScript">
+function showtime () {
+        msPerDay = 24 * 60 * 60 * 1000 ; // Number of milliseconds per day
+        var now = new Date();
+        var year = now.getYear();
+        if (year < 1000)
+         year+=1900
+        nextXmas = new Date("December 25, 2000")
+        nextXmas.setYear(year)
+        daysLeft = (nextXmas.getTime() - now.getTime()) / msPerDay;
+        daysLeft = Math.round(daysLeft);
+        var span=document.getElementById('daysToChristmas');
+        span.removeChild(span.firstChild);
+        span.appendChild(document.createTextNode(daysLeft+''));
+        
+        nextXmas = new Date("December 31, 2000")
+        nextXmas.setYear(year)
+        daysLeft = (nextXmas.getTime() - now.getTime()) / msPerDay;
+        daysLeft = Math.round(daysLeft);
+
+        span=document.getElementById('daysToNewYear');
+        span.removeChild(span.firstChild);
+        span.appendChild(document.createTextNode(daysLeft+''));
+        setTimeout("showtime()",msPerDay);
+}
+showtime();
+</script>
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,444 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>Xen - hypervisor for the masses.</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/linux-unix-and-friends/">linux-unix-and-friends</a>
+    <h1>Xen - hypervisor for the masses.</h1>
+   There is something wonderful about being able to consolidate all your servers into the least amount of hardware as possible.  Building Xen clusters means reliability and easy scaling (if the software is written correctly of course).<br/>
+<br/>
+Hardware virtualization has been around for a long time.  The new hypervisors are exceptionally well at what they do because they utilize the latest hardware virtualization features available.  Xen is open source and provides the ability to run many open and closed operating systems at the same time.  Woo hoo.  Go open source.<br/>
+<br/>
+This was going to be a page about Xen, but it turned into a mess of virtualization.  Maybe more Zen, but relevant tangents.<br/>
+<br/>
+<br/>  
+<h2>Xen Web references</h2><br/>
+<a href="http://en.wikipedia.org/wiki/Xen">Xen wikipedia entry</a><br/>
+<a href="http://www.cl.cam.ac.uk/Research/SRG/netos/xen/">Offical Xen project</a><br/>
+<a href="http://www-128.ibm.com/developerworks/linux/library/l-xen/">A moment of Xen: Virtualize Linux to test your apps</a><br/>
+<a href="https://help.ubuntu.com/community/XenVirtualMachine/XenOnUbuntuEdgy">XenVirtualMachine/XenOnUbuntuEdgy</a><br/>
+<a href="http://ubuntuforums.org/showthread.php?t=444807">XEN on feisty running Windows XP</a><br/>
+<br/>
+<a href="http://virtuallyfun.blogspot.com/">Fun with virtualization</a><br/>
+<a href="http://www.packer.io/">Packer</a> - Packer is a tool for creating identical machine images for multiple platforms from a single source configuration. (build images for Amazon EC2, DigitalOcean, VirtualBox, and VMware.)<br/>
+<br/>
+<br/>
+
+<a href="https://www.pinguin.lu/index.php">Pinguin's HQ</a> - has xmount (convert on-the-fly between multiple input and output harddisk image types) and OpenGates (fix XP Error code 0x0000007B when trying to boot on new hardware). <br/>
+<br/>
+<br/>
+<h2>Xen hosting providers</h2>
+<a href="http://www.tektonic.net/vps.php">TekTonic Unmanaged and Managed Virtual Private Servers (VPS)</a><br/>
+<a href="http://www.grokthis.net/Hosting/vps/">GrokThis.net Hosting</a><br/>
+<a href="http://www.vpsfarm.com/vpsfarm/">vpsFarm</a><br/>
+<a href="http://www.linode.com/">Linode.com - Xen VPS Hosting</a><br/>
+<a href="http://www.slicehost.com/">Slicehost - VPS Hosting</a><br/>
+<br/>
+<br/>
+<h2>XenServer</h2>
+<a href="http://www.jansipke.nl/creating-backups-of-running-vms-in-xenserver/">Creating backups of running VMs in XenServer » jansipke.nl</a><br/>
+<br/>
+<h2>Virtual machines VHD</h2>
+Not Xen, but MS's version....<br/>
+<a href="http://www.microsoft.com/downloads/details.aspx?familyid=bc49c7c8-4840-4e67-8dc4-1e6e218acce4&displaylang=en&Hash=JAwi08IJCLaAKOhP61JEoYnMI6Kv8gQzitrLMpp8bCDEfIkQT6NAg%2f9nb12X7vnHMfPoLQ9%2fgivIPg5%2bMPDvGA%3d%3d">Download details: Virtual Server 2005 R2 SP1</a><br/>
+<a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=961db8ce-8473-47c2-92eb-b822ec5af0c9&displaylang=en">Download details: Windows Server 2008 Evaluation VHD Images (for VS2005)</a><br/>
+<a href="http://blogs.msdn.com/virtual_pc_guy/archive/2009/03/25/quick-fixed-vhd-creation-tool.aspx">Virtual PC Guy's WebLog : Quick Fixed VHD Creation Tool</a> - nice blog.<br/>
+<a href="http://grandstreamdreams.blogspot.com/2009/03/wim-tool-enhancements-and-fiddling-with.html">Grand Stream Dreams: WIM tool enhancements and Fiddling with VHD’s</a><br/>
+<a href="http://technet.microsoft.com/en-us/sysinternals/ee656415.aspx">Disk2vhd</a> - is a utility that creates VHD (Virtual Hard Disk - Microsoft’s Virtual Machine disk format) versions of physical disks for use in Microsoft Virtual PC or Microsoft Hyper-V virtual machines (VMs). The difference between Disk2vhd and other physical-to-virtual tools is that you can run Disk2vhd on a system that’s online.<br/>
+<br/>
+<br/>
+<h2>VirtualBox and Vagrant</h2>
+<a href="http://www.virtualbox.org/wiki/VirtualBox">VirtualBox - VirtualBox</a> - a free x86 virtual pc. mac,windows,linux.<br/>
+<a href="http://www.pendrivelinux.com/boot-a-usb-flash-drive-in-virtualbox/">Boot a USB Flash Drive in VirtualBox | USB Pen Drive Linux</a><br/>
+<a href="http://www.kleinfelter.com/node/118">Somewhat Portable VirtualBox | Input Jam</a> - primative compared to portable-virtualbox, but still interesting.<br/>
+<a href="http://www.vbox.me/">. : Portable-VirtualBox : .</a><br/>
+<a href="http://www.vagrantup.com/">Vagrant</a> - Development environments made easy.<br/>
+<a href="http://www.vagrantbox.es/">A list of base boxes for Vagrant - Vagrantbox.es</a> - guest login is vagrant:vagrant, to set root password, sudo su -.<br/>
+<a href="https://github.com/xebia/vagrantboxes">xebia/vagrantboxes · GitHub</a><br/>
+<a href="https://github.com/garethr/ruby-vagrantboxes">garethr/ruby-vagrantboxes · GitHub</a> - Ruby gem for interacting with the vagrantbox.es api from inside vagrant<br/>
+<a href="http://slidedecks.wilmoore.com/2012-confoo/diy-private-cloud-using-virtualBox-and-chef/#65">DIY Private Cloud w/ VirtualBox and Chef</a> - slides<br/>
+<a href="http://www.slideshare.net/jedi4ever/vagrant-devopsdays-mountain-view-2011">Vagrant devopsdays Mountain View 2011</a> - slides<br/>
+<a href="https://github.com/jedi4ever/veewee">jedi4ever/veewee · GitHub</a> - build boxes from iso, create kvm and vmware machines,export.<br/>
+<a href="http://www.jedi.be/blog/2011/03/31/installable-vagrant-boxes/">Installable Vagrant Boxes</a><br/>
+<a href="http://www.jedi.be/blog/2011/03/28/using-vagrant-as-a-team/">Using Vagrant as a Team</a><br/>
+<a href="http://nefariousdesigns.co.uk/vagrant-virtualised-dev-environments.html">Vagrant Virtualised Dev Environments - Nefarious Designs</a><br/>
+<a href="https://github.com/maestrodev/wanton">maestrodev/wanton · GitHub</a> - A shrinkwrapper for Vagrant boxes into executable Java Jars.<br/>
+<a href="https://github.com/jedi4ever/sahara">jedi4ever/sahara · GitHub</a> - a plugin for vagrant that allows you manage a sandbox state<br/>
+<a href="https://github.com/t9md/vagrant-snap">t9md/vagrant-snap · GitHub</a> - snapshoft management plugin for vagrant<br/>
+<a href="http://blog.csanchez.org/2012/05/03/automatically-download-and-install-virtualbox-guest-additions-in-vagrant/">Automatically download and install VirtualBox guest additions in Vagrant | Carlos Sanchez's Weblog</a><br/>
+<a href="https://github.com/jedi4ever/mccloud">jedi4ever/mccloud · GitHub</a> - Vagrant for the cloud (vagrant for other providers)<br/>
+<a href="http://webwash.net/tutorials/getting-started-drupal-vagrant">Getting Started With Drupal Vagrant | Web Wash</a><br/>
+<a href="http://blairwilliams.com/2012/04/12/run-wordpress-locally-with-vagrant/">How To Run WordPress Locally With Vagrant | Blair Williams</a><br/>
+<a href="https://github.com/BIAINC/vagrant-windows">BIAINC/vagrant-windows · GitHub</a><br/>
+<a href="http://www.rampmeupscotty.com/blog/2012/07/05/virtual-machine-automation-with-vagrant/">Virtual Machine Automation with Vagrant - Ramp me up, Scotty!</a><br/>
+<a href="http://ku1ik.com/2011/11/12/tunnel-vm-network-ssh.html">Tunnelling VirtualBox guest's network traffic - Odes of the Occult</a><br/>
+<a href="https://github.com/dotless-de/vagrant-vbguest">dotless-de/vagrant-vbguest: A Vagrant plugin to keep your VirtualBox Guest Additions up to date</a> -  automatically installs the host's VirtualBox Guest Additions on the guest system.  vagrant plugin install vagrant-vbguest<br/>
+<a href="https://theholyjava.wordpress.com/wiki/tools/vagrant-notes/">Vagrant Notes « The Holy Java</a><br/>
+<a href="http://fgrehm.viewdocs.io/vagrant-cachier/">vagrant-cachier :: viewdocs.io</a> <a href="https://github.com/fgrehm/vagrant-cachier">fgrehm/vagrant-cachier: Caffeine reducer</a> vagrant plugin install vagrant-cachier<br/>
+<br/>
+<br/>
+<h2>Chef</h2>
+<a href="http://www.opscode.com/chef/">Chef | Opscode</a><br/>
+<a href="http://wiki.opscode.com/display/chef/Home">Home - Chef - Opscode Open Source Wiki</a><br/>
+<a href="http://community.opscode.com/cookbooks">Opscode Community</a> - cookbooks<br/>
+<a href="http://www.jasongrimes.org/2012/06/managing-lamp-environments-with-chef-vagrant-and-ec2-1-of-3/">Managing LAMP environments with Chef, Vagrant, and EC2 (1 of 3) | The Blog of Jason Grimes</a> - <a href="http://www.jasongrimes.org/2012/06/provisioning-a-lamp-stack-with-chef-vagrant-and-ec2-2-of-3/">(2 of 3)</a> <a href="http://www.jasongrimes.org/2012/06/deploying-a-lamp-application-with-chef-vagrant-and-ec2-3-of-3/">(3 of 3)</a><br/>
+<a href="https://github.com/sniperd/mise-en-place">sniperd/mise-en-place</a> - A Chef + Git deployment tool<br/>
+<a href="https://github.com/RiotGames">Riot Games</a> <a href="https://github.com/RiotGames/motherbrain">RiotGames/motherbrain</a> - motherbrain is an orchestration framework for Chef.<br/>
+<br/>
+<br/>
+<h2>Puppet, Capistrano, Cucumber</h2>
+This information is all on my <a href="http://dave.thehorners.com/tech-talk/programming/359-ruby-whats-on-rails-now">Ruby - whats on rails now? - Dave Horner's Website</a><br/>
+<br/>
+<br/>
+<h2>VServer</h2>
+<a href="http://www.linux-vserver.org/Welcome_to_Linux-VServer.org">Linux-VServer</a> - Linux-VServer provides virtualization for GNU/Linux systems. This is accomplished by kernel level isolation. It allows to run multiple virtual units at once. Those units are sufficiently isolated to guarantee the required security, but utilize available resources efficiently, as they run on the same kernel.<br/>
+<a href="http://linux-vserver.org/Installation_on_Debian">Installation on Debian - Linux-VServer</a><br/>
+<br/>
+<br/>
+<h2>OpenVZ</h2>
+<a href="http://sunoano.name/ws/public_xhtml/openvz.html">OpenVZ</a><br/>
+<a href="http://www.lamolabs.org/blog/2094/managing-openvz-instance-descriptions/">Managing OpenVZ Instance Descriptions « Lâmôlabs</a><br/>
+<a href="http://www.lamolabs.org/blog/1777/troubleshooting-restore-an-openvz-image-from-one-host-node-to-another/">Troubleshooting a Restore of an OpenVZ Image from one Host Node to Another « Lâmôlabs</a><br/>
+<a href="http://www.lamolabs.org/blog/1739/howto-stop-clock-drift-issuescentos5-openvz-host-node/">Howto Stop Clock Drift Issues on a CentOS 5 OpenVZ Host Node « Lâmôlabs</a><br/>
+<a href="http://www.lamolabs.org/blog/657/increasing-ram-in-a-openvz-virtual-environment/">Increasing RAM in a OpenVZ Virtual Environment « Lâmôlabs</a><br/>
+<a href="http://www.lamolabs.org/blog/318/getting-autofs-and-openvz-to-play-nice/">Getting Autofs and OpenVZ to Play Nice on CentOS 5 « Lâmôlabs</a><br/>
+<a href="http://www.lamolabs.org/blog/1136/backing-up-openvz/">Backing Up OpenVZ « Lâmôlabs</a><br/>
+<a href="http://www.lamolabs.org/blog/1218/more-info-about-openvz-and-memory/">More Info About OpenVZ and Memory « Lâmôlabs</a><br/>
+<br/>
+<br/>
+<h2>QEMU</h2>
+<a href="http://wiki.qemu.org/Main_Page">About - QEMU</a> - QEMU is a generic and open source machine emulator and virtualizer.<br/>
+<a href="http://wiki.qemu.org/download/qemu-doc.html">QEMU Emulator User Documentation</a><br/>
+<a href="http://virtuallyfun.blogspot.com/2009/07/running-windows-2003-r2-x64-on-qemu_10.html">Fun with virtualization: Running Windows 2003 r2 x64 on Qemu 0.9.0</a><br/>
+<a href="http://translate.googleusercontent.com/translate_c?hl=en&sl=de&tl=en&u=http://qemu-buch.de/de/index.php/Hauptseite&rurl=translate.google.de&usg=ALkJrhghKHIU5Bqnpo3QZPqlP5IxiMkjvw">QEMU, Kernel-based Virtual Machine (KVM) + libvirt</a><br/>
+<br/>
+<br/>
+<h2>qemu x64 guest on x64 host</h2>
+So just starting qemu, you'll find you're running i686.  If you want to run x64 on x64 emulation, try qemu-system-x86_64.<br/>
+<pre>
+# boot a usb drive.
+qemu-system-x86_64  -hda /dev/sdd
+</pre>
+<br/>
+<br/>
+<h2>virt-manager</h2>
+<a href="http://virt-manager.org/index.html">Virtual Machine Manager</a>
+<br/>
+<br/>
+<a href="https://launchpad.net/testdrive">Test Drive an Ubuntu ISO in a Virtual Machine in Launchpad</a> - makes it very easy to download and run the latest daily Ubuntu development snapshot in a virtual machine. Actually, it can be configured to download and run any URL-access ISO in a virtual machine.<br/>
+<br/>
+<br/>
+<h2>VMWare</h2>
+<a href="http://planetvm.net/blog/">PlanetVM</a> - covers other things, but a lot of great VMWare content.<br/>
+<a href="http://planetvm.net/blog/?p=1592">Using linux vmfs-tools package to access virtual machines | PlanetVM</a><br/>
+<a href="http://www.yellow-bricks.com/">Yellow Bricks</a><br/>
+<a href="http://thevpad.com/">vLaunchPad</a><br/>
+<a href="http://blog.petecheslock.com/2009/04/07/how-to-extend-windows-boot-volumes-in-vmware/">How to Extend Windows Boot Volumes in VMware - Pete Cheslock</a><br/>
+<br/>
+<br/>
+<h2>cloud control apis and tools</h2>
+<a href="https://github.com/jedi4ever/mccloud">jedi4ever/mccloud · GitHub</a> - Vagrant for the cloud<br/>
+<a href="https://github.com/fog/fog">fog/fog · GitHub</a> - The Ruby cloud services library.<br/>
+<a href="https://github.com/thbishop/fission">thbishop/fission · GitHub</a> - command line tool to manage vmware fusion vms <br/>
+<br/>
+<br/>
+<a href="http://projects.theforeman.org/">Foreman</a> -  integrates with Puppet as web front end, provisioning, Systems Inventory, real time information about hosts status. Foreman supports creating and managing hosts on a number of virtualization and cloud services EC2,libvirt,openstack nova,oVirt/RHEV,Rackspace,VMware.<br/>
+<a href="http://docs.puppetlabs.com/guides/module_guides/bgtm.html">Beginner's Guide to Modules — Documentation — Puppet Labs</a><br/>
+<a href="http://puppetlabs.com/">Puppet Labs: IT Automation Software for System Administrators</a><br/>
+<h2>OpenStack</h2>
+<a href="http://docs.openstack.org/">open OpenStack Docs: current</a> <a href="https://github.com/openstack/nova">openstack/nova</a><br/>
+<a href="https://launchpad.net/nova">OpenStack Compute (nova) in Launchpad</a><br/>
+<a href="http://docs.openstack.org/developer/nova/">Welcome to Nova’s developer documentation! — nova 2014.1.a360.gbe435b7 documentation</a><br/>
+<br/>
+<br/>
+<h2>LXC || Linux Containers</h2>
+<a href="https://linuxcontainers.org/">LXC - Linux Containers</a><br/>
+<a href="https://en.wikipedia.org/wiki/Cgroups">cgroups - Wikipedia</a> - Resource limiting,Prioritization,Accounting,Control. cgroups (control groups) is a Linux kernel feature to limit, account, and isolate resource usage (CPU, memory, disk I/O, etc.) of process groups.<br/>
+<iframe width="420" height="315" src="//www.youtube.com/embed/wW9CAH9nSLs?rel=0" frameborder="0" allowfullscreen></iframe>
+<br/>
+<a href="http://kuhnza.com/2013/03/27/docker-makes-creating-secure-sandboxes-easier-than-ever/">Docker Makes Creating Secure Sandboxes Easier Than Ever | Fragments</a><br/>
+<a href="https://github.com/google/lmctfy/">google/lmctfy</a> - lmctfy is the open source version of Google’s container stack, which provides Linux application containers.<br/>
+<br/>
+<br/>
+<h2>Docker</h2>
+<a href="https://github.com/cameron/docker">cameron/docker</a> - Docker - the open-source application container engine <a href="https://www.docker.io/">Homepage - Docker: the Linux container engine</a><br/>
+<a href="https://index.docker.io/">Home | Docker Index</a><br/>
+<a href="http://ijonas.com/devops-2/building-a-docker-based-mysql-server/">Building a Docker-based MySQL Serverijonas | ijonas</a><br/>
+<a href="http://ijonas.com/devops-2/building-a-mongodb-cluster-using-docker-containers/">Building a MongoDB Cluster using Docker Containersijonas | ijonas</a><br/>
+<a href="http://ijonas.com/devops-2/a-docker-container-folder-structure-thats-flexible-and-scales/">A Docker Container folder structure that’s flexible and scalesijonas | ijonas</a><br/>
+<a href="http://orchardup.github.io/fig/">Fig | Fast, isolated development environments using Docker</a><br/>
+<a href="http://blog.kablamo.org/2013/11/13/docker/">Down a rabbit hole - Docker - KABLAMO</a> - yes Docker is written in <a href="/tech-talk/programming/505-go-gopher">Go - Dave Horner's Website</a>.<br/>
+<br/>
+<br/>
+<a href="http://www.ansible.com/home">Ansible is Simple IT Automation</a><br/>
+<a href="http://thechangelog.com/ansible-docker/">The Why and How of Ansible and Docker - The Changelog</a><br/>
+<br/>
+<br/>
+<a href="http://mesos.apache.org/">Apache Mesos</a> uses <a href="http://zookeeper.apache.org/">Apache ZooKeeper - Home</a><br/>
+<a href="https://github.com/apache/incubator-aurora/">apache/incubator-aurora</a> - Apache Aurora is a service scheduler that runs on top of Apache Mesos, enabling you to run long-running services that take advantage of Apache Mesos' scalability, fault-tolerance, and resource isolation. <br/>
+<a href="https://github.com/apache/incubator-aurora/blob/master/docs/vagrant.md">incubator-aurora/docs/vagrant.md at master · apache/incubator-aurora</a> - defines a full Mesos cluster running Aurora.<br/>
+<br/>
+<br/>
+<h2>OpenShift - Redhat's PaaS</h2>
+<a href="https://www.openshift.com/">OpenShift by Red Hat</a><br/>
+<a href="https://www.openshift.com/quickstarts">QuickStarts | OpenShift by Red Hat</a><br/>
+<a href="https://www.openshift.com/promotions/ebook">Getting Started with OpenShift | OpenShift by Red Hat (ebook)</a> - <a href="https://github.com/Ovid/openshift-perl">Ovid/openshift-perl</a><br/>
+<a href="https://github.com/openshift">github.com: OpenShift Origin</a> <a href="https://github.com/openshift/joomla-example">openshift/joomla-example</a> <a href="https://github.com/openshift/docker-cartridge-examples">openshift/docker-cartridge-examples</a><br/>
+<a href="http://kunalmaemo.blogspot.com/2011/05/working-with-red-hat-openshift-from.html">Qt ,Maemo and some other stuff: Working with Red Hat OpenShift from Ubuntu</a><br/>
+<a href="http://www.kevinhooke.com/2012/03/22/installing-and-hosting-a-joomla-site-on-openshift/">Installing and hosting a Joomla site on OpenShift | Kev's Development Toolbox</a><br/>
+<a href="http://www.techbar.me/running-joomla-on-openshift-for-free/">Running Joomla on OpenShift for free - TechBar</a><br/>
+<br/>
+<br/>
+    <div style="border: 1px;">
+    Created: 2007-05-20 00:59:43
+    Modified: 2016-10-11 15:08:09
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<a href="http://en.wikipedia.org/wiki/E_%28mathematical_constant%29" target=_blank>$$e = \sum_{n=0}^\infty \frac{1}{n!}$$</a>
+
+
+satis dictum.
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

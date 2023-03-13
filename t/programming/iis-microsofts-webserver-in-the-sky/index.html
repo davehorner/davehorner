@@ -1,0 +1,291 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>IIS - Microsoft</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/programming/">programming</a>
+    <h1>IIS - Microsoft</h1>
+   IIS = Internet Information Server<br/>
+<a href="http://www.iis.net/">Home : The Official Microsoft IIS Site</a><br/>
+<a href="http://blogs.iis.net/bills/default.aspx">BillS' IIS Blog</a><br/>
+<a href="http://technet.microsoft.com/en-us/library/2a3422f7-58c3-4002-b22a-22d405f70ee8.aspx">IIS is in 32-bit compatibility mode</a><br/>
+<a href="http://weblogs.asp.net/scottgu/archive/2007/04/06/tip-trick-enabling-ssl-on-iis7-using-self-signed-certificates.aspx">Tip/Trick: Enabling SSL on IIS 7.0 Using Self-Signed Certificates - ScottGu's Blog</a><br/>
+<a href="http://blogs.msdn.com/mjeelani/archive/2004/12/07/275921.aspx">Mohammed Jeelani's Blog : Impersonation / Authentication issues when using Integrated Windows Authentication and SharePoint</a><br/>
+I got the error: Permission denied: 'GetObject' on localstart.asp...this gives you details on that issue...(don't allow anonymous access)<br/>
+<a href="http://support.microsoft.com/kb/311766">How to troubleshoot an "HTTP 500 - Internal Server Error" error message</a><br/>
+But that didn't resolve all the errors, it then gave me a login dialog, but my normal username/password didn't work...resulting in a HTTP 401.3.<br/>
+<a href="http://support.microsoft.com/kb/907273">Troubleshooting HTTP 401 errors in IIS</a><br/>
+<a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=e90fe777-4a21-4066-bd22-b931f7572e9a&DisplayLang=en">Download details: Authentication and Access Control Diagnostics 1.0 (x86)</a><br/>
+<br/>
+<br/>
+<a href="http://weblogs.asp.net/scottgu/archive/2006/04/20/443513.aspx">Cool new IIS7 Features and APIs - ScottGu's Blog</a><br/>
+<a href="http://www.iis.net/downloads/default.aspx?tabid=34&g=6&i=1646">IIS.net : Administration Pack for IIS 7.0 (x86) : Download : Microsoft Internet Information Services</a><br/>
+<a href="http://www.microsoft.com/web/gallery/categories.aspx">Windows Web App Gallery - Browse Apps</a> - did you know there was a web platform installer which installs many popular open source projects!?<br/>
+<br/>
+<br/>
+<a href="http://aspnet.4guysfromrolla.com/articles/120705-1.aspx">ASP.NET.4GuysFromRolla.com: Examining ASP.NET 2.0's Membership, Roles, and Profile - Part 1</a><br/>
+<a href="http://msmvps.com/blogs/omar/archive/2008/08/28/http-handler-to-combine-multiple-files-cache-and-deliver-compressed-output-for-faster-page-load.aspx">HTTP handler to combine multiple files, cache and deliver compressed output for faster page load - Omar AL Zabir blog on ASP.NET Ajax and .NET 3.5</a><br/>
+<a href="http://www.codeproject.com/KB/aspnet/10ASPNetPerformance.aspx">CodeProject: 10 ASP.NET Performance and Scalability Secrets.</a><br/>
+<br/>
+<br/>
+<h2>Geneva / WS-Federation / WS-Trust</h2>
+<a href="http://www.leastprivilege.com/">www.leastprivilege.com</a> - dominick baier on .net, security and other stuff<br/>
+<a href="http://startersts.codeplex.com/">thinktecture Starter STS (Community Edition)</a> - Starter STS is a compact, easy to use security token service that is completely based on the ASP.NET provider infrastructure. It is built using the Geneva framework Beta 2 bits and is a self contained web site with passive and active endpoints.<br/>
+<a href="http://www.codeplex.com/InfoCardSelector">InfoCardSelector</a> - ASP.NET WebControl to easily integrate Information Cards into ASP.NET applications<br/>
+<br/>
+<br/>
+<h2>IIS write permissions who do i give them to?</h2>
+IUSR, or check your app pool properties in identity tab.<br/>
+<br/>
+<br/>
+<a href="http://blogs.msdn.com/b/habibh/archive/2009/08/14/how-to-install-iis-7-5-on-windows-7-using-the-command-line.aspx">How to install IIS 7.5 on Windows 7 using the Command Line - Habib Heydarian's Blog @ Microsoft - Site Home - MSDN Blogs</a><br/>
+<br/>
+<br/>
+<h2>IIS 7 & 7.5 don't have JSON support out of box</h2>
+If you don't go and manually add a mime-type of "text/javascript" you may get the HTTP 403 error.  I experienced when messing around with an app that sourced data from static files with the .json extension.  Here's Rahul Singla's post that helped me:<br/>
+<a href="http://www.rahulsingla.com/blog/2011/04/extjs-4-running-docs-over-iis-in-windows">ExtJs 4 - Running docs over IIS in Windows | rahulsingla.com</a><br/>
+<br/>
+<br/>
+<h2>Service WAS was not found on computer .. || Cannot start service W3SVC on computer '.'</h2>
+I got into this state due to a system restore gone wrong.  Just uninstalling and reinstalling "Internet Information Services" is not enough.  You also need to uninstall and reinstall the "Windows Process Activation"<br/>
+<a href="http://superuser.com/questions/176520/cannot-start-service-w3svc-on-computer">iis - Cannot start service W3SVC on computer '.' - Super User</a><br/>
+<a href="http://www.kunal-chowdhury.com/2013/08/how-to-manage-iis-application-pool.html">How to Start, Stop, Recycle IIS application pool programmatically?</a><br/>
+    <div style="border: 1px;">
+    Created: 2007-11-28 07:54:11
+    Modified: 2014-04-26 16:33:32
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+0, 1, 1, 2, 3, 5, 8, 13, 21, 34,...<br/>
+<b> x<sub>n</sub> = x<sub>n-1</sub> + x<sub>n-2</sub></b><br/>
+<!-- "Fibonacci" was his nickname, which roughly means "Son of Bonacci". -->
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

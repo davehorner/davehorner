@@ -1,0 +1,406 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>VTK - The Visualization ToolKit</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/programming/">programming</a>
+    <h1>VTK - The Visualization ToolKit</h1>
+   <a href="http://www.midasjournal.org/home/index">MIDAS Journal - Home</a> - Open Access on-line publication covering different domains from Visualization to Image processing.<br/>
+<a href="http://www.vtk.org/">The Visualization ToolKit</a> (VTK) is an open source library for visualization.  It is written in C++ and has binding for other languages to provide scripting capabilities (Tcl/Tk, Java, and Python).<br/>
+<a href="http://www.cmake.org/cmake/resources/software.html">CMake - Cross Platform Make</a> - if you're compiling on windows, cmake is the way to go....I actually like cmake...<br/>
+<br/>
+<a href="http://mayavi.sourceforge.net/">The MayaVi Data Visualizer</a> - Python GUI interface to VTK.<br/>
+<br/>
+<br/>
+vtk is still being served from cvs, use anonymous and vtk as the password.<br/>
+trunk - cvs -d :pserver:anonymous@public.kitware.com:/cvsroot/VTK<br/>
+sample data - cvs -d :pserver:anonymous@public.kitware.com:/cvsroot/VTKData<br/>
+<br/>
+<br/>
+<a href="http://www.vtk.org/Wiki/User:Davehorner">User:Davehorner - KitwarePublic</a> - my home on vtk wiki<br/>
+<br/>
+<br/>
+<strong>Web resources</strong><br /> <a href="http://www2.imm.dtu.dk/~rrp/VTK/">Rasmus Paulsen's VTK Stuff</a><br />
+<a href="http://cens.ioc.ee/projects/pyvtk/">PyVTK Â­ Tools for manipulating VTK files in Python</a><br/>
+<a href="http://cnmrr.hmc.psu.edu/vtkCNMRRLibrary/html/">vtkCNMRRLibrary 1.0.3 Documentation</a><br/>
+<a href="http://www.vistrails.org/index.php/Main_Page">VisTrails</a> - a VTK/python viz. workflow system.<br/>
+<br/>
+<a href="http://vtkblog.blogspot.com/">vtkblog.blogspot.com - VTK tutorial</a><br/>
+<a href="http://www.imaging.robarts.ca/~dgobbi/vtk/vtkcourse/index.html">Introduction to Programming in VTK</a><br/>
+<a href="http://www.imaging.robarts.ca/~dgobbi/vtk/vtkcourse/interaction.html">Application Development in VTK</a><br/>
+<a href="http://www.imaging.robarts.ca/~dgobbi/vtk/vtkpython.html">Using VTK Through Python</a><br/>
+<a href="http://www.imaging.robarts.ca/~dgobbi/vtk/vtkclasses.html">Adding Classes to VTK</a><br/>
+<a href="http://www.bioimagesuite.org/vtkbook/index.html">Introduction to Programming for Image Analysis with VTK</a><br/>
+<a href="http://docs.enthought.com/mayavi/tvtk/">Welcome to tvtk’s documentation!</a> - TVTK objects wrap around VTK objects but additionally support traits, and provide a convenient Pythonic API.<br/>
+<br/>
+<br/>
+fink selfupdate<br/>
+fink install ant
+ant-junit junit<br/>
+svn co http://svn.na-mic.org/svn/Dart/trunk Dart.trunk
+cd Dart.trunk
+ant all<br/>
+<br/>
+<br/>
+<a href="http://paraview.org/New/index.html">ParaView - Parallel Visualization Application</a><br/>
+<a href="http://www.paraview.org/Wiki/ParaView/Users_Guide/Table_Of_Contents">ParaView/Users Guide/Table Of Contents - KitwarePublic</a><br/>
+<br/>
+<a href="http://www.cb.uu.se/~ingela/UPPMAX/VTK/VTK20051213.pdf">Scientific Visualization
+with VTK (pdf handout from workshop)</a><br/>
+<a href="http://flowvr.sourceforge.net/FlowVROverview.html">FlowVR: Overview</a></br>
+<br/>
+<br/>
+<br/>
+There is some code in the VTK base that uses TCL/TK.  I like to use the ActiveTcl, for a nice easy setup...<br/>
+<a href="http://tcl.tk/software/tcltk/">Tcl/Tk Software</a><br/>
+<br/>
+<a href="https://svn.enthought.com/enthought/wiki/TVTK">TVTK - Enthought Trac - Trac</a> - TVTK objects wrap around VTK objects but additionally support Traits, support Numeric/numarray/scipy arrays transparently and provide a convenient Pythonic API.<br/>
+<a href="https://gitorious.org/vtkwikiexamples">VTKWikiExamples - Gitorious</a><br/>
+<a href="http://www.kitware.com/InfovisWiki/index.php/Main_Page">Main Page - InfovisWiki</a> - Titan Informatics Toolkit is a collaborative effort between Sandia National Laboratories and Kitware Inc. <br/>
+<a href="http://public.kitware.com/titan-docs/files.html">Titan: File List</a> - titan doxy docs<br/>
+<br/>
+<br/>
+<h2>ITK</h2>
+Yes, it should be on its own page, but.... it's here.<br/>
+<a href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3929840/">ITK: enabling reproducible research and open science</a><br/>
+<a href="http://www.kitware.com/blog/home/post/710">The Kitware Blog - ITK 4.6.0 has been released!</a> - oh the wondrous pace of open code; Skull stripper, Registrationv4, more code coverage (>84%), bug fixes, and examples!<br/>
+As part of the refactoring of ITKv4, a new testing workflow was added to ITK to enable the testing of patches submitted by the community to the code review system Gerrit. This new system of testing patches works in a distributed way and it is referred to as 'cdash@home'.<br/>
+<a href="https://gitorious.org/itkwikiexamples">ITKWikiExamples - Gitorious</a><br/>
+<a href="http://www.itk.org/Wiki/ITK/Examples">ITK/Examples - KitwarePublic</a> -  fully independent, compilable examples<br/>
+<a href="http://itk.org/ITKExamples/">Overview — ITK Examples</a><br/>
+<a href="http://www.itk.org/Wiki/SimpleITK">SimpleITK - KitwarePublic</a><br/>
+<a href="https://github.com/SimpleITK/SimpleITK-Notebooks">SimpleITK/SimpleITK-Notebooks</a> - <a href="http://nbviewer.ipython.org/">IPython Notebook Viewer</a> - A Simple way to share your IP[y]thon Notebook as Gists. Share your own notebook, or browse others'<br/>
+<a href="http://www.na-mic.org/Wiki/index.php/2013_Project_Week_Breakout_Session:_SimpleITK">2013 Project Week Breakout Session: SimpleITK - NAMIC</a><br/>
+<br/>
+<br/>
+<h2>Slicer</h2>
+First things first; a dashboard. <a href="https://github.com/Slicer/DashboardScripts">Slicer/DashboardScripts</a> get up on dat <a href="http://slicer.cdash.org/index.php?project=Slicer4">CDash - Slicer4</a><br/>
+<a href="http://wiki.slicer.org/slicerWiki/index.php/Documentation/Nightly/Developers/Tutorials/DashboardSetup">Documentation/Nightly/Developers/Tutorials/DashboardSetup - SlicerWiki</a><br/>
+<a href="http://www.slicer.org/slicerWiki/index.php/Documentation/4.2/Training">Documentation/4.2/Training - SlicerWiki</a><br/>
+<a href="http://www.slicer.org/slicerWiki/index.php/Documentation/Nightly/Developers/Tutorials/DashboardSetup">Documentation/Nightly/Developers/Tutorials/DashboardSetup - SlicerWiki</a><br/>
+<a href="http://review.source.kitware.com/#/c/16601/">Change I130424d7: WIP: Add cotire to improve build speed. | review.source Code Review</a> - u can try cotire support in ITK TIK_USE_COTIRE, thanks Matt!<br/>
+<a href="http://www.insight-journal.org/browse/publication/859">Insight Journal (ISSN 2327-770X) - A Skull-Stripping Filter for ITK</a> - open journal, open code, open science. if you will it; it is no dream. go forth and strip skulls!<br/>
+<br/>
+<br/>
+<h2>CMake</h2>
+<a href="http://www.cmake.org/Wiki/CMake">CMake - KitwarePublic Wiki</a><br/>
+<a href="http://www.gamedev.net/page/resources/_/technical/general-programming/cross-platform-test-driven-development-environment-using-cmake-part-1-r2986">Cross Platform Test Driven Development Environment Using CMake (Part 1)- GameDev.net</a> 
+<a href="http://www.gamedev.net/page/resources/_/technical/general-programming/cross-platform-test-driven-development-environment-using-cmake-part-2-r2994">(Part 2)</a>
+<a href="http://www.gamedev.net/page/resources/_/technical/general-programming/cross-platform-test-driven-development-environment-using-cmake-part-3-r2998">(Part 3)</a>
+<a href="http://www.gamedev.net/page/resources/_/technical/general-programming/cross-platform-test-driven-development-environment-using-cmake-part-4-r3028">(Part 4)</a>
+<a href="http://www.gamedev.net/page/resources/_/technical/general-programming/cross-platform-test-driven-development-environment-using-cmake-part-5-r3182">(Part 5)</a><br/>
+<a href="https://github.com/sakra/cotire">sakra/cotire</a> - Cotire (compile time reducer) is a CMake module that speeds up the build process of CMake based build systems by fully automating techniques as precompiled header usage and single compilation unit builds for C and C++.<br/>
+<br/>
+<br/>
+<h2>CDash || testing with CDash</h2>
+CTest is a testing tool distributed as a part of CMake. It can be used to automate updating code, configuring, building, testing, performing memory checking, performing coverage, and submitting results to a CDash or Dart dashboard system.<br/>
+<a href="http://open.cdash.org/">open.cdash.org - CDash</a> <a href="http://my.cdash.org/">my.cdash.org - CDash</a>, two dashboards separate accounts.<br/>
+<a href="http://itk.org/Wiki/ITK/Git/Dashboard">ITK/Git/Dashboard - KitwarePublic</a> <a href="http://www.itk.org/Wiki/ITK/Testing">ITK/Testing - KitwarePublic</a> <a href="http://www.cmake.org/Wiki/CMake/Git/Dashboard">CMake/Git/Dashboard - KitwarePublic</a><br/>
+The ctest client is setup the same for many of the projects; cloning the dashboard branch from each of the git repo's provides the basic files needed to ctest your way to dashboard report submission -- <strong>contribute and collaborate with the world on software that matters</strong>.<br/>
+<a href="http://www.cmake.org/cmake/resources/software.html">CMake - Cross Platform Make - Download release</a> or <a href="http://www.cmake.org/Wiki/CMake/Git">CMake/Git - build yer own</a><br/>
+<pre>
+git clone git://cmake.org/cmake.git
+cd cmake;
+./Utilities/SetupForDevelopment.sh
+./bootstrap
+make; make install;
+</pre>
+that gets you cmake and ctest. huzah. now on to the dashboard branch for testing...<br/>
+<pre>
+mkdir -p ~/Dashboards/CMakeScripts
+cd ~/Dashboards/CMakeScripts
+git init
+git remote add -t dashboard origin git://cmake.org/cmake.git
+git pull origin
+ctest -S ~/Dashboards/CMakeScripts/my_dashboard.cmake -V
+</pre>
+or if you're already got master aka "git checkout -b master origin/master"; you can use "git checkout -b dashboard origin/dashboard" to switch to the dashboard scripts. if they are using the conventions used by most.<br/>
+<a href="http://www.vtk.org/Wiki/VTK/Dashboard_how_to">VTK/Dashboard how to - KitwarePublic</a><br/>
+<a href="http://www.cmake.org/Wiki/CMake_Scripting_Of_CTest">CMake Scripting Of CTest - KitwarePublic</a><br/>
+<a href="http://www.vtk.org/Wiki/CMake/Testing_With_CTest">CMake/Testing With CTest - KitwarePublic</a> - talks about simple ctest test, ctest being fully compatable with Dart submissions, advanced Ctest alternative upload methods, dynamic testing.<br/>
+<br/>
+<br/>
+<h2>Android Mobile VTK || VES</h2>
+<a href="http://www.vtk.org/Wiki/VES">VES - KitwarePublic</a> - VES is the VTK OpenGL ES Rendering Toolkit. It is a C++ rendering library for mobile devices using OpenGL ES 2.0. <br/>
+<a href="http://www.kiwiviewer.org/">KiwiViewer</a> - KiwiViewer is a free, open-source visualization app for exploring scientific and medical datasets that runs on Android and iOS mobile devices with multi-touch interaction. KiwiViewer supports a variety of file formats, including obj, stl, ply, and vtk.<br/>
+<a href="https://play.google.com/store/apps/details?id=com.kitware.KiwiViewer&amp;hl=en">KiwiViewer - Android Apps on Google Play</a> - KiwiViewer is powered by VTK (the Visualization Toolkit) and VES (the VTK OpenGL ES 2.0 Rendering Engine.)<br/>
+<a href="http://www.vtk.org/Wiki/VES/Developers_Guide">VES/Developers Guide - KitwarePublic</a><br/>
+<a href="http://www.kitware.com/blog/home/post/538">The Kitware Blog - Configuring VES for Eclipse and ndk-build</a><br/>
+<iframe src="//player.vimeo.com/video/68386768" width="500" height="313" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> <p><a href="http://vimeo.com/68386768">Android tutorial App Building with VES and Kiwi</a> from <a href="http://vimeo.com/kitware">Kitware</a></p>
+<a href="https://github.com/ethanrublee/VTK-Android">ethanrublee/VTK-Android</a> - VTK build scripts for android porting reqs. crystax ndk<br/>
+<br/>
+<br/>
+<h2>Bender</h2>
+<a href="http://www.kitware.com/blog/home/post/648">The Kitware Blog - Bender 2.0</a> - watching the video is a must...wow.  rigging, skinning and posing techniques applied to volumes.<br/>
+<br/>
+<br/>
+<h2>VTK 6</h2>
+<a href="http://www.vtk.org/Wiki/VTK/VTK_6_Migration_Guide">VTK/VTK 6 Migration Guide - KitwarePublic</a><br/>
+<br/>
+<br/>
+<h2>OpenFOAM</h2>
+<a href="http://www.openfoam.org/">OpenFOAM® - The Open Source Computational Fluid Dynamics (CFD) Toolbox</a><br/>
+<br/>
+<br/>
+<h2>GDCM</h2>
+<a href="http://gdcm.sourceforge.net/wiki/index.php/Git">Git - GDCM Wiki</a> - contains info for getting a GDCM dashboard going...<br/>
+<br/>
+<br/>
+<h2>Issues on macosx with os/xcode upgrades</h2>
+<pre>
+xcode-select --install # Install Command Line Tools if you haven't already.
+sudo xcode-select --switch /Library/Developer/CommandLineTools # Enable command line tools
+sudo xcodebuild -license
+# if that doesn't work
+sudo xcode-select --reset
+</pre>
+    <div style="border: 1px;">
+    Created: 2005-08-10 19:04:30
+    Modified: 2018-10-05 20:47:26
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+$$\cos x = \sum\limits_{n = 0}^\infty {\frac{{\left( { - 1} \right)^n x^{2n} }}{{\left( {2n} \right)!}}}$$
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,540 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>Testing, Release Engineering, CI - building code that deploys and runs like it should.</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/programming/">programming</a>
+    <h1>Testing, Release Engineering, CI - building code that deploys and runs like it should.</h1>
+   The bar is high to write good software.  Good software requires documentation with full requirements.  Software is no good without tests.  Tests define functionality and indicate a contract for such functionality.  Without a requirement and test, who is to say that any software feature exists or works at all?<br/>
+<br/>
+DevOps is about configuration management and intellectual property (IP) control.  We make sure that development, QA, and IT are empowered to accomplish what they need to deliver and ship code.  Making sure that everything is properly tracked and maintainable.  Systems that were once silo'd and unmaintainable are now visible and reproducible for upper management.  Dashboards, build systems, report systems, source control systems, and anything else that comes up in operations of large organizations is purview. <br/>
+<!-- Place this tag in your head or just before your close body tag. -->
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+
+<!-- Place this tag where you want the widget to render. -->
+<div class="g-post" data-href="https://plus.google.com/105725977711317285348/posts/Dmrm7WcA7TC"></div>
+<br/>
+<a href="http://evgeny-goldin.com/blog/configuration-management-position/">Configuration Management position – can be done by anyone. Or can it? | println it</a><br/>
+Application Lifecycle Management (ALM)  - <a href="http://en.wikipedia.org/wiki/Life-cycle_assessment">Cradle to grave</a>.<br/>
+<br/>
+<br/>
+<a href="http://www.writemoretests.com/">Write More Tests – Software Engineering for Fun and Profit</a><br/>
+<a href="http://www.possibility.com/epowiki/Wiki.jsp?page=UnitTestingAndTestDrivenDevelopment">epowiki: Unit Testing And Test Driven Development</a><br/>
+<a href="http://en.wikipedia.org/wiki/Test-driven_development">Test-driven development - Wikipedia, the free encyclopedia</a><br/>
+<a href="http://gallio.org/wiki/doku.php?id=gallio">gallio - Gallio Wiki</a><br/>
+<br/>
+<br/>
+<a href="http://dannorth.net/2006/03/22/continuous-build-is-not-continuous-integration/">Continuous Build is not Continuous Integration « DanNorth.net</a><br/>
+<br/>
+<p>Lately I've been working on creating SVN repos of code I've done in the past.  Doing so makes me realize again how hard release engineering can be.<br /> <br /> Here is a look at the problem from Wez Furlong that details what release engineering is all about: <a href="http://netevil.org/node.php?uuid=432e0e8a-701c-1268-2092-32e0e8a2adc9">Release Engineering</a><br /> <br /> The first setup in proper release engineering, is selecting your build tools.  And boy is that a HARD thing to do these days.<br /> <br /> There are about a million different ways to compile, link, and build things.  Every platform has it's own problems and custom switches needed to get the job done right.<br /> <br /> Just look at some of the tools we have to choose from when we are looking for a cross platform build manager:<br /> <a href="http://www.wxwidgets.org/wiki/index.php/Bakefile">Bakefile</a>, <a href="http://www.cmake.org/HTML/Index.html">CMake</a><br />,Autoconf and Automake<br />
+<a href="http://www.lrde.epita.fr/~adl/autotools.html">Autotools Tutorial</a><br/>
+<br/>
+<a href="http://hubot.github.com/">HUBOT</a> - github has developed a chat bot to interact with operations. Modeled after GitHub's Campfire bot, hubot. extendable with
+<a href="https://github.com/github/hubot-scripts">community scripts</a> and your own custom
+scripts, and can work on <a href="/github/hubot/blob/master/docs/adapters.md">many different chat services</a>.<br/>
+<br/>
+<h2>Voices against TDD</h2>
+<a href="http://www.softwareandi.com/2011/12/10-reasons-to-avoid-test-driven.html?m=1">Software and I: 10 Reasons to Avoid Test Driven Development</a><br/>
+<br/>
+<h2>Some funny..</h2>
+<a href="http://blankdd.com/">_DD: What do you practice?</a> - Don't you know what an initialism is?<br/>
+<a href="http://tatiyants.com/guilt-driven-development/">Guilt Driven Development - tatiyants.com</a> - Guilt Driven Development GDD forces you to make promises and guilts you into keeping them.  I expected more from you, I really did.<br/>
+<br/>
+<br/>
+
+<h2>Web Resources</h2>
+<a href="http://code.google.com/p/waf/">waf - The meta build system - Google Project Hosting</a><br/>
+<a href="http://www.amath.washington.edu/~lf/tutorials/autoconf/"> Learning Autoconf and Automake</a><br />  Jam - a new portable makefile?!  <a href="http://public.perforce.com/guest/neal_firth/JamUseI.html">Using Jam in a dynamic automated build enviroment</a><br /> <a href="http://dave.thehorners.com/mambots/editors/tinymce/google:using%20Jam">google:using Jam</a><br /> Doesn't look very promising given this mailinglist entry:<br /> <a href="http://maillist.perforce.com/pipermail/jamming/1997-February/000115.html">Who is using Jam?</a><br /> <a href="http://edocs.bea.com/JAM/v42/scenario/samclust.htm">Using JAM in a Clustered Environment</a><br /> <a href="http://public.perforce.com/public/jam/src/Jambase.html">Jambase Reference</a><br /> <br /> <a href="http://www.scons.org/">SCons</a><br />
+<a href="https://github.com/ndmitchell/shake">ndmitchell/shake</a> - Shake is a Haskell library for writing build systems - designed as a replacement for make. <a href="http://hackage.haskell.org/package/shake">Hackage: shake: Build system library, like Make, but more accurate dependencies.</a><br/>
+<br /><a href="http://wiki.lazarus.freepascal.org/Deploying_Your_Application">Deploying Your Application</a></p><p> </p>
+<a href="http://www.mkgnu.net/?q=sdvel">sdvel</a><br/>
+<a href="http://ccbuild.sourceforge.net/">ccbuild</a> - A strict developer's build utility<br/>
+<a href="http://buildbot.net/">Buildbot</a> - The Continuous Integration Framework, automating software build, test, and release processes. python,virtualenv,git one master, many slaves.<br/>
+<br/>
+<br/>
+<h2>Javascript Continuous Integration Testing</h2>
+<a href="http://github.com/jeresig/testswarm/blob/master/index.php">index.php at master from jeresig's testswarm - GitHub</a><br/>
+<a href="http://jsconf.us/2009/resig_video.html">JSCONF 2009</a> - john resig talks about testswarm in part two.<br/>
+<a href="http://swarm.jcoglan.com/">Test Swarm: Distributed Continuous Integration for JavaScript</a> - <a href="https://github.com/jeresig/testswarm/wiki">testswarm- GitHub - wiki</a><br/>
+<br/>
+<br/>
+<h2>CruiseControl.net</h2>
+<a href="http://draconet.sourceforge.net/">Draco.NET</a> - Draco.NET is a Windows service application designed to facilitate continuous integration.<br/>
+<a href="http://cruisecontrol.sourceforge.net/">CruiseControl Home</a> - Original CruiseControl is written in Java but is used on a wide variety of projects.<br/>
+<a href="http://confluence.public.thoughtworks.org/display/CC/CI+Feature+Matrix">CI Feature Matrix - CruiseControl - Confluence</a> - a feature matrix for various CI servers.<br/>
+<a href="http://www.cifactory.org/joomla/index.php?option=com_frontpage&amp;Itemid=1">CI Factory - Home</a><br/>
+<a href="http://rubenwillems.blogspot.com/">RuWi</a> - POSTINGS ABOUT CCNET, A CONTINUOUS INTEGRATION SERVER WRITTEN IN C#.<br/>
+<a href="http://ferventcoder.com/archive/2009/05/21/uppercut---automated-builds---cruisecontrol.net-integration.aspx">UppercuT - Automated Builds - CruiseControl.NET Integration</a><br/>
+<a href="http://code.google.com/p/uppercut/">uppercut - Google Code</a> - Uppercut is an automated .NET build framework built with NAnt<br/>
+<br/>
+<a href="http://www.martinfowler.com/articles/continuousIntegration.html">Continuous0 Integration</a><br/>
+<a href="http://www.martinfowler.com/articles/ciWithCom.html">Continuous Integration with Visual C++ and COM</a><br/>
+<a href="http://vallista.idyll.org/~grig/articles/">Agile Testing Articles and Tutorials</a><br/>
+<a href="http://agiletesting.blogspot.com/2006/08/on-importance-of-functional-testing.html">Agile Testing: On the importance of functional testing</a><br/>
+<a href="http://weblogs.sqlteam.com/mladenp/archive/2008/01/03/Automated-GUI-testing---Is-it-worth-it.aspx">Automated GUI testing - Is it worth it?</a><br/>
+<a href="http://www.tizmoi.net/watsup/intro.html">Windows Application Test System Using Python</a><br/>
+<br/>
+<br/>
+<h2>MSBuild</h2>
+<a href="http://msbuildtasks.tigris.org/">msbuildtasks.tigris.org</a> -  provides a collection of open source tasks for MSBuild.<br/>
+<a href="http://blogs.msdn.com/tims/archive/2004/07/19/186946.aspx">MSBuild: The New Build System for Visual Studio 2005 and Longhorn</a><br/>
+<br/>
+<a href="http://fitnesse.org/">FitNesse</a> - The fully integrated standalone wiki, and acceptance testing framework. (uses tables of data to communicate requirements with software)<br/>
+<a href="http://www.ncover.com/">NCover - Code Coverage for .NET Developers</a><br/>
+<a href="http://nunitforms.sourceforge.net/index.html">NUnitForms : An NUnit extension for testing Windows Forms applications.</a><br/>
+<br/>
+<br/>
+
+<h2>Functional Testing</h2>
+<a href="http://watin.sourceforge.net/index.html">WatiN - Web Application Testing In .Net</a> - automation of Internet Explorer and Firefox for web functional tests.<br/>
+<a href="http://seleniumhq.org/">Selenium web application testing system</a> - Selenium is a suite of tools to automate web app testing across many platforms.<br/>
+<a href="http://www.phpunit.de/manual/current/en/selenium.html">Chapter 18. PHPUnit and Selenium</a><br/>
+<a href="http://joelabrahamsson.com/entry/web-testing-with-selenium-and-xunitnet">Web testing with Selenium and xUnit.net</a><br/>
+<a href="http://www.symfony-project.org/jobeet/1_4/Doctrine/en/09">Practical symfony | Day 9: The Functional Tests | symfony | Web PHP Framework</a> - seleniums functional test walkthrough<br/>
+<a href="http://www.testdriven.com/modules/news/">testdriven.com: Your test-driven development community - News</a><br/>
+<a href="http://wwwsearch.sourceforge.net/mechanize/">mechanize</a> - Stateful programmatic web browsing in Python<br/>
+<a href="http://twill.idyll.org/">twill: a simple scripting language for Web browsing</a><br/>
+<a href="http://www.getwindmill.com/">Windmill Testing Framework</a><br/>
+<a href="http://f.souza.cc/2011/05/splinter-python-tool-for-acceptance-tests-on-web-applications/">Splinter: Python tool for acceptance tests on web applications | Francisco Souza</a> - <a href="https://github.com/cobrateam/splinter/">cobrateam/splinter - GitHub</a><br/><br/>
+<a href="http://www.w3.org/TR/2013/WD-webdriver-20130117/">WebDriver</a> - W3C spec "The WebDriver API aims to provide a synchronous API that can be used for a variety of use cases, though it is primarily designed to support automated testing of web apps."...interesting.<br/>
+<br/>
+
+<h2>Continuous Integration Server</h2>
+<a href="http://code.google.com/p/xinc/">xinc - Project Hosting on Google Code</a> - Xinc is a continuous integration server written in PHP 5. It has built-in support for Subversion and Phing (and therefore PHPUnit), and can be easily extended to work with alternative version control or build tools.<br/>
+<a href="http://phpundercontrol.org/about.html">phpUnderControl</a> - phpUnderControl is an addon application(PHP) for the continuous integration tool CruiseControl, which integrates some of the best PHP development tools.<br/>
+<a href="http://cruisecontrol.sourceforge.net/">CruiseControl Home</a> - Java CI server.<br/>
+<a href="http://www.atlassian.com/software/bamboo/">Continuous Integration Build Tool - Bamboo</a> - <br/>
+<a href="http://hudson-ci.org/">Hudson CI</a> - Java servlet based CI.<br/>
+<a href="http://redsolo.blogspot.com/2007/11/hudson-embraces-python.html">Redsolo's blog site: Hudson embraces Python</a><br/>
+<a href="http://www.jerradanderson.com/blog/index.php?/archives/30-CI-Scalability-with-.NET-apps.html">CI Scalability with .NET apps - Continuous Automation</a><br/>
+<a href="http://www.renevo.com/blogs/vbdotnet/archive/2008/01/17/update-to-the-build-automation.aspx">VB.Net Articles : Update to the Build Automation</a><br/>
+<a href="http://www.falafel.com/community/blogs/testing/archive/2006/03/22/Automating-NUnit-and-MsTest.aspx">Testing : Automating NUnit and MsTest</a><br/>
+<br/>
+<a href="http://msdn.microsoft.com/msdnmag/issues/07/03/WixTricks/">WiX Tricks: Automate Releases With MSBuild And Windows Installer XML -- MSDN Magazine, March 2007</a><br/>
+<a href="http://www.tonicebrian.com/2010/10/15/continuous-integration-for-c-using-hudson/">Toni Cebrián » Continuous Integration for C++ using Hudson</a><br/>
+<br/>
+<br/>
+<h2>Things related to unit testing</h2>
+<a href="http://xtests.sourceforge.net/#download">xTests - Multi-language, Lightweight Test-suites</a> - C and C++ testing<br/>
+<a href="http://www.codeplex.com/xunit">xUnit.net - Unit Testing for .NET - Home</a><br/>
+<a href="http://xunitpatterns.com/">index at XUnitPatterns.com</a><br/>
+<a href="http://www.mbunit.com/Articles.aspx">MbUnit - Generative Unit Test Framework for the .NET Framework.</a><br/>
+<a href="http://www.codeplex.com/TestApi">TestApi - a library of Test APIs - Home</a><br/>
+<a href="http://blog.stevensanderson.com/2009/11/04/selective-unit-testing-costs-and-benefits/?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+SteveCodeville+%28Steve+%40+Codeville%29&utm_content=Google+Reader">Selective Unit Testing – Costs and Benefits « Steve Sanderson’s blog</a><br/>
+<a href="http://testanything.org/wiki/index.php/Main_Page">Test Anything Protocol</a><br/>
+<a href="http://theory.github.io/mytap/">MyTAP: Unit Testing for MySQL</a> - MyTAP is a suite of database functions that make it easy to write
+      <a href="http://testanything.org/" title="Test Anything Protocol">TAP</a>-emitting unit tests in
+      <code>mysql</code> scripts. The TAP output is suitable for harvesting,
+      analysis, and reporting by a TAP harness, such as those used in Perl
+      applications.<br/>
+<a href="http://docs.seattlerb.org/minitest/">bfts's minitest-5.0.8 Documentation</a> - minitest provides a complete suite of testing facilities supporting TDD, BDD, mocking, and benchmarking. <a href="https://github.com/seattlerb/minitest">seattlerb/minitest</a><br/>
+<br/>
+<br/>
+<h2>Mocking frameworks</h2>
+<a href="http://code.google.com/p/moq/">moq - Google Code</a> - The simplest mocking library for .NET 3.5 and Silverlight with deep C# 3.0 integration<br/>
+<a href="http://code.google.com/p/moq-contrib/">moq-contrib - Google Code</a> - moq contributions which includes <a href="http://code.google.com/p/moq-contrib/wiki/Automocking">Automocking - moq-contrib - Instruction on how to automate mocking using AutoMock container - Google Code</a> and others.<br/>
+<a href="http://ayende.com/projects/rhino-mocks.aspx">Ayende @ Rahien - Rhino Mocks</a> - dynamic mock object framework for the .Net platform.<br/>
+<a href="http://nbuilder.org/">NBuilder - Rapid generation of test objects for .NET</a> - fluent, extensible interface, NBuilder allows you to rapidly create test data, automatically assigning values to properties and public fields that are of type of the built in .NET data types (e.g. ints and strings). NBuilder allows you to override for properties you are interested in using lambda expressions.<br/>
+<a href="http://www.codeplex.com/AutoMapper">AutoMapper</a> - AutoMapper is an object-object mapper. Object-object mapping works by transforming an input object of one type into an output object of a different type.<br/>
+
+<br/>
+<br/>
+<br/>
+<h2>Usability testing</h2>
+Testing for usability is something that is very important.  Users can have a voice and shape the way software works.  You need to listen....and make it a priority to hear what they are saying.<br/>
+<a href="http://fluidproject.org/index.php/home">Fluid Project - What is Fluid?</a><br/>
+<br/>
+<br/>
+<h2>Code review</h2>
+Code review is something that helps software projects become better products.  It also helps to make developers better through feedback and code reflection.  It means more eyes and more understanding.  It helps to enforce standards and style guidelines with development.  Mentoring and discussion become part of the development practice.<br/>
+<br/>
+<a href="http://code.google.com/appengine/articles/rietveld.html">An Open Source App: Rietveld Code Review Tool - Google App Engine - Google Code</a><br/>
+<a href="http://www.youtube.com/watch?v=sMql3Di4Kgc">YouTube - Mondrian Code Review On The Web</a><br/>
+<br/>
+<br/>
+<h2>Code analysis</h2>
+<a href="http://www.mono-project.com/Gendarme#CruiseControl.NET">Gendarme - Mono</a> - Gendarme inspects programs and libraries that contain code in ECMA CIL format (Mono and .NET) and looks for common problems with the code, problems that compiler do not typically check or have not historically checked.<br/>
+<a href="https://sourceforge.net/projects/cccc/">C and C++ Code Counter | Free Development software downloads at SourceForge.net</a><br/>
+<br/>
+<br/>
+<h2>msi Microsoft installation stuff</h2>
+<a href="http://sysblogd.wordpress.com/2008/05/10/howto-extract-all-files-from-microsoft-installer-files-msi-rather-than-to-install-the-package/">Howto Extract all Files from Microsoft Installer Files (msi) rather than to Install the Package « sysblogd</a><br/>
+<br/>
+<br/>
+<a href="http://hudson-ci.org/">Hudson Continuous Integration</a> - now owned by Oracle.<br/>
+<a href="http://www.stackify.com/">DevOps Web Application Management from Stackify</a><br/>
+<a href="http://buildr.apache.org/index.html">buildr — Apache Buildr</a>- Apache Buildr is a build system for Java-based applications, including support for Scala, Groovy and a growing number of JVM languages and tools.<br/>
+<a href="http://maven.apache.org/">Welcome to Apache Maven</a><br/>
+<br/>
+<br/>
+<h2>travis-ci</h2>
+<a href="https://travis-ci.org/">Travis CI - Free Hosted Continuous Integration Platform for the Open Source Community</a><br/>
+<a href="https://github.com/travis-ci/travis-ci">travis-ci/travis-ci · GitHub</a> - A distributed build system for the open source community. users contribute build machines, github hosted projects.  Ember.js,rails3,jruby,chef cookbooks,AMQP,RabbitMQ<br/>
+<a href="https://github.com/travis-ci/travis-cookbooks">travis-ci/travis-cookbooks · GitHub</a><br/>
+<br/>
+<br/>
+<h2>Jenkins</h2>
+<a href="http://jenkins-ci.org/">Welcome to Jenkins CI! | Jenkins CI</a> - community driven fork of hudson.<br/>
+<a href="https://github.com/jenkinsci">Jenkins on github</a><br/>
+<a href="https://github.com/schisamo/chef-jenkins">schisamo/chef-jenkins · GitHub</a><br/>
+<a href="https://wiki.jenkins-ci.org/display/JENKINS/Audit+Trail+Plugin">Audit Trail Plugin - Jenkins - Jenkins Wiki</a><br/>
+<a href="https://wiki.jenkins-ci.org/display/JENKINS/JobConfigHistory+Plugin">JobConfigHistory Plugin - Jenkins - Jenkins Wiki</a><br/>
+<a href="https://wiki.jenkins-ci.org/display/JENKINS/Extension+points">Extension points - Jenkins - Jenkins Wiki</a><br/>
+<a href="https://wiki.jenkins-ci.org/display/JENKINS/Extend+Jenkins">Extend Jenkins - Jenkins - Jenkins Wiki</a><br/>
+<a href="https://github.com/mikepenz/ModernJenkins">mikepenz/ModernJenkins</a> - A quick css to beautify your jenkins (SimpleThemePlugin required)<br/>
+<a href="https://wiki.jenkins-ci.org/display/JENKINS/Perl+Projects">Perl Projects - Jenkins - Jenkins Wiki</a><br/>
+<a href="https://wiki.jenkins-ci.org/display/JENKINS/Authenticating+scripted+clients">Authenticating scripted clients - Jenkins - Jenkins Wiki</a> - much easier to auth against Jenkins using token auth and basic auth instead of trying to automate the forms based authentication!<br/>
+List all jenkins jobs via groovy<br/>
+<pre>
+import hudson.model.*
+
+hudson.model.Hudson.instance.items.findAll{job -> job}.each {
+job ->
+println("Job: " + job.name)
+}
+</pre>
+<br/>
+<br/>
+<iframe src="http://www.slideshare.net/slideshow/embed_code/27692004" width="427" height="356" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="https://www.slideshare.net/carlossg/infrastructure-testing-with-jenkins-puppet-and-vagrant-agile-testing-days-2013" title="Infrastructure testing with Jenkins, Puppet and Vagrant - Agile Testing Days 2013" target="_blank">Infrastructure testing with Jenkins, Puppet and Vagrant - Agile Testing Days 2013</a> </strong> from <strong><a href="http://www.slideshare.net/carlossg" target="_blank">Carlos Sanchez</a></strong> </div>
+<a href="http://www.maestrodev.com/">MaestroDev</a> - Maestro™ is a DevOps Orchestration engine.<br/>
+<a href="https://github.com/maestrodev/maestro-plugin-archetypes">maestrodev/maestro-plugin-archetypes</a><br/>
+<a href="http://www.jfrog.com/home/v_artifactory_opensource_overview">Artifactory – the Open Source Repository Manager by JFrog</a><br/>
+<a href="https://learnchef.opscode.com/">Opscode Learn Chef</a> - #learnchef is a broad collection of resources specifically designed to help you learn Chef. Chef is "Infrastructure as Code".<br/>
+<br/>
+<br/>
+<h2>Gradle</h2>
+<a href="http://www.gradle.org/">Gradle - Build Automation Evolved</a> <a href="https://docs.gradle.org/current/userguide/userguide">Gradle User Guide</a><br/>
+<a href="http://gradleplease.appspot.com/">Gradle, please</a><br/>
+<br/>
+<br/>
+<h2>Versioning, setting uniquely identifying your build outputs</h2>
+Making sense of versioning is something that isn't so straight forward.  Everyone has their own opinion on how each of the fields should be used, how many places, when they should be moved, and the technology specifics of setting,getting, and managing versions of your software.<br/>
+<a href="http://semver.org/">Semantic Versioning 2.0.0</a><br/>
+<a href="http://blogs.msdn.com/b/larryosterman/archive/2009/03/05/checking-file-versions-is-surprisingly-hard.aspx">Checking file versions is surprisingly hard. - Larry Osterman's WebLog - Site Home - MSDN Blogs</a><br/>
+<a href="http://blogs.msdn.com/b/larryosterman/archive/2009/03/06/delay-load-is-not-a-good-way-to-check-for-functionality.aspx">Delay Load is not a good way to check for functionality - Larry Osterman's WebLog - Site Home - MSDN Blogs</a> - i love this: "But this doesn’t change the fact that (IMHO) you’re abusing the DelayLoad functionality and using it as a versioning mechanism."<br/>
+<br/>
+<br/>
+<h2>Capistrano for deployment</h2>
+So I've scripted bash and written custom apps for deployment before.  But I heard good things about the ruby tool called Capistrano.  You can install it with gem install capistrano.  It automates tasks and provides rollback capabilities.<br/>
+<a href="http://www.capify.org/">Capistrano: Home</a> - is a tool for automating tasks on one or more remote servers with rollback.<br/>
+<a href="http://www.unessa.net/en/hoyci/2007/06/using-capistrano-deploy-django-apps/">Same Con to Hoyci » Using Capistrano to Deploy Django Apps</a><br/>
+<a href="http://eric-schaefer.com/blog/2012/09/26/deploying-rails-app-dreamhost-capistrano/">Deploying a Rails Application to Dreamhost with Capistrano</a><br/>
+<br/>
+<br/>
+<h2>Puppet</h2>
+<a href="http://reductivelabs.com/">reductive</a> - reductive labs makes puppet a system for automating system administration tasks.  declarative configuration...uses ruby.<br/>
+<a href="http://info.puppetlabs.com/download-learning-puppet-VM.html">Puppet Labs | Download the Learning Puppet VM</a><br/>
+<a href="http://www.planetpuppet.org/">Planet Puppet</a><br/>
+<a href="http://github.com/railsmachine/moonshine">railsmachine's moonshine at master - GitHub</a> - moonshine uses Puppet + Capistrano giving you a configuration management and deployment system that follows the Rails way, simplifying server configuration, dependency management, and Rails application deployment.<br/>
+<a href="http://github.com/railsmachine/shadow_puppet">railsmachine's shadow_puppet at master - GitHub</a> - ShadowPuppet provides a DSL for creating collections ("manifests") of Puppet Resources in Ruby.<br/>
+<a href="http://github.com/railsmachine/railsmachine">railsmachine's railsmachine at master - GitHub</a> - RailsMachine is a collection of libraries for automating deployment and hosting configuration for Ruby on Rails applications using Capistrano and Rake.<br/>
+<a href="https://github.com/jfryman?tab=repositories">jfryman (James Fryman)</a> - <a href="https://github.com/jfryman/puppet-nginx">jfryman/puppet-nginx · GitHub</a> <a href="https://github.com/jfryman/puppet-php">jfryman/puppet-php · GitHub</a><br/>
+<a href="http://boxen.github.com/">BOXEN</a> - GitHub, Inc. wrote boxen and it only works on Mac OS X, using homebrew, puppet, and roughly a bajillion libraries.<br/>
+<a href="https://github.com/maestrodev/puppet-maven">maestrodev/puppet-maven</a> - A Puppet recipe for Apache Maven, to download artifacts from a Maven repository<br/>
+<a href="http://docs.puppetlabs.com/guides/module_guides/bgtm.html">Beginner's Guide to Modules — Documentation — Puppet Labs</a><br/>
+<a href="http://blogs.perl.org/users/chisel/2011/04/setting-up-a-git-managed-puppet-master.html">Chisel at blogs.perl.org: Quick Start : Puppet</a><br/>
+<a href="http://docs.puppetlabs.com/guides/external_nodes.html">External Node Classifiers — Documentation — Puppet Labs</a> - <a href="http://theforeman.org/">the foreman</a>, puppet <a href="http://puppetlabs.com/dashboard">dashboard</a>,puppet enterprise console, roll-your-own<br/>
+<a href="http://librarian-puppet.com/">librarian-puppet</a> - You can all stop using git submodules now. PuppetFile that defines modules, manages your modules directory. <a href="https://github.com/rodjek/librarian-puppet">rodjek/librarian-puppet · GitHub</a><br/>
+<a href="http://blog.csanchez.org/2013/01/24/managing-puppet-modules-with-librarian-puppet/">Managing Puppet modules with librarian-puppet | Carlos Sanchez's Weblog</a><br/>
+<br/>
+<h2>Puppet and MCollective</h2>
+<a href="http://puppetlabs.com/mcollective">MCollective Introduction: Programmatic Execution of Systems Administrations Actions | Puppet Labs</a> - framework to build server orchestration or parallel job execution systems.<br/>
+<a href="http://docs.puppetlabs.com/mcollective/deploy/index.html">MCollective » Deployment — Documentation — Puppet Labs</a><br/>
+<a href="http://docs.puppetlabs.com/mcollective/deploy/middleware/activemq.html">MCollective » Deploy » Middleware » ActiveMQ Config — Documentation — Puppet Labs</a><br/>
+<a href="http://www.devco.net/">R.I.Pienaar</a> <a href="http://www.devco.net/archives/2013/02/03/managing-puppet-using-mcollective.php">Managing Puppet Using MCollective | R.I.Pienaar</a> - <a href="https://github.com/ripienaar/mcollective-vagrant">ripienaar/mcollective-vagrant</a> - Vagrant based MCollective testing framework.<br/>
+<br/>
+<br/>
+<h2>Puppet and Augeas</h2>
+<pre>
+augeas { "display_errors":
+    context => "/files/etc/php5/apache2/php.ini",
+    changes => "set PHP/display_errors Off",
+}
+</pre>
+<a href="http://augeas.net/index.html">Augeas — Main</a> - Augeas is a configuration editing tool. It parses configuration files in their native formats and transforms them into a tree. Configuration changes are made by manipulating this tree and saving it back into native config files. C library,cmdline tools,DSL for config files.<br/>
+<a href="http://projects.puppetlabs.com/projects/1/wiki/puppet_augeas">Puppet Augeas - Puppet - Puppet Labs</a><br/>
+<a href="https://github.com/camptocamp/puppet-augeas">camptocamp/puppet-augeas · GitHub</a> - Helper for using augeas with puppet<br/>
+<a href="http://le-gall.net/sylvain+violaine/blog/index.php?post/2013/08/17/Augeas-tips-and-tricks-for-Puppet-user%3A-edit-a-complex-node.">Augeas tips and tricks for Puppet user: edit a complex node. - Blog of Sylvain Le Gall</a><br/>
+<a href="http://www.big-bubbles.fluff.org/blogs/bubbles/blog/2012/10/12/using-augeas-with-puppet/">Using Augeas with Puppet - Big Bubbles (no troubles)</a><br/>
+<a href="https://forge.puppetlabs.com/domcleal/augeasproviders">domcleal/augeasproviders · Puppet Forge</a><br/>
+<iframe src="http://www.slideshare.net/slideshow/embed_code/13758006?rel=0" width="427" height="356" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="https://www.slideshare.net/PuppetLabs/configuration-with-augeas" title="Configuration Surgery with Augeas" target="_blank">Configuration Surgery with Augeas</a> </strong> from <strong><a href="http://www.slideshare.net/PuppetLabs" target="_blank">Puppet Labs</a></strong> </div>
+<a href="http://serverfault.com/questions/361876/set-sysctl-conf-parameters-with-puppet">configuration management - Set sysctl.conf parameters with Puppet - Server Fault</a> - solutions include augeas config examples of sshd and sysctl.conf.<br/>
+<br/>
+<br/>
+<h2>Cucumber</h2>
+<a href="http://cukes.info/">Cucumber - Making BDD fun</a> - text is written in a business-readable domain-specific language and serves as documentation, automated tests and development-aid - all rolled into one format. (Cucumber works with Ruby, Java, .NET, Flex or web applications written in any language.)<br/>
+<a href="https://github.com/aslakhellesoy/cucumber/wiki/Given-When-Then">Given When Then - GitHub</a><br/>
+<a href="https://github.com/aslakhellesoy/cucumber/wiki/Feature-Introduction">Feature Introduction - GitHub</a><br/>
+<br/>
+<br/>
+<h2>Ruby testing</h2>
+<a href="http://maintainable.com/articles/dry_up_testing_with_autotest">Maintainable Software: DRY up testing in Rails with Autotest</a> - tool to continiously run rake test when your files change.  It will also color output for easier read and report tests through growl/snarl/kdenotify.<br/>
+<a href="https://github.com/jnicklas/capybara">jnicklas/capybara</a> - Acceptance test framework for web applications Selenium, Webkit or pure Ruby drivers.<br/>
+<br/>
+<br/>
+<a href="http://quattor.org/index.html">Quattor | Home</a> - <a href="http://youtu.be/ehVMxbJdld8">CERN</a> also needs IaaS <a href="https://twiki.cern.ch/twiki/bin/view/FIOgroup/ServiceLevelStatusProject#Service_managers_manual_how_to_a">ServiceLevelStatusProject &lt; FIOgroup &lt; TWiki</a><br/><br/>
+<br/>
+<br/>
+<a href="https://www.batlab.org/">The BaTLab | www.batlab.org</a> - Build and Test Lab (BaTLab) at UW-Madison. <a href="https://www.batlab.org/?q=metronome-tutorial">Metronome Tutorial | www.batlab.org</a><br/>
+<a href="http://polyphemus.org/">Polyphemus-CI — polyphemus documentation</a> - one eye makes for shallow bugs, pure python, pip and easy_install polyphemus<br/>
+<br/>
+<br/>
+<h2>Software Verification</h2>
+formal verification of multi-threaded software applications, developed at Bell Labs when I was born...PROcess MEta LAnguage<br/>
+<a href="http://spinroot.com/spin/whatispin.html">Spin - Formal Verification</a><br/>
+<a href="http://www.idryman.org/blog/2012/04/10/practical-software-verification-using-SPIN/">Practical software verification using SPIN - Carpe diem (Felix's blog)</a><br/>
+<br/>
+<br/>
+<h2>local browser syncs</h2>
+<a href="http://www.telerik.com/fiddler">Fiddler free web debugging proxy</a><br/>
+<a href="https://www.browsersync.io/">Browsersync - Time-saving synchronised browser testing</a> - npm install -g browser-sync<br/>
+    <div style="border: 1px;">
+    Created: 2006-09-04 02:02:07
+    Modified: 2017-05-23 19:40:48
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+$$\cos x = \sum\limits_{n = 0}^\infty {\frac{{\left( { - 1} \right)^n x^{2n} }}{{\left( {2n} \right)!}}}$$
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

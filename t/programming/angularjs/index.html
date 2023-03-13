@@ -1,0 +1,344 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>Angular.js</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/programming/">programming</a>
+    <h1>Angular.js</h1>
+   <h2>Angular.js</h2>
+<a href="http://angularjs.org/#/">AngularJS — Superheroic JavaScript MVC Framework</a><br/>
+<a href="https://docs.angularjs.org/guide">AngularJS: Developer Guide: Developer Guide</a><br/>
+<a href="http://ngmodules.org/">Popular Modules - AngularJS Modules, Plugins and Directives</a><br/>
+<a href="http://www.sitepoint.com/10-reasons-use-angularjs/">10 Reasons Why You Should Use AngularJS - SitePoint</a><br/>
+<a href="http://angular-tips.com/">Angular Tips</a> - blog with angularjs tips, <a href="https://github.com/Foxandxss/angular-tips">Foxandxss/angular-tips</a><br/>
+<br/>
+<br/>
+<h2>RequireJS and AngularJS</h2>
+RequireJS injects Classes. AngularJS injects instances.<br/>
+<a href="http://marcoslin.github.io/angularAMD/#/home">angularAMD: The Simple Way to Integrate AngularJS and RequireJS</a> - Facilitate use of RequireJS in AngularJS <a href="https://github.com/marcoslin/angularAMD">marcoslin/angularAMD</a><br/>
+<h2>message queue /w STOMP, websockets, and angularjs</h2>
+<a href="http://www.cakesolutions.net/teamblogs/2013/09/14/websockets-angularjs-rabbitmq-c-in-spring-4/">Websockets, AngularJS, RabbitMQ, C++ in Spring 4 | Cake Solutions Team Blog</a> -  Spring Framework 4-based application that makes the most of WebSockets, RabbitMQ, and OpenCV to implement a simple computer vision application. It counts coins that an iOS application sends in a video stream over binary web socket.<br/>
+<a href="https://github.com/gtarcea/AngularStomp">gtarcea/AngularStomp</a> - Angular service to Web-Stomp.<br/>
+<br/>
+<br/>
+<h2>Blogs with angular.js content</h2>
+<a href="http://ryanlanciaux.github.io/">Ryan Lanciaux</a><br/>
+<br/>
+<br/>
+<h2>Getting started with angular</h2>
+<a href="http://www.adobe.com/devnet/html5/articles/angularjs-directives-and-the-computer-science-of-javascript.html">AngularJS directives and the computer science of JavaScript | Adobe Developer Connection</a> - bringging that blink back.<br/>
+<a href="http://www.adobe.com/devnet/html5/articles/getting-started-with-angularjs.html">Getting started with AngularJS | Adobe Developer Connection</a><br/>
+<br/>
+<br/>
+<h2>Screencasts about angular.js</h2>
+<a href="http://egghead.io/">egghead.io: Learn AngularJS with Tutorial Videos &amp; Training - @eggheadio</a><br/>
+<iframe width="560" height="315" src="//www.youtube.com/embed/Yg-R1gchccg" frameborder="0" allowfullscreen></iframe>
+<br/>
+<br/>
+<h2>Comparative analysis of angularjs</h2>
+<a href="https://github.com/bitovi/todomvc">bitovi/todomvc · GitHub</a> - Helping you select an MV* framework - Todo apps for Backbone.js, Ember.js, AngularJS, Spine and many more.<br/>
+<a href="http://sporto.github.io/blog/2013/04/12/comparison-angular-backbone-can-ember/">A comparison of Angular, Backbone, CanJS and Ember - Sebastian's Blog</a><br/>
+<br/>
+<br/>
+<h2>Angularjs Samples || Angular.js seeds</h2>
+<a href="http://coenraets.org/blog/2012/02/sample-application-with-angular-js/">Sample Application with Angular.js</a> - wine celler in angular.js<br/>
+<a href="https://github.com/GoogleChrome/wReader-app">GoogleChrome/wReader-app</a> - wReader is a simple web feed reader implemented as a Chrome Platform app using AngularJS. Twitter bootstrap and Chrome App platform SDKs.<br/>
+<a href="http://slides.ng-tube.com/#/">Awesome Interfaces with AngularJS Animations (slides)</a>  <a href="http://www.ng-tube.com/#/">ng-tube (demo)</a> <a href="https://github.com/yearofmoo/ng-tube">yearofmoo/ng-tube (github)</a><br/>
+<a href="https://github.com/angular/angular-seed">angular/angular-seed</a> - Seed project for angular apps, from angular team.<br/>
+<a href="https://github.com/btford/angular-socket-io-seed">btford/angular-socket-io-seed</a> - AngularJS apps backed by a Socket.io-powered node.js server. <a href="https://github.com/btford/angular-socket-io">btford/angular-socket-io</a><br/>
+<br/>
+<br/>
+<h2>Cool directives</h2>
+<a href="http://docs.angularjs.org/guide/directive">AngularJS: Directives</a> - just the basic info on a directive.<br/>
+<a href="https://github.com/angular-ui/ui-router">angular-ui/ui-router · GitHub</a> - <a href="http://angular-ui.github.io/ui-router/sample/#/about">about - ui-router</a>  flexible routing with nested views, organize the parts of your interface into a state machine. States are bound to named, nested and parallel views.<br/>
+<a href="http://slid.es/timkindberg/ui-router">UI-Router by Tim Kindberg</a> -<a href="http://bit.ly/PinVtz">video of Tim presenting</a><br/>
+<a href="http://angular-ui.github.io/ui-router/sample/#/">home - ui-router</a> - hosted example ui-router.<br/>
+<a href="http://ui-grid.info/">ui-grid.info</a> <a href="http://angular-ui.github.io/ng-grid/">angular-ui.github.io/ng-grid</a> - Angular Data Grid written in AngularJS and jQuery by the AngularUI Team<br/>
+<a href="http://vitalets.github.io/x-editable/">X-editable :: In-place editing with Twitter Bootstrap, jQuery UI or pure jQuery</a><br/>
+<a href="http://btford.github.io/angular-unicorn-directive/">AngularJS Unicorn Directive</a><br/>
+<a href="http://angular-gettext.rocketeer.be/">angular-gettext</a> - Super-simple translation support for Angular.JS <a href="https://github.com/rubenv/angular-gettext-example">rubenv/angular-gettext-example Angular-gettext TodoMVC Example</a><br/>
+<a href="https://github.com/btford/angular-dragon-drop">btford/angular-dragon-drop</a> - <a href="https://github.com/btford/angular-dragon-drop">btford/angular-dragon-drop</a><br/>
+<a href="https://github.com/Jimdo/angular-draggabilly">Jimdo/angular-draggabilly</a> - Angular directive for <a href="http://draggabilly.desandro.com/">Draggabilly</a>; look ma, no jQuery! Make that shiz draggable.<br/>
+<a href="http://angular-formly.com/#/">angular-formly</a> - JavaScript Powered Forms for AngularJS<br/>
+<a href="http://bazalt-cms.com/ng-table/">ngTable: Simple and easy work with table on AngularJS (pagination, sorting, filtering)</a><br/>
+<a href="http://l-lin.github.io/angular-datatables/#/welcome">angular-datatables</a> - project to merge jQuery datatables and angularjs.<br/>
+<br/>
+<br/>
+<h2>Angular and twitter bootstrap</h2>
+<a href="http://angular-ui.github.io/bootstrap/">Angular directives for Twitter's Bootstrap</a> - Bootstrap components written in pure AngularJS by the AngularUI Team. no dependency on jQuery or bootstrap's javascript.<br/>
+<a href="http://mgcrea.github.io/angular-strap/">AngularStrap - Bootstrap directives for Angular</a><br/>
+<a href="http://odetocode.com/blogs/scott/archive/2013/08/14/dynamic-tabs-with-angularjs-and-ui-bootstrap.aspx">Dynamic Tabs with AngularJS and UI Bootstrap</a><br/>
+<a href="http://errietta.me/blog/bootstrap-angularjs-directives/">Errietta's blog » twitter bootstrap and angularjs directives</a><br/>
+<a href="http://mobileangularui.com/">Mobile Angular UI - Angular JS Mobile UI framework with Bootstrap 3 Css</a><br/>
+<br/>
+<br/>
+<h2>other UI frameworks and angular</h2>
+<a href="https://famo.us/integrations/angular/">Famo.us / Angular - Angular Famous</a> <a href="https://github.com/Famous/famous-angular">Famous/famous-angular</a> - Integrate Famo.us into AngularJS apps and build Famo.us apps using AngularJS tools.<br/>
+<a href="http://ionicframework.com/">Ionic: Advanced HTML5 Hybrid Mobile App Framework</a> - Advanced HTML5 Mobile App Framework. A beautiful front-end framework for developing hybrid mobile apps in HTML5. Best friends with AngularJS. <a href="https://github.com/driftyco/ionic">driftyco/ionic</a><br/>
+<br/>
+<br/>
+<h2>Angular Scopes</h2>
+<a href="http://stackoverflow.com/questions/11605917/this-vs-scope-in-angularjs-controllers">this vs $scope in AngularJS controllers - Stack Overflow</a><br/>
+<br/>
+<br/>
+<h2>CRUD Angularjs</h2>
+<a href="https://github.com/mgonto/restangular">mgonto/restangular</a> - Restangular is an AngularJS service that simplifies common GET, DELETE, and UPDATE requests with a minimum of client code.<br/>
+<a href="https://github.com/angular-app/angular-app">angular-app/angular-app</a> - AngularJS CRUD application demo<br/>
+<br/>
+<br/>
+<a href="https://github.com/jeffbcross/omnibinder">jeffbcross/omnibinder</a> - One binder to bind AngularJS models to everything. and by everything, currently it means binding arrays of objects to HTML5 LocalStorage, REST, or roll-your-own.<br/>
+<br/>
+<br/>
+<a href="https://github.com/tamaspiros/angularchat">tamaspiros/AngularChat</a><br/>
+<br/>
+<br/>
+<h2>Protractor Angular testing</h2>
+E2E test framework for Angular apps<br/>
+<a href="https://github.com/angular/protractor">angular/protractor</a> - end to end test framework for Angular apps. using <a href="https://code.google.com/p/selenium/wiki/WebDriverJs">WebDriverJs (selenium)</a>.<br/>
+<a href="https://github.com/juliemr/protractor-demo">juliemr/protractor-demo</a> - Demo test application and protractor tests<br/>
+<br/>
+<br/>
+<h2>MEAN (Mongo, Express, AngularJS, Node)</h2>
+<a href="https://github.com/mgonto/meaner-seed">mgonto/meaner-seed</a> - partly based on mean.io and ngBoilerplate which are 2 great seeds projects for mean and angularjs.<br/>
+<a href="http://mean.io/#!/">MEAN.io - A Fullstack Javascript Framework</a> <a href="https://github.com/linnovate/mean">linnovate/mean</a><br/>
+<a href="https://github.com/ngbp/ngbp">ngbp/ngbp</a> - ngBoilerplate<br/>
+<a href="https://github.com/tamaspiros/contactmanager-2.0#basic-contact-manager-written-using-the-mean-stack">tamaspiros/contactmanager-2.0</a><br/>
+    <div style="border: 1px;">
+    Created: 2013-10-02 12:36:20
+    Modified: 2015-04-21 22:35:25
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+0, 1, 1, 2, 3, 5, 8, 13, 21, 34,...<br/>
+<b> x<sub>n</sub> = x<sub>n-1</sub> + x<sub>n-2</sub></b><br/>
+<!-- "Fibonacci" was his nickname, which roughly means "Son of Bonacci". -->
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

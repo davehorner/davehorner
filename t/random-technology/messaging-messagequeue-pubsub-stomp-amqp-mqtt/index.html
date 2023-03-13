@@ -1,0 +1,357 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>messaging - MessageQueue PubSub STOMP AMQP MQTT</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/random-technology/">random-technology</a>
+    <h1>messaging - MessageQueue PubSub STOMP AMQP MQTT</h1>
+   <a href="https://www.simplicidade.org/notes/archives/2014/08/messaging.html">Notes: Messaging</a> - Enough words already. Go and start having fun with this stuff.<br/>
+<br/>
+<br/>
+
+<h2>things</h2>
+<a href="http://diesel.io/">Home | diesel</a> - Python<br/>
+<a href="http://meteorserver.org/">Meteor</a> - perl<br/>
+<a href="http://socket.io/">Socket.IO: the cross-browser WebSocket for realtime apps.</a><br/>
+<a href="https://github.com/vti/pocketio">vti/pocketio</a> - PocketIO - Socket.IO PSGI application<br/>
+<br/>
+<br/>
+<h2>ZeroMQ || 0mq</h2>
+<a href="http://dave.thehorners.com/tech-talk/programming/469-zeromq-0mq-zmq">ZeroMQ - zero broker networking concurrency library - Dave Horner's Website</a><br/>
+<br/>
+<br/>
+<h2>STOMP / AMQP</h2>
+Stomp (Streaming Text Oriented Messaging Protocol) is a pub/sub wire protocol.<br/>
+<a href="http://stomp.codehaus.org/Protocol">Stomp - Protocol</a><br/>
+<a href="http://activemq.apache.org/apollo/index.html">Apollo</a> - STOMP, AMQP, MQTT, Openwire, SSL, REST, and WebSockets. written in Scala using maven.<br/>
+<a href="http://www.jboss.org/hornetq.html">HornetQ - putting the buzz in messaging - JBoss Community</a><br/>
+<a href="http://activemq.apache.org/">Apache ActiveMQ</a> - apache powerful open source Enterprise Messaging and Integration Patterns provider.<br/>
+<a href="http://orbited.org/">Orbited – Networking for the Web</a> - python web router and firewall that allows you to integrate web applications with arbitrary back-end systems (XMPP,IRC,STOMP). uses twisted and morbidq.<br/> 
+<a href="http://morbidq.com/">MorbidQ</a> - a python STOMP broker, single node, uses twisted.<br/>
+<a href="http://www.willowchat.org/">Willow Chat – Networking for the Web</a> - uses Orbited and implements a simple web chat in python.<br/>
+<a href="http://cometdaily.com/2008/10/10/scalable-real-time-web-architecture-part-2-a-live-graph-with-orbited-morbidq-and-jsio/">Comet Daily » Blog Archive » Scalable Real-Time Web Architecture, Part 2: A Live Graph with Orbited, MorbidQ, and js.io</a><br/>
+<a href="http://www.germane-software.com/software/Java/Gozirra/">Gozirra</a> - simple java STOMP client/server.<br/>
+<a href="http://www.thuswise.org/sprinkle/index.html">Sprinkle - A STOMP messaging broker written in Python</a><br/>
+<a href="http://code.google.com/p/stomperl/">stomperl - Project Hosting on Google Code</a> - Stomp broker with Erlang<br/>
+<a href="http://stompserver.rubyforge.org/">stompserver's stompserver-0.9.8 Documentation</a> - ruby stomp server, this article talks about using it from a python client...<a href="http://morethanseven.net/2008/09/14/using-python-and-stompserver-get-started-message-q/">Using Python and Stompserver to Get Started With Message Queues | Morethanseven</a><br/>
+<a href="http://github.com/juretta/objc-stomp/tree/master">juretta's objc-stomp at master - GitHub</a> - objc stomp client<br/>
+<a href="http://cometdaily.com/2008/10/08/scalable-real-time-web-architecture-part-1-stomp-comet-and-message-queues/">Comet Daily » Blog Archive » Scalable Real-Time Web Architecture, Part 1: Stomp, Comet, and Message Queues</a><br/>
+<a href="http://www.rabbitmq.com/">RabbitMQ - Open Source Messaging</a><br/>
+<a href="https://code.google.com/p/rocksteady/">rocksteady - Making sense with metrics - Google Project Hosting</a> - Rocksteady is a java application that reads metrics from RabbitMQ, parse them and turn them into events so Esper(CEP) can query against those metric and react to events match by the query. (for devs who want to monitor their app with metric instead of gut feeling.)<br/>
+<a href="http://anirudhsanjeev.org/tutorialhow-to-django-comet-orbited-stomp-morbidq-jsio/">[tutorial]How to: Django, Comet, Orbited, Stomp, MorbidQ, js.io | Thought Outflux | Anirudh Sanjeev</a><br/>
+<a href="http://qpid.apache.org/index.html">Apache Qpid: Open Source AMQP Messaging - Index</a><br/>
+<a href="http://ask.github.com/carrot/introduction.html#sub-classing-the-messaging-classes">carrot - AMQP Messaging Framework for Python — Carrot v0.10.1 documentation</a><br/>
+<iframe src="http://www.slideshare.net/slideshow/embed_code/5456694" width="427" height="356" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px 1px 0; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>
+<br/>
+<br/>
+<h2>MQTT || MQ Telemetry Transport</h2>
+Pervasive messaging<br/>
+<a href="http://mqtt.org/">MQTT</a> - MQTT is a machine-to-machine (M2M)/"Internet of Things" connectivity protocol. It was designed as an extremely lightweight publish/subscribe messaging transport. It is useful for connections with remote locations where a small code footprint is required and/or network bandwidth is at a <b>premium</b>. tcp/ip 1883 or ssl 8883.<br/>
+<a href="http://mqtt.org/wiki/doku.php/mqtt_on_the_android_platform">MQ Telemetry Transport » wiki » mqtt_on_the_android_platform</a><br/>
+<a href="http://dalelane.co.uk/blog/?p=1599">Using MQTT in Android mobile applications « dale lane</a> - <a href="https://github.com/dirkmoors/MqttService">dirkmoors/MqttService</a> - Mqtt service for Android, based on Eclipse Paho Mqtt Client and Dale Lane's blog article <br/>
+<a href="http://stephendnicholas.com/archives/1217">stephendnicholas.com » Power Profiling: HTTPS Long Polling vs. MQTT with SSL, on Android</a> - really puts things into perspective when you start to chart % Battery / Hour in WiFI vs 3G<br/>
+<a href="http://mosquitto.org/">Mosquitto: An Open Source MQTT v3.1 Broker</a> - MQTT v3.1 broker providing lightweight method of carrying out messaging using a publish/subscribe model.<br/>
+<a href="https://github.com/stylpen/WSS">stylpen/WSS</a> - WebSocket to TCP Gateway (for MQTT), C++ websocket++,boost<br/>
+<a href="https://github.com/njh/ruby-em-mqtt">njh/ruby-em-mqtt</a> - MQTT support for EventMachine, gem install em-mqtt<br/>
+<a href="https://github.com/njh/mqtt-http-bridge">njh/mqtt-http-bridge</a> - MQTT to HTTP bridge, gem install bundler,bundle install,bundle exec rackup -p 1234 
+<br/>
+<a href="https://github.com/njh/mqtt-sn-tools">njh/mqtt-sn-tools</a> - Command line tools written in C for the MQTT-SN (MQTT For Sensor Networks) protocol<br/>
+<a href="https://github.com/adamvr/MQTT.js">adamvr/MQTT.js</a> - An MQTT library for node.js, npm install mqtt<br/>
+<a href="https://github.com/adamvr/MQTT-For-Twisted-Python">adamvr/MQTT-For-Twisted-Python</a> - An MQTT library written in Twisted Python<br/>
+<a href="https://github.com/adamvr/mqtt-growl">adamvr/mqtt-growl</a> - A growl based mqtt monitor, written in node.js javascript.<br/>
+<a href="http://knolleary.net/arduino-client-for-mqtt/">Arduino Client for MQTT « knolleary</a> <a href="https://github.com/knolleary/pubsubclient">knolleary/pubsubclient</a> - A client library for the Arduino Ethernet Shield that provides support for MQTT.<br/>
+<a href="http://mcollina.github.io/mosca/">Mosca by mcollina</a> The multi-transport MQTT broker for node.js. It supports AMQP, Redis, MongoDB, ZeroMQ or just MQTT. <a href="https://github.com/mcollina/mosca">mcollina/mosca</a> - mosca = fly in Italian<br/>
+<a href="https://github.com/adamvr/MQTT.js/">adamvr/MQTT.js</a> - MQTT in javascript.<br/>
+<iframe width="426" height="320" src="//www.youtube.com/embed/WE7GVIFRV7Q" allowfullscreen></iframe>
+<br/>
+<br/>
+<h2>Gearman</h2>
+<a href="http://gearman.org/">gearman [Gearman Job Server]</a> <a href="http://gearman.org/examples/">Examples [Gearman Job Server]</a><br/>
+<a href="https://launchpad.net/gearmand">Gearman in Launchpad</a> Gearman provides a generic application framework to farm out work to other machines or processes that are better suited to do the work. It allows you to do work in parallel, to load balance processing, and to call functions between languages.<br/>
+<a href="http://narmitag.wordpress.com/2010/02/13/gearman-on-ubuntu/">Gearman on Ubuntu | Replication and other database things</a><br/>
+<a href="http://www.perl-uwe.com/2010/12/day-18-doing-things-in-parallel-gearman.html">Perl-Uwe.com: Day 18: doing things in parallel (Gearman)</a><br/>
+<br/>
+<a href="https://metacpan.org/pod/Sque">Sque - Background job processing based on Resque, using Stomp - metacpan.org</a><br/>
+<br/>
+<h2>Internet of Things || IoT</h2>
+<a href="https://github.com/eclipse/ponte">eclipse/ponte</a> - Ponte is a multi-transport Internet of Things / Machine to Machine broker. As the current state it supports MQTT and REST APIs over HTTP and <a href="https://datatracker.ietf.org/doc/draft-ietf-core-coap/">CoAP</a>.<br/>
+<br/>
+<h2>NSQ || a realtime distributed messaging platform</h2>
+NSQ core is written in <a href="/tech-talk/programming/505-go-gopher">Go</a>.<br/>
+<a href="http://nsq.io/">NSQ Docs 0.2.28 - a realtime distributed messaging platform</a><br/>
+<br/>
+<br/>
+<h2>redis || restmq</h2>
+<a href="http://redis.io/">Redis</a> - Redis is an open source, BSD licensed, advanced key-value store. It is often referred to as a data structure server since keys can contain strings, hashes, lists, sets and sorted sets.<br/>
+<a href="http://restmq.com/">RestMQ - Redis based message queue</a> - Python, Twisted, Cyclone (a Tornado implementation over twisted) and Redis. <a href="https://github.com/gleicon/restmq">gleicon/restmq</a><br/>
+<a href="http://rbucker.wordpress.com/tag/restmq/">restmq | Richard Bucker</a><br/>
+<br/>
+<br/>
+<h2>snakeMQ || pure python message queue</h2>
+<a href="http://www.snakemq.net/">snakeMQ - message queuing for Python</a><br/>
+    <div style="border: 1px;">
+    Created: 2014-03-09 22:51:18
+    Modified: 2014-09-01 12:50:51
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+<span id=daysToChristmas>x</span> days to Christmas.<br/>
+<span id=daysToNewYear>x</span> days to a new year.<br/>
+Happy Holidays!
+<script Language="JavaScript">
+function showtime () {
+        msPerDay = 24 * 60 * 60 * 1000 ; // Number of milliseconds per day
+        var now = new Date();
+        var year = now.getYear();
+        if (year < 1000)
+         year+=1900
+        nextXmas = new Date("December 25, 2000")
+        nextXmas.setYear(year)
+        daysLeft = (nextXmas.getTime() - now.getTime()) / msPerDay;
+        daysLeft = Math.round(daysLeft);
+        var span=document.getElementById('daysToChristmas');
+        span.removeChild(span.firstChild);
+        span.appendChild(document.createTextNode(daysLeft+''));
+        
+        nextXmas = new Date("December 31, 2000")
+        nextXmas.setYear(year)
+        daysLeft = (nextXmas.getTime() - now.getTime()) / msPerDay;
+        daysLeft = Math.round(daysLeft);
+
+        span=document.getElementById('daysToNewYear');
+        span.removeChild(span.firstChild);
+        span.appendChild(document.createTextNode(daysLeft+''));
+        setTimeout("showtime()",msPerDay);
+}
+showtime();
+</script>
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

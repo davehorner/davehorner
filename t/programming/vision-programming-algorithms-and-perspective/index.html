@@ -1,0 +1,366 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>Vision - programming, algorithms, and perspective.</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/programming/">programming</a>
+    <h1>Vision - programming, algorithms, and perspective.</h1>
+   <img width="125" height="74" border="0" align="texttop" title="vision.png" alt="vision.png" src="/images/stories/vision.png"/>
+<a href="http://en.wikipedia.org/wiki/Visual_perception">Visual perception</a><br/>
+<a href="http://xenia.media.mit.edu/~cwren/interpolator/">Perspective Transform Estimation</a><br/>
+<a href="http://comparametric.sourceforge.net/">The Comparametric Toolkit</a> - based on work from <a href="http://wearcam.org/steve.html">Steve Mann</a><br/>
+<a href="http://openvidia.sourceforge.net/">OpenVIDIA : Parallel GPU Computer Vision</a><br/>
+<br/>
+Another interesting library that I would like to learn more about is <a href="http://gandalf-library.sourceforge.net/">Gandalf</a>.  Gandalf is another vision library written in C.  It provides many of the things that OpenCV provides.  Like feature detection, camera modeling (fundamental matrix solving), hough transforms, etc.  However, it seems there is little out there in way of research papers that use the library.  I'm also having trouble just finding projects using it on the web.<br/>
+<br/>
+<br/>
+Vision is something that has been missing from computers since the beginning.  Today we are finally getting the harddrive space, the cameras, and the horse power to actually handle the job.  I just bought an iMac with an integrated 640x480 camera with integrated microphone.  You can pickup a pan/tilt (1.3 Megapixel, again with noise cancelling microphone) camera for under 120 bucks.... amazing.<br/>
+<br/>
+The next thing that is really exciting... is that manufacters like logitech are finally creating their own vision SDKs.  This means that you can write software for a manufacterer.... hardware accelerated...and supported across multiple platforms and OSes.  Very powerful.<br/>
+<br/>
+So I have yet to use the logitech vision SDK... but here are some links on the new tech.  I'll let you know what I find. Check back on this page soon.<br/>
+<br/>
+<a href="http://www.logitech.com/index.cfm/about/pressroom/information/US/EN,contentid=1218,year=2000" target="_blank">Logitech Establishes Vision as Technology Platform with QuickCam® Software Development Kit Release<br/>
+</a><a href="http://www.logitech.com/index.cfm/partners/info/AU/EN,CRID=971,parentCRID=948,scrid=948,categoryID=231" target="_blank">QuickCam Developer Program Signup</a><br/>
+<a href="http://www.quickcamteam.net/documentation/how-to/how-to-control-pan-tilt-zoom-on-logitech-cameras">How to control pan/tilt/zoom on Logitech cameras â?? QuickCam Team</a><br/>
+<br/>
+Image transforms can provide a lot of interesting information about image data.<br/>
+Checkout these:<br/>
+<a href="http://eivind.imm.dtu.dk/staff/ptoft/Radon/Radon.html">The Radon Transform</a> by <a href="http://pto.linux.dk/">Peter Toft's</a>, this is an overview of the Radon Transform.  You should also checkout <a href="http://pto.linux.dk/PhD/">Peter Toft's PhD thesis af programs</a><br/>
+<br/>
+<a href="http://www.cg.cs.uni-bonn.de/project-pages/3dsearch/downloads.html">shape retrieval using 3D Zernike Descriptors with C++</a><br/>
+<a href="http://live.gnome.org/CamTrack">CamTrack - Visual Face Tracking</a><br/>
+<a href="http://www.csd.uwo.ca/faculty/barron/">John Barron's Home Page (some good vision papers)</a><br/>
+<a href="http://www.caip.rutgers.edu/riul/research/robust.html">Research: Robust Analysis of Visual Data</a> - (C++ optical flow and others)<br/>
+<a href="http://revel.sourceforge.net/">Revel</a>, the Really Easy Video Encoding Library (C++ <br/>
+<a href="http://www.psychopy.org/home.php/Main/HomePage">PsychoPy</a> - psychophysics a free and simple stimulus presentation and control package.<br/>
+<a href="http://www.visionegg.org/Intro_and_Overview">Vision Egg</a> - produce stimuli for vision research experiments.<br/>
+<a href="http://graphics.cs.cmu.edu/courses/15-463/2005_fall/www/463.html">CMU's class: 15-463 (15-862): Computational Photography</a><br/>
+<a href="http://ashishrd.blogspot.com/2007/06/pong-playing-computer-playing-against.html">Pong Playing Computer playing against another computer using a webcam as an eye!</a><br/>
+<br/>
+<br/>
+<a href="http://www.fxguide.com/article333.html">fxguide - visual effects news - Art of Optical Flow</a><br/>
+<a href="http://chipsight.com/">ChipSight</a> -Easy Eye: SiLabs 8051 + Camera<br/>
+<br/>
+<br/>
+<a href="http://channel9.msdn.com/coding4fun/articles/Building-the-Laser-Graffiti-System">Building the Laser Graffiti System | Coding4Fun Articles | Channel 9</a><br/>
+<a href="http://www.aforgenet.com/framework/">AForge.NET :: Framework</a> - is an open source C# framework designed for developers and researchers in the fields of Computer Vision and Artificial Intelligence - image processing, neural networks, genetic algorithms, fuzzy logic, machine learning, robotics, etc.<br/>
+<br/>
+<br/>
+<a href="http://people.csail.mit.edu/mrub/vidmag/">Eulerian Video Magnification</a> - siggraph2012<br/>
+<a href="http://en.wikipedia.org/wiki/Visual_odometry">Visual odometry - Wikipedia, the free encyclopedia</a><br/>
+<a href="http://www.cvlibs.net/software/index.html">Vision Software</a> - camera calibration,visual odometry,stero matching GPL licensed...<br/>
+<a href="http://research.google.com/pubs/pub40814.html">Fast, Accurate Detection of 100,000 Object Classes on a Single Machine</a> - google's paper on object detection with hashing dot-product kernels in convolution.<br/>
+<br/>
+<br/>
+<h2>Kinect || Project Natal</h2>
+<a href="http://en.wikipedia.org/wiki/Kinect">Kinect - Wikipedia</a><br/>
+<a href="http://www.microsoftstore.com/store/msstore/en_US/pd/productID.246711100?WT.mc_id=mercent&amp;mr:trackingCode=74A719B2-EC65-E111-B2BE-001B21A69EB0&amp;mr:referralID=NA&amp;origin=pla&amp;mr:adType=pla">Buy Kinect for Windows, kinect sensor for use with Windows Commercial SDK - Microsoft Store Online</a> - 150 for educational version...<br/>
+<a href="http://msdn.microsoft.com/en-us/library/hh855348.aspx">Kinect for Windows Programming Guide</a><br/>
+<a href="http://openkinect.org/wiki/Main_Page">Main Page - OpenKinect</a><br/>
+<a href="http://hackaday.com/2012/03/03/very-easy-3d-scanning-software-with-reconstructme/">Very easy 3D scanning software with ReconstructMe - Hack a Day</a><br/>
+<a href="http://www.kinectathome.com/">Kinect@Home</a><br/>
+<a href="http://www.artec3d.com/">Artec 3D Scanners - Complete 3D Scanning Solutions</a><br/>
+<a href="http://www.pointclouds.org/">PCL - Point Cloud Library (PCL)</a> - 2D/3D image and point cloud processing. C++<br/>
+<a href="http://www.openni.org/">Open-source SDK for 3D sensors - OpenNI</a><br/>
+<a href="http://pointclouds.org/news/2013/05/13/kinect-for-windows-with-pcl/">Kinect for Windows with PCL - Point Cloud Library (PCL)</a> <a href="https://github.com/mdkus/kinect-mssdk-openni-pcl-bridge/">mdkus/kinect-mssdk-openni-pcl-bridge</a><br/>
+<a href="http://shiffman.net/p5/kinect/">Daniel Shiffman : Getting Started with Kinect and Processing</a><br/>
+<a href="https://github.com/MSOpenTech/Kinect-for-Windows-Samples">MSOpenTech/Kinect-for-Windows-Samples</a><br/>
+<a href="http://www.tatsch-it.de/xbox-one-kinect-osx/">Hacking the Xbox One Kinect 2.0 for Mac OsX</a><br/>
+<br/>
+<br/>
+<h2>cheap small camera,battery,controller,and buttons - the 808</h2>
+<a href="http://www.chucklohr.com/808/index.shtml">808 Car Keys Micro Camera, Micro Video Recorder, Review</a><br/>
+<a href="http://www.chucklohr.com/808/C3/index.html">808 Car Keys Micro Camera Review - Version #3</a><br/>
+<a href="http://www.software-schlosser.de/index.php?nav=808setclock_en">software-schlosser - 808SetClock</a><br/>
+<br/>
+<br/>
+<h2>Colors and Colorimetry</h2>
+<a href="http://www.madore.org/~david/misc/color/">Colors and Colorimetry</a><br/>
+<br/>
+<br/>
+<h2>motion magnification</h2>
+ amplify and reveal small motions.<br/>
+<pre>
+@article{Wu12Eulerian,
+  author = {Hao-Yu Wu and Michael Rubinstein and Eugene Shih and John Guttag and Fr\'{e}do Durand and
+  William T. Freeman},
+  title = {Eulerian Video Magnification for Revealing Subtle Changes in the World},
+  journal = {ACM Transactions on Graphics (Proc. SIGGRAPH 2012)},
+  year = {2012},
+  volume = {31},
+  number = {4},
+}</pre>
+<a href="http://people.csail.mit.edu/mrub/vidmag/">Eulerian Video Magnification</a> - reveal temporal variations in videos that are difficult or impossible to see with the naked eye and display them in an indicative manner.<br/>
+<a href="http://people.csail.mit.edu/mrub/papers/vidmag.pdf">Eulerian Video Magni?cation for Revealing Subtle Changes in the World (PDF)</a><br/>
+<a href="http://www.extremetech.com/extreme/149623-mit-releases-open-source-software-that-reveals-invisible-motion-and-detail-in-video">MIT releases open-source software that reveals invisible motion and detail in video | ExtremeTech</a><br/>
+<a href="http://dl.acm.org/citation.cfm?id=2185561&amp;picked=formats&amp;CFID=260213031&amp;CFTOKEN=79227134">Eulerian video magnification for revealing subtle changes in the world</a><br/>
+They have done more work on this, and now they are using visual information to extract sound!<br/>
+<a href="http://people.csail.mit.edu/mrub/VisualMic/">The Visual Microphone</a> Passive Recovery of Sound from Video<br/>
+<br/>
+<br/>
+<h2>HTML5 vision</h2>
+<a href="http://auduno.github.io/clmtrackr/examples/facesubstitution.html">Face substitution</a> using clmtrackr<br/>
+<a href="https://github.com/auduno/clmtrackr">auduno/clmtrackr</a> - Javascript library for precise tracking of facial features via Constrained Local Models.<br/>
+<a href="http://auduno.tumblr.com/post/61888277175/fitting-faces">auduno.tumblr - AN EXPLANATION OF CLMTRACKR</a> - from clmtrackr's creator Audun Mathias Øygard.<br/>
+<a href="https://github.com/wellflat/javascript-labs/">wellflat/javascript-labs</a>-Fast Fourier Transform (1D-FFT/IFFT, 2D-FFT/IFFT),
+Stereo Matching,
+Poisson Image Editing,
+Corner Detection,
+Fish-Eye Transform,
+Image Processing Filters (convolution, symmetric nearest neighbor, jitter),
+Image Histogram Calculation,
+Decision Tree Learning,
+K-Means++ Clustering,
+3D Shape Drawing (Mobius Strip, Klein Bottle, Heart Surface),
+etc..<br/>
+    <div style="border: 1px;">
+    Created: 2005-03-26 16:53:39
+    Modified: 2018-09-08 02:50:21
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+$$\cos x = \sum\limits_{n = 0}^\infty {\frac{{\left( { - 1} \right)^n x^{2n} }}{{\left( {2n} \right)!}}}$$
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

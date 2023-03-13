@@ -1,0 +1,483 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>Google - keeping an eye on the big guy.</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/p/">Personal</a>
+<a href="/p/random-thoughts/">random-thoughts</a>
+    <h1>Google - keeping an eye on the big guy.</h1>
+   <a href="http://www.techcrunch.com/2007/10/30/details-revealed-google-opensocial-to-be-common-apis-for-building-social-apps/">Details Revealed: Google OpenSocial To Launch Thursday</a><br/>
+<a href="http://blogoscoped.com/archive/2008-03-12-n39.html">The Tools Google Uses Internally</a><br/>
+<a href="http://www.google.com/webelements/">Google Web Elements</a> - embed google features in your website.<br/>
+<a href="http://marklyon.org/gmail/">Mark Lyon's GMail Loader (GML) - Import Your Mail into GMail</a> - awesome tool, uses python and tcl<br/>
+<a href="http://code.google.com/speed/public-dns/docs/using.html">Using Google Public DNS</a> - Google now provides free public DNS name resolution! *8.8.8.8 *8.8.4.4<br/>
+<br/>
+<br/>
+<h2>Google Canary Development || Chromium development</h2>
+<a href="http://www.chromium.org/developers/how-tos/debugging">Debugging Chromium on Windows - The Chromium Projects</a><br/>
+<a href="http://www.chromium.org/developers/how-tos/build-instructions-windows">Build Instructions (Windows) - The Chromium Projects</a><br/>
+6/3/14 - canary builds now include x64 support.  check to see if chrome canary is x64 by checking in task manager (Ctrl-Shift-Esc). Make sure the chrome process isn't showing a *32 at the end.<br/>
+<a href="https://github.com/dnschneid/crouton">dnschneid/crouton</a> - Chromium OS Universal Chroot Environment.<br/>
+<a href="https://randomascii.wordpress.com/">Random ASCII | Forecast for randomascii: programming, tech topics, with a chance of unicycling</a><br/>
+<a href="https://randomascii.wordpress.com/2016/03/24/compiler-bugs-found-when-porting-chromium-to-vc-2015/">Compiler Bugs Found When Porting Chromium to VC++ 2015 | Random ASCII</a><br/>
+<br/>
+<br/>
+<h2>chromecast audio && chromecast</h2>
+<a href="https://support.google.com/chromecast/answer/3212008?hl=en">Google Cast extension - Chromecast Help</a> - u need this to get the chromecast options within chrome...<br/>
+<a href="https://developers.google.com/cast/">Cast  |  Google Developers</a><br/>
+<br/>
+<br/>
+<h2>Tab restore in chrome</h2>
+Chrome's tabbed browsing is quite nice and works as it should most of the time.  But there are times when your machine reboots (blue screen like) and your saved session is lost.  They do save your last session, but they do not offer the ability to save off a number of sessions so that my 100+ tabs are not lost when google fails to sense a crash and restore properly.  If you in haste, open and close your chrome; <strong>your tabs are lost in the ether.</strong> this actually, is <em>very frustrating</em>.<br/>
+<a href="http://lifehacker.com/how-can-i-restore-closed-tabs-after-accidentally-quitti-1452314285">How Can I Restore Closed Tabs After Accidentally Quitting Chrome?</a><br/>
+<br/>
+<br/>
+<h2>Polymer - pretend you're living in the future</h2>
+<a href="http://dave.thehorners.com/tech-talk/programming/514-polymer-pretend-youre-living-in-the-future">Polymer - pretend you're living in the future - Dave Horner's Website</a><br/>
+<br/>
+<br/>
+
+<h2>Android</h2>
+Content moved to <a href="http://dave.thehorners.com/tech-talk/programming/459-android-programming">Android Programming</a><br/>
+<br/>
+<h2>Web Toolkit (GWT)</h2>
+Google web toolkit - compiles java into javascript which runs on web browser.<br/>
+<a href="http://code.google.com/webtoolkit/download.html">Google Web Toolkit Downloads - Google Web Toolkit - Google Code</a><br/>
+<br/>
+<h2>Google gears - portable javascript database.</h2>
+Google Gears - provides offline support (open source - OSX,Linux,Windows)<br/>
+SQL interface available in javascript client (Sqlite with full text searching).<br/>
+Resource store - cache that handles http://xxx/ requests when offline.<br/>
+Worker pool threads for javascript!<br/>
+Internet Explorer ActiveX - Firefox extension - Apple Saffari<br/>
+Used within google reader and google mail for offline support.<br/>
+Wow!  Look, google gears goes mobile with windows mobile 5 & 6!<br/>
+<a href="http://googlemobile.blogspot.com/2008/03/shifting-google-gears-to-mobile.html">Official Google Mobile Blog: Shifting Google Gears to mobile</a><br/>
+<a href="http://code.google.com/apis/gears/mobile.html">Google Gears on Mobile Devices - Google Gears API - Google Code</a><br/>
+<a href="http://www.hanselman.com/blog/GoogleGearsMaybeAllRichInternetApplicationsNeededWasLocalStorageAndAnOfflineMode.aspx">Scott Hanselman's Computer Zen - Google Gears - Maybe all Rich Internet Applications needed was Local Storage and an Offline Mode</a><br/>
+<a href="http://code.google.com/apis/gears/sample.html">Sample Applications - Gears API - Google Code</a><br/>
+<a href="http://code.google.com/apis/gears/design.html">Getting Started - Gears API - Google Code</a><br/>
+<a href="http://weblogs.asp.net/joeaudette/archive/2008/11/29/silverlight-google-gears-awesome-at-least-in-firefox.aspx">Silverlight + Google Gears = Awesome! at least in Firefox - Joe Audette, MCSD, MCDBA, MCSE</a><br/>
+<a href="http://code.google.com/p/gearsonrails/">gearsonrails - Google Code</a> - A Google Gears plugin for Rails applications<br/>
+<a href="http://google-code-updates.blogspot.com/2009/05/gmail-for-mobile-html5-series-common.html">Google Code Blog: Gmail for Mobile HTML5 Series: A Common API for Web Storage</a><br/>
+<a href="http://code.google.com/p/webstorageportabilitylayer/">webstorageportabilitylayer - Google Code</a> - Portable database access using Gears or HTML5 databases<br/>
+<a href="http://code.google.com/apis/gears/api_geolocation.html">Geolocation API - Gears API - Google Code</a><br/>
+<br/>
+<br/>
+Google's new chatback feature is very cool!  I've integrated it with my site, and already had one comment on the site through it!  Increases collaboration with the author and the visitors to your site.  I am interested to see how often I have to disable chatbacks due to spam.  Seems like the system could be exploited, but I'm sure they have/are working on that.<br/>
+<a href="http://googletalk.blogspot.com/2008/02/google-talk-chatback.html">Google Talkabout: Google Talk chatback</a><br/>
+<br/>
+<br/>
+<br/>
+<h2>Google contacts api</h2>
+<a href="http://code.google.com/apis/contacts/">Contacts Data API - Google Code</a><br/>
+<a href="http://code.google.com/apis/gdata/clientlibs.html">Google Data APIs Client Libraries - Google Data APIs - Google Code</a><br/>
+<a href="http://code.google.com/apis/apps/sso/saml_reference_implementation.html">SAML Single Sign-On (SSO) Service for Google Apps - Google Apps APIs - Google Code</a><br/>
+<a href="http://googledataapis.blogspot.com/">Official Google Data APIs Blog</a><br/>
+<br/>
+<br/>
+<h2>Google app engine</h2>
+Write code and let google run it for you!<br/>
+<a href="http://code.google.com/appengine/">Google App Engine - Google Code</a><br/>
+<a href="http://appgallery.appspot.com/">Applications Gallery - Google App Engine - Google Code</a><br/>
+<a href="http://code.google.com/apis/apps/overview.html">Integrate and Extend with the Google Apps APIs - Google Apps APIs - Google Code</a><br/>
+<a href="http://code.google.com/appengine/articles/djangoforms.html">The Django Form Validation Framework on Google App Engine - Google App Engine - Google Code</a><br/>
+<br/>
+<br/>
+<h2>Gtalk</h2>
+I really like gtalk.  I love that it uses XMPP which is open.  I love that it is integrated into gmail.  But I wish that I could make the gtalk status push to other social networks.  At this time, I don't see a webservice to poll the gtalk status.  However, you can create a gtalk badge which you can use to scrape the status.  Then the issue having to schedule a task on some machine to poll gtalk for the current status message and push it to the other social networks.....<br/>
+<a href="http://googletalk.blogspot.com/2007/02/twittering-with-google-talk_28.html">Google Talkabout: Twittering with Google Talk</a><br/>
+<a href="http://how2pointoh.blogspot.com/2008/01/google-talk-status-to-twitter.html">Coactlab: Google Talk Status to Twitter</a><br/>
+<br/>
+<a href="http://aalaap.blogspot.com/2008/05/how-to-get-google-talk-status-twitter.html">Aalaap.blog: How to get your Google Talk status into Twitter</a> - interesting uses yahoo pipes and friendfeed to sync gtalk status messages.<br/>
+<br/>
+<a href="http://weblogs.asp.net/nleghari/articles/gmailbackup.aspx">GmailSync - Free automated backup solution using Gmail - Nauman Leghari's Blog</a><br/>
+<br/>
+<a href="http://google-code-updates.blogspot.com/2008/12/native-client-technology-for-running.html">Google Code Blog: Native Client: A Technology for Running Native Code on the Web</a><br/>
+<a href="http://code.google.com/p/nativeclient/?tbbrand=GZEZ&utm_campaign=en&utm_source=en-et-osrcblog&utm_medium=et">nativeclient - Google Code</a><br/>
+<br/>
+<br/>
+<a href="http://code.google.com/apis/ajax/playground/">AJAX APIs Playground</a> - great place for samples.<br/>
+<br/>
+<h2>Google Voice</h2>
+Where's this at people?! :)<br/>
+<a href="http://posttopic.com/topic/google-voice-add-on-development">Google Voice Add-on Development « Post Topic - Open For Discussion</a><br/>
+<a href="https://github.com/tempire/perl-google-voice">tempire/perl-google-voice · GitHub</a> - Perl module to interact with Google::Voice<br/>
+<br/>
+<br/>
+<h2>Google Wave</h2>
+Waiting for entry...looks very nice.<br/>
+<a href="http://www.readwriteweb.com/archives/google_wave_google_tries_to_reinvent_email.php">Google Wave: Google Tries to Reinvent Email</a> - includes g2 video on it...<br/>
+<a href="http://code.google.com/apis/wave/">Google Wave API - Google Code</a><br/>
+<a href="http://www.waveprotocol.org/">Introduction ?(Google Wave Federation Protocol)?</a><br/>
+<a href="http://googlewavedev.blogspot.com/2009/05/introducing-google-wave-apis-what-can.html">Google Wave Developer Blog: Introducing the Google Wave APIs: what can you build?</a><br/>
+
+<br/>
+<br/>
+
+<h2>OAuth - google authentication</h2>
+<a href="http://googledataapis.blogspot.com/2009/05/oauth-playground-open-sourced.html">Official Google Data APIs Blog: OAuth Playground: Open-sourced</a><br/>
+<a href="http://googlecodesamples.com/oauth_playground/">OAuth Playground</a><br/>
+<a href="https://docs.kantarainitiative.org/uma/draft-uma-core.html">User-Managed Access (UMA) Profile of OAuth 2.0</a><br/>
+<a href="https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=xacml">OASIS eXtensible Access Control Markup Language (XACML) TC | OASIS</a><br/>
+<br/>
+
+<h2>Chrome stuff</h2>
+<a href="https://github.com/ishpreetgill/TabCount">ishpreetgill/TabCount - GitHub</a> - cool small extension!  Shows number of tabs.  written using javascript, html, and JSON manifest. :)<br/>
+<a href="http://code.google.com/chrome/extensions/devguide.html">Developer's Guide - Google Chrome Extensions - Google Code</a><br/>
+<a href="http://src.chromium.org/viewvc/chrome/trunk/src/chrome/common/extensions/docs/examples/api/">[chrome] Index of /trunk/src/chrome/common/extensions/docs/examples/api</a><br/>
+<a href="http://code.google.com/chrome/extensions/windows.html">Windows - Google Chrome Extensions - Google Code</a><br/>
+<a href="http://code.google.com/chrome/extensions/background_pages.html">Background Pages - Google Chrome Extensions - Google Code</a><br/>
+There is nothing more frustrating than a reboot caused by an unknown error.  With tabs and restore, usually you can assume a good portion of your working links are safe... But then chrome crashes once again, and the tabs are gone the next time you launch.  Sad face.<br/>
+<a href="http://www.lsauer.com/2011/10/google-chrome-session-restore-web.html">Technical Programming and Design: Google Chrome Session Restore web-application parsing corrupted Session Restore Files - Blogging on Programming, Science and Code Snippets</a><br/>
+<a href="http://digitalinvestigation.wordpress.com/2012/09/03/chrome-session-and-tabs-files-and-the-puzzle-of-the-pickle/">Chrome Session and Tabs Files (and the puzzle of the pickle) | Digital Investigation</a><br/>
+<a href="https://code.google.com/p/ccl-ssns/">ccl-ssns - Python module for parsing Chrome session files (Current Tabs, Last Session, etc.) - Google Project Hosting</a><br/>
+<a href="chrome://chrome-urls/">chrome://chrome-urls/</a> - list of all the special urls in chrome.<br/>
+Oh, I love the tab sync across multiple devices. I myself think there should be a url for the recent tabs on other devices... But I can't seem to find one.  Chrome hamburger menu -&gt; Recent tabs.
+<br/>
+linux install of chrome can be as easy as downloading the deb/rpm file from the <a href="https://www.google.com/intl/en/chrome/browser/desktop/index.html?platform=linux">Chrome Browser</a> website.  You can also use a PPA to install chrome:<br/>
+<pre>
+$ sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
+ $ wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+ $ sudo apt-get update
+ $ sudo apt-get install google-chrome-stable
+</pre><br/>
+Of course chrome has it's benefits, including built in flash support, which comes in handy on some websites...<br/>
+<br/>
+Chrome itself will add custom search keywords when browsing websites.  This can actually lead to omnibox search redirection to malicious websites if you're unlucky enough to hit a malicious website that looks like a search provider.  I was experiencing some issues and I had to remove all of the other search engines in my browser to get it to not redirect to the malicious website, (the listing of the other search engines does not provide the list of keywords for each engine)<br/>
+To remove all the search engines, run this in the console window of the settings-&gt;manage settings<br/>
+<pre>
+settings.SearchEnginesBrowserProxyImpl.prototype.getSearchEnginesList()
+    .then(function (val) { 
+        val.others.forEach(function (engine) { 
+            settings.SearchEnginesBrowserProxyImpl
+                .prototype
+                .removeSearchEngine(engine.modelIndex); 
+        }); 
+    });
+</pre>
+Then you can install the extension <a href="https://chrome.google.com/webstore/detail/dont-add-custom-search-en/dnodlcololidkjgbpeoleabmkocdhacc">Don't add custom search engines - Chrome Web Store</a> which will stop additional custom search engines from being installed again, and even alert you when a website search engine would be installed otherwise. br/>
+<br/>
+One of my favorite extensions is:<a href="https://chrome.google.com/webstore/detail/tab-title-search/fbgmfenfjogaoibifpgolehkibnfalgn?utm_source=chrome-app-launcher-info-dialog">Tab Title Search - Chrome Web Store</a> it lets you alt-G and search your 100+ tabs for a specific word, a must have!<br/>
+<h2>Google reader</h2>
+<a href="http://googlereader.blogspot.com/2010/01/follow-changes-to-any-website.html">Official Google Reader Blog: Follow changes to any website</a> - did you know that google reader will change track websites without rss?<br/>
+<a href="http://code.google.com/p/pyrfeed/wiki/GoogleReaderAPI">GoogleReaderAPI - pyrfeed - This is a RSS/Atom Reader and Framework. It use GoogleReader as a storage database. - Google Project Hosting</a><br/>
+<a href="http://code.google.com/p/pyrfeed/">pyrfeed - This is a RSS/Atom Reader and Framework. It use GoogleReader as a storage database. - Google Project Hosting</a><br/>
+<a href="http://blog.martindoms.com/2009/08/15/using-the-google-reader-api-part-1/">Martin Doms : Using the Google Reader API – Part 1</a><br/>
+Google closes reader July 1st 2013....just cause.<br/>
+<a href="/tech-talk/random-tech/466-rss-rich-site-summary">RSS Rich Site Summary</a><br/>
+Feedly is the reader replacement. Boo to Google for dropping Reader!<br/>
+<a href="https://mashe.hawksey.info/2013/09/how-to-add-feedly-to-the-chrome-rss-subscription-extension-by-google/">How to add Feedly to the Chrome RSS Subscription Extension (by Google) | MASHe</a><br/>
+<br/>
+<br/>
+<h2>Go programming</h2>
+<a href="http://dave.thehorners.com/tech-talk/programming/505-go-gopher">Go gopher - Dave Horner's Website</a> - yes, Go gopher deserves a page of it's own too.<br/>
+<br/>
+<br/>
+<a href="http://www.blindfiveyearold.com/how-to-implement-rel-author">Rel="Author": How To Implement Google Authorship Markup</a><br/>
+<br/>
+<br/>
+<h2>Adsense</h2>
+<a href="http://adsense.blogspot.com/">Inside AdSense</a><br/>
+<br/>
+<br/>
+<h2>Google Analytics Tracking</h2>
+<a href="https://developers.google.com/analytics/devguides/collection/gajs/methods/gaJSApiBasicConfiguration#_gat.GA_Tracker_._setSiteSpeedSampleRate">Tracking Code: Basic Configuration - Google Analytics — Google Developers</a><br/>
+<a href="https://developers.google.com/analytics/devguides/collection/gajs/eventTrackerGuide">Event Tracking - Web Tracking (ga.js) - Google Analytics — Google Developers</a><br/>
+<br/>
+<br/>
+<script>
+var gaProperty = 'UA-588110-1';
+var disableStr = 'ga-disable-' + gaProperty;
+if (document.cookie.indexOf(disableStr + '=true') > -1) {
+  window[disableStr] = true;
+}
+function gaOptout() {
+  document.cookie = disableStr + '=true; expires=Thu, 31 Dec 2099 23:59:59 UTC; path=/';
+  window[disableStr] = true;
+}
+function gaOptin() {
+  document.cookie = disableStr + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/';
+  delete window[disableStr];
+}
+
+function amIOptout() {
+  alert(disableStr+' ('+window[disableStr]+')'); 
+}
+</script>
+<a href="javascript:amIOptout()">Am I opt'ing out?</a><br/>
+<a href="javascript:gaOptout()">Click here to opt-out of Google Analytics tracking for dave.thehorners.com</a> - it will set a long lived cookie indicating no tracking data will be sent.  I use it to remove my personal browsers from data collection.<br/>
+<a href="javascript:gaOptin()">Opt back in.</a><br/>
+<br/>
+<br/>
+<h2>Google Charts - Google Visualization API</h2>
+<a href="https://developers.google.com/chart/interactive/docs/reference?csw=1#dataparam">Google Visualization API Reference - Google Charts — Google Developers</a><br/>
+<a href="https://metacpan.org/module/Data::Google::Visualization::DataTable">Data::Google::Visualization::DataTable - Easily create Google DataTable objects - metacpan.org - Perl programming language</a><br/>
+<a href="https://gist.github.com/sheriff/6255791">Count new Pause IDs</a> - nice example from sheriff using Data::Google::Visualization::DataTable, mapping months and years over the perl.modules group urls. getting those urls with LWP::Simple and matching with m/Welcome new user/g. <a href="http://blogs.perl.org/users/ron_savage/2013/08/volunteer-time-series-stats-of-new-pause-ids.html">Volunteer! Time series stats of new PAUSE ids | Ron Savage [blogs.perl.org]</a><br/>
+<br/>
+<br/>
+<a href="https://books.google.com/ngrams/graph?content=follow+your+passion&amp;year_start=1985&amp;year_end=2008&amp;corpus=0&amp;smoothing=3&amp;share=&amp;direct_url=t1%3B%2Cfollow%20your%20passion%3B%2Cc0">Google Ngram Viewer</a> - a tool that shows how prominently a given phrase appears in English print over any <a href="http://www.waitbutwhy.com/2013/08/putting-time-in-perspective.html">period of time</a>.<br/>
+<h2>Google App Engine</h2>
+<a href="https://github.com/ronjouch/dailygrooves">ronjouch/dailygrooves</a> - python<br/>
+<br/>
+<br/>
+<h2>Google Cast SDK</h2>
+<a href="https://developers.google.com/cast/">Casting Your Content to the Big Screen - Google Cast — Google Developers</a><br/>
+<a href="https://github.com/googlecast">googlecast (Google Cast) github</a><br/>
+<br/>
+<br/>
+<h2>Google Drive SDK</h2>
+<a href="https://developers.google.com/drive/">Google Drive SDK — Google Developers</a><br/>
+<br/>
+<br/>
+<h2>Gmail API  || Gmail REST API</h2>
+<a href="https://developers.google.com/gmail/api/">Gmail API — Google Developers</a><br/>
+    <div style="border: 1px;">
+    Created: 2007-11-01 07:14:32
+    Modified: 2017-09-14 14:56:22
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+$$\cos x = \sum\limits_{n = 0}^\infty {\frac{{\left( { - 1} \right)^n x^{2n} }}{{\left( {2n} \right)!}}}$$
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

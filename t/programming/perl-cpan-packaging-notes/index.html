@@ -1,0 +1,482 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>PERL CPAN packaging notes</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/programming/">programming</a>
+    <h1>PERL CPAN packaging notes</h1>
+   PERL!<br/>
+<a href="http://www.cpan.org/modules/04pause.html">PAUSE</a> Your duties, the basics, traps in the The [Perl programming] Authors Upload Server /w [<a href="https://github.com/andk/pause">andk/pause</a>].<br/>
+<a href="http://perldoc.perl.org/perlnewmod.html">perlnewmod - perldoc.perl.org</a> - read, all the links, lots of links.<br/>
+<br/>
+<a href="http://prepan.org/">PrePAN - Social Reviewing for Perl Modules</a> - announce your ideas and intentions for feedback, the earlier the better.<br/>
+<br/>
+<br/>
+<a href="http://neilb.org/">neilb.org - The good, the bad, and the beautiful</a> <a href="http://neilb.org/2014/05/12/breaking-bad.html">I broke Perl::MinimumVersion, sorry</a><br/>
+<a href="http://zenoga.tumblr.com/post/6900208989/creating-a-padre-plugin-and-uploading-it-to-cpan-in-7">Creating a Padre plugin and uploading it to CPAN in 7 simple steps</a><br/>
+<a href="https://blog.afoolishmanifesto.com/posts/use-travis-et-al/#">Use Travis (and more)</a> - so much “assumed knowledge” in Perl. every Perler should know about.<br/>
+<br/>
+<br/>
+<h2>CPAN Days</h2>
+16th August is a Saturday this year (2014).  Will you be releasing some code for public consumption on this day?<br/>
+<a href="http://blogs.perl.org/users/neilb/2014/07/the-ghost-of-cpan-days-past.html">The ghost of CPAN Days past | NeilB [blogs.perl.org]</a><br/>
+<a href="http://blogs.perl.org/users/neilb/2014/07/cpan-day-is-16th-august.html">CPAN Day is 16th August | NeilB [blogs.perl.org]</a><br/>
+<br/>
+<br/>
+<h2>Dist::Zilla</h2>
+<a href="http://dzil.org/index.html">Dist::Zilla - Maximum Overkill for CPAN Authors</a><br/>
+<a href="http://www.dagolden.com/index.php/2275/distzilla-haters-stop-your-whining/">Dist::Zilla haters, stop your whining | David Golden</a> - interesting the title of dzil.org is: maximum overkill for CPAN authors. I agree, people like to complain.  more helpful if their complaints come with code/suggestions of code change;  otherwise <strong>noise</strong>. though when enough people make the same noise, it's less noise and more valuable feedback.<br/>
+<a href="http://blogs.perl.org/users/olaf_alders/2014/06/how-to-run-a-single-test-via-distzilla.html">How to Run a Single Test via Dist::Zilla | Olaf Alders [blogs.perl.org]</a> - dzil run prove -lv t/my-test.t or without XS(nobuild): dzil run --nobuild prove -lv t/my-test.t<br/>
+<a href="http://blog.kablamo.org/">KABLAMO</a> <a href="http://blog.kablamo.org/2013/02/20/how-to-learn-dist-zilla/">Dist::Zilla::PluginBundle::DAGOLDEN is pretty awesome - KABLAMO</a> - true, true.<br/>
+<a href="http://blogs.perl.org/users/mikko_koivunalho/2014/07/distzilla-as-a-continuous-delivery-tool.html">Dist::Zilla as a Continuous Delivery Tool | Mikko Koivunalho [blogs.perl.org]</a><br/>
+<br/>
+<br/>
+<a href="https://metacpan.org/pod/Dist::Inkt">Dist::Inkt - yet another distribution builder - metacpan.org</a> Dist::Zilla didn't have the prerequisite amount of crazy for Mr. Inkster. As such, Dist::Inkt is not so much a distribution builder, as it is a framework for writing your own distribution builder.<br/>
+<br/>
+<br/>
+<h2>Module::Build || Build.PL</h2>
+<a href="https://metacpan.org/pod/Module::Build">Module::Build - Build and install Perl modules - metacpan.org</a><br/>
+<a href="https://metacpan.org/pod/Module::Build::Cookbook">Module::Build::Cookbook - Examples of Module::Build Usage - metacpan.org</a><br/>
+<a href="http://www.dagolden.com/index.php/2140/paying-respect-to-modulebuild/">Paying respect to Module::Build | David Golden</a><br/>
+<br/>
+<br/>
+<h2>Alien modules</h2>
+<a href="https://metacpan.org/pod/Alien::Base::Authoring">Alien::Base::Authoring - Authoring an Alien:: module - metacpan.org</a> - C library via CPAN.<br/>
+<br/>
+<br/>
+<a href="http://www.dagolden.com/wp-content/uploads/2009/04/Acme-Tiny.pdf">"10 Commandments" of Tiny Acme::Tiny</a><br/>
+<h2>CPAN Testers</h2>
+The goal of the CPAN Testers project (<a href="http://www.cpantesters.org/">CPAN Testers</a>) is to
+test as many CPAN packages as possible on as many platforms as
+possible.  This provides valuable feedback to module authors and
+potential users to identify bugs or platform compatibility issues and
+improves the overall quality and value of CPAN.<br/>
+<br/>
+<a href="http://thegestalt.org/simon/perl/wholecpan.html">CPAN Leaderboard</a><br/>
+<a href="http://stats.cpantesters.org/">The Dashboard : CPAN Testers Statistics</a><br/>
+<a href="http://stats.cpantesters.org/testers.html">All Time CPAN Testers Leaderboard : CPAN Testers Statistics</a><br/>
+<a href="http://deps.cpantesters.org/">CPAN dependencies and test results checker</a><br/>
+<a href="http://lists.perl.org/list/cpan-testers-discuss.html">List: cpan-testers-discuss - lists.perl.org</a> <a href="http://wiki.cpantesters.org/wiki/MailingLists">CPAN Testers Wiki:MailingList</a><br/>
+<a href="http://metabase.cpantesters.org/tail/log.txt">metabase.cpantesters.org/tail/log.txt</a> - The last 1000 reports as of now.<br/>
+<br/>
+<br/>
+<h2>CPAN Kwalitee</h2>
+<a href="http://changes.cpanhq.org/">CPAN::Changes Kwalitee Service</a><br/>
+<a href="http://cpants.cpanauthors.org/">CPANTS</a> <a href="http://cpants.cpanauthors.org/kwalitee">CPANTS - Kwalitee</a> "Kwalitee" is something that looks like quality, sounds like quality, but is not quite quality. 32 Kwalitee indicators, and 12 optional indicators as well.<br/>
+<a href="http://cpancover.com/latest/index.html">cpancover.com - Coverage report</a><br/>
+<br/>
+<br/>
+<h2>WARNING -- smoke testing is risky</h2>
+It's public.  You run a smoker; you are publishing your system configuration and personal identifiers for all to see.  Your email address is public.  Your system paths; published.  People willing to run your code on their personal machines in their own time and dime, often under privileged permissions...  Yes, being a cpan tester is quite a thing!<br/>
+<pre>
+Smoke testing will download and run programs that other people have uploaded to CPAN. These programs could do anything to your system, including deleting everything on it. Do not run CPAN::Reporter::Smoker unless you are prepared to take these risks.</pre>
+<br/>
+If you're smoking on a personal machine; not a vm or livecd; you are a trusting soul.<br/>
+<br/>
+<a href="http://wiki.cpantesters.org/wiki/TestDuringInstall">CPAN Testers Wiki Test During Install</a><br/>
+<h2>CPAN testing || Task::CPAN::Reporter || CPAN::Reporter::Smoker || near-turnkey smoke testing</h2>
+<pre>notest install Task::CPAN::Reporter</pre>
+<a href="http://www.perl.com/pub/2002/04/30/cpants.html">Becoming a CPAN Tester with CPANPLUS - Perl.com</a> - "CPAN is a cultural mechanism." It is not an abstraction filled with code, but rather depends on people caring enough to share code, as well as sharing useful feedback in order to improve each other's code.<br/>
+<a href="http://wiki.cpantesters.org/wiki/CPANReporterSmokerLong">CPAN Testers Wiki: CPAN::Reporter::Smoker (Detailed Guide)</a><br/>
+<pre>perl -MCPAN::Reporter::Smoker -e start</pre><br/>
+will start testing all CPAN distributions in reverse order of upload and will continue until interrupted with CTRL-C. Every 12 hours, it will restart itself, checking for new CPAN uploads before continuing testing older distributions.<br/>
+<a href="https://metacpan.org/pod/CPAN::Reporter::Smoker::Safer">CPAN::Reporter::Smoker::Safer - Turnkey smoking of installed distros - metacpan.org</a> - wrapper around CPAN::Reporter::Smoker that will only test modules
+that you already have installed. It is "safer" because it's modules you've chose to use already, and not
+every random CPAN module.<br/>
+<pre>perl -MCPAN::Reporter::Smoker::Safer -e start</pre><br/>
+Smoker::Safer showing "has invalid upload_date"?; 'start( safer=>{min_reports=>0, min_days_old=>0} )'
+<br/>
+<br/>
+Barbie's <a href="http://birmingham.pm.org/talks/barbie/cpantester2/slides.html">How to be a CPAN tester</a> <a href="http://birmingham.pm.org/talks/barbie/cpan-ready/">Preparing for CPAN - a few lessons learned.</a><br/>
+<pre>
+Ad-Infinitum
+Don't loop endlessly for input
+After two attempts use a default or bail out
+Don't loop endlessly when system commands fail
+Check that results don't include a 'usage' type string
+Some options are not supported on all OSs
+Alternatives
+Ask the user
+Look for ENV settings
+Look for command line settings and/or arguments
+Use defaults and skip if you fail to connect.
+Check Environment
+
+CPAN::YACSmoke - $ENV{AUTOMATED_TESTING} == 1
+cpansmoke - $ENV{VISUAL} eq 'echo'
+</pre>
+<a href="http://szabgab.com/the-selfish-cpan-tester.html">The selfish CPAN Tester</a> - more reflection on Barbie's talk - Clearly the best value ... let the CPAN client automatically send out the test report.<br/>
+<a href="http://dwestbrook.net/projects/smoke-usb/">Pen Drive Smoker HOWTO</a> - machine without a hard drive (i.e. no risk of loosing data), booted from an out-of-the-box liveCD1, using a pen drive for persistent data (configuration, reports log). <br/>
+<iframe src="//www.slideshare.net/slideshow/embed_code/8881025" width="427" height="356" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px 1px 0; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"><a href="https://www.slideshare.net/acme/how-cpan-testers-helped-me-improve-my-module" title="How CPAN Testers helped me improve my module" target="_blank">How CPAN Testers helped me improve my module</a></div>
+<br/>
+<br/>
+perl -V is a nice thing to include with your report.<br/>
+<pre>
+notest install Task::CPAN::Reporter (i was using CPAN::Reporter; this wasn't enough)
+reload CPAN; o conf init test_report
+</pre><br/>
+<br/>
+<a href="http://www.perlmonks.org/?node_id=856415">Perl CPAN test metadata</a> $ENV{AUTOMATED_TESTING}<br/> 
+<br/>
+<a href="https://www.simplicidade.org/notes/archives/2009/10/a_faster_config.html">Notes: A faster configuration for CPAN::Reporter</a> - suggestion of using File transport and then using quite an incantation of <a href="https://github.com/melo/scripts/blob/master/bin/x-perl-send-test-reports">x-perl-send-test-reports</a>.<br/>
+<br/>
+<br/>
+<h2>CPAN::YACSmoke</h2>
+<pre>install CPAN::YACSmoke;yacsmoke.pl</pre><br/>
+YACSmoke uses CPANPLUS::Backend to download, extract, and test packages and send out the reports.<br/>
+<a href="http://wiki.cpantesters.org/wiki/YACSmokeConfiguration">CPAN Testers Wiki:CPAN-YACSmoke Configuration</a><br/>
+<a href="http://wiki.cpantesters.org/wiki/YACSmokePOE">CPAN Testers Wiki:YACSmokePOE Smoking with POE</a> - Smoking Blead Perl with POE::Component::CPAN::YACSmoke<br/>
+<pre>
+minismoker --debug --perl /pathtoperl/bin/perl && we're smoking!</pre><br/>
+<br/>
+<br/>
+<h2>App::cpanminus::reporter</h2>
+Call cpanm as you normally would cpanm App::cpanminus::reporter<br/>
+<a href="https://github.com/garu/App-cpanminus-reporter">garu/App-cpanminus-reporter</a> - then call cpanm-reporter.<br/>
+You can also use it to setup your cpanm-reporter --setup<br/>
+"Error while sending this report, continuing with the next one..." you might try giving the verbose option a try... cpanm-reporter --force --verbose<br/>
+"Can't verify SSL peers without knowing which Certificate Authorities to trust" try installing Mozilla::CA; if that isn't possible, disable verification of SSL peers set env PERL_LWP_SSL_VERIFY_HOSTNAME=0.<br/>
+<br/>
+<br/>
+<h2>CPAN::Reporter ask defaults to no during smoke</h2>
+I found that CPAN::Reporter::Smoker::Safer doesn't send reports when you request to ask for edits. <br/>
+<br/>
+<br/>
+<a href="#Metabase-Fact"><h2>Metabase::Fact || Metabase-User-FullName is empty?</h2></a>
+So you go through the o conf init_test_report, it asks you for an email address but doesn't request a name.<br/>
+Here is an example report that is mine because it matches my guid in %userprofile%\.cpanreporter\metabase_id.json<br/>
+[2014-07-19T18:02:17Z] <strong>[]</strong> [pass] [GARU/App-cpanminus-reporter-0.11.tar.gz] [MSWin32-x64-multi-thread] [perl-v5.18.2] [0616fd4a-6d2d-1014-8b89-fd56a694d5e7] [2014-07-19T18:02:17Z]<br/>
+You will notice that the name is empty.  If you checkout the logs, most people have their name and pauseid within this 'name' field. "Dave Horner (MRHORNER)" is what I was hoping to see...I wonder what I missed.<br/>
+ambs: note that the pause ID on the tail log is user defined. In fact it is part of the “name” string (this is good to know!)<br/>
+<a href="http://wiki.cpantesters.org/wiki/CPANMetabase">CPAN Testers Wiki: CPAN Metabase</a><br/>
+I also attempted prepending a quoted name to the email address during init_test_report, this updated  %userprofile%\.cpanreporter\config.ini but didn't update metabase_id.json to reflect the name given.<br/>
+<br/>
+Then I tried using Metabase::User::Profile;  but "Not a HASH reference at C:/strawberry/perl/site/lib/Metabase/Fact.pm line 274." 
+<pre>
+use Metabase::User::Profile;                                           
+my $filename="$ENV{USERPROFILE}\\.cpanreporter\\metabase_id.json";     
+print $filename;                                                       
+my $profile = Metabase::User::Profile->load($filename);                
+$profile->add( 'Metabase::User::FullName'=> 'Dave Horner (MRHORNER)' );
+$profile->save($filename);                                             
+$profile->close;                                                       
+</pre>
+
+I did get on irc.perl.org#cpantesters-discuss; thanks <a href="https://github.com/ambs">ambs</a>. maybe I need to email a mailinglist...cpan-testers-discuss.at.perl.org<br/>
+--Sincerely unnamed and unassociated.<br/>
+P.S. I wonder if there is a way to associate these reports by guid or email with pause id after the fact?<br/>
+<br/>
+<br/>
+<h2>Finding your place in the leaderboards</h2>
+the Leaderboard is currently only built once a day, so it may take 24 hours before you see any changes.<br/>
+<a href="http://stats.cpantesters.org/testers.html">All Time CPAN Testers Leaderboard : CPAN Testers Statistics</a> - find your name.<br/>
+<a href="http://slashlogging.blogspot.com/2013/04/the-cpan-testers-game.html">/logging: The CPAN Testers game</a><br/>
+<br/>
+<br/>
+<h2>what do you like to smoke?</h2>
+<a href="https://metacpan.org/pod/Task::Kensho">Task::Kensho</a> <a href="https://metacpan.org/pod/Task::MojoliciousPlugins::PerlAcademy">Task::MojoliciousPlugins::PerlAcademy</a> <a href="https://metacpan.org/pod/Task::Dancer">Task::Dancer</a> <a href="https://metacpan.org/pod/Task::Plack">Task::Plack</a> <br/>
+<br/>
+<br/>
+<h2>smoking from macosx</h2>
+<pre>sudo perl -MCPAN::Reporter::Smoker::Safer -e 'start( safer=>{min_reports=>0, min_days_old=>0})'</pre>
+the state of things; [darwin-thread-multi-2level] [perl-v5.16.2] getting a smoker up and running is not possible without the use of force.<br/> 
+sudo cpan<br/>
+CPAN::Reporter: error loading Test::Reporter::Transport::Metabase. Please install the missing module or choose a different transport mechanism.<br/>
+CPAN::Reporter: Test::Reporter: error from 'Test::Reporter::Transport::Metabase:'<br/>
+fact submission failed: Can't verify SSL peers without knowing which Certificate Authorities to trust at /Library/Perl/5.16/Metabase/Client/Simple.pm line 100.<br/>
+<strong>sudo cpanm IO::Socket::SSL</strong><br/>
+I did find that when doing a o conf init_test_report it asked me:<br/>
+<pre>
+Would you like to run 'metabase-profile' now to create '/Users/dhorner/.cpanreporter/metabase_id.json'? [y] 
+Running [/usr/local/bin/metabase-profile --output /Users/dhorner/.cpanreporter/metabase_id.json --email dave-at-thehorners.com --secret 266sd7ec]...
+Enter full name:   
+Writing profile to '/Users/dhorner/.cpanreporter/metabase_id.json'
+</pre>
+<br/>
+<strong>right there!</strong>; is an empty name in the metabase_id.json created during install.  I tried to answer yes and quickly somehow passed through.<br/>
+once you create this; you need to overwrite it with a proper metabase_id.json, since the Metabase isn't concerned with edit.<br/>
+<br/>
+<br/>
+<h2>smoking from mint 15</h2>
+well here we have an issue because I didn't have the insecure libssl-dev installed, and it is no longer available. both SSL transports failed to install properly without <a href="http://www.openssl.org/">openssl</a> (no surprise). time for source install!<br/>
+<pre>
+/usr/bin/ld: /usr/lib/libssl.a(s3_meth.o): relocation R_X86_64_32 against `.rodata' can not be used when making a shared object; recompile with -fPIC
+/usr/lib/libssl.a: could not read symbols: Bad value
+</pre>
+libssl.a: could not read symbols: Bad value...something about a -fPIC. read somewhere else I needed to add additional args to config: -fPIC no-gost no-shared; the usual make clean;make;make install<br/>
+on mint the prefix happens to be /usr; I tried doing it without the export and passing the arguments to config, this did not seem to clear the error.<br/>
+export CFLAGS="-fPIC no-gost no-shared"<br/>
+./config --prefix=/usr -fPIC no-gost no-shared<br/>
+alas, you will find you need -lz which means <a href="http://www.zlib.net/">zlib</a>; which getting the latest yields: "Compiler error reporting is too harsh for ./configure (perhaps remove -Werror)." and going back and running with '-m64 no-zlib' did not provide a solution for me...enough.  maybe it's time to try the file transport?!<br/>
+<a href="http://impradeep.com/usrpwapacheopensslliblibssl-a-could-not-read-symbols-bad-value/">/usr/pw/apache/openssl/lib/libssl.a: could not read symbols: Bad value | impradeep.com</a><br/>
+
+<h2>pumpking || Larry's lieutenants</h2>
+Past, present, and future pumpkings deserve our praise, support, and thanks. <strong>All hail the great pumpkings!</strong><br/>
+<a href="http://modernperlbooks.com/mt/2009/06/the-value-of-a-pumpking.html">The Value of a Pumpking - Modern Perl Programming</a> - Sometimes they get to write code.<br/>
+<a href="http://www.perlmonks.org/index.pl?node_id=813451">What is a pumpkin?</a><br/>
+<a href="http://perldesignpatterns.com/?PumpKing">Pump King at Perl Design Patterns Wiki</a> - replaces descriptive-yet-vague titles such as "release coordinator", "project manager", "comit team review leader", "user group coordinator", and so forth. good people.<br/>
+<a href="http://perldoc.perl.org/perlhist.html">perlhist - perldoc.perl.org</a> - the keepers of the pumpkin.<br/>
+shout out to  Finnish Perl programmer, "master librarian" of CPAN. <a href="http://en.wikipedia.org/wiki/Jarkko_Hietaniemi">Jarkko Hietaniemi</a> <a href="http://search.cpan.org/~jhi/">JHI</a><br/>
+<blockquote class="twitter-tweet" lang="en"><p>novice alchemist:blue into red. if it doesn&#39;t blow up;proceed to turn up the flame.very little idea of what I&#39;m really doing. pretty colors!</p>&mdash; Dave Horner (@DaveDaWizard) <a href="https://twitter.com/DaveDaWizard/statuses/494308696919244800">July 30, 2014</a></blockquote> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+<br/>
+<br/>
+<h2>Naming things properly - still the hardest problem</h2>
+<a href="http://blogs.perl.org/users/neilb/2014/08/the-right-name-for-your-cpan-distribution.html">The 'right' name for your CPAN distribution | NeilB [blogs.perl.org]</a><br/>
+<br/>
+<br/>
+<h2>versioning - numbers which signify everything</h2>
+<a href="http://search.cpan.org/~jpeacock/version-0.9908/lib/version.pod">version - search.cpan.org</a><br/>
+<br/>
+<br/>
+<h2>Terminating on signal SIGBREAK(21)</h2>
+<pre>
+Configuring T/TO/TODDR/IPC-Run-0.92.tar.gz with Makefile.PL
+CPAN::Reporter: Makefile.PL result is 'pass', No errors.
+Running make for T/TO/TODDR/IPC-Run-0.92.tar.gz
+CPAN::Reporter: dmake result is 'pass', No errors.
+  TODDR/IPC-Run-0.92.tar.gz
+t/kill_kill.t ................ skipped: Temporarily ignoring test failure on Win32
+t/parallel.t ................. skipped: Parallel tests are dangerous on MSWin32
+t/pty.t ...................... skipped: IO::Pty not installed
+t/signal.t ................... skipped: Skipping on Win32
+Terminating on signal SIGBREAK(21)
+</pre>
+    <div style="border: 1px;">
+    Created: 2014-05-03 18:37:32
+    Modified: 2014-11-07 03:19:53
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+0, 1, 1, 2, 3, 5, 8, 13, 21, 34,...<br/>
+<b> x<sub>n</sub> = x<sub>n-1</sub> + x<sub>n-2</sub></b><br/>
+<!-- "Fibonacci" was his nickname, which roughly means "Son of Bonacci". -->
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

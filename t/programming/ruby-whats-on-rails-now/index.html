@@ -1,0 +1,419 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>Ruby - whats on rails now?</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/programming/">programming</a>
+    <h1>Ruby - whats on rails now?</h1>
+   <style type="text/css">
+<!--
+#frame1 {
+    width: 198px;
+    height: 198px;
+    border: none;
+}
+-->
+</style>
+<iframe src="http://upload.wikimedia.org/wikipedia/commons/7/73/Ruby_logo.svg" name="frame1" id="frame1" scrolling="no" frameborder="0"></iframe>
+<br/>
+
+<a href="http://www.ruby-lang.org/en/">Ruby Programming Language</a> - official website<br/>
+<a href="http://api.rubyonrails.com/">Rails Framework Documentation</a> - api reference<br/>
+<a href="http://github.com/edgecase/ruby_koans">edgecase's ruby_koans at master - GitHub</a> - The Ruby Koans walk you along the path to enlightenment in order to learn Ruby. The goal is to learn the Ruby language, syntax, structure, and some common functions and libraries. We also teach you culture. Testing is not just something we pay lip service to, but something we live. It is essential in your quest to learn and do great things in the language. <br/>
+<a href="http://guides.rubyonrails.org/#page258">Ruby on Rails guides</a><br/>
+<a href="http://en.wikipedia.org/wiki/Why's_(poignant)_Guide_to_Ruby">Why's (poignant) Guide to Ruby</a> - if you are into that cartoon learning adventure stuff... <a href="http://www.ember.co.nz/resources/whys-poignant-guide-to-ruby/">emberDesign - why' poignant guide to ruby</a> <a href="http://cloud.github.com/downloads/devyn/shoes-web/whys-poignant-guide-to-ruby.pdf">whys-poignant-guide-to-ruby.pdf (mirror)</a><br/>
+<a href="http://tomayko.com/writings/awkward-ruby">AWK-ward Ruby</a> - a look at ruby & perl's major influence AWK.<br/>
+<a href="https://rvm.io//">RVM: Ruby Version Manager - RVM Ruby Version Manager - Documentation</a> - RVM is a command-line tool which allows you to easily install, manage, and work with multiple ruby environments from interpreters to sets of gems.<br/>
+<a href="http://www.sapphiresteel.com/">SapphireSteel Software:: The Visual Studio IDE Company</a> -  	RUBY IN STEEL $$<br/>
+<br/>
+<a href="http://mongrel.rubyforge.org/">Mongrel - Trac</a> - fast HTTP library and server for Ruby<br/>
+<a href="http://cramp.in/">Cramp - Asynchronous framework for the web</a><br/>
+<a href="http://code.macournoyer.com/thin/">Thin - yet another web server</a><br/>
+<a href="http://www.modrails.com/install.html">Install — Phusion Passenger™ (a.k.a. mod_rails / mod_rack)</a><br/>
+<br/>
+<a href="http://instantrails.rubyforge.org/wiki/wiki.pl?Instant_Rails">InstantRailsWiki: Instant Rails</a> - apache, mysql, ruby, and rails instantly.<br/>
+<a href="http://rubyinstaller.rubyforge.org/wiki/wiki.pl?RubyInstaller">RubyInstallerWiki: RubyInstaller</a> - windows installer, does not include rails.<br/>
+<a href="http://rubyinstaller.org/">RubyInstaller - Homepage</a><br/>
+
+<a href="https://github.com/cowboyd/therubyracer">cowboyd/therubyracer - GitHub</a> - Embed the V8 Javascript Interpreter into Ruby<br/>
+
+<a href="http://railsrumble.com/">Rails Rumble 2009 :: Welcome to the 2008 Rails Rumble</a><br/>
+<br/>
+<a href="http://www.danielfischer.com/2008/01/09/how-to-use-gmail-as-your-mail-server-for-rails/">Daniel Fischer, your friendly Los Angeles geek - Got Fisch? » How To: Use GMail as your mail server for Rails 2.0!</a><br/>
+<a href="http://www.rubular.com/">Rubular: a Ruby regular expression editor and tester</a><br/>
+<br/>
+<br/>
+<h2>random ruby info</h2>
+<a href="http://markusjais.com/the-group_by-method-from-rubys-enumerable-mixin-and-compared-with-scal/">The group_by method from Ruby’s Enumerable mixin (and compared with Scala) | Software development and other things</a><br/>
+<a href="http://m.onkey.org/">has_many :bugs, :through =&gt; :rails</a><br/>
+<a href="http://andy.pragprog.com/">/\ndy</a> <a href="http://pragdave.blogs.pragprog.com/pragdave/">PragDave</a><br/>
+<a href="http://www.informit.com/articles/index.aspx?st=86027">InformIT: Ruby Articles</a> - Random Ruby articles.<br/>
+An excellent set of tutorials for rails development on MacOSX...good read.<br/>
+<a href="http://developer.apple.com/tools/developonrailsleopard.html">Developing Rails Applications on Mac OS X Leopard</a><br/>
+<a href="http://developer.apple.com/tools/customizeonrailsleopard.html">Customizing Rails Applications on Mac OS X Leopard</a><br/>
+<a href="http://developer.apple.com/tools/deployonrailsleopard.html">Deploying Rails Applications on Mac OS X Leopard</a><br/>
+<br/>
+<a href="http://alistapart.com/articles/gettingstartedwithrubyonrails">A List Apart: Articles: Getting Started with Ruby on Rails</a><br/>
+facebooker - ruby interface to facebook<br/>
+<a href="http://facebooker.rubyforge.org/">facebooker Documentation</a><br/>
+facebook canvas - main interactive portion.<br/>
+profile area - push area, tab for application in profile tabs.<br/>
+notifications, events, emails, publish items in newfeeds.<br/>
+<br/>
+<a href="http://rubyforge.org/">RubyForge: Welcome</a> - home for open source Ruby projects<br/>
+<br/>
+<a href="http://revactor.org/">Revactor</a> - is an application framework for Ruby which uses the Actor model to simplify the creation of high-performance network services. (writing Erlang-like network services and tools in ror)<br/>
+<br/>
+<br/>
+<a href="http://weblogs.asp.net/adamgreene/archive/2007/10/23/visual-studio-2008-vs-ruby-on-rails.aspx">Visual Studio 2008 vs Ruby on Rails - A Recipe for New Media</a><br/>
+<br/>
+<h2>Rails Screencasts || Rails videos</h2>
+<a href="http://railscasts.com/">Ruby on Rails Screencasts - RailsCasts</a><br/>
+<a href="http://media.rubyonrails.org/video/rails_blog_2.mov">Creating a weblog in 15 minutes with Rails 2</a><br/>
+<a href="http://asciicasts.com/">ASCIIcasts - Recent Episodes</a><br/>
+<a href="http://www.planetrubyonrails.com/">PlanetRubyOnRails - has_many :blogs, :through =&gt; :feeds</a><br/>
+
+<br/>
+<br/>
+<a href="http://haml.hamptoncatlin.com/">#haml</a><br/>
+<a href="http://haml.hamptoncatlin.com/tutorial">#haml.tutorial</a><br/>
+<a href="http://github.com/nex3/haml/tree/master">nex3's haml at master - GitHub</a><br/>
+<a href="http://haml.hamptoncatlin.com/docs/rdoc/classes/Sass.html">Sass</a> is a meta-language on top of <a href="/Sass/CSS.html">CSS</a> that‘s used to describe the style of a document cleanly and structurally, with more power than flat <a href="http://haml.hamptoncatlin.com/docs/rdoc/classes/Sass/CSS.html">CSS</a> allows.<br/>
+<a href="http://compass-style.org/">Compass Home | Compass Documentation</a><br/>
+
+<a href="http://compass-style.org/reference/compass/">Compass Core Framework | Compass Documentation</a> - use the best of breed css frameworks (blueprint, yui, 960) ported to Sass to make them easier to configure and apply to your semantic markup.<br/>
+<br/>
+<br/>
+<h2>ruby gem</h2>
+<a href="http://docs.rubygems.org/">RubyGems Manuals</a><br/>
+<a href="http://rubyforge.org/frs/?group_id=126">RubyForge: RubyGems: Project Filelist</a> - download here<br/>
+Update gem<br/>
+gem update --system<br/>
+I like looking at what other people have got installed too...<br/>
+<a href="http://www.chadfowler.com/2007/2/11/show-us-your-gems">ChadFowler.com Show Us Your Gems</a><br/>
+<a href="http://jystewart.net/process/2007/02/shiny-gems/">a work on process » Shiny gems</a><br/>
+<br/>
+<br/>
+<h2>Capistrano for deployment</h2>
+So I've scripted bash and written custom apps for deployment before.  But I heard good things about the ruby tool called Capistrano.  You can install it with gem install capistrano.  It automates tasks and provides rollback capabilities.<br/>
+<a href="http://www.capify.org/">Capistrano: Home</a> - is a tool for automating tasks on one or more remote servers with rollback.<br/>
+<a href="http://www.unessa.net/en/hoyci/2007/06/using-capistrano-deploy-django-apps/">Same Con to Hoyci » Using Capistrano to Deploy Django Apps</a><br/>
+<a href="http://eric-schaefer.com/blog/2012/09/26/deploying-rails-app-dreamhost-capistrano/">Deploying a Rails Application to Dreamhost with Capistrano</a><br/>
+<br/>
+<br/>
+<h2>Puppet</h2>
+<a href="http://reductivelabs.com/">reductive</a> - reductive labs makes puppet a system for automating system administration tasks.  declarative configuration...uses ruby.<br/>
+<a href="http://github.com/railsmachine/moonshine">railsmachine's moonshine at master - GitHub</a> - moonshine uses Puppet + Capistrano giving you a configuration management and deployment system that follows the Rails way, simplifying server configuration, dependency management, and Rails application deployment.<br/>
+<a href="http://github.com/railsmachine/shadow_puppet">railsmachine's shadow_puppet at master - GitHub</a> - ShadowPuppet provides a DSL for creating collections ("manifests") of Puppet Resources in Ruby.<br/>
+<a href="http://github.com/railsmachine/railsmachine">railsmachine's railsmachine at master - GitHub</a> - RailsMachine is a collection of libraries for automating deployment and hosting configuration for Ruby on Rails applications using Capistrano and Rake.<br/>
+<a href="https://github.com/jfryman?tab=repositories">jfryman (James Fryman)</a> - <a href="https://github.com/jfryman/puppet-nginx">jfryman/puppet-nginx · GitHub</a> <a href="https://github.com/jfryman/puppet-php">jfryman/puppet-php · GitHub</a><br/>
+<a href="http://boxen.github.com/">BOXEN</a> - GitHub, Inc. wrote boxen and it only works on Mac OS X, using homebrew, puppet, and roughly a bajillion libraries.<br/>
+<a href="https://github.com/maestrodev/puppet-maven">maestrodev/puppet-maven</a> - A Puppet recipe for Apache Maven, to download artifacts from a Maven repository<br/>
+<a href="http://garylarizza.com/">Shit Gary Says</a> - professional services engineer for <a href="http://puppetlabs.com/">Puppet Labs</a><br/>
+<br/>
+<br/>
+<h2>Cucumber</h2>
+<a href="http://cukes.info/">Cucumber - Making BDD fun</a> - text is written in a business-readable domain-specific language and serves as documentation, automated tests and development-aid - all rolled into one format. (Cucumber works with Ruby, Java, .NET, Flex or web applications written in any language.)<br/>
+<a href="https://github.com/aslakhellesoy/cucumber/wiki/Given-When-Then">Given When Then - GitHub</a><br/>
+<a href="https://github.com/aslakhellesoy/cucumber/wiki/Feature-Introduction">Feature Introduction - GitHub</a><br/>
+<br/>
+<br/>
+<h2>Ruby testing</h2>
+<a href="http://maintainable.com/articles/dry_up_testing_with_autotest">Maintainable Software: DRY up testing in Rails with Autotest</a> - tool to continiously run rake test when your files change.  It will also color output for easier read and report tests through growl/snarl/kdenotify.<br/>
+<a href="https://github.com/jnicklas/capybara">jnicklas/capybara</a> - Acceptance test framework for web applications Selenium, Webkit or pure Ruby drivers.<br/>
+<br/>
+<br/>
+<h2>IronRuby</h2>
+<a href="http://ironruby.codeplex.com/">IronRuby</a> - ironruby.codeplex.com IronRuby is a Open Source implementation of the Ruby programming language for .NET and Silverlight, heavily relying on Microsoft's Dynamic Language Runtime.<br/>
+<a href="http://ironruby-rocks.com/">IronRuby rocks</a><br/>
+<a href="http://www.ironshay.com/">IronShay | Ironing code, geek t-shirts and even presentations!</a><br/>
+<br/>
+<br/>
+<a href="http://www.atmos.org/cider/intro.html">Cider - A Development Environment for Macs</a> - Cider is a fully managed development environment for open source hacking on Mac OSX. It's powered by rvm, homebrew and chef. You only need Xcode to get started.<br/>
+<a href="http://nanoc.stoneship.org/">nanoc: a Ruby site compiler that generates static HTML » home</a> - <a href="http://nanoc.stoneship.org/docs/1-introduction/">nanoc › Introduction to nanoc</a><br/>
+<a href="http://lovdbyless.com/">Lovd By Less -- Open Source Social Network -- Who loves you, baby?</a> - RoR based social networking.<br/>
+<br/>
+<br/>
+<h2>database sync using ruby</h2>
+<a href="http://www.rubyrep.org/tutorial.html">rubyrep: Tutorial</a> - (Database replication that doesn't hurt.)<br/>
+<br/>
+<br/>
+<h2>Static website generation</h2>
+<a href="http://jekyllrb.com/">Jekyll • Simple, blog-aware, static sites</a> <a href="https://github.com/mojombo/jekyll">mojombo/jekyll</a> - Jekyll is a simple, blog aware, static site generator.<br/>
+<a href="http://middlemanapp.com/">Middleman: Hand-crafted frontend development</a> - Middleman is a static site generator using all the shortcuts and tools in modern web development.<br/>
+<a href="http://nanoc.ws/">nanoc: a static site generator written in Ruby » home</a><br/>
+<a href="http://webgen.rubyforge.org/">Home | webgen - static website generator</a><br/>
+<a href="http://webby.rubyforge.org/">Webby :: Webby</a><br/>
+<a href="https://github.com/skx/static-site-generators">skx/static-site-generators</a> - mini-review of static site generators <br/>
+<br/>
+<br/>
+<h2>Liquid</h2>
+<a href="https://github.com/Shopify/liquid">Shopify/liquid</a> - Liquid markup language. Safe, customer facing template language for flexible web apps.<br/>
+<a href="https://github.com/shopify/liquid/wiki/liquid-for-designers">Liquid for Designers · Shopify/liquid Wiki</a><br/>
+<br/>
+<br/>
+<h2>Jekyll</h2>
+<a href="http://jekyllrb.com/">Jekyll • Simple, blog-aware, static sites</a> <a href="https://github.com/mojombo/jekyll">mojombo/jekyll</a> - Jekyll is a simple, blog aware, static site generator.<br/>
+<a href="http://net.tutsplus.com/tutorials/other/building-static-sites-with-jekyll/">How to Use Jekyll | Nettuts+</a><br/>
+<a href="http://www.andrewmunsell.com/tutorials/jekyll-by-example/index.html#creating-a-layout">Learning Jekyll By Example: Build a Jekyll Website, Start to Finish | Andrew Munsell</a><br/>
+<a href="http://mkla.bz/yeoman/yeoman-meets-jekyll/">Yeoman meets Jekyll .::. ~</a><br/>
+<a href="http://web-design-weekly.com/2013/04/07/unique-post-styling-with-jekyll/">Unique Post Styling with Jekyll - Web Design Weekly</a><br/>
+<a href="http://web-design-weekly.com/2013/03/04/going-static-with-jekyll-deploying-via-github-for-free/">Going Static with Jekyll &amp; Deploying via GitHub for Free</a> - <a href="https://help.github.com/articles/setting-up-a-custom-domain-with-pages">Setting up a custom domain with Pages · GitHub Help</a><br/>
+<a href="http://jekyllbootstrap.com/">Blogging with Jekyll Tutorial | Jekyll-Bootstrap</a> - git clone https://github.com/plusjade/jekyll-bootstrap.git<br/>
+<a href="http://vitobotta.com/how-to-migrate-from-wordpress-to-jekyll/">Migrating from Wordpress to Jekyll - Part 2: **Everything** you need to know about Jekyll</a><br/>
+<a href="https://github.com/necolas/jekyll-boilerplate">necolas/jekyll-boilerplate</a><br/>
+<a href="http://www.circuidipity.com/jekyll-static-website-generator.html">Great fun getting started with Jekyll</a><br/>
+<a href="http://www.kinnetica.com/2011/04/17/jekyll-tips-and-tricks/">Jekyll - 7 Tips &amp; Tricks</a><br/>
+<a href="http://www.multunus.com/2012/10/our-experience-with-jekyll-and-octopress">Our experience with Jekyll and Octopress | Multunus</a><br/>
+<a href="http://octopress.org/">Octopress</a> - Octopress is a framework designed for Jekyll, the static blogging engine powering Github Pages. <br/>
+<a href="https://github.com/imathis/octopress">imathis/octopress</a> - Octopress is an obsessively designed framework for Jekyll blogging. It’s easy to configure and easy to deploy. Sweet huh?<br/>
+adding search to Jekyll using angular:<br/>
+<a href="http://paulhammant.com/2013/02/24/angular-in-a-jekyll-blog/">Angular in a Jekyll Blog - Paul Hammant's blog</a><br/>
+<a href="http://rainerat.spirit.de/2012/07/09/dynamic-search-in-a-static-world/">Dynamic search in a static world</a><br/>
+<a href="http://blog.drewinglis.com/2013/03/18/adding-rss.html">Drew Inglis' Blog – Adding RSS to Jekyll</a><br/>
+<a href="https://github.com/snaptortoise/jekyll-rss-feeds">snaptortoise/jekyll-rss-feeds</a> - Templates for rendering RSS feeds for your Jekyll blog<br/>
+<a href="https://gist.github.com/stammy/795024">RSS Feed for Jekyll (feed/index.xml) - paulstamatiou.com</a><br/>
+<br/>
+<br/>
+<a href="http://bashdb.sourceforge.net/ruby-debug.html">ruby-debug</a><br/>
+<a href="http://pryrepl.org/">Pry - an IRB alternative and runtime developer console</a><br/>
+<a href="http://www.circuidipity.com/install-ruby-on-debian-wheezy-using-rvm.html">Install Ruby on Debian Wheezy using RVM</a><br/>
+<a href="http://oylenshpeegul.typepad.com/blog/2013/08/acme-envy.html">Acme Envy - oylenshpeegul's blog</a><br/>
+<a href="http://mroth.github.io/lolcommits/">lolcommits: selfies for software developers</a> - lolcommits takes a snapshot with your webcam every time you git commit code, and archives a lolcat style image with it.<br/>
+    <div style="border: 1px;">
+    Created: 2008-03-04 07:27:56
+    Modified: 2014-12-24 07:13:10
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+<a href="javascript:var%20s%20=%20document.createElement('script');s.type='text/javascript';document.body.appendChild(s);s.src='/eggs/asteroids.min.js';void(0);" id="secret">destory this webpage; if you will.</a>
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

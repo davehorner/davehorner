@@ -1,0 +1,312 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>Mono - open source .NET</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/programming/">programming</a>
+    <h1>Mono - open source .NET</h1>
+   Mono looks like a pretty nice project.  I'm interested in developing code inside a CLR that is actually cross platform, free, and open.<br/>
+<br/>
+Mono offers full static compilation to native machine instructions, rather than CLR bytecode running on a runtime.<br/>
+<br/>
+<a href="http://weblog.infoworld.com/archives/emailPrint.jsp?R=printThis&A=http://weblog.infoworld.com/fatalexception/archives/2009/02/mono_mania.html">The case for supporting and using Mono | InfoWorld | Weblog | February 5, 2009 | By Neil McAllister</a><br/>
+<a href="http://unity3d.com/unity/">UNITY: Overview</a> - above article claims Unity is mono based.<br/>
+<br/>
+<br/>
+<a href="http://gitweb.ndesk.org/?p=ndesk-options;a=summary">NDesk - ndesk-options/summary</a> - C# Program Option parsing library, inspired by Getopt::Long<br/>
+<a href="http://codebetter.com/blogs/patricksmacchia/archive/2008/03/18/mono-cecil-vs-system-reflection.aspx">Mono.Cecil vs. System.Reflection - Patrick Smacchia [MVP C#]</a><br/>
+<br/>
+When I look at open source, I think of libraries that I use.  Checkout the breath of open libraries within the mono 1.2.6 release!  With C/C++, I had to work to integrate these libraries, now with Mono, I can take them for granted.<br/>
+<div>
+IPCE-r6-0,boo-0.8.0.2730-0,cocoa-sharp-0.9.4-0,gtk-sharp210-2.10.2-0,gtksourceview2-sharp-89788-0,ikvm-0.34.0.2-1,libgdiplus-90681-0
+mono-1.2.6-0,mono-addins-0.3-0,mono-basic-1.2.6-0,mono-basic-debuginfo-1.2.6-0,monodevelop-0.18.1-0,monodoc-core-1.2.6-1,monodoc-core-debuginfo-1.2.6-1,nant-0.85.0-3,xsp-1.2.6-2,xsp-debuginfo-1.2.6-2,XML-Parser-2.36-0
+app-bundles.tar.gz,atk-1.20.0-0,cairo-1.5.8-0,expat-2.0.1-0,gettext-0.16.1-0,giflib-4.1.6-0,glib-2.14.1-0,gnome-icon-theme-2.20.0-0,gtk+-2.15.0-0,gtk-engines-2.12.2-0,gtkrc_mac.zip,gtksourceview-2.0.2-0,hicolor-icon-theme-0.10-0
+icon-naming-utils-0.8.6-0,jpeg-6b-0,libglade-2.6.2-0,libpng-1.2.20-0,moma-1.2.6.94332-2.2.noarch.rpm
+native_mwf-1.2.6_updated.tar.gz,pango-1.19.0-0,pixman-0.9.6-0,pkg-config-0.22-0,tango-icon-theme-0.8.1-0,tango-icon-theme-extras-0.1.0-0,tiff-3.8.2-0
+</div>
+<br/>
+<br/>
+<a href="http://www.mono-project.com/">Mono website</a><br/>
+<br/>
+<br/>
+<h2>Mono Applications</h2>
+<a href="http://www.oreillynet.com/pub/a/network/2004/10/18/mono.html">Seven cool mono apps</a><br/>
+<a href="http://banshee-project.org/download/">Banshee » Download</a> - Banshee is written in C# on the Mono platform using GNOME technologies (Gtk#, GStreamer, etc) with MIT/X11 license.<br/>
+<br/>
+<a href="http://www.monodevelop.com/Running_On_OSX">MonoDevelop - Running On OSX</a><br/>
+<br/>
+<a href="http://www.mono-project.com/Compiling_Mono">Compiling Mono - Mono</a><br/>
+<pre>
+svn co svn://anonsvn.mono-project.com/source/trunk/mcs 
+svn co svn://anonsvn.mono-project.com/source/trunk/mono 
+svn co svn://anonsvn.mono-project.com/source/trunk/gtk-sharp
+svn co svn://anonsvn.mono-project.com/source/trunk/libgdiplus
+</pre>
+<br/>
+<br/>
+<strong>SDL.net / OpenGL / etc</strong><br/>
+OpenGL is a nice cross platform C api that I've used for years.  Lately, I've been working on packaging and distribution for multiple platforms...using MONO, it would be nice to not have to worry about linking to the libraries myself.  Rely on the runtime to provide the needed functionality.  I'm very excited about the prospect of true cross platform support using MONO and MS .NET.<br/>
+<br/>
+<a href="http://www.mono-project.com/Tao">Tao - Mono</a><br/>
+<a href="http://cs-sdl.sourceforge.net/index.php/Main_Page">SDL.NET</a> - open source cross platform SDL using C#!<br/>
+<a href="http://toddlergame.sourceforge.net/">A Toddler Game. (SDL.net app)</a><br/>
+<br/>
+<br/>
+<strong>Silverlight / Moonlight</strong><br/>
+Moonlight makes Silverlight a real OPEN cross platform solution.<br/>
+<a href="http://hex-dump.blogspot.com/2008/03/silverlight-2-sdk-mac-os-x-and-mono.html">Hex dump: Silverlight 2 SDK, Mac OS X and Mono</a><br/>
+<br/>
+<a href="http://mono-project.com/Moonlight">Moonlight - Mono</a><br/>
+<a href="http://www.onlamp.com/pub/a/onlamp/2007/08/23/moonlight-silverlight-goes-mono.html?page=2">ONLamp.com -- Moonlight: Silverlight Goes Mono</a><br/>
+<br/>
+Looks like moonlight is pushing the boundary for what is possible with SilverLight.  Now you can host silverlight external to the browser and on the desktop.  Very nice.<br/>
+<a href="http://www.news.com/8301-10784_3-9922547-7.html">Mono project takes Silverlight step closer to Adobe AIR | Tech news blog - CNET News.com</a><br/>
+<a href="http://tirania.org/blog/archive/2007/Jun-28.html">Hack Week: Moonlight Desklets. - Miguel de Icaza</a><br/>
+<br/>
+<a href="http://nickandgrace.com/code/archive/2008/03/12/how-to-run-asp.net-mvc-on-mono.aspx">How to Run ASP.Net MVC on Mono</a><br/>
+<a href="http://www.jprl.com/Blog/archive/development/mono/2009/May-14.html">Linq to SQL on Mono Update: NerdDinner on Mono - Jonathan Pryor's web log</a><br/>
+<br/>
+<br/>
+<a href="http://nancyfx.org/">Nancy - Lightweight Web Framework for .net</a><br/>
+<a href="https://github.com/NancyFx/Nancy">NancyFx/Nancy</a> - Lightweight, low-ceremony, framework for building HTTP based services on .Net and Mono<br/>
+<a href="https://github.com/Sandra/Sandra.Snow/">Sandra/Sandra.Snow</a><br/>
+<a href="http://www.philliphaydon.com/">philliphaydon.com</a><br/>
+    <div style="border: 1px;">
+    Created: 2007-04-30 17:58:23
+    Modified: 2013-12-03 16:48:08
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+0, 1, 1, 2, 3, 5, 8, 13, 21, 34,...<br/>
+<b> x<sub>n</sub> = x<sub>n-1</sub> + x<sub>n-2</sub></b><br/>
+<!-- "Fibonacci" was his nickname, which roughly means "Son of Bonacci". -->
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

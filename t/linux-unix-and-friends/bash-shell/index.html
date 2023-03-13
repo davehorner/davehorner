@@ -1,0 +1,333 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>Bash Shell</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/linux-unix-and-friends/">linux-unix-and-friends</a>
+    <h1>Bash Shell</h1>
+   Bourne again shell is my favorite shell.<br />
+The best place to find simple information about it can be found on the <a target="_blank" href="http://gentoo-wiki.com/MAN_bash">man pages</a>.<br />
+A good place for <a target="_blank" href="http://www.tldp.org/LDP/abs/html/">programming info</a>.<br />
+<a href="http://github.com/revans/bash-it">revans's bash-it at master - GitHub</a> - A community bash framework in the spirit of oh-my-zsh<br/>
+<a href="http://cfajohnson.com/shell/tuesday-tips/#tt-2004-08-03">Tuesday's Tips for Unix Shell Scripts</a><br/>
+<br/>
+<a href="https://github.com/kristopolous/TickTick">kristopolous/TickTick - GitHub</a> - JSON in your Bash scripts<br/>
+
+<h2><span class="contentheading">
+</span>History<span class="contentpagetitle">
+</span></h2>
+For privacy you can turn off history:<br />
+Simply add the following to your (~/.bash_logout)<br />
+<br />
+<pre>
+history -c
+clear
+</pre><br />
+This will cause bash to automatically clear your history on logout.<br />
+<br />
+
+You can turn off history all together by setting:<br />
+
+<pre>
+HISTSIZE=0
+HISTFILE="/dev/null"
+SAVEHIST=0
+export HISTSIZE HISTFILE SAVEHIST
+</pre>
+
+This will cause bash to not record any history at all.  However,
+if you use just the .bash_logout you can continue to use history for
+the current session.<br />
+<br/>
+<h2>Keyboard Shortcuts</h2>
+Ctrl + A 	Go to the beginning of the line you are currently typing on<br/>
+Ctrl + E 	Go to the end of the line you are currently typing on<br/>
+Ctrl + L               	Clears the Screen, similar to the clear command<br/>
+Ctrl + U 	Clears the line before the cursor position. If you are at the end of the line, clears the entire line.<br/>
+Ctrl + H 	Same as backspace<br/>
+Ctrl + R 	Let's you search through previously used commands<br/>
+Ctrl + C 	Kill whatever you are running<br/>
+Ctrl + D 	Exit the current shell<br/>
+Ctrl + Z 	Puts whatever you are running into a suspended background process. fg restores it.<br/>
+Ctrl + W 	Delete the word before the cursor<br/>
+Ctrl + K 	Clear the line after the cursor<br/>
+Ctrl + T 	Swap the last two characters before the cursor<br/>
+Esc + T 	Swap the last two words before the cursor<br/>
+Alt + F 	Move cursor forward one word on the current line<br/>
+Alt + B 	Move cursor backward one word on the current line<br/>
+Tab 	Auto-complete files and folder names<br/>
+<a href="http://red45.wordpress.com/2010/09/27/bash-tricks/">Bash Tricks | The Red45</a> - Because bash was written and is maintained by the people who write emacs, emacs is the default mode used by bash. If the vi mode is desired then add the following command to your .bashrc file: set -o vi  Otherwise, heres the emacs shortcuts.<br/>
+<a href="http://red45.wordpress.com/2010/10/01/sending-signals-with-the-keyboard/">Sending signals with the keyboard | The Red45</a> - CTRL+\, unlike the other kill signals is a Core disposition signal, this maens that it will instruct the controlling process to terminate and dump core.<br/>
+<br/>
+<br/>
+<h2>Extract substring in bash || cut data up in bash</h2>
+<a href="http://stackoverflow.com/questions/428109/extract-substring-in-bash">shell - Extract substring in bash - Stack Overflow</a><br/>
+<br/>
+<br/>
+<a href="https://github.com/cxreg/smartcd">cxreg/smartcd</a> - change your environment as you cd around your filesystem.<br/>
+<br/>
+<br/>
+Get a random word using shuf and sed.<br/>
+<pre>
+shuf -n1 /usr/share/dict/words | sed 's/[^a-z]*//g'
+</pre>
+<br/>
+<br/>
+get a list of all the pngs in the current folder sorted by filesize.<br/>
+<pre>
+find . -name "*.png" -exec ls -1lh {} \; |  awk '{print $5, $9}' | sort -rh
+</pre>
+    <div style="border: 1px;">
+    Created: 2005-04-19 22:57:20
+    Modified: 2017-11-15 04:51:46
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+\begin{bmatrix} 1 & 0 & \ldots & 0 \\
+                0 & 1 & 0 & \vdots \\
+                \vdots & 0 & \ddots & 0\\
+                0 & \ldots &  0 & 1_{n}
+\end{bmatrix}
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

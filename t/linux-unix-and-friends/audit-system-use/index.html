@@ -1,0 +1,309 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>Audit system use.</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/linux-unix-and-friends/">linux-unix-and-friends</a>
+    <h1>Audit system use.</h1>
+   I don't like the idea of someone watching every command I run when I'm logged into my home linux server.  However, I do think that it is very handy to log everything that happens on my firewalls and other "secure" boxes.  (what machine do you own that you don't want to be "secure"?)<br/>
+<br/>
+I've been looking for a total solution for accounting but there really isn't anything that logs enough data.<br/>
+<br/>
+For example, process accounting is available in many of the kernels.  You turn it on and the kernel records information about each of the processes that are run.  This allows you to run reports on what a user has run and how much CPU time they have consumed.  However, it doesn't record command line args or file changes so you can't really see what was being done.  The only accounting it provides is when and what the user ran.<br/>
+<br/>
+What I would really like to see is a system that logs each command a person runs with full detail including command line arguments.  In fact, I'd like to have diffs of each file the user modified during the execution of that program.  (this really isn't that practical).<br/>
+<br/>
+For now I've settled for simply being able to login to the system and watch users.  This might be useful if you really don't trust someone in your system and you'd like to watch each command they run.<br/>
+<br/>
+<pre>
+# Watch a user's commands and args in tree form
+watch pstree -a username
+</pre>
+<br/>
+The above command just runs pstree over and over.  pstree displays all the user processes owned by the user in a handy tree display with full command line details.<br/>
+<br/>
+Another program that I've gone fond of lately is <a href="http://sourceforge.net/projects/sudosh/">sudosh</a>, this program records all the keystrokes and output of an interactive shell.  It works a lot like a VCR, users log in and everything is recorded.  Later a system administrator can log in and replay everything the user saw and typed!  Pretty neat, but there were some issues with scp and sftp when I tried it.<br/>
+<br/>
+<h2>rootsh</h2>
+<a href="http://www.linux.com/archive/feed/61687">Linux.com :: Rootsh terminal logger keeps watch on root users</a><br/>
+<a href="http://sourceforge.net/projects/rootsh/">rootsh | Get rootsh at SourceForge.net</a> - Rootsh is a wrapper for shells which logs all echoed keystrokes and terminal output to a file and/or to syslog. It's main purpose is the auditing of users who need a shell with root privileges. They start rootsh through the sudo mechanism. <br/>
+<br/>
+<br/>
+<h2>Cfengine</h2>
+<a href="http://www.cfengine.org/">Cfengine</a> - adaptive configuration management.<br/>
+<a href="http://cfengine.com/">CFEngine</a> - configuration management via promises.<br/>
+<a href="http://watson-wilson.ca/2011/05/cfengine-3-cookbook-begins.html">Cfengine 3 cookbook begins - Neil H Watson, Linux consultant</a><br/>
+<a href="http://watson-wilson.ca/cfengine/cf-cookbook/">Neil H Watson, Linux consultant: Cfengine cookbook Archives</a><br/>
+<a href="http://www.rexify.org/">(R)?ex - A simple framework to simplify system administration and datacenter automation</a><br/>
+<br/>
+<br/>
+<a href="http://www.gmgsystemsinc.com/fau/">Forensic Acquisition Utilities</a> - includes dd,wipe,netcat and other forensic apps.<br/>
+
+<a href="http://www.graylog2.org/about">Graylog2 - Free open source self-hosted log management and exception tracking</a><br/>
+<a href="http://logstash.net/">logstash - open source log management</a><br/>
+<a href="http://cookbook.logstash.net/">the logstash community cookbook - logstash cookbook</a><br/>
+<a href="http://dist.epipe.com/downtimed/">EPIPE Communications : /downtimed/</a> - System downtime monitoring and reporting tool<br/>
+<br/>
+<br/>
+<h2>sysdig</h2>
+<a href="http://www.sysdig.org/">sysdig | Home</a> - Sysdig is open source, system-level exploration: capture system state and activity from a running Linux instance, then save, filter and analyze.
+Think of it as strace + tcpdump + lsof + awesome sauce.
+With a little Lua cherry on top.<br/>
+<a href="http://draios.com/fishing-for-hackers/">Draios | Fishing for Hackers: Analysis of a Linux Server Attack</a> - analyzing an actual attack on a server, captured entirely with sysdig. <br/>
+<br/>
+<br/>
+<a href="http://processhacker.sourceforge.net/">Overview - Process Hacker</a> open source version of the excellent <a href="http://technet.microsoft.com/en-us/sysinternals/bb896653.aspx">sysinternals Process Explorer</a><br/>
+<a href="http://technet.microsoft.com/en-us/sysinternals/dn798348">Sysmon</a> Windows system service and device driver that, once installed on a system, remains resident across system reboots to monitor and log system activity to the Windows event log. It provides detailed information about process creations, network connections, and changes to file creation time. By collecting the events it generates using Windows Event Collection or SIEM agents and subsequently analyzing them, you can identify malicious or anomalous activity and understand how intruders and malware operate on your network.<br/>
+    <div style="border: 1px;">
+    Created: 2005-12-24 12:30:39
+    Modified: 2014-12-12 22:00:35
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<a href="http://en.wikipedia.org/wiki/E_%28mathematical_constant%29" target=_blank>$$e = \sum_{n=0}^\infty \frac{1}{n!}$$</a>
+
+
+satis dictum.
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

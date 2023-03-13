@@ -1,0 +1,845 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>.NET programming</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/programming/">programming</a>
+    <h1>.NET programming</h1>
+   The size of .net is impressive - > 11,417 types, 400,000 properties,events and methods in >4000 classes.<br/>
+<a href="http://blogs.msdn.com/brada/archive/2008/03/17/number-of-types-in-the-net-framework.aspx">Brad Abrams : Number of Types in the .NET Framework</a><br/>
+<a href="http://blogs.msdn.com/johnwpowell/archive/2008/03/16/c-and-net-framework-features-by-version-quick-reference.aspx">John W Powell : C# and .Net Framework Features by Version Quick Reference</a><br/>
+This makes learning .net a very large task...and very powerful.<br/>
+<br/>
+As a C/C++ pro, I didn't know how to feel about .NET when I first saw it.  I had already spent a ton of time learning C++ COM objects using MFC/ATL/WTL...... and now another switch.<br/>
+<br/>
+COM was always the promise of cross platform support, but it never delivered.  Instead we got DLL hell and deployment headaches.  Hopefully .NET will alleviate these COM shortcomings.  Will Microsoft ever port .NET to the MacOS and Linux?!  That is what I really want to know. (silverlight that project?)  Mono is a nice possibility but it doesn't provide things in the MS namespace.  It would be nice if we could write true cross-platform applications.<br/>
+<br/>
+I'm very excited to be a bit more declarative when programming.  Most of the new stuff like     XAML, WCF, and WF provide a nice framework of  models which are declarative in nature.  Writing more declarative programs will help to reduce program complexity and increase separation of concerns.<br/>
+<br/>
+<br/>
+I would really like to see cross platform WPF implementations!  The whole click-once deployment is a beautiful thought, but it should be click-once everywhere (mac/linux).  Otherwise, why wouldn't I use something that is cross platform(DHTML/AJAX)....it is important to me.<br/>
+<br/>
+<a href="https://dotnetfiddle.net/">.NET Fiddle</a> - .net fiddle faddle.<br/>
+<br/>
+<a href="http://www.infoworld.com/archives/emailPrint.jsp?R=printThis&A=/article/08/02/11/gates-declarative_1.html">Gates talks up declarative modeling language effort | InfoWorld | News | February 11, 2008 | By Paul Krill</a><br/>
+<br/>
+<br/>
+<a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=0856EACB-4362-4B0D-8EDD-AAB15C5E04F5&displaylang=en">Download details: .NET Framework Version 2.0 Redistributable Package (x86)</a><br/>
+Woot, the SP1 was delivered.<br/>
+<a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=ab99342f-5d1a-413d-8319-81da479ab0d7&displaylang=en">Download details: .NET Framework 3.5 Service pack 1</a><br/>
+<a href="http://stackoverflow.com/questions/198931/how-do-i-tell-if-net-3-5-sp1-is-installed">How do I tell if .net 3.5 SP1 is installed? - Stack Overflow</a><br/>
+<a href="http://codebetter.com/blogs/patricksmacchia/archive/2008/08/13/net-3-5-sp1-changes-overview.aspx">.NET 3.5 SP1: Changes Overview - Patrick Smacchia [MVP C#]</a><br/>
+<a href="http://www.microsoft.com/downloads/details.aspx?FamilyId=68539FAE-CF03-4C3B-AEDA-769CC205FE5F&displaylang=en">Download details: SQL Server Compact 3.5 SP1 Beta for ADO.Net Entity Framework Beta 3</a><br/>
+<a href="http://download.microsoft.com/download/4/a/3/4a3c7c55-84ab-4588-84a4-f96424a7d82d/NET35_Namespaces_Poster_LORES.pdf">The .NET Framework 3.5 Commonly Used Types and Namespaces poster (PDF)</a><br/>
+<br/>
+<a href="http://forums.microsoft.com/MSDN/default.aspx?SiteId=1">MSDN Forums</a><br/>
+<a href="http://code.msdn.microsoft.com/">MSDN Code Gallery - Home</a><br/>
+<a href="http://www.theserverside.net/">.Net community discussing Microsoft server side development</a><br/>
+
+<a href="http://shfb.codeplex.com/">Sandcastle Help File Builder</a><br/>
+<a href="http://www.theregion.com/">The Region: News and Views of Microsoft Regional Directors</a><br/>
+<a href="http://john-sheehan.com/blog/index.php/net-cheat-sheets/">.NET Cheat Sheets « Just Sayin’ More Words</a><br/>
+<br/>
+<br/>
+<br/>
+<a href="http://www.codeproject.com/KB/trace/releasemodebreakpoint.aspx">CodeProject: A Release Mode Breakpoint Using Reflection Emit.</a> - sample of generating some IL on the fly. neato.<br/>
+<br/>
+<br/>
+<br/>
+<h2>System.addin</h2>
+System.Addin allows you to version your addins independent of the host versioning.<br/>
+System.Addin also isolates plugins into AppDomains, which allows you to protect the host and unload plugin DLLs.<br/>
+Addins can be ClickOnce deployed.<br/>
+Using "CrossBow" allows you to run winforms and wpf addins together.<br/>
+<a href="http://www.codeplex.com/clraddins">Managed Extensibility and Add-In Framework - Home</a><br/>
+<a href="http://blogs.msdn.com/clraddins/">CLR Add-In Team Blog</a><br/>
+<a href="http://www.codeplex.com/clraddins/Release/ProjectReleases.aspx?ReleaseId=9456">Managed Extensibility and Add-In Framework - Release: Sample- Reliable Extensible Calculator V2</a><br/>
+<a href="http://blogs.msdn.com/jackg/">Jack Gudenkauf (JackG) WebLog</a><br/>
+<a href="http://blogs.msdn.com/clraddins/archive/2007/08/15/video-jack-gudenkauf-on-the-bcl-and-add-ins-jack-gudenkauf.aspx">CLR Add-In Team Blog : Video: Jack Gudenkauf on the BCL and Add-ins [Jack Gudenkauf]</a><br/>
+<a href="http://blogs.microsoft.co.il/blogs/bursteg/archive/2007/08/13/Build-AddIns-with-System-AddIn.aspx">How To: Build an Add-In using System.AddIn - Guy Burstein's Blog</a><br/>
+<a href="http://softwaregreenhouses.com/blog/2008/01/13/part-ii-windows-controls-extensibility-with-net-35-clr-add-ins-using-wpf-and-crossbow/">software greenhouses Â» Part II - Windows Controls Extensibility with .NET 3.5 CLR Add-Ins using WPF and Crossbow</a><br/>
+<br/>
+<br/>
+<h2>AppDomains,multithreaded UI</h2>
+<a href="http://blogs.msdn.com/b/tilovell/archive/2011/08/19/wf4-hosting-the-workflowdesigner-or-other-wpf-stuff-in-a-separate-appdomain.aspx">(WF4) Hosting the WorkflowDesigner (or other WPF stuff) in a separate AppDomain - The Activity Designer - Site Home - MSDN Blogs</a><br/>
+<a href="http://eprystupa.wordpress.com/2008/07/28/running-wpf-application-with-multiple-ui-threads/">Running WPF Application with Multiple UI Threads « Eugene Prystupa’s Weblog</a><br/>
+<a href="http://blog.lab49.com/archives/2355">How to: Running multiple WPF applications in the same process using AppDomains » Lab49 Blog</a><br/>
+
+
+
+<h2>Managed Extensibility Framework (MEF)</h2>
+MEF provides infrastructure to safely and dynamically extend your application.<br/>
+System.addin framework comes with .net 3.5, it addresses versioning and isolation.<br/>
+Spins up things is sep. app domains with the ability to do multiple versions.<br/>
+MEF has part definitions, parts can have deps.<br/>
+MEF has catalogs with autodiscovery...DirectoryWatchingCatalog.<br/>
+Typically, containers are types and instances.<br/>
+MEF allows us to create composable part which is not based on type at all....based on metadata or runtime information (method signature,object data,etc).<br/>
+Abstracts metadata about the things that get created in the container from the actual implementation<br/>
+MEF boils down to exports, imports, and contracts.<br/>
+"Naming and Activation Service (returns an object given a “name”), Dependency Injection (DI) framework, and a Structural Type System (duck typing). These technologies (and other like System.AddIn) together are intended to enable the world of what we call Open and Dynamic Applications, i.e. make it easier and cheaper to build extensible applications and extensions." -- Krzysztof Cwalina.<br/>
+<a href="http://blogs.msdn.com/kcwalina/archive/2008/04/25/MEF.aspx">Krzysztof Cwalina : Managed Extensibility Framework</a><br/>
+<a href="http://www.codeplex.com/unity/">patterns & practices - Unity - Home</a> is a lightweight extensible dependency injection container with support for constructor, property, and method call injection.<br/>
+<a href="http://code.msdn.microsoft.com/fds/Release/ProjectReleases.aspx?ReleaseId=873">Framework Design Studio - Release: Framework Design Guidelines Digest</a><br/>
+<a href="http://blogs.msdn.com/brada/archive/2008/06/04/managed-extensibility-framework-preview-available.aspx">Brad Abrams : Managed Extensibility Framework Preview Available</a><br/>
+<a href="http://kentb.blogspot.com/2009/02/maf-and-mef.html">Kent Boogaart: MAF and MEF</a><br/>
+<a href="http://codebetter.com/blogs/glenn.block/archive/2010/06/02/mef-has-shipped.aspx?utm_source=feedburner&amp;utm_medium=feed&amp;utm_campaign=Feed%3A+CodeBetter+%28CodeBetter.Com%29&amp;utm_content=FriendFeed+Bot">MEF has shipped!!! - Glenn Block - CodeBetter.Com - Stuff you need to Code Better!</a><br/>
+<a href="http://kentb.blogspot.com/2009/02/maf-and-mef.html">Kent Boogaart: MAF and MEF</a><br/>
+<br/>
+<br/>
+<br/>
+<h2>Random .NET</h2>
+<a href="http://msdn2.microsoft.com/en-us/magazine/cc300805.aspx">.NET Matters: Scope<T> and More</a><br/>
+<br/>
+<a href="http://peteohanlon.wordpress.com/2008/10/10/xaml-power-toys-moxaml-the-one-two-knockout-punch/">XAML Power Toys & MoXAML - the one-two knockout punch. « Musings and frustrations</a><br/>
+<a href="http://peteohanlon.wordpress.com/moxaml-power-toys/">MoXAML Power Toys « Musings and frustrations</a><br/>
+
+<br/>
+<h2>C++ in .NET</h2>
+<a href="http://msdn2.microsoft.com/en-us/library/ms379588(VS.80).aspx">Moving to .NET and WinFX: A Roadmap for C/C++ Applications</a><br/>
+<a href="http://msdn2.microsoft.com/en-us/library/ms379556(vs.80).aspx">A Baker's Dozen: Thirteen Things You Should Know Before Porting Your Visual C++ .NET Programs to Visual Studio 2005</a><br/>
+<br/>
+<h2>Visual Studio plugins</h2>   
+<a href="http://www.aisto.com/roeder/dotnet/">Reflector for .NET</a><br/>
+
+<a href="http://www.jtleigh.com/people/colin/software/CopySourceAsHtml/">CopySourceAsHtml (CSAH)</a> - is an add-in for Microsoft Visual Studio 2005 that allows you to copy source code, syntax highlighting, and line numbers as HTML.<br/>
+
+<a href="http://msdn.microsoft.com/msdnmag/issues/05/12/VisualStudioAddins/">Ten Essential Tools: Visual Studio Add-Ins Every Developer Should Download Now -- MSDN Magazine, December 2005</a><br/>
+<a href="http://msdn.microsoft.com/msdnmag/issues/05/11/CodeAccessSecurity/default.aspx">Find Out What's New with Code Access Security in the .NET Framework 2.0</a><br/>
+<br/>
+<br/>
+<h2>ASP.net</h2>
+All of my content relating to ASP.net controls, embedded hosting of ASP.NET, ASP.NET MVC, ASP.net AJAX, and anything else ASP.net has been moved to <a href="http://dave.thehorners.com/tech-talk/programming/392-net-aspnet">.NET ASP.net programming the web in MS.</a><br/>
+<br/>
+<br/>
+<h2>WPF - Windows Presentation Foundation</h2>
+I've actually decided to create a sep. page for my content relating to WPF .<br/>
+Please goto <a href="http://dave.thehorners.com/tech-talk/programming/389-net-wpf-saying-goodby-to-win32-and-winforms">.NET WPF - so much more than win32</a>.<br/>
+<br/>
+Also, I used to have a lot of data related information on this page.  That content too has moved.<br/>
+<a href="https://dave.thehorners.com/tech-talk/programming/390-mssql-ms-sql-express-tsql">.NET Data story (MSSQL, MS SQL Express, SQL Compact, TSQL, LINQ, EF)</a><br/>
+<br/>
+<br/>
+.NET doesn't support global hooks the same way the old WIN32 apps did.  So trusty spy++ won't enumerate winforms properly.  This doc provides code and info on how to develop spy++ type functionality.  Very cool and informative.<br/>  
+<a href="http://www.ddj.com/windows/184416699">Dr. Dobb's | Spying on .NET Applications | October 1, 2003</a><br/>
+<a href="http://www.codeplex.com/cracknetproject">Crack.NET - Home</a> - A runtime debugging and scripting tool that gives you access to the internals of a WPF or Windows Forms application.<br/>
+<br/>
+<br/>
+<h2>Assemblies, GAC, and DLL hell</h2>
+<a href="http://www.codeproject.com/dotnet/demystifygac.asp">Demystifying the .NET Global Assembly Cache - The Code Project - .NET</a><br/>
+<a href="http://www.codeproject.com/tools/asmshell.asp">Shell Extensions for .NET Assemblies - The Code Project - Free Tools</a><br/>
+Locations:<br/>
+C:\WINDOWS\assembly - the GAC<br/>
+
+<a href="http://www.codeproject.com/install/assemblydeployment.asp">Assemblies: locating, binding and deploying - The Code Project - Installation</a><br/>
+<br/>
+<br/>
+<h2>CSLA .NET</h2>
+<a href="http://www.lhotka.net/cslanet/Default.aspx">CSLA .NET</a><br/>
+<a href="http://www.lhotka.net/weblog/OverviewOfCSLANET36ForWindowsAndSilverlight.aspx">Rockford Lhotka - Overview of CSLA .NET 3.6 for Windows and Silverlight</a> - wow, look at all the great stuff you can do now with CSLA!<br/>
+<a href="http://www.code-magazine.com/article.aspx?quickid=0811061&page=1">CoDe Magazine - Article: Using CSLA .NET for Silverlight to Build Line-of-Business Applications</a></br>
+<a href="http://www.lhotka.net/weblog/default.aspx">Rockford Lhotka</a><br/>
+<br/>
+<br/>
+<br/>
+
+<h2>Enterprise library / Patterns and Practices</h2>
+<a href="http://www.codeplex.com/Release/ProjectReleases.aspx?ProjectName=entlib&ReleaseId=12142">patterns & practices – Enterprise Library - Release: EntLib 4.0 March 2008 CTP</a><br/>
+<a href="http://www.pnpguidance.net/Screencasts.aspx">Screencasts of Enterprise Library and Software Factories - Patterns & Practices</a><br/>
+<a href="http://www.entityspaces.net/Portal/Default.aspx">EntitySpaces</a> - Persistence Layer and Business Objects for Microsoft .NET(cost w/src)<br/>
+<a href="http://www.nettiers.com/">.netTiers - Application Framework based on MS enterprise library.</a> (requires <a href="https://www.codesmithtools.com/">CodeSmith</a>)<br/>
+<a href="http://www.codeplex.com/AppArch/Wiki/View.aspx?title=Pocket%20Guides&referringTitle=Home">patterns & practices: App Arch Guide 2.0 Knowledge Base - Home</a><br/>
+<br/>
+<br/>
+<a href="http://ndoc.sourceforge.net/">NDoc Code Documentation Generator for .NET</a><br/>
+<a href="http://nant.sourceforge.net/">NAnt - A .NET Build Tool</a><br/>
+<a href="http://blogs.msdn.com/sivarv/archive/2005/09/16/468529.aspx">WebLog of SivaRV : Application Deployment essentials for VS2005 device application developers - Part I</a><br/>
+
+<a href="http://msdn.microsoft.com/msdnmag/issues/04/07/MustHaveTools/">.NET Tools: Ten Must-Have Tools Every Developer Should Download Now -- MSDN Magazine, July 2004</a><br/>
+<a href="http://www.geekproject.com/tools.aspx#9">geekProject.com - Tools</a> - includes a VS2003 typed collection wizard, MSMQ utilites, etc.<br/>
+<a href="http://msdn.microsoft.com/msdnmag/issues/02/08/VisualStudioforApplications/">Scripting and .NET: Visual Studio for Applications Provides Customized Scripting Facilities for Your .NET Project</a><br/>
+<br/>
+<br/>
+<h2>WCF</h2>
+I felt that WCF deserved its own page....<br/>
+<a href="http://dave.thehorners.com/tech-talk/programming/412-net-windows-communication-foundation-wcf">.NET Windows Communication Foundation - WCF</a><br/>
+<br/>
+<br/>
+<a href="http://www.1bot.com/index.html">Vil </a> - OO metrics, C# metrics, .Net Software Metrics ( MSIL, CIL, IL)<br/>
+<br/>
+<br/>
+<h2>Webservices</h2>
+<a href="http://msdn2.microsoft.com/en-us/webservices/aa740663.aspx">Web Services Enhancements (WSE)</a><br/>
+<a href="http://www.pocketsoap.com/pocketsoap/">PocketSOAP</a><br/>
+<br/>
+<br/>
+<h2>Build systems / Continuous Integration</h2>
+<a href="http://cruisecontrol.sourceforge.net/">CruiseControl Home</a><br/>
+<a href="http://draconet.sourceforge.net/">Draco.NET</a><br/>
+<br/>
+<br/>
+<h2>Unit testing</h2>
+<a href="http://www.csunit.org/">csUnit</a><br/>
+<a href="http://www.nunit.org/">NUnit - Home</a><br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<a href="http://www.springframework.net/download.html">Spring.NET - Application Framework</a><br/>
+<a href="http://richclient.fluffnstuff.org/">Spring.NET RichClient - Trac</a><br/>
+<br/>
+<br/>
+<a href="http://www.adapdev.com/codus/">Adapdev Technologies, LLC - Codus</a><br/>
+<a href="http://www.genwise.com/">GenWise Studio - Generate your ASP.NET 2.0 web application in minutes!</a><br/>
+<a href="http://www.subsonicproject.com/">SubSonic: All Your Database Are Belong To Us</a><br/>
+<br/>
+<br/>
+<a href="http://xceed.com/Grid_WPF_Intro.html">Xceed DataGrid for WPF data grid view gridview presenter control XAML XBAP .NET 3.0</a><br/>
+<a href="http://msdn.microsoft.com/msdnmag/issues/04/07/MustHaveTools/">.NET Tools: Ten Must-Have Tools Every Developer Should Download Now -- MSDN Magazine, July 2004</a><br/>
+<br/>
+<a href="http://www.castleproject.org/index.html">Castle Project</a> - is an open source project for .net that aspires to simplify the development of enterprise and web applications.<br/>
+<a href="http://www.nservicebus.com/">NServiceBus - Enterprise .NET Communications Framework</a><br/>
+<br/>
+<h2>Volta</h2>
+Something new from the microsoft labs....<br/>
+Volta is about tier splitting and trying to help people distribute work on machines.
+Volta operates on MSIL to create Javascript implementations.<br/>
+<a href="http://labs.live.com/volta/">Microsoft Live Labs : Volta</a><br/>
+<br/>
+<br/>
+<br/>
+<h2>ClickOnce Deployments</h2>
+<a href="http://www.kavinda.net/2007/01/26/clickonce-on-multiple-environments.html">Deploying ClickOnce on Multiple Environments – Kavinda Munasinghe’s Blog</a><br/>
+<a href="http://cs.blueberryislandmedia.com/blogs/blueberries/archive/2009/04/24/clickonce-deployment-via-command-line-with-makecert.aspx">ClickOnce Deployment Via Command Line with Makecert - Software Blueberries</a><br/>
+<a href="http://briannoyes.net/2006/11/03/ClickOnceDeploymentApplicationIdentity.aspx">.NET Ramblings - Brian Noyes' Blog - ClickOnce Deployment Application Identity</a><br/>
+<a href="http://robindotnet.wordpress.com/2009/04/22/clickonce-installing-multiple-versions-concurrently/">ClickOnce: Concurrent versions « RobinDotNet's Blog</a><br/>
+<a href="http://msdn.microsoft.com/en-us/library/xc3tc5xx.aspx">Walkthrough: Manually Deploying a ClickOnce Application</a><br/>
+<a href="http://blog.gatosoft.com/PermaLink,guid,d0a0dd1e-c9ac-4fa9-a408-615454d49702.aspx">Mike Bouck's RAM - Taking the ClickPain out of ClickOnce</a><br/>
+<br/>
+<br/>
+<h2>Clickonce signing key</h2>
+<pre>
+makecert keyname.cer -sv keyname.pvk
+pvk2pfx.exe -pvk keyname.pvk -spc keyname.cer -pfx keyname.pfx
+</pre>
+<br/>
+<br/>
+<a href="http://www.codeproject.com/KB/exception/ExceptionHandling.aspx">CodeProject: User Friendly Exception Handling. Free source code and programming articles</a><br/>
+<br/>
+
+<h2>Connected Services</h2>
+<a href="http://blogs.msdn.com/csf/default.aspx">Microsoft Connected Services Framework (MCSF) Blog</a><br/>
+<a href="http://forums.microsoft.com/MSDN/ShowForum.aspx?ForumID=878&SiteID=1">Connected Services Framework - MSDN Forums</a><br/>
+<a href="http://www.microsoft.com/serviceproviders/solutions/connectedservicesframework.mspx">Connected Services Framework - Microsoft Service Providers</a><br/>
+<br/>
+<br/>
+<h2>Managed C++ - C++/CLI</h2>
+<a href="http://www.ondotnet.com/pub/a/dotnet/2003/01/13/intromcpp.html">ONDotnet.com -- Introduction to Managed C++</a><br/>
+<a href="http://www.ondotnet.com/pub/a/dotnet/2003/03/03/mcppp2.html">ONDotnet.com -- Intro to Managed C++, Part 2: Mixing Managed and Unmanaged Code</a><br/>
+<a href="http://msdn.microsoft.com/msdnmag/issues/05/01/COptimizations/default.aspx#S7">C++ Rules: Power Your App with the Programming Model and Compiler Optimizations of Visual C++ -- MSDN Magazine, January 2005</a><br/>
+<a href="http://msdn.microsoft.com/msdnmag/issues/05/02/PureC/">Pure C++: Hello, C++/CLI -- MSDN Magazine, February 2005</a><br/>
+An interesting read, a bunch of programmers take on C++/CLI and how it relates to other languages like C#.<br/>
+<a href="http://www.eggheadcafe.com/software/aspnet/31372127/disappointment-in-vc-n.aspx">.NET vc Disappointment in VC++ .Net in VS2008</a><br/>
+Books on the subject.<br/>
+<a href="http://www.manning.com/sivakumar/">Manning: C++/CLI in Action</a><br/>
+<a href="http://www.microsoft.com/mspress/books/9147.aspx">CLR via C++/CLI</a><br/>
+<a href="http://www.apress.com/book/view/1590597567">APRESS.COM : Expert Visual C++/CLI: .NET for Visual C++ Programmers : 9781590597569</a><br/>
+A project which uses C++/CLI...I also thought it was neat cause it uses a cypress board.<br/>
+<a href="http://www.componentsnotebook.com/notebooks/csharp/deviceio.aspx">DeviceIoControl & USB</a><br/>
+<a href="http://www.etro.vub.ac.be/Personal/bjansen/dlls/interfacing.html">On the mixing of C, C++, C# and Lisp code</a><br/>
+<a href="http://blogs.msdn.com/texblog/archive/2005/11/21/495404.aspx">TexBlog : Is C++ a first-class .NET language?</a><br/>
+<a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/vcmex/html/vcconconvertingmanagedextensionsforcprojectsfrompureintermediatelanguagetomixedmode.asp">Converting Managed Extensions for C++ Projects from Pure Intermediate Language to Mixed Mode</a><br/>
+
+<br/>
+<br/>
+<h2>Windows Forms - WinForms</h2>
+After win32 and before WPF, there was windows forms....<br/>
+<a href="http://www.sellsbrothers.com/writing/wfbook/">BOOK: Windows Forms Programming in C# And VB.NET</a><br/>
+<br/>
+<a href="http://code.msdn.microsoft.com/">MSDN Code Gallery - Home</a><br/>
+<br/>
+<a href="http://www.codeplex.com/smartclient">patterns & practices - Smart Client Guidance - Home</a><br/>
+<br/>
+<br/>
+<a href="http://www.microsoft.com/click/hellosecureworld/default.mspx">HelloSecureWorld</a> - microsoft's secure coding headquarters.<br/>
+<br/>
+<br/>
+<h2>VB.net - Visual Basic &gt; 6.0</h2>
+<a href="http://blogs.msdn.com/vbteam/">The Visual Basic Team</a><br/>
+vb xml literals<br/>
+<a href="http://blogs.msdn.com/bethmassi/archive/2007/10/26/xml-literals-tips-tricks.aspx">Beth Massi - Sharing the goodness that is VB : XML Literals Tips/Tricks</a><br/>
+<a href="http://msdn2.microsoft.com/en-us/library/ms364068(VS.80).aspx">Overview of Visual Basic 9.0</a><br/>
+<br/>
+<br/>
+<a href="http://www.hanselman.com/blog/ScottHanselmans2007UltimateDeveloperAndPowerUsersToolListForWindows.aspx">Scott Hanselman's Computer Zen - Scott Hanselman's 2007 Ultimate Developer and Power Users Tool List for Windows</a><br/>
+<br/>
+<br/>
+<h2>Open Source .NET - open code in .net land</h2>
+As you might be able to tell from other parts of my site, I love Open Source.  It lets a programmer get a look at what can be done with code and great communities result.  It is nice to see the windows crowd get more open source.  Codeplex helps.<br/>
+<a href="http://www.dasblog.info/">dasBlog</a> - an open source blogging platform for ASP.NET 2.0<br/>
+<h2>dotnetnuke</h2>
+dotnetnuke is an OSI certified content management system in the spirit of the original phpnuke/postnuke/etc CMS systems. It is implemented using the ASP.NET (VB.NET)  framework.  Dotnetnuke is open source BSD and was built with multi-site hosting in mind.<br/>
+<a href="http://www.dotnetnuke.com/">dotnetnuke home</a><br/>
+<a href="http://www.getpaint.net/features.html">Paint.NET - Features</a> - great open source photo editing app with layers, effects, etc. (MIT)<br/>
+<br/>
+<br/>
+<a href="http://www.codeproject.com/KB/aspnet/DNNLINQtoSQL.aspx">CodeProject: Creating a DotNetNukeÂ® Module using LINQ to SQL.</a><br/>
+
+<br/>
+<br/>
+<h2>D</h2>
+I wonder if this relates to (<a href="http://www.digitalmars.com/d/">Intro - D Programming Language - Digital Mars</a>).  The MS D language looks to be XML in nature, so it may also be an entirely different beast.<br/>
+<a href="http://blogs.zdnet.com/microsoft/?p=1159">Microsoft declares its modeling love with a new language | All about Microsoft | ZDNet.com</a><br/>
+<br/>
+<h2>DLR - Dynamic languages in .NET</h2>
+<a href="http://codeplex.com/dynamicsilverlight">Dynamic Silverlight</a> - samples for Silverlight that are written in dynamic languages implemented on the Dynamic Language Runtime (DLR)<br/>
+VB on the DLR is VBX<br/>
+DLR languages are hostable.<br/>
+DLR languages are dynamic languages (think Python/Ruby) - defer processing at compile time to runtime.<br/>
+Expression trees, metaprogramming, -> programs as data.<br/>
+<a href="http://www.thinkbottomup.com.au/site/blog/Embedding_DLR_Scripts_in_XAML_Part_6">WPF: Embedding DLR Scripts in XAML (Python, Ruby) - Part 6, A Very Dynamic Application | ThinkBottomUp</a><br/>
+<br/>
+<br/>
+<h2>XNA - C# game dev with multi platform support.</h2>
+To get into the forums and develop with xna, you'll need a gametag..which is free with xbox live silver acct.<br/>
+<a href="http://www.glop.org/gamercard/">Xbox Live Gamercard Generator</a><br/>
+<a href="http://www.xbox.com/en-IE/live/xbox/features/gamertag.htm">Xbox.com | Inside Xbox Live: Gamertag</a><br/>
+<a href="http://forums.xna.com/">XNA Creators Club Online - Forums</a><br/>
+<a href="http://blogs.msdn.com/xna/default.aspx">XNA Team Blog</a><br/>
+<a href="http://www.microsoft.com/downloads/details.aspx?familyid=7d70d6ed-1edd-4852-9883-9a33c0ad8fee&displaylang=en">Download details: Microsoft XNA Game Studio 3.0</a><br/>
+<a href="http://www.microsoft.com/downloads/details.aspx?FamilyId=DF80D533-BA87-40B4-ABE2-1EF12EA506B7&displaylang=en">Download details: Microsoft XNA Game Studio 2.0</a><br/>
+<a href="http://www.ziggyware.com/news.php">Ziggyware XNA News and Tutorials</a><br/>
+<a href="http://letskilldave.com/default.aspx">Let's Kill Dave!</a><br/>
+<a href="http://www.ziggyware.com/readarticle.php?article_id=219">XNA Tutorials and XNA Tools - Implementing a Flexible Input System</a><br/>
+
+<br/>
+<br/>
+<a href="http://www.php-compiler.net/doku.php">Phalanger</a> - PHP in .net!<br/>
+<br/>
+<br/>
+<h2>.net micro framework (.net for small embedded devices)</h2>
+<a href="http://msdn2.microsoft.com/en-us/embedded/bb267253.aspx">.NET Micro Framework</a><br/>
+exposes hardware through a managed code object framework.<br/>
+includes buses to I2C, GPIO, interrupts, etc.<br/>
+came from TinyCLR project - remember SpotWatch.<br/>
+only c# now, doesn't support generic either yet...vb coming.<br/>
+bootable runtime that runs bare metal on hardware.<br/>
+this is unlike compact framework in that it is smaller and doesn't require an OS.<br/>
+Includes TCP/IP stack and will soon include web services support! (DPWS) very cool!<br/>
+<br/>
+<br/>
+<h2>XML Serializing</h2>
+When serializing types within .NET...and UTF encoding<br/>
+By default when creating XML using XmlSerializer and a StringBuilder, it generates the output in UTF-16.<br/>
+Many times you need it in UTF-8 for a particular service, to do this, you need to use a XmlTextWriter to provide the proper encoding:<br/>
+<a href="http://unboxedsolutions.com/sean/archive/2005/02/09/442.aspx">Serializing an Object to an XML String</a><br/>
+<a href="http://www.eggheadcafe.com/articles/system.xml.xmlserialization.asp">System.Xml. XmlSerializer Examples</a><br/>
+You may notice some extra bytes before the XML declaration(0xEF 0xBB 0xBF).  These bytes are the byte-order mark (<a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/intl/unicode_42jv.asp">BOM</a>) which is added by default when using UTF8Encoding.<br/>
+To remove the BOM, you have to use the UTF8Encoding constructor to turn it off.<br/>
+Encoding enc = new UTF8Encoding(false);<br/>
+<a href="http://www.west-wind.com/WebLog/posts/10540.aspx">XmlWriter, Strings and Byte Order Marks - Rick Strahl's Web Log</a><br/>
+<br/>
+<br/>
+<h2>People with good books</h2>
+<a href="http://www.charlespetzold.com/books.html">Books by Charles Petzold</a><br/>
+<br/>
+<br/>
+<br/>
+<h2>log4net</h2>
+These days, it might be good to use a nice logging framework like log4net.<br/>
+Provides Nested Diagnostic Context (NDC) and Mapped Diagnostic Context (MDC) for tracking down issues related to multiple concurrency..threads, resources, and what not...<br/>
+For the standard levels, we have the following ordering: TRACE < DEBUG < INFO < WARN < ERROR < FATAL.<br/>
+If you are using NHibernate, it comes along as a dep....why not use it.<br/> 
+<a href="http://logging.apache.org/log4net/index.html">Apache log4net - Apache log4net: Home</a><br/>
+<a href="http://elegantcode.com/2007/12/07/getting-started-with-log4net/">Elegant Code » Getting Started with Log4Net</a><br/>
+<a href="http://jclaes.blogspot.com/2010/01/log4net-logdebugstringformat-versus.html?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+DiaryOfAnetDeveloperByJefClaes+%28Diary+of+a+.NET+developer++By+Jef+Claes%29&utm_content=Google+Reader">JEF CLAES ON .NET AND LIFE: Log4Net: log.Debug(String.Format()) versus log.DebugFormat()</a> - So to avoid logging breaking your application, you should use the DebugFormat(), WarningFormat(), InfoFormat(), ErrorFormat() methods instead of String.Format() to format your log message. This should be a best practice. <br/>
+<a href="http://leecampbell.blogspot.com/2009/09/logging-in-modern-net-applications.html">Lee Campbell: Logging in modern .NET applications</a> - doesn't talk about log4net, but does take a nice look at the requirements and complexities involved with application logging.<br/>
+<br/>
+<br/>
+<br/>
+<a href="http://blogs.microsoft.co.il/blogs/tamir/archive/2008/10/20/p-invoke-cheat-sheet.aspx">P/Invoke cheat sheet - Just code - Tamir Khason</a><br/>
+<a href="http://blogs.microsoft.co.il/blogs/tamir/archive/2008/11/19/how-to-p-invoke-varargs-variable-arguments-in-c-or-hidden-junk-in-clr.aspx">How to P/Invoke VarArgs (variable arguments) in C#? ... or hidden junk in CLR - Just code - Tamir Khason</a><br/>
+
+<h2>WIN32 Errors from pInvoked functions?</h2>
+Use System.ComponentModel, it defines the Win32Exception class.  The default constructor automatically reads the last win32 error in the system.  You can use the NativeErrorCode for the win32 error code and Message for the error description.
+<pre>
+catch(Win32Exception w) {
+		Console.WriteLine(w.Message);
+		Console.WriteLine(w.ErrorCode.ToString());
+		Console.WriteLine(w.NativeErrorCode.ToString());
+		Console.WriteLine(w.StackTrace);
+		Console.WriteLine(w.Source);
+		Exception e=w.GetBaseException();
+		Console.WriteLine(e.Message);
+ 	    }
+</pre>
+<br/>
+<br/>
+<h2>Dependency injection / IoC / Dep Inject</h2>
+essence with less ceramony<br/>
+ioc - sensible defaults.<br/>
+<a href="http://structuremap.sourceforge.net/Default.htm">StructureMap Home Page</a><br/>
+<a href="http://ninject.org/">Ninject: Lightning-fast dependency injection for .NET</a><br/>
+<a href="http://code.google.com/p/autofac/">autofac - Project Hosting on Google Code</a><br/>
+<a href="http://www.codeplex.com/unity">patterns & practices - Unity</a> - a lightweight extensible dependency injection container with support for constructor, property, and method call injection.<br/>
+<a href="http://www.martinfowler.com/articles/injection.html">Inversion of Control Containers and the Dependency Injection pattern</a><br/>
+<a href="http://springframework.net/doc-latest/reference/html/quickstarts.html">Chapter 33. IoC Quickstarts</a> - from Spring.Net<br/>
+<a href="http://www.codeplex.com/AutoMapper">AutoMapper</a> - AutoMapper is an object-object mapper. Object-object mapping works by transforming an input object of one type into an output object of a different type.<br/>
+<br/>
+<br/>
+It is annoying to me that the default install of visual studio does not put installutil in the path.<br/>
+C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\InstallUtil.exe<br/><br/>
+I've also found that I can't uninstall service because I moved the .NET executable that installed the service!<br/>
+Best way to clean this up is to delete the service reg keys from [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\].
+<br/>
+<br/>
+<h2>Extended OS features in .NET (Vista/Windows 7)</h2>
+<a href="http://windowsteamblog.com/blogs/developers/archive/2009/03/30/windows-7-net-interop-sample-libraries.aspx">Windows 7 .NET Interop Sample Libraries - Windows 7 for Developers - The Windows Blog</a><br/>
+<a href="http://windowsteamblog.com/blogs/developers/archive/2009/05/18/windows-7-managed-code-apis.aspx">Windows 7 Managed Code APIs - Windows 7 for Developers - The Windows Blog</a> - talks about some of the samples, WPF Explorer Browser Demo...<br/>
+<a href="http://windowsteamblog.com/blogs/developers/archive/2009/06/11/windows-7-programming-guide-libraries.aspx">Windows 7 Programming Guide – Libraries - Windows 7 for Developers - The Windows Blog</a><br/>
+<a href="http://code.msdn.microsoft.com/WindowsAPICodePack">Windows® API Code Pack for Microsoft® .NET Framework (v0.90) - Home</a> - Windows® API Code Pack for Microsoft® .NET Framework provides a source code library that can be used to access some new Windows 7 features (and some existing features of older versions of Windows operating system) from managed code<br/>
+<a href="http://code.msdn.microsoft.com/VistaBridge">Vista Bridge Sample Library 1.4 - Home</a> - contains source code for assemblies that provide managed code developers access to Windows Vista features that are not available in the .NET Framework. Some of the features included in the Vista Bridge Sample Library are - Vista style Task and File Dialogs, Common Open and Save dialogs, Application Recovery and Restart, Known Folders, Network Lists, Power Management, User Account Control, CommandLink control, Aero Wizard Control, System provided icons etc.<br/>
+<br/>
+<br/>
+<br/>
+<h2>Clickonce</h2>
+<a href="http://windowsclient.net/articles/appupdater.aspx">WindowsClient.net: .NET Client Applications: .NET Application Updater Component</a> - .NET Client Applications: .NET Application Updater Component talks about clickonce manually...<br/>
+<br/>
+<br/>
+<h2>Charts in .NET</h2>
+<a href="http://www.microsoft.com/downloads/details.aspx?FamilyId=130F7986-BF49-4FE5-9CA8-910AE6EA442C&amp;displaylang=en">Download details: Microsoft Chart Controls for Microsoft .NET Framework 3.5</a><br/>
+<a href="http://code.msdn.microsoft.com/mschart">Samples Environment for Microsoft Chart Controls - Home</a><br/>
+<br/>
+<br/>
+<h2>Fluent code</h2>
+Writing code fluently makes things more concise and readable for those people accustomed.<br/>
+<a href="http://en.wikipedia.org/wiki/Fluent_interface">Fluent interface - Wikipedia, the free encyclopedia</a> - Martin Fowler's definition... <a href="http://martinfowler.com/bliki/FluentInterface.html">MF Bliki: FluentInterface</a><br/>
+<a href="http://fluentnet.codeplex.com/">Fluent.NET</a> - Make the .NET Framework more fluent.<br/>
+<a href="http://fluentnhibernate.org/">Fluent NHibernate</a><br/>
+<a href="http://ayende.com/Blog/archive/2007/02/20/Structure-Map-Fluent-Interface.aspx">Structure Map Fluent Interface</a><br/>
+<a href="http://www.mono-project.com/Rocks">Rocks - Mono</a> - Provide useful extensions for the .NET Framework. Mono.Rocks is a library which aims at providing useful extensions methods for the base class libraries.<br/>
+<br/>
+<br/>
+<h2>Dictionary<K,V> where the key values(K) are case insensitive.</h2>
+Dictionary<string, string> argList = new Dictionary<string, string>(StringComparer.CurrentCultureIgnoreCase);<br/>
+<br/>
+<br/>
+<h2>Flatten List<string> to a comma delimited list using string.Join</h2>
+string.Join(",", mystrings.ToArray());<br/>
+var firstNames = string.Join(",", (from book in books select "\""+book.Title+"\"").ToArray());<br/>
+<br/>
+<br/>
+<h2>expando object</h2>
+System.Dynamic in .NET 4.0<br/>
+<a href="http://blogs.msdn.com/csharpfaq/archive/2009/10/01/dynamic-in-c-4-0-introducing-the-expandoobject.aspx">C# Frequently Asked Questions : Dynamic in C# 4.0: Introducing the ExpandoObject</a><br/>
+<br/>
+<br/>
+<h2>Aspect Oriented Programming - AOP</h2>
+<a href="http://code.google.com/p/linfu/">linfu - Project Hosting on Google Code</a> - A framework that adds mixins, inversion of control, DbC, and other language features to the Common Language Runtime.<br/>
+<a href="http://www.sharpcrafters.com/">SharpCrafters – The Creators of PostSharp</a> - easily write and apply custom attributes that add new behaviors to your code - tracing, thread management, exception handling, data binding, and much more.<br/>
+<br/>
+<br/>
+<h2>httpclient in .net45 WCF Web API</h2>
+<a href="http://www.bizcoder.com/index.php/2012/01/09/httpclient-it-lives-and-it-is-glorious/">HttpClient, it lives, and it is glorious. | Bizcoder</a><br/>
+<a href="http://blog.jayway.com/2012/03/13/httpclient-makes-get-and-post-very-simple/">HttpClient makes GET and POST very simple | Jayway Team Blog - Sharing Experience</a><br/>
+    <div style="border: 1px;">
+    Created: 2007-06-30 14:04:26
+    Modified: 2014-07-06 00:08:59
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+<a target="_blank" href="/tech-talk/programming/107-algorithms-patterns-and-things-cs"><canvas id="c" width="170" height="172" title="conway glider"></canvas></a><br/>
+L:<span id=loop>0</span> I:<span id=iteration>0</span> A:<span id=active>0</span>
+<script>
+/** Conway's Game of Life.
+ * ankr started; modified by horner.
+ */
+var c=document.getElementById('c');
+var canvas = c.getContext('2d'),
+    cells = [];
+var drawRate=1200;
+var iter=0;
+var l=0;
+init();
+draw();
+
+function setSpan(name,value)
+{
+var span = document.getElementById(name);
+while( span.firstChild ) {
+    span.removeChild( span.firstChild );
+}
+span.appendChild(document.createTextNode(value));
+}
+function init() {
+setSpan('loop',l);
+    for (var i=0; i<c.width; i++) {
+        cells[i] = [];
+        for (var j=0; j<c.height; j++) {
+            cells[i][j] = 0;
+        }
+    }
+    var gliderT=[
+                [3, 1], [3,3], [2,3], [4, 2], [4, 3]
+               ];
+    var reflectorT=[
+                [0, 0], [0,1], [1,0], [1, 2], [2, 2]
+               ];
+    var sT=[
+                [0, 2], [0,3], [1,2],[2,0],[2,2],[3,0],[3,1]
+               ];
+    var boxT=[
+                [0, 0], [0,1], [1,1], [1,0]
+               ];
+
+    gliderT.forEach(function(point) {
+        cells[point[0]-1][point[1]-1] = 1;
+    });
+    gliderT.forEach(function(point) {
+        cells[point[0]+7][point[1]+7] = 1;
+    });
+    gliderT.forEach(function(point) {
+        cells[point[0]+3][point[1]+3] = 1;
+    });
+    gliderT.forEach(function(point) {
+        cells[point[0]+12][point[1]+12] = 1;
+    });
+if(l>1)  {
+var maxX=12;
+    var randomX=Math.floor(Math.random() * maxX);
+    var randomY=Math.floor(Math.random() * maxX);
+    sT.forEach(function(point) {
+        cells[point[0]+randomX][point[1]+randomY] = 1;
+    });
+    randomX=Math.floor(Math.random() * maxX);
+    randomY=Math.floor(Math.random() * maxX);
+    boxT.forEach(function(point) {
+        cells[point[0]+randomX][point[1]+randomY] = 1;
+    });
+    randomX=Math.floor(Math.random() * maxX);
+    randomY=Math.floor(Math.random() * maxX);
+    reflectorT.forEach(function(point) {
+        cells[point[0]+randomX][point[1]+randomY] = 1;
+    });
+}
+
+}
+
+function whos_alive() {
+    
+    var result = [];
+    var active= 0;
+    
+    /**
+     * Return amount of alive neighbours for a cell
+     */
+    function _countNeighbours(x, y) {
+        var amount = 0;
+        
+        function _isFilled(x, y) {
+            return cells[x] && cells[x][y];
+        }
+        
+        if (_isFilled(x-1, y-1)) amount++;
+        if (_isFilled(x,   y-1)) amount++;
+        if (_isFilled(x+1, y-1)) amount++;
+        if (_isFilled(x-1, y  )) amount++;
+        if (_isFilled(x+1, y  )) amount++;
+        if (_isFilled(x-1, y+1)) amount++;
+        if (_isFilled(x,   y+1)) amount++;
+        if (_isFilled(x+1, y+1)) amount++;
+        
+        return amount;
+    }
+    
+    cells.forEach(function(row, x) {
+        result[x] = [];
+        row.forEach(function(cell, y) {
+            var alive = 0,
+                count = _countNeighbours(x, y);
+            
+            if (cell > 0) {
+                alive = count === 2 || count === 3 ? 1 : 0;
+            } else {
+                alive = count === 3 ? 1 : 0;
+            }
+            if(alive) active++;
+            result[x][y] = alive;
+        });
+    });
+    
+    cells = result;
+    setSpan('active',active);
+    draw();
+}
+function draw() {
+    if(iter>60) { iter=0; l++; init(); }
+    else if(iter>10 && iter%20==0) {
+    if(drawRate>10) { drawRate-=10; }
+    var gliderT=[
+                [3, 1], [3,3], [2,3], [4, 2], [4, 3]
+               ];
+
+     gliderT.forEach(function(point) {
+        cells[point[0]][point[1]] = 1;
+    });
+    }
+setSpan('iteration',iter);
+    canvas.clearRect(0, 0, c.width, c.height);
+    cells.forEach(function(row, x) {
+        row.forEach(function(cell, y) {
+            canvas.beginPath();
+            if (cell) {
+                if(l%2==0) {
+                canvas.rect(x*8, y*8, 8, 8);
+                canvas.fillStyle = 'black';
+                } else {
+                canvas.beginPath();
+                canvas.arc(x*8, y*8,3 , 0, 2 * Math.PI, false);
+                canvas.fillStyle = 'black';
+                }
+                canvas.fill();
+                canvas.stroke();
+            } else {
+                if(l%2==0){
+                canvas.strokeStyle = '#e1e1e1';
+                canvas.rect(x*8, y*8, 8, 8);
+                canvas.stroke();
+                }
+            }
+        });
+    });
+    iter++;
+    setTimeout(function() {whos_alive();}, drawRate);
+}
+</script>
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

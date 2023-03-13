@@ -1,0 +1,338 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>penrose tribar, the impossible infinite triangle</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/p/">Personal</a>
+<a href="/p/random-thoughts/">random-thoughts</a>
+    <h1>penrose tribar, the impossible infinite triangle</h1>
+   <!-- <h2>penrose tribar, the impossible triangle</h2> -->
+<img src="/images/stories/penrosetriangleblackgreyred.jpg"/><br/>
+celebrated as a paradox or a unique contradiction, a mystery that can’t be solved...<br/>
+a triangle that looks like a real, solid three-dimensional object, but isn't.<br/>
+The impossible triangle, infinite triangle, penrose tribar, impossible tribar, is a triangular impossible object.<br/>
+a continuous loop, an ambiguous figure, a visual paradox;<br/>
+a strange loop with tangled hierarchies.<br/>
+impossibility in its purest form<br/>
+<br/>
+looks like a simple object. 2d depiction of a 3d triangle built from square beams. The eyes travel from face to face of the object, everything looks great, no problem. As the viewer traverses the continuous impossible object their perspective flips back and forth between equally possible perspectives in an unconscious and automatic way.<br/>
+<br/>
+implicit in this strange loop is the concept of infinity. a loop representing an endless process in a finite way. -a conflict between the finite and the infinite.<br/>
+<br/>
+helps give a sense that perceptions are limited and subjective from those of another person viewing the same thing.<br/>
+<br/>
+A "penrose" polygon refers to the 2-dimensional depiction of the impossible object itself.<br/>
+<a href="https://en.wikipedia.org/wiki/Penrose_triangle">Penrose triangle - Wikipedia</a><br/>
+<a href="https://en.wikipedia.org/wiki/Roger_Penrose">Roger Penrose</a> was the inventor of the tribar.<br/>
+it's also an interesting look at Escher.<br/>
+video with the Roger Penrose talking about the discovery of the tribar (spanish).<br/>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/xkigMZ2DeDs" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+Escher's works like ascending decending, waterfall, and other tilings are influenced by the Penrose father and son's work.<br/>
+non-isohedral tilings, tiles only one shape but they have different roles to play in different parts of the pattern. Roger sent Escher a wooden non-isohedral block puzzle to Escher; and Escher's solution  was in Escher's final print "Ghosts" which he made just before he died. Roger says in the video "Unfortunately, Escher died before the non-periodic tilings that came somewhat later."<br/>
+<img src="/images/stories/fcarc-october2014-penrose-tiling.jpg"/><br/>
+<br/>
+<a href="http://www.tessellations.org/tess-escher10.shtml">Tessellations - M.C. Escher Ghosts</a> - Escher's last tessellation "Ghosts" was a solution to a puzzle sent to him by Roger Penrose, the mathematician. Escher solved it and, true to form, changed the angular wood blocks into rounded 'ghosts'.<br/>
+<br/>
+<br/>
+
+if a line is traced around the Penrose triangle, a 4-loop Möbius strip is formed....<br/>
+<br/>
+and ya, that's my leg and first tattoo. and ya, I'm white and nerdy.
+Thank you Samuel Hyndman<br/>
+<iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fsamuel.hyndman.12%2Fposts%2F207593736731904&width=500" width="500" height="498" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe><br/>
+<br/>
+<a href="http://nextluxury.com/mens-style-and-fashion/penrose-triangle-tattoo-designs-for-men/">60 Penrose Triangle Tattoo Designs For Men - Impossible Tribar Ideas</a> - <br/>
+<a href="https://www.herinterest.com/triangle-tattoo-meaning/">Triangle Tattoo Meaning | herinterest.com/</a><br/>
+<a href="https://www.behance.net/gallery/446318/Impossibility">Impossibility on Behance</a><br/>
+<a href="https://www.behance.net/gallery/11687807/Making-a-Penrose-Triangle">Making a Penrose Triangle on Behance</a> - make a penrose perspective paper and tape model.<br/>
+
+
+If you're interested in optical illusions, you might also checkout <a href="https://dave.thehorners.com/tech-talk/science-and-math/422-optical-tricks-and-illusions">Optical tricks and illusions - Dave Horner's Website</a>.<br/>
+
+<br/>
+<h2>should maybe be on another penrose page but...</h2>
+<a href="https://www.jaapsch.net/tilings/#isohed">Tilings</a><br/>
+<a href="https://en.wikipedia.org/wiki/Penrose_tiling">Penrose tiling - Wikipedia</a><br/>
+<a href="https://en.wikipedia.org/wiki/Aperiodic_tiling">Aperiodic tiling - Wikipedia</a><br/>
+<a href="http://mathworld.wolfram.com/PenroseTiles.html">Penrose Tiles -- from Wolfram MathWorld</a><br/>
+<a href="http://nautil.us/issue/13/symmetry/impossible-cookware-and-other-triumphs-of-the-penrose-tile">Impossible Cookware and Other Triumphs of the Penrose Tile - Issue 13: Symmetry - Nautilus</a><br/>
+<a href="https://en.wikipedia.org/wiki/Anisohedral_tiling">Anisohedral tiling - Wikipedia</a> - In geometry, a shape is said to be anisohedral if it admits a tiling, but no such tiling is isohedral (tile-transitive); that is, in any tiling by that shape there are two tiles that are not equivalent under any symmetry of the tiling. A tiling by an anisohedral tile is referred to as an anisohedral tiling.<br/>
+<a href="https://en.wikipedia.org/wiki/Isohedral_figure">Isohedral figure - Wikipedia</a> -isohedral or face-transitive when all its faces are the same. More specifically, all faces must be not merely congruent but must be transitive, i.e. must lie within the same symmetry orbit. In other words, for any faces A and B, there must be a symmetry of the entire solid by rotations and reflections that maps A onto B. For this reason, convex isohedral polyhedra are the shapes that will make fair dice.<br/>
+
+<a href="https://en.wikipedia.org/wiki/Penrose_diagram">Penrose diagram - Wikipedia</a> -  is a two-dimensional diagram capturing the causal relations between different points in spacetime. It is an extension of a Minkowski diagram where the vertical dimension represents time, and the horizontal dimension represents space, and slanted lines at an angle of 45° correspond to light rays.<br/>
+
+<a href="https://en.wikipedia.org/wiki/Orchestrated_objective_reduction#Penrose%E2%80%93Lucas_argument">Orchestrated objective reduction (Penrose–Lucas argument) - Wikipedia</a> - The Penrose–Lucas argument states that, because humans are capable of knowing the truth of Gödel-unprovable statements, human thought is necessarily non-computable.<br/>
+<br/>
+<br/>
+
+<a href="http://www.ams.org/publicoutreach/feature-column/fc-2014-10">AMS :: Feature Column :: The Topology of Impossible Spaces</a><br/>
+<a href="http://www.stem2.org/je/tribar.pdf">The Penrose Tribar(pdf)</a><br/>
+<a href="http://www.stem2.org/je/drawtribar.pdf">Drawing A Tribar Figure by Hand(pdf)</a><br/>
+<a href="http://www.ams.org/publicoutreach/feature-column/fc-2014-10">AMS :: Feature Column :: The Topology of Impossible Spaces</a> - this page includes amazing pictures and walks you through the math behind perspective and how to know if an object is impossible in mathematical terms.  1-dimensional cohomology<br/>
+<a href="http://psylux.psych.tu-dresden.de/i1/kaw/diverses%20Material/www.illusionworks.com/html/impossible_triangle.html">Impossible Triangle</a> -  this page right here has wonderful english to walk you through what's going on in a tribar, i highly recommend it. "The beams of the triangle simultaneously appear to recede and come toward you. Yet, somehow, they meet in an impossible configuration!"  "it is possible to construct a physical model of the impossible triangle that looks impossible from only one angle"  "It would lead to biological disaster if you were blind to the unusual, inconsistent, or paradoxical." "When you examine a drawing of an impossible triangle, you first build up a global image by examing the local parts." "When you examine a drawing of an impossible triangle, you first build up a global image by examing the local parts."<br/>
+<a href="https://www.illusionsindex.org/i/impossible-triangle">Impossible Triangle - The Illusions Index</a> - another good page with wonderful english description of impossible triangle.  It also includes a four sided impossible figure.<br/>
+    <div style="border: 1px;">
+    Created: 2018-06-24 12:56:49
+    Modified: 2018-12-11 18:31:57
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+<span id=daysToChristmas>x</span> days to Christmas.<br/>
+<span id=daysToNewYear>x</span> days to a new year.<br/>
+Happy Holidays!
+<script Language="JavaScript">
+function showtime () {
+        msPerDay = 24 * 60 * 60 * 1000 ; // Number of milliseconds per day
+        var now = new Date();
+        var year = now.getYear();
+        if (year < 1000)
+         year+=1900
+        nextXmas = new Date("December 25, 2000")
+        nextXmas.setYear(year)
+        daysLeft = (nextXmas.getTime() - now.getTime()) / msPerDay;
+        daysLeft = Math.round(daysLeft);
+        var span=document.getElementById('daysToChristmas');
+        span.removeChild(span.firstChild);
+        span.appendChild(document.createTextNode(daysLeft+''));
+        
+        nextXmas = new Date("December 31, 2000")
+        nextXmas.setYear(year)
+        daysLeft = (nextXmas.getTime() - now.getTime()) / msPerDay;
+        daysLeft = Math.round(daysLeft);
+
+        span=document.getElementById('daysToNewYear');
+        span.removeChild(span.firstChild);
+        span.appendChild(document.createTextNode(daysLeft+''));
+        setTimeout("showtime()",msPerDay);
+}
+showtime();
+</script>
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

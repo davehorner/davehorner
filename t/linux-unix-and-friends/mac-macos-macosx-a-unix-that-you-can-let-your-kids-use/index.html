@@ -1,0 +1,706 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>Mac / MacOS / MacOSX - A Unix that you can let your kids use.</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/linux-unix-and-friends/">linux-unix-and-friends</a>
+    <h1>Mac / MacOS / MacOSX - A Unix that you can let your kids use.</h1>
+   So it has been awhile since I last used a Apple.  In fact, some of the last times I remember being on a mac involved developing hypercard stacks for my elementary school.  Hypercards were pre-html html, you had a set of cards, and you linked them together with scripting, displayed images and text, etc.
+It was pretty amazing stuff back in the day.  This was on the Machintosh.  You know, after the Apple IIe.<br/>
+<br/>
+Anyways, enough history.<br/>
+<br/>
+I just bought a new iMac 20" Intel dual core.  oy am I happy.  I've been away for so long!  Now the OS is based on bsd so I feel right at home.<br/>
+<br/>
+The thing that attracts me most to the new macs is that they can run all the great software I've been using on my Linux and Unix machines over the years. gcc,makefiles,grep,ssh,wget,etc,etc<br/>
+<br/>
+<h2>put macosx to sleep</h2>
+press the option-command-eject buttons.<br/>
+<br/>
+<h2>disable an external monitor without unplugging it?</h2>
+<a href="https://github.com/Eun/DisableMonitor">Eun/DisableMonitor</a> - Easily disable or enable a monitor on your Mac.<br/>
+<br/>
+<h2>PDF printer on the mac.</h2>
+Looks like it is nice and easy to add a PDF printer to MacOSX.  MacOSX includes CUPS. Nice!<br/>
+<a href="http://www.codepoetry.net/projects/cups-pdf-for-mosx">codepoetry - CUPS-PDF Package for Mac OS X</a><br/>
+<br/>
+<h2>Setup network sharing with Bonjour</h2>
+Have you ever needed to get to a machine that you know is on the same local network but don't know its IP?  Bonjour allows you to find computers by name on your network without having to look it up or setup DNS.  Instead, just add .local to your hostname and you are set!  Very neat.<br/>
+<br/>
+About Bonjour
+Bonjour, also known as zero-configuration networking, enables automatic discovery of computers, devices, and services on IP networks. Bonjour uses industry standard IP protocols to allow devices to automatically discover each other without the need to enter IP addresses or configure DNS servers.<br/>
+<br/>
+"Bonjour is a networking protocol that sends and receives network packets on UDP port 5353. If you have a firewall enabled, you will need to ensure that UDP port 5353 is open for Bonjour to work correctly. Certain firewalls will only partially block Bonjour packets, so if you experience intermittent behavior, check the firewall settings and verify that Bonjour is listed as an exception and is allowed to receive incoming packets. Bonjour will configure the Windows firewall appropriately during installation on Windows XP Service Pack 2 and above." -- [<a href="http://www.apple.com/support/downloads/bonjourforwindows103.html" target="_blank">Bonjour for Windows 1.0.3</a>]<br/>
+<a href="http://www.oreillynet.com/onlamp/blog/2006/01/bonjour_for_windows.html">Bonjour for Windows - O'Reilly ONLamp Blog</a><br/>
+<br/>
+Developers can download the Bonjour SDK to add Bonjour technology to their applications.  For more information about developing products that use Bonjour, and to download the SDK, please visit <http://developer.apple.com/bonjour/>.<br/>
+<br/>
+<br/>
+<h2>Screen savers</h2>
+<a href="http://www.mikeash.com/?page=software/chemicalburn/">mikeash.com: ChemicalBurn</a> - ChemicalBurn is a screensaver that simulates a transportation network. Packages are generated with a destination, and attempt to find the fastest way there. Frequently used routes get faster, making them more popular. The result is a beautiful self-organizing network colorfully displayed on your screen.<br/>
+<br/>
+<h2>Some resources I've found</h2>
+<a href="http://www.osxbook.com/">Mac OS X Internals: A Systems Approach</a><br/>
+
+<a href="http://www.reghardware.co.uk/2006/05/25/macbook_motion_sensor_mallarkey/">MacBook motion sensor malarkey gets useful</a><br/>
+<a href="http://www.versiontracker.com/macosx/">Version Tracker for MacOSX</a><br/>
+<a href="http://refit.sourceforge.net/">rEFIt - An EFI Boot Menu and Toolkit</a> - rEFIt is a boot menu and maintenance toolkit for EFI-based machines<br/>
+<br/>
+<br/>
+<h2>Key mappings on the mac</h2>
+<a href="http://lifehacker.com/software/mac-tip/access-the-dock-and-menu-bar-from-your-keyboard-321595.php">Mac Tip: Access the Dock and Menu Bar from Your Keyboard</a><br/>
+<a href="http://www.danrodney.com/mac/index.html">Dan Rodney - Mac OS X Keyboard Shortcuts</a><br/>
+I know this seems like a silly thing to be annoyed about...but some keys don't work the same on the Mac as they do on Win machines.  For instance, "home" and "end" keys on Win machines move you to the start and end of your current textbox.  On the Mac, "home" and "end" are used to scroll you to the top and bottom of your current document.  (this can be really annoying if you are trying to select all the text in your textbox by holding "shift" and hitting "home").<br/>
+<br/>
+The solution to this is to use "Apple-A" to select all the text, then hit the left arrow.  Or you can use the Win equivalent "Apple-Leftarrow" and "Apple-Rightarrow" to move "home" and "end" respectively.<br/>
+<br/>
+It is funny what can annoy you when switching to a new platform.<br/>
+<br/>
+<br/>
+<h2>Help, my mac mouse won't work</h2>
+Could be that you have Mouse Keys enabled.  To disable hit the "Option" key five times to toggle Mouse Keys<br/>
+<br/>
+<h2>Open an app from terminal</h2>
+open -a "Activity Monitor"<br/>
+<br/>
+<h2>Get a root account in your terminal</h2>
+<pre><br/>
+<br/>
+<h2>File sharing with windows</h2>
+First off you need to turn sharing on by doing the following
+<ol>
+  <li>Open System Preferences and click Sharing and, if necessary, click Services.</li>
+  <li>Select Windows Sharing in the list, then click Start.</li>
+  <li>Click Accounts and select the name of the user account that will share files. Enter the password for that user.</li>
+  <li>Look below the services list for your computer's network address. Give this address to Windows users.</li>
+</ol>
+The above will allow other windows machines to access your mac home directory.  If you'd like to setup sharing of volumes and other folders, do the following:<br/>
+Install <a href="http://www.hornware.com/sharepoints/">SharePoints</a><br/>
+Remember that NTFS is read only!
+<a href="http://www.macosxhints.com/article.php?story=20050521110452194&lsrc=osxh"> 10.4: An overview of NTFS support in Tiger</a><br/>
+<br/>
+<br/>
+<h2>package managers on MacOSX</h2>
+<a href="http://www.onthelambda.com/2013/10/14/the-state-of-package-management-on-mac-os-x/">The state of package management on Mac OS X | On the lambda</a> - great article from <a href="https://twitter.com/tonyfischetti">Tony Fischetti (@tonyfischetti)</a>.<br/>
+<a href="http://rudix.org/">Rudix!</a> - Rudix is a collection of pre-built Unix software delivered as packages for OS X: “The hassle-free way to get Unix programs on OS X. (python; binary only - /usr/local)<br/>
+<a href="https://www.macports.org/">The MacPorts Project -- Home</a> - system for compiling, installing, and upgrading either command-line, X11 or Aqua based open-source software on the OS X operating system. (tcl; source - /opt/local)<br/>
+<a href="http://fink.thetis.ig42.org/">Fink - Home</a> - (perl; both bin|source - /sw<br/>
+<a href="http://brew.sh/">Homebrew — The missing package manager for OS X</a> - Homebrew installs the stuff you need that Apple didn’t. (ruby; src|bottle bins - /usr/local/Cellar with symlinks to /usr/local/bin)<br/>
+<a href="http://pkgin.net/">pkgin, a binary package manager for pkgsrc</a> - pkgin is aimed at being an apt / yum like tool for managing pkgsrc binary packages. (C; /usr/pkg)<br/>
+<a href="http://www.pkgsrc.org/">pkgsrc</a> - pkgsrc is a framework for building third-party software (C; /usr/pkgsrc)<br/>
+<br/>
+<br/>
+<h2>FINK - More unix like ENV for MacOS using fink</h2>
+<a href="http://www.finkproject.org/index.php">Fink</a> is a project that brings tools like dselect and apt-get to Darwin and MacOS X.<br/>
+<br/>
+If you know how to use dselect or apt-get, then you'll know how to use fink.<br/>
+<br/>
+All the software packages that fink installs goes into the /sw/ directory.  If you need to uninstall simply:<br/>
+<pre>
+rm -rf /sw/
+</pre>
+<br/>
+To setup fink to install unstable packages, you need to add "unstable/main" and "unstable/crypto" to the "Trees:" line.<br/>
+This what what my line looks like:<br/>
+Trees: local/main stable/main stable/crypto unstable/main unstable/crypto<br/>
+<pre>
+vi /sw/etc/fink.conf;
+fink selfupdate; fink index; fink scanpackages
+</pre>
+You can also just run "fink configure", which will ask you a question to add unstable.<br/>
+<br/>
+To list the files installed by a package use dpkg.
+<pre>
+dpkg -L packagename
+</pre>
+<br/>
+<h2>Remote desktop</h2>
+Remote desktop or RDP is something I really want.<br/>
+<a href="http://www.microsoft.com/mac/otherproducts/otherproducts.aspx?pid=remotedesktopclient">Windows RDP client for mac</a><br/>
+<br/>
+<a href="http://www.gearlive.com/index.php/news/article/why-apple-makes-a-one-buttoned-mouse-01280820/">Why Apple Makes a One Buttoned Mouse</a><br/>
+<a href="http://www.wired.com/news/technology/0,1282,39773,00.html">Eek! A Two-Button Mac Mouse?</a><br/>
+<a href="http://www.macosxhints.com/">http://www.macosxhints.com/</a><br/>
+
+<a href="http://www.macupdate.com/info.php/id/6326">StuffIt Standard 11.0
+icon</a><br/>
+<a href="http://www.geekspiff.com/software/cotvnc/">Chick of the VNC</a><br/>
+<a href="http://www.opensourcemac.org/">Open source software for the mac</a><br/>
+<br/>
+<h2>Audio tools</h2>
+Switching audio devices should be a one or two click thing in every OS.  I have to install special apps on all my OS's to provide this functionality...<br/>
+<br/>
+For device selection checkout the free <a href="http://www.rogueamoeba.com/freebies/">SoundSource</a> utility.<br/>
+<a href="http://www.oreillynet.com/mac/blog/2006/07/applescript_audio_output_switc.html">AppleScript Audio Output Switcher</a><br/>
+<a href="http://www.cycling74.com/products/soundflower">Soundflower</a> - Free Inter-application Audio Routing Utility for Mac OS X<br/>
+<a href="http://www.otierney.net/flickrbooth/">FlickrBooth</a> - a plugin to upload photos to Flickr right from photobooth.<br/>
+<a href="http://metissian.com/projects/macosx/subversion/"> Mac OS X Packages - Subversion</a> - fink's svn client doesn't include ssl support.  These packages work for me.  You will also need to make sure /usr/local/bin is in your path after install.<br/>
+<br/>
+<br/>
+<h2>Upgrading autoconf and automake on MacOSX</h2>
+For some reason, Mac OS X 10.4.9 distributed with autoconf 2.59, automake 1.6.3.  I was surprised to see that the old versions were included...autoconf/automake had better versions available at the time of packaging for MacOSX 10.4.  At least fink makes it easy to upgrade these nice tools.  I wouldn't try downloading and installing the packages from source.  I've made that mistake.
+<br/>
+<pre>
+% fink selfupdate
+(update package descriptions, re-index)
+% fink install automake1.9
+(gets you automake 1.9.6)
+% fink install libtool14
+(gets you GNU libtool 1.5.22)
+% fink install autoconf
+(gets you autoconf 2.60) 
+</pre>
+This information was nabbed from <a href="http://www.nabble.com/autotools-on-mac-os-x-t3692430.html">autotools on mac os x</a><br/>
+<a href="http://trac.macosforge.org/projects/macports/wiki">The MacPorts Wiki</a><br/>
+<br/>
+<br/>
+<h2>add paths to environment in macosx</h2>
+There is a file /etc/paths which is a fine place to add new global paths.  Additionally there is /etc/paths.d/ which is just like /etc/paths but you add single files which are added to the env.<br/>
+Another option is ~/.profile || ~/.bash_profile (user specific) or /etc/profile (global) by using export. these of course affect the shell/terminal<br/>
+<a href="http://stackoverflow.com/questions/7501678/set-environment-variables-on-mac-os-x-lion/8841666#8841666">osx - Set environment variables on Mac OS X Lion - Stack Overflow</a><br/>
+<br/>
+<h2>Copy path to clipboard</h2>
+On windows, I've found a shell extension which allows you to select a file(s) and copy the full path to the clipboard.  This comes in handy all the time for developers as we are working with files all the time.<br/>
+So now, off to find a way to do it in mac...<br/>
+Drag the file into Terminal and it automatically puts the path in your Terminal window.<br/>
+<a href="http://www.mactech.com/articles/mactech/Vol.18/18.08/MenuPlugins/index.html">Writing Contextual Menu Plugins for OS X, part 1</a><br/>
+<a href="http://free.abracode.com/cmworkshop/file_utils.html">FileUtilsCM</a><br/>
+<a href="http://www.gideonsoftworks.com/filexaminer.html">FileXaminer</a><br/>
+<br/>
+<h2>Python on the mac</h2>
+Using fink makes it painless to install python and some popular python libraries. 
+<pre>
+# as always it is nice to update fink (things work better that way)
+fink selfupdate
+fink update-all
+fink install scipy-py25
+fink install matplotlib-py25
+fink install pygame-py25
+fink install ipython-py25
+# create this link to make python2.5 the default python on the cmdline.
+sudo ln -s /sw/bin/python2.5 /sw/bin/python
+</pre>
+<br/>
+<a href="http://developer.apple.com/opensource/tools/runningx11.html">Configuring and Running X11 Applications on Mac OS X</a><br/>
+<a href="http://macdailynews.com/index.php/weblog/comments/1230/">MacDailyNews - Lock your Mac OS X screen from the menu bar by adding lock icon</a><br/>
+<a href="http://www.macworld.com/weblogs/macosxhints/2006/01/lockscreen/index.php">Macworld: Mac OS X Hints: Quickly lock your screen</a><br/>
+<br/>
+<br/>
+<h2>Filesystems on the mac</h2>
+On a mac, writing to NTFS is not available out of the box in 10.4.  Instead, we can install MacFuse and use NTFS-3G to obtain write access.<br/>
+<a href="http://www.lifehack.org/articles/lifehack/how-to-read-and-write-ntfs-windows-partition-on-mac-os-x.html">How-to: Read and Write NTFS Windows Partition on Mac OS X - lifehack.org</a><br/>
+<a href="http://code.google.com/p/macfuse/">macfuse</a> - implements a mechanism that makes it possible to implement a fully functional file system in a user-space program on Mac OS X.<br/>
+<a href="http://www.ntfs-3g.org/">NTFS-3G: Stable Read/Write NTFS Driver</a><br/>
+<br/>
+<br/>
+<a href="http://www.mplayerhq.hu/design7/info.html">MPlayer - The Movie Player</a> - a very good open source cross-platform video player!  Great for MacOSX. <br/>
+<br/>
+I thought it was pretty neat that you can drag and drop colors to set your Terminal background.<br/>
+<a href="http://www.macworld.com/weblogs/macosxhints/2007/01/termcolor/index.php">Macworld: Mac OS X Hints: Set Terminal color via drag and drop</a><br/>
+<br/>
+<br/>
+<a href="http://plasticbugs.com/index.php?p=267">DittyBot - An Applescript Adventure at Plastic Bugs</a><br/>
+<br/>
+<br/>
+<a href="http://www.shinywhitebox.com/home/home.html">iShowU</a> - a nice screen cap program for the mac, $20 bucks.<br/>
+<br/>
+Ctrl-Click on app, "Show package contents" gets you into the packaging directory for an app.<br/>
+<br/>
+<a href="http://chmox.sourceforge.net/">Chmox - a Mac OS X CHM viewer</a><br/>
+<br/>
+<br/>
+<a href="http://www.roughlydrafted.com/2008/06/14/cocoa-for-windows-flash-killer-sproutcore/">Cocoa for Windows + Flash Killer = SproutCore — RoughlyDrafted Magazine</a><br/>
+<br/>
+<br/>
+<h2>Applescript programming</h2>
+<a href="http://developer.apple.com/documentation/AppleScript/Conceptual/AppleScriptLangGuide/introduction/ASLR_intro.html">AppleScript Language Guide: Introduction to AppleScript Language Guide</a><br/>
+<br/>
+<br/>
+<h2>Cool utilities and apps for the mac</h2>
+<a href="http://iterm.sourceforge.net/">iTerm</a> - iTerm is a great terminal for MacOSX.  It provides a nice tabbed interface...emulation is also a bit better than Terminal.<br/>
+<a href="http://www.coconut-flavour.com/coconutbattery/index.html">coconut-flavour.com - [coconutBattery 2.6.5]</a> - this app can tell you about the load cycles, age, and capacity of your battery. (current battery mAh and original battery mAh)  Very neat....shows me just how bad my battery has become...<br/>
+<a href="http://www.transmissionbt.com/index.php">Transmission</a> - is a fast, easy, and free multi-platform BitTorrent client.<br/>
+<a href="http://semaja2.net/insomniaxinfo">InsomniaX</a> - allows you to turn off sleep/hibernate on your macbook when you close the lid.<br/>
+<a href="http://gimp.lisanet.de/Website/Overview.html">GIMP on OS X</a> - GIMP goodness on MacOSX<br/>
+<br/>
+<br/>
+<a href="http://lowendmac.com/ed/royal/08sr/clone-mac-os-x.html">How to Clone Mac OS X to a New Hard Drive</a> done using <a href="http://www.shirt-pocket.com/SuperDuper/SuperDuperDescription.html">SuperDuper!</a>, cool cloning is free!<br/>
+<br/>
+<br/>
+<h2>git on the mac</h2>
+It would be nice if git were included on the base install....<br/>
+Anyways, I've used the <a href="http://code.google.com/p/git-osx-installer/">git-osx-installer - Google Code</a> before with success.  It also includes a finder plugin for launching git-gui. <a href="http://code.google.com/p/git-osx-installer/wiki/OpenInGitGui">OpenInGitGui - git-osx-installer - Google Code</a>.<br/>
+<br/>
+<br/>
+<h2>compare two folders on mac</h2>
+FileMerge is a tool within the Apple Developer Tools.  In /Developer/Applications/Utilities...or use spotlight to start it...  Shows differences between files/folders on MacOSX.<br/>
+<br/>
+<h2>Homebrew - brew for mac</h2>
+brew is another package manager, written in Ruby.  The preference is to install it into /usr/local.  I have used it to install git and other code before with success.  I like what I see.<br/>
+Check it, install brew:<br/>
+<pre>
+curl -Lsf http://github.com/mxcl/homebrew/tarball/master | sudo tar xvz --strip 1 -C/usr/local
+</pre>
+<a href="http://mxcl.github.com/homebrew/">Homebrew — MacPorts driving you to drink? Try Homebrew!</a><br/>
+<a href="http://www.engineyard.com/blog/2010/homebrew-os-xs-missing-package-manager/">Homebrew: OS X’s Missing Package Manager | Engine Yard Ruby on Rails Blog</a><br/>
+<br/>
+<br/>
+<h2>Re-map HOME END keys on Mac OS</h2>
+Edit ~/Library/KeyBindings/DefaultKeyBinding.dict:<br/>
+<pre>
+"\UF729"  = "moveToBeginningOfLine:";                   /* Home         */
+"\UF72B"  = "moveToEndOfLine:";                         /* End          */
+"$\UF729" = "moveToBeginningOfLineAndModifySelection:"; /* Shift + Home */
+"$\UF72B" = "moveToEndOfLineAndModifySelection:";       /* Shift + End  */
+</pre>
+<a href="http://www.lowlevelmanager.com/2012/09/osx-remote-vim-clipboard-sync.html">Low Level Manager: OSX + remote vim clipboard sync</a><br/>
+<br/>
+<br/>
+<h2>unpair mac wireless keyboard</h2>
+first off; lets just mention that if you have access to the original mac; it is best to just "system preferences","bluetooth"; "turn bluetooth off" or actually unpair from the devices.<br/>
+<a href="https://discussions.apple.com/thread/2693201">How to UNpair keyboard without original computer | Apple Support Communities</a> - apparently com.apple.bluetooth.plist might be a goto place to look..<br/>
+<br/>
+<br/>
+<h2>Use Apple Trackoad from Windows 10</h2>
+<a href="http://extramagic.forbootcamp.org/download.htm">ExtraMagic :: Download</a> - which leads you to download the stock magic trackpad drivers which you can use without actually installing the extramagic driver.<br/>
+<a href="https://code.google.com/archive/p/padset/downloads">Google Code Archive - Long-term storage for Google Code Project Hosting.</a> - 
+download stock magic trackpad driver from apple (not really from apple, google code, might be better to unpack the files from bootcamp installer).<br/>
+<br/>
+<br/>
+<h2>Apple Magic Mouse on Windows 10</h2>
+<a href="https://georgetasioulis.com/how-to-use-the-apple-magic-mouse-on-your-windows-pc/">How To: Use the Apple Magic Mouse on Windows 7</a>
+ - describes the whole process of extracting the bootcampupdate.exe using 7zip, then extracting the msp file, then finding the suitable driver Binary.MultiTouchMouse_Bin or Binary.MultiTP_Bin and extracting to Binary, run DPInst.exe<br/>
+<a href="https://support.apple.com/kb/DL1336?locale=en_US">Boot Camp Software Update 3.1 for Windows 64 bit</a><br/>
+<br/>
+<h2>Apple Trackpad - Magic Trackpad - unpair from device - trackpad reset</h2>
+I am a fan of the Magic Trackpad, but for all the intuitive user oriented design Apple puts into products; pairing and unpairing isn't straight forward.  But I have to say that pretty much every keyboard or mouse is similarly unclear about how to unpair...pair information should be printed on the device. including default pin. If you cared, maybe some braille.<br/>
+<br/>
+I myself, like unnatural scrolling with the trackpad. To each his own;I guess up=up&amp;down=down is !Natural.<br/>
+Ctrl-Click is right click, of course. Two finger tap is right click on Magic Trackpad by default... easy enough to use sys prefs to configure other "Secondary tap"s for 3 and 4 finger tapping magic.<br/>
+<br/>
+magic trackpad unpair from device<br/>
+1. Hold down the power button on the Magic Trackpad for 5 seconds until it turns off.<br/>
+2. Hold down the power button on the Magic Trackpad for another 5 seconds until the light starts flashing... <strong>KEEP THE BUTTON HELD DOWN WHILE YOU TRY TO PAIR</strong>. The button hold will prevent the Magic Trackpad from pairing with the prior device.  Apparently even if you have unpaired the device from the original prior to initiating pairing; hold down the button on the track pad while you complete the pairing.<br/>
+a1339 pairing<br/>
+make sure you have some good batteries!<br/>
+<br/>
+<a href="https://code.google.com/p/padset/">padset - Configure Apple Trackpad devices on a PC without BootCamp - Google Project Hosting</a><br/>
+<br/>
+<br/>
+<h2>magic mouse expose</h2>
+the magic mouse is pretty magic;  but it doesn't include gesture support for expose like the touch pad does.  which is sad, because three finger up is much better than using hot corners...
+<a href="http://magicprefs.com/">MagicPrefs</a> - provides the awesome three finger up gesture for "Mission Control"<br/>
+<br/>
+<br/>
+<h2>Troublesome large display resolutions in macosx || get 2560x1080 in macosx</h2>
+windows 8.1 will recognize my LG ULTRAWIDE 2560x1080 over HDMI.  I couldn't get this to work on my miniMac.  Instead I bought a mini-dp to dp cable and that still didn't seem to like the max resolution of 2560x1080 instead it gave me something like 2560x864 which isn't fun.  So I sent searching...people talking about using SwitchResX, but I really didn't want to have to run that to make my monitor work.  I found some people were having success with forcing profiles on the monitor, apparently macOS is prone to mis-associating large screens with tv output...  running ruby <a href="https://gist.github.com/adaugherity/7435890">patch-edid.rb</a> and moving the needed profile into the /System/Library/Displays/Overrides; reboot;   It's says "force RGB mode (EDID override)" now in System Preferences-&gt;Displays. now working! (wonder if I needed that special DP cable after all!)<br/>
+<a href="http://www.ireckon.net/2013/03/force-rgb-mode-in-mac-os-x-to-fix-the-picture-quality-of-an-external-monitor">Force RGB mode in Mac OS X to fix the picture quality of an external monitor | i reckon</a><br/>
+<a href="https://discussions.apple.com/thread/4672999?tstart=0">How to display 2560x1080 on external monitor fr... | Apple Support Communities</a><br/>
+i did find that I had to redo the process when upgrading to OSX Yosemite. I found that I needed to actually manually delete the override and copy the override using finder. (doing a sudo cp did not work after multiple attempts rebooting)  I did notice that the display showed override in the title before rebooting, and finally worked when it had done so.<br/>
+/System/Library/Displays/Contents/Resources/Overrides is the new location for Sierra.  csrutil disable to write to /System.<br/>
+<a href="http://apple.stackexchange.com/questions/208478/how-do-i-disable-system-integrity-protection-sip-aka-rootless-on-os-x-10-11">macos - How do I disable System Integrity Protection (SIP) AKA "rootless" on OS X 10.11, El Capitan? - Ask Different</a><br/>
+<br/>
+<br/>
+<h2>AirPort Base Station - AirPort Express</h2>
+<a href="https://support.apple.com/kb/DL1664?locale=en_US">AirPort Utility 6.3.1 for Mac</a><br/>
+    <div style="border: 1px;">
+    Created: 2006-05-19 16:28:36
+    Modified: 2017-09-28 02:23:01
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+<a target="_blank" href="/tech-talk/programming/107-algorithms-patterns-and-things-cs"><canvas id="c" width="170" height="172" title="conway glider"></canvas></a><br/>
+L:<span id=loop>0</span> I:<span id=iteration>0</span> A:<span id=active>0</span>
+<script>
+/** Conway's Game of Life.
+ * ankr started; modified by horner.
+ */
+var c=document.getElementById('c');
+var canvas = c.getContext('2d'),
+    cells = [];
+var drawRate=1200;
+var iter=0;
+var l=0;
+init();
+draw();
+
+function setSpan(name,value)
+{
+var span = document.getElementById(name);
+while( span.firstChild ) {
+    span.removeChild( span.firstChild );
+}
+span.appendChild(document.createTextNode(value));
+}
+function init() {
+setSpan('loop',l);
+    for (var i=0; i<c.width; i++) {
+        cells[i] = [];
+        for (var j=0; j<c.height; j++) {
+            cells[i][j] = 0;
+        }
+    }
+    var gliderT=[
+                [3, 1], [3,3], [2,3], [4, 2], [4, 3]
+               ];
+    var reflectorT=[
+                [0, 0], [0,1], [1,0], [1, 2], [2, 2]
+               ];
+    var sT=[
+                [0, 2], [0,3], [1,2],[2,0],[2,2],[3,0],[3,1]
+               ];
+    var boxT=[
+                [0, 0], [0,1], [1,1], [1,0]
+               ];
+
+    gliderT.forEach(function(point) {
+        cells[point[0]-1][point[1]-1] = 1;
+    });
+    gliderT.forEach(function(point) {
+        cells[point[0]+7][point[1]+7] = 1;
+    });
+    gliderT.forEach(function(point) {
+        cells[point[0]+3][point[1]+3] = 1;
+    });
+    gliderT.forEach(function(point) {
+        cells[point[0]+12][point[1]+12] = 1;
+    });
+if(l>1)  {
+var maxX=12;
+    var randomX=Math.floor(Math.random() * maxX);
+    var randomY=Math.floor(Math.random() * maxX);
+    sT.forEach(function(point) {
+        cells[point[0]+randomX][point[1]+randomY] = 1;
+    });
+    randomX=Math.floor(Math.random() * maxX);
+    randomY=Math.floor(Math.random() * maxX);
+    boxT.forEach(function(point) {
+        cells[point[0]+randomX][point[1]+randomY] = 1;
+    });
+    randomX=Math.floor(Math.random() * maxX);
+    randomY=Math.floor(Math.random() * maxX);
+    reflectorT.forEach(function(point) {
+        cells[point[0]+randomX][point[1]+randomY] = 1;
+    });
+}
+
+}
+
+function whos_alive() {
+    
+    var result = [];
+    var active= 0;
+    
+    /**
+     * Return amount of alive neighbours for a cell
+     */
+    function _countNeighbours(x, y) {
+        var amount = 0;
+        
+        function _isFilled(x, y) {
+            return cells[x] && cells[x][y];
+        }
+        
+        if (_isFilled(x-1, y-1)) amount++;
+        if (_isFilled(x,   y-1)) amount++;
+        if (_isFilled(x+1, y-1)) amount++;
+        if (_isFilled(x-1, y  )) amount++;
+        if (_isFilled(x+1, y  )) amount++;
+        if (_isFilled(x-1, y+1)) amount++;
+        if (_isFilled(x,   y+1)) amount++;
+        if (_isFilled(x+1, y+1)) amount++;
+        
+        return amount;
+    }
+    
+    cells.forEach(function(row, x) {
+        result[x] = [];
+        row.forEach(function(cell, y) {
+            var alive = 0,
+                count = _countNeighbours(x, y);
+            
+            if (cell > 0) {
+                alive = count === 2 || count === 3 ? 1 : 0;
+            } else {
+                alive = count === 3 ? 1 : 0;
+            }
+            if(alive) active++;
+            result[x][y] = alive;
+        });
+    });
+    
+    cells = result;
+    setSpan('active',active);
+    draw();
+}
+function draw() {
+    if(iter>60) { iter=0; l++; init(); }
+    else if(iter>10 && iter%20==0) {
+    if(drawRate>10) { drawRate-=10; }
+    var gliderT=[
+                [3, 1], [3,3], [2,3], [4, 2], [4, 3]
+               ];
+
+     gliderT.forEach(function(point) {
+        cells[point[0]][point[1]] = 1;
+    });
+    }
+setSpan('iteration',iter);
+    canvas.clearRect(0, 0, c.width, c.height);
+    cells.forEach(function(row, x) {
+        row.forEach(function(cell, y) {
+            canvas.beginPath();
+            if (cell) {
+                if(l%2==0) {
+                canvas.rect(x*8, y*8, 8, 8);
+                canvas.fillStyle = 'black';
+                } else {
+                canvas.beginPath();
+                canvas.arc(x*8, y*8,3 , 0, 2 * Math.PI, false);
+                canvas.fillStyle = 'black';
+                }
+                canvas.fill();
+                canvas.stroke();
+            } else {
+                if(l%2==0){
+                canvas.strokeStyle = '#e1e1e1';
+                canvas.rect(x*8, y*8, 8, 8);
+                canvas.stroke();
+                }
+            }
+        });
+    });
+    iter++;
+    setTimeout(function() {whos_alive();}, drawRate);
+}
+</script>
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

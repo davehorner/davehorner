@@ -1,0 +1,301 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>Amazon Elastic Compute Cloud (EC2)</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/programming/">programming</a>
+    <h1>Amazon Elastic Compute Cloud (EC2)</h1>
+   Amazon is all sorts of things.<br/>
+<br/>
+<h2>Amazon Elastic Compute Cloud (EC2) || AWS || Amazon Web Services</h2>
+<a href="http://www.coderun.com/About/">Introducing CodeRun - an innovative Online IDE</a><br/>
+<a href="https://github.com/arturadib/simpledb-webview">arturadib/simpledb-webview · GitHub</a> - Web-based browser for Amazon SimpleDB databases (node.js backbone.js)<br/>
+<a href="http://coenraets.org/blog/2011/11/set-up-an-amazon-ec2-instance-with-tomcat-and-mysql-5-minutes-tutorial/">Set Up an Amazon EC2 Instance with Tomcat and MySQL – 5 Minute Tutorial</a><br/>
+<a href="https://code.google.com/p/s3backer/">s3backer - FUSE-based single file backing store via Amazon S3 - Google Project Hosting</a><br/>
+<br/>
+<br/>
+<a href="http://jtimberman.housepub.org/blog/2013/10/19/managing-multiple-aws-account-credentials/">Managing Multiple AWS Account Credentials - jtimberman's Code Blog</a><br/>
+<a href="https://developer.amazon.com/sdk/adm/credentials.html#Introduction">Obtaining ADM Credentials</a> - "C:\Program Files\Java\jre7\bin\keytool.exe" -list -v -alias &lt;alias&gt; -keystore &lt;keystore&gt;<br/>
+<br/>
+<br/>
+<h2>Amazon App Store || Amazon Fire OS || Fire HDX || Amazon's Android World || Amazon Mayday</h2>
+<a href="http://en.wikipedia.org/wiki/Fire_OS">Fire OS - Wikipedia</a><br/>
+The hardware is top.  I wish they would allow Google Play like other android devices allow sideloading via Amazon Marketplace. *Native Android App Compatibility*, but using Google's most popular marketplace/services are sadly walled off.  The Amazon store is available on the Nexus and others.  Maybe it's just me, but I feel like we should be able to use our purchased android apps everywhere we have machines capable of running them.  Maybe I have it completely wrong, and Google doesn't want it on the new hdx tablets, this seems unlikely...<br/>
+<a href="https://forums.developer.amazon.com/forums/index.jspa?categoryID=1">Amazon Mobile App Distribution Home - Forums</a><br/>
+<a href="https://developer.amazon.com/sdk/fire/eclipse-plugin.html">The Amazon Mobile App SDK Eclipse Plugin</a><br/>
+<a href="http://www.amazon.com/gp/feature.html/?ie=UTF8&amp;docId=1001426901">Custom Kindle Accessories</a> - Amazon Origami covers are pretty cool, you can get them custom made with whatever image you like.<br/>
+<a href="https://developer.amazon.com/welcome.html">Amazon Mobile App Distribution Program</a><br/>
+<a href="http://forum.xda-developers.com/showthread.php?t=2392504">Google Play Store blocked? - GET YOUR APPS HERE! [200+ Apps] - xda-developers</a> - developers will be able to control and make the hardware do what it needs to do, but Grandma and Grandpop better choose the apps in Amazon or buy another device which supports their Google apps without having to resort to unsigned code.<br/>
+<a href="http://www.amazon.com/gp/product/B00BWYQ9YE/ref=as_li_ss_tl?ie=UTF8&amp;camp=1789&amp;creative=390957&amp;creativeASIN=B00BWYQ9YE&amp;linkCode=as2&amp;tag=jofrtv-20">Kindle Fire HDX Tablet - Personal Movie Tablet, Best College Tablet</a><br/>
+<a href="http://www.techradar.com/us/news/software/operating-systems/amazon-s-sets-a-mojito-ablaze-with-new-fire-os-3-0-update-1183771">Amazon sets a Mojito ablaze with new Fire OS 3.0 update | News | TechRadar</a> - mojito is jellybean based.<br/>
+<a href="http://forum.xda-developers.com/kindle-fire-hdx">Amazon Kindle Fire HDX 7" &amp; 8.9" - xda-developers</a><br/>
+<a href="http://www.1mobile.com/">Free Android apps &amp; games download | 1mobile.com</a><br/>
+<a href="https://developer.amazon.com/sdk/analytics.html">Amazon Analytics Service (beta)</a><br/>
+<a href="https://developer.amazon.com/post/TxKJA6Q6PDW4E8/Analytics-and-A-B-Testing-Mobile-Developers-Get-More-Free-Cross-Platform-Service.html">Analytics and A/B Testing: Mobile Developers Get More Free, Cross-Platform Services from Amazon - Amazon Mobile App Distribution Blog</a><br/>
+<a href="https://developer.amazon.com/sdk/fireos.html">Introducing Fire OS</a><br/>
+<a href="https://developer.amazon.com/sdk.html">Amazon Mobile App Distribution Program</a> - Amazon Mobile App SDK<br/>
+<a href="http://kindleworld.blogspot.com/">A Kindle World blog</a><br/>
+<a href="https://developer.amazon.com/post/TxHLJ1TU9TX9N6/Harness-the-Speed-and-Power-of-the-New-Kindle-Fire-HD-Emulators-with-Amazon-AVD.html">Harness the Speed and Power of the New Kindle Fire HD Emulators with Amazon AVD Launcher - Amazon Mobile App Distribution Blog</a> - gameplay was nearly identical to that of the tablet.<br/>
+<br/>
+<br/>
+<h2>AWS SDK for android</h2>
+<a href="http://aws.amazon.com/sdkforandroid/">AWS SDK for Android</a> - Amazon S3, Amazon SQS, Amazon SNS, and DynamoDB<br/>
+<a href="https://github.com/jgilfelt/android-simpl3r">jgilfelt/android-simpl3r</a> - Amazon S3 multipart file upload for Android, made simple.<br/>
+<br/>
+<br/>
+<h2>Kindle fire hdx - parental lock password reset</h2>
+1-866-321-8851 call and ask them for help.  They will help you figure out which email account the device was registered on; if u like me used an account you weren't aware.  The device will not allow you inton settings or anywhwee wit out the parental password.  To get the opportunity to reset the kindle fire hdx device, simply attempt an incorrect password 5 times.  A reset link will appear below the password entry field.  This will allow you to use your amazon password to reset the kindle fire hdx parental password.
+    <div style="border: 1px;">
+    Created: 2009-06-11 13:50:46
+    Modified: 2014-12-27 19:25:39
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+\begin{bmatrix} 1 & 0 & \ldots & 0 \\
+                0 & 1 & 0 & \vdots \\
+                \vdots & 0 & \ddots & 0\\
+                0 & \ldots &  0 & 1_{n}
+\end{bmatrix}
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

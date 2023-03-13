@@ -1,0 +1,612 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>SSH stuff</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/linux-unix-and-friends/">linux-unix-and-friends</a>
+    <h1>SSH stuff</h1>
+   <a href="http://blog.tjll.net/ssh-kung-fu/">Tyblog | SSH Kung Fu</a> - -L tunneling,sshfs,vim scp:// urls,-D SOCKS proxying, and more.<br/>
+<a href="http://matt.might.net/articles/ssh-hacks/">SSH tricks</a><br/>
+<a href="http://www.dotkam.com/2010/08/09/play-videoaudio-on-remote-x-server-over-ssh/">Play Video/Audio on Remote X Server over SSH</a> - vlc --fullscreen path.avi (<a href="http://www.dotkam.com/2007/12/07/x11-forwarding-with-ssh/">X11 Forwarding with SSH</a> X11Forwarding yes)<br/>
+<a href="http://blog.afoolishmanifesto.com/archives/1794">ssh tips</a><br/>
+<a href="http://www.anchor.com.au/blog/2010/02/ssh-controlmaster-the-good-the-bad-the-ugly/">SSH ControlMaster: The Good, The Bad, The Ugly | Anchor Web Hosting Blog</a> <a href="http://linux.101hacks.com/unix/ssh-controlmaster/">Specify Password Only Once for Multiple SSH Connections</a><br/>
+<a href="http://www.swish-sftp.org/">Swish - Easy SFTP for Windows</a> - Swish adds support for SFTP to Windows Explorer so you can access your files on another computer securely via SSH. - cinst swish using <a href="http://chocolatey.org/">Chocolatey</a><br/>
+<br/>
+<h2>ssh/scp using python with paramiko</h2>
+<a href="http://www.lag.net/paramiko/">paramiko: ssh2 protocol for python</a><br/>
+<a href="http://ginstrom.com/scribbles/2009/09/14/easy-sftp-uploading-with-paramiko/">The GITS Blog » Easy SFTP uploading with paramiko</a><br/>
+<a href="http://plumbum.readthedocs.org/en/latest/index.html#about">Plumbum: Shell Combinators and More — Plumbum: Shell Combinators</a><br/>
+<br/>
+<h2>multiplex ssh with other services</h2>
+<a href="http://www.rutschle.net/tech/sslh.shtml">ssl/ssh multiplexer</a><br/>
+<a href="http://cxwangyi.wordpress.com/2012/12/25/run-both-sshd-and-nginx-on-port-80/">Run Both SSHD and Nginx on Port 80 « Yi Wang's Tech Notes</a><br/>
+<br/>
+<h2>ssh with python twisted Conch</h2>
+<a href="http://twistedmatrix.com/documents/current/conch/howto/conch_client.html">Twisted Documentation: Writing a client with Twisted Conch</a><br/>
+<a href="http://twistedmatrix.com/documents/current/conch/examples/index.html">Twisted Documentation: Twisted Conch code examples</a><br/>
+<br/>
+<br/>
+<h2>Blocking brute force attempts with ssh</h2>
+There are quite a few tools out there to accomplish the blocking of invalid login attempts using iptables amd tcpwrappers.  Most are actually written in python...;-D  In fact, you can yum install both fail2ban and denyhosts!  Making it quite easy to get on your box.  However, I'm partial to closing ports all together and using dynamic rules instead of forming ban lists. Ban lists require additional resources and still expose a service to all for undocumented exploits to occur...(buffer overflows). See <a href="/tech-talk/projects-research/ipopener">IPOpener - Block everything and allow to few (The power of dynamic rules).</a><br/>
+But having said that, there are times when it might be interesting to see who's out there attacking my boxes.  I've seen some cool network maps.<br/>
+<br/>
+<a href="http://www.fail2ban.org/wiki/index.php/Main_Page">Main Page - Fail2ban</a> - Fail2ban scans log files like /var/log/pwdfail or /var/log/apache/error_log and bans IP that makes too many password failures. It updates firewall rules to reject the IP address.<br/>
+<a href="http://www.pkts.ca/ssh-faker.shtml">Packets Consulting - Ssh-faker</a> - This program is called by /etc/hosts.deny whenever someone connects to port 22.  Unless they type in a plaintext password or type the wrong password, they get an ssh-compatible error message, and a syslog message is generated.  If they type in the right password, they are added to /etc/hosts.allow, and their next connection will reach the real sshd.<br/>
+<a href="http://denyhosts.sourceforge.net/index.html">Welcome to DenyHosts</a> - DenyHosts is a Python script that analyzes the sshd server log messages to determine what hosts are attempting to hack into your system. It also determines what user accounts are being targeted. It keeps track of the frequency of attempts from each host. Additionally, upon discovering a repeated attack host, the /etc/hosts.deny file is updated to prevent future break-in attempts from that host. An email report can be sent to a system admin.<br/>
+<a href="http://www.aczoom.com/cms/blockhosts/">BlockHosts | A C Zoom</a> - Automatic blocking of abusive IP hosts, Script to record how many times system services are being probed, using configurable pattern matching to recognize failed accesses (such as for "sshd" or "proftpd" or any service), and when a particular IP address exceeds a certain number of failed attempts, that IP address is blocked by using multiple techniques: using /etc/hosts.allow for services that support TCP_WRAPPERS, or by executing ip route commands to setup null-routing for that source host address, or by executing iptables commands to setup packet filtering to drop packets from a source host address.<br/>
+<a href="http://www.howtoforge.com/fail2ban_debian_etch">Preventing Brute Force Attacks With Fail2ban On Debian Etch | HowtoForge - Linux Howtos and Tutorials</a><br/>
+<a href="http://www.howtoforge.com/preventing_ssh_dictionary_attacks_with_denyhosts">Preventing SSH Dictionary Attacks With DenyHosts | HowtoForge - Linux Howtos and Tutorials</a><br/>
+<br/>
+<h2>Port forwarding with SSH (Also called SSH tunneling)</h2>
+(a good command is: ssh -N -R remoteport:localhost:22 config-host-name)
+Port forwarding allows you to send arbitrary connections through your
+SSH connection.&nbsp; This provides secure communication over otherwise
+insecure networks.<br />
+<br />
+SSH provides two flavors of port forwarding.&nbsp; LocalForward and RemoteForward.<br />
+<br />
+LocalForward connects a remote server to the local machine.&nbsp; The ssh client machine actually
+listens for new connections to be tunneled and sends them through the existing ssh connection.<br />
+<pre>
+ssh -L 9999:mailserver:110 sshserver
+</pre>
+This would establish a LocalForward using sshserver.&nbsp; The forward
+would be from mailserver:110 to the local machine port 9999.<br />
+<br />
+RemoteForward is a tunnel initiated on the server
+side that goes back through the client machine.<br />
+<br />
+LocalForwards
+<table width="612" height="144" cellspacing="0" cellpadding="3" border="1">
+<tr>Command Line Option
+   <td>-L <em>local_listen_port</em>:<em>destination_host</em>:<em>destination_port</em></td>
+</tr><tr>Configuration file entry
+	<td>LocalForward <em>local_listen_port</em>:<em>destination_host</em>:<em>destination_port</em></td>
+</tr><tr><em>local_listen_port</em> is on
+	<td>SSH client loopback interface</td>
+</tr><tr><em>destination_host</em> is contacted from
+	<td>SSH server host</td>
+</tr></table>
+<p class="text">
+</p>RemoteForwards
+
+<table width="612" height="144" cellspacing="0" cellpadding="3" border="1">
+<tr>Command Line Option
+	<td>-R <em>remote_listen_port</em>:<em>destination_host</em>:<em>destination_port</em></td>
+</tr><tr>Configuration file entry
+	<td>RemoteForward <em>remote_listen_port</em>:<em>destination_host</em>:<em>destination_port</em></td>
+</tr><tr><em>remote_listen_port</em> is on
+	<td>SSH server loopback interface</td>
+</tr><tr>destination_host is contacted from
+	<td>SSH client host</td></tr></table>
+
+<a href="http://www.securityfocus.com/infocus/1816">SSH Port Forwarding</a><br/>
+<a href="http://www.g-loaded.eu/2006/11/24/auto-closing-ssh-tunnels/">Auto-closing SSH tunnels</a><br />
+
+<h2>Key based auth setup</h2>
+Use keys instead of passwords<br/>
+Ok, before you starting banging your head trying to figure out why key
+auth isn't working...make sure your sshd has the proper settings for
+it.&nbsp; Check to make sure you have the following settings in your
+sshd_config.<br />
+<br />
+<pre>
+# Should we allow Identity (SSH version 1) authentication?<br />
+# (NOTE: Not necessary if you only want to use version 2,even if you use rsa keys)<br />
+RSAAuthentication yes  <br />
+# Should we allow Pubkey (SSH version 2) authentication?<br />
+PubkeyAuthentication yes  <br />
+# Where do we look for authorized public keys?<br />
+# If it doesn't start with a slash, then it is<br />
+# relative to the user's home directory<br />
+AuthorizedKeysFile    .ssh/authorized_keys<br />
+</pre>
+<br/>
+<br/>
+<h2>What to try if sshd doesn't accept your key (authorized_keys don't work)</h2>
+NOTE!Sept-10-2005: You also MUST make sure that the .ssh folder in your home directory is rxw(700) for the user only!  In addition, your authorized_keys file must be rw(600) for the user only.  If the file modes are incorrect, sshd will reject all attempts to auth with the keys.  (this info could have saved me a good half hour of pain)<br/><br/>
+If you had the correct settings, great.&nbsp; If you didn't and you changed the config, restart the sshd process.<br />
+Now that we have verified the proper settings, lets move on to how to actually add keys!<br />
+<br />
+<br />
+<pre>
+# Move into your ssh directory for the user
+cd $HOME/.ssh
+# Generate a key pair, this will create a private key(one you keep on
+your local machine) and a public key(one you give to the remote
+machine).
+ssh-keygen -t rsa -f ~/.ssh/remotemachine
+# Copy the public key into the authorized keys on the remote machine.
+cat remotemachine.pub |ssh user@remotemachine 'sh -c &quot;cat - &gt;&gt;~/.ssh/authorized_keys;
+</pre>
+The -t option allows you to choose a cipher but I suggest using
+rsa.&nbsp; The -f option specifies the name of the key, replace the
+remotemachine with the name you'd like.<br />
+<br />
+<strong>localmachine$ </strong><strong>chmod 600 ~/.ssh/authorized_keys;</strong><br />
+This single line will copy the public key to the remote machine and
+make sure the permissions are read and write only for the user.<br />
+<br />
+Now you can simply login to the remote machine by doing the following:<br />
+<pre>
+ssh -i remotemachine user@remotemachine
+</pre>
+<br />
+So maybe you don't like having to specify that you want to use the
+identity each time.&nbsp; SSH allows you to define config options for
+hosts in your ~/.ssh/config file.&nbsp; You can simply name a session
+name and the options associated with it.<br />
+For example, lets say I connect to remotemachine using the username auser and the identity backup.<br />
+I can create a config file with:<br />
+<pre>
+host remotemachine
+hostname remotemachine.somenetwork.com
+user auser
+identityfile ~/.ssh/backup
+compression yes
+cipher blowfish
+protocol 2
+</pre>
+Now I can just use: <strong>ssh remotemachine</strong> to
+login to the system.&nbsp; SSH will automatically try to find the
+session name in my config file and use the appropriate settings.<br />
+<br />
+<br />
+Some extra options:<br />
+You can create single use keys by prepending command=&quot;&lt;cmd&gt;&quot; to your public key in the authorized_keys file.<br />
+This specifies that the command is executed whenever this key is used
+for authentication.&nbsp; The command supplied by the user (if any) is
+ignored.<br />
+<strong>command=&quot;&lt;cmd&gt;&quot;</strong><br />
+For added security, you can only allow the key to be used from a certain host using the from option.<br />
+Example: <strong>from=&quot;*.somenetwork.net,!pc.someothernetwork.net&quot;</strong><br />
+Other options you might consider turning off include: <strong>no-port-forwarding,no-X11-forwarding,no-agent-forwarding,no-pty</strong><br />
+<br />
+<strong>command=&quot;&lt;cmd&gt;&quot;,from=&quot;some.host.net&quot;,no-port-forwarding,no-X11-forwarding,no-agent-forwarding,no-pty &lt;public key here&gt;<br />
+</strong><br />
+Here is a single command that adds options to the beginning of the
+public key and pushes it to the remote machines authorized_keys.<br/>
+<pre>
+echo 'command=&quot;&lt;cmd&gt;&quot; ' `cat &lt;whatever&gt;.pub`|ssh user@remotemachine 'sh -c &quot;cat - &gt;&gt;~/.ssh/authorized_keys;chmod 600 ~/.ssh/authorized_keys;&quot;'
+</pre>
+On some distros, you can use the ssh-copy-id program to install your public key in a remote machine's authorized_keys.  It does much the same as above, cat'ing the key to the remote machine. If you don't specify a -i identity, ssh-copy-id will use ~/.ssh/id_rsa.pub.  ssh-copy-id does not fix perms so you may still need to chmod go-w ~ ~/.ssh ~/.ssh/authorized_keys; if you're perms aren't correct already.<br/>
+<br/>
+<h2>shfs - mount a filesystem using ssh.</h2>
+<a href="https://code.google.com/archive/p/win-sshfs/">win-sshfs</a> - mount ssh from windows!<br/>
+<a target="_blank" href="http://shfs.sourceforge.net/index.html">SHFS</a>&nbsp;
+is a kernel module for linux that allows a user to mount a filesystem
+remotely using only ssh.&nbsp; This is a wonderful module because I
+love ssh access so much.&nbsp; It is wonderful because it allows you to
+access your data remotely but securely.<br />
+<br />
+Once you've installed it, all you've got to do is:<br />
+<pre>
+shfsmount --persistent -s user@host:/tmp /mnt/shfs
+</pre>
+<br />
+This mounts the /tmp directory on user@host to the local /mnt/shfs directory.<br />
+(-s expands remote symlinks, --persistent makes shfs more tolerant of connection problems)<br />
+
+<h2>Embed SSH in Browser</h2>
+I'm looking into embedding a ssh client in the webbrowser.  That would be awesome.  Some possible clients are:
+<a href="http://www.faqs.org/docs/Linux-HOWTO/MindTerm-SSH-HOWTO.html">Mindterm</a> - SSH java client<br/>
+<a href="http://www-h.eng.cam.ac.uk/help/pnt/mindterm/launch.php?">Using Mindterm</a> - Cambridge uses it.<br/>
+<a href="http://linuxmafia.com/ssh/java.html">SSH for Java</a><br/>
+<br/>
+<h2>keep that ssh connection alive</h2>
+<a href="http://dan.hersam.com/2007/03/05/how-to-avoid-ssh-timeouts/">How to avoid SSH timeouts</a><br/>
+TCPKeepAlive yes<br/>
+KeepAlive yes<br/>
+ClientAliveInterval 540<br/>
+ClientAliveCountMax 99999<br/>
+<br/>
+<br/>
+<a href="http://injustfiveminutes.wordpress.com/2013/03/13/fixing-ssh-login-long-delay/">Fixing SSH login long delay | In just five minutes…</a><br/>
+<h2>udpproxy</h2>
+udpproxy allows you to tunnel UDP datagrams into a SSH tunnel with the help of NFQUEUE target from Netfilter. This enables easy selection of flow to be tunneled.<br/>
+<a href="http://vincent.bernat.im/en/projects.html">Projects | Vincent Bernat</a><br/>
+<a href="https://github.com/vincentbernat/udpproxy">vincentbernat/udpproxy</a> - a Netfilter powered UDP proxy<br/>
+<br/>
+<br/>
+<a href="http://zarb.org/~gc/html/udp-in-ssh-tunneling.html">Performing UDP tunneling through an SSH connection</a><br/>
+    <div style="border: 1px;">
+    Created: 2005-04-25 06:31:20
+    Modified: 2017-05-07 08:08:10
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+<a target="_blank" href="/tech-talk/programming/107-algorithms-patterns-and-things-cs"><canvas id="c" width="170" height="172" title="conway glider"></canvas></a><br/>
+L:<span id=loop>0</span> I:<span id=iteration>0</span> A:<span id=active>0</span>
+<script>
+/** Conway's Game of Life.
+ * ankr started; modified by horner.
+ */
+var c=document.getElementById('c');
+var canvas = c.getContext('2d'),
+    cells = [];
+var drawRate=1200;
+var iter=0;
+var l=0;
+init();
+draw();
+
+function setSpan(name,value)
+{
+var span = document.getElementById(name);
+while( span.firstChild ) {
+    span.removeChild( span.firstChild );
+}
+span.appendChild(document.createTextNode(value));
+}
+function init() {
+setSpan('loop',l);
+    for (var i=0; i<c.width; i++) {
+        cells[i] = [];
+        for (var j=0; j<c.height; j++) {
+            cells[i][j] = 0;
+        }
+    }
+    var gliderT=[
+                [3, 1], [3,3], [2,3], [4, 2], [4, 3]
+               ];
+    var reflectorT=[
+                [0, 0], [0,1], [1,0], [1, 2], [2, 2]
+               ];
+    var sT=[
+                [0, 2], [0,3], [1,2],[2,0],[2,2],[3,0],[3,1]
+               ];
+    var boxT=[
+                [0, 0], [0,1], [1,1], [1,0]
+               ];
+
+    gliderT.forEach(function(point) {
+        cells[point[0]-1][point[1]-1] = 1;
+    });
+    gliderT.forEach(function(point) {
+        cells[point[0]+7][point[1]+7] = 1;
+    });
+    gliderT.forEach(function(point) {
+        cells[point[0]+3][point[1]+3] = 1;
+    });
+    gliderT.forEach(function(point) {
+        cells[point[0]+12][point[1]+12] = 1;
+    });
+if(l>1)  {
+var maxX=12;
+    var randomX=Math.floor(Math.random() * maxX);
+    var randomY=Math.floor(Math.random() * maxX);
+    sT.forEach(function(point) {
+        cells[point[0]+randomX][point[1]+randomY] = 1;
+    });
+    randomX=Math.floor(Math.random() * maxX);
+    randomY=Math.floor(Math.random() * maxX);
+    boxT.forEach(function(point) {
+        cells[point[0]+randomX][point[1]+randomY] = 1;
+    });
+    randomX=Math.floor(Math.random() * maxX);
+    randomY=Math.floor(Math.random() * maxX);
+    reflectorT.forEach(function(point) {
+        cells[point[0]+randomX][point[1]+randomY] = 1;
+    });
+}
+
+}
+
+function whos_alive() {
+    
+    var result = [];
+    var active= 0;
+    
+    /**
+     * Return amount of alive neighbours for a cell
+     */
+    function _countNeighbours(x, y) {
+        var amount = 0;
+        
+        function _isFilled(x, y) {
+            return cells[x] && cells[x][y];
+        }
+        
+        if (_isFilled(x-1, y-1)) amount++;
+        if (_isFilled(x,   y-1)) amount++;
+        if (_isFilled(x+1, y-1)) amount++;
+        if (_isFilled(x-1, y  )) amount++;
+        if (_isFilled(x+1, y  )) amount++;
+        if (_isFilled(x-1, y+1)) amount++;
+        if (_isFilled(x,   y+1)) amount++;
+        if (_isFilled(x+1, y+1)) amount++;
+        
+        return amount;
+    }
+    
+    cells.forEach(function(row, x) {
+        result[x] = [];
+        row.forEach(function(cell, y) {
+            var alive = 0,
+                count = _countNeighbours(x, y);
+            
+            if (cell > 0) {
+                alive = count === 2 || count === 3 ? 1 : 0;
+            } else {
+                alive = count === 3 ? 1 : 0;
+            }
+            if(alive) active++;
+            result[x][y] = alive;
+        });
+    });
+    
+    cells = result;
+    setSpan('active',active);
+    draw();
+}
+function draw() {
+    if(iter>60) { iter=0; l++; init(); }
+    else if(iter>10 && iter%20==0) {
+    if(drawRate>10) { drawRate-=10; }
+    var gliderT=[
+                [3, 1], [3,3], [2,3], [4, 2], [4, 3]
+               ];
+
+     gliderT.forEach(function(point) {
+        cells[point[0]][point[1]] = 1;
+    });
+    }
+setSpan('iteration',iter);
+    canvas.clearRect(0, 0, c.width, c.height);
+    cells.forEach(function(row, x) {
+        row.forEach(function(cell, y) {
+            canvas.beginPath();
+            if (cell) {
+                if(l%2==0) {
+                canvas.rect(x*8, y*8, 8, 8);
+                canvas.fillStyle = 'black';
+                } else {
+                canvas.beginPath();
+                canvas.arc(x*8, y*8,3 , 0, 2 * Math.PI, false);
+                canvas.fillStyle = 'black';
+                }
+                canvas.fill();
+                canvas.stroke();
+            } else {
+                if(l%2==0){
+                canvas.strokeStyle = '#e1e1e1';
+                canvas.rect(x*8, y*8, 8, 8);
+                canvas.stroke();
+                }
+            }
+        });
+    });
+    iter++;
+    setTimeout(function() {whos_alive();}, drawRate);
+}
+</script>
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

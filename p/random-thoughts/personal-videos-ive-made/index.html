@@ -1,0 +1,286 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>Personal videos I&#x27;ve made...</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/p/">Personal</a>
+<a href="/p/random-thoughts/">random-thoughts</a>
+    <h1>Personal videos I&#x27;ve made...</h1>
+   I like to take a lot of pictures and videos....  many times though if you don't actually do anything with the pictures and video they just get stuffed in some folder and are never to be seen again.  That is why I like to make short (5-10min) movies from my personal memories.  It helps me remember and it makes it more special.  Here are some of the videos that I've made so far.<br/>
+<br/>
+Most of these videos were created using Sony's Video Vegas.  I also use Adobe Premiere as well as After Effects.<br/>
+<br/>
+<b>Please click on the links within the descriptions to play the videos!</b><br/>
+<table width="80%" cellspacing="0" cellpadding="0" border="0">
+    <tbody>
+        <tr>
+            <td style="vertical-align: top;" colspan="2"><br/>
+            </td>
+        </tr>
+        <tr>
+            <td width="20%"><img border="0" src="http://dave.thehorners.com/personal/wedding/pics/luckiest_thumb.jpg" alt="The Luckiest"/></td>
+            <td><strong>The Luckiest</strong><br/>
+            When I proposed to my wife, I created a video and showed it on a local theater.  This video has a lot  of footage from when she and I first met.  Read more about my wedding proposal <a href="http://dave.thehorners.com/content/view/211/119/">here</a>.<br/>
+<br/>
+<br/>
+            [<a onclick="window.open('/personal/viewmedia.php?url=%2Fpersonal%2Fwedding%2FLuckiest100K.wmv', 'win1', 'width=400, height=350, scrollbars=1').focus()" href="javascript:void(0)">100k Windows Media</a>]  [<a onclick="window.open('/personal/viewmedia.php?url=%2Fpersonal%2Fwedding%2FLuckiest256K.wmv', 'win1', 'width=400, height=350, scrollbars=1').focus()" href="javascript:void(0)">256k Windows Media</a>]                           </td>
+        </tr>
+        <tr>
+            <td colspan="2">  </td>
+        </tr>
+        <tr>
+            <td><img border="0" align="left" src="http://dave.thehorners.com/personal/videos/noah1st/noah1st_thumb.jpg" alt="Our First Year With Noah"/></td>
+            <td><strong>Our First Year With Noah</strong><br/>
+            This is a video I made for my son's first birthday.  It starts with his birth and ends with the day before his first birthday. <br/>
+<br/>
+<br/>
+            [<a onclick="window.open('/personal/viewmedia.php?url=%2Fpersonal%2Fvideos%2Fnoah1st%2FFirstYearVideo100K.mov', 'win1', 'width=400, height=350, scrollbars=1').focus()" href="javascript:void(0)">100k Quicktime</a>]  [<a onclick="window.open('/personal/viewmedia.php?url=%2Fpersonal%2Fvideos%2Fnoah1st%2FFirstYearVideo256K.mov', 'win1', 'width=400, height=350, scrollbars=1').focus()" href="javascript:void(0)">256k Quicktime</a>]   [<a onclick="window.open('/personal/viewmedia.php?url=%2Fpersonal%2Fvideos%2Fnoah1st%2FFirstYearVideo100K.wmv', 'win1', 'width=400, height=350, scrollbars=1').focus()" href="javascript:void(0)">100k Windows Media</a>]   [<a onclick="window.open('/personal/viewmedia.php?url=%2Fpersonal%2Fvideos%2Fnoah1st%2FFirstYearVideo256K.wmv', 'win1', 'width=400, height=350, scrollbars=1').focus()" href="javascript:void(0)">256k Windows Media</a>]   [<a onclick="window.open('/personal/videos/noah1st/Default.html', 'win1', 'width=400, height=350, scrollbars=1').focus()" href="javascript:void(0)">256k Silverlight</a>]</td>
+        </tr>
+        <tr>
+            <td colspan="2">  </td>
+        </tr>
+    </tbody>
+</table>
+<br/>
+<br/>
+For videos I enjoy from the net, checkout:
+<a href="http://dave.thehorners.com/aboutme/80-random-thoughts/153-videos-some-of-my-favorite-movies-and-videos-online">Dave Horner's Website - Videos - Some of my favorite movies and videos online.</a><br/>
+<br/>
+<br/>
+<a href="http://www.cs.cmu.edu/~johnny/steadycam/">$14 Steadycam The Poor Mans Steadicam</a><br/>
+    <div style="border: 1px;">
+    Created: 2005-10-19 17:35:55
+    Modified: 2010-06-06 20:12:01
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+<a href="javascript:var%20s%20=%20document.createElement('script');s.type='text/javascript';document.body.appendChild(s);s.src='/eggs/asteroids.min.js';void(0);" id="secret">destory this webpage; if you will.</a>
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

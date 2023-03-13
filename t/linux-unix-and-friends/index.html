@@ -1,0 +1,416 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>articles in linux-unix-and-friends</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+    articles in <a href="/t/">Tech</a> linux-unix-and-friends
+            <div>
+              <a href="aix/">IBM AIX</a>
+            </div>
+            <div>
+              <a href="apache-notes/">Apache and LAMP Notes</a>
+            </div>
+            <div>
+              <a href="arpalert-watch-who-is-connecting-to-your-network/">ARPAlert - watch who is connecting to your network.</a>
+            </div>
+            <div>
+              <a href="asterisk-faxing-setup-a-complete-faxing-solution/">Asterisk faxing - Setup a complete faxing solution!</a>
+            </div>
+            <div>
+              <a href="asterisk-tidbits-random-information-you-might-find-useful/">Asterisk tidbits - random information you might find useful.</a>
+            </div>
+            <div>
+              <a href="audit-system-use/">Audit system use.</a>
+            </div>
+            <div>
+              <a href="bash-shell/">Bash Shell</a>
+            </div>
+            <div>
+              <a href="control-panels/">Control panels</a>
+            </div>
+            <div>
+              <a href="cron-intro/">Cron intro</a>
+            </div>
+            <div>
+              <a href="debian-linux-notes/">Debian Linux Notes</a>
+            </div>
+            <div>
+              <a href="docker-linux-container-engine-portable-applications/">Docker linux container engine - portable applications.</a>
+            </div>
+            <div>
+              <a href="drupal-cms/">Drupal - CMS</a>
+            </div>
+            <div>
+              <a href="email-filtering-spam-and-other-random-notes-on-smtp/">Email filtering, spam, and other random notes on SMTP.</a>
+            </div>
+            <div>
+              <a href="fedora-a-review-of-sorts/">Fedora / Centos / Redhat - a review of sorts.</a>
+            </div>
+            <div>
+              <a href="fedora-notes/">Fedora - Notes</a>
+            </div>
+            <div>
+              <a href="file-system-related-stuff/">File system related stuff</a>
+            </div>
+            <div>
+              <a href="firefox-the-great-open-source-browser/">Firefox - the great open source browser.</a>
+            </div>
+            <div>
+              <a href="freeswitch-another-telephony-system/">Freeswitch - carrier grade telephony system.</a>
+            </div>
+            <div>
+              <a href="gis-map-servers/">GIS map servers</a>
+            </div>
+            <div>
+              <a href="haiku-and-beos/">Haiku and BeOS</a>
+            </div>
+            <div>
+              <a href="install-linux-on-your-1850r/">Install linux on your 1850r</a>
+            </div>
+            <div>
+              <a href="ion-windows-manager/">Ion - windows manager.</a>
+            </div>
+            <div>
+              <a href="iptables-a-real-mans-firewall/">IPTABLES - a real mans firewall</a>
+            </div>
+            <div>
+              <a href="irc-internet-relay-chat/">IRC - Internet Relay Chat</a>
+            </div>
+            <div>
+              <a href="jabber-instant-messaging/">XMPP - Jabber - Instant messaging</a>
+            </div>
+            <div>
+              <a href="joomla-mambo-web-content-management-system/">Joomla / Mambo - Web content management system</a>
+            </div>
+            <div>
+              <a href="linux/">Linux</a>
+            </div>
+            <div>
+              <a href="linux-cctv-and-security-watchdog-for-the-geeks/">Linux CCTV and security - watchdog for the geeks.</a>
+            </div>
+            <div>
+              <a href="local-rolling-backups/">Local rolling backups</a>
+            </div>
+            <div>
+              <a href="mac-macos-macosx-a-unix-that-you-can-let-your-kids-use/">Mac / MacOS / MacOSX - A Unix that you can let your kids use.</a>
+            </div>
+            <div>
+              <a href="monitoring-tools/">Monitoring tools</a>
+            </div>
+            <div>
+              <a href="mydns-mysql-based-dns-server/">MyDNS - mysql based dns server.</a>
+            </div>
+            <div>
+              <a href="mythtv-open-source-dvr/">MythTV &amp; XBMC- open source DVR</a>
+            </div>
+            <div>
+              <a href="nginx/">nginx</a>
+            </div>
+            <div>
+              <a href="ntp/">NTP - A little information on using NTP on fedora core.</a>
+            </div>
+            <div>
+              <a href="proliant-1850r-install-linux-on-a-compaq-proliant/">Proliant 1850r - Install linux on a compaq proliant.</a>
+            </div>
+            <div>
+              <a href="rdiff-backup-remote-incremental-backup/">rdiff-backup - remote incremental backup</a>
+            </div>
+            <div>
+              <a href="remote-booting-with-pxe/">Remote booting with PXE</a>
+            </div>
+            <div>
+              <a href="remote-network-filesystems-for-linux/">Remote network filesystems for linux</a>
+            </div>
+            <div>
+              <a href="resizing-partitions-ntfs-fat32-linux-etc/">Resizing partitions? NTFS, FAT32, Linux, etc.</a>
+            </div>
+            <div>
+              <a href="review-of-web-control-panel-software/">Review of web control panel software.</a>
+            </div>
+            <div>
+              <a href="rpm-package-management-for-linux/">RPM - package management for linux</a>
+            </div>
+            <div>
+              <a href="rsync/">rsync</a>
+            </div>
+            <div>
+              <a href="selinux/">SELinux</a>
+            </div>
+            <div>
+              <a href="sip-telephony-love/">SIP - Telephony love</a>
+            </div>
+            <div>
+              <a href="ssh-stuff/">SSH stuff</a>
+            </div>
+            <div>
+              <a href="sun-solaris/">Sun Solaris</a>
+            </div>
+            <div>
+              <a href="ubuntu-linux-notes/">Ubuntu Linux Notes</a>
+            </div>
+            <div>
+              <a href="various-tidbits/">Various tidbits - notes from korn bourne and friends.</a>
+            </div>
+            <div>
+              <a href="vim-improved-qvisual-editorq/">ViM -  IMproved &quot;visual editor&quot;</a>
+            </div>
+            <div>
+              <a href="vpn-a-nice-way-to-get-in/">VPN - a nice way to get in.</a>
+            </div>
+            <div>
+              <a href="x11/">X11</a>
+            </div>
+            <div>
+              <a href="xcart/">Xcart</a>
+            </div>
+            <div>
+              <a href="xen-hypervisor-for-the-masses/">Xen - hypervisor for the masses.</a>
+            </div>
+            <div>
+              <a href="xwindows/">Xwindows X11 XFree86</a>
+            </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+$$\cos x = \sum\limits_{n = 0}^\infty {\frac{{\left( { - 1} \right)^n x^{2n} }}{{\left( {2n} \right)!}}}$$
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,477 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>WebDav and remote filesystems</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/windows/">windows</a>
+    <h1>WebDav and remote filesystems</h1>
+   <div align="left">Ok, Windows WebDav support is more than lacking and it makes me sick!&nbsp; WebDav and remote filesystems is one of the exciting things to hit PCs for years.&nbsp; Apache already has support for a WebDav module called mod_dav.&nbsp; Other offerings are available from Mac and Novell.&nbsp;</div>
+<div align="left">&nbsp;</div>
+<div align="left"><a href="http://blog.ianbicking.org/i-hate-web-folders.html" target="_blank">I Hate Web Folders</a>&nbsp;- a good look at what you have to do to get WebDav working with MS Window's WebFolders implementation. (this *MIGHT* work)</div>
+<div align="left">&nbsp;</div>
+<div align="left"><a href="http://www.novell.com/products/ifolder/" target="_blank">iFolder</a>&nbsp;- iFolder is Novell's WebDav product.&nbsp; What interests me is their free WebDav client that autosyncs the WebDav shares.&nbsp; Hopefully I'll figure out how to integrate their iFolder client with the free mod_dav.</div>
+<div align="left">&nbsp;<br/>
+NetDrive is the simple client that you can use for windows.&nbsp; It comes for free with NetWare 6 and it is free to distribute.&nbsp; I can't seem to find the link on Novell's site but it available on all sorts of sites on the web.</div>
+<div align="left">
+<p>With NetDrive you can use standard drive mapping (and use Drag and Drop) that points to a user's iFolder directory on the iFolder server. So you can get encrypted access directly to iFolder server without synchronization.</p>
+<p>That means there are three ways to access iFolder data: </p>
+<ul>
+    <li>iFolder client (with sync)</li>
+    <li>Web Browser </li>
+    <li>NetDrive.</li>
+</ul>
+<p>Just select the one that?s best for you or use them all!</p>
+<p>For complete instructions about installing and using NetDrive, see the <a href="http://www.novell.com/documentation/lg/nw6p/netdrive/data/a2iii88.html" target="_blank">Novell NetDrive Administration Guide</a> </p>
+</div>
+<div align="left">&nbsp;</div>
+<div align="left"><strong>WebDav - Webdav is broken, this is information I found from some samba site.&nbsp; *Useful*<br/>
+</strong>Just to inform you that things at MS are apparently not about to change soon :)</div>
+<br/>
+<div>Many of you have noticed the XP redirector does not work well with mod_dav, <br/>
+notably when URLs are password-protected. The XP redirector sends erroneously <br/>
+something like DOMAIN\login:password when it should only send login:password</div>
+<br/>
+<div>The net use command is also buggy, except when used with the following syntax:<br/>
+net use * <a href="http://xxx/yy">http://xxx/yy</a> /u:login password<br/>
+If you use this instead:<br/>
+net use * <a href="http://xxx/yy">http://xxx/yy</a> /u:login<br/>
+(which prompts for the password interactively) it does not work.</div>
+<br/>
+<div>Additionally, you must set high values for the KeepAlive-related parameters of <br/>
+Apache, because otherwise the redirector loses the credentials after a while <br/>
+and asks for them often, until it finally trasmits empty credentials, whatever <br/>
+you input.</div>
+<br/>
+<div>Furthermore, the credentials are cached, meaning that if you change a login on <br/>
+the server while an XP client is already connected, the XP clients prompts for <br/>
+credentials (of course), but DOES NOT send what you type in, but re-sends the <br/>
+old credentials instead. You need to delete the network shortcut, reboot, and <br/>
+recreate it again to empty the cache.</div>
+<br/>
+<div>The silly answer from MS, which was contacted on this, is that they probably <br/>
+won't fix the damn thing because , quote: &quot;modifications of this part of the <br/>
+code are likely to imply regression in the Passport authentications&quot;. Glad to <br/>
+hear Passport uses basic authentication :) They don't explain why all other <br/>
+DAV or plain HTTP clients they have (the WebFolders client, the IE client, the <br/>
+Explorer Web Client) work normally. </div>
+<br/>
+<div>Well, I guess it could be possible to resort to a specific apache auth module <br/>
+that would strip off the domain part if the client is this catastrophic XP <br/>
+WebDAV-Miniredir redirector (maybe this already exists, does anybody know?) <br/>
+but what a shame...</div>
+<br/>
+<div>Here, we'll use the stupid workaround of duplicating our very small users <br/>
+database, prefixing the login with a dummy domain string. But this won't help <br/>
+if you use an external (say, LDAP, maybe) users database which cannot be <br/>
+modified.</div>
+<br/>
+<br/>
+<a href="https://sourceforge.net/tracker/?func=detail&atid=609909&aid=1074180&id=95013">SourceForge.net: Detail: 1074180 - Impossible to save database to web folder</a><br/>
+<br/>
+<br/>
+<a href="https://github.com/xantus/mojo-plugin-webdav">xantus/mojo-plugin-webdav · GitHub</a> - WebDAV plugin for Mojolicious using liblitmus 0.12.1<br/>
+<a href="https://code.google.com/p/sabredav/">sabredav - SabreDAV is a WebDAV framework for PHP - Google Project Hosting</a> - SabreDAV is a WebDAV framework for PHP<br/>
+<a href="http://owncloud.org/">ownCloud.org | Your Cloud, Your Data, Your Way!</a> - provides webdav through sabredav.<br/>
+<a href="http://www.swish-sftp.org/">Swish - Easy SFTP for Windows</a> - Swish adds support for SFTP to Windows Explorer so you can access your files on another computer securely via SSH. - cinst swish using <a href="http://chocolatey.org/">Chocolatey</a><br/>
+<a href="http://sparkleshare.org/">SparkleShare - Self hosted, instant, secure file sync</a> <a href="https://github.com/hbons/SparkleShare/wiki">Home · hbons/SparkleShare Wiki</a> - encrypted dropbox with versioned git backend!<br/>
+    <div style="border: 1px;">
+    Created: 2006-01-10 16:38:47
+    Modified: 2014-04-24 00:39:24
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+<a target="_blank" href="/tech-talk/programming/107-algorithms-patterns-and-things-cs"><canvas id="c" width="170" height="172" title="conway glider"></canvas></a><br/>
+L:<span id=loop>0</span> I:<span id=iteration>0</span> A:<span id=active>0</span>
+<script>
+/** Conway's Game of Life.
+ * ankr started; modified by horner.
+ */
+var c=document.getElementById('c');
+var canvas = c.getContext('2d'),
+    cells = [];
+var drawRate=1200;
+var iter=0;
+var l=0;
+init();
+draw();
+
+function setSpan(name,value)
+{
+var span = document.getElementById(name);
+while( span.firstChild ) {
+    span.removeChild( span.firstChild );
+}
+span.appendChild(document.createTextNode(value));
+}
+function init() {
+setSpan('loop',l);
+    for (var i=0; i<c.width; i++) {
+        cells[i] = [];
+        for (var j=0; j<c.height; j++) {
+            cells[i][j] = 0;
+        }
+    }
+    var gliderT=[
+                [3, 1], [3,3], [2,3], [4, 2], [4, 3]
+               ];
+    var reflectorT=[
+                [0, 0], [0,1], [1,0], [1, 2], [2, 2]
+               ];
+    var sT=[
+                [0, 2], [0,3], [1,2],[2,0],[2,2],[3,0],[3,1]
+               ];
+    var boxT=[
+                [0, 0], [0,1], [1,1], [1,0]
+               ];
+
+    gliderT.forEach(function(point) {
+        cells[point[0]-1][point[1]-1] = 1;
+    });
+    gliderT.forEach(function(point) {
+        cells[point[0]+7][point[1]+7] = 1;
+    });
+    gliderT.forEach(function(point) {
+        cells[point[0]+3][point[1]+3] = 1;
+    });
+    gliderT.forEach(function(point) {
+        cells[point[0]+12][point[1]+12] = 1;
+    });
+if(l>1)  {
+var maxX=12;
+    var randomX=Math.floor(Math.random() * maxX);
+    var randomY=Math.floor(Math.random() * maxX);
+    sT.forEach(function(point) {
+        cells[point[0]+randomX][point[1]+randomY] = 1;
+    });
+    randomX=Math.floor(Math.random() * maxX);
+    randomY=Math.floor(Math.random() * maxX);
+    boxT.forEach(function(point) {
+        cells[point[0]+randomX][point[1]+randomY] = 1;
+    });
+    randomX=Math.floor(Math.random() * maxX);
+    randomY=Math.floor(Math.random() * maxX);
+    reflectorT.forEach(function(point) {
+        cells[point[0]+randomX][point[1]+randomY] = 1;
+    });
+}
+
+}
+
+function whos_alive() {
+    
+    var result = [];
+    var active= 0;
+    
+    /**
+     * Return amount of alive neighbours for a cell
+     */
+    function _countNeighbours(x, y) {
+        var amount = 0;
+        
+        function _isFilled(x, y) {
+            return cells[x] && cells[x][y];
+        }
+        
+        if (_isFilled(x-1, y-1)) amount++;
+        if (_isFilled(x,   y-1)) amount++;
+        if (_isFilled(x+1, y-1)) amount++;
+        if (_isFilled(x-1, y  )) amount++;
+        if (_isFilled(x+1, y  )) amount++;
+        if (_isFilled(x-1, y+1)) amount++;
+        if (_isFilled(x,   y+1)) amount++;
+        if (_isFilled(x+1, y+1)) amount++;
+        
+        return amount;
+    }
+    
+    cells.forEach(function(row, x) {
+        result[x] = [];
+        row.forEach(function(cell, y) {
+            var alive = 0,
+                count = _countNeighbours(x, y);
+            
+            if (cell > 0) {
+                alive = count === 2 || count === 3 ? 1 : 0;
+            } else {
+                alive = count === 3 ? 1 : 0;
+            }
+            if(alive) active++;
+            result[x][y] = alive;
+        });
+    });
+    
+    cells = result;
+    setSpan('active',active);
+    draw();
+}
+function draw() {
+    if(iter>60) { iter=0; l++; init(); }
+    else if(iter>10 && iter%20==0) {
+    if(drawRate>10) { drawRate-=10; }
+    var gliderT=[
+                [3, 1], [3,3], [2,3], [4, 2], [4, 3]
+               ];
+
+     gliderT.forEach(function(point) {
+        cells[point[0]][point[1]] = 1;
+    });
+    }
+setSpan('iteration',iter);
+    canvas.clearRect(0, 0, c.width, c.height);
+    cells.forEach(function(row, x) {
+        row.forEach(function(cell, y) {
+            canvas.beginPath();
+            if (cell) {
+                if(l%2==0) {
+                canvas.rect(x*8, y*8, 8, 8);
+                canvas.fillStyle = 'black';
+                } else {
+                canvas.beginPath();
+                canvas.arc(x*8, y*8,3 , 0, 2 * Math.PI, false);
+                canvas.fillStyle = 'black';
+                }
+                canvas.fill();
+                canvas.stroke();
+            } else {
+                if(l%2==0){
+                canvas.strokeStyle = '#e1e1e1';
+                canvas.rect(x*8, y*8, 8, 8);
+                canvas.stroke();
+                }
+            }
+        });
+    });
+    iter++;
+    setTimeout(function() {whos_alive();}, drawRate);
+}
+</script>
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

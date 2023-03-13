@@ -1,0 +1,351 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>File system related stuff</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/linux-unix-and-friends/">linux-unix-and-friends</a>
+    <h1>File system related stuff</h1>
+   <h2>What is an inode?</h2>
+<a href="http://en.wikipedia.org/wiki/Inode_pointer_structure"><img align=left src="http://upload.wikimedia.org/wikipedia/commons/a/a2/Ext2-inode.gif" title="inode pointer structure"/></a><br/>
+inode (index node)<br/>
+<a href="http://en.wikipedia.org/wiki/Inode">inode - Wikipedia, the free encyclopedia</a><br/>
+An inode is a data structure on a traditional Unix-style file system such as UFS or ext3. An inode stores basic information about a regular file, directory, or other file system object. A <a href="http://en.wikipedia.org/wiki/POSIX">POSIX</a> filesystem includes things like size in bytes, deviceid,userid,guid,filemode,timestamps,linkcounts,pointers to disk blocks.<br/>
+File names and directory implications:<br/>
+<ul>
+<li>inodes do not contain file names, only other file metadata.</li>
+<li>Unix directories are lists of association structures, each of which contains one filename and one inode number.</li>
+<li>The file system driver must search a directory looking for a particular filename and then convert the filename to the correct corresponding inode number.</li>
+</ul>
+<br/>
+<br/>
+How do I see file inode number? ls -i<br/>
+<br/>
+<br/>
+<h2>difference between a symbolic link and a hard link?</h2>
+<a href="http://stackoverflow.com/questions/185899/what-is-the-difference-between-a-symbolic-link-and-a-hard-link">unix - What is the difference between a symbolic link and a hard link? - Stack Overflow</a><br/>
+<br/>
+<br/>
+<h2>btrfs</h2>
+<a href="http://lwn.net/Articles/342892/">A short history of btrfs [LWN.net]</a><br/>
+<a href="http://btrfs.wiki.kernel.org/index.php/Conversion_from_Ext3">Conversion from Ext3 - btrfs Wiki</a><br/>
+<br/>
+<br/>
+<h2>Ext</h2>
+<a href="http://www.ext2fsd.com/?page_id=2">Ext2Fsd Project » About Ext2Fsd</a> - Ext2Fsd is an ext2 file system driver for Windows 2000,  XP, Vista.<br/>
+<a href="http://ext4.wiki.kernel.org/index.php/Ext4_Howto">Ext4 Howto - Ext4</a><br/>
+<br/>
+<br/>
+<h2>ZFS</h2>
+<a href="http://zfsonlinux.org/">ZFS on Linux</a> <a href="https://github.com/zfsonlinux/zfs">zfsonlinux/zfs</a><br/>
+<a href="http://www.freebsd.org/doc/handbook/filesystems-zfs.html">The Z File System (ZFS)</a><br/>
+<a href="http://www.edplese.com/samba-with-zfs.html">Samba with ZFS</a><br/>
+<a href="http://blogs.sun.com/GregB/entry/using_zfs_to_protect_ntfs">Using ZFS to add unlimited snapshots to NTFS filesystems - Greg Beary's blog</a><br/>
+<a href="http://pthree.org/2012/12/31/zfs-administration-part-xv-iscsi-nfs-and-samba/">Aaron Toponce : ZFS Administration, Part XV- iSCSI, NFS and Samba</a><br/>
+<a href="http://pthree.org/2012/12/21/zfs-administration-part-xiv-zvols/">Aaron Toponce : ZFS Administration, Part XIV- ZVOLS</a> - A ZVOL is a “ZFS volume” that has been exported to the system as a block device.<br/>
+<a href="http://pthree.org/2012/12/20/zfs-administration-part-xiii-sending-and-receiving-filesystems/">Aaron Toponce : ZFS Administration, Part XIII- Sending and Receiving Filesystems</a><br/>
+<a href="http://pthree.org/2012/12/19/zfs-administration-part-xii-snapshots-and-clones/">Aaron Toponce : ZFS Administration, Part XII- Snapshots and Clones</a><br/>
+
+<br/>
+<br/>
+<h2>NILFS</h2>
+<a href="http://www.linux-mag.com/id/7345/2/">NILFS: A File System to Make SSDs Scream | Linux Magazine</a><br/>
+<br/>
+<br/>
+<h2>Hadoop || HDFS || Map-Reduce || HBASE</h2>
+master NameNode/JobTracker, slave DataNode/TaskTracker.<br/>
+NameNode is in memory; secondary NameNode is write to disk checkpoints.<br/>
+data block redundancy provided by replication across nodes. hdfs-site.xml - dfs.replication<br/>
+heart beats to namedname, respawned data from remaining datanodes; self-healing.<br/>
+<a href="http://wiki.apache.org/hadoop/">FrontPage - Hadoop Wiki</a><br/>
+<a href="http://answers.oreilly.com/topic/456-get-to-know-hadoop-filesystems/">Get to Know Hadoop Filesystems - O'Reilly Answers</a><br/>
+<a href="http://www.drdobbs.com/database/introduction-to-hadoop-real-world-hadoop/240153375?cid=DDJ_nl_mdev_2013-04-30_h&amp;elq=965223589354444ca2da49558da9835b">Introduction to Hadoop: Real-World Hadoop Clusters and Applications | Dr Dobb's</a><br/>
+<a href="http://flume.apache.org/index.html">Welcome to Apache Flume — Apache Flume</a><br/>
+<a href="http://www.drdobbs.com/database/acquiring-big-data-using-apache-flume/240155029?">Acquiring Big Data Using Apache Flume | Dr Dobb's</a><br/>
+<a href="http://blog.cloudera.com/blog/2009/08/hadoop-default-ports-quick-reference/">Hadoop Default Ports Quick Reference | Apache Hadoop for the Enterprise | Cloudera</a><br/>
+<a href="http://web.ics.purdue.edu/~fahmad/benchmarks/datasets.htm">PUMA MapReduce Datasets Download</a><br/>
+<a href="http://www.highlyscalablesystems.com/290/hadoop-installation-tutorial/">Hadoop Installation Tutorial | Computing systems | Highly Scalable Systems</a><br/>
+<a href="http://www.highlyscalablesystems.com/699/mrcc-a-distributed-c-compiler-system-on-mapreduce/">mrcc – A Distributed C Compiler System on MapReduce | Computing systems | Highly Scalable Systems</a><br/>
+hadoop fs -ls|-mkdir|-copyFromLocal|-copyToLocal|-moveToLocal|-rm|-tail|-chmod|-setrep -w 4 -R /recursive/replicationfactor<br/>
+<a href="http://social.technet.microsoft.com/wiki/contents/articles/4470.sql-server-connector-for-hadoop.aspx">SQL Server Connector for Hadoop - TechNet Articles - United States (English) - TechNet Wiki</a><br/>
+<a href="http://www.cloudera.com/content/support/en/downloads/cdh/cdh-5-1-2.html">CDH 5.1.2</a> - CDH is Cloudera's open source software distribution and consists of Apache Hadoop and additional key open source projects to ensure you get the most out of Hadoop and your data.<br/>
+HBASE - distributed, versioned, column oriented database.<br/>
+<br/>
+<br/>
+<h2>MooseFS</h2>
+<a href="http://www.moosefs.org/about-mfs.html">Features, Architecture and Requirements :: MooseFS network file system - Moose FS</a> - FUSE based. MooseFS is a fault tolerant, network distributed file system.  single master, multiple chunk servers, with metadata backup for master restore. chunk servers communicate with each other to replicate data in order to achieve the "goal" number of copies of a file on different machines.<br/>
+<a href="https://github.com/thatch45/mfs-failover">thatch45/mfs-failover</a> - Failover scripts for MooseFS<br/>
+<br/>
+<br/>
+<h2>integrity tools, checksums, dup finders</h2>
+<a href="http://fswatch.sourceforge.net/">fswatch - file system checksum checker</a><br/>
+<a href="http://akiscode.com/articles/sha-1directoryhash.shtml">Akiscode - How to get a SHA-1 Hash of a directory</a> - python implementation.<br/>
+<a href="http://www.rootninja.com/compress-dd-backups-with-sha1sum-checksum/">Compress dd backups with sha1sum checksum | rootninja</a><br/>
+<a href="http://www.linux-mag.com/id/8794/">Checksumming Files to Find Bit-Rot | Linux Magazine</a> - checksum with extended file attributes, python implementation.<br/>
+<br/>
+<br/>
+<h2>Linux software raid</h2>
+<a href="http://www.ducea.com/2009/03/08/mdadm-cheat-sheet/">Mdadm Cheat Sheet - MDLog:/sysadmin</a> - cat /proc/mdstat<br/>
+<a href="http://www.ducea.com/2006/06/25/increase-the-speed-of-linux-software-raid-reconstruction/">Increase the speed of Linux Software RAID reconstruction - MDLog:/sysadmin</a> - minimum _guaranteed_ reconstruction speed: 1000 KB/sec/disc.,echo 50000 >/proc/sys/dev/raid/speed_limit_min,watch cat /proc/mdstat<br/>
+<br/>
+<br/>
+<h2>gluster</h2>
+<a href="http://www.gluster.org/">Write once, read everywhere — Gluster</a><br/>
+<a href="http://blog.gluster.org/blog/">Gluster Site Relaunches | Gluster Community Website</a><br/>
+<a href="http://blog.gluster.org/2014/07/docker-glusterfs-dockit-an-easy-way-of-glusterfs-deployment-with-docker/">Docker + GlusterFS = Dockit (An easy way of GlusterFS deployment with Docker) | Gluster Community Website</a> <a href="https://github.com/humblec/dockit">humblec/dockit</a><br/>
+
+<a href="https://ttboj.wordpress.com/">The Technical Blog of James | Technical articles, writeups and discussion!</a> <a href="https://github.com/purpleidea/puppet-gluster">purpleidea/puppet-gluster</a><br/>
+<a href="http://ttboj.wordpress.com/2012/07/19/my-gluster-setup-described/">my gluster setup, described | The Technical Blog of James</a><br/>
+<br/>
+<br/>
+<a href="http://www.drdobbs.com/embedded-systems/crc-the-c-stands-for-confusion/240168728?_mc=NL_DDJ_EDT_DDJ_update_20140729&amp;cid=NL_DDJ_EDT_DDJ_update_20140729&amp;elq=60006ad649974b7999600ad4e383b2e9&amp;elqCampaignId=6744">CRC: The C Stands for Confusion | Dr Dobb's</a><br/>
+<a href="https://code.google.com/p/mogilefs/">mogilefs - MogileFS distributed filesystem - Google Project Hosting</a><br/>
+    <div style="border: 1px;">
+    Created: 2010-03-14 22:45:54
+    Modified: 2014-09-10 19:37:16
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+$$\cos x = \sum\limits_{n = 0}^\infty {\frac{{\left( { - 1} \right)^n x^{2n} }}{{\left( {2n} \right)!}}}$$
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

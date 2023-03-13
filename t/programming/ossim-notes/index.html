@@ -1,0 +1,511 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>OSSIM Notes</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/programming/">programming</a>
+    <h1>OSSIM Notes</h1>
+   OSSIM is awesome image processing for remote sensing data.  I've been using it for a few years now.  It provides tools to perform orthorectification and other nice things in GIS.<br/>
+<br/>
+<a href="http://trac.osgeo.org/ossim/wiki/UserDocs">OSSIM Wiki UserDocs</a><br/>
+<br/>
+<strong>Format ossim data types within your VS debugger</strong><br/>
+Add the following to your autoexp.dat under the [Visualizer] section.  This modification will tell VS how to expand some of the OSSIM classes during a debug session.  VERY HANDY.<br/>
+For VS2005, you can find the autoexp.dat within the "C:\Program Files\Microsoft Visual Studio 8\Common7\Packages\Debugger\autoexp.dat" folder.<br/>
+The autoexp.dat is read everytime you start a debugging session within VS, so simply paste, save, and debug.<br/>
+(Course you'll want to save off the orginal autoexp.dat!)<br/>
+Also, I've had trouble in the past using an external editor...not sure why, but when I opened in VS2005 and made the changes they stuck.<br/>
+<textarea rows=10 cols=70 readonly>
+
+ossimImageRenderer::ossimRendererSubRectInfo {
+	preview	( 
+    #(
+       "Iul(",$c.theIul,") Iur(",$c.theIur,") Ill(",$c.theIll,") Ilr(",$c.theIlr,")"
+     )
+	)
+}
+
+ossimIrect {
+	preview	( 
+    #(
+       "ul(",$c.theUlCorner,") lr(",$c.theLrCorner,")"
+     )
+	)
+}
+
+ossimDrect {
+	preview	( 
+    #(
+       "ul(",$c.theUlCorner,") lr(",$c.theLrCorner,")"
+     )
+	)
+}
+
+ossimIpt {
+	preview	( 
+    #(
+       "x=",$e.x,", y=",$e.y
+     )
+	)
+}
+
+ossimDpt {
+	preview	( 
+    #(
+       "x=",$e.x,", y=",$e.y
+     )
+	)
+}
+
+ossimFilename {
+	preview
+	( 
+		#if(($e._Myres) < ($e._BUF_SIZE))
+		(
+			[$e._Bx._Buf,s]
+		)
+		#else
+		(
+			[$e._Bx._Ptr,s]
+		)
+	)
+	
+	stringview
+	(
+		#if(($e._Myres) < ($e._BUF_SIZE))
+		(
+			[$e._Bx._Buf,sb]
+		)
+		#else
+		(
+			[$e._Bx._Ptr,sb]
+		)
+	)
+	
+	children
+	(
+		#if(($e._Myres) < ($e._BUF_SIZE))
+		(
+			#([actual members]: [$e,!] , #array( expr: $e._Bx._Buf[$i], size: $e._Mysize))
+		)
+		#else
+		(
+			#([actual members]: [$e,!],  #array( expr: $e._Bx._Ptr[$i], size: $e._Mysize))
+		)	
+	)	
+}
+
+ossimXmlString {
+	preview
+	( 
+		#if(($e._Myres) < ($e._BUF_SIZE))
+		(
+			[$e._Bx._Buf,s]
+		)
+		#else
+		(
+			[$e._Bx._Ptr,s]
+		)
+	)
+	
+	stringview
+	(
+		#if(($e._Myres) < ($e._BUF_SIZE))
+		(
+			[$e._Bx._Buf,sb]
+		)
+		#else
+		(
+			[$e._Bx._Ptr,sb]
+		)
+	)
+	
+	children
+	(
+		#if(($e._Myres) < ($e._BUF_SIZE))
+		(
+			#([actual members]: [$e,!] , #array( expr: $e._Bx._Buf[$i], size: $e._Mysize))
+		)
+		#else
+		(
+			#([actual members]: [$e,!],  #array( expr: $e._Bx._Ptr[$i], size: $e._Mysize))
+		)	
+	)	
+}
+
+ossimString {
+	preview
+	( 
+		#if(($e._Myres) < ($e._BUF_SIZE))
+		(
+			[$e._Bx._Buf,s]
+		)
+		#else
+		(
+			[$e._Bx._Ptr,s]
+		)
+	)
+	
+	stringview
+	(
+		#if(($e._Myres) < ($e._BUF_SIZE))
+		(
+			[$e._Bx._Buf,sb]
+		)
+		#else
+		(
+			[$e._Bx._Ptr,sb]
+		)
+	)
+	
+	children
+	(
+		#if(($e._Myres) < ($e._BUF_SIZE))
+		(
+			#([actual members]: [$e,!] , #array( expr: $e._Bx._Buf[$i], size: $e._Mysize))
+		)
+		#else
+		(
+			#([actual members]: [$e,!],  #array( expr: $e._Bx._Ptr[$i], size: $e._Mysize))
+		)	
+	)	
+}
+</textarea><br/>
+<br/>
+<strong>Notes for OSSIM on Mac's XCode</strong><br/>
+First checkout the instructions on the OSSIM planet wiki(<a href="http://www.ossim.org/mwiki/index.php/MacOSX_Build">MacOSX Build</a>).
+<br/>
+<br/>
+<strong>Steps to build on MacOSX using packaged deps.</strong><br/>
+<pre>
+#!/bin/bash
+
+cd /Users/Shared/Development
+wget http://ossim.telascience.org/ossimdata/MacOSX/ossim_dependencies.tgz
+svn co https://svn.osgeo.org/ossim/trunk .
+cd /Users/Shared/Development/ossim_dependencies/lib
+ranlib *.a
+cd ../nuiSDK/lib
+ranlib *.a
+</pre>
+<br/>
+<br/>
+List of SVN and CVS repositories needed to build OSSIM using the trunk of all source:
+<pre>
+# here are my old notes, they don't apply anymore.
+#!/bin/bash
+
+cvs -d :pserver:anonymous@www.remotesensing.org:/cvs login
+cvs -d :pserver:anonymous@www.remotesensing.org:/cvs co ossim
+cvs -d :pserver:anonymous@www.remotesensing.org:/cvs co libnitf
+cvs -d :pserver:anonymous@www.remotesensing.org:/cvs co libwms
+cvs -d :pserver:anonymous@www.remotesensing.org:/cvs co ossimPlanet
+cvs -d :pserver:anonymous@www.remotesensing.org:/cvs co ossimplanet_qt
+cvs -d :pserver:anonymous@www.remotesensing.org:/cvs co ossim
+cvs -d :pserver:anonymous@www.remotesensing.org:/cvs co ossim_contrib
+cvs -d :pserver:anonymous@www.remotesensing.org:/cvs co ossim_plugins
+cvs -d :pserver:anonymous@www.remotesensing.org:/cvs co ossim_qt
+cvs -d :pserver:anonymous@www.remotesensing.org:/cvs co ossim_test_suite
+cvs -d :pserver:cvsguest@openscenegraph.org:/cvs/osg co osgEphemeris
+cvs -d :pserver:cvsguest@openscenegraph.org:/cvs/DWMake co DWMake 
+</pre>
+<br/>
+The easiest way to get to the metadata from an OSSIM chain is to grab the image to view transform for the chain and look at the theImageProjection data memeber.  (I use this for debugging within my programming ide)
+<br/>
+<br/>
+<strong>What determines resolution level for OSSIM igen spec files</strong><br/>
+The r-level is computed within the ossimImageRenderer::fillTile (line 
+837).  It computes the image to view scale by transforming the four corners of 
+the requested rect.  Getting the length in image space and the length in view space. to compute the image to view scale.<br/>
+<br/> 
+Then ossimImageRenderer::fillTile computes the needed level using the following math:
+<pre>
+   double averageScale = (imageToViewScale.x + imageToViewScale.y)/2.0;
+   long   closestFitResLevel = (long)floor(log(1.0/averageScale)/
+                                           log(2.0));   
+   ossim_uint32 resLevel = closestFitResLevel<0?0:closestFitResLevel;
+</pre>
+So for OSSIM to pull from reslevel 1 (note reslevel 0 is nominal), spec the  product.projection.meters_per_pixel_x/y to something a bit more than 2*nominal.
+<br/>
+Thought: this calculation is done for each tile requested....
+the image2view scale doesn't change for a product between getTile 
+requests...
+Each corner is being transformed twice (lineSampleToWorld and 
+worldToLineSample) with a lot of
+floating point math in there (sqrt,log,etc). (I'm always watching for 
+speed improvements)
+</pre>
+<br/>
+<br/>
+<strong>Notes on QT and imagelinker.</strong><br/>
+<a href="http://qtnode.net/wiki/Qt4_with_Visual_Studio">Qt4 with Visual Studio</a><br/>
+<a href="http://www.trolltech.com/developer/knowledgebase/faq.2006-12-18.3281869860">When building Qt 4.2 with MSVC 2005 and Service Pack 1 beta I get compile errors, how can I fix these?</a>
+<br/>
+<br/>
+<a href="http://www.directionsmag.com/article.php?article_id=2008&trv=1">Katrina Imagery Warehouse: The Inside Story</a><br/>
+    <div style="border: 1px;">
+    Created: 2005-08-25 09:05:42
+    Modified: 2007-07-16 11:59:47
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+<span id=daysToChristmas>x</span> days to Christmas.<br/>
+<span id=daysToNewYear>x</span> days to a new year.<br/>
+Happy Holidays!
+<script Language="JavaScript">
+function showtime () {
+        msPerDay = 24 * 60 * 60 * 1000 ; // Number of milliseconds per day
+        var now = new Date();
+        var year = now.getYear();
+        if (year < 1000)
+         year+=1900
+        nextXmas = new Date("December 25, 2000")
+        nextXmas.setYear(year)
+        daysLeft = (nextXmas.getTime() - now.getTime()) / msPerDay;
+        daysLeft = Math.round(daysLeft);
+        var span=document.getElementById('daysToChristmas');
+        span.removeChild(span.firstChild);
+        span.appendChild(document.createTextNode(daysLeft+''));
+        
+        nextXmas = new Date("December 31, 2000")
+        nextXmas.setYear(year)
+        daysLeft = (nextXmas.getTime() - now.getTime()) / msPerDay;
+        daysLeft = Math.round(daysLeft);
+
+        span=document.getElementById('daysToNewYear');
+        span.removeChild(span.firstChild);
+        span.appendChild(document.createTextNode(daysLeft+''));
+        setTimeout("showtime()",msPerDay);
+}
+showtime();
+</script>
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

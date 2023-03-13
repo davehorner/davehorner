@@ -1,0 +1,446 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>Various tidbits - notes from korn bourne and friends.</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/linux-unix-and-friends/">linux-unix-and-friends</a>
+    <h1>Various tidbits - notes from korn bourne and friends.</h1>
+   <h2>Move to the beginning and end of line in bash</h2>
+Ctrl-a - move to start of current line.<br/>
+Ctrl-e - move to end of current line.<br/>
+<h2>Clear and redraw screen in bash</h2>
+Ctrl-L
+<h2>How do I redirect stderr to stdout...or maybe redirect stderr to a file??</h2>
+For some reason, remembering how to properly redirect stderr is beyond me.  I always forget that 2>&1.  Redirecting standard error (stderr) and stdout to file...<br/>
+<pre>
+$ command &> command.log
+OR
+$ command > command.log 2>&1
+OR
+$ command 2>&1 | tee command.log
+</pre>
+<br/>
+<h2>Current path of script</h2>
+path=$(cd -P -- "$(dirname -- "$0")" && pwd -P)
+<br/>
+<h2>zsh</h2>
+<a href="http://www.zsh.org/">Zsh</a><br/>
+<a href="http://github.com/robbyrussell/oh-my-zsh">robbyrussell's oh-my-zsh at master - GitHub</a><br/>
+<br/>
+<br/>
+<a href="http://fishshell.com/">fish shell</a> - a smart and user-friendly command line
+shell for OS X, Linux, and the rest of the family.<br/>
+<h2>Korn Shell</h2><br/>
+<a href="http://www.well.ox.ac.uk/~johnb/comp/unix/ksh.html">KSH script BASICS</a><br/>
+For filename completion, use ESC \ and ESC =<br/>
+To enter your history, hit the ESC key, press k to move through prior commands.<br/>  
+To edit use h and l to move the cursor left and right, x to delete characters, i to insert characters (use ESC to finish the insertion).  Just like vim style commands.<br/>
+<br/>
+<br/>
+<h2>tmux</h2>
+<a href="http://tmux.sourceforge.net/">tmux</a> - tmux is a terminal multiplexer: it enables a number of terminals (or windows), each running a separate program, to be created, accessed, and controlled from a single screen. tmux may be detached from a screen and continue running in the background, then later reattached.<br/>
+<a href="https://github.com/zolrath/wemux#readme">zolrath/wemux</a> - wemux enhances tmux to make multi-user terminal multiplexing both easier and more powerful. It allows users to host a wemux server and have clients join in either:
+Mirror Mode gives clients (another SSH user on your machine) read-only access to the session, allowing them to see you work, or
+Pair Mode allows the client and yourself to work in the same terminal (shared cursor)
+Rogue Mode allows the client to pair or work independently in another window (separate cursors) in the same tmux session.
+It features multi-server support as well as user listing and notifications when users attach/detach.<br/>
+<a href="https://github.com/kikijump/tslime.vim">kikijump/tslime.vim</a> -Send command from vim to a running tmux session<br/>
+<a href="https://www.braintreepayments.com/braintrust/vimux-simple-vim-and-tmux-integration">Vimux: simple vim and tmux integration</a><br/>
+<a href="http://robots.thoughtbot.com/post/2641409235/a-tmux-crash-course">A Tmux Crash Course</a><br/>
+<a href="https://github.com/aziz/tmuxinator">aziz/tmuxinator</a> - Manage complex tmux sessions easily (ruby gem)<br/>
+<a href="http://me.veekun.com/blog/2012/03/21/tmux-is-sweet-as-heck/">tmux is sweet as heck - fuzzy notepad</a><br/>
+<a href="https://mutelight.org/practical-tmux">Practical Tmux</a><br/>
+<a href="https://mutelight.org/caps-lock">Caps Lock + Tmux</a><br/>
+<a href="https://github.com/tmuxinator/tmuxinator">tmuxinator/tmuxinator</a> - gem install tmuxinator;echo "source ~/.bin/tmuxinator.bash">>~/.bin/tmuxinator.bash; Manage complex tmux sessions using YAML.<br/>
+<a href="http://lukaszwrobel.pl/blog/tmux-tutorial-split-terminal-windows-easily">tmux Tutorial - Split Terminal Windows Easily</a> - Ctrl+b " h split, Ctrl+b % v split, Ctrl+b arrow key:switch pane, hold Ctrl+b, don't release it and hold one of the arrow keys: resize pane. great article, includes scripting tmux info,etc.<br/>
+<a href="http://www.dayid.org/os/notes/tm.html">dayid's screen and tmux cheat sheet</a><br/>
+<br/>
+<br/>
+<h2>Screen is your friend!</h2>
+Lately I have been really loving the program called screen.  It allows you to run multiple programs on a terminal and switch between them.  The power of screen comes in when you've got a bunch of tasks that you need to do on a single computer.  So for example, if I want to run a vim session on a configuration script, as well as run the server, and sit in the server debug console... you run a separate screen for each of these tasks.  Then, instead of exiting vim, running the script, and then running the command to get into the debug console... you simply hit CTRL-ALT-" to select which thing you want to do.  Saves a BUNCH of time!<br/>
+To create a screen type:<br/>
+screen -t screenname "cmd"<br/>
+<br/>
+To reconnect to the detached terminal, use (-x)...hey works multiple.<br/>
+screen -x<br/>
+<br/>
+ctrl +a S 	 horizontal split region<br/>
+ctrl +a <tab>	switches between regions<br/>
+<br/>
+
+<a target="_blank" href="http://www4.informatik.uni-erlangen.de/~jnweiger/screen-faq.html">Screen FAQ</a><br/>
+A nice <a href="http://www.linuxjournal.com/node/6340/print" target="_blank">article on screen</a> @ the LinuxJournal<br/>
+<a href="http://www.macosxhints.com/article.php?story=20021114055617124" target="_blank">The power of 'screen' revisited</a><br/>
+<a target="_blank" href="http://searchopensource.techtarget.com/tip/1,289483,sid39_gci1102088,00.html">Screen: The terminal baby-sitter in the sysadmin's toolbox</a><br/>
+<a href="http://scie.nti.st/2008/8/22/gnu-screen-with-vertical-split-support">scie.nti.st » GNU screen with vertical split support</a><br/>
+<a href="http://www.catonmat.net/blog/screen-terminal-emulator-cheat-sheet/">Screen VT100/ANSI Terminal Emulator Cheat Sheet - good coders code, great reuse</a><br/>
+<a href="http://fungi.yuggoth.org/vsp4s/">Vertical Split for GNU Screen</a><br/>
+<a href="http://www.jerri.de/blog/archives/2006/05/02/scripting_screen_for_fun_and_profit/">Scripting screen for fun and profit... :) - Jerris Blog - Jerris Welt</a><br/>
+<a href="http://adammonsen.com/post/256">GNU Screen and Zmodem « Adam Monsen</a><br/>
+<a href="http://code-and-hacks.peculier.com/bash/setting-terminal-title-in-gnu-screen/">Setting the Terminal Title in Gnu Screen</a><br/>
+<br/>
+<br/>
+<a href="http://xahlee.org/perl-python/find_replace_unicode.html">Find & Replace String In A Non-Ascii File with Perl and Python</a><br/>
+<br/>
+<h2>exclude all permission denied lines from find</h2>
+2&gt;/dev/null removes the errors from your output.  or you can do the whole 2&gt;1 | grep -v "Permission Denied"<br/>
+<br/>
+<h2>Fun with find</h2>
+This finds all root owned suid files.<br/>
+<pre>
+find . -user root -a -perm -4000 -print
+</pre>
+This replaces 'search' with 'replace' in all files.<br/>
+<pre>
+find . -type f -exec sed -i ’s/search/replace/’ {} \;
+</pre>
+Delete empty directories<br/>
+<pre>
+find -depth -type d -empty -exec rmdir {} \;
+</pre>
+<br/>
+<br/>
+<h2>executing a command against a list of files</h2>
+use find, add a -o  for each additional -name, surround in \( \).<br/>
+<a href="http://superuser.com/questions/543306/how-can-i-chmod-chown-a-specific-list-of-files/696755#696755">command line - How can I chmod/chown a specific list of files? - Super User</a><br/>
+<br/>
+<br/>
+<h2>Grep with path and line numbers</h2>
+I'm always forgetting this one, so maybe I'll remember if I document it.  To get line numbers and filenames when using grep... Add the options -H (for filenames) and -n (for line numbers).  So for example lets say you want to search for all files in the current directory including subdirectories... you would use:<br/>
+<pre><br/>
+<br/>
+<h2>Mime-Construct is awesome:</h2>
+<span style="font-weight: normal;">Looking for a good command-line util for sending email?  One that might support multi-part attachments?  Well mime-construct might be exactly what you are looking for!  Get it from the PERL cpan archives [<a href="http://search.cpan.org/search?query=mime-construct&mode=all">here</a>].<br/>
+ <pre><br/>
+<br/>
+<h2>Security:</h2>
+Here is a pam module that will execute a script when people login.<br/>
+<a href="/personal/linuxstuff/pam_preprofile.tgz">pam_preprofile.tgz</a><br/>
+<br/>
+<h2>SNMP:</h2>
+<a href="http://www.mibdepot.com/index.shtml">MibDepot</a> <br/>
+<br/>
+<h2>Linux Kernel Development</h2>
+I've decided on doing some linux development.  More to come.<br/>
+<a href="http://www.tldp.org/LDP/lki/lki.html">Doc on Linux Internals</a> <br/>
+<a href="http://www.kernelnewbies.org/">Kernel Newbies</a><br/>
+<a href="http://www.engin.umich.edu/caen/systems/Linux/code/misc/2.3/20000110/linux-acct.patch">32-bit UID BSD Accounting patch</a><br/>
+<a href="http://www.elis.rug.ac.be/%7Efcorneli/">Linux Input Replay</a><br/>
+<a href="http://vger.kernel.org/vger-lists.html">Linux Related Mailinglists</a><br/>
+<br/>
+<br/>
+I always for forget the escape key to get into command mode when connected to a remote host.  When you get inside telnet press "^]" (CTRL-Right_Bracket is a common telnet escape, that will allow you to get to the telnet> prompt and then you can type quit to kill that telnet session to a remote host).<br/>
+<br/>
+<h2>Flushing DNS</h2>
+To flush DNS in Microsoft Windows run: ipconfig /flushdns<br/>
+You can also use the command ipconfig /displaydns to view the DNS resolver cache.<br/>
+<br/>
+How to Flush DNS in Mac OSX run: lookupd -flushcache<br/>
+<br/>
+How to Flush DNS in Linux:<br/>
+In Linux, the nscd daemon manages the DNS cache.<br/>
+To flush the DNS cache, restart the nscd daemon.<br/>
+<a href="http://emphaticnonsense.com/2009/10/15/flush-dns-cache-in-ubuntu/">Flush DNS cache in Ubuntu | Emphatic Nonsense</a><br/>
+<br/>
+<br/>
+<h2>Update your dynamic library settings in unix</h2>
+To change your dynamic linking information, edit /etc/ld.so.conf, then run /sbin/ldconfig.<br/>
+Many times you have to add "/usr/local/lib"
+<br/>
+<br/>
+<a href="http://rafalcieslak.wordpress.com/2013/04/02/dynamic-linker-tricks-using-ld_preload-to-cheat-inject-features-and-investigate-programs/">Dynamic linker tricks: Using LD_PRELOAD to cheat, inject features and investigate programs | Rafa? Cie?lak's blog</a><br/>
+<br/>
+<br/>
+<h2>Undo the extraction of a tar gone wrong!</h2>
+This oneliner deletes the list of files from a tar from the disk.
+<pre>
+tar tfz filename.tar.gz | xargs rm -fR
+</pre>
+<br/>
+<br/>
+<h2>Find programs with open ports</h2>
+Having a firewall is good, but I also like to have a close look at the processes with open ports.  The following will display port and process information:<br/>
+<pre>
+netstat -apn|less
+watch 'netstat -apn'
+</pre>
+<br/>
+<br/>
+<h2>How to make backup copies with GNU tar</h2>
+<pre>
+tar --create --gzip --preserve-permissions --same-owner --file=backup-`date +"%b_%d_%Y"`.tar.gz filestobackup/
+</pre>
+<br/>
+<br/>
+<a href="http://code.google.com/p/perlhobby/wiki/scripts">scripts - perlhobby - One-sentence summary of this page. - Project Hosting on Google Code</a> - bunch of random commands.<br/>
+ <h2>Using sed to comment and uncomment all lines in a script</h2>
+ Lets comment the already uncommented lines with #@ so that we can uncomment our programatic comments later.<br/>
+<pre>
+ sed -i 's/^\([^#]\)/#@\1/g' yourfile
+ Now, lets remove those comments.
+ sed -i 's/^#@//g' yourfile
+</pre>
+ <br/>
+ <br/>
+<h2>awk</h2>
+<pre>
+$ awk -F":" '{ print "username: " $1 "\t\tuid:" $3" }' /etc/passwd 
+</pre>
+<a href="http://www.gnu.org/software/gawk/manual/gawk.html">The GNU Awk User's Guide</a><br/>
+<a href="http://www.funtoo.org/en/articles/linux/awk/1/">Awk by example, Part 1 --</a><br/>
+<a href="http://sparky.rice.edu/~hartigan/awk.html">Hartigan/Computer/AWK</a><br/>
+<br/>
+<br/>
+<a href="http://www.lamolabs.org/blog/1375/one-liner-special-variables-bash/">[one-liner]: Special Variables in Bash « Lâmôlabs</a><br/>
+<a href="http://www.lamolabs.org/blog/1724/one-liner-bash-wait-command/">[one-liner]: Bash’s wait Command « Lâmôlabs</a><br/>
+<a href="http://www.lamolabs.org/blog/1227/one-liner-removing-file-extension-with-cut/">[one-liner]: Removing a File’s Extension with Cut « Lâmôlabs</a><br/>
+<a href="http://www.lamolabs.org/blog/1766/pushing-pulling-files-around-using-tar-ssh-scp-rsync/">Pushing & Pulling Files Around Using tar, ssh, scp, & rsync « Lâmôlabs</a><br/>
+<a href="http://spyced.blogspot.com/2010/01/linux-performance-basics.html">Jonathan Ellis's Programming Blog - Spyced: Linux performance basics</a> - vmstat,iostat,top<br/>
+<br/>
+<br/>
+<br/>
+<h2>Setting your domainname</h2>
+of course you know about /etc/hostname and /etc/hosts.  But did you know that there is actually kernel level domain/hostname values to be set on your machine?  Checkout /etc/sysctl.conf, set kernel.hostname and kernel.domainname settings execute the command sysctl -p /etc/sysctl.conf to read and apply the changes of your /etc/sysctl.conf configuration file.  also on redhat/centos, there is /etc/sysconfig/network HOSTNAME, which should be FQDN. I've seen and done it myself, running hostname -s in rc.local...<br/>
+<br/>
+<br/>
+<h2>Get a random word with no '</h2>
+shuf -n1 /usr/share/dict/words | sed 's/[^a-z]*//g'<br/>
+    <div style="border: 1px;">
+    Created: 2005-03-26 15:45:28
+    Modified: 2015-01-03 07:16:33
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+0, 1, 1, 2, 3, 5, 8, 13, 21, 34,...<br/>
+<b> x<sub>n</sub> = x<sub>n-1</sub> + x<sub>n-2</sub></b><br/>
+<!-- "Fibonacci" was his nickname, which roughly means "Son of Bonacci". -->
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,304 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>Software I&#x27;ve developed in the past that might just help to you.</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/programming/">programming</a>
+    <h1>Software I&#x27;ve developed in the past that might just help to you.</h1>
+   <p>Developing software requires an eye for redundancy.  Seek out the inefficiencies and stomp em to the ground.  If you have to repeatedly quote a string or do something that requires a number of steps, you might try and reduce the problem down to a library function.  These projects are some of my prized utility functions.  With a few miscellaneous libraries thrown in. <br/>
+<br/>
+Releasing to the public just seems right when you think about the enormous amount of sample code I've used throughout the years.  Not to mention, you might just help me find some bugs. <br/>
+<font size="1" color=#ff0000>Of course there aren't any bugs in my software... :)<br/>
+</font> </p>
+<br/>
+<br/>
+<font size="3" color="#000099"><strong>C Libraries<br/>
+</strong></font> <br/>
+<strong><a href="personal/code/tmdate/tmdate-1.0.tar.gz">tmdate</a></strong><br/>
+Every programmer has used the time_t data  type&nbsp;in C before.&nbsp; We've all used time(),mktime(),etc.&nbsp; But  the ANSI standard is really lacking a complete API for dealing with dates.&nbsp;  time_t doesn't deal with dates before 1969 which isn't really ideal because we  still need to represent dates from WAY back then. :)&nbsp; The struct tm  provides a good structure to store dates in but we have to constantly convert  back and forth from time_t.&nbsp; This library provides a set of functions to  deal explicitly with the tm structure.&nbsp; I can't tell you how much I love  this library when dealing with dates.&nbsp; Try it out, you'll find the time_t  and standard library&nbsp;just don't cut it anymore.  <br/>
+SVN Access: https://dave.thehorners.com/svn/tmdate/<br/>
+<br/>
+<strong><a href="personal/code/simpprint/simpprint-1.0.tar.gz">simpprint</a></strong><br/>
+Extends the printf family of functions to include nice format specifiers to simplify a programmer's life.&nbsp;&nbsp; Coming soon a php version of these functions...as C and PHP counterparts.<br/>
+Current Version is 1.1<br/>
+Download source package: 
+<a href="http://dave.thehorners.com/personal/code/simpprint/simpprint-1.0.tar.gz">version 1.0</a> - <a href="http://dave.thehorners.com/personal/code/simpprint/simpprint-1.1.tgz">1.1</a><br/>
+PEAR Install:
+pear install http://dave.thehorners.com/personal/code/simpprint/simpprint-1.1.tgz<br/>
+SVN Access: https://dave.thehorners.com/svn/simpprint/<br/>
+<br/>
+<font size="3" color="#000099"><strong>PHP Code<br/>
+</strong></font><br/>
+<font size=+1>Note: You may want to do a "pear upgrade --alldeps pear" before trying to install any of my packages through pear. (some people have reported to have had problems otherwise)</font><br/>
+<strong>VarManager</strong><br/>
+<p> Current Version: 1.05<br/>
+<br/>
+A class to maintain access to your incoming and outgoing POST/GET/COOKIE variables.&nbsp;  Use this class to access your variables while writing PHP web apps and never  worry about turning globals on.&nbsp; Plus the varmanager helps you write your  PHP apps in a more modular fashion allowing a more event driven approach to  hyperlinking.<br/>
+<br/>
+Before doing anything, I recommend reading the overview to get an idea of what VarManager is all about. [<a target="_blank" href="/personal/code/varmanager/latest/example.php">View</a>]<br/>
+<br/>
+PEAR Package(Code+Example): [<a href="personal/code/varmanager/VarManager-1.05.tgz">VarManager-1.05.tgz</a>]<br/>
+To install the PEAR package use the following command:<br/>
+pear install http://dave.thehorners.com/personal/code/varmanager/VarManager-1.05.tgz<br/>
+Code+Example+Docs: [<a href="personal/code/varmanager/varmanager-1.05.tar.gz">varmanager-1.05.tar.gz</a>] [<a href="personal/code/varmanager/varmanager-1.05.zip">varmanager-1.05.zip</a>]<br/>
+<br/>
+Online Class Docs: [<a target="_blank" href="/personal/code/varmanager/latest/docs/">phpdocs</a>]<br/>
+SVN Access: https://dave.thehorners.com/svn/varmanager/<br/>
+<br/>
+News: 08-25-05 Release 1.05 Add support for pear and example.<br/>
+News: 08-24-05 Release 1.04 to public.<br/>
+</p>
+    <div style="border: 1px;">
+    Created: 2004-07-24 04:34:21
+    Modified: 2008-11-13 13:24:26
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+\begin{bmatrix} 1 & 0 & \ldots & 0 \\
+                0 & 1 & 0 & \vdots \\
+                \vdots & 0 & \ddots & 0\\
+                0 & \ldots &  0 & 1_{n}
+\end{bmatrix}
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

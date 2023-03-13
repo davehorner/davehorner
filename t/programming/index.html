@@ -1,0 +1,642 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>articles in programming</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+    articles in <a href="/t/">Tech</a> programming
+            <div>
+              <a href="a-review-of-code-licenses-and-things-ip/">A review of code licenses and things IP.</a>
+            </div>
+            <div>
+              <a href="algorithms-patterns-and-things-cs/">Algorithms, patterns, and things CS</a>
+            </div>
+            <div>
+              <a href="amazon-elastic-compute-cloud-ec2/">Amazon Elastic Compute Cloud (EC2)</a>
+            </div>
+            <div>
+              <a href="android-programming/">Android Programming</a>
+            </div>
+            <div>
+              <a href="angularjs/">Angular.js</a>
+            </div>
+            <div>
+              <a href="apr-apache-portable-runtime/">APR - Apache Portable Runtime</a>
+            </div>
+            <div>
+              <a href="artifical-neural-networks/">Artifical Neural Networks</a>
+            </div>
+            <div>
+              <a href="artistic-style-dont-worry-the-formatting/">Artistic Style - don&#x27;t worry the formatting</a>
+            </div>
+            <div>
+              <a href="audio-processing/">Audio Processing</a>
+            </div>
+            <div>
+              <a href="augmented-reality-mixing-the-virtual-with-the-real/">Augmented Reality - mixing the virtual with the real.</a>
+            </div>
+            <div>
+              <a href="bash-programming/">Bash and batch programming</a>
+            </div>
+            <div>
+              <a href="c-c-libraries-tips-tricks-and-gotchas/">C / C++ - libraries, tips, tricks and gotchas</a>
+            </div>
+            <div>
+              <a href="code-generation-and-refactoring-staying-agile-and-zen/">Code generation, metrics, and refactoring - staying agile and zen.</a>
+            </div>
+            <div>
+              <a href="com-development/">COM development</a>
+            </div>
+            <div>
+              <a href="commenting-and-documenting-your-code/">Commenting and documenting your code</a>
+            </div>
+            <div>
+              <a href="cplusplus-boost-notes/">C++ boost notes</a>
+            </div>
+            <div>
+              <a href="css-cascading-style-sheets-specifically/">CSS Cascading Style Sheets Specifically</a>
+            </div>
+            <div>
+              <a href="css-javascript-dom-design-standards-and-everything-web/">CSS, javascript, DOM, design, comet, stomp, jquery, and everything web.</a>
+            </div>
+            <div>
+              <a href="ctags-and-code-model-generators/">CTags and code model generators</a>
+            </div>
+            <div>
+              <a href="cvs-adminstration-and-usage/">CVS - adminstration and usage</a>
+            </div>
+            <div>
+              <a href="dart/">Dart - class based structured web apps compiled to javascript</a>
+            </div>
+            <div>
+              <a href="database-info-and-general-stuff-sql-clients-commands-etc/">Database info and general stuff.  (SQL clients, commands, etc)</a>
+            </div>
+            <div>
+              <a href="design-elements-expression-blend-adobe-tools-and-other-info/">Design elements - Expression Blend, Adobe tools, and other info.</a>
+            </div>
+            <div>
+              <a href="directx-directinput-direct3d-directshow/">DirectX - DirectInput Direct3d DirectShow</a>
+            </div>
+            <div>
+              <a href="eclipse/">Eclipse - open source extensible IDE.</a>
+            </div>
+            <div>
+              <a href="encryption-and-privacy/">Encryption and privacy.</a>
+            </div>
+            <div>
+              <a href="facebook-programming-the-social-graph/">Facebook - programming the social graph.</a>
+            </div>
+            <div>
+              <a href="flash/">Flash</a>
+            </div>
+            <div>
+              <a href="fltk/">FLTK - a C++ simple GUI.</a>
+            </div>
+            <div>
+              <a href="functional-programming/">Functional programming</a>
+            </div>
+            <div>
+              <a href="git-trees-blobs-commits-and-other-thoughts/">git - trees, blobs, commits and other thoughts</a>
+            </div>
+            <div>
+              <a href="gnome-all-things-gnomegtk/">GNOME - All things gnome/gtk.</a>
+            </div>
+            <div>
+              <a href="go-gopher/">Go gopher</a>
+            </div>
+            <div>
+              <a href="greasemonkey/">Greasemonkey</a>
+            </div>
+            <div>
+              <a href="help-what-the-users-wantand-seldom-get/">Help!  What the users want....and seldom get.</a>
+            </div>
+            <div>
+              <a href="htmlweb-references-notes/">HTML/Web references-notes</a>
+            </div>
+            <div>
+              <a href="iis-microsofts-webserver-in-the-sky/">IIS - Microsoft</a>
+            </div>
+            <div>
+              <a href="imagej-java-image-processing/">ImageJ - Java Image Processing</a>
+            </div>
+            <div>
+              <a href="interfacing-an-lcd-to-an-8051/">Interfacing an LCD to an 8051.</a>
+            </div>
+            <div>
+              <a href="internet-explorer-the-default-webbrowser/">Internet explorer - the default webbrowser.</a>
+            </div>
+            <div>
+              <a href="iphone-pwned-development/">iPhone Pwned Development</a>
+            </div>
+            <div>
+              <a href="itunes-and-quicktime-sdks/">iTunes and Quicktime SDKs</a>
+            </div>
+            <div>
+              <a href="java-yet-another-coffee-bean/">Java - yet another coffee bean.</a>
+            </div>
+            <div>
+              <a href="jquery/">jQuery</a>
+            </div>
+            <div>
+              <a href="kids-programming-getting-kids-interested-in-programming/">Kids programming - getting kids interested in programming.</a>
+            </div>
+            <div>
+              <a href="kotlin/">kotlin</a>
+            </div>
+            <div>
+              <a href="makefiles/">Makefiles</a>
+            </div>
+            <div>
+              <a href="midi-and-opensound-control-network-osc-and-all-things-midi/">MIDI and OpenSound Control- network OSC and all things MIDI</a>
+            </div>
+            <div>
+              <a href="mono-open-source-net/">Mono - open source .NET</a>
+            </div>
+            <div>
+              <a href="mozilla-and-xpcom/">Mozilla, XPCOM, Rust, and other Mozilla things.</a>
+            </div>
+            <div>
+              <a href="mssql-ms-sql-express-tsql/">.NET Data story (MSSQL, MS SQL Express, SQL Compact, TSQL, LINQ, EF)</a>
+            </div>
+            <div>
+              <a href="net-aspnet/">.NET ASP.net programming the web in MS...webforms and mvc.</a>
+            </div>
+            <div>
+              <a href="net-programming/">.NET programming</a>
+            </div>
+            <div>
+              <a href="net-windows-communication-foundation-wcf/">.NET Windows Communication Foundation - WCF</a>
+            </div>
+            <div>
+              <a href="net-wpf-saying-goodby-to-win32-and-winforms/">.NET WPF - so much more than win32</a>
+            </div>
+            <div>
+              <a href="nodejs-npm-and-that-wonderful-javascript-world/">Node.js npm and that wonderful javascript world.</a>
+            </div>
+            <div>
+              <a href="notes-on-xcode-and-mac-development/">Notes on Xcode, mac and iphone development.</a>
+            </div>
+            <div>
+              <a href="ogre3d-a-c-scene-graph/">Ogre3d - a C++ scene graph</a>
+            </div>
+            <div>
+              <a href="open-gl-portable-3d-graphics/">Open GL - portable 3d graphics</a>
+            </div>
+            <div>
+              <a href="opencv-computer-vision-from-intel/">OpenCV - Computer vision from Intel</a>
+            </div>
+            <div>
+              <a href="opengl-notes/">OpenGL Notes</a>
+            </div>
+            <div>
+              <a href="opengl-writing-the-framebuffer-to-disk/">OpenGL - Writing the framebuffer to disk</a>
+            </div>
+            <div>
+              <a href="openscenegraph-c-scene-graph-library/">OpenSceneGraph - C++ scene graph library</a>
+            </div>
+            <div>
+              <a href="ossim-notes/">OSSIM Notes</a>
+            </div>
+            <div>
+              <a href="parallel-processing-things-at-the-same-time/">Parallel Processing - things at the same time</a>
+            </div>
+            <div>
+              <a href="parsing-code-getting-a-model-view-of-your-source/">Parsing code - getting a model view of your source.</a>
+            </div>
+            <div>
+              <a href="perl-cms/">PERL CMS</a>
+            </div>
+            <div>
+              <a href="perl-cpan-packaging-notes/">PERL CPAN packaging notes</a>
+            </div>
+            <div>
+              <a href="perl-data-access/">PERL Data access</a>
+            </div>
+            <div>
+              <a href="perl-programming/">PERL Programming</a>
+            </div>
+            <div>
+              <a href="perl-troubleshooting-and-debugging-hanging-camels/">PERL troubleshooting and debugging hanging camels.</a>
+            </div>
+            <div>
+              <a href="photogrammetry-remote-sensing-geospatial-technology-gis/">Photogrammetry / Remote Sensing / Geospatial technology / GIS</a>
+            </div>
+            <div>
+              <a href="php-open-source-scripting-for-the-web/">PHP - open source scripting for the web.</a>
+            </div>
+            <div>
+              <a href="pluggable-protocols-activex-and-browser-components/">Pluggable Protocols, ActiveX, and Browser Components</a>
+            </div>
+            <div>
+              <a href="polymer-pretend-youre-living-in-the-future/">Polymer - pretend youre living in the future</a>
+            </div>
+            <div>
+              <a href="prolog-programming-in-logic/">Prolog - PROgramming in LOGic</a>
+            </div>
+            <div>
+              <a href="python-a-playful-python-for-programming/">Python - a playful python for programming</a>
+            </div>
+            <div>
+              <a href="quickbooks-programming/">Quickbooks programming</a>
+            </div>
+            <div>
+              <a href="random-links-and-thoughts-on-vision/">Random links and thoughts on vision.</a>
+            </div>
+            <div>
+              <a href="random-papers/">Random Papers</a>
+            </div>
+            <div>
+              <a href="rectangular-selection-or-column-mode-the-best-text-editor-feature-ever/">Rectangular selection or column mode - the best text editor feature ever.</a>
+            </div>
+            <div>
+              <a href="regular-expressions-regex/">Regular expressions - regex</a>
+            </div>
+            <div>
+              <a href="roku-development/">roku development</a>
+            </div>
+            <div>
+              <a href="rpm-package-management/">RPM - Package management</a>
+            </div>
+            <div>
+              <a href="ruby-whats-on-rails-now/">Ruby - whats on rails now?</a>
+            </div>
+            <div>
+              <a href="scanning-and-imaging/">Scanning and imaging</a>
+            </div>
+            <div>
+              <a href="scheme-lisp/">Scheme / Lisp</a>
+            </div>
+            <div>
+              <a href="script-change-password-script-for-htpasswd-files/">SCRIPT: Change password script for htpasswd files.</a>
+            </div>
+            <div>
+              <a href="sdl-simple-directmedia-library/">SDL - Simple DirectMedia Library</a>
+            </div>
+            <div>
+              <a href="sed-stream-editor/">SED - stream editor</a>
+            </div>
+            <div>
+              <a href="serverless/">Serverless</a>
+            </div>
+            <div>
+              <a href="silverlight-wpfe-on-the-web/">Silverlight - WPF/E on the web.</a>
+            </div>
+            <div>
+              <a href="skype-hacks-and-developments/">Misc VoIP - skype, teamspeak,</a>
+            </div>
+            <div>
+              <a href="soa-service-orientation/">SOA - service orientation</a>
+            </div>
+            <div>
+              <a href="software-ive-developed-in-the-past-that-might-just-help-to-you/">Software I&#x27;ve developed in the past that might just help to you.</a>
+            </div>
+            <div>
+              <a href="software-requirements-trying-to-manage-the-flow-of-change/">Software Requirements - trying to manage the flow of change.</a>
+            </div>
+            <div>
+              <a href="teamcity/">TeamCity</a>
+            </div>
+            <div>
+              <a href="testing-release-engineering-ci-building-code-that-deploys-and-runs-like-it-should/">Testing, Release Engineering, CI - building code that deploys and runs like it should.</a>
+            </div>
+            <div>
+              <a href="text-editors-keyboard-shortcuts-macros-and-appreciation-for-the-most-useful-app-on-your-machine/">Text editors keyboard shortcuts macros and appreciation for the most useful app on your machine.</a>
+            </div>
+            <div>
+              <a href="text-hex-editors/">Text HEX editors</a>
+            </div>
+            <div>
+              <a href="the-need-for-a-template-language/">The need for a template language</a>
+            </div>
+            <div>
+              <a href="thoughts-on-cvs-svn-hg-git-and-other-versioning-systems/">Thoughts on CVS / SVN / hg / git and other versioning systems</a>
+            </div>
+            <div>
+              <a href="trac-and-project-management-tools/">Trac and project management tools</a>
+            </div>
+            <div>
+              <a href="twitter-bootstrap/">Twitter bootstrap</a>
+            </div>
+            <div>
+              <a href="unified-modeling-language-uml-someday-i-can-replace-myself/">Unified Modeling Language (UML) - someday, I can replace myself.</a>
+            </div>
+            <div>
+              <a href="usb-ejector-make-it-easy-to-disconnect-a-drive/">USB ejector - make it easy to disconnect a drive.</a>
+            </div>
+            <div>
+              <a href="vector-fun/">Vector Fun</a>
+            </div>
+            <div>
+              <a href="video-processing/">Video processing</a>
+            </div>
+            <div>
+              <a href="vision-programming-algorithms-and-perspective/">Vision - programming, algorithms, and perspective.</a>
+            </div>
+            <div>
+              <a href="visual-basic-imports-davesvbthoughts/">Visual Basic - Imports Daves.VB.thoughts.</a>
+            </div>
+            <div>
+              <a href="visual-studio-tips-and-tricks/">Visual Studio Tips and Tricks</a>
+            </div>
+            <div>
+              <a href="vtk-the-visualization-toolkit/">VTK - The Visualization ToolKit</a>
+            </div>
+            <div>
+              <a href="web-mashups-web-services-and-custom-programming/">Web Mashups - web services and custom programming</a>
+            </div>
+            <div>
+              <a href="webgl-canvas-and-pretty-things/">WebGL canvas and pretty things.</a>
+            </div>
+            <div>
+              <a href="windows-azure/">Windows Azure</a>
+            </div>
+            <div>
+              <a href="windows-mobile-development/">Windows Mobile Development</a>
+            </div>
+            <div>
+              <a href="windows-programming-misc-information-ive-found-useful-over-the-years/">Windows Programming</a>
+            </div>
+            <div>
+              <a href="winrt/">WinRT</a>
+            </div>
+            <div>
+              <a href="workflow/">Workflow</a>
+            </div>
+            <div>
+              <a href="wxwigets-cross-platform-gui/">wxWigets - cross platform GUI</a>
+            </div>
+            <div>
+              <a href="xp-extreme-programming/">XP - Extreme programming.</a>
+            </div>
+            <div>
+              <a href="xul/">XUL</a>
+            </div>
+            <div>
+              <a href="yahoo-messenger-hacks--development/">Yahoo Messenger Hacks / Development</a>
+            </div>
+            <div>
+              <a href="yate-/">Yate -</a>
+            </div>
+            <div>
+              <a href="zeromq-0mq-zmq/">ZeroMQ - zero broker networking concurrency library</a>
+            </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+<span id=daysToChristmas>x</span> days to Christmas.<br/>
+<span id=daysToNewYear>x</span> days to a new year.<br/>
+Happy Holidays!
+<script Language="JavaScript">
+function showtime () {
+        msPerDay = 24 * 60 * 60 * 1000 ; // Number of milliseconds per day
+        var now = new Date();
+        var year = now.getYear();
+        if (year < 1000)
+         year+=1900
+        nextXmas = new Date("December 25, 2000")
+        nextXmas.setYear(year)
+        daysLeft = (nextXmas.getTime() - now.getTime()) / msPerDay;
+        daysLeft = Math.round(daysLeft);
+        var span=document.getElementById('daysToChristmas');
+        span.removeChild(span.firstChild);
+        span.appendChild(document.createTextNode(daysLeft+''));
+        
+        nextXmas = new Date("December 31, 2000")
+        nextXmas.setYear(year)
+        daysLeft = (nextXmas.getTime() - now.getTime()) / msPerDay;
+        daysLeft = Math.round(daysLeft);
+
+        span=document.getElementById('daysToNewYear');
+        span.removeChild(span.firstChild);
+        span.appendChild(document.createTextNode(daysLeft+''));
+        setTimeout("showtime()",msPerDay);
+}
+showtime();
+</script>
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

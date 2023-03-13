@@ -1,0 +1,489 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>microcontrollers</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/random-technology/">random-technology</a>
+    <h1>microcontrollers</h1>
+   cheap,efficient,little computers that just need a nice Human-Machine Interface(HMI).<br/>
+who say's you need to pick just one?<br/>
+<br/>
+<a href="http://hackaday.com/">Hack a Day</a><br/>
+<a href="http://www.circuitsathome.com/">Circuits@Home</a><br/>
+<a href="http://www.edn.com/design-ideas/all">Design Ideas | EDN</a><br/>
+<a href="http://hackaday.com/2010/11/09/debounce-code-one-post-to-rule-them-all/">Debounce Code – one post to rule them all - Hack a Day</a><br/>
+<a href="http://dangerousprototypes.com/docs/Main_Page#Projects">dangerousprototypes - Products</a><br/>
+<a href="http://tinkeringetc.blogspot.com/">My Life as a Tinkerer</a><br/>
+<a href="http://franktu.com/">Free TI MSP430 MCU Source Code and Examples download-- Texas Instruments microprocessor firmware design source</a> - blog of Frank Tu in Toronto, Canada<br/>
+<a href="http://www.akirasrebirth.com/">akirasrebirth</a> - awesome blog, video circuit benders.<br/>
+<a href="http://codeandlife.com/">Code and Life</a><br/>
+<a href="http://codeandlife.com/2013/10/20/turning-pc-on-with-a-knock-using-attiny45-and-a-piezoelectric-sensor/">Code and Life – Turning PC On with a Knock Using ATtiny45 and a Piezoelectric Sensor</a><br/>
+<a href="http://fixituntilitsbroken.blogspot.com/">Fix It Until It's Broken</a><br/>
+<br/>
+<br/>
+<h2>Switches. hittin' switches.</h2>
+<a href="http://www.edn.com/design/integrated-circuit-design/4312173/MSP430-s-port-interrupt-request-logic-helps-debounce-contacts">MSP430's port-interrupt-request logic helps debounce contacts | EDN</a><br/>
+<a href="http://bennthomsen.wordpress.com/ti-msp430-launchpad/using-the-switches/">Using the Switches | Benn Thomsen</a> <a href="http://bennthomsen.wordpress.com/2012/01/13/switch-debouncing/">Switch debouncing | Benn Thomsen</a> - poll and debounce(WDT) the switches (S1 and S2) using MSP430 launchpad<br/>
+<a href="http://processors.wiki.ti.com/index.php/MSP430_LaunchPad_PushButton">MSP430 LaunchPad PushButton - Texas Instruments Embedded Processors Wiki</a><br/>
+<br/>
+<br/>
+<br/>
+<h2>SSRs Solid State Relay</h2>
+<a href="http://benlo.com/msp430/index.html#thermostat">MSP430 Projects - KISS Thermostat</a> - using msp430's internal temp and a Futek SSR-40Amp. simple single button hysteresis control, writes on and off setting in flash.<br/>
+<a href="http://www.element14.com/community/groups/msp430-ultra-low-power-microcontrollers/blog/2012/10/30/msp430-project-double-kettle-electronic-brewing-system">MSP430 Microcontrollers: MSP430 Project: Double-Kettle Electronic Brewing System - element14</a><br/>
+<br/>
+<br/>
+<h2>PC Speakers</h2>
+<a href="http://processors.wiki.ti.com/index.php/Playing_The_Imperial_March">Playing The Imperial March - Texas Instruments Embedded Processors Wiki</a><br/>
+<a href="http://blog.wikifotos.org/2011/02/12/playing-music-with-msp430-launchpad/">a trastear un poco » Blog Archive » Playing music with msp430 launchpad</a> - mission impossible.<br/>
+<br/>
+<br/>
+<h2>Servos</h2>
+<a href="http://forum.43oh.com/topic/252-launchpad-controlling-up-to-8-rc-servos/">LaunchPad controlling up to 8 RC Servos - Projects - 43oh</a><br/>
+<a href="http://e2e.ti.com/group/microcontrollerprojects/m/msp430microcontrollerprojects/494158.aspx">Using the TI MSP430G2553 to Build a Serial Six Channel RC Servo Controller - MSP430™ Microcontroller Projects - Microcontroller Projects - TI E2E Community</a><br/>
+<br/>
+<br/>
+<h2>Dallas 1-wire</h2>
+<a href="http://www.maximintegrated.com/products/ibutton/ibuttons/thermochron.cfm">Overview of iButton Sensors and Temperature/Humidity Data Loggers - Maxim</a><br/>
+<a href="http://www.maxim-ic.com/products/ibutton/software/1wire/wirekit.cfm">iButton: 1-Wire Public Domain Kit - Maxim</a> -  20 sample 1-Wire/iButton applications, all written in C.<br/>
+<a href="http://www.pjrc.com/teensy/td_libs_OneWire.html">OneWire Arduino Library, connecting 1-wire devices (DS18S20, etc) to Teensy</a> - some people call this OneWire 2...<br/>
+<a href="http://www.milesburton.com/?title=Dallas_Temperature_Control_Library">Dallas Temperature Control Library - Miles Burton - Innovative engineering for pretty much anything</a> - Arduino<br/>
+<a href="http://www.smallbulb.net/2012/238-1-wire-and-msp430">1-Wire and MSP430 | welcome to the world of...</a><br/>
+<a href="https://github.com/dsiroky/OneWire">dsiroky/OneWire · GitHub</a> - msp430-gcc<br/>
+<a href="http://www.43oh.com/2012/06/illustrated-guide-to-interfacing-maxim-onewire-to-the-launchpad/">Illustrated guide to interfacing Maxim OneWire to the Launchpad | Four-Three-Oh!</a><br/>
+<br/>
+<br/>
+<h2>DHTxx temp and humidity sensors</h2>
+<a href="http://learn.adafruit.com/dht">Overview | DHTxx Sensors | Adafruit Learning System</a><br/>
+<a href="http://learn.adafruit.com/dht/connecting-to-a-dhtxx-sensor">Connecting to a DHTxx Sensor | DHTxx Sensors | Adafruit Learning System</a><br/>
+<a href="http://www.adafruit.com/products/386">DHT11 basic temperature-humidity sensor + extras ID: 386 - $5.00 : Adafruit Industries, Unique &amp; fun DIY electronics and kits</a><br/>
+<a href="http://www.adafruit.com/products/385">DHT22 temperature-humidity sensor + extras ID: 385 - $12.50 : Adafruit Industries, Unique &amp; fun DIY electronics and kits</a><br/>
+<a href="https://github.com/bafeigum/DHT11-Library-for-MSP430">bafeigum/DHT11-Library-for-MSP430 · GitHub</a><br/>
+<a href="http://www.candrian.gr/index.php/dht-11-one-wire-bus/">Candrian Haris Andrianakis » DHT-11 &amp; One wire bus</a> <a href="http://www.candrian.gr/index.php/thermometer-v2-0/">Candrian Haris Andrianakis » Thermometer V2.0</a> <a href="https://github.com/candrian/DHT-11">candrian/DHT-11 · GitHub</a> (atmel atmega8 @ 16Mhz)<br/>
+<a href="http://embedded-lab.com/blog/?p=4333">Measurement of temperature and relative humidity using DHT11 sensor and PIC microcontroller :Embedded Lab</a><br/>
+<br/>
+<br/>
+<h2>Ethernet/network/tcpip</h2>
+<a href="http://dave.thehorners.com/tech-talk/random-tech/240-embedded-ethernet">Embedded ethernet - Dave Horner's Website</a> - yes, it deserves it's own page.<br/>
+<br/>
+<h2>bluetooth radios - hc-05 hc-06 BlueSMiRF Roving Networks RN-42</h2>
+I recently purchased a bluetooth module JY-MCU V1.04 which takes 3.6-6V. very simple to use, provide the voltage, it defaults discoverable, pair pin 1234, connect, go.  short the tx&rx pins, and all your terminal output gets echo'd back to you.<br/>
+<a href="http://www.rasmicro.com/Bluetooth/HC%20Serial%20Bluetooth%20Products%20201104.pdf">datasheet for HC-03, HC-04, HC-05 and HC-06</a><br/>
+<a href="http://www.msp430launchpad.com/2011/08/adding-bluetooth-to-your-msp430-project.html">MSP430 LaunchPad: Adding Bluetooth to your MSP430 Project</a><br/>
+<a href="http://inst.eecs.berkeley.edu/~ee192/sp09/design/abe_setup_bluesmirf.pdf">Setting Up the BlueSMiRF Bluetooth Module</a> - changing baud rate.<br/>
+<a href="http://nick.zoic.org/art/electronics/bluesmirf-bluetooth-hid-module-reset.html">BlueSMiRF Bluetooth HID Module</a><br/>
+<a href="http://www.rovingnetworks.com/products/RN_42">Roving Networks | RN-42</a><br/>
+<a href="http://www.fritz-hut.com/raspberry-pi-bluetooth-connection-with-bluesmirf/">Raspberry Pi Bluetooth connection with BlueSmirf | Fritz-Hut</a><br/>
+<a href="https://github.com/jeffboody/bluesmirf-demo">jeffboody/bluesmirf-demo · GitHub</a><br/>
+<a href="http://kr3l.wordpress.com/2010/12/19/bluetooth-communication-between-bluesmirf-and-ubuntu/">Bluetooth communication between BlueSMIRF and Ubuntu « Kr3l’s Turf</a><br/>
+<a href="http://byron76.blogspot.ca/2011/09/one-board-several-firmwares.html">Byron's Blog: One board... several firmwares</a> actually the whole blog is great info about bluetooth... <a href="http://byron76.blogspot.ca/">Byron's Blog</a><br/>
+<a href="http://books.google.com/books?id=K0nLbhWrTukC&amp;pg=PA207&amp;lpg=PA207&amp;dq=bluesmirf+bluetooth&amp;source=bl&amp;ots=tQUqrz9OSN&amp;sig=AkYgw1J4EtxSHh7ntXWZqz-47ac&amp;hl=en&amp;sa=X&amp;ei=lY7WUILJBMfQqAHppoC4Aw&amp;ved=0CEUQ6AEwAjgU#v=onepage&amp;q=bluesmirf%20bluetooth&amp;f=false">Making Things Talk: Practical Methods for Connecting Physical Objects - Tom Igoe - Google Books</a><br/>
+<a href="http://developer.android.com/tools/adk/adk2.html#adk-conn">Accessory Development Kit 2012 Guide | Android Developers</a><br/>
+<a href="http://www.mikekohn.net/micro/bluetooth_thermometer.php">Michael Kohn - bluetooth thermometer</a><br/>
+<a href="http://markoez.pirategames.co.uk/index.php/blog/bluetooth-door-lock/">MarkoeZ' Projects and Blog :: Bluetooth Door Lock</a><br/>
+<a href="http://wiki.openpilot.org/display/Doc/Serial+Bluetooth+Telemetry">Serial Bluetooth Telemetry - Documentation - OpenPilot Wiki</a> - Arduino Uno, putty<br/>
+<a href="http://code.google.com/p/btstack/">btstack - A Portable User-Space Bluetooth Stack - Google Project Hosting</a><br/>
+<a href="http://www.mdfly.com/index.php?main_page=product_info&amp;cPath=8_47&amp;products_id=63">Wireless Bluetooth TTL Transceiver Module [RF-BT0417C] - $8.95 : MDFLY electronics, Your electronics supplier!</a><br/>
+<a href="http://code.google.com/p/amarino/">amarino - Android meets Arduino - Google Project Hosting</a><br/>
+<a href="http://adhocnode.com/bluetooth-module/">Arduino robot kit – Bluetooth Module ? Ad Hoc Node</a><br/>
+<a href="https://github.com/sk3tch/android-arduino-nes-controller">sk3tch/android-arduino-nes-controller · GitHub</a><br/>
+<a href="http://pymasde.es/blueterm/">Blueterm code</a> <a href="http://teholabs.com/docs/bluescripts:overview">bluescripts:overview [teho Labs Docs]</a> - two java android terminal apps.<br/>
+<br/>
+<br/>
+<h2>XBee - 802.15.4 radios</h2>
+<a href="http://www.jsjf.demon.co.uk/xbee/xbee.html">XBee Page</a> - Unofficial XBee FAQ<br/>
+<a href="http://www.faludi.com/projects/common-xbee-mistakes/">Common XBee Mistakes « Rob Faludi</a>, he also has a nice blog with xbee content <a href="http://www.faludi.com/">Rob Faludi</a><br/>
+<a href="http://todigi.blogspot.com/2010/05/xbee-obituaries-xbee-returns-from-grave.html">To Digi Or Not To Digi......No Question: XBee Obituaries: XBee Returns from the Grave!</a><br/>
+<br/>
+<br/>
+<h2>CC3000 embedded wifi || CC3200</h2>
+they claim they can run for a year on two AA. Wifi on 3volts. WPA2 Personal and Enterprise. hardware crypto TLS1.2/SSL3.0. Cortex M4<br/> 
+120uA sleep, 37mA Rx listen, with long sleep intervals for always connected.<br/>
+4uA hibernate, 95 mSec for secure Wi-Fi connection, 200 mSec TLS connection time.<br/>
+<a href="http://processors.wiki.ti.com/index.php/CC3000">CC3000 - Texas Instruments Embedded Processors Wiki</a><br/>
+<a href="http://www.ti.com/ww/en/simplelink_embedded_wi-fi/home.html?DCMP=ep-con-ecs-cc3100launch&amp;HQS=ep-con-ecs-cc3100launch-b-en">TI SimpleLink Wi-Fi Family</a><br/>
+<a href="http://www.ti.com/tool/cc3200sdk#descriptionArea">SimpleLink Wi-Fi CC3200 Software Development Kit (SDK) - CC3200SDK - TI Software Folder</a><br/>
+<br/>
+<h2>CC2500</h2>
+TI low cost 2.4GHz radios with low power requirements up to 500 kBaud.  Controlled via an SPI interface.<br/>
+<a href="http://www.ti.com/lit/ds/symlink/cc2500.pdf">CC2500 datasheet</a><br/>
+<a href="http://www.knutsel.org/tag/cc2500/">CC2500 « Electronics projects and kits</a><br/>
+<a href="https://github.com/alvarop/msp430-cc2500">alvarop/msp430-cc2500 · GitHub</a> - CC2500 Radio Library<br/>
+<br/>
+<br/>
+<h2>CC2541 SensorTag Development Kit (25$)</h2>
+<a href="http://www.ti.com/tool/cc2541dk-sensor#1">CC2541 SensorTag Development Kit - CC2541DK-SENSOR - TI Tool Folder</a> - Bluetooth wireless sensor applications TMP006 IR MEMS temperature sensor, humidity sensor, pressure sensor, accelerometer, gyroscope and magnetometer.  Bluetooth 4.0 BLE -Bluetooth Low Energy. Bluetooth LE is only supported in Android 4.3 and later<br/>
+<a href="http://blog.stylingandroid.com/archives/2408">Styling Android » Bluetooth LE – Part 2</a><br/>
+<br/>
+<br/>
+<h2>CC1101</h2>
+<a href="http://www.cashdollar.org/2012/05/21/cc110l-wireless-boosterpack-code-overview/#comment-3339">CC110L Wireless BoosterPack Code Overview | Matt Cashdollar's Blog</a><br/>
+<a href="http://www.anaren.com/air/cc110l-air-module-boosterpack">430Boost-CC110, Wireless Transceiver Module, LaunchPad, Anaren</a><br/>
+<a href="http://msuraj.wordpress.com/2012/04/01/working-with-anaren-air-booster-pack/">Working with Anaren AIR Booster Pack « Flip floP</a><br/>
+<a href="http://www.43oh.com/forum/viewtopic.php?f=9&amp;t=2944">Four-Three-oh! MSP430 Forums • View topic - AIR Boosterpack RF spectrum display</a><br/>
+<br/>
+<br/>
+<h2>RFM12B</h2>
+434MHZ radio, ISM band FSK transceiver <br/>
+<a href="http://www.norduino.org/index.php/MSPNode_board">MSPNode board - Norduino wiki</a><br/>
+<a href="https://github.com/robomotic/MSPNode">robomotic/MSPNode · GitHub</a><br/>
+<a href="https://www.sparkfun.com/products/9582">RFM12B-S2 Wireless Transceiver - SparkFun Electronics</a><br/>
+
+
+<br/>
+<br/>
+<h2>Stellaris</h2>
+32 bit embedded micro.  My launchpad rev a. included a LM4F120H5QR.<br/>
+<a href="http://www.ti.com/ww/en/launchpad/stellaris_head.html">MCU LaunchPad Evaluation Platform | Microcontroller Kit from Texas Instruments for MSP430™ , C2000™ real-time and Stellaris® ARM® Cortex™ microcontrollers</a><br/>
+<a href="http://www.ti.com/mcu/docs/mculuminarytechdocs.tsp?sectionId=95&amp;tabId=2491&amp;viewType=mostuseful&amp;tabId=2491&amp;rootFamilyId=4&amp;familyId=1755&amp;docCategoryId=2&amp;docCategoryId=1&amp;docCategoryId=6&amp;docCategoryId=10&amp;docCategoryId=11&amp;docCategoryId=4&amp;docCategoryId=9&amp;docCategoryId=3&amp;docCategoryId=5">Stellaris ARM Cortex-M3 MCUs - Technical Documents - TI.com</a> - app notes, data sheet, userguides, etc.<br/>
+<a href="http://forum.stellarisiti.com/">Stellarisiti - Stellaris ARM Microcontroller Forum, Projects and News</a><br/>
+Quantum Leaps (QP,QM,Qtools) State Machines Actors <a href="http://www.state-machine.com/quickstart/">Quick start guide</a> - UML-compliant event processor, a portable event-driven kernel, and a tiny preemptive kernel.<br/>
+<a href="http://users.ece.utexas.edu/~valvano/arm/">Starter files for embedded systems</a> - LM3S811, LM3S1968, LM3S8962, LM4F120, or TM4C123 microcontrollers and will compile using the Keil uVision4 C compiler. Copyright by Jonathan W. Valvano @ utexas.edu.<br/>
+<a href="http://www.adanscotney.com/2014/01/spoofing-pokemon-trades-with-stellaris.html">Spoofing Pokémon trades with the Stellaris LaunchPad | Adan's Blog</a><br/>
+<br/>
+<br/>
+<h2>msp430</h2>
+16 bit low cost low power microcontroller, $4.30 shipped in development board form with extra MCU!  The rev 1.5 launchpad currently comes with a msp430g2553.<br/>
+<a href="http://www.ti.com/tool/msp-exp430g2">MSP430 LaunchPad Value Line Development kit - MSP-EXP430G2 - TI Tool Folder</a><br/>
+<a href="http://www.ti.com/tool/MSP430ware">MSP430Ware - MSP430WARE - TI Software Folder</a><br/>
+<a href="http://www.ti.com/tool/Grace">Grace – Graphical Peripheral Configuration Tool - GRACE - TI Software Folder</a><br/>
+<a href="http://ece124web.groups.et.byu.net/references/readings/MSP430%20Optimizing%20C++%20Compiler%205.1-14.pdf">MSP430 C/C++ Language Implementation</a><br/>
+<a href="http://sourceforge.net/apps/mediawiki/mspgcc/index.php?title=MSPGCC_Wiki">SourceForge.net: mspgcc</a> - binutils, gcc, gdb and a lot of other tools for the MSP430 processor.<br/>
+<a href="http://dbindner.freeshell.org/msp430/">MSP430 Launchpad</a> - walk through using mspgcc.<br/>
+<a href="http://pabigot.github.com/bsp430/">BSP430: BSP430 Board Support Package for MSP430 Microcontrollers</a> - using MSPGCC toolchain<br/>
+<a href="http://mspdebug.sourceforge.net/">MSPDebug</a> -  Daniel Beer's MSPDebug.<br/>
+<a href="http://processors.wiki.ti.com/index.php/MSP430_LaunchPad_(MSP-EXP430G2)">MSP430 LaunchPad (MSP-EXP430G2) - Texas Instruments Embedded Processors Wiki</a> - tutorials on msp-exp430g2<br/>
+<a href="http://processors.wiki.ti.com/index.php/BoosterPacks">BoosterPacks - Texas Instruments Embedded Processors Wiki</a> - list of boosters.<br/>
+<a href="http://msuraj.wordpress.com/category/flip-flop/flip/msp430-tutorials/">MSP430 Tutorials « Flip floP</a> - Suraj's blog content on msp430<br/>
+<a href="http://store.43oh.com/index.php?route=common/home">The 43oh Store</a><br/>
+<a href="http://www.circuitvalley.com/2011/12/16x2-char-lcd-with-ti-msp430-launch-pad.html">Microcontroller Projects: 16x2 Char LCD with TI MSP430 Launch Pad</a><br/>
+<a href="https://sites.google.com/a/simpleavr.com/simpleavr/msp430-projects">simpleavr</a> - TI LaunchPad / MSP430 Projects<br/>
+<a href="http://www.msp430launchpad.com/">MSP430 LaunchPad</a> - NJC's MSP439 LaunchPad Blog.<br/>
+<a href="http://processors.wiki.ti.com/index.php/BoosterPack_Design_Guide">BoosterPack Design Guide - Texas Instruments Embedded Processors Wiki</a><br/>
+<a href="http://processors.wiki.ti.com/index.php/BYOB">BYOB - Texas Instruments Embedded Processors Wiki</a><br/>
+<a href="http://opencores.org/project,openmsp430">openMSP430 :: Overview :: OpenCores</a> - open VHDL msp430<br/>
+<a href="http://www.state-machine.com/downloads/index.php">Downloads from Quantum Leaps</a> - QP/QM state machines RTOS C/C++.<br/>
+<a href="http://comsc.sourceforge.net/">comSC</a> - comSC is a library containing the low-level routines for the connectionless mode of AX.25 communications written for a Texas Instruments MSP430 microprocessor.<br/>
+<a href="https://github.com/energia/Energia">energia/Energia · GitHub</a> - Fork of Arduino for the Texas Instruments MSP430<br/>
+<a href="http://gushh.net/blog/msp430-launchpad-led-as-photodiode/">MSP430 Launchpad: LED as PhotoDiode | GuShH's DevBlog - Electronics Engineering, Free circuits, Programming Resources, Web Development.</a><br/>
+<a href="http://www.element14.com/community/groups/msp430-ultra-low-power-microcontrollers/blog/2011/06/11/hacking-the-launchpad">MSP430 Microcontrollers: Hacking the Launchpad - element14</a> - you can grab +5V from the launchpad demo board by a solderable hole (TP1).<br/>
+<a href="http://www.youtube.com/user/USWaterRockets">U.S. Water Rockets - YouTube</a> - youtube videos of the msp430 launchpad being used for water rockets and 808 cameras...<br/>
+<a href="http://waterrockets.multiply.com/journal">Water Rockets - Water Rockets Blog</a><br/>
+<a href="http://code.google.com/p/lib430/">lib430 - MSP430 Code Library - Google Project Hosting</a> - ledfireplace, pcstarter<br/>
+<br/>
+<br/>
+<a href="http://www.ti.com/tool/msp430usbdevpack">MSP430 USB Developers Package - MSP430USBDEVPACK - TI Software Folder</a> - yes that 4.30 board comes with full USB API including HID,CDC,MSC,PHDC classes with a 5k-8k code size 260-698ram.<br/>
+<a href="http://processors.wiki.ti.com/index.php/BSL_%28MSP430%29">BSL (MSP430) - Texas Instruments Embedded Processors Wiki</a> - Bootstrap <a href="https://github.com/MSP-LaneWestlund/MSPBSL_Library">MSP-LaneWestlund/MSPBSL_Library · GitHub</a><br/>
+<a href="http://code.google.com/p/tinyos-msp430/">tinyos-msp430 - TinyOS porting for small MSP430 chips - Google Project Hosting</a><br/>
+<a href="http://www.msp430launchpad.com/2010/12/njcs-launchscope-launchpad-oscilloscope.html">MSP430 LaunchPad: NJC's LaunchScope (A LaunchPad Oscilloscope)</a> (<a href="https://gist.github.com/753207">NJS's MSP430 LaunchPad Oscilloscope — Gist</a>)<br/>
+<a href="http://jbremnant.wordpress.com/2011/01/03/nokia-lcd-wiinunchuck-with-msp430/">Nokia LCD + WiiNunchuck with MSP430 | jbremnant's blog</a><br/>
+<br/>
+<br/>
+<h2>msp430 timing/RTC/PWM</h2>
+<a href="http://www.ti.com/lit/ml/slap113/slap113.pdf">MSP430 Timers In-Depth (pdf slides)</a><br/>
+<a href="http://www.ti.com/lit/an/slaa290a/slaa290a.pdf">Using the Real-Time Clock Library (pdf)</a> - TI's SLAA290A C RTC library for msp430.<br/>
+<a href="http://www.ti.com/general/docs/litabsmultiplefilelist.tsp?literatureNumber=slaa290a">Using the Real-Time-Clock Library (Rev. A), slaa290a (pdf and code download)</a><br/>
+<a href="http://xv4y.radioclub.asia/2012/05/22/bibliotheque-rtc-pour-le-msp430/">RTC library for MSP430 | Chronicles by radio XV4Y (French)</a> - sRTCsec.cpp built to be used with <a href="http://energia.nu/">Energia</a>. <a href="http://forum.43oh.com/topic/2153-real-time-clock-rtc-library-for-the-msp430launchpad/">Real-Time Clock (RTC) Library for the MSP430/LaunchPad - Energia - 43oh</a> discusses its use.<br/>
+<a href="http://www.43oh.com/forum/viewtopic.php?f=10&amp;t=239">Four-Three-oh! MSP430 Forums • View topic - Flashing the missing DCO calibration constants</a><br/>
+<a href="http://www.msp430launchpad.com/2010/07/timers-and-clocks-and-pwm-oh-my.html">MSP430 LaunchPad: Timers and Clocks and PWM! Oh My!</a><br/>
+<a href="http://www.msp430launchpad.com/2012/03/using-aclk-and-32khz-crystal.html">MSP430 LaunchPad: Using ACLK and the 32kHz Crystal</a><br/>
+<a href="http://franktu.com/DS1307.htm">DS1307 Real Time Clock (RTC)</a> -  Frank Tu's msp430 sample with ds1307<br/>
+
+
+<br/>
+<br/>
+<h2>HC-SR04 ultrasonic sensor</h2>
+<a href="http://trollmaker.com/article3/arduino-and-hc-sr04-ultrasonic-sensor">Arduino and HC-SR04 ultrasonic sensor - trollmaker.com</a><br/>
+<br/>
+<br/>
+<h2>Embedded filesystems</h2>
+<a href="http://elm-chan.org/fsw/ff/00index_e.html">FatFs - Generic FAT File System Module</a> - FatFs is a generic FAT file system module for small embedded systems.<br/>
+<a href="http://elm-chan.org/fsw/ff/00index_p.html">Petit FAT File System Module</a> - Petit FatFs is a sub-set of FatFs module for tiny 8-bit microcontrollers.<br/>
+<a href="https://github.com/suan/Freescale-SD-FAT-Library">suan/Freescale-SD-FAT-Library · GitHub</a><br/>
+<a href="http://code.google.com/p/sdfatlib/">sdfatlib - A FAT16/FAT32 Arduino library for SD/SDHC cards - Google Project Hosting</a><br/>
+<br/>
+<br/>
+<h2>clock projects</h2>
+<a href="http://renaud.schleck.free.fr/reveil.php">Electronics - Sunrise alarm clock</a> - MSP430,DCF77 atomic clock, with HD44780 LCD.<br/>
+<a href="http://tronixstuff.wordpress.com/2012/02/02/project-clock-one/">Project: Clock One « t r o n i x s t u f f</a><br/>
+<a href="http://tronixstuff.wordpress.com/2010/08/02/blinky-the-one-eyed-clock/">Blinky the one-eyed clock « t r o n i x s t u f f</a><br/>
+<a href="http://tronixstuff.wordpress.com/2012/02/21/project-clock-two-single-digit-clock/">Project: Clock Two – Single digit clock « t r o n i x s t u f f</a><br/>
+<a href="http://tronixstuff.wordpress.com/2012/03/31/project-clock-three-a-pillow-clock/">Project: Clock Three – A pillow clock « t r o n i x s t u f f</a><br/>
+<a href="https://github.com/jbremnant/ledclock">jbremnant/ledclock · GitHub</a><br/>
+<a href="http://www.simpleavr.com/msp430-projects/3p4w-clock">3p4w clock - simpleavr</a><br/>
+<br/>
+<br/>
+<h2>Optical mouse as CCD camera</h2>
+<a href="http://spritesmods.com/?art=mouseeye">Sprites mods - Optical mouse-cam - Optical mouse cam</a><br/>
+<br/>
+<br/>
+<h2>Solenoid motor using VCR head</h2>
+solid state switching, <a href="http://en.wikipedia.org/wiki/Photodiode">photodiode</a> light detection with <a href="http://www.fairchildsemi.com/ds/LM/LM311.pdf">LM311</a>, trigger <a href="http://www.adafruit.com/datasheets/TIP120.pdf">TIP120</a> Darlington transistor driving solenoid.<br/>
+<a href="http://www.youtube.com/watch?v=3nHX-66PGN0&amp;list=TL4IJucIdopXjGe-JICQChHXNKaU8hy5gf">&#9658; Solenoid motor on the cheap only using a VCR video head, solenoid and a few electronic components - YouTube</a> - like most cool things, it has no use, and it's a conversation piece. pieces. parts. VCR heads are metal, balanced, and move freely.<br/>
+<h2>Arduino</h2>
+<a href="http://arduino.cc/">Arduino - HomePage</a><br/>
+<a href="http://s4a.cat/">S4A</a> - S4A is a Scratch modification that allows for simple programming of the Arduino open source hardware platform.<br/>
+<a href="https://github.com/SammyIAm/Moppy/tree/moppy-advanced">SammyIAm/Moppy</a> - Musical controller for an Arduino-floppy drive set up for the Ardiuno.MIDI-IN support,Per-channel output control, multiple Arduinos/MIDI devices<br/>
+<a href="http://playground.arduino.cc/Code/Timer1">Arduino Playground - Timer1</a> - unzip and put the files in Arduino/hardware/libraries/Timer3/<br/>
+<a href="http://pinouts.ru/Storage/InternalDisk_pinout.shtml">Floppy Diskdrive pinout diagram @ pinouts.ru</a><br/>
+<iframe width="420" height="315" src="//www.youtube.com/embed/IY0mDRrqcVU" frameborder="0" allowfullscreen></iframe><br/>
+<a href="https://github.com/keithgardner2/sweetChild">keithgardner2/sweetChild</a> - sweet sweet child of mine on microcontroller.<br/>
+<iframe width="560" height="315" src="//www.youtube.com/embed/t-FvlWqEEP0" frameborder="0" allowfullscreen></iframe><br/>
+<iframe width="560" height="315" src="//www.youtube.com/embed/NaX3J954nbU" frameborder="0" allowfullscreen></iframe>
+<br/>
+<br/>
+<h2>RTOS || Real Time Operating System</h2>
+<a href="http://www.avix-rt.com/">AVIX-RT: Home</a> - arm,microchip,atmel.<br/>
+    <div style="border: 1px;">
+    Created: 2012-08-14 22:36:21
+    Modified: 2014-07-08 22:00:39
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<a href="http://en.wikipedia.org/wiki/E_%28mathematical_constant%29" target=_blank>$$e = \sum_{n=0}^\infty \frac{1}{n!}$$</a>
+
+
+satis dictum.
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

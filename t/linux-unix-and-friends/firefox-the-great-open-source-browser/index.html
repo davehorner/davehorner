@@ -1,0 +1,309 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>Firefox - the great open source browser.</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/linux-unix-and-friends/">linux-unix-and-friends</a>
+    <h1>Firefox - the great open source browser.</h1>
+   I have to say that I have a bit of love for the Mozilla project and Firefox.  It is a wonderful open source browser that is cross platform and full of great features.<br/>
+<br/>
+<a href="http://www.mozilla.com/en-US/products/">Firefox Web Browser &amp; Thunderbird Email Client | Mozilla Products</a><br/> 
+<a href="http://developer.mozilla.org/en/docs/FUEL">FUEL</a> - Javascript to access the browser's objects.<br/>
+<a href="http://developer.mozilla.org/en/docs/XUL_improvements_in_Firefox_3">XUL improvements in Firefox 3 - MDC</a><br/>
+<a href="http://developer.mozilla.org/en/docs/Places">Places</a> - is a re-write of Firefox's bookmarks and history system with query and view support!<br/>
+<a href="http://developer.mozilla.org/en/docs/Firefox_3_for_developers">Firefox 3 for developers - MDC</a><br/>
+<a href="http://developer.mozilla.org/en/docs/Build_Documentation">Build Documentation - MDC</a><br/>
+<a href="http://tdoks.blogspot.com/2007/01/ntlm-authentication-and-firefox.html">Tiny drops of knowledge: NTLM authentication and Firefox</a><br/>
+<br/>
+<br/>
+Here are some of the extensions that I find are a must have:<br/>
+<br/>
+One big thing is that I really need spell checking when it comes to HTML forms.  <ahref="http://spellbound.sourceforge.net/index">SpellBound</a> does just this.  SpellBound also needs a mozilla dictionary installed from <a href="htp://dictionaries.mozdev.org/index.html">here</a>.<br/>
+<br/>
+<br/>
+<h2>Tabbed Browsing</h2>
+If you haven't started using tabbed browsing in Firefox, you haven't found the power of the browser.  Lately I've been really pleased with the two extensions:br/>
+<br/>
+<a target="_blank" href="https://addons.mozilla.org/firefox/1122/">Tab Mix Plus</a> [Developer homepage?] - tabmix is wonderful.<br/>
+<a href="http://tmp.garyr.net/forum/index.php">Tab Mix Plus Forums</a><br/>
+<br/>
+<a target="_blank" href="https://addons.mozilla.org/addon.php?id=158">Tabbrowser Preferences</a> [<a target="_blank" href="http://216.55.161.203/theonekea/tabprefs/">Developer homepage</a>]-<br/>
+<br/>
+At this point, I'm not really sure which extension is better.  However, at this point it looks like tab mix plus has more features than tabbrowse preferences.<br/>
+<br/>
+One thing that I really like, is having a session manager to handle browser crashes.  I also like the ability to have a rowser with tabs related to what I'm working on.  For instance, when I work on work, I open a set of tabs that log me into my online development toolsand company intranet.  It really saves me on typing... and it helps me stay more organized.<br/>
+<br/>
+<h2>Bookmarks - Online Favorites</h2>
+I love the idea of having your bookmarks follow you anywhere.  I also love the idea of sharing your bookmarks with our friends.<br/>
+<br/>
+I've found a few solutions to sync using firefox.  In fact, lately I've been using Google to store the bookmarks.  Hover, it doesn't take care of grouped tabs at this point.... which is a problem.... but it works for instant access anywhere.<br/>
+<br/>
+<br/>
+<a href="http://www.computerworld.com/action/article.do?command=printArticleBasic&articleId=9020880">Hacking Firefox: The secrets of about:config</a><br/>
+<br/>
+Looking for a way to sync your bookmarks on WebDav in Firefox 2.0?  The latest plugin is:<br/>
+<a href="https://addons.mozilla.org/en-US/firefox/addon/2367">Bookmark Sync and Sort</a><br/>
+<br/>
+<h2>XPCOM</h2>
+<a href="http://www-128.ibm.com/developerworks/webservices/library/co-pyxp1/">Getting to know PyXPCOM</a><br/>
+<a href="http://doudehou.googlepages.com/StatusbarEx">StatusbarEx</a> - An extension for firefox, display useful inforamtion on the statusbar<br/>
+<a href="http://www.uselessapplications.com/ffthrottle.aspx">Firefox Throttle - Bandwidth utilization throttling plug-in for Firefox (Windows)</a><br/>
+<br/>
+<br/>
+<h2>Bookmarklets</h2>
+Bookmarklets are just client side java in your bookmarks.  Simple, yet powerful.<br/>
+I love the  
+<a class="bml" href="javascript:function htmlEscape(s){s=s.replace(/&amp;/g,'&amp;amp;');s=s.replace(/>/g,'&amp;gt;');s=s.replace(/</g,'&amp;lt;');return s;} function linkEscape(s){s=s.replace(/&amp;/g,'&amp;amp;');s=s.replace(/&quot;/,'&amp;quot;');return s} h = '<a href=&quot;' + linkEscape(location.href) + '&quot;>' + htmlEscape(document.title) + '</a><br/>'; with(window.open().document){write(h+'<form name=f><textarea  name=a rows=5 cols=80 wrap=hard>'+htmlEscape(h)+'</textarea></form>'); close(); f.a.select(); } void 0">make link</a> bookmarklet.<br/>
+It gives you a quick and easy URL reference.<br/>
+<a href="https://www.squarefree.com/bookmarklets/webdevel.html">Web Development Bookmarklets</a><br/>
+<a href="http://chengyinliu.com/whatfont.html">WhatFont Bookmarklet « Chengyin Liu</a><br/>
+<br/>
+<br/>
+<a href="https://addons.mozilla.org/en-US/firefox/addon/3880">Add Bookmark Here 2 :: Firefox Add-ons</a><br/>
+<br/>
+<br/>
+<h2>Firefox and .net client</h2>
+<a href="https://addons.mozilla.org/en-US/firefox/addon/1608">FFClickOnce :: Firefox Add-ons</a> - ClickOnce support for Firefox.<br/>
+<a href="http://www.hanselman.com/blog/FirefoxWPFAndXBAP.aspx">Scott Hanselman's Computer Zen - Firefox, WPF and XBAP</a><br/>
+<br/>
+<br/>
+<h2>Safe mode Firefox</h2>
+If you need to get into safe mode.  For instance, if firefox continually crashes on start without it... You can hold down the shift key while starting Firefox.<br/>
+    <div style="border: 1px;">
+    Created: 2005-11-09 00:33:08
+    Modified: 2013-09-15 20:15:50
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+left side represents the beginning of mathematics; the right side represents the mysteries of infinity.<br/>
+1=0.999...
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

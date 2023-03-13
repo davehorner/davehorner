@@ -1,0 +1,341 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>Ukulele stuff</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/p/">Personal</a>
+<a href="/p/random-thoughts/">random-thoughts</a>
+    <h1>Ukulele stuff</h1>
+   ukulele <a href="http://en.wikipedia.org/wiki/Ukulele">Ukulele - Wikipedia, the free encyclopedia</a><br/>
+uke - Slang for ukelele, a small, four stringed instrument. (Urban Dictionary)<br/>
+<br/>
+<a href="https://ooktown.com/resources/latest-podcast">OokTown - Latest Podcast</a><br/>
+<a href="http://uke4u.com/">Uke4U | Ukulele Blog</a><br/>
+<a href="http://ukeireland.com/">ukulele players in ireland · Uke Ireland &amp; Ukuhooley Blog</a><br/>
+<a href="http://www.cathyschords.com/ukulelesongs.htm">Ukulele Songs - Cathy's Chords - songs for guitar &amp; uke</a><br/>
+<a href="http://ukuleleunderground.com/">Ukulele Underground - Free online video ukulele lessons, tabs, chords, and the largest ukulele forum on the internet!</a><br/>
+<a href="http://www.ukulenny.com/chord_charts">Ukulenny | Bay Area Ukulele Performer and Educator | Chord Charts</a><br/>
+<a href="http://ukuleleguy.com/">Ukulele Guy</a><br/>
+<a href="http://ukulelehunt.com/">ukulelehunt</a><br/>
+<a href="http://dominator.ukeland.com/index2.shtml">Dominator's Uke Tabs</a><br/>
+<a href="http://www.ukulele-tabs.com/top-uke-tabs.html">Top 50 Ukulele Tabs | Ukulele Tabs</a><br/>
+<a href="http://www.get-tuned.com/online_ukulele_tuner.php">Online Ukulele Tuner</a> - when they say tuner, they mean sound maker.<br/>
+<a href="http://mightyukemovie.com/#">MIGHTY UKE: The Amazing Comeback of a Musical Underdog</a><br/>
+<a href="http://www.youtube.com/watch?v=6Gh5SRIFgY4&amp;feature=bf_prev&amp;list=UUm4-2YvKo_f7qeD95wthgiA">Something Stupid Uke with Chords - YouTube</a><br/>
+<h2>Scales</h2>
+<a href="http://ukulelehunt.com/2008/04/23/ukulele-scales-major-scales/">Ukulele Scales: Major Scales</a><br/>
+<a href="http://www.ukulelestrummer.com/major-pentatonic-scale/">Major Pentatonic Scale | Ukulele Strummer</a><br/>
+<a href="http://www.slideshare.net/xian/ukulele-for-geeks-secrets-of-the-pentatonic-scales">Ukulele For Geeks: Secrets of the Pentatonic Scales</a><br/>
+<br/>
+<br/>
+<a href="http://www.scorpex.net/Uke/">Richard G's Uke Songs</a><br/>
+<a href="http://www.scorpex.net/Uke/songs/The_Man_Who_Sold_The_World.pdf">The Man Who Sold The World - David Bowie</a><br/>
+<a href="http://www.ukuleleunderground.com/forum/showthread.php?6763-Uke-Lesson-11-Drop-Baby-Drop">Uke Lesson 11 - Drop Baby, Drop</a><br/>
+<a href="http://ukulelehunt.com/wp-content/uploads/2011/04/FirstDance.pdf">First Dance
+Never Shout Never</a><br/>
+<br/>
+<br/>
+<h2>Somewhere over the rainbow</h2>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/1PiscVZSuEE" frameborder="0" allowfullscreen></iframe><br/>
+<a href="http://ukulelehunt.com/wp-content/uploads/2008/04/somewhere.pdf">Somewhere over the rainbow</a><br/>
+<a href="http://www.ukulelestrummers.com/Songbook/Rainbow.html">ukulelestrummers - Somewhere Over the Rainbow/What a Wonderful World</a><br/>
+<a href="http://www.youtube.com/watch?v=bM30cGdCTDQ">How to Play "Somewhere Over the Rainbow" on Ukulele - YouTube</a><br/>
+<a href="http://www.youtube.com/watch?v=FANC-qvJFhQ">Somewhere Over The Rainbow - Ukulele Tutorial - YouTube</a>
+<br/>
+<br/>
+<a href="http://doctoruke.com/youaremysunshinecomb.pdf">YOU ARE MY SUNSHINE</a><br/>
+<a href="http://ukulenny.com/files/charts/HappyBirthday.pdf">Happy Birthday</a> - arranged by Lendl San Jos<br/>
+<a href="http://ukulelehunt.com/wp-content/uploads/2010/03/HappyBirth.pdf">Happy Birthday</a> - ukulelehunt.com<br/>
+<a href="http://www.youtube.com/watch?v=XyfPJ6JNlfU">HUSH LITTLE BABY - A children's lullaby - Ukulele Tutorial by UKULELE MIKE LYNCH - YouTube</a><br/>
+
+<br/>
+<br/>
+<h2>Twinkle twinkle little star</h2>
+<iframe width="560" height="315" src="http://www.youtube.com/embed/6cQbxwbBqqI" frameborder="0" allowfullscreen></iframe><br/>
+<a href="http://theukulelereview.com/2013/04/05/twinkle-twinkle-on-ukulele-jazz-chord-melody/">Twinkle Twinkle on Ukulele – Jazz chord Melody | Ukulele Reviews, Lessons, and Performances!</a><br/>
+<a href="http://www.youtube.com/watch?v=UkVhCJsILeg">Twinkle Twinlke Little Star - Ukulele Tutorial - YouTube</a><br/>
+<a href="http://www.youtube.com/watch?v=P-HNzhcFsvI">Twinkle twinkle, ABCs tutorial for ukulele - YouTube</a><br/>
+<a href="http://www.youtube.com/watch?v=-otpb3iQ3Vg">ABC + Twinkle Twinkle Little Star ( Ukulele Cover ) - YouTube</a><br/>
+<a href="http://www.youtube.com/watch?v=TZJaZUA2swQ">Twinkle Twinkle Little Star in English and Spanish on ukulele - YouTube</a><br/>
+<br/>
+<br/>
+<a href="http://alligatorboogaloo.com/uke/tabs/030118.html">UKULELE BOOGALOO presents "YOSHIMI BATTLES THE PINK ROBOTS"</a><br/>
+<a href="http://www.chordie.com/chord.pere/www.ultimate-guitar.com/print.php?what=tab&amp;id=377909&amp;1944-06-06=always&amp;transpose=&amp;tuning=GCEA">Crazy by Gnarls Barkley - guitar chords, guitar tabs and lyrics - chordie</a><br/>
+<a href="http://www.chordie.com/chord.pere/www.kzguild.com/wtp/tabs/SurfWaxAmerica.txt?1944-06-06=always&amp;transpose=&amp;tuning=GCEA">surf wax america by Weezer - guitar chords, guitar tabs and lyrics - chordie</a><br/>
+<a href="http://www.chordie.com/chord.pere/www.guitaretab.com/m/misc-nursery-rhymes/12371.html">Nursery rhymes by Misc. Nursery Rhymes - guitar chords, guitar tabs and lyrics - chordie</a><br/>
+<a href="http://www.alligatorboogaloo.com/uke/tabs/020615.html">UKULELE BOOGALOO presents "WILDWOOD FLOWER"</a><br/>
+
+<br/>
+<br/>
+<a href="http://www.ukuleleunderground.com/forum/showthread.php?38243-The-Lazy-Song-Bruno-Mars">The Lazy Song - Bruno Mars</a><br/>
+<a href="http://www.ukulelestrummer.com/lazy-song-bruno-mars/">Lazy Song – Bruno Mars | Ukulele Strummer</a><br/>
+<a href="http://www.wonderhowto.com/music-instruments/ukulele-lessons-video/">Ukulele Lessons | Ukulele | Music & Instruments | How-To Videos & Articles « Wonder How To</a><br/>
+<a href="http://ukulelehunt.com/2008/08/14/wellington-international-ukulele-orchestra-its-a-heartache/">Wellington International Ukulele Orchestra – It’s A Heartache</a><br/>
+<br/>
+<br/>
+<iframe width="640" height="360" src="http://www.youtube.com/embed/CGMAm1616dc?rel=0" frameborder="0" allowfullscreen></iframe><br/>
+<br/>
+<br/>
+<a href="http://www.alligatorboogaloo.com/uke/tabs/030730-1.html">UKULELE BOOGALOO presents "SPIDERMAN"</a><br/>
+<a href="http://www.youtube.com/watch?v=QGCUGVE11XU&amp;feature=related">SPIDERMAN for the UKULELE : UKULELE LESSON / TUTORIAL by "UKULELE MIKE" - YouTube</a><br/>
+<br/>
+<br/>
+<a href="http://www.ukulele-tabs.com/uke-songs/red-hot-chili-peppers/soul-to-squeeze-uke-tab-9124.html">Soul To Squeeze Uke tab by Red Hot Chili Peppers</a><br/>
+<a href="http://www.youtube.com/watch?v=lFUsfaf9GjY">Ukulele Cover - Soul To Squeeze - Red Hot Chili Peppers - YouTube</a><br/>
+<a href="http://www.youtube.com/watch?v=_ioRKYhbq3s&amp;feature=related">Eric Larsen - Soul to Squeeze (Chili Peppers) - YouTube</a><br/>
+<br/>
+<br/>
+<a href="http://ukulelehunt.com/2010/10/28/dueling-banjoes-tab/">Dueling Banjos (Tab)</a><br/>
+<a href="http://ukulelehunt.com/2007/10/04/top-ten-guitar-riffs-for-ukulele-1-sweet-child-of-mine/">Guns n Roses – Sweet Child O’ Mine</a><br/>
+<a href="http://www.youtube.com/watch?v=6YpZh0dwa3U&amp;feature=related">Family Guy - Ukulele cover - YouTube</a><br/>
+<a href="http://www.youtube.com/watch?v=-IUzWmFetwE&amp;feature=related">Star Wars Ukulele - Cantina Band - YouTube</a><br/>
+<a href="http://www.youtube.com/watch?v=rkWy8nRWPGk">Nerdy Love Song with Added Kitten Bonus! - YouTube</a><br/>
+<br/>
+<br/>
+<a href="http://www.youtube.com/watch?v=GgCIwT1nZ0U&amp;feature=youtu.be">Super Mario Bros. Game Over (Tutorial) (Ukulele) - YouTube</a><br/>
+<a href="http://ukulelehunt.com/2009/03/05/beastie-boys-fight-for-your-right-to-party/">Beastie Boys – Fight for Your Right To Party</a><br/>
+<br/>
+<br/>
+<a href="http://www.ukuleledaily.com/songs/view/24/Lou-Reed/Perfect-Day">Lou Reed Perfect Day - Learn to play on ukulele | Ukulele Daily</a><br/>
+<a href="http://tabs.ultimate-guitar.com/v/velvet_underground/perfect_day_ukulele_crd.htm">Perfect Day Ukulele Chords by Velvet Underground @ Ultimate-Guitar.Com</a><br/>
+<br/>
+<a href="http://ukulelehunt.com/2007/10/04/top-ten-guitar-riffs-for-ukulele-1-sweet-child-of-mine/">Guns n Roses – Sweet Child O’ Mine</a><br/>
+<iframe width="480" height="360" src="//www.youtube.com/embed/CCbhKU7e8ZQ" frameborder="0" allowfullscreen></iframe><br/>
+<a href="http://www.ukulele-tabs.com/uke-songs/guns-n-roses/sweet-child-o-mine-uke-tab-12855.html">Sweet Child O' Mine Uke tab by Guns N Roses</a><br/>
+    <div style="border: 1px;">
+    Created: 2011-04-10 14:04:01
+    Modified: 2017-10-12 03:52:33
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+left side represents the beginning of mathematics; the right side represents the mysteries of infinity.<br/>
+1=0.999...
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

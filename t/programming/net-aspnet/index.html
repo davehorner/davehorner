@@ -1,0 +1,415 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>.NET ASP.net programming the web in MS...webforms and mvc.</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/programming/">programming</a>
+    <h1>.NET ASP.net programming the web in MS...webforms and mvc.</h1>
+   Data models on top of the database with attributes to indicate UI hints and validation.
+System.CompomentModel.DataAnnotations<br/>
+<br/>
+<a href="http://code.google.com/p/elmah/">elmah - Project Hosting on Google Code</a> - ELMAH (Error Logging Modules and Handlers) is an application-wide error logging facility that is completely pluggable.<br/>
+<a href="http://mvcturbine.codeplex.com/">MVC Turbine</a><br/>
+<a href="http://combres.codeplex.com/">Combres - WebForm & MVC Client-side Resource Combine Library</a> - .NET library which enables minification, compression, combination, and caching of JavaScript and CSS resources for ASP.NET and ASP.NET MVC web applications. Simply put, it helps your applications rank better with YSlow and PageSpeed.<br/>
+<a href="http://htmlagilitypack.codeplex.com/">Html Agility Pack</a> - It is a .NET code library that allows you to parse "out of the web" HTML files. The parser is very tolerant with "real world" malformed HTML. Supports LINQ to Objects.<br/>
+<a href="http://htmlagilitypack.codeplex.com/wikipage?title=Examples&referringTitle=Home">Html Agility Pack href example</a> -example, here is how you would fix all hrefs in an HTML file.<br/>
+<br/>
+<br/>  
+<a href="http://www.mourfield.com/2009/11/how-can-i-find-childcontrols-on-aspnet.html?utm_source=feedburner&amp;utm_medium=feed&amp;utm_campaign=Feed%3A+Mourfieldcom+%28Peter+Mourfield%27s+Blog%29&amp;utm_content=Google+Reader">Peter Mourfield's Blog: How can I find ChildControls on ASP.NET Pages within a MasterPage?</a><br/>
+<a href="http://blogs.microsoft.co.il/blogs/gilf/archive/2010/02/08/back-to-basics-using-mastertype-directive.aspx">Back to Basics – Using MasterType Directive - Gil Fink on .Net</a><br/>
+<a href="http://urlrewriter.codeplex.com/">.NET URL Rewriter and Reverse Proxy - Home</a> - this is a port of Apache's mod_rewrite.  Very nice stuff.<br/>
+<a href="http://www.coderjournal.com/2008/12/creating-extension-module-net-url-rewriter-reverse-proxy/">Creating an extension module for .NET URL Rewriter and Reverse Proxy - Nick Berardi’s Coder Journal</a><br/>
+<a href="http://getglimpse.com/">Glimpse - A client side look at whats going on in your server</a> - <a href="http://www.hanselman.com/blog/NuGetPackageOfTheWeek5DebuggingASPNETMVCApplicationsWithGlimpse.aspx">NuGet Package of the Week #5 - Debugging ASP.NET MVC applications with Glimpse - Scott Hanselman</a><br/>
+<br/>
+<br/>
+<h2>ASP.net applications</h2>
+<a href="http://www.screwturn.eu/Default.aspx">ScrewTurn Wiki - Free ASP.NET Wiki Software - ScrewTurn Wiki</a> - ScrewTurn Wiki is based on Microsoft ASP.NET 3.5 (GPLv2)<br/>
+<a href="http://www.subtextproject.com/MainPage.ashx">Welcome to Subtext - Subtext Project Site</a> - database backed blog using ASP.net 2.0, SQL Server, and IIS.<br/>
+<a href="http://kigg.codeplex.com/">KiGG</a> - KiGG is a Web 2.0 style social news web application developed in Microsoft supported technologies. (asp.net mvc,linq2sql,enterprise lib,unity,jquery)<br/>
+<a href="http://orchardproject.net/page">Orchard Project - Home Page</a> which seems to be the continuation of the <a href="http://oxite.codeplex.com/">Oxite</a> project.<br/>
+
+<br/>
+<br/>
+<h2>ASP.net 4.0</h2>
+<a href="http://jclaes.blogspot.com/2009/12/problem-that-viewstatemode-solves.html">JEF CLAES ON .NET AND LIFE: The problem that ViewStateMode solves</a><br/>
+<br/>
+<br/>
+<h2>ASP.net 3.5</h2>
+<a href="http://www.asp.net/learn/3.5-extensions-videos/">ASP.NET 3.5 Extensions Videos : The Official Microsoft ASP.NET Site</a><br/>
+<a href="http://www.microsoft.com/downloads/details.aspx?familyid=A9C6BC06-B894-4B11-8300-35BD2F8FC908&displaylang=en">Download details: ASP.NET 3.5 Extensions Preview (3/6/2008)</a> (provides entity framework/ADO.NET Data Services/others)<br/>
+<a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=53289097-73ce-43bf-b6a6-35e00103cb4b&displaylang=en">Download details: ASP.NET MVC 1.0</a><br/>
+<br/>
+<br/>
+<h2>ASP.net security</h2>
+<a href="http://www.dotnetguy.co.uk/post/2009/05/03/aspnet-e28093-security-10-helpful-pointers.aspx">ASP.NET – Security. 10 Helpful Pointers</a><br/>
+<br/>
+<br/>
+<h2>ramblings about session state</h2>
+session state has node affinity.
+Session goes out of process,
+StateServer on the same webserver allows you to offload the session code/memory away from the servicing worker thread. 
+Always run StateServer on my development machine.
+Do not run InProc session state.
+<br/>
+<br/>
+<h2>ASP.net Login / Membership providers / Etc</h2>
+<a href="http://www.heartysoft.com/post/2009/06/19/Simple-Username-Password-Authentication-WITHOUT-Membership-Providers.aspx">Heartysoft.com | Simple Username / Password Authentication WITHOUT Membership Providers</a><br/>
+
+<h2>Testing ASP.net</h2>
+<a href="http://www.codeplex.com/aspnet/Wiki/View.aspx?title=Lightweight%20Test%20Automation%20Framework%20Road%20Map">ASP.NET - Home - Lightweight Test Automation Framework Road Map</a><br/>
+<br/> 
+<h2>ASP.net webforms</h2>
+<a href="http://spazzarama.wordpress.com/2009/02/04/aspnet-lifecycle/">ASP.NET 2.0 page and control life-cycle diagram « Justin's Blog</a><br/>
+<a href="http://www.codeproject.com/KB/aspnet/asproxy.aspx">CodeProject: ASProxy: Surf in the web invisibly using ASP.NET power.</a><br/>
+<a href="http://www.codeproject.com/cs/design/WebFormsASPdotNET.asp">The Code Project - Pretty URLs, Separation of Layers and O/R Mapping in Web Forms ASP.NET 2.0</a><br/>
+<a href="http://www.codeproject.com/useritems/Ahmed_Kader.asp">The Code Project - Allow your ASP.NET to Access your Resources</a><br/>
+<a href="http://www.codeproject.com/aspnet/Subversion.asp">Setting up an ASP.NET website development environment using Visual Studio .NET, Subversion, and Windows XP - The Code Project - ASP.NET</a><br/>
+<a href="http://www.dotnetnuke.com/">DotNetNuke - The Leading Open Source Web Content Management Framework for ASP.NET</a> - ya gotta mention the CMS everyone has heard of...<br/>
+<br/>
+<h2>ASP.net controls</h2>
+<a href="http://www.codeplex.com/rte">RTE (Rich Text Editor) ASP.NET Control - Home</a><br/>
+
+<a href="http://freetextbox.com/default.aspx">FreeTextBox</a> - free ASP.NET HTML Editor<br/>
+<a href="http://www.telerik.com/products/aspnet/demos.aspx">ASP.NET User Interface Component Demos: Grid, Editor, Combo, Ajax, Menu, Treeview, Calendar, Chart</a><br/>
+<a href="http://encosia.com/">Encosia | ASP.NET, AJAX, and more.</a><br/>
+<br/>
+<br/>
+<h2>Embedded ASP.net</h2>
+Hosting ASP.NET in IIS is great, but sometimes it is nice to host the pages within your own server so that the user doesn't have to mess with installation of IIS.<br/>
+<a href="http://msdn2.microsoft.com/en-us/magazine/cc188791.aspx">Cutting Edge: ASP. NET Client-side Hosting with Cassini</a><br/>
+<a href="http://www.codeproject.com/KB/IP/minihttpd.aspx">CodeProject: MiniHttpd: an HTTP web server library.</a><br/>
+<a href="http://blogs.msdn.com/dmitryr/archive/2008/10/03/cassini-for-framework-3-5.aspx">dmitryr's blog : Cassini for Framework 3.5</a><br/>
+<a href="http://code.google.com/p/aspnetserve/">aspnetserve - Google Code</a> - aspNETserve is a free and open source ASP.NET 2.0/3.x web server.<br/>
+<a href="http://www.wynia.org/wordpress/jackalope/">Jackalope-- The Glass is Too Big</a> - prototype using aspNETserve.<br/>
+<br/>
+<h2>ASP.NET MVC</h2>
+<a href="http://weblogs.asp.net/scottgu/archive/2007/11/13/asp-net-mvc-framework-part-1.aspx">ASP.NET MVC Framework (Part 1) - ScottGu's Blog</a><br/>
+<a href="http://weblogs.asp.net/scottgu/archive/2007/12/03/asp-net-mvc-framework-part-2-url-routing.aspx">ASP.NET MVC Framework (Part 2): URL Routing - ScottGu's Blog</a><br/>
+<a href="http://weblogs.asp.net/scottgu/archive/2007/12/06/asp-net-mvc-framework-part-3-passing-viewdata-from-controllers-to-views.aspx">ASP.NET MVC Framework (Part 3): Passing ViewData from Controllers to Views - ScottGu's Blog</a><br/>
+<a href="http://weblogs.asp.net/scottgu/archive/2007/12/09/asp-net-mvc-framework-part-4-handling-form-edit-and-post-scenarios.aspx">ASP.NET MVC Framework (Part 4): Handling Form Edit and Post Scenarios - ScottGu's Blog</a><br/>
+<a href="http://www.aspnetpro.com/articles/2009/05/asp200905de_f/asp200905de_f.asp">AJAX Features in ASP.NET MVC</a><br/>
+<a href="http://codeofrob.com/Default.aspx">Rob Ashton</a> - great series on Multi-tenancy in ASP.NET MVC<br/>
+<br/>
+<a href="http://sharplife.net/2009/04/29/HowToHandleNonEnglishCharactersInASPNETMVCRoutes.aspx">SharpLife.NET - How to handle non-English characters in ASP.NET MVC routes - Mahdi Taghizadeh's Personal Weblog</a><br/>
+<a href="http://xval.codeplex.com/">xVal - Home</a> - is a validation framework for ASP.NET MVC applications. It makes it easy to link up your choice of server-side validation mechanism with your choice of client-side validation library, neatly fitting both into ASP.NET MVC architecture and conventions.<br/>
+<a href="http://devermind.com/aspnet-mvc/asp-net-mvc-tip-3-how-to-cover-all-your-client-side-form-validation-needs-without-writing-any-javascript-part1">ASP.NET MVC Tip #3: How to cover ALL your client-side form validation needs without writing any JavaScript | devermind.com</a> - talks about using xVal.<br/>
+<a href="http://bradwilson.typepad.com/blog/2009/04/dataannotations-and-aspnet-mvc.html">Brad Wilson: DataAnnotations and ASP.NET MVC</a><br/>
+<a href="http://bradwilson.typepad.com/blog/2008/08/partial-renderi.html">Brad Wilson: Partial Rendering View Engines in ASP.NET MVC</a><br/>
+<a href="http://www.asp.net/learn/mvc/tutorial-21-cs.aspx">Create a Movie Database Application in 15 Minutes with ASP.NET MVC : The Official Microsoft ASP.NET Site</a><br/>
+<a href="http://code.msdn.microsoft.com/MvcWebAPI">MvcWebAPI - Home</a> - MvcWebAPI is a collection of library that helps creating RESTful Web API for your website. You can directly return objects or collections from controllers. The library takes care of property serializing them into Json or plain Xml. The library also allows Action methods to consume objects or collections directly as it takes care of underlying deserialization from Json or Xml.<br/>
+<a href="http://weblogs.asp.net/omarzabir/archive/2008/10/03/create-rest-api-using-asp-net-mvc-that-speaks-both-json-and-plain-xml.aspx">Create REST API using ASP.NET MVC that speaks both Json and plain Xml - Omar AL Zabir blog on ASP.NET Ajax and .NET 3.5</a> - talks about MvcWebAPI.<br/>
+<a href="http://stephenwalther.com/blog/Default.aspx">Stephen Walther on ASP.NET MVC</a><br/>
+<a href="http://manning.com/palermo/">Manning: ASP.NET MVC in Action</a> includes chapter 9 preview <a href="http://manning.com/palermo/palermo_meapch9_sample.pdf">Chp 9, AJAX in ASP.NET MVC</a><br/>
+<a href="http://flux88.com/blog/jquery-auto-complete-text-box-with-asp-net-mvc/">jQuery Auto-Complete Text Box with ASP.NET MVC : b#</a><br/>
+<a href="http://weblogs.asp.net/bhaskarghosh/archive/2009/06/18/7128803.aspx">Bulk Data Update with ASP.NET MVC - ASP.NET and More</a><br/>
+<br/>
+<a href="http://sparkviewengine.com/">Spark View Engine | Html friendly. Less is more.</a> - Spark is a view engine for Asp.Net Mvc and Castle Project MonoRail frameworks. The idea is to allow the html to dominate the flow and the code to fit seamlessly.<br/>
+<a href="http://codeofrob.com/archive/2009/11/01/dynamically-switching-between-master-pages-in-asp.net-mvc.aspx">Dynamically Switching between Master Pages in ASP.NET MVC</a><br/>
+<a href="http://codeofrob.com/archive/2010/02/08/multi-tenancy-in-asp.net-mvc-views.aspx">Multi-tenancy in ASP.NET MVC - Views</a><br/>
+<a href="http://devcarl.posterous.com/aspnet-mvc-2-and-automatic-stringlength-valid">Asp.Net MVC 2 and automatic stringlength validation using Linq to SQL DB schema - Carl on Development</a><br/>
+<br/>
+<br/>
+<h2>ASP.net AJAX</h2>
+<a href="http://www.codeplex.com/AtlasControlToolkit">AJAX Control Toolkit - Codeplex Home</a><br/>
+<a href="http://www.asp.net/AJAX/AjaxControlToolkit/Samples/Default.aspx">ASP.NET AJAX Control Toolkit Samples</a><br/>
+<br/>
+<br/>
+<a href="http://dropthings.codeplex.com/">codeplex Dropthings - Ajax Web Portal - Home</a> - Ajax Web Portal built on Linq, Workflow Foundation and ASP.NET AJAX. Code is in Visual Studio 2008 using .NET 3.0 and .NET 3.5. (theres a book on this)<br/>
+<br/>
+<br/>
+<h2>Learning Samples</h2>
+<a href="http://nerddinner.codeplex.com/">codeplex NerdDinner.com - Where Geeks Eat - Home</a> - <a href="http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf">first chapter</a> of <a href="http://www.wrox.com/WileyCDA/WroxTitle/Professional-ASP-NET-MVC-1-0.productCd-0470384611.html">Wrox ASP.NET: Professional ASP.NET MVC 1.0</a> is free for download.  Very gentle introduction with lots of screen caps.<br/>
+<a href="http://www.bengtbe.com/blog/post/2009/10/08/NerdDinner-with-Fluent-NHibernate-Part-3-The-infrastructure.aspx">NerdDinner with Fluent NHibernate Part 3 - The infrastructure</a><br/>
+<a href="http://weblogs.asp.net/scottgu/archive/2010/07/16/code-first-development-with-entity-framework-4.aspx">Code-First Development with Entity Framework 4 - ScottGu's Blog</a> - nerddinner reloaded with code first ef.<br/>
+<a href="http://www.adronbhall.com/blogs/technology__software_development/post/2009/12/29/ASPNET-MVC-Scorecard-Web-Application-Part-1.aspx">ASP.NET MVC Scorecard Web Application - Part 1</a><br/>
+<a href="http://code.google.com/p/codecampserver/">codecampserver - Project Hosting on Google Code</a> - this application is the foundation for the examples of the ASP.NET MVC in Action book from Manning and started by Jeffrey Palermo.<br/>
+<br/>
+<br/>
+ajax wcf service - ajax enabled service
+<br/><br/>
+using System.Web.Script.Services;<br/>
+[ScriptService] on class<br/>
+[GenerateScriptType(typeof(MapData))] - maps the POCO to JSON.<br/>
+<GenerateHistory> 3.5 sp1 feature<br/>
+System.Application.add_navigate(onNavigate);<br/>
+/js and /jsdebug give you debug information.<br/>
+<br/>
+/// javascript intellisense standard.<br/>
+asp.net ajax goes into 4.  also includes client side that can be used with 3.5.<br/>
+<br/>
+<br/>
+$get=document.getelementbyid<br/>
+$element = ajax client<br/>
+code:after = after we are databound. 4.0 syntax.<br/>
+
+<br/>
+jquery ui timepicker...<br/>
+<a href="http://blogs.uct.ac.za/blog/lovemores-world/2009/02/25/an-effective-jquery-date-time-picker">Lovemore's World | An effective jQuery Date Time picker</a><br/>
+<a href="http://ajaxian.com/archives/time-picker-ui">Ajaxian » Time Picker UI</a><br/>
+<a href="http://haineault.com/media/jquery/ui-timepickr/page/">jQuery.timepickr.js</a><br/>
+<br/>
+<br/>
+<h2>MVC 2</h2>
+templated helpers - model to display method or editor method. kinda like fieldtemplates from dynamic data.
+dynamic data webform validator controls.  json metadata based on data annotations then apply client validation to metadata on your viewmodel object.<br/>
+<a href="http://github.com/jeffreypalermo/mvc2inaction">jeffreypalermo's mvc2inaction at master - GitHub</a> - repo for the mvc 2 in action book...<br/>
+<a href="http://blog.stevensanderson.com/2010/01/28/editing-a-variable-length-list-aspnet-mvc-2-style/?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+SteveCodeville+%28Steve+%40+Codeville%29&utm_content=Google+Reader">Editing a variable length list, ASP.NET MVC 2-style « Steve Sanderson’s blog</a><br/>
+<br/>
+<br/>
+
+<h2>Portable Areas</h2>
+<a href="http://www.lostechies.com/blogs/hex/archive/2009/11/01/asp-net-mvc-portable-areas-via-mvccontrib.aspx">ASP.Net MVC Portable Areas via MvcContrib - Eric Hexter - Los Techies</a> - multi post series on ASP.Net MVC Portable Areas<br/>
+<a href="http://jeffreypalermo.com/blog/consuming-a-portable-area-with-a-web-forms-application/">Consuming a Portable Area with a Web Forms application : Jeffrey Palermo (.com)</a><br/>
+<br/>
+<br/>
+
+<h2>MVC Templates</h2>
+<a href="http://www.asp.net/mvc/gallery/default.aspx?supportsjs=true">ASP.NET MVC Design Template Gallery : The Official Microsoft ASP.NET Site</a><br/>
+<br/>
+<br/>
+<h2>Failed to access IIS metabase</h2>
+If you installed IIS after the .Net framework was installed, you need to register ASP.Net with IIS. You can do this by running the aspnet_regiis.exe tool found under \Windows\Microsoft.NET\Framework\v2.0.50727\<br/>
+Grant metabase permissions to the ISS effective user.<br/>
+aspnet_regiis.exe -ga aspnet (-ga grants metabase authority to a supplied user.)<br/>
+<br/>
+<br/>
+<h2>Data validation</h2>
+<a href="http://xval.codeplex.com/">xVal</a> - xVal is a validation framework for ASP.NET MVC applications. It makes it easy to link up your choice of server-side validation mechanism with your choice of client-side validation library, neatly fitting both into ASP.NET MVC architecture and conventions. (Define your validation rules using attributes on model properties)<br/>
+<a href="http://www.dotnetguy.co.uk/default.aspx">Property Matching With Data Annotations | Dan Watson's World Of Web</a> - compare two properties using data annotations.<br/>
+    <div style="border: 1px;">
+    Created: 2009-02-21 00:18:00
+    Modified: 2011-06-22 13:16:55
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+<a href="javascript:var%20s%20=%20document.createElement('script');s.type='text/javascript';document.body.appendChild(s);s.src='/eggs/asteroids.min.js';void(0);" id="secret">destory this webpage; if you will.</a>
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

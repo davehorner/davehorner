@@ -1,0 +1,286 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>Windows Azure</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/programming/">programming</a>
+    <h1>Windows Azure</h1>
+   Life in the cloud.<br/>
+<br/>
+<a href="http://www.hanselman.com/blog/Over400VirtualMachineImagesOfOpenSourceSoftwareStacksInTheVMDepotAzureGallery.aspx">Over 400 Virtual Machine Images of open source software stacks in the VM Depot Azure Gallery - Scott Hanselman</a><br/>
+<a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=38d8cf79-fc39-4aef-b3fd-ef280f2e9fa6&displaylang=en">Download details: .NET Services SDK</a> (July 2009)<br/>
+
+<a href="http://www.microsoft.com/Downloads/details.aspx?familyid=B44C10E8-425C-417F-AF10-3D2839A5A362&displaylang=en">Download details: Windows Azure SDK</a> - (March 2009 CTP)<br/>
+<a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=59e8fc0c-c399-4ab7-8a93-882d8e74b67a&displaylang=en">Download details: Windows Azure Tools for Microsoft Visual Studio March 2009 CTP</a><br/>
+<br/>
+<br/>
+<a href="http://sqlazuremw.codeplex.com/">SQL Azure Migration Wizard v1.4</a> - migrate your local SQL Server 2005 / 2008 databases into SQL Azure.<br/>
+<br/>
+<br/>
+<h2>People talking about Azure</h2>
+<a href="http://blogs.msdn.com/clemensv/">Clemens Vasters, Bldg 42</a><br/>
+<a href="http://dunnry.com/blog/">Extemporaneous Mumblings</a> - blog from Technical Evangelist for Windows Azure..<br/>
+<a href="http://www.25hoursaday.com/weblog/2008/11/03/WindowsAzureFromADevelopersPerspective.aspx">Dare Obasanjo aka Carnage4Life - Windows Azure from a Developer's Perspective</a><br/>
+<a href="http://english.zachskylesowens.net/">Zach Skyles Owens</a><BR/>
+<br/>
+<br/>
+<a href="http://code.msdn.microsoft.com/windowsazuremmc">Windows Azure MMC - Home</a> - The Windows Azure Management Tool was created to manage your storage accounts in Windows Azure. Developed as a managed MMC, the tool allows you to create and manage both blobs and queues. Easily create and manage containers, blobs, and permissions. Add and remove queues, inspect or add messages or empty queues as well.<br/>
+<br/>
+<br/>
+<br/>
+<h2>PHP on azure</h2>
+<img src="http://i3.codeplex.com/Project/Download/FileDownload.aspx?ProjectName=PHPAzure&DownloadId=67959" alt="architecture"/><br/>
+<a href="http://phpazure.codeplex.com/">PHP SDK for Windows Azure - Home</a> - PHP SDK for Windows Azure provides access to Windows Azure's storage, computation and management interfaces by abstracting the REST/XML interface Windows Azure provides into a simple PHP API.<br /><br/>
+<br/>
+<br/>
+<a href="http://blog.smarx.com/posts/actually-i-m-a-cia-agent">blog.smarx.com - Actually, I’m a CIA Agent</a> - a pickup line, uses azure, liveid, and twilio for a fun sample.<br/>
+<a href="http://www.twilio.com/">Twilio: Web Service API for Making and Receiving Phone Calls, building hosted IVR and PBX telephone applications</a><br/>
+<br/>
+<br/>
+<h2>.net service bus</h2>
+<a href="http://blogs.southworks.net/mwoloski/2009/07/10/net-service-bus-remote-desktop-over-firewalls/">Matias Woloski’s Blog Â» Blog Archive » .NET Service Bus – Remote Desktop over Firewalls!</a><br/>
+<a href="http://socketshifter.codeplex.com/">SocketShifter - Home</a> - provides a way of connecting two endpoints on the Internet using WCF. SocketShifter uses these features to automatically bridge arbitrary TCP endpoints, handling any intermediate firewall traversal.<br/>
+<br/>
+<br/>
+<a href="http://azurecontrib.codeplex.com/">Azure Contrib - Home</a><br/>
+<br/>
+<a href="http://azure.microsoft.com/en-us/documentation/articles/xplat-cli/#install">The Azure Cross-Platform Command-Line Interface</a> - xplat-cli<br/>
+<a href="https://manage.windowsazure.com/publishsettings/index?client=xplat">Downloading the publish profile... (publish file for xplat-cli)</a><br/>
+<a href="https://github.com/rstropek/DockerVS2015Intro">rstropek/DockerVS2015Intro</a> - Repository with scripts for an introduction of using Docker with VS2015 <a href="http://channel9.msdn.com/Series/Visual-Studio-Germany/How-to-Run-ASPNET-vNext-in-Azure-Using-Docker-Containers">How to Run ASP.NET vNext in Azure Using Docker Containers | Visual Studio Germany | Channel 9</a><br/>
+    <div style="border: 1px;">
+    Created: 2008-11-10 23:12:22
+    Modified: 2015-02-27 04:13:23
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+<a href="javascript:var%20s%20=%20document.createElement('script');s.type='text/javascript';document.body.appendChild(s);s.src='/eggs/asteroids.min.js';void(0);" id="secret">destory this webpage; if you will.</a>
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,353 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>Encryption and privacy.</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/programming/">programming</a>
+    <h1>Encryption and privacy.</h1>
+   <a href="https://keybase.io/">Keybase</a> - a public directory of publicly auditable public keys. All paired, for convenience, with unique usernames.<br/>
+<a href="https://tails.boum.org/">Tails - Privacy for anyone anywhere</a><br/>
+<a href="http://www.cryptomuseum.com/">Crypto Museum</a><br/>
+<a href="http://www.truecrypt.org/">TrueCrypt - Free Open-Source On-The-Fly Disk Encryption Software for Windows Vista/XP/2000 and Linux</a><br/>
+<a href="http://www.truecrypt.org/docs/tutorial.php">TrueCrypt - Beginner's Tutorial</a><br/>
+<a href="http://blog.didierstevens.com/2012/02/09/quickpost-disassociating-the-key-from-a-truecrypt-system-disk/">Quickpost: Disassociating the Key From a TrueCrypt System Disk « Didier Stevens</a><br/>
+<a href="http://www.truecrypt.org/docs/?s=rescue-disk">TrueCrypt - Free Open-Source Disk Encryption - Documentation - Rescue Disk</a> - remember to make a rescue disk, cause if the MBR goes, so does your data.<br/>
+<br/>
+<br/>
+TrueCrypt doesn't currently support MacOSX.  This is a real issue for me.  I did see that there is a project to fund the development of a MacOSX port!<br/>
+<a href="https://www.fundable.com/groupactions/groupaction.2007-10-02.2606817820/view?searchterm=">Fundraising â?? Fundable â?? MacOs X Truecrypt Implementation</a><br/>
+If this works, the code should be available from source forge.  I wonder why a fork of the code was created...instead of merging these changes to the trunk of true crypt?  The project looks like it is started but no release yet. :(<br/>
+<a href="http://www.osxcrypt.org/">OSXCrypt.org</a><br/>
+<br/>
+<br/>
+<a href="http://www.dotkam.com/2008/04/22/creating-public-and-private-certificateskeys/">Creating Public and Private Certificates/Keys</a> - using <a href="http://docs.oracle.com/javase/1.5.0/docs/tooldocs/windows/keytool.html">keytool-Key and Certificate Management Tool</a><br/>
+<a href="http://linuxmoz.com/how-to-generate-extract-a-public-key-from-a-private-key/">How to Generate / Extract a Public Key from a Private Key - LINUXMOZ</a><br/>
+<a href="https://github.com/treyka/credmgr#readme">treyka/credmgr</a> - Securely manage privileged account credentials via Shamir secret sharing.<br/>
+<br/>
+<a href="https://code.google.com/p/end-to-end/">end-to-end - End-To-End - Google Project Hosting</a> - End-To-End is a Chrome extension that helps you encrypt, decrypt, digital sign, and verify signed messages within the browser using OpenPGP.<br/>
+<br/>
+<br/>
+<h2>GnuPG</h2>
+<a href="http://www.cipherdyne.org/gpgdir/">gpgdir - Recursive direction encryption</a> - gpgdir is a perl script that uses the CPAN GnuPG::Interface module to encrypt and decrypt directories using a gpg key specified in ~/.gpgdirrc. <br/>
+<a href="http://www.askapache.com/hacking/ssh-tunnels-truecrypt-gpg.html?utm_source=feedburner&amp;utm_medium=feed&amp;utm_campaign=Feed%3A+apache%2Fhtaccess+%28AskApache+Web+Fire%29&amp;utm_content=Google+Reader">PortaPutty Auto-Reconnecting SSH Tunnels on an Encrypted TrueCrypt Portable USB Key w GPG</a><br/>
+<a href="http://blog.jasonantman.com/2013/08/testing-gpg-key-passphrases/">Testing GPG Key Passphrases | Jason Antman's Blog</a><br/>
+<a href="http://www.gpg4win.org/index.html">Gpg4win - Secure email and file encryption with GnuPG for Windows</a><br/>
+<br/>
+<br/>
+<a href="http://nacl.cr.yp.to/">NaCl: Networking and Cryptography library Introduction</a> - public domain<br/>
+<a href="http://labs.umbrella.com/2013/03/06/announcing-sodium-a-new-cryptographic-library/">Introducing Sodium, a new Cryptographic Library</a><br/>
+<a href="https://github.com/jedisct1/libsodium">jedisct1/libsodium</a> - P(ortable|ackageable) NaCl-based crypto library<br/>
+<br/>
+<br/>
+<h2>PGP Keysigning Policies</h2>
+<a href="http://pthree.org/my-pgp-key-signing-policy/">Aaron Toponce : PGP Keysigning Policy</a><br/>
+<a href="http://www.vanheusden.com/pgp-key-signing-policy.html">Folkert van Heusden's PGP-key signing policy</a><br/>
+<br/>
+<br/>
+<a href="http://www.moserware.com/2009/09/stick-figure-guide-to-advanced.html">Moserware: A Stick Figure Guide to the Advanced Encryption Standard (AES)</a><br/>
+<h2>encfs</h2>
+<a href="http://members.ferrara.linux.it/freddy77/encfs.html">encfs port</a> - windows port of FUSE based <a href="http://www.arg0.net/encfs">encfs - EncFS Encrypted Filesystem</a><br/>
+<a href="http://www.libertyzero.com/GEncfsM/">Gnome Encfs Manager</a><br/>
+<br/>
+<h2>Entropy</h2>
+Entropy is a measure of unpredictability or information content.<br/>
+<a href="http://en.wikipedia.org/wiki/Entropy_(information_theory)">Entropy (information theory) - Wikipedia, the free encyclopedia</a> entropy is a measure of the uncertainty in a random variable.<br/>
+<a href="https://github.com/lsauer/entropy">lsauer/entropy · GitHub</a> - ENT - view string metrics and entropy of arbitrary files<br/>
+<a href="http://homepages.inf.ed.ac.uk/lzhang10/maxent.html">Maximum Entropy Modeling</a><br/>
+<a href="https://calomel.org/entropy_random_number_generators.html">Entropy and Random Number Generators @ Calomel.org</a><br/>
+<br/>
+<br/>
+<h2>SSL certificates, free SSL certificates - given valid contact information</h2>
+my usual process is using self signed keys.  I documented that on my <a href="https://dave.thehorners.com/tech-talk/unix-linux-bsd-osx-etc/130-apache-notes">Apache and LAMP Notes - Dave Horner's Website</a> page, but here the incantation is repeated.(valid for 10 years).<br/>
+<pre>
+openssl req -new -x509 -sha1 -days 3560 -nodes -out server.crt -keyout server.key
+</pre>
+<pre>
+openssl req -nodes -newkey rsa:2048 -days 3650 -sha256 -keyout `hostname`.key -out `hostname`.csr -reqexts SAN -extensions SAN -subj '/C=US/ST=IN/L=Fort Wayne/O=YourOrg/OU=YourOrg/CN=`hostname`' -config <(cat /etc/pki/tls/openssl.cnf; printf "[SAN]\nsubjectAltName=DNS:`hostname`,DNS:`hostname`")
+echo csr with CN=`hostname`| mailx -s "`hostname` csr" -a `hostname`.csr "your@email.com"
+</pre>
+* subdomains requiring a level 2 *, *1yr expiration - no 10 yr expiration here. *, <em>but it does give you a trusted green fuzzy</em>. a warning is usual with the self signed certs, and browsers for some reason don't make it easy to trust a self signed cert...<br/>
+<a href="https://www.startssl.com/">StartSSL™ Certificates &amp; Public Key Infrastructure - StartSSL™ Free</a> - they also provide you an automatic https://name.startssl.com OpenID based digital identity on sign up.<br/>
+<a href="http://www.startssl.com/timestamp">StartSSL-Stamping Authority</a> - RFC 3161 compliant server, please use the /tr switch with signtool.exe, for example: signtool.exe sign /v /d <My Project> /f <My PFX file> /p <My PFX Password> /tr "http://www.startssl.com/timestamp" <My EXE File><br/>
+<a href="http://jasoncodes.com/posts/startssl-free-ssl">A free SSL certificate for your web server – Jason Codes</a> -  free certificates are also chained which means configuration can be a little tricky as there are a few traps you can fall into. If you don't setup the chain correctly on your server you can run into compatibility issues with clients that may not be immediately obvious.<br/>
+<a href="http://www.sslshopper.com/ssl-checker.html">SSL Checker - SSL Certificate Verify</a><br/>
+<a href="http://www.startssl.com/?app=21">StartSSL™ Certificates &amp; Public Key Infrastructure - Apache Server</a> - installation for apache.<br/>
+<a href="http://jiansenlu.blogspot.com/2011/08/renew-ssl-certificate-from-startssl.html">Jiansen Lu's Computing Blog: Renew SSL certificate from StartSSL</a> - (4 click Retrieve Certificate in Toolbox to get ssl.crt_=)<br/>
+<a href="https://letsencrypt.org/">Let's Encrypt</a> - TLS-protected communication from a free certificate authority. <br/>
+<br/>
+<pre>
+git clone https://github.com/letsencrypt/letsencrypt
+cd letsencrypt
+service apache2 stop
+./letsencrypt-auto certonly --standalone --email email-at-example.com  -d example.com
+service apache2 start
+</pre>
+Update your conf to include:<br/>
+<pre>
+	SSLCertificateFile /etc/letsencrypt/live/example.com/cert.pem
+	SSLCertificateKeyFile /etc/letsencrypt/live/example.com/privkey.pem
+	SSLCertificateChainFile /etc/letsencrypt/live/example.com/fullchain.pem
+</pre>
+I had trouble installing certbot so I had to use: https://certbot.eff.org/#ubuntuother-other<br/>
+Which then for some reason added an extra Listen 443 in my /etc/apache2/ports.conf which gave me an error that looked like "Address already in use: make_sock: could not bind to address 0.0.0.0:443".<br/>
+Then you need to setup auto renew since the certs expire in about 90 days.<br/>
+something like "/pathto/certbot-auto renew --post-hook 'service apache2 restart'" or "/pathto/certbot-auto renew && service apache2 restart" would suffice.<br/>
+It may also be as simple as using "/root/certbot-auto renew --no-self-upgrade" which stops the certbot from upgrading itself when run and renew may do the restart without the post-hook.
+<br/>
+<br/>
+<a href="https://github.com/certbot/certbot/issues/5517">certbot blindly adds port 443 to apache conf · Issue #5517 · certbot/certbot · GitHub</a> [OPEN]<br/>
+certbot blindly adds port 443 to apache conf
+    <div style="border: 1px;">
+    Created: 2007-11-28 19:41:41
+    Modified: 2018-10-20 10:18:38
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+\begin{bmatrix} 1 & 0 & \ldots & 0 \\
+                0 & 1 & 0 & \vdots \\
+                \vdots & 0 & \ddots & 0\\
+                0 & \ldots &  0 & 1_{n}
+\end{bmatrix}
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

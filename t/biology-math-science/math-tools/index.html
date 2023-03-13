@@ -1,0 +1,409 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>Math tools</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/biology-math-science/">biology-math-science</a>
+    <h1>Math tools</h1>
+   <a href="http://projecteuler.net/">Project Euler</a> - just cause.<br/>
+<br/>
+<h2>Math Packages</h2>
+<a href="http://www.gnu.org/software/octave/index.html">Octave</a><br/>
+<a href="http://www.ahay.org/wiki/Main_Page">Madagascar</a> - package for multidimensional data analysis and reproducible computational experiments.<br/>
+<a href="http://ascend4.org/">ASCEND</a> -  ASCEND can solve systems of non-linear equations, linear and nonlinear optimisation problems, and dynamic systems expressed in the form of differential/algebraic equations.<br/>
+<br/>
+<br/>
+<h2>Visualization</h2>
+Lately I've been trying to communicate complicated geometric problems with co-workers who are remote workers.  If we worked together in a normal office enviroment, we would simply use a white board...<br/>
+<a href="http://www.geogebra.at/">GeoGebra</a> - an open source <br/> 
+<a href="http://www.cabri.com/">CABRI3D</a> - Cabri 3D is a 3-dimensional commercial interactive geometry software<br/>
+<a href="http://www.keypress.com/x5521.xml">The Geometer's Sketchpad</a><br/>
+<a href="http://www.codeplex.com/DynamicGeometry">Dynamic Geometry - Home</a> - Silverlight 2 and C# 3.0 computer model of plane geometry that allows you to create interactive ruler and compass constructions and experiment with them.<br/>
+<a href="http://www.antiprism.com/">Antiprism - Polyhedron Modelling Software</a> - Create, transform, analyse, and visualize polyhedra.<br/>
+<br/>
+<a href="http://www.qedeq.org/index.html">Hilbert II</a> - a program suite that enables a mathematician to put theorems and proofs into that knowledge base.<br/>
+<a href="http://slimmer.gforge.inria.fr/tac/">Tac</a> - A generic and adaptable interactive theorem prover<br/>
+<br/>
+<a href="http://www.sagemath.org/index.html">Sage: Open Source Mathematics Software</a><br/>
+<a href="http://graph.tk/">graph.tk</a> - <a href="http://graph.tk/about/">graph.tk/about</a>, which <a href="https://github.com/aantthony/graph.tk">aantthony/graph.tk</a> apparently is being superseded by <a href="https://github.com/aantthony/javascript-cas">aantthony/javascript-cas</a>.<br/>
+<br/>
+<a href="http://jsxgraph.uni-bayreuth.de/wp/">JSXGraph | Dynamic Mathematics with JavaScript</a> - interactive geometry, function plotting, charting, and data visualization in a web browser.<br/>
+<a href="http://www.sketchometry.org/">sketchometry</a> - built using JSXGraph<br/>
+<a href="http://jsxgraph.uni-bayreuth.de/wiki/index.php/Main_Page">Main Page - JSXGraph Wiki</a><br/>
+<br/>
+<br/>
+<h2>Latex || LaTeX || TeX (rhymes with blechhhhh)</h2>
+mathematical typesetting<br/>
+you might have noticed, I'm a MathJax fan, since it is randomly displayed on my site.  here is some info on MathJax, and some example usage...<br/>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+ 1 . $a^2 + b^2 = c^2$
+  2 . $ax^2 + bx + c = 0$
+  3 . $x = \dfrac{-b \pm \sqrt{b^2 - 4ac}}{2a}$
+  4 . $m = \dfrac{y_2 - y_1}{x_2 - x_1} = \dfrac{\Delta y}{\Delta x}$
+  5 . $f'(x) = \lim\limits_{\Delta x \to 0} \dfrac{f(x+\Delta x)-f(x)}{\Delta x}$
+  6 . $\dfrac{d}{dx} \left [[x^n \right ] = nx^{n - 1}$
+  7 . $\int_a^b f(x)~dx = \left [[F(x) \right ]_a^b = F(b) - F(a)$
+  8 . $\int_a^b f(x)~dx = f(c)(b - a)$
+  9 . $\text{average value} = \dfrac{1}{(b-a)} \int_a^b f(x)~dx$
+ 10 . $\dfrac{d}{dx} \left [[\int_a^x f(t)~dt \right ] = f(x)$
+<br/>
+<a href="http://www.mathjax.org/">MathJax</a> - MathJax is an open source JavaScript display engine for mathematics that works in all browsers.<br/>
+<a href="http://www.suluclac.com/Wiki+MathJax+Syntax">Wiki MathJax Syntax</a> - the above samples come from this page, you'll want to note the use of ?config=TeX-AMS-MML_HTMLorMML on the MathJax.js request.  this loads TeX/AMSmath.js defining /dfrac, resolving your "undefined control sequence \dfrac" error. It also brings in AMSsymbols.js and some other javascript relating to error handling.<br/>
+<a href="http://martinkeefe.com/math/mathjax">Martin's MathJax Guide - Introduction</a><br/>
+<a href="http://www.onemathematicalcat.org/MathJaxDocumentation/TeXSyntax.htm">TeX Commands available in MathJax</a> - very large example page <br/>
+
+<a href="http://mathb.in/">MathB.in - Math pastebin with LaTeX and Markdown support</a> - <a href="http://mathb.in/1">TeX Samples - MathB.in</a> <a href="http://mathb.in/2">Getting started - MathB.in</a>(uses MathJax internally)<br/>
+<br/>
+<a href="http://en.wikibooks.org/wiki/LaTeX/Mathematics">LaTeX/Mathematics - Wikibooks, open books for an open world</a><br/>
+<a href="http://mathlex.org/demo">MathLex - Demo</a><br/>
+<a href="http://detexify.kirelabs.org/classify.html">Detexify LaTeX handwritten symbol recognition</a> - draw the symbol you are looking for into the square area above and look what happens!<br/>
+<br/>
+<br/>
+<h2>Wolfram Alpha</h2>
+<a href="http://vimeo.com/12185093">Last Lights On - Mandelbrot fractal zoom to 6.066 e228 (2^760) on Vimeo</a><br/>
+
+<a href="http://blog.programmableweb.com/2009/05/26/wolfram-alpha-opens-api-more-features-on-the-way/">Wolfram Alpha Opens API, More Features on the Way</a>
+<br/>
+<br/>
+<h2>R Programming (Statistics)</h2>
+<a href="http://www.r-project.org/">The R Project for Statistical Computing</a><br/>
+<a href="http://www.inside-r.org/download">Download R Now | inside-R: A Community Site for R</a><br/>
+<a href="http://blog.revolutionanalytics.com/">Revolutions</a> - News about R, statistics and the world of open source from the staff of Revolution Analytics<br/>
+<br/>
+<br/>
+<h2>Programming Libraries</h2>
+<a href="http://eigen.tuxfamily.org/index.php?title=Main_Page">Main Page - Eigen</a> - Eigen is a C++ template library for linear algebra: vectors, matrices, and related algorithms.<br/>
+<a href="http://www.mathdotnet.com/">Math.NET Project</a><br/>
+Ceres Solver - non-linear least squares solver - QR,Cholesky, specialized Schur<br/>
+<a href="http://code.google.com/p/ceres-solver/">ceres-solver - A Nonlinear Least Squares Minimizer - Google Project Hosting</a> - C++
+deps: cmake,Eigen3,google-glog,gflags,SuiteSparse,CXSparse,BLAS,LAPACK <br/>
+<a href="http://pdl.perl.org/">Perl Data Language</a> - compactly store and speedily manipulate the large N-dimensional data arrays - Perl Data Language (PDL) Scientific computing with Perl<br/>
+<a href="http://froebe.net/blog/wp-content/uploads/2014/07/Perl-mas-J.-Lukka-David-Mertens-Chris-Marshall-Joe-Milosch-Tim-Pickering-Christian-Soeller-Robin-Williams.pdf">The PDL Book (PDF)</a><br/>
+<br/>
+<br/>
+<h2>Fourier</h2>
+<a href="http://openbookproject.net/py4fun/wave/wave.html">Twisted Documentation: Waves and Harmonics</a> - The book "Who is Fourier, a Mathematical Adventure" is a cool book...<br/>
+<a href="http://betterexplained.com/articles/an-interactive-guide-to-the-fourier-transform/">An Interactive Guide To The Fourier Transform | BetterExplained</a><br/>
+<br/>
+<br/>
+<h2>Math viz</h2>
+<a href="http://www.jasondavies.com/toys/">Toys - Jason Davies</a> - Mathematical Visualisations
+The majority are written in JavaScript and require a modern browser with support for SVG or canvas. Enjoy! (neat!)<br/>
+<a href="http://www.muzuu.org/new_life/pics/simpleblog/academy/spiralsymetry/spiralsymetry.html">MuZuu - Spiralsymmetry (in a very small and discrete world)</a><br/>
+<br/>
+<br/>
+<br/>
+<h2>quasicrystals</h2>
+<a href="http://wealoneonearth.blogspot.com/search/label/quasicrystal">We Alone on Earth: quasicrystal</a> - Visual Analogue of a Shepard Tone<br/>
+<a href="http://mainisusuallyafunction.blogspot.com/2011/10/quasicrystals-as-sums-of-waves-in-plane.html">main is usually a function: Quasicrystals as sums of waves in the plane</a><br/>
+<a href="https://github.com/kmcallister/propane">kmcallister/propane · GitHub</a> - Propane is a system for functional synthesis of images and animations. (Haskell)  In spirit of Pan, Propane uses the Repa array library.  This means that Propane automatically
+    uses multiple CPU cores for rendering, provided the program is compiled and
+    run with threads enabled.  That said, the implementation has not yet been
+    optimized for speed.<br/>
+<a href="http://conal.net/Pan/">The Pan Home Page</a> - Pan is an experimental embedded language and compiler for image synthesis and manipulation, based on principles from functional programming. (Haskell)<br/>
+
+<br/>
+<br/>
+<h2>fractals</h2>
+<a href="http://wealoneonearth.blogspot.com/2012/04/jython-and-feedback-fractals-in-42.html">We Alone on Earth: Jython and Feedback Fractals in 42 Lines</a><br/>
+<a href="http://nooshu.com/the-beauty-of-the-mandelbrot-set">The beauty of the Mandelbrot set</a> - <a href="http://vimeo.com/12185093">Last Lights On - Mandelbrot fractal zoom to 6.066 e228 (2^760) on Vimeo</a><br/>
+<a href="http://nooshu.com/mandelbrot-set-renderer-using-javascript-and-the-canvas-api/">Mandelbrot Set Renderer using JavaScript and the Canvas API</a> - <a href="http://www.hoagieshouse.com/mandelbrot.html">Geoff's Mandelbrot Renderer.</a><br/>
+<a href="http://www.bugman123.com/index.html">bugman123.com - Paul Nylander’s Web Site</a><br/>
+<a href="http://www.miqel.com/fractals_math_patterns/visual_math_varieties.html">An Introduction to the fascinating patterns of Visual Math</a><br/>
+<a href="http://www.dimensions-math.org/Dim_E.htm">Dimensions Home</a> - Mathematical vertigo guaranteed! <br/>
+<a href="http://www.josleys.com/index.php">Mathematical imagery by Jos Leys.</a><br/>
+<a href="https://itunes.apple.com/us/app/scale/id610187081?ls=1&amp;mt=12">Mac App Store - Scale: Beautiful Fractals</a> <a href="http://www.michaelfogleman.com/scale/">Michael Fogleman</a><br/>
+<a href="http://en.wikipedia.org/wiki/Newton_fractal">Newton fractal - Wikipedia</a> <a href="http://jasmcole.com/2014/07/11/the-fancy-header-image/#more-9">The fancy header image | Almost looks like work</a><br/>
+<a href="http://philippe.bruhat.net/stuff/git-fractals/">Git fractals</a> - Sierpi?ski triangles using Git. Cayley graph of F2 <br/>
+<br/>
+<br/>
+<h2>Sequences and Series</h2>
+<a href="http://oeis.org/">The On-Line Encyclopedia of Integer Sequences® (OEIS®)</a><br/>
+<iframe width="560" height="315" src="//www.youtube.com/embed/VDD6FDhKCYA" frameborder="0" allowfullscreen></iframe>
+<br/>
+<br/>
+<h2>Lindenmayer System || L-System</h2>
+<a href="http://en.wikipedia.org/wiki/L-system">L-system - Wikipedia, the free encyclopedia</a><br/>
+<br/>
+<br/>
+<h2>Other sites with lists of math tools</h2>
+<a href="http://interlinked.org/science/open_source_math_programs.html">Free and Open Source Math Programs - IMHO</a><br/>
+<a href="http://www.wdjoyner.org/blog/miscellaneous-math-stuff/open-source-mathematics/">Open-source mathematics | wdjoyner.org</a><br/>
+    <div style="border: 1px;">
+    Created: 2006-09-20 02:42:31
+    Modified: 2014-09-17 04:33:58
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+<span id=daysToChristmas>x</span> days to Christmas.<br/>
+<span id=daysToNewYear>x</span> days to a new year.<br/>
+Happy Holidays!
+<script Language="JavaScript">
+function showtime () {
+        msPerDay = 24 * 60 * 60 * 1000 ; // Number of milliseconds per day
+        var now = new Date();
+        var year = now.getYear();
+        if (year < 1000)
+         year+=1900
+        nextXmas = new Date("December 25, 2000")
+        nextXmas.setYear(year)
+        daysLeft = (nextXmas.getTime() - now.getTime()) / msPerDay;
+        daysLeft = Math.round(daysLeft);
+        var span=document.getElementById('daysToChristmas');
+        span.removeChild(span.firstChild);
+        span.appendChild(document.createTextNode(daysLeft+''));
+        
+        nextXmas = new Date("December 31, 2000")
+        nextXmas.setYear(year)
+        daysLeft = (nextXmas.getTime() - now.getTime()) / msPerDay;
+        daysLeft = Math.round(daysLeft);
+
+        span=document.getElementById('daysToNewYear');
+        span.removeChild(span.firstChild);
+        span.appendChild(document.createTextNode(daysLeft+''));
+        setTimeout("showtime()",msPerDay);
+}
+showtime();
+</script>
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

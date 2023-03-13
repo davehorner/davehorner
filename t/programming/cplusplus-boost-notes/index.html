@@ -1,0 +1,370 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>C++ boost notes</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/programming/">programming</a>
+    <h1>C++ boost notes</h1>
+   <a href="http://dave.thehorners.com/tech-talk/programming/128-c-c-libraries-tips-tricks-and-gotchas">C / C++ - libraries, tips, tricks and gotchas - Dave Horner's Website</a><br/>
+<br/>
+<a href="http://www.boost.org/">Boost C++ Libraries</a><br/>
+<a href="http://www.boost.org/doc/libs/">Boost Library Documentation</a> - docs for each of the libraries included.<br/>
+<a href="http://rrsd.com/blincubator.com/">Boost Library Incubator | Growing New C++ Libraries</a><br/>
+<a href="http://slashdot.org/topic/bi/comparing-the-c-standard-and-boost/">Comparing the C++ Standard and Boost</a><br/>
+<a href="http://particlephysicsandcode.wordpress.com/2013/03/11/installing-boost-1-52-ubuntu-12-04-fedora/">Installing Boost 1.53 (Ubuntu 12.04, Fedora) « Particle Physics and Code</a> - includes a quick sample of Boost.MPI.<br/>
+<a href="http://cpprocks.com/using-cmake-to-build-a-cross-platform-project-with-a-boost-dependency/">Using CMake to build a cross-platform project with a Boost dependency | C++ Rocks</a><br/>
+<a href="http://shoddykid.blogspot.com/2008/07/getting-started-with-boost.html">The C++ and Boost Code Shop: Getting Started with Boost</a> - Boost 1.35 walkthrough<br/>
+<a href="http://blogs.msdn.com/b/vcblog/archive/2014/07/18/using-boost-libraries-in-windows-store-and-phone-applications.aspx">Using Boost Libraries in Windows Store and Phone Applications - Visual C++ Team Blog - Site Home - MSDN Blogs</a><br/>
+<br/>
+<br/>
+<h2>getting boost's architecture right</h2>
+<a href="http://stackoverflow.com/questions/7124573/how-do-i-build-boost-universal-libraries-for-x86-and-x64-architecture">c++ - How do I build boost universal libraries for x86 and x64 architecture? - Stack Overflow</a> - Add architecture=combined to build both Intel and PowerPC. Add address-model=32_64 to build both x86 and x64 in one package. <br/>
+<a href="http://devsql.blogspot.com/2007/05/building-boost-134-for-x86-x64-and-ia64.html">Developing SQL World: Building Boost 1.34 for x86, x64 and IA64</a><br/>
+<br/>
+<br/>
+<a href="http://sandfly.net.nz/blog/2009/01/the-c-boost-libraries-part-1-introduction/">The C++ Boost Libraries (Part 1 – Introduction) | Life of Andrew</a> - introduces the  <a href="http://www.boost.org/doc/libs/1_53_0/doc/html/tribool.html">boost::logic::tribool</a> with a detectGod(), mad poetry.<br/>
+<a href="http://sandfly.net.nz/blog/2009/01/the-c-boost-libraries-part-3-string-algorithms/">The C++ Boost Libraries Part 3 – string algorithms | Life of Andrew</a><br/>
+<br/>
+<br/>
+<h2>troubles compiling boost?</h2>
+checkout your bin.v2\config.log file for more details...<br/>
+<br/>
+<br/>
+<h2>compiling icu4c for use with boost</h2>
+<a href="http://site.icu-project.org/">ICU - International Components for Unicode</a><br/>
+<a href="https://github.com/pypt/icu4c">pypt/icu4c · GitHub</a> - (Unofficial) mirror of ICU for C/C++ (ICU4C), updated hourly from SVN.<br/>
+I had some trouble when trying to get regex icu going. As it talks about in <a href="http://www.boost.org/doc/libs/1_53_0/libs/regex/doc/html/boost_regex/install.html">Building and Installing the Library - 1.53.0</a>, you'll want to define U_STATIC_IMPLEMENTATION=1 in env and supplying bjam/b2 with define=U_STATIC_IMPLEMENTATION=1  -sICU_PATH=%ICU_PATH%.   When building a vs2010 build from within a "Visual Studio x64 Win64 Command Prompt (2010)" cmd.exe, I would have thought that would produce x64 by default when using devenv /Build.  It doesn't produce x64, it produces x86 by default when using "devenv icu4c\source\allinone\allinone.sln /Build Debug".  To produce a proper x64 build, add a |64 like: "devenv  icu4c\source\allinone\allinone.sln /Build Release|x64".  You can see if it works by running "icu4c\source\allinone\icucheck.bat x64 Release".<br/>
+<br/>
+Also, I had some trouble linking my first app with icu and received an error that looked something like this (shortened a bit):
+<pre>
+ libboost_regex-vc100-mt-gd-1_53.lib(icu.obj) : error LNK2019: unresolved external symbol "icu_51::Collator * __cdecl icu_51::Collator::createInstance"
+</pre>
+This let me know I wasn't linking something, but which library had Collator::createInstance defined?  To find this out, I went into the icu4c\bin64 folder and ran the following to find the function signature.
+<pre>
+dumpbin /exports * | grep -e createInstance@Collator -e "Dump of file*"
+</pre>
+which shows icuin51.dll defines our missing function.  Turns out, the <a href="https://github.com/julp/FindICU.cmake">julp/FindICU.cmake</a> cmake rule only adds the uc component by default.  To get icuin51.lib in your ICU_LIBARIES variable, you need to pass in the i18n component in the find_package call.<br/>
+find_package(ICU 4.4 COMPONENTS uc i18n REQUIRED)<br/>
+<br/>
+Then since it ended up giving me shared dlls instead of static libs as I asked, you need to copy the dlls to the same folder as your binary, or put them in a system path.  I chose to implement a post_build custom_command to do the copies, a copy_if_different for both debug and release dlls in the cwd of the binary.<br/>
+<pre>
+add_custom_command(TARGET YourTargetName POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different
+    ${PROJECT_SOURCE_DIR}/lib/icu4c/bin64/icuuc51d.dll   
+    $<TARGET_FILE_DIR:YourTargetName>)
+</pre>
+ 
+<a href="http://userguide.icu-project.org/strings">Strings - ICU User Guide</a><br/>
+<a href="http://stackoverflow.com/questions/6010793/looking-for-simple-practical-c-examples-of-how-to-use-icu">Looking for simple practical C++ examples of how to use ICU - Stack Overflow</a><br/>
+<a href="http://blog.daum.net/dreamwork/7361348">make to ICU static library on windows.</a><br/>
+<a href="http://rdaemons.blogspot.com/2010/11/getting-boostregex-unicode-to-work-with.html">Releasing Daemons: Getting Boost.Regex + Unicode to work with Microsoft VC++ 2010</a><br/>
+<br/>
+<br/>
+<h2>Boost.Spirit</h2>
+<a href="http://boost-spirit.com/home/">Boost.Spirit</a> - parsing and output generation implemented as Domain Specific Embedded Languages (DSEL) using Expression templates and Template Meta-Programming.<br/>
+<a href="https://github.com/djowel/spirit_x3">djowel/spirit_x3 · GitHub</a> - Spirit X3 Experimental<br/>
+<br/>
+<h2>Boost.Locale</h2>
+<a href="http://www.boost.org/doc/libs/1_53_0/libs/locale/doc/html/building_boost_locale.html">Boost.Locale: Building The library</a><br/>
+<br/>
+<h2>Boost.RegEx</h2>
+<a href="http://boost.sourceforge.net/libs/regex/doc/icu_strings.html">Boost.Regex: Working With Unicode and ICU String Types</a><br/>
+<a href="http://boost.2283326.n4.nabble.com/regex-Boost-Regex-ICU-vs-standalone-ICU-td2613905.html">Boost - Users - [regex] Boost.Regex + ICU vs. standalone ICU</a><br/>
+<br/>
+<h2>boost::xpressive</h2>
+<a href="http://codemonkey.intomec.com/blog/named-regular-expressions-in-c-with-boostxpressive/">Regular Expression Named Captures in C++ with boost::xpressive | Codemonkey</a><br/>
+<br/>
+<h2>Boost.Python</h2>
+<a href="http://particlephysicsandcode.wordpress.com/2013/04/17/boost-python-executing-c-inside-a-python-environment/">Boost.Python. Executing C++ inside a python environment « Particle Physics and Code</a><br/>
+<a href="http://members.gamedev.net/sicrane/articles/EmbeddingPythonPart1.html">Embedding Python with Boost.Python Part 1</a><br/>
+<a href="http://www.boostpro.com/writing/bpl.html">Building Hybrid Systems with Boost.Python</a><br/>
+<a href="http://nicolas.lehuen.com/2005/12/07/boost-python-rocks/">Boost.Python rocks !</a> - nico saw about 25% speed improvement over SWIG. nico authors <a href="https://github.com/nlehuen/pytst">nlehuen/pytst · GitHub</a><br/>
+<br/>
+<br/>
+<h2>Boost.Log</h2>
+Hasn't yet reached shipping status -- as of 1.53...<br/>
+<a href="http://boost-log.sourceforge.net/libs/log/doc/html/index.html">Chapter 1. Boost.Log 2.0</a><br/>
+<br/>
+<br/>
+<h2>Boost.ProgramOptions</h2>
+<a href="http://stackoverflow.com/questions/6921196/in-boostprogram-options-how-to-set-default-value-for-wstring">c++ - In Boost::Program_Options, how to set default value for wstring? - Stack Overflow</a><br/>
+<br/>
+<br/>
+<h2>Boost.NoWide</h2>
+<a href="http://cppcms.com/files/nowide/html/">Boost.Nowide: Boost.Nowide</a><br/>
+<a href="https://github.com/CovenantEyes/boost-nowide/tree/master/boost">boost-nowide/boost at master · CovenantEyes/boost-nowide · GitHub</a> - A clone of http://cppcms.com/files/nowide/<br/>
+<br/>
+<br/>
+<h2>Boost.Filesystem</h2>
+<a href="http://warpedvisions.org/2008/04/howto-directory-recursion-in-boost-and-other-tips/">HOWTO: Directory recursion in Boost (and other tips) | warpedvisions.org</a> - using recursive_directory_iterator, aliasing namespace fs = boost::filesystem;fs::exists(),fs::is_directory(), fs::current_path()=cwd, fs::create_directories( "xx/yy/zz" ) is equivalent to mkdir -p, fs::change_extension("a.txt", ".tex"),fs::extension(), fs::remove_all()<br/>
+<a href="http://sandfly.net.nz/blog/2009/03/the-c-boost-libraries-part-5-boostfilesystem/">The C++ Boost Libraries Part 5 – boost::filesystem | Life of Andrew</a><br/>
+<br/>
+<br/>
+<h2>Boost::mpi</h2>
+<a href="http://daveabrahams.techarcana.net/2010/09/03/whats-so-cool-about-boost-mpi/">What’s so cool about Boost.MPI? | Dave Abrahams: Home Page</a><br/>
+<br/>
+<h2>Boost.Statechart</h2>
+<a href="http://www.boost.org/doc/libs/1_53_0/libs/statechart/doc/index.html">The Boost Statechart Library - Overview - 1.53.0</a><br/>
+<a href="http://www.boost.org/doc/libs/1_53_0/libs/statechart/doc/faq.html">The Boost Statechart Library - FAQ - 1.53.0</a><br/>
+<br/>
+<br/>
+<h2>Boost’s Multi Index Containers</h2>
+<a href="http://www.boost.org/doc/libs/1_53_0/libs/multi_index/doc/index.html">Boost.MultiIndex Documentation - Index - 1.53.0</a><br/>
+<a href="http://schneide.wordpress.com/2012/05/14/use-boosts-multi-index-container/">Use Boost’s Multi Index Container! | Schneide Blog</a><br/>
+<br/>
+<br/>
+<h2>boost::date_time</h2>
+<a href="http://sandfly.net.nz/blog/2009/02/the-boost-c-libraries-part-4-boostdate_time/">The Boost C++ Libraries Part 4 – boost::date_time | Life of Andrew</a><br/>
+<br/>
+<br/>
+<a href="http://crazycpp.wordpress.com/2012/04/22/arbitrary-binding-pt1-what-is-boostbind-and-why-is-it-cool/">Arbitrary binding pt1 – What is boost::bind and why is it cool? | Crazy Eddie's Crazy C++</a><br/>
+<br/>
+<br/>
+<h2>Keyboard History Utility has stopped working || doskey b2 and boost build issues</h2>
+Using vs2012 x86 native cmdline prompt, I could not get the boost build to compile.  It would continually show a crash dialog...hazah, more fun.<br/>
+<a href="https://svn.boost.org/trac/boost/ticket/6653">#6653 (b2.exe crashes a loaded doskey.exe) – Boost C++ Libraries</a> - closed, not sure it should be....agree, the issue is that doskey is crashing.<br/>
+<a href="https://svn.boost.org/trac/boost/ticket/9488">#9488 (bjam.exe and doskey not getting along) – Boost C++ Libraries</a> - Check your HKEY_CURRENT_USER\Software\Microsoft\Command Processor . I found cygwin places a .bashrc.bat in the user's profile.  Deleting this key allowed the build to complete.<br/>
+Then, since I have <a href="https://code.google.com/p/clink/">clink</a> installed, it continually displays the clink startup text between each compile-c-c++ line.  It would be nice to be able to silence the clink startup text...<br/>
+<br/>
+<br/>
+<h2>git and boost || Modular Boost</h2>
+<a href="https://github.com/boostorg/boost">boostorg/boost: Super-project for modularized Boost</a><br/>
+    <div style="border: 1px;">
+    Created: 2013-06-02 19:00:11
+    Modified: 2016-02-14 12:11:09
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+0, 1, 1, 2, 3, 5, 8, 13, 21, 34,...<br/>
+<b> x<sub>n</sub> = x<sub>n-1</sub> + x<sub>n-2</sub></b><br/>
+<!-- "Fibonacci" was his nickname, which roughly means "Son of Bonacci". -->
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

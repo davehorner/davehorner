@@ -1,0 +1,500 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>MySQL</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/random-technology/">random-technology</a>
+    <h1>MySQL</h1>
+   <a href="http://planet.mysql.com/">Planet MySQL</a> - Your blogs, news and opinions relating to mysql;<br/>
+<a href="http://dev.mysql.com/downloads/connector/net/">MySQL :: Download Connector/Net</a> - go here to get the latest connector for .net mysql access.<br/>
+<a href="http://dev.mysql.com/doc/refman/5.0/en/copying-databases.html">MySQL :: MySQL 5.0 Reference Manual :: 2.18.5 Copying MySQL Databases to Another Machine</a><br/>
+<a href="http://realprogrammers.com/how_to/set_up_an_ssh_tunnel_with_putty.html">Real Programmers: How To: Set Up An Ssh Tunnel With Putty (mysql)</a><br/>
+<a href="http://blogs.msdn.com/mattm/archive/2008/03/03/connecting-to-mysql-from-ssis.aspx">SSIS Stuff : Connecting to MySQL from SSIS</a><br/>
+<a href="http://code.google.com/p/maatkit/">maatkit - Project Hosting on Google Code</a> - Maatkit (formerly MySQL Toolkit) contains essential command-line tools for MySQL, such as table checksums, a query profiler, and a visual EXPLAIN tool. It provides missing features such as checking whether slaves have the same data as the master.<br/>
+<a href="http://dev.mysql.com/downloads/connector/odbc/">MySQL ::  Download Connector/ODBC</a><br/>
+<a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=0e6168b0-2d0c-4076-96c2-60bd25294a8e&amp;displaylang=en">Download details: SSMA 2008 for MySQL v1.0 CTP1</a><br/>
+<a href="http://www.heidisql.com/">HeidiSQL - MySQL made easy</a> - a nice gui for mysql.<br/>
+<a href="http://code.google.com/p/innotop/">innotop - The best top clone for MySQL, with special attention paid to InnoDB - Google Project Hosting</a><br/>
+<a href="http://code.openark.org/forge/mycheckpoint">mycheckpoint | openark forge</a> - an open source monitoring utility for MySQL, with strong emphasis on user accessibility to monitored data.<br/>
+<a href="http://theory.github.io/mytap/">MyTAP: Unit Testing for MySQL</a> - MyTAP is a suite of database functions that make it easy to write
+      <a href="http://testanything.org/" title="Test Anything Protocol">TAP</a>-emitting unit tests in
+      <code>mysql</code> scripts. The TAP output is suitable for harvesting,
+      analysis, and reporting by a TAP harness, such as those used in Perl
+      applications.<br/>
+<br/>
+<br/>
+<a href="http://code.openark.org/blog/">Blog by Shlomi Noach | code.openark.org</a><br/>
+<a href="http://joinfu.com/presentations/tagging.pdf">Tagging and Folksonomy Schema Design for Scalability and Performance</a> -Folksonomy adds the “user dimension”<br/>
+<br/>
+<a href="http://www.kitebird.com/articles/pydbapi.html">Writing MySQL Scripts with Python DB-API</a><br/>
+<br/>
+<br/>
+<a href="http://www.bitbybit.dk/carsten/blog/?p=71">Doing INTERSECT and MINUS in MySQL | Carsten’s Random Ramblings</a><br/>
+<br/>
+<br/>
+<h2>What version of mysql am I running again?</h2>
+<pre>
+select version()
+</pre>
+<h2>Find duplicate rows</h2>
+<pre>
+SELECT name FROM atable GROUP BY name HAVING COUNT(*) > 1;
+</pre>
+<h2>Grant all priv to root mysql user.</h2>
+<pre>
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'localhost.localdomain' WITH GRANT OPTION;
+</pre>
+<h2>add user,grant privileges, set password, flush</h2>
+<pre>
+CREATE USER 'loki'@'localhost';
+GRANT ALL PRIVILEGES ON db_name.* TO 'loki'@'localhost';
+SET PASSWORD FOR 'loki'@'localhost' = PASSWORD('odin');
+FLUSH PRIVILEGES;
+</pre>
+<h2>Getting mysql to work on ubuntu with mysql_config</h2>
+apt-get install gcc libc6-dev python-dev libmysqlclient15-dev<br/>
+<br/>
+<br/>
+<h2>got a packet bigger than 'max_allowed_packet'</h2>
+Edit your /etc/my.conf and inside [mysqld] set max_allowed_packet=100M.  Restart mysqld.  Then to additionally be sure, set the cmd line params on the client ie. 'mysql --max_allowed_packet=100M'  Might not want to leave it so high, but it does get past this error.<br/>
+<br/>
+<br/>
+<h2>remember to change that password</h2>
+PLEASE REMEMBER TO SET A PASSWORD FOR THE MySQL root USER !<br/>
+To do so, start the server, then issue the following commands:<br/>
+/usr/bin/mysqladmin -u root password 'new-password'<br/>
+/usr/bin/mysqladmin -u root -h a.host.com password 'new-password'<br/>
+<br/>
+<br/>
+<h2>Reset your mysql password</h2>
+mysqld_safe --skip-grant-tables &<br/>
+<a href="http://ranjith.zfs.in/recover-mysql-root-password-hack/">Recover MySQL root password [hack] | Ranjith Siji | Programming the Web</a><br/>
+<br/>
+<br/>
+<h2>Comparing and diffing mysql</h2>
+<a href="http://www.xaprb.com/blog/2007/03/05/an-algorithm-to-find-and-resolve-data-differences-between-mysql-tables/">An algorithm to find and resolve data differences between MySQL tables at Xaprb</a><br/>
+<a href="http://rossbeyer.net/software/mysql_coldiff/">mysql_coldiff</a><br/>
+<a href="http://adamspiers.org/computing/mysqldiff/">mysqldiff -- a utility for comparing MySQL database structures</a><br/>
+<a href="http://www.databasejournal.com/features/mysql/article.php/1584401/Synchronizing-Your-MySQL-Databases-Using-a-Free-MySQL-Admin-Tool---SQLyog.htm">Synchronizing Your MySQL Databases Using a Free MySQL Admin Tool - SQLyog — DatabaseJournal.com</a><br/>
+<br/>
+<br/>
+<h2>Replace data within your table</h2>
+Sometimes you'd like to replace certain text within your tables...for example here's a query I used to replace all my bad br's...<br/>
+UPDATE `jos_content` SET introtext = replace(introtext,"&lt;br&gt;","&lt;br/&gt;") WHERE introtext like '%&lt;br&gt;%';<br/>
+<br/>
+<br/>
+<h2>MySQL performance</h2>
+<a href="http://linuxadministration.wordpress.com/2007/09/11/solving-mysql-memory-bottleneck/">Optimizing MySQL performance « Sachin’s Weblog</a><br/>
+<a href="http://www.mysqlperformanceblog.com/2011/02/01/sample-datasets-for-benchmarking-and-testing/">Sample datasets for benchmarking and testing - MySQL Performance Blog</a><br/>
+<a href="http://mysqlio.blogspot.com/">MySQL I/O</a> - blog of Mr. Juntgen.<br/>
+<a href="http://mysqltuner.com/">MySQLTuner-perl by major</a> MySQLTuner is a script written in Perl that will assist you with your MySQL configuration and make recommendations for increased performance and stability. <a href="https://github.com/major/MySQLTuner-perl">major/MySQLTuner-perl</a><br/>
+<br/>
+<br/>
+<h2>MySQL replication</h2>
+<a href="http://dev.mysql.com/doc/refman/5.6/en/replication-howto.html">MySQL :: MySQL 5.6 Reference Manual :: 16.1.1 How to Set Up Replication</a><br/>
+<a href="http://onlamp.com/pub/a/onlamp/2005/06/16/MySQLian.html">Live Backups of MySQL Using Replication - O'Reilly Media</a><br/>
+<a href="http://www.rubyrep.org/">rubyrep: Home</a> - ruby database replication.<br/>
+<a href="http://paul.geek.nz/">Paul Chilton</a> - talks a bit about his use of rubyrep with PostgreSQL.<br/>
+<a href="http://narmitag.wordpress.com/2010/07/05/running-mysql-replication-over-ssl/">Running MySQL Replication Over SSL | Replication and other database things</a><br/>
+<a href="http://narmitag.wordpress.com/2011/02/03/checking-slaves-are-consistant/">Checking Slaves are consistent | Replication and other database things</a><br/>
+<br/>
+<h2>"Unable to convert MySQL date/time value to System.DateTime"</h2>
+When connecting to MySQL from .net connector, you may find you get an error like: "Unable to convert MySQL date/time value to System.DateTime".  To handle this, you can fix the offending dates or use a connection string that converts zero (invalid) DateTime to the minimum DateTime value (DateTime.MinValue).  To do this, add ";Convert Zero Datetime=True" to the end of your connection string.<br/>
+<a href="http://zoomicon.wordpress.com/2009/10/22/how-to-fix-%E2%80%9Cunable-to-convert-mysql-datetime-value-to-system-datetime%E2%80%9D-exception-when-using-mysql-net-connector/">How to fix “Unable to convert MySQL date/time value to System.DateTime” exception when using MySQL .NET Connector « George Birbilis @zoomicon</a><br/>
+<a href="http://malderhout.wordpress.com/2012/07/14/implement-mysql-replication-in-3-simple-steps/">Implement MySQL Replication in 3 simple steps | Maikel Alderhout's Blog</a><br/>
+<br/>
+<br/>
+<h2>message queue for MySQL</h2>
+<a href="http://blog.engineyard.com/2011/5-subtle-ways-youre-using-mysql-as-a-queue-and-why-itll-bite-you">5 subtle ways you're using MySQL as a queue, and why it'll bite you - Engine Yard Developer Blog | Engine Yard Developer Blog</a><br/>
+<a href="http://q4m.github.com/">Q4M - a Message Queue for MySQL</a><br/>
+<a href="http://search.cpan.org/~dmaki/Queue-Q4M/lib/Queue/Q4M.pm">Queue::Q4M - search.cpan.org</a><br/>
+<br/>
+<br/>
+<a href="https://github.com/tumblr/jetpants#readme">tumblr/jetpants · GitHub</a> - Ruby, Jetpants is an automation toolkit for handling monstrously large MySQL database topologies. It is geared towards common operational tasks like cloning slaves, rebalancing shards, and performing master promotions.<br/>
+<br/>
+<br/>
+<h2>Graphs and hierarchies in mysql</h2>
+<a href="http://openquery.com/graph/doc">GRAPH Computation Engine - Documentation | Australian peace of mind for your MySQL infrastructure.</a> - OQGRAPH Docs  allows you to handle hierarchies (tree structures) but also complex graphs (nodes having many connections in several directions).<br/>
+<a href="http://mikehillyer.com/articles/managing-hierarchical-data-in-mysql/">Mike Hillyer's Personal Webspace: Managing Hierarchical Data in MySQL</a><br/>
+<a href="http://en.wikipedia.org/wiki/Nested_set_model">Nested set model - Wikipedia, the free encyclopedia</a><br/>
+<a href="http://docs.joomla.org/Using_nested_sets#cite_note-0">Using nested sets - Joomla! Documentation</a><br/>
+<br/>
+<br/>
+<h2>importing mysql 3.3 to mysql 5.5</h2>
+<a href="http://stackoverflow.com/questions/16146779/moving-from-mysql-3-3-to-mysql-5-5/17256663#17256663">mysqldump - Moving from mysql 3.3 to mysql 5.5 - Stack Overflow</a> - question I answered. sed -i '/^--/d' inputfile; sed -i 's/ENGINE=MyISAM/ENGINE=MyISAM/g' inputfile; sed -i 's/timestamp/timestamp/g' inputfile;<br/>
+echo "drop database davejoomla; create database davejoomla;use davejoomla;"| cat - davejoomla > davejoomla.sql<br/>
+<a href="http://stackoverflow.com/questions/1916392/how-can-i-get-rid-of-these-comments-in-a-mysql-dump">export - How can I get rid of these comments in a MySQL dump? - Stack Overflow</a> - grep -v '^\/\*![0-9]\{5\}.*\/;$' or sed -e 's/^\/\*![0-9]\{5\}.*\/;$//g'<br/>
+<a href="http://hisdeedsaredust.com/2009/02/my-perl-and-mysql-utf-8-crib/">His Deeds Are Dust » My Perl and MySQL UTF-8 crib</a><br/>
+<br/>
+<br/>
+<h2>every derived table must have its own alias</h2>
+select x.*,x.something-x.somethingelse FROM ( YOUR CRAZY COMPLEX QUERY)x;<br/>
+<a href="http://stackoverflow.com/questions/3363918/mysql-error-1248-42000-every-derived-table-must-have-its-own-alias">sql - MYSQL ERROR 1248 (42000): Every derived table must have its own alias - Stack Overflow</a><br/>
+<br/>
+<br/>
+<h2>MariaDB</h2>
+<a href="http://bloke.org/mysql/how-to-replace-mysql-with-mariadb-in-11-36/">How to replace MySQL with MariaDB in 11.36 | kieranbarnes</a><br/>
+<br/>
+<br/>
+<h2>Parameterized queries in MySQL using .net mysql connector</h2>
+<a href="http://www.eiben.weite-welt.com/2011/11/parameterized-queries-in-mysql/">@Henning » Parameterized queries in MySQL</a><br/>
+<pre>
+MySqlConnection connection = new MySqlConnection(_connectionString);
+MySqlCommand command = connection.CreateCommand();
+MySqlParameter forumNameParameter = new MySqlParameter("?forumName", forumName);
+command.Parameters.Add(forumNameParameter);
+command.CommandText = "SELECT * FROM Forum where name = ?forumName";
+</pre>
+<br/>
+<br/>
+<h2>Altering and changing tables in mysql</h2>
+<a href="http://dev.mysql.com/doc/refman/5.7/en/alter-table.html">MySQL :: MySQL 5.7 Reference Manual :: 13.1.6 ALTER TABLE Syntax</a><br/>
+<a href="http://stackoverflow.com/questions/2106237/is-there-any-harm-in-resetting-the-auto-increment/2106302#2106302">mysql - Is there any harm in resetting the auto-increment? - Stack Overflow</a> - ALTER TABLE tbl AUTO_INCREMENT = 1; , or just switch from unsigned int=max 4,294,967,295, and instead use BIGINT 2^64 over 18 quintillion 18,446,744,073,709,551,615.<br/>
+<a href="http://hoelz.ro/wiki/mysql-alter-table-alter-change-modify-column">hoelz.ro - MySQL ALTER TABLE: ALTER vs CHANGE vs MODIFY COLUMN</a><br/>
+<br/>
+<br/>
+<h2>recover deleted space mysql || get diskspace back from mysql</h2>
+if you perform a bunch of deletes or alters, you won't see a change in your disk space until you run a OPTIMIZE TABLE your_big_table; which of course is table locking...<br/>
+<br/>
+<h2>MySQL Character Sets and Collations</h2>
+<a href="http://rtcamp.com/tutorials/mysql/character-sets-collations/">MySQL Character Sets and Collations - Conversion &amp; Setting Defaults</a><br/>
+<br/>
+<br/>
+<h2>mysqlcheck your database.</h2>
+<pre>mysqlcheck -A --auto-repair -uroot -ppassword</pre>
+<br/>
+<br/>
+<a href="http://www.bentasker.co.uk/documentation/development-programming/142-useful-mysql-tricks">Useful MySQL Tricks - www.bentasker.co.uk</a><br/>
+<h2>Removing Tables based on their Prefix</h2>
+<pre>SELECT CONCAT( 'DROP TABLE ', GROUP_CONCAT(table_name) , ';') AS statement FROM 
+information_schema.tables WHERE table_schema = 'Btaskercouk' AND table_name LIKE 'jos_%';</pre>
+<br/>
+<br/>
+<h2>headers and client library minor version mismatch</h2>
+mmm, sorta an ubuntu and php issue; but try removing php5-mysql, which will intelligently install php5-mysqlnd.  I think phpmyadmin might have been what put me in this situation, since it removed that when removing php5-mysql. mileage may vary.<br/>
+<br/>
+<br/>
+<h2>select connected clients from mysql</h2>
+<a href="http://blog.shlomoid.com/2011/08/how-to-easily-see-whos-connected-to.html">Rational Relational: How to Easily See Who's Connected to Your MySQL Server</a><br/>
+<pre>
+SELECT SUBSTRING_INDEX(host, ':', 1) AS host_short,
+GROUP_CONCAT(DISTINCT USER) AS users,
+COUNT(*)
+FROM information_schema.processlist
+GROUP BY host_short WITH ROLLUP
+</pre>
+ok, now kill the sleeping clients.<br/> 
+<pre>
+mysql -s -s -e "SELECT GROUP_CONCAT('kill ',id SEPARATOR '; ') AS kill_list FROM INFORMATION_SCHEMA.PROCESSLIST WHERE command='Sleep';" | mysql
+</pre>
+<br/>
+<br/>
+<h2>select size of tables from mysql</h2>
+<a href="http://stackoverflow.com/questions/9620198/how-to-get-the-sizes-of-the-tables-of-a-mysql-database">How to get the sizes of the tables of a mysql database? - Stack Overflow</a><br/>
+<pre>
+SELECT table_name AS "Tables", 
+round(((data_length + index_length) / 1024 / 1024), 2) "Size in MB" 
+FROM information_schema.TABLES 
+ORDER BY (data_length + index_length) DESC;
+</pre>
+<br/>
+<br/>
+<h2>select number of rows from each table with rollup</h2>
+<pre>
+SELECT table_name, sum(table_rows) as table_rows
+FROM INFORMATION_SCHEMA.TABLES
+WHERE TABLE_SCHEMA = '&lt;schema&gt;' GROUP BY table_name WITH ROLLUP;
+</pre>
+<br/>
+<br/>
+<h2>Get last month</h2>
+<a href="http://narmitag.wordpress.com/2010/11/29/getting-last-months-data-with-sql/">Getting last months data with SQL | Replication and other database things</a><br/>
+<pre>
+BETWEEN date_format(NOW() – INTERVAL 1 MONTH, ‘%Y-%m-01?) AND last_day(NOW() – INTERVAL 1 MONTH) 
+</pre>
+<br/><br/>
+<h2>Get row number with table results mysql</h2>
+<pre>
+set @row :=0;
+select *,@row:=@row+1 as ‘rownum’ from
+( your select here)
+</pre>
+<pre>
+select @cnt:=@cnt+1, t1.* FROM (your select here) t1, (SELECT @cnt:=0) t2;
+</pre>
+<br/>
+<br/>
+<h2>mysql search all tables for string</h2>
+Mysql Workbench >6.0 includes a "Database-Search Table Data..." menu item, phpMyAdmin has a search feature, HeidiSQL has a find text on server in table tools, SQLyog too...<br/>
+<a href="http://kedar.nitty-witty.com/blog/search-through-all-databases-tables-columns-in-mysql">Search-find through all databases, tables, columns in MySQL | ..::CHANGE is INEVITABLE::..</a> - written with mysql procedure<br/>
+<a href="https://code.google.com/p/anywhereindb/">anywhereindb - Comprehensive Search on MYSQL database - Google Project Hosting</a> - mysql with php<br/>
+<br/>
+<br/>
+<h2>whats the difference between MyISAM and INNODB MySQL storage Engines</h2>
+<strong>MyISAM is for speed and InnoDB for data integrity.</strong><br/>
+<a href="http://kedar.nitty-witty.com/blog/choosing-between-myisam-and-innodb-mysql-storage-engines">Choosing between MyISAM and INNODB – MySQL Storage Engines | ..::CHANGE is INEVITABLE::..</a><br/>
+<a href="http://stackoverflow.com/questions/12614541/whats-the-difference-between-myisam-and-innodb">mysql - What's the difference between MyISAM and InnoDB? - Stack Overflow</a><br/>
+<pre>
+MYISAM:
+
+MYISAM supports Table-level Locking
+MyISAM designed for need of speed
+MyISAM does not support foreign keys hence we call MySQL with MYISAM is DBMS
+MyISAM stores its tables, data and indexes in diskspace using separate three different files. (tablename.FRM, tablename.MYD, tablename.MYI)
+MYISAM not supports transaction. You cannot commit and rollback with MYISAM. Once you issue a command it’s done.
+MYISAM supports fulltext search
+You can use MyISAM, if the table is more static with lots of select and less update and delete.
+Tables are really fast for select-heavy loads Table level locks limit their scalability for write intensive multi-user environments. Smallest disk space consumption Fulltext index Merged and compressed tables. 
+
+INNODB:
+
+InnoDB supports Row-level Locking
+InnoDB designed for maximum performance when processing high volume of data
+InnoDB support foreign keys hence we call MySQL with InnoDB is RDBMS
+InnoDB stores its tables and indexes in a tablespace
+InnoDB supports transaction. You can commit and rollback with InnoDB
+ACID transactions Row level locking Consistent reads – allows you to reach excellent read write concurrency. Primary key clustering – gives excellent performance in some cases. Foreign key support. Both index and data pages can be cached. Automatic crash recovery – in case MySQL shutdown was unclean InnoDB tables will still recover to the consistent state- No check / repair like MyISAM may require. All updates have to pass through transactional engine in InnoDB, which often decreases performance compared to non-transactional storage engines.
+</pre>
+MyISAM for large constant tables or logging tables, relatively infrequent updates or Fast selects – these will not lock the table for the long time and thus it will not reduce performance. Choose MyISAM if you really don’t need InnoDB. Choose InnoDB storage engine when following is required: Intensively updated tables – which can have many long selects running at the same time. Multi-statement transactions Advanced isolation levels and row-level locking Foreign key constraints.<br/>
+This seems to be a very popular interview question.<br/>
+<br/>
+<br/>
+<a href="http://dimitrik.free.fr/blog/archives/cat_mysql.html">DimitriK's (dim) Weblog : MySQL</a><br/>
+    <div style="border: 1px;">
+    Created: 2007-09-04 20:55:06
+    Modified: 2014-09-06 19:09:25
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+left side represents the beginning of mathematics; the right side represents the mysteries of infinity.<br/>
+1=0.999...
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

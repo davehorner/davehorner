@@ -1,0 +1,428 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>OpenGL - Writing the framebuffer to disk</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/programming/">programming</a>
+    <h1>OpenGL - Writing the framebuffer to disk</h1>
+   In the last couple OpenGL projects I've done... I've have to write functions to save off the frame buffer to disk to that they could be viewed at later times.  Each time I've had to do it, I would have to go back and remember what I did... this is for the next time :)<br/>
+<br/>
+Code for saving off the screen to a BMP.  Code originally written by Burt Guillot, there were a few minor sizeof issues.<br/>
+<br/>
+#include &gt;Windows.h&lt; <br/>
+//  include windows header for the <font face="Tahoma, Arial">BITMAPFILEHEADER and<br/>
+// BITMAPINFOHEADER  structures.<br/>
+// should work in other platforms with correct structures. <br/>
+</font><br/>
+<font face="Tahoma, Arial"> void snapshot(int windowWidth, int windowHeight, char* filename)<br/>
+{<br/>
+<br/>
+byte*  bmpBuffer = (byte*)malloc(windowWidth*windowHeight*3);<br/>
+if  (!bmpBuffer)<br/>
+return;<br/>
+<br/>
+glReadPixels((GLint)0,  (GLint)0,<br/>
+(GLint)windowWidth-1, (GLint)windowHeight-1,<br/>
+GL_RGB,  GL_UNSIGNED_BYTE, bmpBuffer);<br/>
+<br/>
+FILE *filePtr = fopen(filename,  "wb");<br/>
+if (!filePtr)<br/>
+return;<br/>
+<br/>
+BITMAPFILEHEADER  bitmapFileHeader;<br/>
+BITMAPINFOHEADER  bitmapInfoHeader;<br/>
+<br/>
+bitmapFileHeader.bfType = 0x4D42;  //"BM"<br/>
+bitmapFileHeader.bfSize =  windowWidth*windowHeight*3;<br/>
+bitmapFileHeader.bfReserved1 =  0;<br/>
+bitmapFileHeader.bfReserved2 = 0;<br/>
+bitmapFileHeader.bfOffBits  =<br/>
+sizeof(</font><font face="Tahoma, Arial">BITMAPFILEHEADER</font><font face="Tahoma, Arial">) +  sizeof(</font><font face="Tahoma, Arial">BITMAPINFOHEADER</font><font face="Tahoma, Arial">);<br/>
+<br/>
+bitmapInfoHeader.biSize =  sizeof(</font><font face="Tahoma, Arial">BITMAPINFOHEADER</font><font face="Tahoma, Arial">);<br/>
+bitmapInfoHeader.biWidth =  windowWidth-1;<br/>
+bitmapInfoHeader.biHeight =  windowHeight-1;<br/>
+bitmapInfoHeader.biPlanes = 1;<br/>
+bitmapInfoHeader.biBitCount  = 24;<br/>
+bitmapInfoHeader.biCompression =  BI_RGB;<br/>
+bitmapInfoHeader.biSizeImage = 0;<br/>
+bitmapInfoHeader.biXPelsPerMeter  = 0; // ?<br/>
+bitmapInfoHeader.biYPelsPerMeter = 0; //  ?<br/>
+bitmapInfoHeader.biClrUsed = 0;<br/>
+bitmapInfoHeader.biClrImportant =  0;<br/>
+<br/>
+fwrite(&bitmapFileHeader, sizeof(</font><font face="Tahoma, Arial">BITMAPFILEHEADER</font><font face="Tahoma, Arial">), 1,  filePtr);<br/>
+fwrite(&bitmapInfoHeader, sizeof(</font><font face="Tahoma, Arial">BITMAPINFOHEADER</font><font face="Tahoma, Arial">), 1,  filePtr);<br/>
+fwrite(bmpBuffer, windowWidth*windowHeight*3, 1,  filePtr);<br/>
+fclose(filePtr);<br/>
+<br/>
+free(bmpBuffer);<br/>
+}<br/>
+http://www.vetl.uh.edu/~7373s01/faq.htm<br/>
+<br/>
+<br/>
+Here is code for saving off the frame buffer to a tiff using libtiff.<br/>
+<br/>
+#include <tiffio.h>     /* Sam Leffler's libtiff library. */<br/>
+<br/>
+</font><font face="Tahoma, Arial">bool snapshot(int width, int height, char* path)<br/>
+{<br/>
+</font><font face="Tahoma, Arial">   bool ret=false;<br/>
+   TIFF *file;<br/>
+   GLubyte *image, *p;<br/>
+   int i;<br/>
+<br/>
+   file = TIFFOpen(path, "w");<br/>
+   if (file) {<br/>
+      image = (GLubyte *) malloc(width * height * sizeof(GLubyte) * 3);<br/>
+<br/>
+      /* OpenGL's default 4 byte pack alignment would leave extra bytes at the<br/>
+      end of each image row so that each full row contained a number of bytes<br/>
+      divisible by 4.  Ie, an RGB row with 3 pixels and 8-bit componets would<br/>
+      be laid out like "RGBRGBRGBxxx" where the last three "xxx" bytes exist<br/>
+      just to pad the row out to 12 bytes (12 is divisible by 4). To make sure<br/>
+      the rows are packed as tight as possible (no row padding), set the pack<br/>
+      alignment to 1. */<br/>
+      glPixelStorei(GL_PACK_ALIGNMENT, 1);<br/>
+<br/>
+      glReadPixels(0, 0, width, height, GL_RGB, GL_UNSIGNED_BYTE, image);<br/>
+      TIFFSetField(file, TIFFTAG_IMAGEWIDTH, (uint32) width);<br/>
+      TIFFSetField(file, TIFFTAG_IMAGELENGTH, (uint32) height);<br/>
+      TIFFSetField(file, TIFFTAG_BITSPERSAMPLE, 8);<br/>
+      TIFFSetField(file, TIFFTAG_COMPRESSION, COMPRESSION_PACKBITS);<br/>
+      TIFFSetField(file, TIFFTAG_PHOTOMETRIC, PHOTOMETRIC_RGB);<br/>
+      TIFFSetField(file, TIFFTAG_SAMPLESPERPIXEL, 3);<br/>
+      TIFFSetField(file, TIFFTAG_PLANARCONFIG, PLANARCONFIG_CONTIG);<br/>
+      TIFFSetField(file, TIFFTAG_ROWSPERSTRIP, 1);<br/>
+      TIFFSetField(file, TIFFTAG_IMAGEDESCRIPTION, "");<br/>
+      p = image;<br/>
+      for (i = height - 1; i >= 0; i--) {<br/>
+         if (TIFFWriteScanline(file, p, i, 0) < 0) {<br/>
+            free(image);<br/>
+            TIFFClose(file);<br/>
+            return false;<br/>
+         }<br/>
+         p += width * sizeof(GLubyte) * 3;<br/>
+      }<br/>
+      TIFFClose(file);<br/>
+   }<br/>
+   return ret;<br/>
+}<br/>
+<br/>
+<br/>
+Below is code for writing the framebuffer to disk using libjpeg.<br/>
+Thanks to </font>Adam Chou for submitting the orginal code!<br/>
+<br/>
+extern "C" {<br/>
+#include &gt;jpeglib.h&lt;    /* IJG JPEG LIBRARY by Thomas G. Lane */<br/>
+}<br/>
+<br/>
+bool screenshot(unsigned int width, unsigned int height, char *path, int quality)<br/>
+{<br/>
+   bool ret=false;<br/>
+<br/>
+   struct jpeg_compress_struct cinfo; // the JPEG OBJECT<br/>
+   struct jpeg_error_mgr jerr; // error handler struct<br/>
+   unsigned char *row_pointer[1]; // pointer to JSAMPLE row[s]<br/>
+   GLubyte *pixels=0, *flip=0;<br/>
+   FILE *shot;<br/>
+   int row_stride; // width of row in image buffer<br/>
+   <br/>
+   if((shot=fopen(path, "wb"))!=NULL) { // jpeg file<br/>
+      // initializatoin<br/>
+      cinfo.err = jpeg_std_error(&jerr); // error handler<br/>
+      jpeg_create_compress(&cinfo); // compression object<br/>
+      jpeg_stdio_dest(&cinfo, shot); // tie stdio object to JPEG object<br/>
+      row_stride = width * 3;<br/>
+<br/>
+      pixels = (GLubyte *)malloc(sizeof(GLubyte)*width*height*3);<br/>
+      flip = (GLubyte *)malloc(sizeof(GLubyte)*width*height*3);<br/>
+<br/>
+      if (pixels!=NULL && flip!=NULL) {<br/>
+         // save the screen shot into the buffer<br/>
+         //glReadBuffer(GL_FRONT_LEFT);<br/>
+         glPixelStorei(GL_PACK_ALIGNMENT, 1);<br/>
+         glReadPixels(0, 0, width, height, GL_RGB, GL_UNSIGNED_BYTE, pixels);<br/>
+<br/>
+         // give some specifications about the image to save to libjpeg<br/>
+         cinfo.image_width = width;<br/>
+         cinfo.image_height = height;<br/>
+         cinfo.input_components = 3; // 3 for R, G, B<br/>
+         cinfo.in_color_space = JCS_RGB; // type of image <br/>
+<br/>
+         jpeg_set_defaults(&cinfo);<br/>
+         jpeg_set_quality(&cinfo, quality, TRUE);<br/>
+         jpeg_start_compress(&cinfo, TRUE);<br/>
+<br/>
+         // OpenGL writes from bottom to top.<br/>
+         // libjpeg goes from top to bottom.<br/>
+         // flip lines.<br/>
+         for (int y=0;y<height;y++) {<br/>
+            for (int x=0;x<width;x++) {<br/>
+               flip[(y*width+x)*3] = pixels[((height-1-y)*width+x)*3];<br/>
+               flip[(y*width+x)*3+1] = pixels[((height-1-y)*width+x)*3+1];<br/>
+               flip[(y*width+x)*3+2] = pixels[((height-1-y)*width+x)*3+2];<br/>
+            }<br/>
+         }<br/>
+<br/>
+         // write the lines<br/>
+         while (cinfo.next_scanline < cinfo.image_height) {<br/>
+            row_pointer[0] = &flip[cinfo.next_scanline * row_stride];<br/>
+            jpeg_write_scanlines(&cinfo, row_pointer, 1);<br/>
+         }<br/>
+<br/>
+         ret=true;<br/>
+         // finish up and free resources<br/>
+         jpeg_finish_compress(&cinfo);<br/>
+         jpeg_destroy_compress(&cinfo);<br/>
+      }<br/>
+      fclose(shot);<br/>
+   }<br/>
+   <br/>
+   if(pixels!=0)<br/>
+      free(pixels);<br/>
+   if(flip!=0)<br/>
+      free(flip);<br/>
+<br/>
+   return ret;<br/>
+}<br/>
+<br/>
+    <div style="border: 1px;">
+    Created: 2005-11-11 00:15:48
+    Modified: 2009-08-09 12:37:29
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+0, 1, 1, 2, 3, 5, 8, 13, 21, 34,...<br/>
+<b> x<sub>n</sub> = x<sub>n-1</sub> + x<sub>n-2</sub></b><br/>
+<!-- "Fibonacci" was his nickname, which roughly means "Son of Bonacci". -->
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

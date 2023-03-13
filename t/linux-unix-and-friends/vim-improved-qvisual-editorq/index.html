@@ -1,0 +1,428 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>ViM -  IMproved &quot;visual editor&quot;</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/linux-unix-and-friends/">linux-unix-and-friends</a>
+    <h1>ViM -  IMproved &quot;visual editor&quot;</h1>
+   <a href="http://www.vim.org/">welcome home : vim online</a><br/>
+<br/>
+There are many kinds of text editors out there.  Few are as good as vi.  I know, I know, it isn't like your normal editor.  There is this concept of command mode vs. insert mode....a lot more work than most other editors to master, and many times not so user friendly.  However, learn to love it, and you'll be rewarded. :)<br/>
+<br/>
+One reason I love VIM is because it is available on most every OS.  You can also gaurantee that it is going to be on every UNIX/Linux/Mac/Cygwin/etc system you touch.<br/>
+<br/>
+<br/>
+<a href="http://cloudhead.io/2010/04/24/staying-the-hell-out-of-insert-mode/">cloudhead.io:Staying the hell out of insert mode</a> - exiting insert mode? press Esc, is not the answer, not in a browser(cloud9 vim) try: Ctrl-[ and Ctrl-C.<br/>
+Insert Mode hotkeys:<br/>
+Ctrl-Y: insert the character right above the cursor.<br/>
+Ctrl-U: delete the current line from the cursor position.<br/>
+Ctrl-A: re-insert the text inserted in the previous insert session.<br/>
+<a href="http://valloric.github.io/YouCompleteMe/">YouCompleteMe by Valloric</a> - YouCompleteMe is a fast, as-you-type, fuzzy-search code completion engine for Vim.<br/>
+<br/>
+Here are some cool things I love about VIM.<br/>
+<a href="http://vimbits.com/">Vimbits</a><br/>
+<br/>
+<a href="http://www.catonmat.net/blog/why-vim-uses-hjkl-as-arrow-keys/">Here is why vim uses the hjkl keys as arrow keys - good coders code, great reuse</a> - ADM-3A keyboard had the arrow keys on hjkl. hardware precedence.<br/>
+<h2>refresh vim screen</h2>
+Ctrl-L to refresh the display<br/>
+:e to reload the file from disk and refresh display.<br/>
+<br/>
+<h2>Go to the beginning and end of line</h2>
+0 goes to beginning and $ goes to end in command mode.
+<h2>Column mode vim | vertical selection with vim</h2>
+Ctrl + V to go into column mode<br/>
+Shift + i to go into insert mode in column mode<br/>
+Esc to leave insert mode, applying your changes.<br/>
+<br/>
+<a href="http://vimcasts.org/episodes/selecting-columns-with-visual-block-mode/">Selecting columns with visual block mode</a> - vimcasts.org on column commands and using visual block mode.<br/>
+<a href="http://stackoverflow.com/questions/6971903/how-to-do-column-editing-in-vim">editor - How to do column editing in vim? - Stack Overflow</a><br/>
+<br/>
+<a href="https://github.com/gmarik/Vundle.vim">gmarik/Vundle.vim</a> - Vundle, the plug-in manager for Vim. git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle<br/>
+
+<h2>help and useful commands in vim</h2>
+<pre>
+Type ":help" in Vim to get started. Type ":help subject" to get help on a specific subject.
+
+Some useful vim commands follow:
+
+:set paste              - Turn on pasting mode.
+:set nopaste            - Turn off pasting mode.
+:set ai                 - Turn on autoindenting.
+:set noai               - Turn off autoindenting.
+:set textwidth=0        - Disable maximum text width.
+:set textwidth=78       - Set max width that text can be insterted to 78.
+:set list               - Show tabs as '^I' and end of line characters as '$'.
+:set nolist             - Turn off list mode.
+:syntax on              - Turn on syntax highlighting.
+:set ruler              - should show a column ruler in vim..if you have a new enough version.
+:set number             - shows line numbers, set nonumber to turn line numbers off.
+:syntax off             - Turn off syntax highlighting.
+</pre>
+
+<br/>
+<h2>Web Resources</h2>
+<a href="http://www.vim.org/">The VIM (Vi IMproved) Home Page</a><br/>
+<a href="http://thomer.com/vi/vi.html">The Vi Lovers Home Page</a><br/>
+<a href="http://www.builderau.com.au/program/python/soa/Extending-Vim-with-Python/0,2000064084,339283181,00.htm">Extending Vim with Python - Program - Python - Builder AU</a><br/>
+<a href="http://www.lagmonster.org/docs/vi2.html">Vi Cheat Sheet</a><br/>
+<a href="http://nvie.com/posts/how-i-boosted-my-vim/">How I boosted my Vim » nvie.com</a><br/>
+<a href="http://code.google.com/p/macvim/">macvim - Project Hosting on Google Code</a> - MacVim is a port of the text editor Vim to Mac OS X.<br/>
+<a href="http://vimgolf.com/">VimGolf - real Vim ninjas count every keystroke!</a><br/>
+<a href="http://nvie.com/posts/how-i-boosted-my-vim/">How I boosted my Vim » nvie.com</a><br/>
+<a href="http://www.cs.rit.edu/~cslab/vi.html#A1.4">vi Editor Commands</a><br/>
+<a href="http://adammonsen.com/post/286">Vim tricks from OSCON 2007 and beyond « Adam Monsen</a><br/>
+<a href="https://github.com/mklabs/vim-backbone">mklabs/vim-backbone</a> - Lightweight bag of Vim utilities for Backbone - snipmate snippets, templates and omnicompletion<br/>
+<br/>
+<br/>
+
+<h2>su write vim</h2>
+There are times when you vi a file that you don't have perms to write to.... instead of saving it to an alternate file and moving it over top of the orginal, you can simply do the following...<br/>
+<pre>
+:w !sudo tee % > /dev/null 
+</pre>
+<br/>
+<br/>
+<h2>search and replace in vi</h2>
+If you want to search an entire file, you can use % to indicate whole document as the range:<br/>
+:%s/search/replace/g<br/>
+The range is optional; if you just run :s/search/replace/, it will search only the current line and match only the first occurrence of a term.<br/> 
+<a href="http://www.linux.com/feature/55316">Linux.com :: Vim tips: The basics of search and replace</a><br/>
+<br/>
+<br/>
+<h2>Insert command output into document within vim</h2>
+In the normal mode<br/>
+!! date<br/>
+(!! will replace the current line with the output of the command).<br/>
+<br/>
+<br/>
+<h2>external applications and vi</h2>
+<a href="http://amjith.blogspot.com/2008/12/running-make-compiling-from-vim.html">Running make (Compiling) From Vim | Core Dump</a><br/>
+<a href="http://vim.wikia.com/wiki/Display_output_of_shell_commands_in_new_window">Display output of shell commands in new window - Vim Tips Wiki</a> - :Shell<br/>
+<a href="http://www.vim.org/scripts/script.php?script_id=2771">Conque Shell - Run interactive commands inside a Vim buffer : vim online</a> - works on both linux and windows<br/>
+<a href="http://vimcasts.org/episodes/archive">VIM CASTS Episodes</a><br/>
+<a href="http://mislav.uniqpath.com/2011/12/vim-revisited/">Vim: revisited</a><br/>
+<a href="http://www.moolenaar.net/habits.html">Vim: Seven habits of effective text editing</a><br/>
+<br/>
+<br/>
+<h2>status/tabline enhancements for vim</h2>
+<img src="https://raw.github.com/wiki/bling/vim-airline/screenshots/demo.gif" alt="vim-airline"/><br/>
+<a href="https://github.com/bling/vim-airline">bling/vim-airline · GitHub</a> - lean & mean status/tabline for vim that's light as air<br/>
+<a href="https://github.com/Lokaltog/powerline">Lokaltog/powerline · GitHub</a> - The ultimate statusline/prompt utility. (written in Python)<br/>
+<br/>
+<br/>
+<h2>.files || dotfiles || vimfiles</h2>
+<a href="https://github.com/hoelzro/vimfiles">hoelzro/vimfiles · GitHub</a><br/>
+<a href="http://dotfiles.github.io/">GitHub does dotfiles - dotfiles.github.io</a><br/>
+<a href="http://blog.tjll.net/yet-another-vim-setup/">Tyblog | Yet Another Vim Setup</a><br/>
+<br/>
+<br/>
+<br/>
+<a href="http://rc3.org/2012/05/12/the-grammar-of-vim/">rc3.org - The grammar of Vim</a><br/>
+<a href="http://zmievski.org/files/talks/codeworks-2009/vim-for-php-programmers.pdf">Andrei Zmievski’s Vim for Programmers</a><br/>
+<a href="http://yanpritzker.com/2011/12/16/learn-to-speak-vim-verbs-nouns-and-modifiers/">Learn to speak vim - verbs, nouns, and modifiers!</a><br/>
+<br/>
+<br/>
+<h2>vi convert tab to space</h2>
+:set expandtab tabstop=4 shiftwidth=4<br/>
+<br/>
+<h2>Switch to HEX edit mode using VIM</h2>
+Enter hex edit mode:%!xxd<br/>
+Exit hex edit mode:%!xxd -r<br/>
+<br/>
+<br/>
+<a href="http://www.joyceleong.com/log/how-to-change-linux-ubuntus-default-editor-from-nano-to-vi/">LogBook » How to Change Linux Ubuntu’s default editor from Nano to Vim?</a> - sudo update-alternatives --config editor<br/>
+<br/>
+<br/>
+<a href="http://code-and-hacks.peculier.com/perl/stealing-from-padre-for-vim-part-3/">Stealing from Padre for Vim part 3</a> - using App::EditorTools from vim mappings.<br/>
+<a href="http://code-and-hacks.peculier.com/vim/recovering-after-vim-terminates/">Recovering After Vim Terminates</a> - find . -name "*.swp"...<br/>
+<br/>
+<br/>
+<h2>check for shebang and bind execution to F5</h2>
+~/.vimrc<br/>
+<pre>
+function! RunShebang()
+  if (match(getline(1), '^\#!') == 0)
+    :!./%
+  else
+    echo "No shebang in this file."
+  endif
+endfunction
+map &lt;F5&gt; :call RunShebang()&lt;CR&gt;
+</pre>
+<a href="http://powdahound.com/2009/05/execute-current-file-in-vim">Execute current file in Vim | powdahound.com</a><br/>
+<a href="http://dailyvim.blogspot.com/2009/04/chris-sutter-writes-i-have-script-and.html">Daily Vim: Text Editor Tips, Tricks, Tutorials, and HOWTOs: Vim Sugar</a><br/>
+<br/>
+<a href="http://vim.wikia.com/wiki/Main_Page">Vim Tips Wiki</a><br/>
+<br/>
+<br/>
+<h2>unicode characters paste as . || paste unicode putty to vim</h2>
+I've had trouble in the past, and it ended up being my terminal putty not having character set as UTF-8. ?<a href="http://www.sqlsnippets.com/en/topic-13428.html">Unicode: Unicode and Putty (Windows)</a> -> "Change settings",select the session you wish to check from the "Saved Sessions" field,selet "Window / Translation",set "Received data assumed to be in which character set:" to UTF-8
+click [Apply]<br/>
+<br/>
+<br/>
+<h2>Vim Clutch</h2>
+<a href="https://github.com/alevchuk/vim-clutch">alevchuk/vim-clutch</a> - <br/>
+<a href="http://jeffamcgee.com/using-a-vim-clutch.html">Shared State - Using a Vim Clutch</a> - mentions that most of the time we aren't simply going into insert mode..<br/>
+<a href="http://dave.thehorners.com/tech-talk/projects-research/hidhelve">Horners HIDHelve - Dave Horner's Website</a>...<br/>
+<br/>
+<br/>
+<h2>vim reopen last file alias</h2>
+<pre>alias vl='vim -c "normal '\''0"'</pre><br/>
+<a href="https://www.youtube.com/watch?v=H1I4LVOlYPQ">Vim - reopen last opened file - YouTube</a><br/>
+<br/>
+<br/>
+<h2>vimdiff || vi diff</h2>
+<a href="http://vimcasts.org/episodes/comparing-buffers-with-vimdiff/">vimcasts.org - Comparing buffers with vimdiff</a><br/>
+<a href="http://gingerjoos.com/blog/linux/vimdiff-the-cool-way-to-diff-for-vim-users">vimdiff - the cool way to diff for vim users | Dreams of Thought</a><br/>
+<a href="http://stackoverflow.com/questions/5288875/vimdiff-what-are-the-most-frequently-used-commands-shortcuts-that-could-get-a-n">linux - Vimdiff: What are the most frequently used commands/shortcuts that could get a newbie started? - Stack Overflow</a><br/>
+<a href="https://github.com/tpope/vim-fugitive">tpope/vim-fugitive</a> - fugitive.vim: a Git wrapper so awesome, it should be illegal. @tpope, would not lie to you.<br/>
+<br/>
+<br/>
+<a href="https://metacpan.org/pod/Vim::Debug::Manual">Vim::Debug::Manual - Integrate the Perl debugger with Vim - metacpan.org</a><br/>
+<br/>
+<a href="http://kien.github.io/ctrlp.vim/">ctrlp.vim ÷ home</a> - Full path fuzzy file, buffer, mru, tag, ... finder for Vim.<br/>
+<br/>
+<br/>
+<h2>macros</h2>
+<a href="http://vim.wikia.com/wiki/Macros">Macros - Vim Tips Wiki</a><br/>
+<br/>
+<br/>
+    <div style="border: 1px;">
+    Created: 2005-05-10 00:10:06
+    Modified: 2014-05-19 13:15:44
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+0, 1, 1, 2, 3, 5, 8, 13, 21, 34,...<br/>
+<b> x<sub>n</sub> = x<sub>n-1</sub> + x<sub>n-2</sub></b><br/>
+<!-- "Fibonacci" was his nickname, which roughly means "Son of Bonacci". -->
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,510 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>Silverlight - WPF/E on the web.</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/programming/">programming</a>
+    <h1>Silverlight - WPF/E on the web.</h1>
+   Ok, so cross platform is what it is all about.  Lets see how Silverlight goes.....<br/>
+Silverlight is becoming the universal platform for building cross platform applications.<br/>
+Silverlight 4 now provides out of browser Desktop Silverlight applications which can be <strong>full trust</strong>!<br/>
+<a href="http://tirania.org/blog/archive/2009/Nov-23.html">Silverlight: Universal GUI toolkit - Miguel de Icaza</a> - Miguel talks about the out of browser experience provided with Silverlight 4.<br/> 
+<br/>
+<br/>
+It is always nice to browse a set of samples and read code to come up to speed with a new technology.<br/>
+<a href="http://silverlight.net/themes/silverlight/community/gallerydetail.aspx?cat=5">Silverlight: Gallery : 2 Beta 1 Samples</a><br/>
+<a href="http://www.microsoft.com/downloads/details.aspx?FamilyId=11dc7151-dbd6-4e39-878f-5081863cbb5d&displaylang=en">Download details: Silverlight 3 Tools</a><br/>
+<br/>
+<a href="http://www.sparklingclient.com/">The Silverlight Podcast - Sparkling Client</a> - silverlight podcast..<br/>
+<a href="http://www.silverlightshow.net/">SilverlightShow: Silverlight Community - articles, news, tutorials, showcase, videos</a><br/>
+<br/>
+<br/>
+Here is the latest download of Silverlight development tools.<br/>
+<a href="http://www.microsoft.com/downloads/details.aspx?FamilyId=E0BAE58E-9C0B-4090-A1DB-F134D9F095FD&displaylang=en">Download: Microsoft Silverlight Tools Beta 1 for Visual Studio 2008</a><br/>
+<a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=32a3e916-e681-4955-bc9f-cfba49273c7c&DisplayLang=en">Download details: Microsoft Expression Blend 2.5 March 2008 Preview</a><br/>
+<a href="http://www.microsoft.com/silverlight/downloads.aspx#4_0">Microsoft Silverlight: Downloads for Cross-Platform RIA Development</a><br/>
+<br/>
+<a href="http://karlshifflett.wordpress.com/xaml-power-toys/#Downloads">XAML Power Toys « Karl On WPF - .Net</a> - very nice.<br/>
+<a href="http://peteohanlon.wordpress.com/moxaml-power-toys/">MoXAML Power Toys « Musings and frustrations</a><br/>
+<br/>
+<h2>Great blogs on Silverlight stuff</h2>
+<a href="http://blogs.msdn.com/brada/archive/2008/03/16/silverlight-2-developer-poster.aspx">Brad Abrams : Silverlight 2 Developer Poster</a><br/>
+<a href="http://hackingsilverlight.blogspot.com/">HackingSilverlight</a><br/>
+<br/>
+<br/>
+Update: Silverlight 1.1 tools for VS2008RTM has just been released!  I'm very excited to see some of this stuff become real.  Soon, hopefully I'll be publishing some silverlight work here on my personal website.  More coming soon.<br/>
+Update Jan-24-2008: Silverlight for windows mobile devices has still not been released.  This is really up there on my wish list... Cross platform rich media experiences, when will it happen...oh hum. (<a href="http://keithelder.net/blog/archive/2007/01/12/Microsofts-Response-To-The-iPhone-Is-Right-Around-The-Corner.aspx">Microsoft's Response To The iPhone Is Right Around The Corner</a>)<br/>
+<a href="http://blogs.msdn.com/somasegar/archive/2007/11/29/quick-update-on-silverlight.aspx">Somasegar's WebLog : Quick update on Silverlight</a><br/>
+<br/>
+Looks like we are getting the First Developer CTP for Silverlight 1.0 for mobile available in 2nd Quarter of CY 2008 targeting Windows Mobile 6.<br/>
+Boy, a long wait for single code, multi-platform!<br/>
+<a href="http://silverlight.net/learn/mobile.aspx">Silverlight: Silverlight 1.0 for Mobile</a><br/>
+<br/>
+
+<h2>Silverlight Games</h2>
+<a href="http://www.bennedik.de/Silverboard.html">Silverlight chess board</a> - very cool!<br/>
+<a href="http://games.ailon.org/games/">GAMES.ailon.org - Open source Silverlight games.</a> - battleship, tic-tac-toe,etc.<br/>
+<a href="http://blogs.silverarcade.com/silverlight-games-101/">Silverlight Games 101 - Learn to write games in Silverlight</a><br/>
+
+<br/>
+<h2>Deep Zoom</h2>
+<a href="http://labs.live.com/Silverlight+2+Deep+Zoom.aspx">Microsoft Live Labs - Silverlight 2 'Deep Zoom'</a><br/>
+<a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=457B17B7-52BF-4BDA-87A3-FA8A4673F8BF&displaylang=en">Download details: Deep Zoom Composer</a><br/>
+<a href="http://www.techcrunch.com/2008/03/05/seadragon-in-silverlight-the-coolest-bit-from-mix-keynote-one/">SeaDragon In Silverlight: The Coolest Bit From Mix Keynote One</a><br/>
+<a href="http://www.vertigo.com/DeepZoom.aspx">Vertigo: DeepZoom</a><br/>
+<a href="http://blogs.msdn.com/expression/archive/2008/03/22/deep-zoom-collections-example.aspx">Expression Blend and Design : Deep Zoom Collections Example</a><br/>
+<a href="http://blogs.msdn.com/nikola/archive/2008/05/07/deep-zoom-creating-working-application-in-less-than-5-minutes-using-the-new-deep-zoom-composer.aspx">XAML, WPF, Silverlight, .NET, Office 2007, Windows : Deep Zoom: Creating Working Application in Less than 5 Minutes Using the New Deep Zoom Composer</a><br/>
+<a href="http://msdn.microsoft.com/en-us/magazine/dd943052.aspx">Taking Silverlight Deep Zoom to the Next Level</a> - deep zoom MandelbrotImageGenerator : IHttpHandler<br/>
+<br/>
+<br/>
+<br/>
+<h2>PivotViewer Control</h2>
+<a href="http://www.silverlight.net/learn/pivotviewer/">PivotViewer Home : The Official Microsoft Silverlight Site</a><br/>
+<a href="http://www.silverlight.net/learn/pivotviewer/collection-tools/">PivotViewer : Collection Tools - The Official Microsoft Silverlight Site</a><br/>
+<a href="http://pivotcollectionmaker.codeplex.com/">Pivot Collection Maker</a><br/>
+
+<br/>
+<br/>
+<a href="http://blogs.msdn.com/tims/archive/2008/03/05/so-you-ve-installed-silverlight-2-beta-1-what-next.aspx">Tim Sneath : So You've Installed Silverlight 2 Beta 1: What Next?</a><br/>
+<a href="http://blogs.msdn.com/tims/default.aspx">Tim Sneath - Musings of a Client Platform Technical Evangelist (blog)</a><br/>
+<a href="http://www.wintellect.com/CS/blogs/jprosise/default.aspx">Jeff Prosise's Blog</a><br/>
+<br/>
+<a href="http://www.codeproject.com/useritems/SilverlightsOut.asp">Silverlights Out - An Introduction into Silverlight by Example</a><br/>
+<a href="http://msdn2.microsoft.com/en-us/library/bb404300.aspx">Getting Started with Silverlight</a><br/>
+<a href="http://www.codeproject.com/silverlight/silverlightintro.asp">SilverLight Introduction</a><br/>
+
+<a href="http://www.cjcraft.com/Blog/2007/05/16/SilverlightLinksTheSilverlightLaunchPadIsReadyForLaunch.aspx">CJCraft's Blog - Silverlight Links - The Silverlight Launch Pad is Ready for Launch</a>
+
+<a href="http://phizzpop.visitmix.com/">Phizzpop</a> - a showcasing site for designers and coders.  Seems to have quite a bit of silverlight on there.<br/>
+<br/>
+<br/>
+<h2>Silverlight apps</h2>
+<a href="http://xamla.codeplex.com/">Xamla, A Lightweight Design Application For Silverlight</a> - implements an MVVM pattern for nearly all aspects of the UI and also implements Unity for Silverlight.  Runtime designer for XAML.<br/>
+<br/>
+<br/>
+<h2>Silverlight Libraries</h2>
+<a href="http://imagetools.codeplex.com/">.NET Image Tools</a> - ImageTools for Silverlight is a library, which provides additional functionality for loading, saving and manipulation images from different sources and with different formats.<br/>
+<a href="http://kodierer.blogspot.com/2010/01/matrix3dex-10-when-planeprojection-is.html">Kodierer [Coder]: Matrix3DEx 1.0 - When PlaneProjection is not enough - Rene Schulte - Coding .Net and Silverlight with C#</a> - CodePlex project site <a href="http://matrix3dex.codeplex.com/">Matrix3DEx</a><br/>
+<a href="http://www.codeplex.com/FarseerPhysics">Farseer Physics Engine -- 2D Physics For XNA and Silverlight</a><br/>
+<a href="http://www.microsoft.com/downloads/details.aspx?FamilyId=25144C27-6514-4AD4-8BCB-E2E051416E03&displaylang=en">Download details: Silverlight 1.1 tools for VS2008</a><br/>
+<a href="http://labs.componentone.com/Sapphire/">Sapphire - ComponentOne's Silverlight Toolset</a><br/>
+<a href="http://jmorrill.hjtcentral.com/Home/tabid/428/EntryId/432/MVVM-for-Tarded-Folks-Like-Me-or-MVVM-and-What-it-Means-to-Me.aspx">Jer's One Stop Shop > Home - MVVM for Tarded Folks Like Me *or* MVVM and What it Means to Me</a><br/>
+<a href="http://silverlightcoverflow.codeplex.com/">Silverlight Cover Flow</a><br/>
+<br/>
+<br/>
+<h2>WriteableBitmapEx</h2>
+<a href="http://writeablebitmapex.codeplex.com/">WriteableBitmapEx</a> - WriteableBitmapEx library is a collection of extension methods for Silverlight's <a href="http://msdn.microsoft.com/en-us/library/system.windows.media.imaging.writeablebitmap%28VS.95%29.aspx">WriteableBitmap</a><br/>
+<a href="http://blogs.msdn.com/b/jgalasyn/archive/2008/04/17/using-writeablebitmap-to-display-a-procedural-texture.aspx">Using WriteableBitmap to Display a Procedural Texture - Jim Galasyn's Learning Curve - Site Home - MSDN Blogs</a><br/>
+<a href="http://adamkinney.wordpress.com/2010/01/09/image-blitting-in-silverlight-with-writeablebitmapex/">Image Blitting in Silverlight with WriteableBitmapEx « Adam Kinney's blog has moved</a><br/>
+<br/>
+<a href="http://mashable.com/2007/04/16/microsoft-adobe-smackdown/">Microsoft vs Adobe Smackdown - Silverlight and Adobe Media Player</a><br/>
+<br/>
+<a href="http://www.codeproject.com/KB/aspnet/circular_chess.aspx">CodeProject: Online Circular Chess in Silverlight, ASP.NET Ajax, WCF Web Services and LINQ to SQL.</a><br/>
+<a href="http://www.codeproject.com/KB/silverlight/gridcomputing.aspx">CodeProject: Legion: Build your own virtual super computer with Silverlight.</a><br/>
+<br/>
+<a href="http://www.aisto.com/Roeder/Silverlight/">Lutz Roeder's Silverlight Page</a><br/>
+<a href="http://silverlight.net/samples/1.0/Sprawl/default.html">Sprawl Sample</a><br/>
+<a href="http://channel9.msdn.com/Showpost.aspx?postid=272239">â??WPF/Eâ? Video Boot Camp - Programming â??WPF/Eâ? â?? Laurence Moroney</a><br/>
+<a href="http://www.tafiti.com/">tafiti</a> - experimental search front-end from Microsoft using both Microsoft Silverlight and Live Search.<br/> 
+<a href="http://msdn.microsoft.com/msdnmag/issues/07/06/Silverlight/default.aspx">SILVERLIGHT: Get Started Building A Deeper Experience Across The Web -- MSDN Magazine, June 2007</a><br/>
+<a href="http://weblogs.asp.net/scottgu/archive/2007/05/17/tip-trick-supporting-full-screen-mode-with-silverlight.aspx">Tip/Trick: Supporting Full Screen Mode with Silverlight - ScottGu's Blog</a><br/>
+<br/>
+<a href="http://www.popfly.com/">Home - Microsoft Popfly</a><br/>
+<br/>
+<br/>
+<h2>Silverlight Dynamic Language Runtime (DLR)</h2>
+<a href="http://www.iunknown.com/2008/03/dynamic-silve-1.html">John Lam on Software: Dynamic Silverlight Part 2: Managed JScript and flickr</a><br/>
+<a href="http://dynamicsilverlight.net/learn/">Dynamic Silverlight - Ruby and Python in the Browser - Learn</a><br/>
+<a href="http://dynamicsilverlight.net/see/dlrconsole/">Silverlight 2.0 Beta 1 Samples â?? DLR Console</a><br/>
+<br/>
+
+<a href="http://hex-dump.blogspot.com/2008/03/silverlight-2-sdk-mac-os-x-and-mono.html">Hex dump: Silverlight 2 SDK, Mac OS X and Mono</a><br/>
+<a href="http://blogs.msdn.com/mharsh/archive/2007/05/14/updated-silverlightpad-now-with-javascript-editing-and-preview.aspx">Mike Harsh's Blog : Updated SilverlightPad - Now with Javascript Editing and Preview</a><br/>
+<br/>
+<br/>
+<h2>Great videos</h2>
+15 minutes to show you how to use the combined power of Silverlight, WCF and LINQ to SQL to create a simple application.<br/>
+<a href="http://blogs.msdn.com/swiss_dpe_team/archive/2008/03/17/silverlight-2-beta1-wcf-linq-to-sql-a-powerfull-combination.aspx">Swiss MSDN Team Blog : Silverlight 2 Beta1 + WCF + LINQ to SQL = a powerfull combination</a><br/>
+<a href="http://blogs.msdn.com/swiss_dpe_team/archive/2008/04/04/crud-operations-with-optimistic-locking-using-silverlight-2-beta1-wcf-and-linq-to-sql-inserts-updates-and-deletes.aspx">Swiss MSDN Team Blog : CRUD operations with Optimistic Locking using Silverlight 2 Beta1, WCF and LINQ to SQL (inserts, updates and deletes)</a><br/>
+<br/>
+<br/>
+
+<h2>Silverlight Isolated Storage</h2>
+<a href="http://community.irritatedvowel.com/blogs/pete_browns_blog/archive/2008/03/22/State-Management-and-Isolated-Storage-in-Silverlight-2-Beta-1.aspx">POKE 53280,0: Pete Brown's Blog : State Management and Isolated Storage in Silverlight 2 Beta 1</a><br/>
+<a href="http://silverdb.codeplex.com/">Silverlight Database</a> - a Isolated Storage (IsolatedStorage) based database for Silverlight.<br/>
+<br/>
+<br/>
+<h2>WebBrowser / HTML and Silverlight</h2>
+There isn't a way to display HTML using a standard control in Silverlight.  You can however, interact with the browser housing the sl control.  So you can modify the DOM and insert/edit elements.<br/>
+<a href="http://blogs.msdn.com/delay/archive/2007/09/10/bringing-a-bit-of-html-to-silverlight-htmltextblock-makes-rich-text-display-easy.aspx">Delay's Blog : Bringing a bit of HTML to Silverlight [HtmlTextBlock makes rich text display easy!]</a><br/>
+<a href="http://blogs.msdn.com/markda/archive/2008/05/21/displaying-html-using-silverlight-2.aspx">markda's WebLog : Displaying HTML using Silverlight 2</a><br/>
+<a href="http://htmlpageutil.codeplex.com/">Silverlight HtmlPage Utilities - Home</a> - project wraps all of the HtmlPage objects in mockable way.<br/>
+<a href="http://weblogs.asp.net/nmarun/archive/2009/12/08/webbrowser-and-its-gotcha-s-silverlight-4.aspx">WebBrowser and its “gotcha's” – Silverlight 4 - IBloggable - implemented</a><br/>
+<a href="http://www.silverlightshow.net/items/Interaction-between-Silverlight-and-HTM.aspx">Interaction between Silverlight and HTML</a><br/>
+<a href="http://tanguay.info/web/index.php?pg=codeExamples&id=368">Code Example: How to get querystring variables and change HTML elements from Silverlight.</a><br/>
+<br/>
+<br/>
+<h2>Chart controls for silverlight</h2>
+<a href="http://blogs.msdn.com/delay/archive/2009/02/05/my-new-home-page-expanded-updated-collection-of-great-silverlight-charting-resources.aspx">Delay's Blog : My new home page, expanded [Updated collection of great Silverlight Charting resources!]</a><br/>
+<br/>
+<br/>
+<a href="http://themechanicalbride.blogspot.com/2008/10/building-observable-model-in.html">unfold: Building an Observable Model in Silverlight</a><br/>
+<br/>
+<br/>
+<h2>3d silverlight</h2>
+<a href="http://blogs.msdn.com/jaimer/archive/2009/06/03/silverlight3-planeprojection-primer.aspx">Jaime Rodriguez : Silverlight3 PlaneProjection Primer</a><br/>
+<a href="http://www.codeplex.com/Kit3D">Kit3D - a 3D C# graphics engine for Microsoft Silverlight</a> - match the System.Windows.Media.Media3D namespace from WPF so that it closely matches development for WPF3D syntax.<br/>
+<a href="http://balder.codeplex.com/">Balder - 3D engine for Silverlight, Windows Phone 7, Xna and OpenGL - Home</a><br/>
+<a href="http://babylontoolkit.codeplex.com/">Babylon Toolkit</a> - Babylon Toolkit provides a complete toolbox for Silverlight 5 3D.<br/>
+<br/>
+<br/>
+<h2>MEF and PRISM in Silverlight</h2>
+<a href="http://development-guides.silverbaylabs.org/Video/Silverlight-MEF#videolocation_0">Silverlight MEF - Extensible Applications</a> - great webcast....<br/>
+<a href="http://development-guides.silverbaylabs.org/Video/Silverlight-Prism#videolocation_0">Prism for Silverlight - An Intro to Composite Applications</a> - another wonderful webcast...<br/>
+<a href="http://compositewpf.codeplex.com/Release/ProjectReleases.aspx?ReleaseId=35390">patterns &amp; practices: Composite WPF and Silverlight - Release: Composite Application Guidance - Oct 2009</a><br/>
+<a href="http://www.sparklingclient.com/prism-silverlight/">Prism Silverlight - 10 Things to Know</a><br/>
+<a href="http://blogs.msdn.com/gblock/archive/2009/12/15/building-hello-mef-part-iii-xap-partitioning-with-the-host-s-permission-and-the-sweetness-of-recomposition.aspx">My Technobabble : Building Hello MEF – Part III – XAP Partitioning (with the host’s permission) and the sweetness of recomposition.</a><br/>
+<a href="http://www.sparklingclient.com/prism-silverlight/">Prism Silverlight - 10 Things to Know</a><br/>
+<a href="http://blogs.msdn.com/dphill/archive/2009/12/09/prism-and-mef.aspx">David Hill's WebLog : Prism and MEF</a><br/>
+<a href="http://randomactsofcoding.blogspot.com/2009/11/deeper-look-at-mef-imports-and-exports.html">Random Acts of Coding: A Deeper Look at MEF's Imports and Exports</a><br/>
+<a href="http://randomactsofcoding.blogspot.com/2009/11/linqing-to-mef-imports.html">Random Acts of Coding: LINQing to MEF Imports</a><br/>
+<br/>
+<br/>
+<h2>Sidebar Gadget development using Silverlight</h2>
+<a href="http://www.lazarciuc.ro/ioan/2008/08/02/creating-a-vista-sidebar-gadget-using-microsoft-silverlight/">Creating a Vista Sidebar Gadget Using Microsoft Silverlight « Ioan Lazarciuc’s Weblog</a><br/>
+<a href="http://timheuer.com/blog/archive/2007/03/11/14010.aspx">vista dev: updated sidebar gadget templates</a><br/>
+<br/>
+<br/>
+<h2>Silverlight HTTP specifics</h2>
+<a href="http://viswaug.wordpress.com/2009/09/29/making-http-post-with-silverlight-a-little-easier/">Making HTTP Post with Silverlight a little easier « Vishful thinking…</a><br/>
+<br/>
+<br/>
+<h2>Silverlight Webcam / Mic</h2>
+<a href="http://www.silverlight.net/learn/videos/silverlight-4-beta-videos/access-web-camera-microphone/">The Official Microsoft Silverlight Site - Videos - Silverlight 4 Beta - Accessing Web Camera and Microphone</a> - very simple webcast sample of accessing webcam in SL4.<br/>
+<a href="http://www.silverlightshow.net/items/Camdoodle-showcasing-Silverlight-4-new-features-as-behaviors.aspx">Camdoodle: showcasing Silverlight 4 new features as behaviors</a><br/>
+<a href="http://kodierer.blogspot.com/2009/11/edgecam-silverlight-4-webcam-edge.html">Kodierer [Coder]: EdgeCam - Silverlight 4 Webcam &amp; Edge Detection Shader - Rene Schulte - Coding .Net and Silverlight with C#</a><br/>
+<a href="http://kodierer.blogspot.com/2009/12/ye-olde-kamera-silverlight-4-webcam-old.html">Kodierer [Coder]: Ye Olde Kamera - Silverlight 4 Webcam &amp; Old Movie Shader - Rene Schulte - Coding .Net and Silverlight with C#</a><br/>
+<a href="http://www.silverlight.net/community/samples/silverlight-4-beta/photobooth/">Photobooth - silverlight-4-beta Download Detail : The Official Microsoft Silverlight Site</a><br/>
+<a href="http://johnpapa.net/silverlight/saving-snapshots-to-png-in-silverlight-4-and-the-webcam/">Saving Snapshots to PNG in Silverlight 4 and the WebCam : JohnPapa.net</a><br/>
+Links about using Silverlight for Augmented Reality on <a href="http://dave.thehorners.com/tech-talk/programming/121-augmented-reality-mixing-the-virtual-with-the-real">Augmented Reality - mixing the virtual with the real.</a>.<br/>
+<br/>
+<br/>
+<h2>Moonlight / Open Source Silverlight</h2>
+<a href="http://tirania.org/blog/archive/2007/Jun-21.html">Implementing Silverlight in 21 Days - Miguel de Icaza</a><br/>
+<a href="http://tirania.org/blog/archive/2009/May-04.html">First Moonlight 2.0 Preview is Out - Miguel de Icaza</a><br/>
+<a href="http://tirania.org/blog/archive/2009/Dec-17.html">Releasing Moonlight 2, Roadmap to Moonlight 3 and 4 - Miguel de Icaza</a><br/>
+<a href="http://twitter.com/moonproject">Moonlight Project (moonproject) on Twitter</a><br/>
+<a href="http://veritas-vos-liberabit.com/monogatari/">monogatari</a> - bunch of great stuff including WCF mono implementation notes...<br/>
+<br/>
+<br/>
+<h2>Microsoft Silverlight and Microsoft .NET RIA Services</h2>
+<a href="http://silverlight.net/getstarted/riaservices/">RIA Services : The Official Microsoft Silverlight Site</a><br/>
+<a href="http://microsoftpdc.com/Sessions/CL21">Building Amazing Business Applications with Microsoft Silverlight and Microsoft .NET RIA Services :: Sessions :: Microsoft PDC09</a><br/>
+<a href="http://www.riaservicesblog.net/Blog/post/Thoughts-on-Modular-WCF-RIA-Services.aspx">The Elephant and the Silverlight | Thoughts on Modular WCF RIA Services</a><br/>
+<a href="http://timheuer.com/blog/archive/2009/12/10/tips-to-deploy-ria-services-troubleshoot.aspx">Deploying your Silverlight and WCF RIA Services application</a><br/>
+<a href="http://blogs.msdn.com/alexj/archive/2009/12/11/tip-48-how-to-host-a-data-service-in-wcf.aspx">Meta-Me : Tip 48 – How to host a Data Service in WCF</a> - great blog with all sorts of info on WCF data services.<br/>
+<a href="http://geekswithblogs.net/ranganh/archive/2009/12/14/using-wcf-ria-services-without-silverlight-in-visual-studio-2010.aspx">Using WCF RIA Services without Silverlight in Visual Studio 2010 for building 3 tier ASP.NET Applications</a><br/>
+<a href="http://wildermuth.com/2009/12/27/Architecting_SL4_Applications_with_RIA_Services_MEF_and_MVVM_-_Part_3">Shawn Wildermuth - Architecting SL4 Applications with RIA Services, MEF and MVVM - Part 3</a><br/>
+
+<br/>
+<br/>
+<h2>OOB Silverlight (Out Of Browser)</h2>
+Have you had an out of browser experience?  I know, I know.  too badd.<br/>
+<a href="http://weblogs.asp.net/lduveau/archive/2009/11/03/debug-out-of-browser-oob-silverlight-apps.aspx">Debug Out Of Browser (OOB) Silverlight apps - Laurent Duveau</a><br/>
+<a href="http://weblogs.asp.net/lduveau/archive/2009/11/03/update-out-of-browser-oob-silverlight-apps.aspx">Update Out Of Browser (OOB) Silverlight apps - Laurent Duveau</a><br/>
+<a href="http://weblogs.asp.net/nmarun/archive/2010/01/01/com-automation-with-openoffice-silverlight-4.aspx">COM Automation with OpenOffice – Silverlight 4 - IBloggable - implemented</a> - oob with full priv. com automation (ComAutomationFactory.CreateObject("WScript.Shell");)</br>
+<a href="http://jmorrill.hjtcentral.com/Home/tabid/428/EntryId/441/Silverlight-and-Desktop-NET-Integration.aspx">Jer's One Stop Shop > Home - Silverlight and Desktop .NET Integration</a> - COM automation using [ComVisible] .net object.<br/>
+<a href="http://www.silverlight.net/community/samples/silverlight-4-beta/html-puzzle/">silverlight-4-beta/html-puzzle Download Detail : The Official Microsoft Silverlight Site</a> - multi-touch oob with html hosting...<br/>
+<a href="http://johnpapa.net/silverlight/silverlight-4-html-puzzle-how-does-it-work/?utm_source=feedburner&amp;utm_medium=feed&amp;utm_campaign=Feed%3A+JohnPapa+%28JohnPapa.net%29&amp;utm_content=Google+Reader">Silverlight 4 HTML Puzzle: How Does It Work? : JohnPapa.net</a><br/>
+<a href="http://weblogs.asp.net/nmarun/archive/2009/12/11/xap-reflector-silverlight-4.aspx">Xap Reflector – Silverlight 4 - IBloggable - implemented</a><br/>
+<br/>
+<br/>
+<h2>Silverlight Design time and the beez knees.</h2>
+<a href="http://www.ningzhang.org/2009/03/31/how-to-write-silverlight-design-time-for-all-designers-visual-studio-2008-blend-2-blend-3-and-visual-studio-2010/">How to Write Silverlight Design Time for All Designers: Visual Studio 2008, Blend 2; Blend 3, and Visual Studio 2010 | Ning Zhang's Blog</a><br/>
+<br/>
+<br/>
+<h2>WPF and Silverlight integration</h2>
+<a href="http://hackingsilverlight.blogspot.com/2009/12/silverlight-hosting-in-wpf.html">HackingSilverlight: Silverlight Hosting in WPF</a><br/>
+<a href="http://silverlightviewport.codeplex.com/">WPF/XNA SilverlightViewport</a> - Renders Silverlight applications to WPF while maintaining interactivity.<br/>
+<a href="http://code.msdn.microsoft.com/silverlightalthost">Silverlight Alternative Hosting - Home</a> - Silverlight provides unmanaged interfaces that enable you to host Silverlight within another Web plug-in or within a Win32 application. (C++ COM samples and others)  host application must provide the necessary ActiveX hosting infrastructure, and must implement the IXcpControlHost and IXcpControlHost2 interfaces. You can then interact with the Silverlight plug-in through the IXcpControl and IXcpControl2 interfaces.<br/>
+<br/>
+<br/>
+<h2>Silverlight Surface - multitouch, gestures, inertia</h2>
+<a href="http://multitouch.codeplex.com/">Silverlight 4 and WPF 4 Multi-Touch Manipulation</a><br/>
+<a href="http://www.microsoft.com/downloads/details.aspx?displaylang=en&FamilyID=4b281bde-9b01-4890-b3d4-b3b45ca2c2e4">Download details: Microsoft Surface sample for Microsoft Silverlight</a><br/>
+<a href="http://www.davidezordan.net/blog/?p=1716">A Silverlight / Expression Blend behavior to add Multi-Touch Manipulation and Inertia | DavideZordan.net</a><br/>
+<a href="http://blogs.msdn.com/delay/archive/2007/06/01/silverlight-surface-demonstration-silverlight-implementation-of-surface-s-photo-table-ui.aspx">Delay's Blog : Silverlight "Surface" Demonstration [Silverlight implementation of Surface's "photo table" UI]</a><br/>
+<br/>
+<br/>
+<h2>Code sharing with WPF</h2>
+<a href="http://blogs.msdn.com/clrteam/archive/2009/12/01/sharing-silverlight-assemblies-with-net-apps.aspx">CLR Team Blog : Sharing Silverlight Assemblies with .NET Apps</a><br/>
+<br/>
+<br/>
+<h2>Auth</h2>
+<a href="http://msdn.microsoft.com/en-us/library/dd560704(VS.96).aspx">How to: Use the ASP.NET Authentication Service to Log In Through Silverlight Applications</a><br/>
+    <div style="border: 1px;">
+    Created: 2007-05-14 23:27:54
+    Modified: 2011-07-03 21:59:33
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+<span id=daysToChristmas>x</span> days to Christmas.<br/>
+<span id=daysToNewYear>x</span> days to a new year.<br/>
+Happy Holidays!
+<script Language="JavaScript">
+function showtime () {
+        msPerDay = 24 * 60 * 60 * 1000 ; // Number of milliseconds per day
+        var now = new Date();
+        var year = now.getYear();
+        if (year < 1000)
+         year+=1900
+        nextXmas = new Date("December 25, 2000")
+        nextXmas.setYear(year)
+        daysLeft = (nextXmas.getTime() - now.getTime()) / msPerDay;
+        daysLeft = Math.round(daysLeft);
+        var span=document.getElementById('daysToChristmas');
+        span.removeChild(span.firstChild);
+        span.appendChild(document.createTextNode(daysLeft+''));
+        
+        nextXmas = new Date("December 31, 2000")
+        nextXmas.setYear(year)
+        daysLeft = (nextXmas.getTime() - now.getTime()) / msPerDay;
+        daysLeft = Math.round(daysLeft);
+
+        span=document.getElementById('daysToNewYear');
+        span.removeChild(span.firstChild);
+        span.appendChild(document.createTextNode(daysLeft+''));
+        setTimeout("showtime()",msPerDay);
+}
+showtime();
+</script>
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,411 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>Windows Mobile 5 Stuff</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/windows/">windows</a>
+    <h1>Windows Mobile 5 Stuff</h1>
+   <a href="http://www.dotfred.net/">Dotfred's Space - PIM Backup application</a> - a tool that allows to backup/restore personal information stored on windows mobile based pocket devices.  Run and backup from a storage card, soo cool.<br/>
+<br/>
+<br/>
+I just bought the VX6700 from audiovox.  This is a great little pda.<br/>
+Here are a couple reviews of it [<a href="http://www.mobiletechreview.com/Verizon-XV6700.htm" target="_blank">MobileTecReview</a>]<br/>
+<br/>
+<a href="http://www.pocketpctweaks.com/pocketpc_tweaks/view_all_tweaks" target="_blank">Registry tweaks for Windows Mobile</a>.<br/>
+<br/>
+<span style="font-weight: bold;">PPC Software Sites</span><br/>
+<a href="http://www.freewareppc.com/" target="_blank">http://www.freewareppc.com/</a><br/>
+<a href="http://www.pocketgear.com/" target="_blank">http://www.pocketgear.com/</a><br/>
+<br/>
+Good place for themes: <a href="http://www.pocketpcthemes.com/">http://www.pocketpcthemes.com/</a><br/>
+<br/>
+<span style="font-weight: bold;">Sites on the 6700</span><br/>
+<a href="http://www.pdaphonehome.com/forums/forumdisplay.php?f=174" target="_blank">PDAPhoneHome's Forum on the 6700</a><br/>
+<a href="http://ppc6700users.com/" target="_blank">PPC6700 Users</a><br/>
+Audiovox doesn't exist any more, all support for XV6700 is done through <a href="http://www.utstar.com/" target="_blank">UTStarCom</a><br/>
+<br/>
+<span style="font-weight: bold;">Softphone</span><br/>
+<a href="http://www.sjlabs.com/sjp.html" target="_blank">SJPhone</a><br/>
+Xten now CounterPath's <a href="http://www.xten.net/index.php?menu=PPC" target="_blank">Softphone</a><br/>
+IM and voice comm with <a href="http://www.skype.com/" target="_blank">Skype</a>!<br/>
+<a href="http://www.engadget.com/2004/08/31/how-to-use-a-pocket-pc-pda-as-a-wifiphone/2" target="_blank">How-To: Use a Pocket PC PDA as a WiFiphone</a><br/>
+<a href="http://www.dailywireless.org/modules.php?name=News&file=article&sid=3115" target="_blank">SoftPhones for the PPC.</a><br/>
+<a href="http://www.washingtonpost.com/wp-dyn/content/article/2006/03/22/AR2006032201598_pf.html" target="_blank">Review: Wi-Fi Calling Needs Development</a><br/>
+<br/>
+<span style="font-weight: bold;">Misc Applications</span><br/>
+<ul>
+    <li>Control your pocket pc from your computer using Remote Display Control for Pocket PC made by microsoft. [<a href="http://download.microsoft.com/download/5/3/7/5376bdb4-0aec-40df-bb5c-7a4eb4819b25/remotedsp.exe" target="_blank">Download from microsoft</a>] </li>
+    <li>Read <a href="http://www.adobe.com/products/acrobat/readstep2_mobile.html#pocketPC" target="_blank">Adobe Acrobat</a> files using your PocketPC. </li>
+    <li>Freeware <a href="http://www.freewareppc.com/utilities/phmregistryeditor.shtml" target="_blank">Registry editor</a>. </li>
+    <li>Freeware music player <a href="http://www.freewareppc.com/multimedia/gsplayer.shtml" target="_blank">GSPlayer</a> [<a href="http://hp.vector.co.jp/authors/VA032810/index.htm" target="_blank">dev site</a>] (this application supports ogg vorbis and shoutcast streams!  very cool) </li>
+</ul>
+<br/>
+<span style="font-weight: bold;">Installing PPC software<br/>
+<table width="100%" cellspacing="1" cellpadding="1" border="1">
+    <tbody>
+        <tr>
+            <td> <span style="color: red;">(I) Windows Installer:</span><br/>
+            1) Connect your PPC to PC via ActiveSync<br/>
+            2) Run the exe file on your PC<br/>
+            3) Follow the instructions.<br/>
+            4) A pop-up box will ask you whether you wish to install to default location.<br/>
+            <br/>
+            5a) Choose <b>YES</b> to install to <b>main memory</b><br/>
+            6a) Installation will proceed. Look at your PPC screen if theer are any additional instructions.<br/>
+            7a) When asked whether to replace files on PPC, it is ok to choose NO. Choosing NO will save u alot of trouble when dealing with VB (Visual Basic) programs.<br/>
+            <br/>
+            5b) Choose <b>NO</b> if you do not wish to install to <b>main memory</b><br/>
+            6b) From the drop-down menu, u can choose which location to install your software to.<br/>
+            7b) same as 7(a).<br/>
+            <br/>
+            <span style="color: red;">(II) CAB File:</span><br/>
+            A) Install to Main Memory<br/>
+            1) Transfer the CAB file to PPC.<br/>
+            2) Open File Explorer on PPC & search for that cab file<br/>
+            3) Tap/double tap it to run<br/>
+            4) Follow instructions. It may ask u whether to replace files on PPC.<br/>
+            <br/>
+            B) Install to Custom Folder, e.g. Storage Card/ROM<br/>
+            1) Download CABinstl<br/>
+            2) copy the exe file (for CABInstl) to ppc<br/>
+            3) copy your CAB file to ppc also<br/>
+            4) open file explorer on PPC to locate CABInstl<br/>
+            5) Run CABInstl<br/>
+            6) press the ".CAB" button.<br/>
+            7) find your cab file<br/>
+            8) press the "Path" button.<br/>
+            9) specify the folder to install your program to<br/>
+            10) Press Install button. Done!  <br/>
+            <br/>
+            <span style="color: red;">III) Exe file (cannot run on PC) for PPC:</span><br/>
+            1) copy exe file to PPC<br/>
+            2) open file explorer and locate the exe file<br/>
+            3) run the exe file (<b>No installations needed!)</b><br/>
+            4) You may wish to create a shortcut yourself.<br/>
+            5) To create shortcut, inside file explorer, tap & hold on the exe file<br/>
+            6) select "Copy"<br/>
+            7) go to "Windows\Start Menu\Programs" or any subfolder<br/>
+            8) select "paste as shortcut"</td>
+        </tr>
+    </tbody>
+</table>
+<br/>
+</span><br/>
+<span id="intelliTxt"><span style="font-weight: bold;">Registry hack for VX6700 - Wifi and Phone @ same time</span><br/>
+Go to key: HKLM/Services/WirelessMgr<br/>
+Find a key called 'MutexFlag'<br/>
+Change it's value from '1' to '0'<br/>
+Other hacks for the VX6700 <a href="http://www.cmz727.com/alan/6700/6700.htm" target="_blank">here</a>.<br/>
+<br/>
+<span style="font-weight: bold;">Service providers or other neato sites for your PPC.</span><br/>
+View live TV from your mobile device [<a href="http://www.smartvideo.com/" target="_blank">SmartVideo</a>]<br/>
+<br/>
+<span style="font-weight: bold;">Notes or articles of interest</span><br/>
+<a href="http://www.pocketpcmag.com/blogs/index.php?blog=3&p=513&more=1" target="_blank">How to record calls.</a><br/>
+<a href="http://discuss.treocentral.com/archive/index.php/t-67279.html" target="_blank">List of useful software for the PPC.</a><br/>
+<br/>
+<span style="font-weight: bold;">Problems with VX6700 usability</span><br/>
+I really like that the phone has all the devices that I want.  However, it is very poor when it comes to phone management.  I wasn't sure exactly why I didn't like it for a long time.... I even went back to verizon to look at the treo 700w.  The big problem with the VX6700 is that it doesn't allow for one handed operation.  The treo opens a simple menu on the today screen that lists your most recent calls, but the VX6700 just goes right to the dial pad.  This may not seem like a big deal, but it is... Calling people should be very easy to do with any phone... and making me have to use two hands or every hit multiple buttons is just unacceptable.  To see what I'm speaking about checkout this <a href="http://www.bargainpda.com/default.asp?newsID=2804" target="_blank">Treo 700w</a> review.  To make matters worse, WIndows Mobile doesn't allow for you to change the function of the call and hangup buttons.  I don't understand why this restriction was developed... my only guess is that the manufacterers are trying to create some sort of value-added features for purchasing their device over other devices.<br/>
+<br/>
+At this point I'm so tired and annoyed with the state of the PPC phone that I'm looking into developing my own phone applications to allow for the usability I need.<br/>
+<br/>
+I'd like to make something like <a href="http://sygic.com/mobile/phoneedition/index.php#" target="_blank">Sygic .mobile Contacts</a><br/>
+<br/>
+Possible solution for BT problems <a href="http://www.pdaphonehome.com/forums/showthread.php?t=54951&highlight=wm5+button+assign" target="_blank">here</a>.<br/>
+<a href="http://www.satelliteguys.us/archive/index.php/t-53744.html">More info</a><br/>
+<br/>
+Finally someone says something about the technical aspects of the bluetooth problems.  What a pain.  Find it on the windows mobile team blog <a href="http://blogs.msdn.com/windowsmobile/archive/2006/02/03/524289.aspx" target="_blank">here</a>. <br/>
+<br/>
+<span style="font-weight: bold;">VX6700 gadgets and accessories</span><br/>
+<a href="http://www.seidioonline.com/index.asp?PageAction=VIEWCATS&Category=841" target="_blank">Seidio makes a bunch of interesting devices</a><br/>
+</span><a href="http://www.sprintusers.com/forum/showthread.php?t=91072" target="_blank">Seidio Innodock cradle docking solution for 6700 - A Review<br/>
+</a><br/>
+<span style="font-weight: bold;">ActiveSync hell because of Verizon Wireless Sync</span><br/>
+So I was talked into trying Verizon's Wireless Sync client when I spoke with a Verizon rep. the other day.  I installed it, hated it, and wanted it gone.  So I uninstalled it.  This ruined my next few weeks.  After uninstalling the wireless sync app... I couldn't ActiveSync anymore!!!  I called Verizon and told them that I was getting a Notification Error in reference to "ClientShell.exe" and was told that I should not have been able to uninstall the wireless sync client... and that I should do a hard reset to fix the problem.  (This means I lose all the PIM and data that resides on the device!)<br/>
+<br/>
+So I spent hours and hours scouring the net looking for a solution to this problem.  Finally I found a way to install the wireless sync application.  Get this!  I told Verizon to uninstall their "Wireless Sync" app, and they did, but they didn't completely uninstall it.  You can go into the windows\ directory on your device and run the program named "ClientProvision".  This program actually re-downloads the wireless sync app to the device.  So my problem is solved.... but I'm forced to waste space on a verizon app I'm not going to use.<br/>
+<br/>
+I also hear that you use type the following URL into your Pocket IE and download the sync client: <a href="http://ota.wsync.com/" target="_blank">http://ota.wsync.com/</a><br/>
+<br/>
+<strong>Ringtones on Windows Mobile</strong><br/>
+Yes it will do wav and wma no problem for contacts as long as the tone is stored in Storage\Application Data\Sounds<br/>
+<br/>
+<span style="font-weight: bold;">PWI files, oh microsoft, why must you make it hard?</span><br/>
+So I've been toying with recording notes in my windows mobile 5 device.  Which is starting to seem like a mistake.  The application seems to work fine on the device side.  Nice, allows you to write or type notes all the while recording audio.  Very cool.  I was hoping to be able to replay the audio recording by clicking on my notes.... this would be really handy.  Then when I'm writing notes about something, I can quickly recall what the speaker was talking about at that moment in time.<br/>
+<br/>
+So, I can't do the replaying as I would like on the device... I thought, fine, I'll just download it to my machine and see what I can do there.  Nope!  There are no tools and utilities in windows for playback of audio that is embedded in a pwi file.  What a pain.<br/>
+<br/>
+There is a microsoft word converter, but that doesn't allow you to do anything with the audio...making it pretty much useless.  Then I tried installing Microsoft Journal Viewer.  Nope!  Then I tried Microsoft One Note.  Nope.  Nothing out there for PWI files?!<br/>
+<br/>
+I found some links... but I'm still not happy.<br/>
+<a target="_blank" href="http://www.pocketpcmag.com/forum/topic.asp?TOPIC_ID=16597"><font face="Verdana, Arial, Helvetica"><font size="2" face="Verdana, Arial, Helvetica">Extracting embedded WAV files from PWI files</font></font></a><br/>
+<a target="_blank" href="http://www.pocketpcjunkies.com/Uwe/Forum.aspx/pocket-pc/228/Removing-WAV-from-PWI">Removing WAV from PWI</a><br/>
+<br/>
+<strong>Getting voice command to work with bluetooth headsets</strong><br/>
+<a href="http://blogs.msdn.com/windowsmobile/archive/2006/02/03/524289.aspx">Why it won't work...from an MSDN blog</a><br/>
+<br/>
+<a href="http://dialdtmf.sourceforge.net/">dialDTMF</a><br/>
+<a href="http://feeds.pocketpcthoughts.com/~r/pocketpcthoughts/~3/111631118/index.php">Outlook 2007 or 2003 with business contact manager add-in: Business Contacts for Pocket PC</a><br/>
+<a href="http://www.mperfect.net/cfWorldWind/">WorldWind with the Compact Framework</a><br/>
+<a href="http://www.handango.com/PlatformProductDetail.jsp?siteId=1&jid=1DD2B53F1BD643FE1EEC9C6396F332C1&language=english&platformId=2&N=96806&Ntt=voice%20command&productId=199594&R=199594">Microsoft Voice Command 1.6</a><br/>
+<a href="http://www.twoinchview.com/124-microsoft-voice-command-16-reviewed">Microsoft Voice Command 1.6 Reviewed.</a><br/>
+<br/>
+Heh, I installed it but never synced.  I'm happy I waited. :) <a href="http://www.techworld.com/news/index.cfm?NewsID=9057">Microsoft fixes Vista mobile bug</a><br/>
+<a href="http://www.pointui.com/">Pointui, the definitive user interface for mobile devices.</a><br/>
+<a href="http://www.pocketcm.com/contact.php">PocketCM Contacts & Keyboard</a><br/>
+<br/>
+<br/>
+<br/>
+<strong>Mobile 6.5</strong><br/>
+Update mar-1-2009: My vx6700 is just about dead.  I really wish that 6.5 was already out.  I've been patiently waiting, but I may have to get an iphone or android g1...<br/> 
+<a href="http://www.engadget.com/2009/02/18/editorial-ten-reasons-why-windows-mobile-6-5-misses-the-mark/">Editorial: Ten reasons why Windows Mobile 6.5 misses the mark - Engadget</a><br/>
+    <div style="border: 1px;">
+    Created: 2006-02-16 13:07:36
+    Modified: 2009-03-01 09:56:14
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+$$\cos x = \sum\limits_{n = 0}^\infty {\frac{{\left( { - 1} \right)^n x^{2n} }}{{\left( {2n} \right)!}}}$$
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

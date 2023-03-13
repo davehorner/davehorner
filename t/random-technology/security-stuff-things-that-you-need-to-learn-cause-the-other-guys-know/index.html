@@ -1,0 +1,433 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>Security stuff - things that you need to learn, cause the other guys know.</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/random-technology/">random-technology</a>
+    <h1>Security stuff - things that you need to learn, cause the other guys know.</h1>
+   Security it is a very important thing when it comes to digital systems.  Software is easy to break and unbreakable software hard to write.  If not impossible.<br/>
+<a href="http://blogs.msdn.com/b/larryosterman/archive/2010/04/01/microsoft-office-team-deploys-botnet-for-security-research.aspx">Microsoft Office team deploys botnet for security research - Larry Osterman's WebLog - Site Home - MSDN Blogs</a><br/>
+<br/>
+<a href="https://www.sans.org/critical-security-controls">SANS Institute - CIS Critical Security Controls</a><br/>
+<br/>
+<h2>CVE - Common Vulnerabilities and Exposures</h2>
+<a href="https://cve.mitre.org/">CVE - Common Vulnerabilities and Exposures (CVE)</a><br/>
+<a href="http://www.cvedetails.com/">CVE security vulnerability database. Security vulnerabilities, exploits, references and more</a><br/>
+<br/>
+<br/>
+<a href="http://blog.spiderlabs.com/">SpiderLabs Anterior</a><br/>
+<a href="http://www.root25.com/">Root25.com</a><br/>
+<a href="http://erratasec.blogspot.com/">Errata Security</a><br/>
+<a href="http://www.exploit-monday.com/">Exploit Monday</a> - Security Research and Esoteric PowerShell Knowledge<br/>
+<a href="http://dankaminsky.com/">Dan Kaminsky's Blog | (Or: The Blog Formerly Known As DoxPara Research)</a><br/>
+<a href="http://sla.ckers.org/forum/">sla.ckers.org web application security forum</a><br/>
+<a href="http://www.xenuser.org/links/#">Links « Ascii for Breakfast</a><br/>
+<a href="http://th3mast3r.wordpress.com/">th3mast3r | pentest , Linux , hacking tools , IT security</a><br/>
+<a href="http://octotrike.org/home.shtml">Trike: Trike</a><br/>
+<a href="http://www.irongeek.com/">Irongeek.com</a> - Adrian Crenshaw's site on security,pentesting,weight lifting. MS Security Informatics.<br/>
+<a href="http://www.darknet.org.uk/">Darknet - The Darkside - Ethical Hacking, Penetration Testing &amp; Computer Security</a><br/>
+<a href="http://www.alexanderheid.com/">Heid Security Blog | OSINT, Malware, Exploits, Vulns, and other interesting things I find on the Internet.</a><br/>
+<h2>Mitigation - dedicated machine, use live CD || does your bank work with my lynx browser?</h2>
+<a href="https://vimeo.com/13557632">Alexander Heid. Modern CrimeWare Tools and Techniques - An Analysis of Underground Resources on Vimeo</a><br/>
+<img src="/images/stories/Technology/livecd_dedicated_machine.png" title="dedicated machine - only for banking, using a live CD." alt="dedicated machine - only for banking, using a live CD."/><br/>
+<br/>
+<br/>
+<a href="http://blogs.technet.com/b/msrc/">MSRC - Site Home - TechNet Blogs</a> - Security Response Center Blog.<br/>
+<br/>
+<h2>Debugging / monitoring Tools</h2>
+<a href="http://www.microsoft.com/technet/sysinternals/utilities/debugview.mspx">DebugView for Windows v4.74</a><br/>
+<a href="http://www.microsoft.com/technet/sysinternals/utilities/regmon.mspx">RegMon for Windows v7.04</a><br/>
+<a href="http://www.microsoft.com/technet/sysinternals/default.mspx">Microsoft TechNet: Windows Sysinternals</a><br/>
+<a href="http://www.radare.org/y/?p=documentation">radare</a> - Radare2 is an open-source reverse engineering toolkit, consisting of a disassembler, debugger and hex editor. <a href="http://www.radare.org/y/?p=examples">radare examples</a><br/>
+<a href="http://inguma.eu/projects/bokken">Overview - Bokken - Nexo</a> - a GUI for the Pyew malware analysis tool and Radare the reverse engineering framework.<br/>
+<br/>
+<br/>
+<a href="https://code.google.com/p/pyew/">pyew - A Python tool for static malware analysis - Google Project Hosting</a><br/>
+<h2>Rootkit detection</h2>
+<a href="http://www.microsoft.com/technet/sysinternals/Security/RootkitRevealer.mspx">RootkitRevealer v1.71</a><br/>
+<a href="http://www.diamondcs.com.au/processguard/index.php">DiamondCS ProcessGuard rootkit prevention</a><br/>
+<a href="http://www.infoprocess.com.au/antihook.php">InfoProcess - Host Intrusion Prevention Systems</a><br/>
+<a href="http://www.f-secure.co.uk/blacklight/">F-Secure BlackLight</a><br/>
+<a href="http://research.microsoft.com/rootkit/#Introduction">The Strider GhostBuster Project</a><br/>
+<a href="http://www.resplendence.com/hookanalyzer">Resplendence Software - RootKit Hook Analyzer</a><br/>
+<a href="http://www.antirootkit.com/software/IceSword.htm">Anti Rootkit Software - IceSword</a><br/>
+<a href="http://www.antirootkit.com/software/RootKit-Unhooker.htm">Anti Rootkit Software - RootKit Unhooker</a><br/>
+<br/>
+<br/>
+<h2>Hardening</h2>
+<a href="http://turbotramp.fre3.com/">Samurai</a> - A Host-based Intrusion Prevention System<br/>
+<br/>
+<br/>
+<h2>ARP Poisoning</h2>
+<a href="http://www.watchguard.com/infocenter/editorial/135324.asp">Anatomy of an ARP Poisoning Attack | WatchGuard</a><br/>
+<a href="http://www.oxid.it/ca_um/">Cain &amp; Abel User Manual</a><br/>
+<a href="http://www.oxid.it/cain.html">oxid.it - Cain &amp; Abel</a><br/>
+<br/>
+<br/>
+<a href="http://unhandledexpression.com/2010/08/23/fixing-the-dll-loading-vulnerability/">Fixing the DLL loading vulnerability – Unhandled expression</a><br/>
+<br/>
+<br/>
+<a href="http://diegobenna.blogspot.com/2012/08/how-to-secure-ubuntu-1204-lts-server.html">Diego Benna's Blog: How to secure an Ubuntu 12.04 LTS server - The Basics</a><br/>
+<a href="http://www.thefanclub.co.za/how-to/how-install-psad-intrusion-detection-ubuntu-1204-lts-server">How to install PSAD Intrusion Detection on Ubuntu 12.04 LTS server | How To | The Fan Club | dynamic design solutions</a><br/>
+<a href="http://www.cipherdyne.org/psad/">psad - Intrusion Detection with iptables, iptables Log Analysis, iptables Policy Analysis</a><br/>
+<a href="http://www.cipherdyne.org/blog/index.html/">cipherdyne.org | System and Network Security</a><br/>
+<a href="https://www.owasp.org/index.php/Main_Page">OWASP</a><br/>
+<br/>
+<br/>
+<h2>Stenography</h2>
+<a href="http://blog.sucuri.net/2013/07/malware-hidden-inside-jpg-exif-headers.html">Malware Hidden Inside JPG EXIF Headers | Sucuri Blog</a> - yes, those bay guys will hide data anywhere, even in your exif.<br/>
+<a href="http://www.computec.ch/projekte/spread/?">spread project</a><br/>
+<a href="http://blog.didierstevens.com/2009/07/01/embedding-and-hiding-files-in-pdf-documents/">Embedding and Hiding Files in PDF Documents | Didier Stevens</a><br/>
+<a href="http://www.awarenetwork.org/home/rattle/source/python/exe2bat.py">exe2bat.py</a><br/>
+<pre>
+##########################################################################
+#
+#   EXE to BAT converter Version 1.0                                     #
+#   This will use the classic DEBUG method to HEX-encode an executable   #
+#   into a batch script file. Enjoy.                                     #
+#                                                                        #
+#                                          rattle | awarenetwork | org   #
+                                                                         #
+##########################################################################
+   
+from sys import argv as a, exit, stdout
+die = lambda x,n: stdout.write(x+'\n') or exit(n)
+
+try: f,b = open(a[1],'rb'),open(a[2],'w')
+except: die('[!] usage: exe2bat.py &lt;exefile&gt; &lt;batchfile&gt;',1);
+
+FOOTER  = ''.join(map(lambda x:"%%E%% "+x+"&gt;&gt;T\n",
+ ["RCX","%X ","N T.BIN","WDS:0","Q"])) 
+FOOTER += 'DEBUG&lt;T 1&gt;NUL\nMOVE T.BIN T.EXE 1&gt;NUL 2&gt;NUL\nT.EXE'
+
+FC,CX = 0, f.seek(0,2) or f.tell()
+
+if (CX &gt; 0xFFFF): 
+  f.close(); b.close()
+  die('[!] filesize exceeds 64kb, quitting.',1);
+
+f.seek(0,0)
+b.write('@ECHO OFF\nSET E=ECHO\nDEL T 1>NUL 2>NUL\n')
+
+for chunk in xrange(0x1000):
+  t = f.read(16) or b.write(FOOTER%CX) or die("",0)
+  if t.count('\0')==0x10: FC += 1
+  else:
+    if FC > 0:
+      b.write('%%E%% FDS:%X L %X 00&gt;&gt;T\n'%((chunk-FC)*0x10,FC*0x10))
+      FC = 0
+    b.write('%%E%% EDS:%X '%(chunk*0x10))
+    b.write(' '.join(map(lambda x:"%02X"%ord(x),t))+'&gt;&gt;T\n')
+</pre>
+<a href="http://opensource.dyc.edu/random-vs-encrypted">Random versus Encrypted Data | opensource.dyc.edu</a><br/>
+<br/>
+<br/>
+<h2>using prefetch to find secret files.</h2>
+<a href="http://stam.blogs.com/8bits/2012/10/live-forensics-prefetch-and-powershell.html">8 bits: Live forensics: prefetch and powershell</a> - cool, isn't it?, how about scary?<br/>
+<br/>
+<br/>
+<h2>Programs built to crash</h2>
+<a href="http://www.exploit-db.com/">Exploits Database by Offensive Security</a><br/>
+<a href="http://blog.regehr.org/archives/696">Embedded in Academia : 57 Small Programs that Crash Compilers</a><br/>
+<a href="http://gynvael.coldwind.pl/?id=510">Crashing the Visual C++ compiler</a><br/>
+<a href="http://stackoverflow.com/questions/4290351/why-does-vc-2010-compiler-crash-when-compiling-simple-code">c++ - Why does VC++ 2010 compiler crash when compiling simple code? - Stack Overflow</a><br/>
+<a href="http://www.dvwa.co.uk/">DVWA - Damn Vulnerable Web Application</a> - PHP/MySQL web application that is damn vulnerable.<br/>
+<br/>
+<br/>
+<h2>Black electrical tape</h2>
+<a href="https://jscholarship.library.jhu.edu/handle/1774.2/36569">iSeeYou: Disabling the MacBook Webcam Indicator LED</a> - enables video to be captured without any visual indication to the user and can be accomplished entirely in user space by an unprivileged (non- root) application. (a.k.a. No thought to security was given,geez.) <br/>
+<br/>
+<br/>
+<h2>inaudible ultrasonic sounds slinging your data - unplug all your speakers...</h2>
+<a href="https://github.com/Katee/quietnet">Katee/quietnet</a> - Simple chat program using near ultrasonic frequencies. near-ultrasonic chirps that can be received and interpreted by other, nearby computers. Quietnet is dependent on <a href="http://people.csail.mit.edu/hubert/pyaudio/">pyaudio</a> and <a href="http://www.numpy.org/">Numpy</a>. <strong>Warning: May annoy some animals.</strong><br/>
+<br/>
+<br/>
+<h2>oh, and using your monitor to broadcast in the AM band - better disconnect that monitor too.</h2>
+<a href="http://www.erikyyy.de/tempest/">Tempest for Eliza</a> - Tempest for Eliza is a Program that uses your computer monitor
+to send out AM radio signals. You can then hear computer
+generated music in your radio.<br/>
+<h2>Heartbleed - oh my.</h2>
+So, that secure software that you rely on uses OpenSSL.  What year what that installed again?  Oh man, you mean I have to touch the box again?<br/>
+Yes, you should patch it..... or decommission it.<br/>
+<img src="http://imgs.xkcd.com/comics/heartbleed.png" alt="the unplugged machine is the most secure machine."/><br/>
+<img src="http://imgs.xkcd.com/comics/heartbleed_explanation.png" alt="server, I didn't say show everyone everything."><br/>
+<a href="http://www.zdnet.com/openbsd-forks-prunes-fixes-openssl-7000028613/">OpenBSD forks, prunes, fixes OpenSSL | ZDNet</a><br/>
+<a href="http://opensslrampage.org/">OpenSSL Valhalla Rampage</a><br/>
+<a href="http://blog.nu42.com/2014/04/is-strong-caution-about-heartbleed.html">?42: Is a strong caution about Heartbleed worth the disruption to distributions with a declared dependency on Crypt::SSLeay?</a> - its not just the server that is vulnerable, the client is vulnerable to a remote attacking ssh server.<br/>
+<a href="http://blog.cryptographyengineering.com/2014/04/attack-of-week-triple-handshakes-3shake.html">A Few Thoughts on Cryptographic Engineering: Attack of the Week: Triple Handshakes (3Shake)</a><br/>
+<a href="http://blog.cryptographyengineering.com/p/useful-cryptography-resources.html">A Few Thoughts on Cryptographic Engineering: Useful Cryptography Resources</a><br/>
+<br/>
+<br/>
+<a href="http://blog.securitymouse.com/2014/06/raising-lazarus-20-year-old-bug-that.html">The Mouse Trap: Raising Lazarus - The 20 Year Old Bug that Went to Mars</a> - the integer overflow is evident.<br/>
+<br/>
+<br/>
+<a href="http://www.richardbucker.com/2013/02/how-did-they-do-that.html">How did they do that? | Richard Bucker</a> - ** So how do we remain secure?  Good question:<br/>
+<pre>
+- know your hardware
+- know your network
+- know your infrastructure
+- know your physical security
+- know your operating system
+- know your tools
+- know your employees
+- know your programmers, testers, etc
+- know your process
+- know all your 3rd parties
+</pre>
+It comes down to full stack awareness... the stack happens to be much bigger than once thought.
+<br/>
+<br/>
+<h2>Perl Cryto && random</h2>
+<a href="https://blog.afoolishmanifesto.com/posts/a-gentle-tls-intro-for-perlers/">A Gentle TLS Intro for Perlers</a> - IO::Socket::SSL, IO::Async::SSLStream, openssl incantations.<br/>
+<a href="http://wellington.pm.org/archive/200704/randomness/#slide0">What is wrong with perl's antique random number generator</a><br/>
+<a href="http://blog.nu42.com/2010/09/be-vary-of-using-built-in-rng-for.html">?42: Don't leave randomness to chance (or, avoid using rand if it matters)</a><br/>
+<a href="http://blog.nu42.com/2014/05/perl-5200-brings-better-prng-to-windows.html">?42: Perl 5.20.0 brings a "better" PRNG to Windows</a><br/>
+<a href="http://www.effectiveperlprogramming.com/2014/06/perl-5-20-uses-its-own-random-number-generator/">Perl 5.20 uses its own random number generator | The Effective Perler</a> - rand() for Windows had a max of 32,768 (15 bits), while POSIX has drand48 (48 bits).<br/>
+<a href="https://metacpan.org/pod/Math::Random::Secure">Math::Random::Secure - Cryptographically-secure, cross-platform replacement for rand() - metacpan.org</a> - this one goes to eleven.<br/>
+<br/>
+<br/>
+<h2>hardware hackers</h2>
+<a href="http://travisgoodspeed.blogspot.com/">Travis Goodspeed's Blog</a> - <a href="http://goodfet.sourceforge.net/">GoodFET -- Home</a><br/>
+<a href="http://samy.pl/">samy kamkar - home</a><br/>
+<a href="http://www.remote-exploit.org/index.html">remote-exploit.org</a> <a href="http://www.remote-exploit.org/articles/keykeriki_v2_0__8211_2_4ghz/index.html">KeyKeriki v2.0 – 2.4GHz | remote-exploit.org</a><br/>
+<br/>
+<br/>
+<a href="https://www.blackducksoftware.com/">Open Source Software Management | Black Duck</a> - tool helps identify open source code within your internal codebases.<br/>
+    <div style="border: 1px;">
+    Created: 2007-12-02 14:49:46
+    Modified: 2016-05-17 01:11:57
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+left side represents the beginning of mathematics; the right side represents the mysteries of infinity.<br/>
+1=0.999...
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

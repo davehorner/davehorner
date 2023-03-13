@@ -1,0 +1,375 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>Functional programming</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/programming/">programming</a>
+    <h1>Functional programming</h1>
+   Lazy functional programming languages and the programmer's who think in terms of functions, compositions, and transformations.<br/>
+with claims like formal provability, modularity, composability, and an apparent fallout of easier debugging and testing from compact side effect free code.<br/>
+<br/>
+There are ways of doing functional programming using common programming languages that you might not originally consider; I've mentioned libraries for functional programming languages in Javascript/Perl/Python/etc pages on my site.  "functions as first-class objects” and “eliminating side effects” don't happen automatically, some languages make it easier to implement than others. immutable and stateless programs require a different train of thought when attacking the problem.<br/>
+<br/>
+<br/>
+<a href="https://en.wikipedia.org/wiki/Standard_ML">Standard ML - Wikipedia, the free encyclopedia</a><br/>
+<a href="https://en.wikipedia.org/wiki/ML_(programming_language)">ML (programming language) - Wikipedia, the free encyclopedia</a><br/>
+<a href="http://www.soc.napier.ac.uk/course-notes/sml/manual.html">A Gentle Introduction to ML</a><br/>
+<a href="http://kachayev.github.io/talks/">Alexey Kachayev :: Talks</a> - lots of great talks about Python Fn.py, Clojure, Erlang, Haskell, Go, and a plea to <a href="https://raw.githubusercontent.com/kachayev/talks/master/kyivpy%2310/stop_coding_pascal.pdf">stop coding in Pascal(pdf)</a>...<br/>
+<br/>
+Turing machine - infinite memory and finite instructions.<br/>
+&lambda; calculus - terms, abstraction, application, &beta;-reduction.<br/>  
+<a href="http://prog21.dadgum.com/14.html">prog21: Functional Programming Archaeology</a><br/>
+laziness - compute values only when you need it<br/>
+purity - pure functions that return results which are only dependent on the input and have no hidden state.<br/>
+Functional programming promotes purity and concurrency.<br/>
+F# functional programming language for .NET includes the .NET type language.<br/>
+Erlang functional programming language designed for telecommunications messages sent across threads. (threads are well partitioned)<br/>
+Haskell is a functional programming language with monads.<br/>
+<a href="http://en.wikipedia.org/wiki/Monads_in_functional_programming">Monads in functional programming</a><br/>
+F# - functional programming, object oriented, and imperative.<br/>
+F# sources comes with, so you can see how the libraries are implemented.<br/>
+Functional programming is more declarative in that we describe the problem and don't specify the computational setups.<br/>
+Lisp is really the mother language, with base in mathematical functions.<br/>
+Strongly and statically typed, but it has inferred types.<br/>
+By default all types are immutable.
+Supports implementation inheritance, and has object expressions which allow you to instantiate<br/>
+Computation expressions are like monads in haskell.<br/>
+<a href="http://bartoszmilewski.com/2011/07/11/monads-in-c/">Monads in C++ |   Bartosz Milewski's Programming Cafe</a><br/>
+<a href="https://www.fpcomplete.com/blog/2012/06/asynchronous-api-in-c-and-the-continuation-monad">Asynchronous API in C++ and the Continuation Monad | FP Complete</a><br/>
+<br/>
+<br/>
+<h2>Haskell</h2>
+<a href="http://www.galois.com/blog/2008/09/17/parsing-the-linux-kernel-with-haskell-experience-with-languagec/">Galois › Blog › Blog » Parsing the Linux kernel with Haskell: experience with Language.C</a><br/>
+<a href="http://tryhaskell.org/">Try Haskell! An interactive tutorial in your browser</a><br/>
+<a href="http://book.realworldhaskell.org/read/">Real World Haskell</a> - online home of O'Reilly Media's Real World Haskell.<br/>
+<a href="http://xmonad.org/">xmonad | the tiling window manager that rocks</a><br/>
+<a href="http://bartoszmilewski.com/2013/05/15/understanding-yoneda/">Understanding Yoneda |   Bartosz Milewski's Programming Cafe</a><br/>
+<a href="http://blog.sigfpe.com/2006/11/yoneda-lemma.html">A Neighborhood of Infinity: Reverse Engineering Machines with the Yoneda Lemma</a><br/>
+<a href="http://bartoszmilewski.com/2011/07/11/monads-in-c/">Monads in C++ |   Bartosz Milewski's Programming Cafe</a><br/>
+<a href="http://jaspervdj.be/hakyll/">Hakyll - Home</a> - Hakyll is a Haskell library for generating static sites, mostly aimed at small-to-medium sites and personal blogs. <br/>
+<a href="http://snapframework.com/">Snap: A Haskell Web Framework: Home</a><br/>
+<a href="https://github.com/ndmitchell/shake">ndmitchell/shake</a> - Shake is a Haskell library for writing build systems - designed as a replacement for make. <a href="http://hackage.haskell.org/package/shake">Hackage: shake: Build system library, like Make, but more accurate dependencies.</a><br/>
+<br/>
+<br/>
+<h2>F#</h2>
+<a href="http://cs.hubfs.net/">hubFS: THE place for F#</a><br/>
+<a href="http://tomasp.net/blog/webtools-thesis.aspx">Thesis: Client-side Scripting using Meta-programming | Blog | TomasP.Net</a> (uses F# on both sides)<br/>
+<a href="http://www.silverlighthack.com/post/2009/12/06/Are-you-ready-to-learn-FSharp-Concepts-to-be-familiar-with-before-learning-FSharp.aspx">Are you ready to learn F#? Concepts to be familiar with before learning the F# language</a><br/>
+<a href="http://bugsquash.blogspot.com/2011/10/10-reasons-to-use-f-runtime-in-your-c.html">Bug squash: 10 reasons to use the F# runtime in your C# app</a><br/>
+<a href="http://www.silverlighthack.com/category/MultiThreading.aspx">Silverlight 3 and F# Support in Visual Studio 2010</a><br/>
+<a href="http://chrismarinos.com/f-on-ubuntu-linux-with-mono-and-monodevelop/">F# on (Ubuntu) Linux with Mono and Monodevelop | //TODO: - Chris Marinos' Blog</a><br/>
+<a href="http://fsharp.github.io/2014/06/18/fsharp-contributions.html">Contributing to the F# Language and Compiler</a><br/>
+<br/>
+<br/>
+<h2>Erlang</h2>
+<a href="http://erlang.org/">Erlang</a><br/>
+<a href="http://yaws.hyber.org/index.yaws">Yaws</a> - erlang based web server.<br/>
+<a href="http://erlbol.dougedmunds.com/home.html">Erlbol - Erlbol</a> - Erlang + REBOL gui<br/>
+<a href="http://www.kazmier.net/computer/port-howto/">Erlang HowTo Documentation -- Writing an Erlang Port using OTP Principles</a><br/>
+<a href="http://www.chicagoboss.org/">Chicago Boss: The Erlang Web Framework</a> - Erlang web MVC, now featuring Comet 
+ github:<a href="https://github.com/ChicagoBoss/ChicagoBoss">ChicagoBoss/ChicagoBoss</a><br/>
+<a href="https://github.com/ChicagoBoss/boss_db">ChicagoBoss/boss_db</a> - BossDB: a sharded, caching, pooling, evented ORM for Erlang<br/>
+<a href="http://www.evanmiller.org/joy-of-erlang.html">The Joy of Erlang</a> - By Evan Miller<br/>
+<a href="http://www.erlang.org/doc/design_principles/users_guide.html">Erlang -- OTP Design Principles</a> - OTP Design Principles is a set of principles for how to structure Erlang code in terms of processes, modules and directories.<br/>
+<a href="http://elixir-lang.org/">Elixir</a> - Elixir is a functional, meta-programming aware language built on top of the Erlang VM. It is a dynamic language that focuses on tooling to leverage Erlang's abilities to build concurrent, distributed and fault-tolerant applications with hot code upgrades.<br/>
+<br/>
+<h2>Couchdb is written in Erlang</h2>
+<a href="http://couchdb.apache.org/">Apache CouchDB: The CouchDB Project</a> - Apache CouchDB is a distributed, fault-tolerant and schema-free document-oriented database accessible via a RESTful HTTP/JSON API. Among other features, it provides robust, incremental replication with bi-directional conflict detection and resolution, and is queryable and indexable using a table-oriented view engine with JavaScript acting as the default view definition language.<br/>
+<a href="http://www.iriscouch.com/">Iris Couch</a> - free couchdb hosting.<br/>
+<a href="http://couchapp.org/page/index">Simple JavaScript Applications with CouchDB - CouchApp.org</a><br/>
+<a href="http://locomotivation.com/blog/2009/03/12/mac-couchdb-install-from-source.html">Installing CouchDB From Source On Mac OS X - Locomotivation, the technology blog from Squeejee</a><br/>
+<a href="http://couchdbkit.org/">Couchdbkit - Welcome to the Couchdbkit project</a> - framework for your Python application to access and manage Couchdb.<br/>
+<a href="http://www.youtube.com/watch?v=qJbfRZz6qNY&amp;feature=player_embedded">YouTube - Taskr Evently CouchApp CouchDB Screencast</a><br/>
+<a href="http://blog.couch.io/">blog.couch.io</a> - great blog by <a href="http://railsrankings.com/coders/Chris-Anderson">Chris Anderson</a> usually with CouchDB related content.<br/>
+<a href="http://code.google.com/p/couchdb-lounge/wiki/ShardsConfandYou">ShardsConfandYou - couchdb-lounge - Explanation of how the shards.conf file works - Project Hosting on Google Code</a><br/>
+<a href="http://wiki.apache.org/couchdb/Installing_on_Windows">Installing_on_Windows - Couchdb Wiki</a><br/>
+<a href="http://github.com/couchapp/couchapp/">couchapp's couchapp at master - GitHub</a> - Utilities to make standalone CouchDB application development simple<br/>
+<a href="http://git.nicolast.be/?p=django-couchdb.git;a=summary">git.nicolast.be Git - django-couchdb.git/summary</a><br/>
+<a href="http://wiki.apache.org/couchdb/Getting_started_with_Python">Getting_started_with_Python - Couchdb Wiki</a><br/>
+<a href="http://mikeal.github.com/couchquery/">couchquery – A Python library for CouchDB — couchquery v0.3 documentation</a><br/>
+<a href="http://www.randomwalking.com/snippets/couchshelve.text">couchshelve.text</a> - Manage a "shelf" of pickled objects with a couchdb backend.<br/>
+<a href="http://planet.couchdb.org/">Planet CouchDB</a><br/>
+<a href="https://launchpad.net/desktopcouch">Desktop CouchDB in Launchpad</a><br/>
+<a href="http://code.google.com/p/couchdb-python/wiki/GettingStarted">GettingStarted - couchdb-python - Introduction to using couchdb-python. - Project Hosting on Google Code</a><br/>
+<a href="http://davidwatson.org/2008/02/python-couchdb-rocks.html">davidwatson.org: python-couchdb rocks</a>
+<br/>
+<a href="https://github.com/clofresh/couch-crawler">clofresh/couch-crawler - GitHub</a> - search engine built on <a href="https://github.com/rnewson/couchdb-lucene">rnewson/couchdb-lucene - GitHub</a><br/>
+<a href="https://github.com/hpoydar/processing-js-studio">hpoydar/processing-js-studio - GitHub</a> - Web-based application to store Processing JS sketches and renderings. Storage and service provided by CouchDB.<br/>
+<br/>
+<br/>
+<h2>Scala</h2>
+<a href="http://www.developer.com/features/article.php/3883051/Scala-vs-F-Comparing-Functional-Programming-Features.htm">Scala vs. F#: Comparing Functional Programming Features — Developer.com</a><br/>
+<a href="https://github.com/garu/scala-for-perl5-programmers">garu/scala-for-perl5-programmers</a><br/>
+<a href="http://lakhin.com/projects/papa-carlo/">Papa Carlo</a>  incremental parsers in Scala <a href="http://lakhin.com/projects/papa-carlo/demo/">Papa Carlo Demo</a> <a href="https://github.com/Eliah-Lakhin/papa-carlo">Eliah-Lakhin/papa-carlo</a><br/>
+<br/>
+<br/>
+<h2>Clojure</h2>
+<a href="http://clojure.org/">Clojure.org</a> - Clojure is a robust, practical, and fast programming language with a set of useful features that together form a simple, coherent, and powerful tool.<br/>
+<a href="http://www.clojure-toolbox.com/">The Clojure Toolbox</a><br/>
+<a href="http://leiningen.org/">Leiningen</a> - for automating Clojure projects without setting your hair on fire<br/>
+<a href="https://github.com/technomancy/leiningen/wiki/plugins">Plugins · technomancy/leiningen Wiki</a><br/>
+<a href="http://leiningen-win-installer.djpowell.net/">leiningen-win-installer</a><br/>
+<a href="http://alexott.net/en/clojure/">Clojure</a><br/>
+<a href="https://github.com/technomancy/leiningen">technomancy/leiningen</a> - Automate Clojure projects without setting your hair on fire.<br/>
+<a href="https://github.com/functional-koans/clojure-koans">functional-koans/clojure-koans</a> - A set of exercises for learning Clojure<br/>
+<a href="https://github.com/Day8/re-frame">Day8/re-frame: A Reagent Framework For Writing SPAs, in Clojurescript.</a><br/>
+<a href="https://reagent-project.github.io/">Reagent: Minimalistic React for ClojureScript</a><br/>
+<a href="https://github.com/reagent-project/reagent-forms">GitHub - reagent-project/reagent-forms: Bootstrap form components for Reagent</a><br/>
+<a href="https://clojars.org/projects">All projects - Clojars</a><br/>
+<a href="http://rigsomelight.com/2014/06/03/devcards-taking-interactivity-to-the-next-level.html">Devcards, Taking Interactivity to the Next Level</a><br/>
+<br/>
+<br/>
+<h2>Web Functional fun</h2>
+<a href="http://elm-lang.org/">Elm - functional web programming</a> - Elm is a functional language that compiles to HTML, CSS, and JavaScript.<br/>
+<a href="http://www.newspeaklanguage.org/">Newspeak</a> -  existing implementation runs on top of Squeak Smalltalk, and shares many of Squeak’s libraries and infrastructure.<br/>
+<a href="https://github.com/zot/Leisure">zot/Leisure</a> - Lazy functional programming language and environment with support for metaprogramming. <a href="http://zot.github.io/Leisure/drive.html?uniq=0.2199221181217581#load=http://tinyconcepts.com/LeisureStorage/intro.lmd">Introducing Leisure</a><br/>
+    <div style="border: 1px;">
+    Created: 2007-03-20 22:15:12
+    Modified: 2016-04-09 00:52:50
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+$$\cos x = \sum\limits_{n = 0}^\infty {\frac{{\left( { - 1} \right)^n x^{2n} }}{{\left( {2n} \right)!}}}$$
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

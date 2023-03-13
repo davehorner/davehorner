@@ -1,0 +1,287 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>Trac and project management tools</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/programming/">programming</a>
+    <h1>Trac and project management tools</h1>
+   Trac is a web resource to manage....<br/>
+<br/>
+<pre>
+trac-admin /path/to/myproject initenv
+</pre>
+
+Installing and getting trac going can take a little time.<br/>
+
+One nice thing I like to do is to use the
+<a href="http://trac-hacks.org/wiki/DoxygenPlugin#DoxygenPluginforTrac">Doxygen Plugin for Trac</a><br/> 
+Add permision to use the doxygen for auth'd users.<br/>
+<pre>
+trac-admin /path/to/myproject permission add authenticated DOXYGEN_VIEW
+</pre>
+make all auth'd users - admin user<br/>
+<pre>
+trac-admin /path/to/myproject permission add authenticated TRAC_ADMIN
+</pre>
+<br/>
+<a href="http://trac-hacks.org/">Trac Hacks</a><br/>
+<a href="http://trac.edgewall.org/wiki/TracGuide">The Trac User and Administration Guide</a><br/>
+<br/>
+<br/>
+<a href="http://tracexplorer.devjavu.com/?redirectedfrom=WikiStart">Trac Explorer</a> - that is cool, Trac Integration for Visual Studio and TortoiseSvn.<br/>
+<br/>
+<br/>
+<br/>
+<a href="http://www.indefero.net/">Indefero - Code Hosting and Project Management</a> - project attempts to create google code type code management system.  Written in php and open source.<br/>
+<a href="http://www.fogcreek.com/Kiln/">Kiln - Version Control and Code Review Software</a> - ($) hg with web interface for code review/etc<br/>
+<br/>
+<br/>
+<h2>Code review</h2>
+<a href="http://code.google.com/p/gerrit/">gerrit - Gerrit Code Review - Google Project Hosting</a> - Gerrit is a web based code review system, facilitating online code reviews for projects using the Git version control system.<br/>
+<a href="http://malevich.codeplex.com/">Malevich - a web-based code review system for Perforce, TFS, and more!</a><br/>
+<a href="http://www.reviewboard.org/">Review Board | Take the pain out of code review</a><br/>
+<a href="http://codestriker.sourceforge.net/">Codestriker: Homepage</a><br/>
+<a href="http://code.google.com/p/jupiter-eclipse-plugin/">jupiter-eclipse-plugin - Jupiter is a code review plug-in tool for the Eclipse IDE. - Google Project Hosting</a><br/>
+<a href="http://code.google.com/p/rietveld/">rietveld - Code Review for Subversion, hosted on Google App Engine - Google Project Hosting</a><br/>
+<a href="http://teamreview.codeplex.com/">TeamReview - TFS Code Review</a><br/>
+<a href="http://getbarkeep.org/">Barkeep - the friendly code review system</a> - coded in ruby <a href="https://github.com/ooyala/barkeep">ooyala/barkeep · GitHub</a><br/>
+<br/>
+<br/>
+<a href="http://www.redmine.org/">Overview - Redmine</a> - Redmine is a flexible project management web application. Written using the Ruby on Rails framework GPL<br/>
+    <div style="border: 1px;">
+    Created: 2006-10-25 14:44:12
+    Modified: 2013-07-21 15:48:02
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+<a href="javascript:var%20s%20=%20document.createElement('script');s.type='text/javascript';document.body.appendChild(s);s.src='/eggs/asteroids.min.js';void(0);" id="secret">destory this webpage; if you will.</a>
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

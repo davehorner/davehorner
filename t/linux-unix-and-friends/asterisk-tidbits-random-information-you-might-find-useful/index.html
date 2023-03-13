@@ -1,0 +1,319 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>Asterisk tidbits - random information you might find useful.</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/linux-unix-and-friends/">linux-unix-and-friends</a>
+    <h1>Asterisk tidbits - random information you might find useful.</h1>
+   <img src="http://upload.wikimedia.org/wikipedia/en/thumb/e/e4/Asterisk_Logo.svg/200px-Asterisk_Logo.svg.png" alt="asterisk">
+
+<div style="TEXT-ALIGN: justify"><a href="http://www.asterisk.org/" target="_blank">Asterisk</a> is a open source telephony system for the Linux OS.&nbsp; It is perfect for setting up a simple office PBX system.<br/>
+</div>
+<br/>
+<strong>Useful links<span style="FONT-WEIGHT: normal"></span><br/>
+<span style="FONT-WEIGHT: normal">I've got some Sanoma hardware, heres info on <a href="http://sangoma.editme.com/wanpipe-linux-asterisk-debugging" target="_blank">debugging asterisk with sangoma</a>.<br/>
+The best place to look for info on Asterisk can be found on: <a href="http://www.voip-info.org/wiki-Asterisk" target="_blank">VOIP-INFO</a></span><br/>
+</strong>When purchasing VOIP related devices I usually look at: <a href="http://www.voipsupply.com/" target="_blank">VoipSupply</a><br/>
+<a href="http://www.voip-info.org/wiki-Asterisk+variables" target="_blank">Predefined variables</a><br/>
+<a href="http://www.dme.org/wiki/AsteriskCodecs.html" target="_blank">g729 Codec<br/>
+</a><br/>
+<a href="http://turnkey-solution.com/asterisk-sphinx.html" target="_blank">Sphinx2 and Asterisk</a><br/>
+<br/>
+<span style="FONT-WEIGHT: bold">Products of interest<br/>
+</span><span marginwidth="0" topmargin="0" leftmargin="0" marginheight="0" rightmargin="0" bottommargin="0"><span><span><span><span class="ComponentStyle_SpecialClear"><span><span class="productTitle" name="Product.name"><a href="http://www.adtran.com/adtranpx/Rooms/DisplayPages/LayoutInitial_webrQS%20_UHJvZHVjdENhdGVnb3J5PWNvbS53ZWJyaWRnZS5lbnRpdHkuRW50aXR5JTVCT0lEJTVCRjI0MTg0MzVGRjEwQzY0OTlFMTkyRThDOUM2QTJGQjEl/NUQlNUQmUHJvZHVjdD1jb20ud2VicmlkZ2UuZW50aXR5LkVudGl0eSU1Qk9JRCU1QjY5REVGM0M0RDhGRDg1NDk5QUQ1QUY2MzA0ODk2RUYyJTVEJTVEJkNvbnRhaW5lcj1jb20ud2VicmlkZ2UuZW50aXR5LkVudGl0eSU1Qk9JRCU1QkU5ODkwNjM1OUYzMUE4NDc4NTgxMDM5NDI4NkNEN0Q0JTVEJTVE/" target="_blank">AdTran Total Access 924</a> - good for office termination<br/>
+</span></span></span></span></span></span></span><a href="http://www.voipsupply.com/product_info.php?manufacturers_id=14&amp;products_id=321" target="_blank">Sipura SPA-2100</a> - 2 line analog to voip adapter<br/>
+<a href="http://www.uniden.com/elbt/index.html" target="_blank">Uniden ELBT595</a> - blue tooth analog phone system<br/>
+<a href="http://www.stargate3.co.uk/tellular/sx4egsm900_1800VFPC.pdf" target="_blank">PhoneCell SX4el</a>- GSM to FXS gateway<br/>
+<br/>
+<span style="FONT-WEIGHT: bold">Starting and keeping Asterisk running</span><br/>
+When I setup an asterisk box, I don't use the asterisk command directly to start asterisk.&nbsp; Instead you should use the shell script safe_asterisk.&nbsp; It comes with the asterisk source.&nbsp; This script monitors the asterisk process and restarts it if&nbsp; asterisk crashes.&nbsp; It also has the ability to email someone when the asterisk server does go down... that way you can debug what is happening.<br/>
+<br/>
+<span style="FONT-WEIGHT: bold">Converting and making sounds for use in Asterisk</span><br/>
+For tips on recording and other information relating to sound files check out the <a href="http://www.voip-info.org/wiki-Asterisk+sound+files" target="_blank">Wiki Page</a>.<br/>
+Asterisk likes to have files in formats like gsm and sln.&nbsp; The tool <a href="http://sox.sourceforge.net/" target="_blank">SoX</a> comes to the rescue!<br/>
+<br/>
+To convert from gsm to wav: sox input.gsm -r 8000 -c 1 -w -s ouput.wav <br/>
+To convert from wav to gsm: sox input.wav -r 8000 output.gsm resample -q1<span style="FONT-FAMILY: monospace"><br/>
+</span><span style="FONT-FAMILY: monospace">To convert from wav to sln (</span>SLINEAR) : <span style="FONT-FAMILY: monospace">sox input.wav&nbsp;-t&nbsp;raw&nbsp;-r&nbsp;8000&nbsp;-s&nbsp;-w&nbsp;-c&nbsp;1 output.sln<br/>
+<br/>
+</span>Lately I've been trying to get going with FastAGI.&nbsp; It is much better than simple AGI because it allows you to push the processing of AGI off the asterisk machine itself... so it scales much better.&nbsp; Anyways here are some resources I found on the web.<br/>
+<a href="http://www.net-gurus.net/asterisk/" target="_blank">Experiences with Asterisk AGI</a> <br/>
+<a href="http://www.sineapps.com/news.php?rssid=142" target="_blank">How FastAGI works</a><br/>
+<a href="http://www.voip-info.org/wiki/index.php?page=Asterisk+FastAGI" target="_blank">FastAGI WIKI</a><br/>
+<a href="http://asterisk-java.sourceforge.net/tutorial.html">Asterisk-Java Tutorial</a><br/>
+<br/>
+I would love to be able to control features within the meetme and during a dial.&nbsp; I hear that this is possible, to do such things...<br/>
+http://www.voip-info.org/wiki/index.php?page=Asterisk+config+features.conf<br/>
+<a href="http://linuxgazette.net/120/smith.html">A $10 Linux Answering Machine</a><br/>
+<br/>
+<br/>
+<h2>asterisk and gsm</h2>
+<a href="http://openbts.org/">OpenBTS open-source project</a><br/>
+<a href="https://wush.net/trac/rangepublic/wiki/BuildInstallRun">BuildInstallRun – rangepublic</a><br/>
+<a href="https://code.google.com/p/clock-tamer/">clock-tamer - Software part of Fairwaves' ClockTamer project - Google Project Hosting</a><br/>
+    <div style="border: 1px;">
+    Created: 2006-01-11 12:11:52
+    Modified: 2014-05-07 00:24:38
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+<span id=daysToChristmas>x</span> days to Christmas.<br/>
+<span id=daysToNewYear>x</span> days to a new year.<br/>
+Happy Holidays!
+<script Language="JavaScript">
+function showtime () {
+        msPerDay = 24 * 60 * 60 * 1000 ; // Number of milliseconds per day
+        var now = new Date();
+        var year = now.getYear();
+        if (year < 1000)
+         year+=1900
+        nextXmas = new Date("December 25, 2000")
+        nextXmas.setYear(year)
+        daysLeft = (nextXmas.getTime() - now.getTime()) / msPerDay;
+        daysLeft = Math.round(daysLeft);
+        var span=document.getElementById('daysToChristmas');
+        span.removeChild(span.firstChild);
+        span.appendChild(document.createTextNode(daysLeft+''));
+        
+        nextXmas = new Date("December 31, 2000")
+        nextXmas.setYear(year)
+        daysLeft = (nextXmas.getTime() - now.getTime()) / msPerDay;
+        daysLeft = Math.round(daysLeft);
+
+        span=document.getElementById('daysToNewYear');
+        span.removeChild(span.firstChild);
+        span.appendChild(document.createTextNode(daysLeft+''));
+        setTimeout("showtime()",msPerDay);
+}
+showtime();
+</script>
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

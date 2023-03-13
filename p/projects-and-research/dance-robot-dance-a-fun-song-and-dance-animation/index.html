@@ -1,0 +1,354 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>Dance! Robot Dance! - a fun song and dance animation.</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/p/">Personal</a>
+<a href="/p/projects-and-research/">projects-and-research</a>
+    <h1>Dance! Robot Dance! - a fun song and dance animation.</h1>
+   I've have always had a love for robots.  My son loves robots too.  He makes me watch robot videos on YouTube all the time of little synchronized robots that dance.<br/>
+<br/>
+So this is a little toy project I'm going to develop for my kids. :)  It is just another excuse to do fun stuff with the computer.  I would really like to be able to develop some simple animations....<br/>
+BTW, I've got some more blender content here: <a href="http://dave.thehorners.com/tech-talk/random-tech/375-blender">Blender - Open source 3d game engine</a><br/>
+<br/>
+<br/>
+<h2>Dancing robot in jQuery?</h2>
+I'm not sure I want to do it in jQuery, but it is cool that you can!<br/>
+<a href="http://css-tricks.com/jquery-robot/">Building an Animated Cartoon Robot with jQuery</a><br/>
+<a href="http://jquery.codingcyb.org/Robot/robotSound.html">Hi! I'm trying HARD to be a jQuery Robot</a> - includes sounds.<br/>
+<br/>
+<br/>
+<h2>Blender</h2>
+<a href="http://wiki.blender.org/index.php/Manual/Manual">Manual - BlenderWiki</a> - the main blender manual, RTFM.<br/>
+<a href="http://wiki.blender.org/index.php/Blender_3D:_ActionBook">Blender 3D: ActionBook - BlenderWiki</a><br/>
+<a href="http://forum.nystic.com/viewforum.php?f=34&sid=654db4e79520e345ecd3a8a45e4d0e1b">Nystic 1.5 • View forum - User Tutorial Videos</a><br/>
+<a href="http://jmsoler.free.fr/didacticiel/blender/tutor/eng_index.htm">Blender, Animation 3d: English Main Index</a> - good source for info on programming blender python.<br/>
+<br/>
+<a href="http://www.wings3d.com/">Wings 3d</a> - is a subdivision modeler (separate from Blender)<br/>
+<a href="http://apm-designs.blogspot.com/">Rambling Blog Regarding Design</a> - and blender.<br/>
+<br/>
+<h2>Books</h2>
+<a href="http://product.half.ebay.com/_W0QQprZ57031160QQcpidZ1376954618">Half.com / Books / Introducing Character Animation With Blender</a><br/>
+<br/>
+<br/>
+<h2>Use motion capture</h2>
+The thought of animating actually sounds very tedious.  However, using motion capture, you create the animation from natural movements and hit play.  :) It was nice to see that there is some open data out in terms of motion capture.  I've gotten it to import the .bvh files as armature.  Now I need to learn how to control them and attach them to rigs.<br/>
+<a href="http://mocapdata.com/">mocapdata.com</a> - very cool site, motion capture for many animations released under CC.  Import this data straight into Blender3d using .bvh to create nice biped animations which look very realistic.<br/>
+<a href="http://feeblemind.tuxfamily.org/dotclear/index.php/2007/08/17/94-around-600-mocapad-data-sets-on-mocapdatacom">Around 600 mocap data sets freely available on mocapdata.com - feeblemind</a> - this talks a bit on how to import and other links.<br/>
+<a href="http://gl.ict.usc.edu/animWeb/humanoid/">The Motion Capture Webpage</a><br/>
+<a href="http://www.centralsource.com/blender/bvh/files.htm">Welcome to Michael's Blender Website! - Importing a BVH file into Blender using Reevan McKay's BVH Python script...</a><br/>
+<a href="http://accad.osu.edu/research/mocap/mocap_data.htm#">ACCAD - Motion Capture Lab - data and downloads</a><br/>
+<a href="http://davedub.co.uk/bvhacker/">bvhacker - free to use bvh editing software</a> - bvh file editor with export to SecondLife.<br/>
+<a href="http://pagesperso-orange.fr/jb.perin/Mocap/MocapAnimation.html">MocapAnimation</a> - Animating Characters With BVH Motion Capture File<br/>
+<a href="http://pagesperso-orange.fr/jb.perin/BVH2ARM/doc/bvh2arm.html">bvh2arm</a> - script that ease the use of bvh with Blender by  automatically creating a parented armature upon a hierarchy of empties .. as the one created by a BVH import .. The created armature follows the empties.<br/>
+<br/>
+
+
+<a href="http://www.gravity-music.net/skinny/">Skinny</a> - automatic mesh generation, rigging, & uv mapping. - you draw an armature and the script will generate a skinned cylindrical mesh around it.<br/>
+
+<br/>
+<h2>Rigs</h2>
+You can get full blow digital puppets that allow you to control animation using armatures.  Very cool.<br/>
+<a href="http://www.kreanimate.co.uk/site/index.php/Rigs/Blender-Rigs/Generi-Rig-for-Blender.html">KRE Animate.co.uk - Generi Rig for Blender</a><br/>
+<br/>
+Meet Petunia...<br/>
+<object width="425" height="344"><param name="movie" value="http://www.youtube.com/v/AOlwuAvmnrY&hl=en"></param><embed src="http://www.youtube.com/v/AOlwuAvmnrY&hl=en" type="application/x-shockwave-flash" width="425" height="344"></embed></object><br/>
+What a great video of petunia!  Gives you an idea of what is possible.<br/>
+<a href="http://www.projectpetunia.org/">home - projectpetunia.org</a> - more info on how it came to be and wheres it going.<br/>
+<a href="http://www.alienhelpdesk.com/07_suzanne_awards/petunia_robot">petunia robot</a> - a cute (male) robot rig for blender!<br/>
+<br/>
+<a href="http://jasonpierce.animadillo.com/resource/ludwig/ludwig.html">Jason's CG Art Gallery: Ludwig</a> - Ludwig: Character and Rig v1.0 for blender<br/>
+<a href="http://www.crypticar.com/index.php?option=com_content&task=view&id=7&Itemid=26">Cryptic Animation Rig - About</a> - looks like a 3dsmax rig...<br/>
+<a href="http://www.csit.parkland.edu/%7Ejason/cryptic_ar/">Index of /~jason/cryptic_ar</a> - someone ported the crypticar rig to blender.<br/>
+<br/>
+<a href="http://orange.blender.org/">Elephants Dream</a> includes mancandy...<br/>
+<a href="http://www.virgiliovasconcelos.com/otto/">Otto: Ik, Squash, Stretch & Bend character for Blender</a><br/>
+<a href="http://blenderartists.org/forum/showthread?t=62270">CuteBEAR - Blender Artists Forums</a><br/>
+<a href="http://creationanimation.com/sites/thoenes/animation/3dtutorials.htm">michaelthoenes.com - 3D tutorials</a> - includes a rigged character based on Blender's Suzanne Monkey Head Primative Object.<br/>
+<a href="http://www.blendernation.com/2007/12/19/maloyo-rig/">'Maloyo' Rig at BlenderNation</a><br/>
+<br/>
+<br/>
+<a href="http://www.blender.org/development/release-logs/blender-243/walk-cycle-modifiers/">blender.org - Walk Cycle Modifiers</a><br/>
+<a href="http://wiki.blender.org/index.php/BSoD/Introduction_to_Rigging/The_Armature_Object">BSoD/Introduction to Rigging/The Armature Object - BlenderWiki</a><br/>
+<a href="http://wiki.blender.org/index.php/BSoD/Introduction_to_Character_Animation">BSoD/Introduction to Character Animation - BlenderWiki</a><br/>
+<a href="http://wiki.blender.org/index.php/Manual/Non_Linear_Animation">Manual/Non Linear Animation - BlenderWiki</a><br/><br/>
+<a href="http://jacek.meratalk.com/sl-animation-for-blender-newbs/">Jacek Lives » SL Animation for Blender Newbs</a><br/>
+<br/>
+<br/>
+<h2>Compositing</h2>
+<a href="http://home.metrocast.net/%7Echipartist/BlensesSite/index.html">Real-world camera and scene matching in Blender</a><br/>
+<a href="http://wickes.webs.com/compositingtutorials.htm">Roger Wickes | Creative Software Solutions</a> - Topic: Introduction to Compositing,Topic: Formats and Channels,Topic: Conversion and Distortion,Topic: Special Effects<br/>
+<a href="http://www.blendernerd.com/cg-overlay-on-video/">CG Overlay On Video | Blender Nerd</a><br/>
+<a href="http://www.blendernerd.com/videoanimating/">Animating videos on objects in blender 2.5 | Blender Nerd</a><br/>
+<a href="http://www.blendernerd.com/image-stacking/">Image Stacking to reduce noise in Cycles | Blender Nerd</a> - magical and awesome.<br/>
+<br/>
+<br/>
+<h2>Video editing with blender 3d - VSE</h2>
+Blender actually includes a nice non-linear video editor...<br/>
+It is called VSE - Video Sequence Editor<br/>
+<a href="http://wiki.blender.org/index.php/Tutorials/Video_Sequence_Editor">Tutorials/Video Sequence Editor - BlenderWiki</a><br/>
+<a href="http://wiki.blender.org/index.php/Manual/Using_VSE">Manual/Using VSE - BlenderWiki</a><br/>
+<a href="http://blender.active-domains.com/c8160.html">Blender Documentation - Sequence Editor</a><br/>
+<a href="http://blendervse.wordpress.com/2012/03/04/vse-scripts-you-cant-live-without/">VSE scripts you can’t live without! « Blender's VSE</a><br/>
+<br/>
+<br/>
+<h2>Object tracking || Blender Video Tracking</h2>
+<a href="https://plus.google.com/communities/107928215431878282767">MakeHuman &amp; blender - Community - Google+</a><br/>
+<iframe width="560" height="315" src="//www.youtube.com/embed/qZ1Oj6gSnfo" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="//www.youtube.com/embed/LFLnDd-UJPE" frameborder="0" allowfullscreen></iframe>
+<h2>2d animation with blender</h2>
+<a href="http://www.albinal.com/wp/2011/12/2d-in-blender-2-6-tutorial-part-1/">2D in Blender 2.6 – Tutorial (Part 1) | ALBINAL - Animation, Illustration, Bristol, UK</a><br/>
+<a href="http://www.albinal.com/wp/2012/02/2d-in-blender-2-6-tutorial-part-2/">2D in Blender 2.6 – Tutorial (Part 2) | ALBINAL - Animation, Illustration, Bristol, UK</a><br/>
+<a href="http://kompak.pl/index.php?id=28">KOMPAK: UV Offset Modifier</a><br/>
+    <div style="border: 1px;">
+    Created: 2008-06-02 02:53:20
+    Modified: 2014-02-01 10:08:55
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<a href="http://en.wikipedia.org/wiki/E_%28mathematical_constant%29" target=_blank>$$e = \sum_{n=0}^\infty \frac{1}{n!}$$</a>
+
+
+satis dictum.
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

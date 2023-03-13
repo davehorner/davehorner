@@ -1,0 +1,371 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>COM development</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/programming/">programming</a>
+    <h1>COM development</h1>
+   COM (Component Object Model) development is something that takes time to understand.  I spent many hours reading about how COM works and how to program with it.  I thought it was fun to create applications that integrate very closely with Word and IE.  The ability to abstract methods of execution on multiple machines using IUnknown is great.  DCOM and COM were a beast to learn however.  There are many levels of abstractions to learn about.  All of a sudden we are talking about contracts in IDL, querying for interfaces, registering controls, reference counting, threading apartment models, etc.  It all takes time to grok.<br/>
+<br/>
+COM taught me to program to the interface.  One usually wants to abstract out portions of their program to run on different machines or on the same machine across threads.  These interfaces can be exposed to scripting languages like VBScript, JScript to allow for easy composition of functionality.  COM is powerful and efficient at times.  .NET managed code and the CLR have negated the need for much of it however.  It was something that was promised as cross platform, without an implementation and looks to be going out the door?!<br/>
+<a href="http://computerworld.com/action/article.do?command=printArticleBasic&articleId=9112478">Microsoft kills more third-party ActiveX controls</a><br/>
+<br/>
+<br/>
+<a href="http://blogs.msdn.com/b/eldar/archive/2007/04/03/a-lot-of-hresult-codes.aspx">A lot of HRESULT codes... - Random Thoughts and Hints on Software Development - Site Home - MSDN Blogs</a><br/>
+<br/>
+<h2>COM Maintenance</h2>
+Apparently there were some pretty serious security holes in ATL.  Do you know that your ActiveX/COM assets are safe?  Make sure to read the literature and patch accordingly!<br/>
+<br/>
+<a href="http://www.microsoft.com/technet/security/bulletin/ms09-035.mspx">Microsoft Security Bulletin MS09-035 - Moderate: Vulnerabilities in Visual Studio Active Template Library Could Allow Remote Code Execution (969706)</a><br/>
+<a href="http://msdn.microsoft.com/en-us/visualc/ee309358.aspx">ATL Security Update</a>
+July 28 2009, Microsoft announced that ATL was impacted in Security Advisory (973882) and provided updated versions of ATL with the release of security bulletin MS09-035.<br/>
+<br/>
+<br/>
+<br/>
+You can build COM components from all sorts of languages.  MFC, VB, C#, Python, PHP, Perl, etc.<br/>
+The best way to create native COM controls is to write them using C++ ATL.<br/>
+The executables are small, fast, and easy to deploy.<br/>
+You can create and consume COM components from managed code as well.<br/>
+<br/>
+<h2>Some of the things you can do because of COM...</h2><br/>
+Automate word/excel/access/etc to perform basically any action within the application as well as close access to the object model exposed.  Also, have the ability to receive events as the user performs actions.<br/>
+Create new UI within IE using ActiveX.  ActiveX is trusted native code, so you can really do anything your little heart desires.<br/>
+ISAPI filters for internet information server (MS's webserver).<br/>
+Extend windows explorer to add additional menu items.<br/>
+Custom applications of course.<br/>
+<br/>
+<br/>
+<h2>ActiveX does not own it's own MessageLoop</h2>
+Messages are pushed to it from the container, so one work around is to create a message hook.<br/>
+<a href="http://support.microsoft.com/kb/q187988/">The TAB key, arrow keys, and accelerator keys do not work as expected when an ActiveX control is the parent window of a modeless dialog box or of a propertysheet window</a><br/>
+<br/>
+<h2>Windows Template Library - WTL</h2>
+When writing native COM controls, I think adding WTL is very important to gain strong UI capabilities.  WTL is a set of C++ template libraries which extend the ATL templates with rich UI control.  I've written and seen some very cool UI with WTL.<br/>
+<a href="http://sourceforge.net/projects/wtl/">SourceForge.net: Windows Template Library (WTL)</a><br/>
+<a href="http://www.codeproject.com/KB/wtl/cwtlaxcontrol.aspx?display=PrintAll&fid=4601&df=90&mpp=25&noise=3&sort=Position&view=Quick&select=466960&fr=26">CodeProject: WTL Class for ActiveX Hosting.</a><br/>
+<a href="http://www.unwoundstack.com/?p=12">Unwound Stack » How does WTL connect HWNDs to C++ objects?</a><br/>
+<a href="https://bitbucket.org/sergiu/wtl-cmake">sergiu / wtl-cmake — Bitbucket</a> - CMake find module for the Windows Template Library<br/>
+<a href="https://bitbucket.org/sergiu/wtl-helper">sergiu / wtl-helper — Bitbucket</a> - Fixes and improvements for Sergey Solozhentsev's WTL helper<br/>
+<a href="https://bitbucket.org/sergiu/wtl-dockwins">sergiu / wtl-dockwins — Bitbucket</a> - This projects represents a fork of Sergey Klimov's WTL docking windows library. It aims at fixing and imporving the library.<br/>
+
+<br/>
+<br/>
+<h2>COM future?</h2>
+Today, there are still somethings that are only done with COM.  So until .NET replaces everything.  There is still a real need for it.<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<a href="http://starship.python.net/crew/theller/comtypes/#the-comtypes-client-package">The comtypes package</a> - The comtypes python package makes it easy to access and implement both custom and dispatch based COM interfaces.<br/>
+<br/>
+<h2>Active Template Library - ATL</h2>
+<a href="http://www.codeproject.com/KB/atl/atlaux.aspx?display=PrintAll">CodeProject: ATL/AUX Library.</a> - great article and code.<br/>
+<a href="http://www.codeproject.com/KB/atl/index.aspx?#ATL%20-%20ATL/AUX%20Library">CodeProject: ATL</a> - the whole ATL section in codeproject is priceless.<br/>
+<a href="http://ivarsv.blogspot.com/2008/09/practial-advising-with-atl.html">daily blah: Practial advising with ATL</a><br/>
+<a href="http://vcfaq.mvps.org/com/10.htm">BUGFIX: ATL's CWindowImpl crashes when OnFinalMessage contains code to destroy the class instance</a><br/>
+<br/>
+<br/>
+<h2>COM Eventing</h2>
+<a href="http://support.microsoft.com/kb/194179/">AtlEvnt.exe sample shows how to creates ATL sinks by using the ATL IDispEventImpl and IDispEventSimpleImpl classes</a><br/>
+<a href="http://support.microsoft.com/kb/246247">How to sink HTML document events for WebBrowser host</a> - syncs DWebBrowserEvents2 for DocumentComplete and then syncs to the documents HtmlDocumentEvents<br/>
+
+<br/>
+<br/>
+<h2>com proxy stub dll</h2>
+ used to marshal data across boundaries like process boundaries or apartment boundaries.<br/>
+<a href="http://blogs.msdn.com/b/eldar/archive/2006/02/28/540981.aspx">COM proxy stub dll and why do you need it - Random Thoughts and Hints on Software Development - Site Home - MSDN Blogs</a> - my.idl -> my_h.h, my_i.c, my_p.c and dlldata.c<br/>
+<br/>
+<br/>
+<h2>signcode without password / signcode don't prompt password</h2>
+If you are writing certain types of COM controls (IE activex controls), you will need to sign your code with a signing key.  To sign you'll use signcode, but signcode doesn't allow you to pass a password argument.  Instead, use signtool.exe which comes part of VS2005 and within the (Platform SDK/Windows SDK).  If you are using the Windows SDK, when I installed it was in "C:\Program Files\Microsoft SDKs\Windows\v6.1\Bin".  It does allow you to specify the private key password on the command line.  This is useful for automating a signed build.<br/>
+<a href="http://www.wiscocomputing.com/articles/code-signing.htm">Code Signing for Developers</a><br/>
+<a href="http://www.pantaray.com/signcode.html">Code Signing</a> - more overview of signing stuff.<br/>
+<a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=F9992C94-B129-46BC-B240-414BDFF679A7&displaylang=EN">Download details: Office 2000 Tool: PVK Digital Certificate Files Importer</a> - includes pvkimprt tool<br/>
+<a href="http://www.jobsforcooks.com/subwordpress/tobyallen/?p=6">P4 Tasks » Problems and Solutions installing pvkimprt.exe</a><br/>
+<br/>
+<br/>
+<h2>Shell programming</h2>
+<a href="http://code.msdn.microsoft.com/WindowsAPICodePack">Windows® API Code Pack for Microsoft® .NET Framework (v0.85) - Home</a> - interesting, stuff you could only do with COM in managed code! Support for Windows Shell namespace objects, including the new Windows 7 libraries, Known Folders and non file system containers, Windows 7 Explorer Browser Control supporting both WPF and Windows Forms, Support for Shell property system.<br/>
+<br/>
+<br/>
+<h2>BITS - Background Intelligent Transfer Service</h2>
+<a href="http://ivarsv.blogspot.com/2008/06/background-intelligent-transfer-service.html">daily blah: Background Intelligent Transfer Service</a><br/>
+<br/>
+<br/>
+<a href="http://www.moserware.com/2008/01/finally-understanding-com-after.html">Moserware: Finally Understanding COM After Changing a Light Bulb</a><br/>
+<a href="http://www.moserware.com/2009/04/using-obscure-windows-com-apis-in-net.html">Moserware: Using Obscure Windows COM APIs in .NET</a><br/>
+<br/>
+<br/>
+<a href="http://www.dependencywalker.com/">Dependency Walker (depends.exe) Home Page</a> - this tool has been invaluable to me.  It tells you all the files required for a binary. (ocx,dll,exe,etc)<br/>
+<a href="http://jmorrill.hjtcentral.com/Home/tabid/428/EntryId/442/Silverlight-4-Hack-Use-Native-Desktop-CLR-Without-COM-Registration.aspx">Jer's One Stop Shop &gt; Home - Silverlight 4 Hack: Use Native/Desktop CLR Without COM Registration</a><br/>
+<a href="http://jeremiahmorrill.com/2011/05/22/com-for-the-i-did-c-once-a-thousand-years-ago-but-only-do-net-now-developer-or-in-the-defense-of-com/">COM for the “I did C++ once a thousand years ago, but only do .NET now” Developer –or– In the Defense of COM « Jer's Hacks</a><br/>
+<a href="http://www.moserware.com/2009/04/using-obscure-windows-com-apis-in-net.html">Moserware: Using Obscure Windows COM APIs in .NET</a><br/>
+<br/>
+<br/>
+<a href="http://www.codeproject.com/Articles/13601/COM-in-plain-C">COM in plain C - CodeProject</a> goes to <a href="http://www.codeproject.com/Articles/15037/COM-in-plain-C-Part-7">COM in plain C, Part 7 - CodeProject</a>.<br/>
+    <div style="border: 1px;">
+    Created: 2008-03-28 07:26:41
+    Modified: 2014-05-17 22:48:04
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+<span id=daysToChristmas>x</span> days to Christmas.<br/>
+<span id=daysToNewYear>x</span> days to a new year.<br/>
+Happy Holidays!
+<script Language="JavaScript">
+function showtime () {
+        msPerDay = 24 * 60 * 60 * 1000 ; // Number of milliseconds per day
+        var now = new Date();
+        var year = now.getYear();
+        if (year < 1000)
+         year+=1900
+        nextXmas = new Date("December 25, 2000")
+        nextXmas.setYear(year)
+        daysLeft = (nextXmas.getTime() - now.getTime()) / msPerDay;
+        daysLeft = Math.round(daysLeft);
+        var span=document.getElementById('daysToChristmas');
+        span.removeChild(span.firstChild);
+        span.appendChild(document.createTextNode(daysLeft+''));
+        
+        nextXmas = new Date("December 31, 2000")
+        nextXmas.setYear(year)
+        daysLeft = (nextXmas.getTime() - now.getTime()) / msPerDay;
+        daysLeft = Math.round(daysLeft);
+
+        span=document.getElementById('daysToNewYear');
+        span.removeChild(span.firstChild);
+        span.appendChild(document.createTextNode(daysLeft+''));
+        setTimeout("showtime()",msPerDay);
+}
+showtime();
+</script>
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

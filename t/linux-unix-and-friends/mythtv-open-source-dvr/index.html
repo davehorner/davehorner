@@ -1,0 +1,285 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>MythTV &amp; XBMC- open source DVR</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/linux-unix-and-friends/">linux-unix-and-friends</a>
+    <h1>MythTV &amp; XBMC- open source DVR</h1>
+   This page is my little mindmap related to open source Home theater PCs (HTPC).  I love the idea of having theater PCs which are open to extension and connected.  There are many features available when building out your HTPC, ability to play many diff. types of video files, playlists of on demand content, access other media available on the home network, scheduling recordings, and others.....<br/>
+<br/>
+<br/>
+<br/>
+<h2>XBMC</h2>
+<a href="http://xbmc.org/">XBMC</a> - GPL software media player and entertainment hub for digital media. XBMC is available for Linux, OSX, Windows, and the original Xbox.<br/>
+Before you had to mod an xbox to install XBMC, today, you can install it on Linux, OSX, and Windows without voiding warranties!<br/>
+<a href="http://sourceforge.net/projects/xbmcmythtv/" target="_blank">XBMC MythTV</a> - A python script for XBMC that includes the ability to play live TV and recordings.&nbsp; Plus you can schedule new recordings as well!<br/>
+<a href="http://wiki.xbmc.org/index.php?title=XBMC_DevCon">XBMC DevCon - XBMC</a> - 2013 in Germany, have fun Stephen!!!<br/>
+<br/>
+<br/>
+I recently saw that XBMC now includes <a href="http://www.apple.com/airport-express/">AirPort Express</a> airplay features.  For a long time I have wanted network streaming audio to multiple output devices....  I would like to somehow figure out how to use the same code or other code, to create a virtual audio device, so that all system sound output could be streamed.  Other notes relating to this idea, can be found <a href="http://dave.thehorners.com/tech-talk/programming/143-audio-processing">Audio Processing - Dave Horner's Website</a><br/>
+<br/>
+<br/>
+<h2>MythTV - a linux media center</h2>
+<p>Ok, so you are looking for a great TiVo/Replay type device with the ability to upgrade and develop new features?&nbsp; Look no further, MythTv is here!<br/>
+</p>
+<br/>
+<a href="http://www.mysettopbox.tv/knoppmyth.html" target="_blank">KnoppMyth</a> - This is a modified Knoppix distro. of linux that is made solely for MythTV.&nbsp; I'm interested in this project because it provides a quick and easy way to keep your media center up to date.<br/>
+<a href="http://www.knoppmythwiki.org/" target="_blank">KnoppMyth Wiki</a><br/>
+<a href="http://www.mythtv.org/docs/mythtv-HOWTO-11.html#ss11.1" target="_blank">Keys for MythTV</a><br/>
+<a href="http://www.torrentocracy.com/blog/archives/2006/05/streaming_mytht_1.shtml" target="_blank">Streaming MythTV to your cell phone</a>
+<br/>
+More information to come soon on building your own MythTV from CVS on a distro like Fedora or CentOS.<br/>
+<br/>
+<h2>Hardware Info</h2>
+I'm interested in a nice card that does MPEG 4 but there really isn't anything out there right now.&nbsp; I found something called the <a href="http://gentoo-wiki.com/HARDWARE_go7007" target="_blank">Plextor ConvertX PVR</a> but it is USB based... which is fine, but I don't exactly feel great with it.&nbsp; I may spend the money and try it out.&nbsp; I'll let you know when I find.<br/>
+</p>
+
+<h2>LinuxMCE</h2>
+I am very interested in getting started with LinuxMCE.  There is a really cool video of it's use on google video [<a href="http://video.google.com/url?docid=-4422887272477313460&esrc=sr1&ev=v&q=linux+mce&vidurl=http://video.google.com/videoplay%3Fdocid%3D-4422887272477313460%26q%3Dlinux%2Bmce%26hl%3Den&usg=AL29H22AImN_CHtye2kt0daNcipvgTd-bw">here</a>].
+<a href="http://linuxmce.com/">LinuxMCE</a><br/>
+<br/>
+<br/>
+<h2>SlingBox</h2>
+Slingbox is a great device that gives you a single user network stream to your devices... one time purchase, no recurring fees, hosted solution pointing to your home internet connection.<br/>
+<a href="http://slingbox.com/">Slingbox.com - Turn Your Laptop, Smartphone or Tablet into a TV</a><br/>
+<a href="http://placeshiftingenthusiasts.com/watching-your-slingplayer-on-linux/">Watching your Slingplayer on Linux – Place Shifting Enthusiasts</a> - apparently wine can be of service.<br/>
+<br/>
+<h2>ReplayTV</h2>
+Let us not forget that great DVR of the past that automatically skipped commercials properly...
+    <div style="border: 1px;">
+    Created: 2006-01-06 02:09:52
+    Modified: 2016-03-08 04:22:51
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+<a href="javascript:var%20s%20=%20document.createElement('script');s.type='text/javascript';document.body.appendChild(s);s.src='/eggs/asteroids.min.js';void(0);" id="secret">destory this webpage; if you will.</a>
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,320 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>ahk autohotkey</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/random-technology/">random-technology</a>
+    <h1>ahk autohotkey</h1>
+   <a href="http://www.autohotkey.com/">AutoHotkey</a> - Fast scriptable desktop automation with hotkeys<br/>
+<a href="http://www.autohotkey.com/docs/KeyList.htm">List of Keys and Mouse/Joystick Buttons for Hotkeys and Macros</a><br/>
+<a href="http://blog.danskingdom.com/category/autohotkey/">Daniel Schroeder's Programming Blog » AutoHotkey</a><br/>
+<a href="http://ahkcommandpicker.codeplex.com/">AHK Command Picker - Home</a> - An AutoHotkey (AHK) script that allows you to easily call AHK functions to run other AHK scripts. (Requires AutoHotkey_L).<br/>
+<a href="http://slanter-ahk.blogspot.com/">Slanter's AHK Stuff</a><br/>
+<a href="http://slanter-ahk.blogspot.com/2008/12/ahk-random-mouse-path-mousemove.html">Slanter's AHK Stuff: AHK - Random Mouse Path (MouseMove)</a><br/>
+<a href="http://slanter-ahk.blogspot.com/2008/08/simple-auto-clicker.html">Slanter's AHK Stuff: AHK - A simple auto-clicker</a><br/>
+<a href="https://github.com/theborg3of5/ahk">theborg3of5/ahk</a> - A personal repository for my collection of AutoHotkey scripts.<br/>
+<a href="https://code.google.com/p/everything/">everything - Everything you could possibly imagine, and then some. - Google Project Hosting</a><br/>
+<a href="https://gist.github.com/ronjouch/2428558">ronjouch / ronj-autohotkey.ahk - gist - Collection of AutoHotkey scripts I use</a><br/>
+<br/>
+<br/>
+<a href="http://blog.danskingdom.com/get-autohotkey-to-interact-with-admin-windows-without-running-ahk-script-as-admin/">Daniel Schroeder's Programming Blog » Get AutoHotkey To Interact With Admin Windows Without Running AHK Script As Admin</a><br/>
+<a href="http://blog.danskingdom.com/get-autohotkey-script-to-run-as-admin-at-startup/">Daniel Schroeder's Programming Blog » Get AutoHotkey Script To Run As Admin At Startup</a><br/>
+<br/>
+<br/>
+<a href="http://www.autohotkey.com/board/topic/84771-alttab-mapping-isnt-working-anymore-in-windows-8/">Alt+tab mapping isn't working anymore in Windows 8 - Issues - AutoHotkey Community</a><br/>
+<a href="http://www.autohotkey.com/board/topic/86218-how-can-i-emulate-alt-tab-function-on-win-8-using-ahk/">How can I emulate Alt-Tab function on Win 8 using AHK? - Support - AutoHotkey Community</a> - alternative? Send !{ESC}<br/>
+<br/>
+<br/>
+<h2>Change autohotkey default editor</h2>
+Notepad, just isn't cutting it.<br/>
+<a href="http://www.autohotkey.com/board/topic/897-how-to-change-autohotkey-default-editor/page-2">How to change AutoHotKey default editor - Page 2 - Support - AutoHotkey Community</a><br/>
+I'm fond of the AHK solution, which, I remind you, will require Admin priv.<br/>
+<pre>
+FileSelectFile, SelectedFile, 3, , Open a file, Executable (*.exe)
+if SelectedFile =
+    MsgBox, User cancelled, no actions taken.
+else
+	RegWrite, REG_SZ, HKEY_CLASSES_ROOT, AutoHotkeyScript\Shell\Edit\Command,, "%SelectedFile%" "`%1"
+ExitApp
+</pre>
+<br/>
+<br/>
+<h2>AHK syntax highlighting support</h2>
+<a href="http://stackoverflow.com/questions/1238893/autohotkey-editor">Autohotkey editor - Stack Overflow</a><br/>
+<a href="http://www.autohotkey.com/board/topic/86937-autohotkey-syntaxhighlight-for-notepad/">AutoHotkey SyntaxHighlight for Notepad++ - Utilities - AutoHotkey Community</a><br/>
+<a href="http://fincs.ahk4.net/scite4ahk/">SciTE4AutoHotkey</a> - SciTE distribution designed for AutoHotkey.<br/>
+<br/>
+<br/>
+
+<h2>AHK autohotkey development threads and links</h2>
+<a href="http://www.autohotkey.com/board/topic/63640-tooltip-which-follows-the-mouse-is-flickering/">ToolTip which follows the mouse is flickering - Support - AutoHotkey Community</a><br/>
+<a href="http://www.autohotkey.com/board/topic/60985-get-paths-of-selected-items-in-an-explorer-window/">Get paths of selected items in an explorer window - Scripts - AutoHotkey Community</a><br/>
+<a href="http://www.autohotkey.com/board/topic/95823-send-email-through-gmail-using-mailsend/">Send email through GMail using mailsend - Scripts - AutoHotkey Community</a><br/>
+<br/>
+<br/>
+<h2>ahk autohotkey accssibility and com links</h2>
+<a href="http://www.autohotkey.com/board/topic/77888-accessible-info-viewer-alpha-release-2012-09-20/">Accessible Info Viewer - Alpha Release (2012-09-20) - Scripts - AutoHotkey Community</a><br/>
+<a href="http://www.autohotkey.com/board/topic/77303-acc-library-ahk-l-updated-09272012/">Acc Library [AHK_L] (updated 09/27/2012) - Scripts - AutoHotkey Community</a><br/>
+<a href="http://www.autohotkey.com/board/topic/22058-accessibility-standard-library/">Accessibility Standard Library - Scripts - AutoHotkey Community</a> - Active Accessibility with ACC.ahk Accessibility Standard Library and COM.ahk, (middle mouse button on the paragraph you want to read.)<br/>
+<a href="https://github.com/neptercn/UIAutomation">neptercn/UIAutomation</a> - Class-Wrapped UI Automation<br/>
+<a href="http://www.autohotkey.com/board/topic/21142-com-standard-library/page-44">COM Standard Library - Page 44 - Scripts - AutoHotkey Community</a><br/>
+<br/>
+<br/>
+<h2>activate the window currently under mouse cursor?</h2>
+<a href="http://www.autohotkey.com/board/topic/60521-how-to-activate-the-window-currently-under-mouse-cursor/">How to activate the window currently under mouse cursor? - Support - AutoHotkey Community</a><br/>
+<pre>
+MButton:: 
+MouseGetPos,,, hwnd 
+WinActivate, ahk_id %hwnd%
+</pre>
+
+Move on idle;  stop lock/screensaver.
+<pre>
+#Persistent
+SetTimer, MouseMoveIdle
+
+MouseMoveIdle:
+if(A_TimeIdle > 5999) {
+		MouseMove, 1, 1,, R
+		MouseMove, -1,-1,,R
+}
+return
+</pre>
+    <div style="border: 1px;">
+    Created: 2013-06-17 03:12:06
+    Modified: 2020-06-04 17:52:07
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+left side represents the beginning of mathematics; the right side represents the mysteries of infinity.<br/>
+1=0.999...
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

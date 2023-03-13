@@ -1,0 +1,309 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>Unified Modeling Language (UML) - someday, I can replace myself.</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/programming/">programming</a>
+    <h1>Unified Modeling Language (UML) - someday, I can replace myself.</h1>
+   <a href="http://en.wikipedia.org/wiki/Image:Erd-entity-relationship-example1.png"><img src="http://upload.wikimedia.org/wikipedia/commons/b/b1/Erd-entity-relationship-example1.png" border=0></a><br/>
+With a title like "someday, I can replace myself", I need to reference this "<a href="http://www.agilemodeling.com/essays/realisticUML.htm#xUML">Be Realistic About the UML: It's Simply Not Sufficient</a>" before we go any further into UML.  I'm not crazy, I understand that the modeling languages are never going to be able to model everything... and the code generators are not going to be able to translate our models as we would like...but it is a nice dream. ;)<br/>
+<br/>
+UML is a modeling language used to model many things in software and business.  This can include many things: use cases, class diagrams, sequence diagrams, activity diagrams and state machine diagrams,etc.<br/>
+<br/>
+While at first glance, this may seem like a waste of time...and many times it does feel and look like that.  However, this is due to people not understanding the power of really modeling your business applications in a very abstract and specific way.<br/>
+<br/>
+Instead of paying 10 developers to sit around and code up your application in language X.  You first pay 5 developers to sit around and model your application in some modeling language.  It is important to note, that you'll still need the other 5 developers because you'll want to do rapid prototyping, modeling isn't going to make your client happy...you need something they can play with and get a feel for.  So while this modeling stuff is wonderful, you've got to strike a balance somewhere between modeling and implementation. (this is being agile)  What you use for modeling is really not important, though at this point UML looks like it is the winner.<br/>
+<br/>
+So why should I model all this stuff?  Well if you have your developers model instead of code, you end up getting back a model that can be rendered into a sort of template for language X.  Now when we decide on the platform or language of implementation, we can develop a code generator to create the stubs for each of our classes, relationships, etc.  This allows your developers to focus on writing the code that needs to be written, not on jamming our business ideas into the specifics of the language.<br/>
+<br/>
+An example of what I'm talking about is easily seen today with many tools that allow you to model your database using a <a href="http://en.wikipedia.org/wiki/Entity-relationship_model">ERD</a>.  That ERD is then rendered to a database spec.  Usually in SQL with database specific code sprinkled throughout.  This means we can write our database model once, and deploy it to any database (writing a code generator, or using an existing one).<br/>
+<br/>
+Modeling of this type is the ultimate dream tool for the developers.  It means we can model and rationalize our ideas, allow the computer to write as much of the code as possible, and code the remaining ideas in the language implementation we've decided on.  As a added bonus, we are also creating business documentation for the entire system so that analysis can be done throughout the entire system.  During modeling we can comment and notate as much as our heart desires, and those notations can be pushed down to the developers working within the language implementation.<br/>
+<br/>
+I'm excited overall about the prospect of UML and other modeling languages.  However, most CASE tools are really expensive and don't yet provide the code generators.  Many of the existing tools are more for business development (fund seeking in nature) and stop at a pretty picture used to get an idea across.<br/>
+<br/>
+This page will serve as my resource on UML, check back later for more resources and info.<br/>
+<br/>
+I'm fairly new to all this stuff, but I believe that I'm really talking about <a href="http://www.omg.org/mda/">Model Driven Architecture</a>(MDA), UML is just one tool needed to get there.
+
+--Dave May 27th, 2006<br/>
+<br/>
+I tend to favor the open source UML products over the closed source products...this may be because I don't have the money for the nice tools. :)<br/>
+<br/>
+<strong>Resources</strong><br/>
+<a href="http://www.uml.org/">http://www.uml.org/</a> - the homepage.<br/>
+<a href="http://uml.sourceforge.net/index.php">Umbrello</a> - an open source UML diagram  drawing program for KDE.<br/>
+<a href="http://tech.motion-twin.com/php_php2xmi.html">PHP2XMI</a> - script generates a XMI scheme (1.3) representing your classes and interfaces, can be imported into a UML modeler to browse,print, and think about your existing classes.<br/>
+<a href="http://www.gnome.org/projects/dia/">Dia</a> - an open source diagram package much like "Visio". It should be noted that there are scripts that do diagram generation and code generation using Dia...<a href="http://www.gnome.org/projects/dia/">check it out</a><br/>
+<a href="http://www.smallbulb.net/2009/76-magicdraw-uml-analysis-and-modeling">MagicDraw – UML tool | welcome to the world of...</a><br/>
+<br/>
+<strong>Open Source UML/Open Source CASE tools</strong><br/>
+<a href="http://members.lycos.nl/JimmyVenema/ClassBuilder/ClassBuilder.htm">ClassBuilder</a>  - Modeler for the C++ developer runs in windows.<br/>
+<a href="http://bouml.free.fr/">BOUML</a> - generate code in C++, Java and Idl. It runs under Unix/Linux/Solaris, MacOS X and Windows.<br/>
+<a href="http://motionmodeling.sourceforge.net/">Motion Modeling Core</a> - modeling for eclipse.<br/>
+<a href="http://www.staruml.com/Home/tabid/36/Default.aspx">StarUML</a> - an open source UML/MDA (looks pretty good)<br/>
+<a href="http://argouml.tigris.org/">ArgoUML</a> - java UML modeling tool. (supports xmi)<br/>
+<a href="http://www.spinellis.gr/sw/umlgraph/">UMLGraph</a> - Declarative Drawing of UML Diagrams, useful when drawing is tedious.<br/>
+<a href="http://wwwcs.uni-paderborn.de/cs/fujaba/index.html">Fujaba Tool</a> - stands for 'From Uml to Java And Back Again', a UML tool and more.
+<br/>
+<strong>Commerical Modelers</strong><br/>
+<a href="http://gentleware.com/index.php">Poseidon for UML</a><br/>
+<br/>
+<strong>Documentation / Presentations</strong><br/>
+<a href="http://www3.software.ibm.com/ibmdl/pub/software/rational/web/pres/ucase.html">Writing Good Use Cases</a> by Jim Heumann, Requirements Evangelist, IBM Rational<br/>
+<br/>
+<strong>Web resources</strong><br/>
+<a href="http://www.codegeneration.net/tiki-index.php">Code Generation Network</a><br/>
+<a href="http://www.codegeneration.net/tiki-read_article.php?articleId=47">Code Generation Network - Kathleen Dollard interview part one</a><br/>
+<a href="http://www.codegeneration.net/tiki-read_article.php?articleId=48">Code Generation Network - Kathleen Dollard interview part two</a><br/>
+<br/>
+<a href="http://sourceforge.net/projects/pyidea">SourceForge.net: PyNSource UML & Patterns IDE for Python</a><br/>
+<a href="http://www.smbc-comics.com/index.php?db=comics&id=2362"><img src="http://www.smbc-comics.com/comics/20110908.gif" alt="they routed around the humans"/></a><br/>
+<br/>
+<br/>
+<h2>Business Process Model and Notation || BPMN</h2>
+<a href="http://en.wikipedia.org/wiki/Business_Process_Model_and_Notation">Business Process Model and Notation - Wikipedia, the free encyclopedia</a><br/>
+<a href="http://bpmn.sourceforge.net/">Yaoqiang BPMN Editor - an Open Source BPMN 2.0 Modeler</a><br/>
+<a href="http://www.bpmn.org/">BPMN Specification - Business Process Model and Notation</a><br/>
+<a href="http://workflowpatterns.com/patterns/control/">Workflow Patterns | Patterns | Control</a><br/>
+<br/>
+<br/>
+<a href="https://github.com/ondras/wwwsqldesigner">ondras/wwwsqldesigner: WWW SQL Designer, your online SQL diagramming tool</a> - database diagram<br/>
+    <div style="border: 1px;">
+    Created: 2006-05-27 06:16:06
+    Modified: 2017-11-14 04:26:49
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+left side represents the beginning of mathematics; the right side represents the mysteries of infinity.<br/>
+1=0.999...
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

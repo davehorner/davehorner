@@ -1,0 +1,425 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>Apache and LAMP Notes</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/linux-unix-and-friends/">linux-unix-and-friends</a>
+    <h1>Apache and LAMP Notes</h1>
+   Apache is a great webserver.  It does the job very well.  It has a lot of modules and configuration options.  It isn't a small implementation, but it is a good one.<br/>
+<a href="http://httpd.apache.org/">Welcome! - The Apache HTTP Server Project</a><br/>
+<br/>
+<br/>
+I usually build apache from source.  However, on windows, I like to install the LAMP stack installers...there are many.  It is nice because they include a lot of other things like Mysql, PHP, PERL, mingw, etc.  For Perl and mod_perl, you need to install an add-on.<br/>
+<a href="http://www.apachefriends.org/en/xampp-windows.html">apache friends - xampp for windows</a><br/>
+<a href="http://robsnotebook.com/category/xampp">Rob’s Notebook » XAMPP</a> - misc documents relating to XAMPP (like securing it)<br/>
+<br/>
+<h2>Build apache from subversion</h2>
+<pre>
+#!/bin/bash
+svn checkout http://svn.apache.org/repos/asf/httpd/httpd/trunk/ http.trunk
+cvs -d :pserver:cvsread@cvs.php.net:/repository checkout -d php5.2 -r PHP_5_2 php5
+</pre>
+<br/>
+<br/>
+<br/>
+<br/>
+<h2>SSL Setup</h2>
+<a href="http://linuxtitbits.blogspot.com/">The Linux Titbits - Sign your own certificate with OpenSSL</a><br/>
+<a href="http://unhandledexpression.com/2013/01/25/5-easy-tips-to-accelerate-ssl/">5 easy tips to accelerate SSL – Unhandled expression</a><br/>
+Note: you can not run multiple virtual hosts on the same IP.  You must have a separate IP and or Port for this to work.  This is because SSL is wrapping the HTTP proto.  I've hyperlinked some info about this in the <a href="http://httpd.apache.org/docs/2.0/ssl/ssl_faq.html#vhosts2" target="_blank">SSL/TLS Strong Encryption: FAQ</a>, by the way, you really should read the FAQ before you waste your afternoon.<br/>
+<br/>
+Also, if you are interested in reading more on the problems with name based SSL hosting read <a target="_blank" href="http://www.onlamp.com/pub/a/apache/2005/02/17/apacheckbk.html">this</a>.<br/>
+A good read on things you can do with the openssl tools.  <a href="http://www.samag.com/documents/s=9304/sam0409b/0409b.htm" target="_blank">Real-world uses for OpenSSL</a><br/>
+<br/>
+Creating new SSL certs is a straight forward process (valid for 10 years).<br/>
+<pre>
+openssl req -new -x509 -sha1 -days 3560 -nodes -out server.crt -keyout server.key
+</pre>
+<br/>
+These files are not encrypted by default and don't have a pass phrase, so Apache will restart without requesting a password.<br/>
+<br/>
+You may create a wildcard SSL certificate which covers many subdomains (*.mydomain.com).  This is nice for when you want to have a single SSL cert that can cover multiple hosts (using one IP)... I have heard rumors that it doesn't work in all browsers... but I haven't run into any issues with it.<br/>
+<br/>
+<h2>Apache Out Of Control</h2>
+Apache sometimes acts up on my systems... I still have yet to figure out why this is.... but I've at least found a solution that gets my machine up and runnning.<br/>
+<br/>
+Sometimes I login to find MANY httpd processes running zombied or non-responsive.  I quickly try to shut down the service using the service scripts, however, the httpd processes stick around.  Then I do a trusty killall httpd in hopes that will take care of it.  Many times I've had to even set a -9 level for the kill to actually work.<br/>
+<br/>
+Then, you should make sure to clean up the lock files as well as the semaphores left hanging.<br/>
+<br/>
+The lock file comes first, delete /var/lock/subsys/httpd.  If you don't do this, you might get the error "httpd dead but subsys locked".<br/>
+<br/>
+<br/>
+Then list all the semaphores by the user that runs as apache.<br/>
+<pre>
+ipcs -s | grep apache
+</pre>
+<br/>
+If there are a bunch of random open semaphores owned by the apache user, then delete them with the following command.<br/>
+<pre>
+ipcs -s | grep apache |  perl -e 'while (<STDIN>) { @a=split(/\s+/); print `ipcrm sem $a[1]`}'
+</pre>
+<br/>
+<br/>
+If you don't do this, you run the risk of allowing apache to eat up all your system semaphores which leads to errors like "no space on device", which is very hard to understand at first because your first thought is.... I have space on the drive!!!<br/>
+<br/>
+<br/>
+<h2>Web Resources</h2>
+<a href="http://linuxgazette.net/131/cressatti.html">Apache2, WebDAV, SSL and MySQL: Life In The Fast Lane</a><br/>
+<a href="http://www.howtoforge.com/linux_apache2_ssl_php5_zendoptimizer_ioncubeloader">Apache2-SSL-PHP5-Howto (+ Zend Optimizer And IonCube Loader) | HowtoForge - Linux Howtos and Tutorials</a><br/>
+<br/>
+<br/>
+<h2>CAPTCHA</h2>
+Doesn't really belong here, but i dunno where else to put it.<br/>
+<a href="http://recaptcha.net/">reCAPTCHA: Stop Spam, Read Books</a><br/>
+<a href="http://recaptcha.net/plugins/php/">PHP CAPTCHA Library for reCAPTCHA</a><br/>
+<a href="http://demo.vidoop.com/captcha/">ImageShield as CAPTCHA - VidoopSecure Strong Authentication Demo</a><br/>
+<br/>
+<br/>
+<h2>mod_rewrite</h2>
+<a href="http://corz.org/serv/tricks/htaccess2.php">.htaccess tricks and tips.. part two: url rewriting with mod rewrite.</a><br/>
+<br/>
+<br/>
+<a href="http://www.thoughtspark.org/taxonomy/term/21">mod_python | ThoughtSpark.org</a> - has some mod_python code to do auth in python...<br/>
+<br/>
+<br/>
+<h2>Apache Log Management</h2>
+<p>
+Apache will log to a single file if you ask it to.  Backing up log files can be problematic.  Managing log files requires careful consideration.<br/>
+<a href="http://httpd.apache.org/docs/2.0/programs/rotatelogs.html">rotatelogs - Piped logging program to rotate Apache logs - Apache HTTP Server</a><br/>
+<a href="http://cronolog.org/index.html">cronolog</a> - The cronolog package consists of two programs: cronolog and cronosplit. <br/>
+<a href="http://www.electrictoolbox.com/changing-apache-log-rotation-behaviour/">Changing Apache log rotation behaviour on CentOS / RHEL</a> - (uses logrotate)default install of CentOS or Red Hat Enterprise Linux, the log rotation script will automatically rotate the Apache log file each day and then reload the httpd service. This post looks at how to prevent this action from occuring automatically, or to change the behaviour to rotate the log files if your naming convention for log files is different from the default.<br/>
+<a href="http://linuxadministration.wordpress.com/2007/08/19/apache-log-rotation/">Apache Log Rotation « Sachin’s Weblog</a> - talks a bit about rotatelogs...<br/>
+<a href="http://sudarmuthu.com/blog/2008/03/09/rotating-apache-log-files-using-cronolog.html">Rotating Apache log files using Cronolog - Night Dreaming (by Sudar)</a><br/>
+<a href="http://www.outoforder.cc/projects/apache/mod_log_sql/">OutOfOrder.cc :: mod_log_sql</a> - mod_log_sql is a logging module for Apache 1.3 and 2.0 which logs  all requests to a database.<br/>
+<a href="http://onlamp.com/pub/a/apache/2005/02/10/database_logs.html">Writing Apache's Logs to MySQL - O'Reilly Media</a><br/>
+<a href="http://www.analog.cx/">Analog: WWW logfile analysis</a><br/>
+<a href="http://stackoverflow.com/questions/11713978/how-to-split-existing-apache-logfile-by-month">awk - How to split existing apache logfile by month? - Stack Overflow</a> - awk, that's how.<br/>
+<a href="http://webmasters.stackexchange.com/questions/26478/how-to-split-apache-logfile-per-month">linux - How to split apache logfile per Month - Webmasters Stack Exchange</a> - this one suggests awk and csplit.<br/>
+<a href="http://www.thegeekstuff.com/2010/07/logrotate-examples/">HowTo: The Ultimate Logrotate Command Tutorial with 10 Examples</a><br/>
+<a href="http://www.steve.org.uk/Software/asql/">Steve.org.uk - asql - Apache SQL querying</a><br/>
+</p>
+<h2>Apache Performance</h2>
+<a href="http://hurikhan77.wordpress.com/2009/06/12/basic-apache-performance-tips/">Basic Apache Performance Tips « hurikhan’s Thoughts</a> - interesting to note on this list... 2) Combine your per-vhost logging into one monolithic site-wide log file, 3) Use piped logging instead of direct file logging.<br/>
+<a href="http://diegobenna.blogspot.com/2013/05/knowledge-base-apache-optimization.html">Diego Benna's Blog: Knowledge Base - Apache Optimization</a><br/>
+<br/>
+<br/>
+<h2>Restart apache with vengeance</h2>
+<pre>
+#!/bin/bash
+# This script kills and restarts apache
+# I should NOT have to do this!  Why is apache crashing?!
+/sbin/service httpd stop
+killall -9 httpd
+killall -9 httpd
+ipcs -s | grep apache | perl -e 'while (<STDIN> ) { @a=split(/\s+/); print `ipcrm -s $a[1]`}'
+ipcs -s | grep apache | perl -e 'while (<STDIN> ) { @a=split(/\s+/); print `ipcrm -s $a[1]`}'
+ipcs -s | grep apache | perl -e 'while (<STDIN> ) { @a=split(/\s+/); print `ipcrm -s $a[1]`}'
+/sbin/service httpd start
+</pre>
+<br/>
+<br/>
+<a href="http://blog.gorwits.me.uk/2012/04/22/deploying_mod_spnego/">Deploying mod_spnego | Cats and Code</a> - Apache Kerberos/SPNEGO module<br/>
+<br/>
+<h2>mod_pagespeed</h2>
+touch /var/cache/mod_pagespeed/cache.flush<br/>
+<a href="https://developers.google.com/speed/pagespeed/mod">mod_pagespeed - Make the Web Faster — Google Developers</a><br/>
+<a href="http://aaronshaf.wordpress.com/2010/11/03/how-to-install-mod_pagespeed-on-ubuntu/">How to install mod_pagespeed on Ubuntu | I Am Aaron Shafovaloff</a> - wget;dpkg -i mod-pagespeed*.deb;vi /etc/apache2/mods-available/pagespeed.conf<br/>
+<a href="https://00f.net/2012/06/02/mod-pagespeed-as-a-proxy-for-your-phone/">mod_pagespeed as a proxy for your phone | Frank DENIS random thoughts.</a><br/>
+<a href="http://vincent.bernat.im/en/blog/2011-mobile-browsing-content-optimization.html">Mobile browsing &amp; content optimization | Vincent Bernat</a><br/>
+<a href="http://bloke.org/apache/moving-mod_pagespeeds-file-based-cache-into-ram/">Moving mod_pagespeed's file-based cache into RAM | kieranbarnes</a><br/>
+<br/>
+<h2>Apache Security</h2>
+<a href="http://blog.sucuri.net/2013/04/apache-binary-backdoors-on-cpanel-based-servers.html">Apache Binary Backdoors on Cpanel-based servers | Sucuri Blog</a><br/>
+<a href="http://www.welivesecurity.com/2013/04/26/linuxcdorked-new-apache-backdoor-in-the-wild-serves-blackhole/">Linux/Cdorked.A - A new Apache backdoor is being used in the wild to serve Blackhole</a><br/>
+<a href="https://calomel.org/web_server_abuse_detection.html">Web Server Abuse Detection Script @ Calomel.org</a><br/>
+<br/>
+<h2>mod_security</h2>
+<a href="https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project">Category:OWASP ModSecurity Core Rule Set Project - OWASP</a><br/>
+<a href="http://www.askapache.com/htaccess/modsecurity-htaccess-tricks.html">Mod_Security .htaccess tricks</a><br/>
+<a href="http://www.modsecurity.org/documentation/modsecurity-apache/2.1.3/html-multipage/03-configuration-directives.html">modsecurity 2.1.3 Configuration Directives</a><br/>
+<a href="http://blog.spiderlabs.com/2011/08/modsecurity-advanced-topic-of-the-week-exception-handling.html">ModSecurity Advanced Topic of the Week: (Updated) Exception Handling - SpiderLabs Anterior</a><br/>
+<a href="http://www.thefanclub.co.za/how-to/how-disable-modsecurity-rules-drupal-and-wordpress">How to disable ModSecurity rules for Drupal and Wordpress | How To | The Fan Club | dynamic design solutions</a><br/>
+<a href="http://www.thefanclub.co.za/how-to/how-install-apache2-modsecurity-and-modevasive-ubuntu-1204-lts-server">How to install apache2 mod_security and mod_evasive on Ubuntu 12.04 LTS server | How To | The Fan Club | dynamic design solutions</a><br/>
+<a href="http://notepad2.blogspot.com/2012/11/ubuntu-1204-precise-lts-install.html">Ubuntu 12.04 Precise LTS: Install ModSecurity for Apache 2 web server</a><br/>
+<a href="http://www.ma-no.org/en/content/index_install-apache2-mod-security-and-mod-evasive-on-ubuntu-12-04_1676.php">Install apache2 mod_security and mod_evasive on Ubuntu 12.04 Design and Development Agency based in Palma de Mallorca - Ma-No Web Design and Development</a><br/>
+<br/>
+<br/>
+<h2>mod_evasive</h2>
+<a href="http://www.zdziarski.com/blog/?page_id=442">mod_evasive | Jonathan Zdziarski's Domain</a> - mod_evasive is an evasive maneuvers module for Apache to provide evasive action in the event of an HTTP DoS or DDoS attack or brute force attack.<br/>
+<h2>perl apache</h2>
+<a href="http://search.cpan.org/~miyagawa/Plack-1.0024/lib/Plack/Handler/Apache2.pm">Plack::Handler::Apache2 - search.cpan.org</a><br/>
+<a href="http://bloke.org/linux/prevent-dosddos-attacks-with-apache-and-mod_evasive/">Prevent and survive DoS/DDoS attacks with Apache and mod_evasive | kieranbarnes</a><br/>
+<a href="http://bloke.org/apache/limit-apache-requests-per-ip-address-with-mod_limitipconn/">Limit Apache requests per IP Address with mod_limitipconn | kieranbarnes</a> - <a href="http://dominia.org/djao/limitipconn.html">mod_limitipconn.c</a><br/>
+<br/>
+<br/>
+<h2>NTLM auth</h2>
+NTLM authenticates each TCP connection.  So it is important to turn KeepAlive On.<br/>
+<a href="http://davenport.sourceforge.net/ntlm.html">The NTLM Authentication Protocol and Security Support Provider</a><br/>
+<a href="http://technet.microsoft.com/en-us/magazine/2006.08.securitywatch.aspx">Security Watch: The Most Misunderstood Windows Security Setting of All Time</a> - NTLM version 2 (NTLMv2) and the LMCompatibilityLevel setting that governs it.<br/>
+<a href="http://search.cpan.org/~speeves/Apache2-AuthenNTLM-0.02/AuthenNTLM.pm">Apache2::AuthenNTLM - search.cpan.org</a><br/>
+<a href="http://gnomeskull.com/?p=162">Setting Up NTLM on Ubuntu 9.10 « Emporium of Uselessness</a> -  sudo apt-get install libapache2-authenntlm-perl<br/>
+<a href="http://bloke.org/windows/ridiculously-simple-ntlm-authentication-for-apache-ubuntu/">Ridiculously simple NTLM Authentication for Apache (Ubuntu) | kieranbarnes</a> - another apt-get install libapache2-authenntlm-perl<br/>
+<a href="http://bloke.org/linux/ntlm-authentication-active-directory-on-apache-linux/">NTLM Authentication (Active Directory) on Apache (Linux) | kieranbarnes</a> - using  ntlm_winbind_module<br/>
+<a href="http://search.cpan.org/~dami/Apache2-AuthenNTLM-Cookie-1.02/lib/Apache2/AuthenNTLM/Cookie.pm">Apache2::AuthenNTLM::Cookie - search.cpan.org</a> - in order to improve performance, the present module saves the result of that handshake in a cookie, so that the next request gets an immediate answer.<br/>
+
+<a href="https://github.com/Legrandin/PyAuthenNTLM2">Legrandin/PyAuthenNTLM2</a> - PyAuthenNTLM2 is an authentication module for Apache. It validates a user by means of the NTLM protocol and a separate Domain Controller (or Active Directory server).<br/>
+<a href="http://tdoks.blogspot.com/2007/01/ntlm-authentication-and-firefox.html">Tiny drops of knowledge: NTLM authentication and Firefox</a> - about:config add url to ntlm-auth.trusted-uris.<br/>
+<a href="http://serverfault.com/questions/261018/apache2authenntlm-connects-to-domain-controller-but-does-not-authenticate">perl - Apache2::AuthenNTLM connects to Domain controller but does not authenticate - Server Fault</a> - Apache2::AuthenNTLM apparently doesn't support v2?<br/>
+<a href="http://injustfiveminutes.wordpress.com/2012/10/08/ntlm-authentication-with-drupalapachelinux/">NTLM authentication with Drupal+Apache+Linux | In just five minutes…</a> - again walk through of ntlmv1 but also includes screen caps of "LAN Manager Authentication Level" to "Send LM & NTLM responses" <br/>
+<br/>
+<br/>
+<a href="https://tn123.org/mod_xsendfile/">mod_xsendfile for Apache2/Apache2.2</a><br/>
+<br/>
+<h2>SPDY || mod_spdy || speedier secure https</h2>
+SPDY (pronounced speedy) actually runs over https protocol, so it is transparent to users with spdy support.  if you're interested in the specifics; it seems they are in <a href="http://technotes.googlecode.com/git/nextprotoneg.html">Google Technical Note - TLS Next Protocol Negotiation</a> SPDY requires the use of SSL/TLS, and does not support operation over plain HTTP.<br/>
+<a href="http://en.wikipedia.org/wiki/SPDY">SPDY - Wikipedia</a><br/>
+<a href="http://www.chromium.org/spdy/spdy-whitepaper">SPDY: An experimental protocol for a faster web - The Chromium Projects</a> - Multiplexed streams, Request prioritization, HTTP header compression, <br/>
+<a href="https://code.google.com/p/mod-spdy/">mod-spdy - Apache SPDY module - Google Project Hosting</a><br/>
+<a href="http://www.howtoforge.com/using-mod_spdy-with-apache2-on-ubuntu-12.04">Using mod_spdy With Apache2 On Ubuntu 12.04 | HowtoForge - Linux Howtos and Tutorials</a><br/>
+<a href="chrome://net-internals/#spdy">chrome://net-internals/#spdy</a> - is u spdy fast? is you am a dog?<br/>
+<a href="http://caniuse.com/spdy">Can I use SPDY networking protocol</a> - Compatibility table for support of SPDY networking protocol in desktop and mobile browsers.<br/>
+<a href="http://blog.liip.ch/archive/2012/06/21/this-site-now-runs-on-spdy.html">Liip Blog // This site now runs on SPDY</a><br/>
+header Alternate-Protocol: 443:npn-spdy/2 and rewrite rules are ways to advertise:<br/>
+<pre>
+RewriteCond  %{HTTP_USER_AGENT}  Firefox\/[0-9]{2}\.    
+RewriteCond  %{SERVER_PORT}  ^80$   
+RewriteRule ^/*(.*)$ https://blog.liip.ch/$1 [L,R=301]  
+</pre>
+    <div style="border: 1px;">
+    Created: 2006-01-06 01:36:34
+    Modified: 2014-06-25 21:24:47
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+<a href="javascript:var%20s%20=%20document.createElement('script');s.type='text/javascript';document.body.appendChild(s);s.src='/eggs/asteroids.min.js';void(0);" id="secret">destory this webpage; if you will.</a>
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

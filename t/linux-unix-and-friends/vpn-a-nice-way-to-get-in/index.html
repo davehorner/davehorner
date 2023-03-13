@@ -1,0 +1,365 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>VPN - a nice way to get in.</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/linux-unix-and-friends/">linux-unix-and-friends</a>
+    <h1>VPN - a nice way to get in.</h1>
+   <p>Lately I've been dealing with managing security for multiple networks.  Things have gotten <strong>completely</strong> complex as I add more computers, more data, connect to more remote networks, and allow other people to connect to my local network.  Security is not something that comes natural in such a setup.  Each time I add another remote connection or take on more liability for intellectual property, I first think how I plan on segmenting the data and network into my existing security plan.<br/>
+<br/>
+Segmentation provides security by allowing me to build walls between everything on my network so that I can conceptually understand where everything resides on the network.  I need to always be aware of where my private personal data is.... as well as my employer's private data, so that I can insure I won't be the weak link and result in unknown damages.<br/>
+<br/>
+I have my home network which contains all my personal information, the remote office network that contains work related private data (I also have local office data because network speeds are too slow for large data), and from time to time there are reasons that I would like to be able to allow my friends and family to connect to my network.<br/>
+<br/>
+It is important that my own network be very secure and that all the networks that I connect to are also very secure.  Otherwise, I don't know what is going on in my network... and I might as well publish the data I hold for anyone to read.<br/>
+<br/>
+There are many solutions when it comes to virtual private networking (VPN).  There are hardware based (many solutions that claim to be hardware are actually simple hardware running software VPN---beware.) solutions that allow you to set and forget, typically with a web interface for administration.  There are also straight software solutions that allow you to connect your OS to a VPN tunnel.  <br/>
+<br/>
+</p>
+<p>There are many VPN protocols to choose from like: simple SSH tunnelling, PPTP, IPSec, SSL/TLS, and other propritary protocols.<br/>
+<br/>
+Making sense of what to use for your own VPN can be a hard decision.  For a long time I stayed away from VPN and used simple dynamic firewalls that would allow me to block everyone from my internal network but allow those people who knew the special "open seaseme" passwords to come in.  This worked well for simple authentication, but I still needed to ensure that all the protocols I used were encrypted using SSH or SSL.    This solution does provide a nice way of hiding services but it doesn't allow for remote users to actually enter the network to participate in network broadcasts and give them the ability to really feal like they are connected to the network.<br/>
+<br/>
+I'm starting to think that the best solution is a Linux-based VPN endpoint.  While this does require more work upfront, it also provides the greatest flexibility.  Using Linux as a VPN endpoint not only allows me to connect to enterprise VPN endpoints like SonicWall but it allows allows me to be a VPN gateway for my local network.<br/>
+<br/>
+The only drawback I see with this approach is that any solution I create must be supported by me... and I have to be always mindful of network vulnerabilities that might arise in software I use.  Then again, I think that the problem of support and maintenance is a problem if you roll your own device or if you buy a device off the shelf.<br/>
+<br/>
+Some VPN solutions I'm looking at now are:<br/>
+<br/>
+<a target="_blank" href="http://openvpn.net/">OpenVPN</a> - SSL VPN for most every OS out there.  Since it uses SSL and not PPTP it will require the installation of a client on the OS of your choice.  For example <a target="_blank" href="http://openvpn.se/index.html">OpenVPN GUI for Windows</a> allows you to connect to an OpenVPN server from your windows machine.  There are many good HOWTOs and readmes on setting this solution up, and it seems pretty straight forward.<br/>
+<br/>
+<a target="_blank" href="http://sites.inka.de/sites/bigred/devel/cipe.html">CIPE</a> - a project that looks to tunnel IP packets in encrypted UDP packets.  The whole idea of the project is to be as simple as possible.  There are implementations for both linux and windows.  I've heard some good things about this solution because it is easy to setup.<br/>
+</p>
+<a class="l" href="http://www.vpn-technology.com/Interoperability/SonicWALL%20VPN%20with%20Red%20Hat%20Linux.pdf"></a><a class="l" href="http://www.freeswan.org/"><b>FreeS/WAN</b> Project</a><span class="l"> - FreeS/WAN is a Linux implementation of the IPsec (IP security) protocols. IPsec provides encryption  and authentication services at the IP (Internet Protocol) level of the network protocol stack. <br/>
+[NOTICE: This project looks like it is slow or dead.  The development team has left, making me think other alternatives would be better]</span><br/>
+<br/>
+<a href="http://www.poptop.org/" target="_blank">Poptop - The PPTP Server for Linux</a> - A PPTP server solution for Linux.<br/>
+<br/>
+<br/>
+I've also been looking at hardware solutions for VPN endpoints.  There are many cheap endpoints out there today made by Linksys, Netgear, Dlink, etc.  However, these endpoint can't work as gateways and are usually on cheap hardware that is slow when compared to a enterprise grade hardware alternative or even a flow blow PC running Linux.<br/>
+<br/>
+Specifically I've been looking for ways to connect cheap endpoints to the Sonicwall enterprise products.<br/>
+Here is a link talking about hooking up a <a href="http://delilama.net/sonic/vpn/" target="_blank">Linksys BEFSX41 to a SonicWall VPN</a>.<br/>
+<a class="l" href="http://www.vpn-technology.com/Interoperability/SonicWALL%20VPN%20with%20Red%20Hat%20Linux.pdf"><b>SonicWALL</b> VPN with <b>FreeS/WAN</b> using IKE</a><br/>
+<br/>
+<span style="font-weight: bold;">Good resources<br/>
+</span><a target="_blank" href="http://www.jacco2.dds.nl/networking/freeswan-l2tp.html">Using a Linux L2TP/IPsec VPN server</a><br/>
+<a href="http://www.grc.com/securitynow.htm" target="_blank">Security Now!</a> - Podcast talks about VPN and other network security issues.
+<br/>
+<br/>
+<h2>HTTP Tunneling (SSH over HTTPS)</h2>
+<a href="http://en.wikipedia.org/wiki/HTTP_tunnel_(software)">HTTP tunnel - Wikipedia, the free encyclopedia</a><br/>
+<a href="http://www.nocrew.org/software/httptunnel.html">GNU httptunnel</a><br/>
+<a href="http://http-tunnel.sourceforge.net/">HTTPTunnel - Tunnel Connections Through Restrictive Proxies</a><br/>
+<a href="http://dag.wieers.com/howto/ssh-http-tunneling/">DAG: Tunneling SSH over HTTP(S)</a><br/>
+<a href="http://www.jcraft.com/jhttptunnel/">JHttpTunnel -- Implementation of GNU httptunnel's protocol in Java</a><br/>
+<a href="http://the-linux-academy.co.uk/downloads.htm">HTTP Tunnel</a><br/>
+<a href="http://sebsauvage.net/punching/">Punching holes into firewalls</a><br/>
+<a href="http://www.dest-unreach.org/socat/">socat</a> - a Multipurpose relay, <a href="http://www.dest-unreach.org/doc/socat-openssltunnel.html">Securing traffic between two socat instances using SSL</a><br/>
+<a href="http://daniel.haxx.se/docs/sshproxy.html">SSH Over Proxy</a><br/>
+<a href="http://www.agroman.net/corkscrew/">corkscrew</a> is a tool for tunneling SSH through HTTP proxies.<br/>
+<a href="http://foxyproxy.mozdev.org/index.html">FoxyProxy</a> - firefox proxy plugin that lets you resolve DNS through SOCKS proxy.<br/>
+<a href="http://stunnel.mirt.net/">stunnel - multiplatform SSL tunneling proxy</a> - Stunnel is a program that allows you to encrypt arbitrary TCP connections inside SSL (Secure Sockets Layer) available on both Unix and Windows. Stunnel can allow you to secure non-SSL aware daemons and protocols (like POP, IMAP, LDAP, etc) by having Stunnel provide the encryption, requiring no changes to the daemon's code.<br/>
+<a href="http://www.stunnel.org/examples/">Stunnel.org</a> - examples of stunnel usage<br/>
+<a href="http://foxyproxy.mozdev.org/index.html">FoxyProxy</a> - firefox proxy plugin, supports DNS through SOCKS.<br/>
+<a href="http://www.dest-unreach.org/socat/">socat</a> - socat - Multipurpose relay think "netcat++" (extended design, new implementation).<br/>
+<a href="http://cryptcat.sourceforge.net/info.php">Cryptcat Project</a><br/>
+<a href="http://www.pps.jussieu.fr/~jch/software/polipo/">Polipo — a caching web proxy</a><br/>
+<a href="http://mitmproxy.org/">mitmproxy - home</a> - an SSL-capable man-in-the-middle proxy<br/>
+<a href="http://corte.si/posts/code/mitmproxy/tute-30-seconds.html">cortesi - mitmproxy: A 30-second client playback example</a><br/>
+<a href="http://corte.si/posts/code/mitmproxy/announce0_1/index.html">cortesi - Introducing mitmproxy: an interactive man-in-the-middle proxy</a><br/>
+<br/>
+<br/>
+<h2>Tor</h2>
+<a href="https://www.torproject.org/">Tor: anonymity online</a><br/>
+<a href="https://www.torproject.org/torbrowser/index.html.en">Tor Browser Bundle</a> - portable USB flash drive client for Tor, including Firefox and Pidgin.<br/>
+<a href="https://www.torproject.org/bridges">Tor: Bridges</a><br/>
+<br/>
+<br/>
+<h2>Freenet</h2>
+<a href="http://freenetproject.org/index.html">The Freenet Project - /index</a><br/>
+<br/>
+<br/>
+<h2>Hamachi unmanged</h2>
+<a href="https://secure.logmein.com/US/products/hamachi2/">LogMeIn - Virtual Networking with LogMeIn Hamachi²</a> - 100% free for non-commercial use with up to 16 clients.<br/>
+<br/>
+<br/>
+<a href="http://www.freelan.org/">freelan - an open-source, multi-platform, peer-to-peer VPN software</a><br/>
+<br/>
+<br/>
+<h2>cjdns</h2>
+Instead of letting other computers connect to you through a shared IP address which anyone can use, cjdns only lets computers talk to one other after they have verified each other cryptographically. That means there is no way anyone can be intercepting your traffic.<br/>
+<a href="http://en.wikipedia.org/wiki/Cjdns">Cjdns - Wikipedia, the free encyclopedia</a><br/>
+<a href="https://github.com/cjdelisle/cjdns">cjdelisle/cjdns · GitHub</a> - Cjdns implements an encrypted IPv6 network using public-key cryptography for address allocation and a distributed hash table for routing. This provides near-zero-configuration networking, and prevents many of the security and scalability issues that plague existing networks.<br/>
+<a href="http://hyperboria.net/">Hyperboria</a> - a global decentralized network of "nodes" running cjdns software. The goal of Hyperboria is to provide an alternative to the internet with the principles of security, scalability and decentralization at the core. <br/>
+<a href="https://wiki.projectmeshnet.org/Getting_started">Getting started - meshwiki</a><br/>
+<a href="https://wiki.projectmeshnet.org/Install_on_Ubuntu">Install on Ubuntu - meshwiki</a><br/>
+<br/>
+<br/>
+<a href="http://zarb.org/~gc/html/udp-in-ssh-tunneling.html">Performing UDP tunneling through an SSH connection</a><br/>
+    <div style="border: 1px;">
+    Created: 2006-03-18 00:01:21
+    Modified: 2014-04-27 14:37:04
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+<span id=daysToChristmas>x</span> days to Christmas.<br/>
+<span id=daysToNewYear>x</span> days to a new year.<br/>
+Happy Holidays!
+<script Language="JavaScript">
+function showtime () {
+        msPerDay = 24 * 60 * 60 * 1000 ; // Number of milliseconds per day
+        var now = new Date();
+        var year = now.getYear();
+        if (year < 1000)
+         year+=1900
+        nextXmas = new Date("December 25, 2000")
+        nextXmas.setYear(year)
+        daysLeft = (nextXmas.getTime() - now.getTime()) / msPerDay;
+        daysLeft = Math.round(daysLeft);
+        var span=document.getElementById('daysToChristmas');
+        span.removeChild(span.firstChild);
+        span.appendChild(document.createTextNode(daysLeft+''));
+        
+        nextXmas = new Date("December 31, 2000")
+        nextXmas.setYear(year)
+        daysLeft = (nextXmas.getTime() - now.getTime()) / msPerDay;
+        daysLeft = Math.round(daysLeft);
+
+        span=document.getElementById('daysToNewYear');
+        span.removeChild(span.firstChild);
+        span.appendChild(document.createTextNode(daysLeft+''));
+        setTimeout("showtime()",msPerDay);
+}
+showtime();
+</script>
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

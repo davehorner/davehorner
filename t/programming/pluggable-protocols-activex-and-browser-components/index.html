@@ -1,0 +1,472 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>Pluggable Protocols, ActiveX, and Browser Components</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/programming/">programming</a>
+    <h1>Pluggable Protocols, ActiveX, and Browser Components</h1>
+   Extending the web browser is very powerful.  The web browser is typically the #1 app, you're right there with the user.  These plugins give you the opportunity to extend the browser in any way you like...full hardware control (in-process native code!) and tight integration with system/app events.  
+<br/>
+<br/>
+Plugins are some work to maintain, browser versions change and suddenly everyone can't use the ActiveX/plugin control anymore.  There is also a certain security dance one must perform....sign please.  Every release of IE seems to break the prior plugin model for some reason or another...<br/>
+<br/>
+<br/>
+<h2>pluggable protocol handlers</h2>
+<a href="http://www.microsoft.com/mind/0199/cutting/cutting0199.asp" target="_blank">MSDN Pluggable Protocols</a><br/>
+<a  href="http://windowssdk.msdn.microsoft.com/workshop/networking/pluggable/overview/aplugprot_overviews_entry.asp?frame=true">Asynchronous Pluggable Protocol - Overviews and Tutorials</a><br/>
+<a href="http://msdn.microsoft.com/workshop/networking/pluggable/overview/appendix_a.asp" target="_blank">Registering an Application to a URL Protocol</a><br/>
+<a class="l" onmousedown="return clk(this.href,'res','4','')" href="http://www.codeguru.com/Cpp/COM-Tech/atl/misc/article.php/c37/">CodeGuru: Asynchronous Pluggable Protocol Implementation with ATL</a><br/>
+<a href="http://www.codeproject.com/useritems/DataProtocol.asp">An Asynchronous Pluggable Protocol Handler for data: URLs</a><br/>
+</font><font color="#000000"><a href="http://support.microsoft.com/default.aspx?scid=kb;en-us;280522" target="_blank">How To Handle POST Requests in a Pluggable Protocol Handler</a><br/>
+<a href="http://www.informit.com/articles/article.asp?p=101143&seqNum=3&rl=1" target="_blank">Internet Protocols and the .NET Pluggable Protocol Model</a><br/>
+<a href="http://msdn2.microsoft.com/en-US/library/kk8d8dz9(VS.80).aspx">Introducing Pluggable Protocols</a><br/>
+<a href="http://www.codeproject.com/aspnet/AspxProtocol.asp" target="_blank'">A Simple protocol to view aspx pages without IIS implemented in C#</a><br/>
+<br/>
+There are number of URL protocol schemes registered with the operating system by default. If you want to check out the protocols schemes, these can be found in the registry under the following key:
+<pre>[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Shell\URLProtocols]</pre><br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<h2>Netscape plugin api</h2>
+Netscape plugins are the most compatible mechanism for extending the browser.  Many browsers support the netscape plugin api.<br/>
+<a href="http://en.wikipedia.org/wiki/NPAPI">A brief history (wikipedia on NPAPI)</a><br/>
+<a href="http://www.kde.gr.jp/~ichi/qt-2.3.2/nsplugin.html">Qt-based LiveConnect Plugins for Netscape and Explorer</a><br/>
+<br/>
+<br/>
+<br/>
+<h2>Firefox plugins</h2>
+<a href="http://www.codeproject.com/internet/FirefoxProtocol.asp">Creating a new protocol for Mozilla Firefox in C++</a><br/>
+<a href="http://www.codeproject.com/opengl/FirefoxOpenGL.asp">An OpenGL Sample as Firefox Plugin - The Code Project - OpenGL</a><br/>
+<a href="http://www.codeproject.com/useritems/firefox_component.asp">A Firefox C++ component intercepting/operating HTML DOM - The Code Project - Libraries & Projects</a><br/>
+<a href="http://www.mozilla.org/projects/netlib/new-handler.html">Creating a New Protocol Handler</a> - creating a mozilla netlib handler.<br/>
+<br/>
+<br/>
+<h2>ActiveX - IE plugins</h2>
+ActiveX is just COM extensions to IE.  They allow you to extend the IE browser in any way you would like.  Native code execution, full trust.  Very powerful but also a bit scary.  So deployment is a little problematic.  It is also directly tied to IE.  ActiveX is possible in other browsers of course, but they require special installations to work.<br/>
+<br/>
+IE 8 is also changing the security model of ActiveX.<br/>
+<a href="http://blogs.msdn.com/ie/archive/2008/05/07/ie8-security-part-ii-activex-improvements.aspx">IEBlog : IE8 Security Part II: ActiveX Improvements</a><br/>
+<a href="http://copperbit.com/?p=20">3D in your browser - Irrlicht and ActiveX | Copperbit</a><br/>
+<br/>
+<br/>
+<h2>browser helper objects (BHO) - IE in-process COM objects</h2>
+<img src="http://i.msdn.microsoft.com/Bb250436.bhofig1(en-us,VS.85).gif" border="0"/><br/>
+BHOs are just com objects that reside within IE's process space and live with the browser.  IE toolbars and browser eventing are very nice.<br/>
+<a href="http://msdn.microsoft.com/en-us/library/bb250436.aspx">Browser Helper Objects: The Browser the Way You Want It</a> - great article on BHOs with ATL.<br/>
+<a href="http://msdn.microsoft.com/en-us/library/bb250489.aspx">Building Browser Helper Objects with Visual Studio 2005</a><br/>
+<a href="http://blogs.msdn.com/francip/archive/2007/02/28/iobjectwithbrowsersiteimpl-base-template-for-ie-bho-or-toolbars.aspx">Franci Penov : IObjectWithBrowserSiteImpl - base template for IE BHO or toolbars</a><br/>
+<a href="http://www.codeproject.com/KB/wtl/wtlbrowser.aspx">CodeProject: WTL Browser.</a> - browser implemented using <a href="http://sourceforge.net/projects/wtl/">WTL</a>.<br/>
+<a href="http://www.codeproject.com/KB/shell/cookiespy.aspx">CodeProject: Cookie Spy.</a> - Creating a CookieSpy explorer bar with ATL.<br/>
+<a href="http://www.codeproject.com/KB/shell/popupblocker2.aspx">CodeProject: Popup Blocker.</a> - 
+Version 3 of the BHO Popup Blocker written in ATL.<br/>
+
+<br/>
+<h2>SpicIE - managed plugins for IE</h2>
+<a href="http://code.msdn.microsoft.com/SpicIE">SpicIE - Simple Plug-In Creator for Internet Explorer - Home</a> - build plugins using managed code!<br/>
+<a href="http://www.lovethedot.net/2009/03/spicie-writing-ie-7-and-ie-8-plugins-in.html">Love the Dot: spicIE: Writing IE 7 and IE 8 Plugins in Managed Code</a><br/>
+<br/>
+<br/>
+<h2>.net managed shell extensions</h2>
+<a href="http://www.ssware.com/ezshell/ezshell.htm">EZShellExtensions.Net : Develop Shell Extensions in .Net Fast And Painlessly!</a> - it does cost money however...<br/>
+    <div style="border: 1px;">
+    Created: 2006-04-21 12:11:26
+    Modified: 2010-01-25 11:13:25
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+<a target="_blank" href="/tech-talk/programming/107-algorithms-patterns-and-things-cs"><canvas id="c" width="170" height="172" title="conway glider"></canvas></a><br/>
+L:<span id=loop>0</span> I:<span id=iteration>0</span> A:<span id=active>0</span>
+<script>
+/** Conway's Game of Life.
+ * ankr started; modified by horner.
+ */
+var c=document.getElementById('c');
+var canvas = c.getContext('2d'),
+    cells = [];
+var drawRate=1200;
+var iter=0;
+var l=0;
+init();
+draw();
+
+function setSpan(name,value)
+{
+var span = document.getElementById(name);
+while( span.firstChild ) {
+    span.removeChild( span.firstChild );
+}
+span.appendChild(document.createTextNode(value));
+}
+function init() {
+setSpan('loop',l);
+    for (var i=0; i<c.width; i++) {
+        cells[i] = [];
+        for (var j=0; j<c.height; j++) {
+            cells[i][j] = 0;
+        }
+    }
+    var gliderT=[
+                [3, 1], [3,3], [2,3], [4, 2], [4, 3]
+               ];
+    var reflectorT=[
+                [0, 0], [0,1], [1,0], [1, 2], [2, 2]
+               ];
+    var sT=[
+                [0, 2], [0,3], [1,2],[2,0],[2,2],[3,0],[3,1]
+               ];
+    var boxT=[
+                [0, 0], [0,1], [1,1], [1,0]
+               ];
+
+    gliderT.forEach(function(point) {
+        cells[point[0]-1][point[1]-1] = 1;
+    });
+    gliderT.forEach(function(point) {
+        cells[point[0]+7][point[1]+7] = 1;
+    });
+    gliderT.forEach(function(point) {
+        cells[point[0]+3][point[1]+3] = 1;
+    });
+    gliderT.forEach(function(point) {
+        cells[point[0]+12][point[1]+12] = 1;
+    });
+if(l>1)  {
+var maxX=12;
+    var randomX=Math.floor(Math.random() * maxX);
+    var randomY=Math.floor(Math.random() * maxX);
+    sT.forEach(function(point) {
+        cells[point[0]+randomX][point[1]+randomY] = 1;
+    });
+    randomX=Math.floor(Math.random() * maxX);
+    randomY=Math.floor(Math.random() * maxX);
+    boxT.forEach(function(point) {
+        cells[point[0]+randomX][point[1]+randomY] = 1;
+    });
+    randomX=Math.floor(Math.random() * maxX);
+    randomY=Math.floor(Math.random() * maxX);
+    reflectorT.forEach(function(point) {
+        cells[point[0]+randomX][point[1]+randomY] = 1;
+    });
+}
+
+}
+
+function whos_alive() {
+    
+    var result = [];
+    var active= 0;
+    
+    /**
+     * Return amount of alive neighbours for a cell
+     */
+    function _countNeighbours(x, y) {
+        var amount = 0;
+        
+        function _isFilled(x, y) {
+            return cells[x] && cells[x][y];
+        }
+        
+        if (_isFilled(x-1, y-1)) amount++;
+        if (_isFilled(x,   y-1)) amount++;
+        if (_isFilled(x+1, y-1)) amount++;
+        if (_isFilled(x-1, y  )) amount++;
+        if (_isFilled(x+1, y  )) amount++;
+        if (_isFilled(x-1, y+1)) amount++;
+        if (_isFilled(x,   y+1)) amount++;
+        if (_isFilled(x+1, y+1)) amount++;
+        
+        return amount;
+    }
+    
+    cells.forEach(function(row, x) {
+        result[x] = [];
+        row.forEach(function(cell, y) {
+            var alive = 0,
+                count = _countNeighbours(x, y);
+            
+            if (cell > 0) {
+                alive = count === 2 || count === 3 ? 1 : 0;
+            } else {
+                alive = count === 3 ? 1 : 0;
+            }
+            if(alive) active++;
+            result[x][y] = alive;
+        });
+    });
+    
+    cells = result;
+    setSpan('active',active);
+    draw();
+}
+function draw() {
+    if(iter>60) { iter=0; l++; init(); }
+    else if(iter>10 && iter%20==0) {
+    if(drawRate>10) { drawRate-=10; }
+    var gliderT=[
+                [3, 1], [3,3], [2,3], [4, 2], [4, 3]
+               ];
+
+     gliderT.forEach(function(point) {
+        cells[point[0]][point[1]] = 1;
+    });
+    }
+setSpan('iteration',iter);
+    canvas.clearRect(0, 0, c.width, c.height);
+    cells.forEach(function(row, x) {
+        row.forEach(function(cell, y) {
+            canvas.beginPath();
+            if (cell) {
+                if(l%2==0) {
+                canvas.rect(x*8, y*8, 8, 8);
+                canvas.fillStyle = 'black';
+                } else {
+                canvas.beginPath();
+                canvas.arc(x*8, y*8,3 , 0, 2 * Math.PI, false);
+                canvas.fillStyle = 'black';
+                }
+                canvas.fill();
+                canvas.stroke();
+            } else {
+                if(l%2==0){
+                canvas.strokeStyle = '#e1e1e1';
+                canvas.rect(x*8, y*8, 8, 8);
+                canvas.stroke();
+                }
+            }
+        });
+    });
+    iter++;
+    setTimeout(function() {whos_alive();}, drawRate);
+}
+</script>
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

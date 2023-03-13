@@ -1,0 +1,384 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>Rectangular selection or column mode - the best text editor feature ever.</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/programming/">programming</a>
+    <h1>Rectangular selection or column mode - the best text editor feature ever.</h1>
+   I'm writing this page because I've spoken to many fellow co-workers that haven't yet heard of the column mode (or sometimes called rectangular selection...maybe even vertical selection) feature available in many nice text editors.  If you don't know what rectangular selection is...and you are a programmer, then get ready for a wonderful tool to put in your toolbox.  This information has saved me hours of text editing time.<br/>
+<br/>
+<strong>Column-mode in a text editor allows you to select text on a column by column basis not line by line.</strong><br/>
+At first thought this may not seem like such a cool feature... but it is really great.<br/>
+<br/>
+When programming, you often have to add the same information to many lines of code.  With column mode, you can quickly make the change on all the lines at the same time.
+<br/>
+<br/>
+Access keys and methods are a bit different in every editor.<br/>
+<br/>
+First thing to learn in any text editor is the selection capabilities.  I would like this page to serve as a teaching tool for how to do column selection in all of my favorite editors (Ultraedit, JEdit, Vim, emacs, VS2008, etc).<br/>
+<br/>
+<br/>
+First on my list is Ultraedit, which is the IDE I first learned about column mode selection goodness.<br/>
+<h2>Ultraedit</h2>
+Column-mode editing allows you to select, copy and paste a rectangular block of text. In Ultraedit, you can select a single column (with width=0 characters), start typing and whatever you type is inserted in every line selected.<br/>
+<br/>
+<br/>
+<h2>Visual Studio 2010 Box Selection</h2>
+<p>
+Wow!  The visual studio team implemented a zero width selection, multi-line edit and insert, with virtual space box selection/editing (editing in the file where there aren't bytes in the file already).    This makes VS2010 a very significant upgrade to me.  Woot!  Woot!<br/>
+<a href="http://blogs.msdn.com/noahric/archive/2009/05/12/box-selection.aspx">Letters from the editor : Box selection</a> - great link about the new selection features in 2010 and a video from the product manager of visual studio editor team...<br/>
+<iframe width="420" height="315" src="//www.youtube.com/embed/qp2WuJ2rEE4?rel=0" allowfullscreen></iframe>
+</p>
+<br/>
+<br/>
+<h2>Visual Studio (VS2003,VS2008)</h2>
+To enable rectangular selection in visual studio just hold down the ALT key while selecting text.<br/>
+<img src="/images/stories/misc/rectselect_vs2008.jpg" alt="" title="example rectangular selection" /><br/>
+<br/>
+I think this is a would-be-great feature of visual studio.  However, I don't like that you can't select a zero width column.  Forcing you to destroy some part of your input.  With zero width column selection, you just start typing in front of your selected text.<br/>
+<br/>
+Just as a side note, here is what you get in VS2008 when you try and make a zero width selection by SHIFT-ALT Left Arrowing the selection above.  Sad, I'm not sure that selection is even useful.  Maybe someday there will be a plugin/setting to fix it...<br/>
+<img src="/images/stories/misc/rectselect_zero_vs2008.jpg" alt="" title="vs2008 zero width selection broke" />
+<br/>
+Then, to make matters worse, when you begin to type, it unselects your selection and places the input on the first line.  How is that useful?  I'm not really fond of capabilities of visual studio's implementation. :(<br/>
+<br/>
+<br/>
+<br/>
+Here are some other interesting textual selection shortcut keys for visual studio.<br/>
+<br/>
+Edit.CharLeftExtendColumn - SHIFT + ALT + LEFT/RIGHT ARROW - Moves the cursor to the left/right one character, extending the column selection.<br/> 
+Edit.GoToBraceExtend - CTRL + SHIFT + ] - Moves the cursor to the next brace, extending the selection.<br/> 
+Edit.SelectCurrentWord - CTRL + W - Selects the word containing the insertion point or the word to the right of the cursor.<br/>
+Edit.WordNextExtend - CTRL + SHIFT + RIGHT ARROW -  Extends the selection one word to the right.<br/>
+<br/>
+<br/>
+<h2>JEdit</h2>
+JEdit is a nice cross platform programmer's editor.  It is open source java.<br/>
+<a href="http://www.jedit.org/users-guide/selection.html">Selecting Text in jEdit</a><br/>
+<a href="http://www.jedit.org/api/index.html">JEdit Doxygen</a><br/>
+<br/>
+<br/>
+<h2>VIM</h2>
+vim box select || how to select a box in vim || visual block mode = Ctrl-V<br/>
+VIM has the ability to select text in rectangular blocks in VISUAL BLOCK mode.  Hit CTRL-V and you can extend the selection column by column.  This doesn't allow you to have 0 width selections or to move and extend the selection into columns that do not exist on disk however (huge drawback!).  <span style="text-decoration:line-through;">I'm still not sure how to then insert text on each line either.  A work in progress... if you know how, please let me know.</span>  Thank you Jonathan Lee! - Here's what I know:  After selecting a block with Ctrl-v, press I (shift-i) to insert text in front of the block.  While you are editing, it will only show the insertion on the first row.  Once you are done, press ESC and the insertion will be done on all of the other rows.  To append data after a block, press A (shift-a), type in the text you want then press ESC.  If you want to insert data at the end of a block of rows, select the rows you want vertically then press $.  This will select everything to the right of the column you were on.  Now press A (shift-a) as before, enter the text you want then press ESC.<br/>
+<br/>
+<a href="http://vimcasts.org/episodes/selecting-columns-with-visual-block-mode/">Selecting columns with visual block mode</a> - vimcasts.org on column commands and using visual block mode.<br/>
+
+<table>
+  <tbody><tr>
+    <th>command</th>
+    <th>action</th>
+  </tr>
+  <tr>
+    <td><code>c</code></td>
+    <td><em>change</em> selection (delete and switch to insert mode)</td>
+  </tr>
+  <tr>
+    <td><code>I</code></td>
+    <td><em>insert</em> in front of cursor</td>
+  </tr>
+  <tr>
+    <td><code>A</code></td>
+    <td><em>append</em> after cursor</td>
+  </tr>
+  <tr>
+    <td><code>r</code></td>
+    <td><em>replace</em> every character in selection</td>
+  </tr>
+  <tr>
+    <td><code>d</code></td>
+    <td><em>delete</em> selection</td>
+  </tr>
+  <tr>
+    <td><code>o</code></td>
+    <td>toggle cursor to <em>opposite</em> corner</td>
+  </tr>
+</tbody></table>
+<br/>
+<br/>
+<h2>Eclipse</h2>
+Eclipse has native column mode "block mode" support since 2009.  Alt-Shift-A  (Thanks Bill Foster)<br/>
+<a href="http://www.vasanth.in/2009/03/31/eclipse-tip-block-selection-mode/">Eclipse Tip: Block Selection Mode « Vasanth Dharmaraj’s Blog</a><br/>
+<a href="http://columns4eclipse.sourceforge.net/">Columns Plug-in for Eclipse 3.3.1</a> - this is a pretty nice plugin with many options (shown above).  My only gripe with this plugin, is that it doesn't show the selection as-is...it still highlights characters outside of the selection.  Though, it is better than nothing and it does what it should.<br/>
+<a href="http://tkilla.ch/column_mode/">Column Mode for Eclipse Text Editors</a> - i've tried to install, but it wouldn't work for me...<br/>
+<br/>
+<h2>Emacs</h2>
+<a href="http://xkcd.com/378/"><img src="http://imgs.xkcd.com/comics/real_programmers.png" alt="true true"/></a><br/>
+<a href="http://ourcomments.org/Emacs/EmacsW32.html">EmacsW32 Home Page</a><br/>
+<a href="http://emacs-fu.blogspot.com/">emacs-fu</a> - useful tricks for emacs blog.<br/>
+<a href="http://www.emacswiki.org/">EmacsWiki: Site Map</a><br/>
+<a href="http://www.finseth.com/craft/">The Craft of Text Editing</a> - a thesis on text editing.<br/>
+<a href="http://monkey.org/~marius/emacs-as-a-tiling-window-manager.html">Emacs as a tiling window manager</a><br/>
+<a href="http://monkey.org/~marius/self-contained-emacs.html">Self-contained emacs</a> <a href="https://github.com/mariusaeriksen/make-emacs">mariusaeriksen/make-emacs · GitHub</a> - simple, self-contained, relocatable emacs<br/>
+<a href="http://perlstalker.vuser.org/blog/2012/10/16/emacsclient-and-tmux/">Emacs and tmux - PerlStalker's SysAdmin Notes</a><br/>
+<br/>
+<br/>
+<h2>nEdit</h2>
+<a href="http://www.nedit.org/">NEdit - the multi-purpose X Window System editor</a><br/>
+Lucas Vieites writes Hi, I am too a big fan of this feature that is absent from all the "big" programming editors out there. I miss it very much since I had to quit using "Nedit" a few years ago because of it's lack of unicode support. In Nedit you can do Ctrl+drag to select columns and copy/cut & paste them wherever you like.<br/>
+<br/>
+<br/>
+<h2>Geany</h2>
+Lucas Vieites also noted geany which I had not seen before...it also includes column mode.<br/>
+<a href="http://www.geany.org/Main/HomePage">Geany : Home Page</a> -a text editor using the GTK2 toolkit with basic features of an integrated development environment.<br/>
+Geany is based on <a href="http://www.scintilla.org/SciTE.html">Scintilla and SciTE</a> and is gtk based.<br/>
+<br/>
+<br/>
+<a href="http://www.crimsoneditor.com/">Homepage of Crimson Editor - Free Text Editor, Html Editor, Programmers Editor for Windows</a><br/>
+<br/>
+<br/>
+<a href="http://foicica.com/textadept/01_Introduction.html">Introduction - Textadept</a> - talks of rectangular selection in <a href="http://foicica.com/textadept/06_AdeptEditing.html">Adept Editing - Textadept</a><br/>
+    <div style="border: 1px;">
+    Created: 2006-09-04 12:09:21
+    Modified: 2014-04-12 09:49:57
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+\begin{bmatrix} 1 & 0 & \ldots & 0 \\
+                0 & 1 & 0 & \vdots \\
+                \vdots & 0 & \ddots & 0\\
+                0 & \ldots &  0 & 1_{n}
+\end{bmatrix}
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

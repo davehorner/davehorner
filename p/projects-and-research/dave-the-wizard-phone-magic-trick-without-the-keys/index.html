@@ -1,0 +1,313 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>Dave Da Wizard - automated telephone magic trick.</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/p/">Personal</a>
+<a href="/p/projects-and-research/">projects-and-research</a>
+    <h1>Dave Da Wizard - automated telephone magic trick.</h1>
+   So.  Have you heard of the wizzzard?  Who da wizzzard?  <strong>Dave Da Wizard</strong>.<br/>
+<br/>
+The "Dave Da Wizard" hotline is a phone application which allows you to do a magic trick with your phone.  "Dave Da Wizard" is a voice controlled card magic trick.  You call "Dave Da Wizard", have a quick conversation,  and the wizard tells your friends the card they selected from the deck.  All without pressing buttons on the phone or saying the specifics of the selected card.  You say whatever you want to your party, the wizard still knows what you mean.  How does it know your card?  Magic?!<br/>
+<br/>
+<h2>How to play "Dave Da Wizard"</h2>
+<ol>
+<li>You give a deck of cards to the party.</li>
+<li>Someone in the party selects a card and shows the card to the entire party.</li>
+<li>One person calls the wizard and performs the magic trick.</li>
+<li>After the magic trick is performed successfully, hand off the phone to someone or place "Dave Da Wizard" on speakerphone.  The wizard will wait patiently for someone in the party say something to the wizard.</li>
+<li>The wizard tells your audience their selected card!</li>
+</ol>
+<br/>
+<h2>Where's the magic?</h2>
+The magic of "Dave Da Wizard" is all in the way in which you introduce the wizard to your party.  Be quick on your feet. Make your greeting and dialog with the wizard sound as if the wizard is your phone wizard pal, standing by to tell your friends their selected card. 
+<ul>
+<li>"Dave Da Wizard" quietly reads off the all the suits and ranks for a standard deck of cards.  While the wizard is asking you questions it is also listening for signals.</li>
+<li>You signal "Dave Da Wizard" by speaking to the wizard.  When you hear the suit or rank you need to select, simply start talking.  When you start speaking, the wizard will repeat the selected suit or rank and stop asking questions until you finish talking.</li>
+<li>While you are speaking, if you hear "Dave Da Wizard" has incorrectly read your signal:  Stop talking.  The wizard will wait a few moments and begin asking questions again.</li>
+<li>If you hear that "Dave Da Wizard" correctly read your signal:  Keep talking until you hear a tone indicating that "Dave Da Wizard" has successfully recorded your signal.</li>
+<li>Once the "Dave Da Wizard" knows both your suit and rank, the wizard will quietly tell you what the card is and remind you to pass the phone off to your friends.</li>
+</ul>
+<br/>
+<h2>Suggestions on dialog with wizard</h2>
+Of course, you can think of a better way to say it to your friends....but to get an idea.<br/>
+<ul>
+<li>Greeting: Hello, is the wizard there?  This is YOURNAME.</li>
+<li>Handoff: Wow, thats amazing how you know my card.  Tell my friends.</li>
+</ul>
+<br/>
+Where's the number at yo?<br/>
+<span style='color:red;text-decoration:line-through'>
+    <span style='color:black'>260-399-4014</span>
+</span> -  this number has been down for some time, I hope to release code or put another line up sometime...we'll see.<br/>
+<br/>
+<br/>
+<h2>Other people's description of Wizard telephone tricks...using mortal wizards.</h2>
+<a href="http://blogs.southcoasttoday.com/jonathan-comey-variety/2009/12/14/mr-wizard-the-greatest-trick-for-mortals-ever/">Mr. Wizard: The Greatest Trick For Mortals Ever</a><br/>
+<a href="http://www.liepie.com/grannys-blog/154-the-secret-of-the-card-wizard">The Secret of the Card Wizard</a><br/>
+<a href="http://www.wikihow.com/Play-Mr.-Wizard">How to Play Mr. Wizard: 8 Steps - wikiHow</a><br/>
+<br/>
+<br/>
+So there you have it, the wizard card trick.  I was taught this by Sam Westlake while hanging out with the Corkwells.  The code is available, though I haven't touched it,run it, or packaged it up for consumption.  If you're interested, let me know.<br/>
+<br/>
+--dave da <a href="http://www.catb.org/jargon/html/W/wizard.html">wizard</a>.<br/>
+<br/>
+<br/>
+<strong>wizard</strong>; noun <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAQAAAC1QeVaAAAAi0lEQVQokWNgQAYyQFzGsIJBnwED8DNcBpK+DM8YfjMUokqxMRxg+A9m8TJsBLLSEFKMDCuBAv/hCncxfGWQhUn2gaVAktkMXkBSHmh0OwNU8D9csoHhO4MikN7BcAGb5H+GYiDdCTQYq2QubkkkY/E6CLtXdiJ7BTMQMnAHXxFm6IICvhwY8AYQLgCw2U9d90B8BAAAAABJRU5ErkJggg==" height="14" width="14" onClick="document.getElementById('sndWizard').play()" onTouchStart="document.getElementById('sndWizard').play()"><audio id=sndWizard src="/images/stories/wizard.mp3"></audio>
+<br/>
+late Middle English (in the sense ‘philosopher, sage’): from wise + -ard.<br/>
+1. a man who has magical powers, especially in legends and fairy tales.<br/>
+2. a person who is very skilled in a particular field or activity. (extremely high-level hacking or problem-solving ability)<br/>
+3. a help feature of a software package that automates complex tasks by asking the user a series of easy-to-answer questions.<br/>
+<img src="/images/stories/wizard_mentions_over_time.png" title="apparently the word 'wizard' is more popular now than ever before" alt="wizard mentions over time"/><br/>
+adjective:wonderful; excellent; awesome; talented; wicked smart; wise ass.<br/>
+<a href="http://humidcity.com/2011/04/17/wizard-is-an-insult/">Wizard Is An Insult - HumidCity</a> - often contemptuous, think of “wizard”  as a sarcastic Middle English way of calling someone a know-it-all.<br/>
+    <div style="border: 1px;">
+    Created: 2010-01-03 03:01:22
+    Modified: 2014-07-23 00:31:39
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+$$\cos x = \sum\limits_{n = 0}^\infty {\frac{{\left( { - 1} \right)^n x^{2n} }}{{\left( {2n} \right)!}}}$$
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

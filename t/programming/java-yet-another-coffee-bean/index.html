@@ -1,0 +1,371 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>Java - yet another coffee bean.</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/programming/">programming</a>
+    <h1>Java - yet another coffee bean.</h1>
+   Java is a good programming language.  It has a large ecosystem and history.  Consoles, Applets SWING & AWT & Native, SWIG to legacy,JNI to legacy,text editors,build agents, ,TomCat,wse,started hibernate,Jboss,servlets and jsp, android applications, embedded android micro-controllers. many uses.<br/>
+<br/>
+Virtual machine. JIT. Sandboxes. Security. Ownership of language&api, licensing/distribution rights.<br/>
+<br/>
+<br/>
+<h2>JNI - Java Native Interface</h2>
+<a href="https://github.com/libgdx/libgdx/wiki/jnigen">jnigen · libgdx/libgdx Wiki</a> - jnigen is a small library that can be used with or without libgdx which allows C/C++ code to be written inline with Java source code. This increases the locality of code that conceptually belongs together (the Java native class methods and the actual implementation) and makes refactoring a lot easier compared to the usual JNI workflow. <br/>
+<a href="http://en.wikipedia.org/wiki/Java_Native_Interface">Java Native Interface - Wikipedia, the free encyclopedia</a><br/>
+<br/>
+<br/>
+<h2>Maven</h2>
+<a href="http://maven.apache.org/">Maven - Welcome to Apache Maven</a><br/>
+<a href="http://maven.apache.org/guides/getting-started/maven-in-five-minutes.html">Maven - Maven in 5 Minutes</a><br/>
+<a href="http://books.sonatype.com/mvnref-book/reference/public-book.html">Maven: The Complete Reference - Table of Contents - Sonatype.com</a><br/>
+<a href="http://stackoverflow.com/questions/1607315/build-maven-project-without-running-unit-tests">Build Maven Project Without Running Unit Tests - Stack Overflow</a> - -Dmaven.test.skip=true<br/>
+<a href="http://maven.apache.org/maven-release/maven-release-plugin/index.html">Maven Release plugin - Introduction</a><br/>
+<a href="https://bitbucket.org/atlassian/maven-jgitflow-plugin/wiki/Home">atlassian / Maven JGitFlow Plugin / wiki / Home — Bitbucket</a><br/>
+<a href="http://blogs.atlassian.com/2013/05/maven-git-flow-plugin-for-better-releases/">Maven Git Flow Plugin for Better Releases - Atlassian Blogs</a><br/>
+
+<br/>
+<br/>
+<h2>ant</h2>
+<a href="http://ant.apache.org/">Apache Ant - Welcome</a><br/>
+<br/>
+<br/>
+<h2>Eclipse</h2>
+I've moved my eclipse information on a separate page...<a href="https://dave.thehorners.com/tech-talk/programming/281-eclipse">Eclipse - open source extensible IDE.</a><br/>
+<a href="http://www.eclipse.org/jwt/">Eclipse Java Workflow Tooling (JWT)</a><br/>
+<br/>
+<br/>
+<h2>Misc web resources</h2>
+<a href="http://www.jroller.com/sjivan/entry/difference_between_classnotfoundexception_and_noclassdeffounderror">Sanjiv Jivan's Blog</a> - Difference between ClassNotFoundException and NoClassDefFoundError<br/>
+<a href="http://www.mindview.net/Books/TIPatterns/Building-Code.html">How to build the code for
+Thinking in Patterns with Java
+by Bruce Eckel</a><br/>
+<a href="http://www.eclipsecon.org/2006/Sub.do?id=257" target="_blank">P3ML: An XML dialect for building branded user interfaces</a><br/>
+<br/>
+<a href="http://appfuse.org/display/APF/Home">Home - AppFuse 2 - Confluence</a><br/>
+<br/>
+<br/>
+<a href="http://code.google.com/webtoolkit/download.html">Google Web Toolkit Downloads - Google Web Toolkit - Google Code</a><br/>
+<a href="http://www.springframework.org/">Springframework.org</a><br/>
+<a href="http://www.grails.org/Download">Grails - Download Grails</a> - Grails naturally complements Java application development since it is built on Spring and based on Groovy, the leading dynamic language for the Java platform.<br/>
+<a href="http://tapestry.apache.org/index.html">Apache Tapestry - Welcome to Tapestry</a><br/>
+<a href="http://www.playframework.org/">Play framework ? Home</a><br/>
+<br/>
+<br/>
+<a href="http://www.ikvm.net/index.html">IKVM.NET</a> is an implementation of Java for Mono and the Microsoft .NET Framework.<br/>
+<br/>
+<br/>
+
+<h2>Tomcat - Java Servlets and JavaServer Pages</h2>
+<a href="http://tomcat.apache.org/index.html">Apache Tomcat - Apache Tomcat</a><br/>
+
+
+<h2>JSF - JavaServer Faces APIs</h2>
+<a href="http://java.sun.com/javaee/javaserverfaces/">JavaServer Faces Technology</a><br/>
+<a href="http://livedemo.exadel.com/richfaces-demo/richfaces/push.jsf?c=push&tab=usage">RichFaces - Open Source Rich JSF Components - Ajax Push</a> - RichFaces demo<br/>
+
+<br/>
+<h2>JBoss</h2>
+<a href="http://www.jboss.org/projects/matrix">Project Matrix - JBoss Community</a><br/>
+<a href="http://www.jboss.org/drools">Drools - JBoss Community</a> - Drools - The Business Logic integration Platform<br/>
+<a href="https://github.com/droolsjbpm/kie-wb-distributions">droolsjbpm/kie-wb-distributions</a> - Drools & jBPM Workbench Distributions<br/>
+<br/>
+<br/>
+<h2>Camel</h2>
+Enterprise Integration Patterns<br/>
+Apache Camel is an integration framework whose main goal is to make integration
+easier<br/>
+<a href="http://camel.apache.org/">Apache Camel</a> - define routing and mediation rules in a variety of domain-specific languages, including a Java-based Fluent API, Spring or Blueprint XML Configuration files, and a Scala DSL.<br/>
+<a href="http://www.manning.com/ibsen/">Manning: Camel in Action</a><br/>
+<a href="https://code.google.com/p/camelinaction/">camelinaction - Camel in Action Source Code - Google Project Hosting</a><br/>
+<a href="http://fusesource.com/products/fuse-ide/">Fuse IDE</a><br/>
+<a href="http://www.redhat.com/products/jbossenterprisemiddleware/amq/">Red Hat | Red Hat JBoss A-MQ</a><br/>
+<a href="http://www.redhat.com/products/jbossenterprisemiddleware/fuse/">Red Hat | JBoss Fuse</a><br/>
+<br/>
+<br/>
+<h2>Struts</h2>
+Struts is based on the Model 2 approach, a controlling servlet and JSP tags for presentation.<br/>
+ActionServlet,ActionForwards,ActionForms,ActionMapping,Action classes.<br/>
+<a href="http://www.onjava.com/pub/a/onjava/2002/12/11/jakartastruts.html">Using the Validator Framework with Struts - O'Reilly Media</a><br/>
+<a href="http://struts.apache.org/1.2.4/userGuide/dev_validator.html">The Struts User's Guide - Validator Guide</a><br/>
+<a href="http://struts.apache.org/1.3.10/index.html">Struts 1 - Welcome</a><br/>
+<a href="http://struts.apache.org/2.1.6/index.html">Struts 2 - Welcome</a><br/>
+<a href="http://www.niallp.pwp.blueyonder.co.uk/strutshighlight.html">Struts Error Highlighting</a><br/>
+<br/>
+<br/>
+<h2>Stendhal and Arianne</h2>
+Stendhal is a fully fledged multiplayer online adventures game (MMORPG) developed using the <a href="http://en.wikipedia.org/wiki/Arianne">Arianne</a> game development system.<br/>
+<a href="http://stendhal.game-host.org/development">Development – Stendhal MMORPG</a><br/>
+<br/>
+<br/>
+<br/>
+<a href="http://www.pentaho.com/products/discover_bi_suite.php">Discover why Pentaho BI Suite Enterprise Edition is the commercial open source alternative to reduce your business costs.</a><br/>
+<a href="http://lucene.apache.org/java/docs/">Apache Lucene - Overview</a> - Apache Lucene is a high-performance, full-featured text search engine library written entirely in Java. It is a technology suitable for nearly any application that requires full-text search, especially cross-platform. <br/>
+<br/>
+<br/>
+<a href="http://o.sitepen.com/labs/persevere.php">Persevere - SitePen, Inc.</a> - The Persevere Server is an object storage engine and application server (running on Java/Rhino) that provides persistent data storage of dynamic JSON data in an interactive server side JavaScript environment<br/>
+<a href="http://code.google.com/p/persevere-framework/">persevere-framework - Project Hosting on Google Code</a><br/>
+<br/>
+<br/>
+<h2>Logging frameworks</h2>
+<a href="http://www.javacodegeeks.com/2011/01/10-tips-proper-application-logging.html">Java Code Geeks: 10 Tips for Proper Application Logging</a><br/>
+<a href="http://logback.qos.ch/">Logback Home</a> - Logback is intended as a successor to the popular log4j project, picking up where log4j leaves off.<br/>
+<a href="http://www.slf4j.org/">SLF4J</a> - The Simple Logging Facade for Java or (SLF4J) serves as a simple facade or abstraction for various logging frameworks, e.g. java.util.logging, log4j and logback, allowing the end user to plug in the desired logging framework at deployment time.<br/>
+<a href="http://perf4j.codehaus.org/">Perf4J 0.9.13 - Home</a><br/>
+<h2>Other languages on the JVM || Groovy || Clojure</h2>
+<a href="http://groovy.codehaus.org/">Groovy - Home</a><br/>
+<a href="http://clojure.org/">Clojure - home</a> - Clojure is a dynamic programming language that targets the Java Virtual Machine (and the CLR ).<br/>
+<a href="https://github.com/functional-koans/clojure-koans">functional-koans/clojure-koans - GitHub</a> - A set of exercises for learning Clojure<br/>
+<a href="https://github.com/talios/clojure-maven-plugin">talios/clojure-maven-plugin</a> - Apache Maven Mojo for compiling clojure scripts to class files<br/>
+<a href="http://alexott.net/en/clojure/ClojureMaven.html">How to use Maven to build Clojure code</a><br/>
+<a href="https://github.com/nathanmarz/cascalog">nathanmarz/cascalog</a> - Cascalog is a fully-featured data processing and querying library for Clojure or Java. The main use cases for Cascalog are processing "Big Data" on top of Hadoop or doing analysis on your local computer. Cascalog is a replacement for tools like Pig, Hive, and Cascading and operates at a significantly higher level of abstraction than those tools.<br/>
+<br/>
+<br/>
+<h2>Apache Lucene || Apache Solr || ManifoldCF</h2>
+<iframe width="560" height="315" src="//www.youtube.com/embed/VhEQz8tSbYc?rel=0" frameborder="0" allowfullscreen></iframe><br/>
+<a href="http://lucene.apache.org/solr/">Apache Lucene - Apache Solr</a><br/>
+<a href="http://manifoldcf.apache.org/en_US/index.html">Welcome to Apache ManifoldCF!</a> - connecting source content repositories like Microsoft Sharepoint and EMC Documentum, to target repositories or indexes, such as Apache Solr, Open Search Server, or ElasticSearch. Apache ManifoldCF also defines a security model for target repositories that permits them to enforce source-repository security policies.<br/>
+<a href="http://mass-nerder.squarespace.com/dogreatwork/2013/8/13/alfresco-apache-manifoldcf-elasticsearch">Alfresco + Apache ManifoldCF + ElasticSearch: Part 1 — Mass Nerder</a><br/>
+<a href="http://www.manning.com/wright/">Manning: ManifoldCF in Action</a><br/>
+<iframe src="//www.slideshare.net/slideshow/embed_code/9508286?rel=0" width="342" height="291" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe><br/>
+<br/>
+<br/>
+<a href="https://kotlinlang.org/">Kotlin Programming Language</a><br/>
+<a href="http://www.jbpm.org/">jBPM - Open Source Business Process Management - Process engine</a> - Eclipse-based and web-based editor to support the graphical creation of your business processes <br/>
+    <div style="border: 1px;">
+    Created: 2006-03-16 17:59:45
+    Modified: 2016-04-18 17:57:49
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+<a href="javascript:var%20s%20=%20document.createElement('script');s.type='text/javascript';document.body.appendChild(s);s.src='/eggs/asteroids.min.js';void(0);" id="secret">destory this webpage; if you will.</a>
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

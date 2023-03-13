@@ -1,0 +1,296 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>Tablet PC - Pen computing makes a computer more usable.</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/windows/">windows</a>
+    <h1>Tablet PC - Pen computing makes a computer more usable.</h1>
+   Since the release of Vista, there is no longer a Tablet PC version of windows.  Instead, Vista includes all such features and more.  I'm glad to see that this was integrated as a core component of Vista.<br/>
+<br/>
+<a href="http://blogs.technet.com/tabletpc/archive/2007/02/19/using-flicks-to-switch-windows-via-alt-tab-or-win-tab.aspx">Tablet PC Team Blog : Using Flicks to Switch Windows via Alt+Tab or Win+Tab</a><br/>
+<br/>
+I just got my first tablet PC and I have to say, I'm very impressed with the quality so far.<br/>
+<br/>
+First lets look at some software for art.<br/>
+<a href="http://www.ambientdesign.com/artrage.html">ArtRage 2</a><br/>
+<a href="http://www.microsoft.com/windowsxp/downloads/powertoys/tabletpc.mspx">Microsoft PowerToys for Windows XP Tablet PC Edition</a><br/>
+<a href="http://www.xthink.com/index.html">MathJournal 2.0</a><br/>
+<a href="http://www.ultramobilepcs.com/Software.htm">Software For The Ultra Mobile PC </a><br/>
+<a href="http://www.tabletpc2.com/Software.htm">Software For The Tablet PC</a><br/>
+<vr/>
+<br/>
+I'm looking for something that can record my using the pen, so that I can replay what I wrote and drew over time.  I'd love to be able to speed and slow it down.<br/>
+<a href="http://www.techsmith.com/">TechSmitch - Snagit</a> - maybe from these guys<br/>
+<a href="http://www.fraps.com/">Fraps</a><br/>
+<br/>
+<br/>
+<a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=56347faf-a639-4f3b-9b87-1487fd4b5a53&amp;DisplayLang=en">Download details: Physics Illustrator for Tablet PC</a><br/>
+<a href="http://www.codeproject.com/mobilepc/inkanied.asp">Ink AniEd - An Ink Based Animation Editor - The Code Project - Mobile PC / Tablet PC</a><br/>
+<a href="http://blogs.technet.com/tabletpc/default.aspx">Tablet PC Team Blog</a><br/>
+<a href="http://blogs.technet.com/tabletpc/archive/2005/11/15/microsoft-ink-dll-and-clr-that-ships-in-vs-net-2005-part-2.aspx">Tablet PC Team Blog : Microsoft.Ink.dll and CLR that ships in VS.NET 2005 Part 2</a><br/>
+<br/>
+<a href="http://www.tabletdev.com/Resources.aspx">TabletDev.com</a><br/>
+<br/>
+<a href="http://blogs.technet.com/tabletpc/">Tablet PC Team Blog</a><br/>
+<br/>
+<strong>Ink enable your app</strong><br/>
+MS has made it pretty simple to integrate ink into your programs.  They provide a nice InkOverlay that make it very simple.<br/>
+<br/>
+Windows forms implementation of realtime ink drop shadow:<br/>
+<a href="http://www.charlespetzold.com/etc/RealTimeDropShadow/">“In Search of the Real-Time Drop Shadow” by Charles Petzold</a><br/>
+Looks like it is much more simple to implement Ink with XAML / WPF / and Silverlight!  Could be as simple as using the InkCanvas instead of Canvas!<br/>
+<a href="http://www.charlespetzold.com/blog/2006/02/011043.html">Petzold Book Blog - Real-Time Drop-Shadow Slam-Dunk</a><br/>
+<a href="http://www.code-magazine.com/article.aspx?quickid=0512131&page=5">CoDe Magazine - Article: Into the Future</a><br/>
+<a href="http://www.codeproject.com/KB/WPF/Ink1.aspx">CodeProject: Adventures into Ink API using WPF.</a><br/>
+<br/>
+<a href="http://msdn.microsoft.com/msdnmag/issues/05/12/TabletPC/">Power to the Pen: The Pen is Mightier with GDI+ and the Tablet PC Real-Time Stylus -- MSDN Magazine, December 2005</a><br/>
+    <div style="border: 1px;">
+    Created: 2006-08-10 20:24:03
+    Modified: 2008-04-12 19:08:12
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+$$\cos x = \sum\limits_{n = 0}^\infty {\frac{{\left( { - 1} \right)^n x^{2n} }}{{\left( {2n} \right)!}}}$$
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

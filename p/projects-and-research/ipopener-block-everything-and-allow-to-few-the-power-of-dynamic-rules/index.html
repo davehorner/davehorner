@@ -1,0 +1,416 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>IPOpener - Block everything and allow to few (The power of dynamic rules).</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/p/">Personal</a>
+<a href="/p/projects-and-research/">projects-and-research</a>
+    <h1>IPOpener - Block everything and allow to few (The power of dynamic rules).</h1>
+   <strong>IPOpener, open your ports to people you trust.  Close them to everyone else.</strong><br />
+Simple scripts to enable HTTP authenticated dynamic firewall rules.<br/>
+<i>Perfect for granting dynamic hosts access to trusted ports!</i><br /><br />
+<span style="color:#0000ff;">Update Mar-21-2007: Code and project updated, will update article in future to reflect new changes...and document code better...</span><br/>
+<a href="http://dave.thehorners.com/personal/code/ipopener-1.0.tar.gz">Download 1.0 [latest]</a><br/>
+<br/>
+Update: Mar-25-2005<br/>
+I've now integrated the bash scripts from another article on my site which allows you to trust given dynamic DNS host entries.  This means that you've got a way to open your iptables based firewall to trusted hosts which are not statically assigned.  The remote host will not have to install a client to constantly update the server's IP address.  Instead, the remote server will lookup the dDNS based DNS record. (pretty slick..and easy)<br/>
+The scripts are documented inside my article on iptables..[<a href="/tech-talk/unix-linux-bsd-osx-etc/86-iptables-a-real-mans-firewall">here</a>]<br/>
+One day soon maybe I'll merge the content and explain better....don't have time now.
+<hr>
+<br/>
+A while ago I read an article in the Linux Journal about Port Knocking.  Port knocking allows the system administrator to keep their system invisible while granting access to those with the special "knock".
+Port knocks are great to increase system security because it defends against system probes.  However, port knocking becomes useless on a system that MUST open even a single port.  The probing system is aware that the system is listening on that IP and the attacker can focus his attention on that machine.
+<br />
+<br />
+I'm proposing a new solution that doesn't seek to make your system invisible but instead helps maintain control of the sensitive ports which only trusted users should have access.
+<br />
+<br />
+Instead of closing all ports. (something that most system can't do because they MUST provide services to the outside world).  We setup port authorization on an existing external service.  A perfect candidate for this solution is the webserver.  Webservers typically allow traffic to ports http(80) and optionally https(433).  Almost every system I have ever setup includes a webserver.  In addition, most webservers run as non-root users so exploits on webservers are typically safer than root run servers like ssh.
+<br />
+<br />
+The problem with just opening traffic to HTTP is that we still require other ports to be open for management and content submission.    We'd like to be able to login from time to time using ssh but we don't want to open ssh to the world.  Leaving ports open that are required for the outside world is dangerous because of potential software bugs.  Software bugs in things like sshd lead to system compromise.
+<br />
+<br />
+The solution is to create a place on your webserver that is password protected and encrypted.  These requirements are easy to setup using a webserver like apache.  Details on apache installation and setup with https are outside the scope of this document and can be found easily on google.
+<br />
+<br />
+Once we get a place setup for authorized users to login.  Users can begin to login to the site.  If the user is an authorized user, their incoming IP is logged to a database and iptables is notified of the change.  The webserver then indicates to the user that he may now connect to the authorized ports.
+<br />
+<br />
+The benefits of a system such as this is that your may keep all unnecessary ports closed to everyone except those with password access.  Users don't have to install software to open ports on your machine, all that is required is a web browser.  Once users login to the authorized site, trusted port access can be granted indefinitely or for a brief period of time.  Since users are required to login to the website before using the trusted ports, you have an audit trail which can be used to "track down" the user who is causing problems with the trusted service.
+<br />
+<br />
+Installation and management of IPOpener is very easy.<br />
+Users and port access is all managed from a database.  At this point it is done using mysql but other databases are possible.<br />
+Create a database and grant permission to a database user.  Create the following table in the database:<br />
+<pre>
+CREATE TABLE `weballow` (
+  `id` int(11) NOT NULL auto_increment,
+  `username` varchar(40) default NULL,
+  `name` text NOT NULL,
+  `source_ip` varchar(20) NOT NULL default '',
+  `dest_port` varchar(4) NOT NULL default '',
+  `dest_proto` varchar(4) NOT NULL default '',
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=9 ;
+</pre>
+<br />
+Then insert some user that can access the trusted ports.<br />
+For example I might want the guest user to be able to access the port for ssh.  I would simply insert the following SQL into the database.
+<pre>
+INSERT INTO `weballow` (`username`, `name`, `source_ip`, `dest_port`, `dest_proto`) VALUES ('guest', 'A guest user', '', 'ssh', 'tcp');
+</pre>
+<br />
+Then you can simply setup an .htaccess that only allows certain users access to a web accessable directory.  In this cause I would only allow the user guest access.  Inside the protected directory I would create an index.php that would update the user's IP and notify the system that IPTables should be updated with the user's new IP address.  A sample index.php is shown below:<br />
+<pre>
+<?php
+$REMOTE_USER=$_SERVER['REMOTE_USER'];
+$REMOTE_ADDR=$_SERVER["REMOTE_ADDR"];
+include "ipopenerinc.php";
+$ipopener= new ipopener();
+if($ipopener->init()) {
+   if($ipopener->update_addr($REMOTE_USER, $REMOTE_ADDR."/32")) {
+      echo "<font color=#ff0000>Changed access IP address. Wait 2 minutes before accessing trusted ports.</font><br />";
+   }
+} else {
+  echo "<font color=#ff0000>ERROR! IPOpener failed. Contact administrator.</font><br />";
+}
+echo "Hello there ".$REMOTE_USER ." coming from: ".$REMOTE_ADDR."<br />";
+?>
+</pre>
+Now when the user guest logs into the protected directory using his webbrowser, the system will update the database with the new IP address that should have access and automatically add the rule to iptables.<br />
+<br />
+Here is the included ipopenerinc.php file<br />
+<pre>
+<?
+   require_once('DB.php');    // Include the Pear::DB class code
+   $VERSION = "1.1";
+
+   class ipopener_rule {
+      var $id;
+      var $name;
+      var $source_ip;
+      var $dest_port;
+      var $dest_proto;
+   };
+
+   class ipopener {
+      var $db;
+      var $table_user="webusers";
+      var $table_allow="weballow";
+      var $dsn = array('phptype'  => "mysql",
+                       'hostspec' => "localhost",
+                       'database' => "ipopener",
+                       'username' => "root",
+                       'password' => "");
+
+      function init($db=NULL) {
+         if($db==NULL) {
+             $db=DB::connect($this->dsn);
+             if (DB::isError($db)) {
+                 echo "An error occurred while trying to connect to the database server.<br />\n";
+                 echo "Error message: " . $db->getMessage() . "<br />\n";
+                 echo "A more detailed error description: " . $db->getDebugInfo() . "<br />\n";
+                 return false;
+             }
+             $db->setOption('debug', 8);
+         }
+         $this->db=$db;
+         return true;
+      }
+      function update_addr($username, $ipaddress) {
+         // our database isn't opened!
+         if(!$this->db) {
+             return false;
+         }
+         $fields_values = array('source_ip' => $ipaddress);
+         $res = $this->db->autoExecute($this->table_allow, $fields_values, DB_AUTOQUERY_UPDATE,"username=".$this->db->quoteSmart($username));
+         if (DB::isError($res)) {
+	    $res->getDebugInfo();
+            die($res->getMessage());
+         }
+         return $this->db->affectedRows(); 
+      }
+   };
+?>
+</pre>
+<br />
+<br />
+So this gets the data into your system.  But now how do we dynamically add rules to our firewall?<br />
+There are a couple of ways to do it.  One would be to make an IPTABLES module that actually reads results from the 
+database, another would be to write a simple daemon that monitors the database for changes and executes the appropriate 
+iptable commands, and the last and easiest would be to create a simple cron script to run at a regular interval.<br /><br />
+For simplicity I chose to implement it using the last method for now:<br />
+<br />
+<br />
+Add a cron entry like so (decide yourself how often):<br />
+/etc/cron.d/ipopener<br />
+<pre>
+# Run the ipopener script every 1 minutes
+* * * * * root /root/ipopener/cmd/ipopener_apply > /dev/null  2>&1
+# Force application every 5 minutes.
+# Makes sure that iptable chain not lost in mem, but file on disk unchanged.
+*/5 * * * * root /root/ipopener/cmd/ipopener_apply force > /dev/null  2>&1
+</pre>
+<br/>
+<br/>
+<h2>Port Knocking</h2>
+I thought I may as well include these links on knocking dynamic rules in...<br/>
+<a href="http://www.ducea.com/2006/07/05/how-to-safely-connect-from-anywhere-to-your-closed-linux-firewall/">How to safely connect from anywhere to your closed Linux firewall | MDLog:/sysadmin</a><br/>
+<br/>
+<br/>
+<a href="http://www.cipherdyne.org/">cipherdyne.org | System and Network Security</a><br/>
+<a href="http://www.cipherdyne.org/fwknop/docs/SPA.html">Single Packet Authorization with Fwknop</a><br/>
+<a href="http://www.cipherdyne.org/fwknop/index.html">fwknop: Single Packet Authorization and Port Knocking</a><br/>
+<a href="http://www.cipherdyne.org/fwsnort/">fwsnort - iptables Intrusion Detection with String Matching and Snort Rules</a><br/>
+<a href="http://www.cipherdyne.org/blog/2010/07/pure-c-implementation-of-single-packet-authorization.html">Pure C Implementation of Single Packet Authorization</a><br/>
+<a href="http://www.cipherdyne.org/blog/2009/11/creating-ghost-services-with-single-packet-authorization.html">Creating Ghost Services with Single Packet Authorization</a><br/>
+<a href="http://www.cipherdyne.org/blog/2008/04/port-forwarding-via-single-packet-authorization.html">Port Forwarding via Single Packet Authorization</a><br/>
+<a href="http://www.cipherdyne.org/blog/2008/01/the-security-properties-of-port-knocking-and-spa.html">The Security Properties of Port Knocking and SPA</a><br/>
+<a href="http://savvyadmin.com/fwknop-single-packet-authorization-in-ubuntu/">fwknop: Single Packet Authorization in Ubuntu | SavvyAdmin.com</a><br/>
+<a href="http://www.cipherdyne.org/blog/2012/10/tutorial-on-single-packet-authorization-with-fwknop.html">Tutorial on Single Packet Authorization with fwknop</a><br/>
+<a href="http://www.cipherdyne.org/modules/IPTables-Parse.html">IPTables::Parse perl module</a> - IPTables::Parse - Perl extension for parsing iptables and ip6tables firewall rulesets, IPTables::Parse module used by the psad and fwsnort<br/>
+<a href="http://www.cipherdyne.org/modules/IPTables-ChainMgr.html">IPTables::ChainMgr perl module</a> - IPTables::ChainMgr - Perl extension for manipulating iptables and ip6tables policies<br/>
+<a href="http://www.cipherdyne.org/psad/index.html">psad - Intrusion Detection with iptables, iptables Log Analysis, iptables Policy Analysis</a> - psad is a collection of three lightweight system daemons (two main daemons and one helper daemon) that run on Linux machines and analyze iptables log messages to detect port scans and other suspicious traffic.<br/>
+<br/>
+<br/>
+<h2>MyDNS Dynamic Hosts</h2>
+Using Dynamic DNS you can do trusted hostnames to gain access.  You just need to resolve the dynamic IP to refresh the IP tables rule... <br/>
+<a href="http://www.miljan.org/wiki/index.php?title=Simple_Dynamic_DNS_with_MyDNS">Simple Dynamic DNS with MyDNS - Blink</a> - provides a web php script for updating mydns records from a wget shell script on the remote server.<br/>
+    <div style="border: 1px;">
+    Created: 2005-01-21 00:06:28
+    Modified: 2014-06-20 04:14:13
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+left side represents the beginning of mathematics; the right side represents the mysteries of infinity.<br/>
+1=0.999...
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

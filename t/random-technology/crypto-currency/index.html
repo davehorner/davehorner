@@ -1,0 +1,332 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>Crypto Currency</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/random-technology/">random-technology</a>
+    <h1>Crypto Currency</h1>
+   <h2>Bitcoin BTC</h2>
+<a href="https://bitcoin.clarkmoody.com/dashboard/">Dashboard | Clark Moody Bitcoin</a><br/>
+<a href="https://en.bitcoin.it/wiki/Protocol_specification">Protocol specification - Bitcoin</a><br/>
+<a href="https://en.bitcoin.it/wiki/Weaknesses#Attacker_has_a_lot_of_computing_power">Weaknesses - Bitcoin</a><br/>
+<a href="https://mtgox.com/">Mt.Gox - Bitcoin Exchange</a><br/>
+<a href="http://preev.com/">Preev</a> - BTC to USD converter using mtgox for data.<br/>
+<a href="http://guiminer.org/">GUIMiner - a GPU/CPU Bitcoin miner for Windows</a><br/>
+mining pools<br/>
+<a href="https://mining.bitcoin.cz/">mining.bitcoin.cz</a> - aka slush's pool.<br/>
+<a href="http://bitclockers.com/">Bitcoin Mining Pool - BitClockers Bitcoin Mining Pool</a><br/>
+<a href="http://erratasec.blogspot.com/2013/05/bitcoin-is-public-ledger.html#more">Errata Security: BitCoin is a public ledger</a><br/>
+<iframe width="420" height="236" src="//www.youtube.com/embed/JP9-lAYngi4?rel=0"  allowfullscreen></iframe><br/>
+<a href="http://en.wikipedia.org/wiki/Merkle_tree">Merkle tree</a><br/>
+<a href="http://www.math.unicaen.fr/~nitaj/AFrica08Slides/kyushu-pres_Coelho.pdf">An (Almost) Constant-Effort Solution-Veri?cation
+Proof-of-Work Protocol based on Merkle Trees</a><br/>
+<a href="https://bitpay.com/">Accept Bitcoin | BitPay</a><br/>
+<br/>
+<br/>
+
+
+
+<H2>ETH / WETH</h2>
+smart contracts. zero-knowledge proofs. proof of work (PoW). proof of stake (PoS). DAO Governance. gwei gas tokens<br/>
+dApps. LP Liquidity pools.<br/>
+<br/>
+
+<h2>Gas Fees / gwei</h2>
+<a href="https://ethereumprice.org/gas/">Ethereum Gas Price Charts &amp; Historical Gas Fees – ethereumprice</a> optimize fuel costs using a hotspot week grid.<br/>
+<a href="https://gastoken.io/">GasToken.io - Cheaper Ethereum Transactions, Today</a> - tokenize gas on the Ethereum network, storing gas when it is cheap and using / deploying this gas when it is expensive. --  Is your contract secure?<BR/>
+Maybe.<BR/>
+<a href="https://morioh.com/p/84563cb815b7">Social Network for Programmers and Developers</a> - What is Chi Gastoken (CHI) | What is CHI token<br/>
+Every transaction on the Ethereum network requires some gas. A Gastoken facilitates transactions with the same amount of work but less gas. <BR/>
+Chi token is tokenized version of actual gas prices paid in the past on Ethereum. If the gas price grows. CHI crypto prices also grow. If gas price in Ethereum drops, the same would also happen with Chi.<br/>
+<a href="https://github.com/1inch/chi">1inch/chi: Chi Gastoken by 1inch</a> - Gastoken by 1inch.exchange Token Address: 0x0000000000004946c0e9F43F4Dee607b0eF1fA1c deployer wallet address: 0x7E1E3334130355799F833ffec2D731BCa3E68aF6<br/>
+<br/>
+<br/>
+<h2>WISE token / WISE crypto</h2>
+how do i buy WISE?  where can I get WISE? What is WISE?<br/>
+<strong>WISE is essentially an Ethereum Bond, which uses the Time Value of Money principle to lock up ETH at a given price per WISE.</strong><br/>
+<a href="https://wisetoken.net/">WISE Token - Stake WISE to earn more ETH</a> Stake WISE to earn more ETH! Fair launch, zero team tokens, top liquidity pair on Uniswap. WISE is crypto done right!<br/>
+<a href="https://twitter.com/wise_token">wise token on twitter</a> $ETH new ATH and we’re all just beginning to see the implications of an ETH-backed token. $WISE is the future of DeFi.<br/>
+<br/>
+
+<h2>Ripple XRP</h2>
+Ripple's claim to fame is that is has a decentralized transaction network.<br/>
+Like Bitcoin:<br/>
+ripple is an open source, distributed peer-to-peer payment network<br/>
+ripple transactions are irreversible, sent over the Internet, and counterfeit proof<br/>
+ripple uses the same underlying cryptography as Bitcoin<br/>
+ripple has multi-signature support<br/>
+ripple has low to no transaction fees<br/>
+ripple servers can be run by anyone<br/>
+Unlike Bitcoin:<br/>
+ripple can send any currency<br/>
+ripple can automatically exchange currencies<br/>
+ripple transactions are fully confirmed in seconds<br/>
+ripple allows nicknames and gravatar icons for accounts<br/>
+ripple's reference client is a Firefox and Chrome add on<br/>
+ripple has no block chain download, clients are ready in seconds<br/>
+ripple has <strong>no mining</strong> or direct monetary reward for running a ripple server<br/>
+ripple has no currency risk as people can hold whatever fiat they want<br/>
+ripple solves the double spending problem with consensus instead of proof-of-work<br/>
+<a href="https://ripple.com/">Ripple</a><br/>
+<a href="http://opencoin.com/">OpenCoin Inc</a><br/>
+<a href="https://ripple.com/wiki/Introduction_to_Ripple_for_Bitcoiners">Introduction to Ripple for Bitcoiners - Ripple Wiki</a><br/>
+<br/>
+<br/>
+<h2>primecoin</h2>
+<a href="http://primecoin.org/">primecoin.org</a><br/>
+<a href="http://www.hiddentao.com/archives/2013/11/24/cloud-primecoin-mining-on-ubuntu-12-04-with-auto-restart/">Cloud Primecoin mining on Ubuntu 12.04 with auto restart</a><br/>
+<br/>
+<br/>
+    <div style="border: 1px;">
+    Created: 2013-04-14 00:10:20
+    Modified: 2021-12-27 09:03:30
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<a href="http://en.wikipedia.org/wiki/E_%28mathematical_constant%29" target=_blank>$$e = \sum_{n=0}^\infty \frac{1}{n!}$$</a>
+
+
+satis dictum.
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

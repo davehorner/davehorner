@@ -1,0 +1,471 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>Thoughts on CVS / SVN / hg / git and other versioning systems</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/programming/">programming</a>
+    <h1>Thoughts on CVS / SVN / hg / git and other versioning systems</h1>
+   <h2>SVN</h2>
+<a href="http://tortoisesvn.tigris.org/">TortoiseSVN</a> - this program allows you to pull data in and out of a SVN repository from Windows Explorer.  If I'm going to have to access a CVS server, I install the project <a href="http://www.tortoisecvs.org/">TortoiseCVS</a> which accomplishes the same thing for CVS servers.<br/>
+Using TortoiseSVN you can even access Team Foundation Server (TFS)<br/>
+<a href="http://www.codeplex.com/SvnBridge/Release/ProjectReleases.aspx?ReleaseId=12822">SvnBridge - Use TortoiseSVN with Team Foundation Server - Release: SvnBridge v2</a><br/>
+<br/>
+<a href="http://www.sliksvn.com/en/download">Download Subversion | Slik SVN</a> - all the command line tools including things like svnsync.<br/>
+When doing diffs on files, I really like to install the tool <a href="http://winmerge.sourceforge.net/">WinMerge</a>.  WinMerge is a visual diff. system.  Very pretty, and I love the icons and hotkeys.<br/>
+<br/><br/>
+<br/>
+Ok, so CVS has some issues.  It doesn't support revision history on renames and moves which is a big problem.  It is also lacking some of the new features found in other enterprise SCM systems.  CVS is also hard to secure, difficult to go back to a repo state without tagging often, and branching and merging isn't great.  SVN (subversion) fills most of the holes found in CVS.  For a little more information and another person's point of view read <a href="http://www.chiark.greenend.org.uk/~sgtatham/svn.html">this</a>.<br /> <br /> <br /> The best place to get information on how to use SVN may be found in the <a href="http://svnbook.red-bean.com/">SVN Book</a><br /> <br /> Also here is some info on setting up <a target="_blank" href="http://blogs.vertigosoftware.com/teamsystem/archive/2006/01/16/Setting_up_a_Subversion_Server_under_Windows.aspx">SVN on windows</a>.<br /> <br /> If you are looking for a change log maker, checkout: <a href="http://ch.tudelft.nl/~arthur/svn2cl/">svn2cl: Subversion ChangeLog generator</a><br /><br /> 
+<h2>SVN Building notes</h2>
+ SVN ./configure --with-ssl --with-apxs<br/>
+For bindings you'll want to install <a href="http://www.swig.org/">Swig</a><br /> After install for SVN Python bindings do a "make swig-py" then do a "make install-swig-py", then you need to watch where it sticks the new python library and add it to your python env.  Example: echo /usr/local/lib/svn-python/libsvn > /usr/lib/python2.2/site-packages/subversion.pth<br/>
+<br/>
+<h2>Install/Admin SVN</h2>
+To create a SVN repo either use your distributions packaged SVN binaries or download and install <a href="http://subversion.tigris.org/project_packages.html">SVN packages</a><br /> Once you get it installed check out this page on adding projects to an existing SVN repository in the book. [<a href="http://svnbook.red-bean.com/en/1.1/ch05s04.html">Here</a>]<br /> <br /> 
+
+<h2>Migrating from CVS to SVN</h2>
+Most people have CVS servers that need to be imported into the new SVN system.  Try using <a href="http://cvs2svn.tigris.org/">CVS2SVN</a>, read the docs <a href="http://cvs2svn.tigris.org/cvs2svn.html">here</a>.<br /> <br /> CVS2SVN is very easy to use.  To convert an existing CVS repository to SVN.  Use the following command:<br />
+<pre>
+cvs2svn --dumpfile path/to/dumpfile /path/to/cvsrepo
+</pre>
+Add the option '--trunk-only' if you don't want to save off the tags and branches.<br /> <br /> CVS2SVN creates a dumpfile that you can import using svnadmin.<br /> Then use the command: 
+<pre>
+svnadmin create /path/to/svnrepo svnadmin load /path/to/svnrepo < cvs2svn-dump
+</pre>
+This will add the module projectA from your dump file into the SVN repository specified.  This will create a bunch of directories in your repository that you will want to restructure... then just use the normal 'svn move' and 'svn delete' commands.<br /> <br /> When setting up apache remember to use a location that isn't already exported in another web accessible directory.  Apache can get confused on who should handle the request (svn or straight apache) It's a real pain to figure out!<br /> For your web viewing pleasure try using <a href="http://viewcvs.sourceforge.net/">ViewCVS</a> it works for both SVN and CVS.<br /> A great addon to SVN (a little more complex than ViewCVS) is <a href="http://projects.edgewall.com/trac/">Trac</a> it provides bug tracking, wiki, and web access.<br />
+<br/> 
+<br/>
+<h2>Convert existing SVN repository from Berkeley DB to FSFS</h2>
+Using the berkeley db can sometime lead to issues when moving from machine to machine.  FSFS doesn't have these problems.  Here are the steps I did to convert my existing bdb svn repos to fsfs.<br/>
+<dl>
+<dt>Create dump files from existing svn directories.</dt>
+<dd>for i in *; do svnadmin dump $i > $i.dump; done</dd>
+<dt>Create tar file to transfer to new host.</dt>
+<dd>tar cfvz svn.tar.gz *.dump</dd>
+<dt>Transfer and extract somewhere, then we create new repos of fsfs type for each dumpfile.</dt>
+<dd>for i in *.dump; do svnadmin create ${i%%.*} --fs-type fsfs ; done</dd>
+<dt>Load the dump file into the newly created repo.</dt>
+<dd>for i in *.dump; do cat $i | svnadmin load ${i%%.*} ; done</dd>
+</dl>
+<br/>
+<h2>Email Hooks for commit changes</h2>
+I've used <a href="http://www.badgers-in-foil.co.uk/projects/cvsspam/">CVSSpam</a> for cvs commit diff logs.  They are awesome, with html color'd diffs sent right to your email.  Well, at this time, CVSSpam doesn't have support for SVN.  Until then, there is <a href="http://search.cpan.org/dist/SVN-Notify/">SVN-Notify</a> to fill the gap (<a href="http://www.justatheory.com/computers/programming/perl/modules/">Author's Page</a>). <br /> <br /> After installing SVN-Notify, you must create a post-commit script that actually uses the new script.<br /> Scripts are easy to install, just go to your SVN directory and you'll find a hooks directory.  Add an executable file named "post-commit".<br /> Note you'll want to make sure you install HTML::Entities if you want the HTML formatted color diffs in your emails.<br /> 
+<pre> 
+#!/bin/sh
+# POST-COMMIT HOOK
+# The post-commit hook is invoked after a commit.
+#   [1] REPOS-PATH   (the path to this repository)
+#   [2] REV          (the number of the revision just committed)
+/usr/bin/svnnotify --repos-path "$1" --revision "$2" --to "youremail@address.com" --from "yourfrom@address.com" --reply-to "yourfrom@address.com" --subject-prefix "[SVN PREFIX]" --subject-cx --svnlook 
+/usr/local/bin/svnlook --sendmail /usr/sbin/sendmail --viewcvs-url 'https://yourpathtoviewcv/viewvc.cgi?root=ossim&rev=%s&view=rev' 
+--handler Alternative --alternative HTML::ColorDiff --with-diff
+</pre>
+<br/>
+<h2>SVN User tasks</h2>
+Use <a href="http://tortoisesvn.tigris.org/">TortoiseSVN</a> to access SVN repos from your windows explorer.<br /> <br /> <span style="font-weight: bold">Keyword substitution</span><br /> <a href="http://subversion.tigris.org/faq.html#log-in-source">Does Subversion have a keyword which behaves   like $Log$ in CVS?</a><br /> <br /> I also found this:<br /> <address class="headers">  From: Mark Phippard from the subclipse user group.<br /> Date: 2005-02-27 18:20:11 CET<br /> </address> Read this: <br /> <a href="http://svnbook.red-bean.com/en/1.1/ch07s02.html#svn-ch-7-sect-2.3.4">http://svnbook.red-bean.com/en/1.1/ch07s02.html#svn-ch-7-sect-2.3.4</a> <br /> The gist of it is that you have to specifically tell Subversion what <br /> keywords you want to use by specifying those keywords in the svn:keywords <br /> property on the file.  Subclipse has a Team -> Set Keyword action that <br /> makes it easy to set these properties on the files.  You will need to <br /> commit the prop changes before you see anything in the file. <br /> If you read further down in that same section of the document, it will <br /> describe auto-properties.  This is a way to have the svn:keywords property <br /> set when files are initially added/imported. <br /> Subversion does not support $Log$ and probably never will as the core <br /> developers seem opposed to it.  I am sure they might consider a <br /> well-implemented patch.  You can read the mailing list archives for past <br /> discussions on this. <br /> <a href="http://www.google.com/search?as_q=%24Log%24&as_sitesearch=svn.haxx.se">http://www.google.com/search?as_q=%24Log%24&as_sitesearch=svn.haxx.se</a> <br /> Mark <br /> <br /> Ok, well it looks like autoprops isn't the right solution either.  Autoprops works by configuring the SVN client on each machine.  This is no good because it means that each developer has to configure their client properly to ensure the properties are set correctly.<br /> <br /> The way I guess I'll handle it now, is by running the propset commend on all the files I want keyword subs on.  Below is a sample of what I run on a working directory.  Note, you must do a svn commit before such properties are in the repo.<br />
+<pre>
+find . -name "*.cpp" -exec svn propset svn:keywords "Date Author Revision HeadURL Id" {} \;
+find . -name "*.h" -exec svn propset svn:keywords "Date Author Revision HeadURL Id" {} \;
+find . -name "*.c" -exec svn propset svn:keywords "Date Author Revision HeadURL Id" {} \;
+</pre>
+<br />  <a href="http://astyle.sourceforge.net/">Artistic Style</a><br /> indent<br /> 
+<h2>Setting up and using TRAC</h2>
+<a href="http://trac.edgewall.org/">Trac</a> is a project that provides wiki,timeline,roadmap,bug tracking, and other features for SVN.<br/>
+<h2>Synchronizing SVN</h2>
+Synchronizing a SVN is useful for keeping a local copy of all the changes that took place in the repo.<br />
+svnsync is a tool for creating and maintaining read-only mirrors of<br />subversion repositories.  It works by replaying commits that occurred<br />in one repository and committing it into another.<br /><br /><a href="http://journal.paul.querna.org/articles/2006/09/14/using-svnsync">using svnsync</a>
+<br/>
+<br/>
+One of the great reasons for using SVN is that SVN allows for greater knowledge about the current state of the code to all developers in the project.  Using tools like SVN-Notify and <a href="http://cia.navi.cx/doc/">CIA</a> you can really keep a developer community aware of what is happening.<br/>
+<br/>
+
+<h2>Developing with SVN</h2>
+ I'm very interested in using SVN within my code.<br/>
+<a href="http://rapidsvn.tigris.org/svncpp.html">SvnCpp C++ API</a><br/>
+
+<a href="http://metissian.com/projects/macosx/subversion/"> Mac OS X Packages - Subversion</a> - fink's svn client doesn't include ssl support.  These packages work for me.  You will also need to make sure /usr/local/bin is in your path after install.<br/>
+<br/>
+<br/>
+<a href="http://fedora.kiewel-online.de/extras/6/i386/repoview/perl-SVK.html">perl-SVK - A Distributed Version Control System</a><br/>
+<a href="http://www.oreillynet.com/pub/a/network/2005/09/20/painless-merging-with-svk.html?page=1">Painless Merging with SVK: An Interview with Chia-liang Kao</a><br/>
+<a href="http://svkbook.elixus.org/">Version Control with
+SVK</a><br/>
+<a href="http://www.markshuttleworth.com/archives/126">Merging is the key to software developer collaboration</a><br/>
+<br/>
+<br/>
+<h2>git</h2>
+<a href="http://git-scm.com/documentation">Git - Fast Version Control System</a><br/>
+<a href="http://code.google.com/p/msysgit/">msysgit</a> - Google Code project which officially supports git distributions using MinGW/MSys for win32! <br/>
+<a href="http://www.kernel.org/pub/software/scm/git/docs/tutorial.html">A tutorial introduction to git (for version 1.5.1 or newer)</a><br/>
+<a href="http://git.or.cz/course/svn.html">Git - SVN Crash Course</a><br/>
+<a href="http://utsl.gen.nz/talks/git-svn/intro.html">An introduction to git-svn for Subversion/SVK users and deserters</a><br/>
+<a href="http://codicesoftware.blogspot.com/2007/05/linus-torvalds-on-git-and-scm.html"> Linus Torvalds on GIT and SCM</a><br/>
+The official site: <a href="http://git.or.cz/">Git - Fast Version Control System</a><br/>
+<a href="http://wiki.sourcemage.org/Git_Guide">Git Guide</a><br/>
+<a href="http://wiki.samba.org/index.php/Using_Git_for_Samba_Development">Using Git for Samba Development</a><br/>
+<a href="http://git.or.cz/gitwiki/WindowsInstall">git for WindowsInstall wiki page</a><br/>
+<a href="http://sourceforge.net/projects/gitextensions/">SourceForge.net: Git Extensions</a> - shell extension will integrate in Windows Explorer and presents a nice context menu on files.<br/>
+<a href="http://github.com/">Secure source code hosting and collaborative development - GitHub</a>
+<a href="http://scie.nti.st/2007/11/14/hosting-git-repositories-the-easy-and-secure-way">scie.nti.st » Hosting Git repositories, The Easy (and Secure) Way</a><br/>
+<a href="http://samba.org/~jelmer/dulwich/">Dulwich</a> is a pure-Python implementation of the Git file formats and protocols. <a href="http://samba.org/~jelmer/dulwich/tutorial/">Dulwich Tutorial</a><br/>
+<a href="http://nvie.com/posts/a-successful-git-branching-model/">A successful Git branching model » nvie.com</a> which is related to  
+<a href="http://github.com/nvie/gitflow/tree/0.2">nvie's gitflow at 0.2 - GitHub</a>.<br/>
+<a href="http://yanpritzker.com/git-book/">Git Workflows Book – Yan Pritzker</a><br/>
+<a href="https://github.com/Gazler/githug">Gazler/githug</a> - Git Your Game On<br/>
+<a href="https://github.com/icefox/git-achievements">icefox/git-achievements</a> - Aquire achievements while using git.<br/>
+<a href="https://github.com/rsms/gitblog">rsms/gitblog</a> - Git-based blog/cms for PHP, meant as a replacement for Wordpress<br/>
+<a href="http://gitlab.org/">GITLAB: Self Hosted Git Management Application</a><br/>
+<a href="http://prose.io/">Prose · A Content Editor for GitHub</a><br/>
+<a href="http://pcottle.github.io/learnGitBranching/">Learn Git Branching</a> - designed to help beginners grasp the powerful concepts behind branching when working with git.<br/>
+<a href="http://tin.cr/tailor.html">Tailor Code Editor</a> - Tailor is a testing and demonstration platform for a pure javascript Git workflow implemented using the open source (MIT License) <a href="https://github.com/ryanackley/git-html5.js">ryanackley/git-html5.js</a> <a href="https://chrome.google.com/webstore/detail/tailor/mfakmogheanjhlgjhpijkhdjegllgenf">Tailor Chrome app</a><br/>
+<a href="http://blog.anvard.org/conversational-git/">Conversational Git – Conversational Git</a><br/>
+<a href="http://gitready.com/">git ready » learn git one commit at a time</a><br/>
+<a href="http://girders.org/blog/2013/09/04/git-is-a-framework/">Git is a framework for creating a Version Control System - Girders</a><br/>
+<a href="https://github.com/nvie/gitflow">nvie/gitflow</a> -  collection of Git extensions to provide high-level repository operations for Vincent Driessen's branching model<a href="http://nvie.com/posts/a-successful-git-branching-model/">A successful Git branching model » nvie.com</a><br/>
+<a href="http://jeffkreeftmeijer.com/2010/why-arent-you-using-git-flow/">Why aren't you using git-flow? – Jeff Kreeftmeijer</a><br/>
+<br/>
+<br/>
+<a href="http://chrisjean.com/2009/04/20/git-submodules-adding-using-removing-and-updating/">Git Submodules: Adding, Using, Removing, Updating :: Chris Jean</a><br/>
+<h2>undo git add</H2>
+use "git rm --cached <file>..." to unstage.<br/>
+<a href="http://stackoverflow.com/questions/348170/undo-git-add-before-commit">version control - Undo 'git add' before commit - Stack Overflow</a><br/>
+<br/>
+<br/>
+<h2>Ignore chmod changes in GIT</h2>
+git config core.filemode false<br/>
+<br/>
+<h2>File system versioning</h2>
+I love the idea of having file systems with version control automagically!<br/>
+<a href="http://fsvs.tigris.org/">FSVS</a> - think of it as some kind of tar or rsync with versioned storage.<br/>
+<br/>
+<br/>
+<h2>Distributed revision control</h2>
+<a href="http://en.wikipedia.org/wiki/Revision_control#Distributed_revision_control">Distributed revision control</a><br/>
+<a href="http://fiatdev.com/2006/7/15/mirroring-subversion-with-darcs-and-tailor">Mirroring Subversion with Darcs and Tailor</a><br/>
+<br/>
+<h2>Mercurial (hg)</h2>
+<a href="http://www.selenic.com/mercurial/wiki/index.cgi">Mercurial Wiki</a><br/>
+<a href="http://blog.medallia.com/2007/02/a_guided_tour_of_mercurial.html">A Guided Tour of Mercurial</a><br/>
+<a href="http://ww2.samhart.com/node/50">Converting single/multiple SVN repos to Hg repos</a><br/>
+<a href="http://bitbucket.org/zzsergant/hgsccpackage/wiki/Home">zzsergant / HgSccPackage / wiki / Home — bitbucket.org</a> - HgSccPackage is a source control package for MS Visual Studio 2008/2010 for Mercurial version control system. (<a href="http://www.newsupaplex.pp.ru/hgscc_news_eng.html">Sergant's Home Page</a>)<br/>
+
+<br/>
+To install mercurial and hgsvn on Mac using fink, do the following: 
+<pre>
+fink install mercurial-py25
+fink install setuptools-py25
+# wget http://peak.telecommunity.com/dist/ez_setup.py
+# python ez_setup.py install
+# easy_install hgsvn
+sudo easy_install-2.5 hgsvn
+</pre>
+This installs python 2.5 and an X11 system as deps.<br/>
+<br/>
+Here are the steps I take when converting to hg from svn<br/>
+<pre>
+hgimportsvn http://svnserver/path
+cd path
+hgpullsvn
+</pre>
+<a href="http://kunxi.org/archives/2009/09/howto-setup-the-mercurial-with-nginx-in-centos-4/">Refactor the Life » Blog Archive » HOWTO setup the Mercurial with Nginx in CentOS 4</a><br/>
+<br/>
+Doing quick visual diffs are a must.  hg diff  just doesn't cut it. Here are the steps needed to setup <a href="http://winmerge.org/">WinMerge</a> for visual diffs with hg.<br/>
+1. Install WinMerge.<br/>
+2. Add the following to your .hg/hgrc.<br/>
+<pre>
+[extensions]
+extdiff=
+
+[extdiff]
+cmd.winmerge = c:\program files\winmerge\winmerge.exe
+opts.winmerge = /r /e /x /ub
+</pre>
+3. Run hg winmerge [path optional]<br/>
+<br/>
+<br/>
+Here is a quick script to run when updating remote SVN code to hg.<br/>
+<pre>
+hgpullsvn
+</pre>
+<a href="http://bitbucket.org/">Mercurial hosting — bitbucket.org</a><br/>
+<a href="http://www.fogcreek.com/Kiln/">Kiln - Version Control and Code Review Software</a><br/>
+<br/>
+<br/>
+Here are some merging tools<br/>
+<a href="http://wiki.darcs.net/DarcsWiki/Tailor">Tailor - DarcsWiki</a><br/>
+<a href="http://progetti.arstecnica.it/tailor">Tailor â?? Trac</a><br/>
+<a href="http://www.sourcegear.com/diffmerge/">SourceGear : DiffMerge</a><br/>
+<br/>
+<br/>
+
+<h2>Directories</h2>
+This doesn't directly relate to version control but working with directories is something you have to do many times when developing applications.<br/>
+<br/>
+<a href="http://www.linux.com/articles/51600">Linux.com :: Disk usage analysis and cleanup tools</a><br/>
+<a href="http://kdirstat.sourceforge.net/">KDirStat</a> / <a href="http://windirstat.info/">WinDirStat</a> - is a graphical disk usage utility, very much like the Unix "du" command. In addition to that, it comes with some cleanup facilities to reclaim disk space and nice graphical views.<br/>
+<br/>
+<br/>
+<br/>
+<a href="http://www.smashingmagazine.com/2008/09/18/the-top-7-open-source-version-control-systems/">7 Open Source Version Control Systems Reviewed | Developer's Toolbox | Smashing Magazine</a><br/>
+<br/>
+<br/>
+<h2>Bazaar</h2>
+<a href="http://bazaar-vcs.org/">Welcome - Bazaar Version Control</a><br/>
+<a href="https://launchpad.net/">Launchpad</a> - Bazaar  code hosting.<br/>
+<br/>
+<br/>
+<h2>Perforce || p4</h2>
+Is noclobber by default, and won't/Can't clobber writable files, even when force sync'ing.  P4 will silently not return files, if those files are checked out from another host on the same clientspec, even when force sync'ing.  Clientspecs are supposed to be workstation/host specific, but people want to abuse them (removing the host field), and using them across many hosts by many users.  I think sync'ing by force should mean something;clobber writable, and give me contents of all files regardless of checkout state of the current clientspec...<br/>
+<br/>
+    <div style="border: 1px;">
+    Created: 2005-07-22 13:33:26
+    Modified: 2014-06-05 20:17:04
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<a href="http://en.wikipedia.org/wiki/E_%28mathematical_constant%29" target=_blank>$$e = \sum_{n=0}^\infty \frac{1}{n!}$$</a>
+
+
+satis dictum.
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>

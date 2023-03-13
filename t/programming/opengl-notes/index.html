@@ -1,0 +1,320 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" id="viewport-meta" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <title>OpenGL Notes</title>
+  
+  
+	<script src=/js/jquery.min.js></script>
+	<script src=/js/modernizr.custom.min.js></script>
+	<script src=/js/TweenMax.min.js></script>
+    <script src=/js/ScrollMagic.min.js></script>
+	<script src=/js/animation.gsap.js></script>
+	<script src=/js/debug.addIndicators.js></script> 
+	<script src=/js/highlight.pack.js></script>
+	<style type='text/css'>
+.bordeaux {
+    background-color: #953543;
+}
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+    section {
+        border-radius: 10px;
+        border: 3px dashed #1c87c9;
+        margin-left:auto;margin-right:auto;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+
+    }
+      h1 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15;
+        margin: 0px;
+	    border: 1px solid black;
+      }
+
+
+    .box1.outline, .box2.outline, .box3.outline {
+	border: 1px solid white;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+   });
+  </script>
+  <style>
+    /**
+ * Make body at least 100% height
+ * You can also use a combination
+ * of height: 100% in <html> and
+ * min-height: 100% in <body>.
+ */
+.holy-grail {
+	min-height: 100vh;
+}
+/**
+ * Let's do a column distribution
+ * (mobile first)
+ * flex value is 1 1 auto to make
+ * body skrinkable and extensible
+ */
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+/**
+ * Content body item is made
+ * extensible too.
+ */
+.holy-grail-content {
+	flex: 1 1 auto;
+}
+
+/**
+ * Put the first sidebar before content.
+ * If you need sidebar to be before content
+ * only in big screen put those 3 next lines
+ * in @media block.
+ */
+.holy-grail-sidebar-1 {
+	order: -1;
+}
+
+/**
+ * Let's introduce bigger screen
+ */
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 160px;
+	}
+}
+  </style>
+</head>
+<body>
+ 	<header>
+"hello world"   <script type="module">
+    import { search, default as init } from '/tinysearch_engine.js';
+    window.search = search;
+
+    async function run() {
+      await init('/tinysearch_engine_bg.wasm');
+    }
+    run();
+  </script>
+
+  <script>
+    // And afterwards we can use all the functionality defined in wasm.
+    function doSearch() {
+      let value = document.getElementById("search").value;
+      console.log(`Search query: ${value}`);
+
+      const results = search(value, 10);
+
+      console.log(`Results: ${results}`);
+
+      let ul = document.getElementById("results");
+      ul.style.display="inline";
+      ul.innerHTML = "";
+
+      for (i = 0; i < results.length; i++) {
+        var li = document.createElement("li");
+
+        let [title, url] = results[i];
+        let elemlink = document.createElement('a');
+        elemlink.innerHTML = title;
+        elemlink.setAttribute('href', url);
+        li.appendChild(elemlink);
+
+        ul.appendChild(li);
+      }
+    }
+  </script>
+  <input type="text" id="search" onkeyup="doSearch()" size="6">
+  <ul id="results"></ul> <img id="banner.top"/>
+	</header>
+	<div class="holy-grail-body">
+		<section class="holy-grail-content">
+article in <a href="/t/">Tech</a>
+<a href="/t/programming/">programming</a>
+    <h1>OpenGL Notes</h1>
+   <a href="http://www.opentk.com/">The Open Toolkit Library | OpenTK</a> - The Open Toolkit is an advanced, low-level C# library that wraps OpenGL, OpenCL and OpenAL.<br/>
+<h2>Repeat a texture in OpenGL</h2>
+When you want to repeat a small texture on a large quad without drawing the quads yourself.<br/>
+Bind to the texture as usual and make sure you aren't clamping.<br/>
+glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_WRAP_S,GL_REPEAT);<br/>
+glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_WRAP_T,GL_REPEAT);<br/>
+<br/>
+Then when drawing your geometry, for instance a quad:<br/>
+<pre>
+glBegin(GL_QUADS);<br/>
+glTexCoord2f(0, 0); glVertex3f(-1, -1, -0.5f);<br/>
+glTexCoord2f(32, 0); glVertex3f( 1, -1, -0.5f);<br/>
+glTexCoord2f(32, 32); glVertex3f( 1, 1, -0.5f);<br/>
+glTexCoord2f(0, 32); glVertex3f(-1, 1, -0.5f);<br/>
+glEnd();
+</pre>
+The glTexCoord2f() controls how many times the texture is repeated.  Image coordinates are typically from 0 to 1 in OpenGL.  So the above calls repeat the texture 32 times in both the x and y directions.<br/>
+<br/>
+<h2>Save screen to disk</h2>
+<a href="http://dave.thehorners.com/tech-talk/programming/124-opengl-writing-the-framebuffer-to-disk">OpenGL - Writing the framebuffer to disk</a><br/>
+<br/>
+<strong>Libraries and Toolkits</strong><br/>
+<a href="http://www.berkelium.com/OpenGL/sgi-download.html">OpenGL for Windows by Silicon Graphics - Download</a><br/>
+<a href="http://ode.org/">ODE - Open Dynamics Engine</a> - open source, high performance library for simulating rigid body dynamics<br/>
+<a href="http://www.openal.org/">OpenAL</a> - Cross-Platform 3D Audio<br/>
+<a href="http://www.xmission.com/~nate/glut.html">GLUT for WIN32</a><br/>
+<a href="http://www.glfw.org/">GLFW - An OpenGL library</a> - GLFW is an Open Source, multi-platform library for creating windows with OpenGL contexts and managing input and events. It is easy to integrate into existing applications and does not lay claim to the main loop.<br/>
+<a href="https://github.com/glfw/glfw">glfw/glfw</a> - A multi-platform library for OpenGL, window and input 
+.<br/>
+<a href="http://www.libsdl.org/index.php">SDL</a> - Simple DirectMedia Layer is a cross-platform multimedia library designed to provide low level access to audio, keyboard, mouse, joystick, 3D hardware via OpenGL, and 2D video framebuffer.<br/>
+<a href="http://www.openscenegraph.org/">OpenSceneGraph</a>  - open source C++ scene graph.<br/>
+<a href="http://glew.sourceforge.net/basic.html">The OpenGL Extension Wrangler Library</a><br/>
+<a href="http://www.opengl.org/resources/libraries/glut/">GLUT</a> <a href="http://www.opengl.org/resources/libraries/glut/">GLUT - The OpenGL Utility Toolkit</a><br/>
+<a href="http://www.julius.caesar.de/oglext/index.html" target="_blank">OglExt</a> - A LGPL library for accessing OpenGL extensions.<br/>
+<a href="http://glew.sourceforge.net/">GLEW: The OpenGL Extension Wrangler Library</a><br/>
+<a href="http://anttweakbar.sourceforge.net/doc/">AntTweakBar GUI library to tweak parameters of your OpenGL and DirectX programs [AntTweakBar]</a> - C/C++ variables can be bound to graphical controls on Linux,Windows,OSX with examples of <a href="http://www.glfw.org/">GLFW</a>,SDL,GLUT,<a href="http://www.sfml-dev.org/">SFML</a>, and DirectX.<br/>
+<a href="https://metacpan.org/pod/AntTweakBar">AntTweakBar - Perl bindings for AntTweakBar - metacpan.org</a> <a href="https://github.com/PerlGameDev/Alien-AntTweakBar">PerlGameDev/Alien-AntTweakBar</a> - perl binding!<br/>
+<br/>
+<strong>Modeling and 3d tools</strong><br/>
+<a href="http://www.blender3d.org/">Blender</a> - an open source tool for modeling, animation, etc<br/>
+<br/>
+<strong>Web Resources</strong><br/>
+<a href="http://cs-people.bu.edu/vtek/cs580-1/">Image Morphing</a> based on this <a href="http://www.hammerhead.com/thad/morph.html">work</a><br/>
+<a href="http://elonen.iki.fi/code/tpsdemo/index.html">Thin Plate Spline editor - an example program in C++</a><br/>
+<a href="http://nehe.gamedev.net/">NeHe OpenGL Tutorials</a><br/>
+<a href="http://www.orthostereo.com/geometryopengl.html">stereo geometry in OpenGL</a><br/>
+<a href="http://www.opengl.org/resources/code/samples/redbook/">OpenGL Redbook Samples</a><br/>
+<br/>
+<br/>
+<strong>SDL</strong><br/>
+<a href="http://www.libsdl.org/index.php">SDL</a> - Simple DirectMedia Layer is a cross-platform multimedia library designed to provide low level access to audio, keyboard, mouse, joystick, 3D hardware via OpenGL, and 2D video framebuffer.<br/>
+<br/>
+<br/>
+<h2>WebGL - OpenGL in your browser</h2>
+<a href="http://dave.thehorners.com/tech-talk/programming/519-webgl-canvas-and-pretty-things">WebGL canvas and pretty things. - Dave Horner's Website</a><br/>
+<a href="http://www.khronos.org/webgl/">WebGL - OpenGL ES 2.0 for the Web</a><br/>
+<a href="http://blog.vlad1.com/2009/09/21/webgl-samples/">WebGL Samples/Demos and other bits  at  Vladimir Vuki?evi?</a><br/>
+<a href="http://learningwebgl.com/blog/?page_id=1217?">The Lessons | Learning WebGL</a> - The first ten are based on the well-known NeHe OpenGL tutorials, but I’ve diverged since then. Here are the ones so far.<br/>
+<br/>
+<img src="http://4.bp.blogspot.com/-nB6XnTgb4AA/TcLQ4gRBtfI/AAAAAAAAH-U/vb2GuhPN6aM/globe.png" alt="WebGL Globe"/>
+Geographic Data Visualization Platform meant for the web.<br/>
+<a href="http://data-arts.appspot.com/globe-search/">WebGL Globe</a> - Chrome experiment by Google Data Art Team. <a href="https://code.google.com/p/webgl-globe/">webgl-globe - Geographic Data Visualization Platform meant for the web. - Google Project Hosting</a><br/>
+<a href="http://doesmybrowsersupportwebgl.com/">Does My Browser Support WebGL?</a><br/>
+    <div style="border: 1px;">
+    Created: 2005-04-04 13:29:04
+    Modified: 2014-08-09 13:20:32
+    </div>
+
+		</section>
+
+		<div class="holy-grail-sidebar-1 hg-sidebar">
+           
+<a href="/">/root</a> 
+<a href="/s/">sections/</a><br/>
+&gt;<a href="/p/cooking/peach-custard-pie/">peach custard pie</a><br/>
+&gt;<a href="/t/linux-unix-and-friends/">linux</a><br/>
+&gt;<a href="/t/windows/">windows</a><br/>
+&gt;<a href="/t/programming/">programming</a><br/>
+&gt;<a href="/t/random-technology/">random tech</a><br/>
+&gt;<a href="/t/biology-math-science/">science</a><br/>
+&gt;<a href="/p/projects-and-research/">research</a><br/>
+<br/><br/>
+<img src="/images/moonstars.webp" alt="moon and stars"/>
+<br/><br/>
+<div id="quote.left"></div>
+<br/><br/>
+<script>
+    function randomq(){
+	const url = "/quotes/quotes.json";
+        fetch(url)
+                  .then(response => response.json())
+                  .then(quotes => {
+                    var q = quotes[Math.floor(Math.random()*quotes.length)];
+                    document.getElementById('quote.left').innerHTML = q.introtext;
+                  })
+                  .catch((err) => console.log("Can't access " + url + " response." + err));
+    }
+    randomq();
+</script>
+		</div>
+
+		<div class="holy-grail-sidebar-2 hg-sidebar">
+           
+<div>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/brainmesh1.thumb.png" alt="My brain" title="my brain"/></a>
+<br/>
+<a href="/p/projects-and-research/the-visible-dave-project"><img src="/images/mrihead_frontfull3d.thumb.jpg" alt=""/>
+<br/>Visible Dave Project</a>
+</div>
+<br/><br/>
+<div>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+$$\cos x = \sum\limits_{n = 0}^\infty {\frac{{\left( { - 1} \right)^n x^{2n} }}{{\left( {2n} \right)!}}}$$
+</div>
+		</div>
+
+	</div>
+
+	<footer>
+		
+        <div id="footer_r">
+yak shaving since 2003-2023 by David A. Horner.<br>
+proud yak member of the <a href="/t/random-technology/great-lodge-of-the-royal-order-of-yaks-yak-shaving/">Great Lodge of the Royal Order of Yaks</a><br>
+</div>
+	</footer>
+
+
+<script>
+	const burl = "/banners/banners.json";
+  fetch(burl)
+             .then(response => response.json())
+             .then(banners => {
+             var q = banners[Math.floor(Math.random()*banners.length)];
+	           document.getElementById('banner.top').src=q.path;
+             })
+            .catch((err) => console.log("Can't access " + burl + " response." + err));
+</script>
+
+</body>
+
+</html>
